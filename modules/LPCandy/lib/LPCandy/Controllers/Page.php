@@ -8,99 +8,105 @@ class Page extends Base {
     }
 
     function page_list() {
-        $this->data['list'] = \LPCandy\Models\Page::findBy(array('user'=>$this->user),'template_id DESC');
+        $this->data['list'] = \LPCandy\Models\Page::findBy(array('user'=>$this->user));
         $this->data['title'] = _t("Pages");
         
-        $this->data['page_actions']['page-edit'] = _t('New Page');
-        $this->data['item_actions']['page-edit'] = _t('edit');
-        $this->data['item_actions']['page-design'] = _t('design');
-        $this->data['item_actions']['page-delete'] = _t('delete');
+        $this->data['page_actions']['page-create'] = _t('Create New Landing Page');
         
         $this->data['fields'] = array(
-            'title'=>_t('Title'),
-            'template' => _t('Template'),
-            'domain' => _t('Domain')
+            'preview'=>_t('preview'),
+            'title'=>_t('title'),
+            'designer' => _t('designer'),
+            'actions'=>_t('actions')
         );
+        $this->data['field_filters']['preview'] = function ($val,$obj) {
+            return "<img width=200 src='".$obj->getScreenshotUrl()."'>";
+        };
         $this->data['field_filters']['title'] = function ($val,$obj) {
-            return anchor('page-edit/'.$obj->id,$val);
+            $s = "";
+            $s .= "<h3>";
+            $s .= $obj->title;
+            $s .= " ".anchor('page-view/'.$obj->id,_t('(page preview)'),'_blank');
+            $s .= "</h3>";
+            $s .= ($obj->domain ?: _t("No domain assigned"));
+            return $s;
         };
-        $this->data['field_filters']['template'] = function ($val,$obj) {
-            return $val ? $val->getField('name') : _t("- none -");
+        $this->data['field_filters']['designer'] = function ($val,$obj) {
+            return anchor('page-design/'.$obj->id,_t('Launch Designer'));
         };
-        $this->data['field_filters']['domain'] = function ($val,$obj) {
-            return anchor('page-view/'.$obj->id,$val ? : _t('- none -'),'_blank');
+        $this->data['field_filters']['actions'] = function ($val,$obj) {
+            $s = "";
+            $s .= anchor('page-edit/'.$obj->id,_t('edit'));
+            $s .= anchor('page-delete/'.$obj->id,_t('delete'));
+            return $s;
         };
         
         $this->view('lpcandy/base-list');
     }
     
     function page_delete($id) {
-        die();
         $page = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect('/');
         $page->delete();
         redirect('page-list');
     }
     
-    function page_edit($id) {
-        $page = \LPCandy\Models\Page::findOrCreate($id);
-        if ($page->id && $page->user!=$this->user) redirect("/");
+    function page_create() {
+        $page = new \LPCandy\Models\Page();
         
+        $label = _t('Start from scratch');
+        $label .= "<img src='".$page->getScreenshotUrl()."'>";
+        $templates = array($label=>0);
+        $tpl_user = \LPCandy\Models\User::findOneByLogin('boomyjee');
+        $tpl_pages = \LPCandy\Models\Page::findBy(array('user'=>$tpl_user));
+        
+        foreach ($tpl_pages as $key=>$p) {
+            $label = "<img src='".$p->getScreenshotUrl()."'>";
+            $label .= $p->title;
+            $templates[$label] = $p->id;
+        };
+
         $form = new \Bingo\Form;
         $form->fieldset();
-        $form->text('title',_t('Title'),'required',$page->title);
-        $form->text('domain',_t('Domain'),'',$page->domain);
-        
-        $templates = \LPCandy\Models\Template::findBy(array('user'=>$this->user));
-        
-        if (count($templates)) {
-            $options = array(_t('No template') => 0);
-            foreach ($templates as $t) {
-                $options[$t->name] = $t;
-            }
-            $form->select('template',_t('Template'),$options,'',$page->template)
-                ->add_filter(new \Bingo\FormFilter_DoctrineObject('LPCandy\Models\Template'));
-            
-            $fieldsConfig = array();        
-            $getItems = function ($fields) use (&$getItems) {
-                $items = array();
-                foreach ($fields as $field) {
-                    if ($field->name) {
-                        $type = @$field->type ? : 'text';
-                        $fields = @$field->fields ? : false;
-                        $item = array(
-                            'type'=>$type,
-                            'label'=>$field->label,
-                            'name'=>$field->name
-                        );
-                        if ($fields)
-                            $item['items'] = $getItems($fields);
-                        $items[] = $item;
-                    }
-                }
-                return $items;
-            };
-            foreach ($templates as $tpl) {
-                $items = array();
-                if ($tpl && $tpl->form && $tpl->form->fields) {
-                    $items = $getItems($tpl->form->fields);
-                }
-                $fieldsConfig[$tpl->id] = $items;
-            }
-            
-            $this->data['fieldsConfig'] = $fieldsConfig;
-            $form->hidden("custom_fields",$page->custom_fields)->add_filter(new \LPCandy\Forms\FormFilter_JSON);
-            $form->submit(_t('Save page'));
-            
-        } else {
-            $form->hidden('template','');
-        }
+        $form->text('title',_t('Title'),'required');
+        $form->text('domain',_t('Domain'));
+        $form->radio('template',_t('Template'),$templates,"")->add_class("template-select");
+        $form->submit(_t('Create page'));
         
         if ($form->validate()) {
             $form->fill($page);
             $page->user = $this->user;
             $page->save();
-            redirect('profile');
+            
+            if ($form->values['template']) {
+                $tpl_page = \LPCandy\Models\Page::find($form->values['template']);
+                if ($tpl_page) {
+                    $page->copyFromTemplate($tpl_page);
+                }
+            }
+            redirect('page-list');
+        }
+        
+        $this->data['form'] = $form->get();
+        $this->data['title'] = _t('Create page');
+        $this->view('lpcandy/page-create');
+    }
+    
+    function page_edit($id) {
+        $page = \LPCandy\Models\Page::find($id);
+        if (!$page || $page->user!=$this->user) redirect("/");
+        
+        $form = new \Bingo\Form;
+        $form->fieldset();
+        $form->text('title',_t('Title'),'required',$page->title);
+        $form->text('domain',_t('Domain'),'',$page->domain);
+        $form->submit(_t('Save page'));
+        
+        if ($form->validate()) {
+            $form->fill($page);
+            $page->user = $this->user;
+            $page->save();
+            redirect('page-list');
         }
         
         $this->data['form'] = $form->get();
@@ -111,15 +117,24 @@ class Page extends Base {
     function page_design($id) {
         $page = $this->data['page'] = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect('/');
+        
+        $modules = array();
+        $modules[] = "core";
+        $modules[] = url('view/assets/script/templater.js');
+        
+        if (file_exists($page->getPath("module.js")))
+            $modules[] = $page->getUrl('module.js');
+        
         $this->data['title'] = _t('Design page');
-        $this->data['tpl'] = $page->getViewTemplate();
+        $this->data['tpl'] = 'page';
+        $this->data['modules'] = $modules;
         $this->view('lpcandy/page-design');
     }    
     
     function page_ajax($id) {
         $page = $this->data['page'] = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect('/');
-        $api = new \LPCandy\TemplaterApi($page->user,$page);
+        $api = new \LPCandy\TemplaterApi($page);
         $api->run();
     }    
 }

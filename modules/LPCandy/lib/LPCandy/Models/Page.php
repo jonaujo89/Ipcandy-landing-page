@@ -16,21 +16,12 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     /** @Column(length=256) */
     public $title;    
     
-    /**
-     * @ManyToOne(targetEntity="Template")
-     * @JoinColumn(name="template_id", referencedColumnName="id")
-     */
-    public $template; 
-    
-    /** @Column(type="integer") */
-    public $template_id;
-    
     /** @Column(length=1024) */
     public $domain; 
     
     /** @Column(type="object") */
-    public $custom_fields;
-    
+    public $form;    
+
     /**
      * @ManyToOne(targetEntity="User", inversedBy="identities")
      * @JoinColumn(name="user_id", referencedColumnName="id")
@@ -41,7 +32,46 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
         $this->domain = "";
     }
     
-    function getViewTemplate() {
-        return $this->template ? $this->template->getField('name') : 'page-'.$this->id;
+    function getPath($sub=false) {
+        return INDEX_DIR.'/upload/LPCandy/pages/'.$this->id.($sub ? "/".$sub:"");
+    }
+    
+    function getUrl($sub=false) {
+        return INDEX_URL.'/upload/LPCandy/pages/'.$this->id.($sub ? "/".$sub:"");
+    }
+    
+    function getScreenshotUrl() {
+        $sub = "publish/screenshot.png";
+        if (file_exists($this->getPath($sub)))
+            return $this->getUrl($sub);
+        return url('view/assets/images/no-screenshot.png');
+    }
+    
+    function getTemplatePath($sub=false) {
+        return $this->getPath('templates'.($sub ? "/".$sub:""));
+    }
+    
+    function getSettingsPath() {
+        return $this->getPath('style.json');
+    }
+            
+    function getPublishPath() {
+        return $this->getPath('publish');
+    }
+    
+    function copyFromTemplate($other) {
+        $yaml = @file_get_contents($other->getTemplatePath('page.yaml'));
+        $path = $this->getTemplatePath('page.yaml');
+        
+        $dir = dirname($path);
+        if (!file_exists($dir)) mkdir($dir,0777,true);
+        file_put_contents($path,$yaml);
+        
+        $json = @file_get_contents($other->getSettingsPath());
+        $path = $this->getSettingsPath();
+        $dir = dirname($path);
+        if (!file_exists($dir)) mkdir($dir,0777,true);
+        file_put_contents($path,$json);
+        
     }
 }

@@ -1,0 +1,61 @@
+.background_striped(size,width,color) {
+    @{
+        var canvas = (new Canvas(size,size))
+        .draw2D(function(ctx){
+            ctx.beginPath();
+            ctx.lineWidth = width;
+            ctx.strokeStyle = color.toString();
+            ctx.moveTo(-size,-size); ctx.lineTo(size*2,size*2);
+            ctx.moveTo(-size-size,-size); ctx.lineTo(size,size*2);
+            ctx.moveTo(-size+size,-size); ctx.lineTo(size*3,size*2);
+            ctx.stroke();
+        });
+    }
+    background-image: url(@{canvas.toDataURL()});
+}
+
+.cloud(border_color,width) {
+
+    border: 3px solid #007;
+    border-radius: 120px 120px 120px 120px;
+    width: @{width}px;
+    color: #333333;
+    margin: 15px 0 0 210px;
+    padding: 20px;
+    position: relative;
+    text-align: center;    
+    font-size: 16px;
+    
+    font-style: italic;
+    
+    &, &:after, &:before {
+        border: 3px solid @border_color;
+        background: white;
+        box-shadow: 0px 0px 3px rgba(0,0,0,0.7);
+        z-index: 10;
+        content: "";
+        display: block;
+    }
+    
+    &:after {
+        position: absolute;
+        left: -100px;
+        bottom: 50px;
+        
+        width: 25px;
+        height: 25px;
+        
+        border-radius: 25px;
+    }
+    
+    &:before {
+        position: absolute;
+        left: -63px;
+        bottom: 30px;
+
+        width: 50px;
+        height: 50px;
+        
+        border-radius: 50px;
+    }      
+}

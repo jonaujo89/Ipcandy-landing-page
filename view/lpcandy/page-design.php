@@ -4,16 +4,17 @@
         <title><?=_t('Templater editor')?></title>
         <meta charset="utf-8">
 
+        <link href="<?=url('view/assets/script/templater.css')?>" rel="stylesheet" type="text/css">
         <script src="/~boomyjee/templater/lib/templater.js"></script>
         <script>
             templater({
                 template: "<?=$tpl?>",
+                publishScreenshot: true,
                 ajax_url: "<?=url('page-ajax/'.$page->id)?>",
-                modules: [
-                    "core",
-                    "<?=url('view/assets/script/templater.js')?>"
-                ]
-            })
+                upload_url: "<?=url('upload/LPCandy/files/'.$page->user->id)?>",
+                browse_url: "<?=url('files/browse.php')?>",
+                modules: <?= json_encode($modules) ?>
+            });
         </script>        
     </head>
     <body>

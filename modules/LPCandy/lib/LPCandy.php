@@ -7,11 +7,10 @@ class LPCandy extends \Bingo\Module {
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\User','id'=>false),
             array('action'=>'(login|logout|profile)'));
         $this->connect('files/browse.php',array('controller'=>'\LPCandy\Controllers\User','action'=>'files'));
+        $this->connect('files/browse.php/*url',array('controller'=>'\LPCandy\Controllers\User','action'=>'files'));
         
-        $this->connect(":action/*id",array('controller'=>'\LPCandy\Controllers\Template','id'=>false),
-            array('action'=>'(tpl-list|tpl-edit|tpl-delete)'));
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Page','id'=>false),
-            array('action'=>'(page-list|page-delete|page-edit|page-design|page-ajax)'));
+            array('action'=>'(page-list|page-delete|page-edit|page-create|page-design|page-ajax)'));
 
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Front','id'=>false),
             array('action'=>'(page-view)'));

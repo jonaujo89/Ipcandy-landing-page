@@ -33,10 +33,14 @@ class LPForms extends \Bingo\Module {
         
         \Bingo\Action::add('lp_components',function($components) use (&$forms) {
             
-            $page = \LPCandy\Models\Page::find(Component::$api->page_id);
-            
+            $page = Component::$api->page;
+
             $old_update = $components['form']['update'];
-            $components['form']['update'] = function ($val) use ($page,&$forms,&$old_update) {
+            $components['form']['update'] = function ($val,$dataSource,$api,$fromEditor) use ($page,&$forms,&$old_update) {
+                
+                $ret = $old_update($val);
+                if ($fromEditor) return $ret;
+                
                 $message = '';
                 if (isset($_POST['form_id']) && $_POST['form_id']==$val['id']) {
                     $track = new \LPForms\Models\Track;
@@ -57,7 +61,6 @@ class LPForms extends \Bingo\Module {
                     $message = "<div class='alert success'>".$message."</div>";
                 }
                 
-                $ret = $old_update($val);
                 $ret['html'] = '<div><form method="POST">'.$message.'
                     <input type="hidden" name="form_id" value="'.$val['id'].'">
                     <br class="component-area" /></form>

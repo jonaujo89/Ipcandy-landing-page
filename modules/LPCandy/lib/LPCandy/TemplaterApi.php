@@ -10,24 +10,29 @@ class TemplaterApi extends \TemplaterApi {
     public $user_id;
     public $page;
     
-    function __construct($user,$page = false) {
+    function __construct($page) {
         parent::__construct();
         $this->base_url = "/~boomyjee";
         $this->base_dir = realpath(BINGO_PATH."/..");
-        $this->user = $user;
-        $this->user_id = $user->id;
         $this->page = $page;
+        $this->user = $page->user;
+        $this->user_id = $page->user->getField('id');
         
-        $this->dirPath = INDEX_DIR."/upload/LPCandy/templates/".$this->user_id;
-        $this->themePath = $this->dirPath."/theme.json";
-        $this->templatePath = $this->dirPath."/templates.json";
-        $this->settingsPath = $this->themePath;
+        $this->settingsPath =  $this->page->getSettingsPath();
+        $this->templatePath = $page->getTemplatePath();
+        
+        $this->uploadDir = INDEX_DIR."/upload/LPCandy/files/".$this->user_id;
+        $this->uploadUrl = INDEX_URL."/upload/LPCandy/files/".$this->user_id;
+        
+        if (!file_exists($this->templatePath)) mkdir($this->templatePath,0777,true);
+        if (!file_exists($this->uploadDir)) mkdir($this->uploadDir,0777,true);
+        
         $this->modules = array("core");
     }
     
     function publish() {
         $files = $_REQUEST['files'];
-        $base = INDEX_DIR."/upload/LPCandy/publish/".$this->page->id;
+        $base = $this->page->getPublishPath();
         if (!file_exists($base)) mkdir($base,0777,true);
         
         foreach ($files as $path=>$text) {
@@ -47,20 +52,7 @@ class TemplaterApi extends \TemplaterApi {
         $tpl = $liquid->parse($template);
         return $tpl->render($data);        
     }        
-    
-    /*function getTheme() {
-        return @file_get_contents($this->themePath);
-    }
-    
-    function getTemplates() {
-        return @file_get_contents($this->templatePath);
-    }
-    
-    function save() {
-        file_put_contents($this->themePath,$_REQUEST['theme']);
-        file_put_contents($this->templatePath,$_REQUEST['templates']);
-    }*/
-    
+
     function getComponents() {
         $components = parent::getComponents();
         $components = \Bingo\Action::filter('lp_components',array($components));

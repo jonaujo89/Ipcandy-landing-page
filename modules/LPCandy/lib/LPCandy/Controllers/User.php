@@ -28,14 +28,16 @@ class User extends Base {
         redirect('page-list');
     }    
     
-    function files() {
+    function files($url=false) {
         $this->needUser();
         
-        $config = array();
-        $config['_tinyMCEPath'] = url('view/assets/script/tinymce');
-        $path = 'upload/LPCandy/files/'.$this->user->id;
+        $page = new \LPCandy\Models\Page();
+        $page->id = 0;
+        $page->user = $this->user;
         
-        if (!file_exists(INDEX_DIR."/".$path)) mkdir(INDEX_DIR."/".$path,0777,true);
-        \FileManager::view($path,$config);
-    }    
+        if ($url) $_REQUEST['url'] = "/".$url;
+
+        $api = new \LPCandy\TemplaterApi($page);
+        $api->browse();
+    }
 }

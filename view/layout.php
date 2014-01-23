@@ -37,35 +37,42 @@
     <? endif ?>
 </head>
 <body>
-    <div id="page">
-        <div id="header">
-            <div id="info">
-                <h1 id="site-title"><a href="<?= url('')?>">LP-Candy</a></h1>
-                <h2 id="site-description">Landing page generator with candy looking design</h2>
+    
+    <div id="logged_info">
+        <? $user = \LPCandy\Models\User::checkLoggedIn() ?>
+        <? if ($user): ?>
+            <?=_t('Logged as')?>
+            <a href="<?=url('profile')?>"><?= $user->name ?></a>
+            |
+            <a href="<?=url('logout')?>"><?=_t('Logout')?></a>
+        <? else: ?>
+            <a href="<?=url('login')?>"><?=_t('Login')?></a>
+        <? endif ?>
+    </div>            
+    
+    <div id="header">
+        <div class="in">
+            <a id="logo" href="<?=url('')?>">LP-Candy</a>
+            <div id="cloud">
+                Extensive landing page generator
             </div>
-            <div id="logged_info">
-                <? $user = \LPCandy\Models\User::checkLoggedIn() ?>
-                <? if ($user): ?>
-                    <?=_t('Logged as')?>
-                    <a href="<?=url('profile')?>"><?= $user->name ?></a>
-                    |
-                    <a href="<?=url('logout')?>"><?=_t('Logout')?></a>
-                <? else: ?>
-                    <a href="<?=url('login')?>"><?=_t('Login')?></a>
-                <? endif ?>
-            </div>            
+        </div>
+    </div>
+    
+    <div id="page">
+
+        <? $menu = array() ?>
+        <? 
+            if ($user) {
+                $menu = array(
+                    array('url'=>'page-list','label'=>'Pages')
+                );
+            }
+            $menu = \Bingo\Action::filter('admin_menu',array($menu,$user));
+        ?>
+        <? if (count($menu)): ?>
             <div id="menu">
                 <ul>
-                    <? $menu = array() ?>
-                    <? 
-                        if ($user) {
-                            $menu = array(
-                                array('url'=>'page-list','label'=>'Pages'),
-                                array('url'=>'tpl-list' ,'label'=>'Templates')
-                            );
-                        }
-                        $menu = \Bingo\Action::filter('admin_menu',array($menu,$user));
-                    ?>
                     <? foreach ($menu as $item): ?> 
                         <?
                             $cls = ($item['url']==\Bingo\Routing::$uri) ? "current-menu-item":"";
@@ -76,10 +83,12 @@
                     <? endforeach ?>
                 </ul>
             </div>
-        </div>
+        <? endif ?>
+    
         <div id="content">
             <? emptyblock('content') ?>
         </div>
+    
         <div id="footer">
             Powered by Bingo and TeaCss
         </div>

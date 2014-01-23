@@ -1,11 +1,15 @@
 @import "/~boomyjee/templater/lib/modules/core/style/tea/bake.tea";
+@import "utils";
 @append "../script/jquery.js";
+
+@ color1 = '#123';
+@ color2 = '#f90';
+@ sheetWidth = 760;
 
 .reset();
 .typography();
 .form();
 .button({});
-.tabs();
 .table({bordered:true,striped:true});
 
 .message, .alert {
@@ -13,8 +17,111 @@
 }
 
 body {
-    background: #e2e2e2;
+    .background_striped(4,2,"#ddd");
 }
+
+#header {
+    background: white;
+    .background_striped(20,10,color(1,14));
+    border-top: 10px solid #333;
+    
+    .in {
+        width: @{sheetWidth+40}px;
+        margin: 0 auto;
+        overflow: hidden;
+    
+        #logo {
+            .logo({type:"image",image:tea.dir+"../images/lpcandy.png"});
+            float: left;
+        }  
+        
+        #cloud {
+            .cloud(color(1,11),160);
+        }
+    }
+}
+
+#page {
+    width: @{sheetWidth+40}px;
+    margin: 0 auto;
+}
+
+#menu {
+    .top_menu({type:"default",inverse:false});
+    border-radius: 0;
+    
+    > ul > li > a {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    margin-top: 10px;
+    padding: 0px;
+}
+
+#logged_info {
+    background: none repeat scroll 0 0 #333333;
+    border-bottom: 2px solid #777777;
+    border-left: 2px solid #777777;
+    border-radius: 0 0 0 20px;
+    margin: 0 !important;
+    padding: 5px 10px 5px 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #aaa;
+    white-space: nowrap;
+    z-index: 50000;
+    
+    a {
+        color: #FFFFFF;
+        text-decoration: none;
+    }    
+}
+
+#content {
+    > h3 {
+        background: #333;
+        color: white;
+        border-top: 5px solid @color(1,11);
+        
+        margin-top: 10px;
+        padding: 10px 20px;
+    }
+
+    > section, > form > table {
+        background: white;
+        box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
+        
+        margin-top: 10px;
+        padding: 10px 20px;
+    }
+    
+    > form > table {
+        padding: 0;
+        
+        > tbody > tr {
+            > *:first-child {
+                padding-left: 20px;
+            }
+            > *:last-child {
+                padding-right: 20px;
+            }        
+        }
+    }
+}
+
+#footer {
+    margin-top: 10px;
+    padding: 10px 20px;    
+
+    border-top: 5px solid @color(1,11);
+    background: #333;
+    color: #aaa;
+    
+    text-align: center;
+}
+
 
 form {
     padding: 0;
@@ -28,7 +135,7 @@ table.list {
 }
 
 .page-title {
-    line-height: 28px;
+    line-height: 20px;
     margin-bottom: 10px;
     border-bottom: 2px solid #eee;
     
@@ -37,10 +144,24 @@ table.list {
         line-height: 14px;
         float: right;
         a {
-            .button({color:'blue'});
+            .button({color:color(2,8)});
             text-decoration: none;
         }
     }
+}
+
+td.title h3 {
+    margin-bottom: 0.3em;
+}
+
+td.title h3 a {
+    font-size: 12px;
+}
+
+td.designer a {
+    .button({color:color(1,11)});
+    font-size: 1.4em;
+    line-height: 1.2em;
 }
 
 td.actions, th.actions {
@@ -54,72 +175,29 @@ td.actions, th.actions {
     }
 }
 
-
-#page {
-    width: 90%;
-    min-width: 960px;
-    max-width: 1200px;
-    margin: 0 auto;
-    
-    background: white;
-    margin-top: 20px;
-    .box_shadow("0 0 10px #aaa");
-}
-
-#info {
-    padding: 20px;
-    
-    #site-title {
-        margin-bottom: 0.2em;
-    }
-    
-    #site-description {
-        font-size: 12px;
-        line-height: 12px;
-        margin: 0;
-    }
-}
-
-#header img {
-    display: block;
-}
-
-#menu {
-    .top_menu({type:"apple",color:"#333",color_2:"#777"});
-    overflow: hidden;
-    border-radius: 0;
-}
-
-#logged_info {
-    padding: 5px 20px;
-    background: #fafafa;
-    text-align: right;
-    box-shadow: 0 0 10px #ddd inset;
-}
-
-#content {
-    padding: 20px;
-    overflow: hidden;
-}
-
-#sidebar {
-    width: 200px;
-    float: left;
-}
-
-#main {
-    margin-left: 210px;
-}
-
-#footer {
-    background: #f9f9f9;
-    border-top: 1px solid #ddd;
-    text-align: center;
-    padding: 20px;
-}
-
 p.actions {
     a {
         .button({color:'green'});
+    }
+}
+
+.template-select {
+    .clearfix();
+    
+    label {
+        width: 240px;
+        float: left;
+        margin: 0 10px 10px 0;
+        position: relative;
+        padding-top: 160px;
+        text-align: center;
+        
+        img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 200px;
+            margin-left: -100px;
+        }
     }
 }
