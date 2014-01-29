@@ -11,7 +11,7 @@ container#header:
                 <h1>We offer this amazing thing for just $129</h1>
                 <p><br />per week for two<br /><em>* including all transportation</em></p>
 container#sheet:
-    wysiwyg#id1390405507751:
+    wysiwyg#reasons:
         html: |-
             <h1>6 reasons to choose us...</h1>
             <div style="margin-left: 30px;">
@@ -23,8 +23,8 @@ container#sheet:
             <p><span style="font-size: 14pt;"><span style="font-size: 12pt;">➤</span> <span style="font-size: 18pt;">Put your sixth awesome reason here</span></span></p>
             </div>
             <p><span style="font-size: 14pt;"><br />Offers this good don't stay around forever! Apply now to secure your adventure before it's too late.</span></p>
-    form#id1390406260865:
-        wysiwyg#id1390407252635:
+    form#apply_now:
+        wysiwyg#form_heading:
             html: '<p style="text-align: center;">Apply for adventure now</p>'
         form_text#id1390406260861:
             label: Full Name
@@ -38,7 +38,7 @@ container#sheet:
         form_button#id1390406260864:
             label: Send Request
 container#footer:
-    wysiwyg#id1390407252637:
+    wysiwyg#footer_text:
         html: '<p>This is a paragraph. Click here to add / edit your own text. This
             offer is subject to <span style="text-decoration: underline;"><strong>terms
             and conditions</strong></span> and certain criterica will apply.</p>'

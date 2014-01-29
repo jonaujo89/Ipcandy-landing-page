@@ -23,6 +23,16 @@
         ],
         "lineHeight": 1,
         "fontSize": 11
+      },
+      "border": {
+        "width": "12px",
+        "top": false,
+        "right": false,
+        "bottom": true,
+        "color": [
+          2,
+          7
+        ]
       }
     },
     "id1390403071794": {

@@ -41,9 +41,10 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     }
     
     function getScreenshotUrl() {
-        $sub = "publish/screenshot.png";
-        if (file_exists($this->getPath($sub)))
-            return $this->getUrl($sub);
+        $file = $this->getPath("publish/screenshot.png");
+        if (file_exists($file)) {
+            return \Bingo\ImageResizer::get_file_url($file,200,150);
+        }
         return url('view/assets/images/no-screenshot.png');
     }
     

@@ -1,7 +1,7 @@
 {
-  "color1": "#c96997",
-  "color2": "#bfbabe",
-  "color3": "#cd8ebd",
+  "color1": "#81a9bb",
+  "color2": "#ed6802",
+  "color3": "#ebeeef",
   "sheet": {
     "width": "940px"
   },
@@ -32,23 +32,23 @@
       "margin": "20px",
       "overflow": "30px"
     },
-    "id1390405507751": {
-      "type": "default",
-      "part": "tt",
-      "margin": "0px"
-    },
     "id1390406260860": {
-      "type": "default",
-      "part": "ot"
-    },
-    "id1390406260865": {
       "type": "default",
       "part": "ot"
     },
     "id1390406260861": {
       "margin": "20px"
     },
-    "id1390407252637": {
+    "reasons": {
+      "type": "default",
+      "part": "tt",
+      "margin": "0px"
+    },
+    "apply_now": {
+      "type": "default",
+      "part": "ot"
+    },
+    "footer_text": {
       "type": "default",
       "part": "oh"
     }
@@ -140,20 +140,6 @@
         ]
       }
     },
-    "id1390406260865": {
-      "background": {
-        "type": "color",
-        "color": [
-          2,
-          13
-        ]
-      },
-      "padding": "20px 20px 0px 20px",
-      "typography": {
-        "type": "default",
-        "fontSize": 18
-      }
-    },
     "footer": {
       "background": {
         "type": "color",
@@ -181,7 +167,32 @@
           14
         ]
       },
-      "padding": "20px 0px 0px 0px"
+      "padding": "20px 0px 0px 0px",
+      "border": {
+        "color": [
+          1,
+          11
+        ],
+        "bottom": true,
+        "right": true,
+        "top": true,
+        "left": true,
+        "width": false
+      }
+    },
+    "apply_now": {
+      "background": {
+        "type": "color",
+        "color": [
+          2,
+          13
+        ]
+      },
+      "padding": "20px 20px 0px 20px",
+      "typography": {
+        "type": "default",
+        "fontSize": 18
+      }
     }
   },
   "list": {
@@ -204,7 +215,7 @@
     }
   },
   "forms": {
-    "id1390406260865": {
+    "apply_now": {
       "layout": {
         "type": "compact",
         "labelWidth": "100px"
@@ -214,5 +225,9 @@
         "controlPadding": "0.5em"
       }
     }
+  },
+  "background": {
+    "type": "color",
+    "color": false
   }
 }
