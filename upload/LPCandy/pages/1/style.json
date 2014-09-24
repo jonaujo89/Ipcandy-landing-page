@@ -190,7 +190,7 @@
     },
     "logo": {
       "type": "image",
-      "image": "/~boomyjee/lpcandy/upload/LPCandy/files/1/logo/1390232174_52dd426e94f4d.png",
+      "image": "/~boomyjee/lpcandy/upload/LPCandy/files/1/logo/1390388779_52dfa62b823a6.png",
       "builder": {
         "colors": {
           "heading": "#000",
@@ -267,8 +267,8 @@
       "part": "oh"
     },
     "id1374247591651": {
-      "type": "callback",
-      "part": "ot"
+      "type": "column",
+      "column": 4
     },
     "id1375568711765": {
       "type": "callback",
@@ -307,8 +307,8 @@
       "part": "oh"
     },
     "desc": {
-      "type": "callback",
-      "part": "tt"
+      "type": "column",
+      "column": 8
     },
     "id1374245710031": {
       "type": "default",

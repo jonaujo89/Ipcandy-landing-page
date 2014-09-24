@@ -10,7 +10,7 @@ class LPCandy extends \Bingo\Module {
         $this->connect('files/browse.php/*url',array('controller'=>'\LPCandy\Controllers\User','action'=>'files'));
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Page','id'=>false),
-            array('action'=>'(page-list|page-delete|page-edit|page-create|page-design|page-ajax)'));
+            array('action'=>'(page-list|page-delete|page-edit|page-create|page-design|page-ajax|page-child-edit)'));
 
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Front','id'=>false),
             array('action'=>'(page-view)'));

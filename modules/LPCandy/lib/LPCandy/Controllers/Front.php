@@ -13,7 +13,11 @@ class Front extends Base {
         
         $api = new \LPCandy\TemplaterApi($page);
         $api->includeModules(array("core"));
-        $assets = url('upload/LPCandy/pages/'.$page->id."/publish");
+        
+        $id = $page->parent ? $page->parent->getField('id') : $page->id;
+        $assets = url('upload/LPCandy/pages/'.$id."/publish");
+        
+        $body_html = $api->view($page->getTemplate(),false,true);
         
         ?>
             <!doctype html>
@@ -25,7 +29,7 @@ class Front extends Base {
                 <link rel="stylesheet" type="text/css" href="<?=$assets.'/default.css'?>">
                 <script src="<?=$assets.'/default.js'?>"> </script>
             </head>           
-                <? $api->view("page",false) ?>
+                <?= $body_html ?>
             </html>
         <?
     }

@@ -8,40 +8,25 @@ class Page extends Base {
     }
 
     function page_list() {
-        $this->data['list'] = \LPCandy\Models\Page::findBy(array('user'=>$this->user));
+        
+        $top = array();
+        $list = \LPCandy\Models\Page::findBy(array('user'=>$this->user));
+        foreach ($list as $page) {
+            $page->children = array();
+            if (!$page->parent) $top[$page->id] = $page;
+        }
+        foreach ($list as $page) {
+            if ($page->parent) {
+                $parent = @$top[$page->parent->getField('id')];
+                if ($parent)
+                    $parent->children[] = $page;
+            }
+        }
+        
+        $this->data['list'] = $top;
         $this->data['title'] = _t("Pages");
-        
         $this->data['page_actions']['page-create'] = _t('Create New Landing Page');
-        
-        $this->data['fields'] = array(
-            'preview'=>_t('preview'),
-            'title'=>_t('title'),
-            'designer' => _t('designer'),
-            'actions'=>_t('actions')
-        );
-        $this->data['field_filters']['preview'] = function ($val,$obj) {
-            return "<img width=200 src='".$obj->getScreenshotUrl()."'>";
-        };
-        $this->data['field_filters']['title'] = function ($val,$obj) {
-            $s = "";
-            $s .= "<h3>";
-            $s .= $obj->title;
-            $s .= " ".anchor('page-view/'.$obj->id,_t('(page preview)'),'_blank');
-            $s .= "</h3>";
-            $s .= ($obj->domain ?: _t("No domain assigned"));
-            return $s;
-        };
-        $this->data['field_filters']['designer'] = function ($val,$obj) {
-            return anchor('page-design/'.$obj->id,_t('Launch Designer'));
-        };
-        $this->data['field_filters']['actions'] = function ($val,$obj) {
-            $s = "";
-            $s .= anchor('page-edit/'.$obj->id,_t('edit'));
-            $s .= anchor('page-delete/'.$obj->id,_t('delete'));
-            return $s;
-        };
-        
-        $this->view('lpcandy/base-list');
+        $this->view('lpcandy/page-list');
     }
     
     function page_delete($id) {
@@ -58,7 +43,7 @@ class Page extends Base {
         $label .= "<img src='".$page->getScreenshotUrl()."'>";
         $templates = array($label=>0);
         $tpl_user = \LPCandy\Models\User::findOneByLogin('boomyjee');
-        $tpl_pages = \LPCandy\Models\Page::findBy(array('user'=>$tpl_user));
+        $tpl_pages = \LPCandy\Models\Page::findBy(array('user'=>$tpl_user,'parent'=>null));
         
         foreach ($tpl_pages as $key=>$p) {
             $label = "<img src='".$p->getScreenshotUrl()."'>";
@@ -90,6 +75,35 @@ class Page extends Base {
         $this->data['form'] = $form->get();
         $this->data['title'] = _t('Create page');
         $this->view('lpcandy/page-create');
+    }
+    
+    function page_child_edit($id) {
+        $page = \LPCandy\Models\Page::find($id);
+        if (!$page || $page->user!=$this->user) redirect("/");
+        
+        if ($page->parent) {
+            $parent = $page->parent;
+        } else {
+            $parent = $page;
+            $page = new \LPCandy\Models\Page;
+        }
+        
+        $form = new \Bingo\Form;
+        $form->fieldset();
+        $form->text('title',_t('Title'),'required',$page->title);
+        $form->submit(_t('Save child page'));
+        
+        if ($form->validate()) {
+            $form->fill($page);
+            $page->user = $this->user;
+            $page->parent = $parent;
+            $page->save();
+            redirect('page-list');
+        }
+        
+        $this->data['form'] = $form->get();
+        $this->data['title'] = _t('Edit child page');
+        $this->view('lpcandy/page-edit');
     }
     
     function page_edit($id) {
@@ -126,7 +140,7 @@ class Page extends Base {
             $modules[] = $page->getUrl('module.js');
         
         $this->data['title'] = _t('Design page');
-        $this->data['tpl'] = 'page';
+        $this->data['tpl'] = $page->getTemplate();
         $this->data['modules'] = $modules;
         $this->view('lpcandy/page-design');
     }    

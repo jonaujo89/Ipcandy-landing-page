@@ -21,7 +21,6 @@
   },
   "menu": [],
   "container": {
-    "id1372956874472": [],
     "id1372965277480": [],
     "id1373033795032": [],
     "id1373068931728": [],
@@ -86,7 +85,7 @@
     "header": {
       "background": {
         "type": "pattern",
-        "color": "#4e4e4e",
+        "color": "#131313",
         "pattern": "http://uxcandy.com/~boomyjee/templater/lib/modules/core/ui/controls/../../assets/patterns/new-retro-18b.jpg",
         "color_2": [
           2,
@@ -105,7 +104,8 @@
         "_id": 1390287933348
       },
       "padding": "20px 0px 20px 0px"
-    }
+    },
+    "benefits": []
   },
   "logo": {
     "type": "builder",
@@ -188,7 +188,7 @@
     },
     "logo": {
       "type": "image",
-      "image": "/~boomyjee/lpcandy/upload/LPCandy/files/1/logo/1390232174_52dd426e94f4d.png",
+      "image": "/~boomyjee/lpcandy/upload/LPCandy/files/1/logo/1390388779_52dfa62b823a6.png",
       "builder": {
         "colors": {
           "heading": "#000",
@@ -226,29 +226,27 @@
       "type": "default",
       "part": "ot"
     },
-    "id1372956874472": {
-      "type": "callback",
-      "part": "oh"
-    },
     "id1372956874473": {
-      "type": "callback",
-      "part": "full"
+      "type": "part",
+      "part": "full",
+      "column": false
     },
     "id1372959623730": {
-      "type": "callback",
-      "part": "oh"
+      "type": "part",
+      "part": "oh",
+      "column": 3
     },
     "id1372959623727": {
-      "type": "callback",
+      "type": "part",
       "part": "oh"
     },
     "id1372959623729": {
-      "type": "callback",
+      "type": "part",
       "part": "oh",
       "margin": "10px"
     },
     "id1372959623728": {
-      "type": "callback",
+      "type": "part",
       "part": "oh",
       "margin": "10px"
     },
@@ -261,11 +259,11 @@
       "part": "full"
     },
     "id1374245710030": {
-      "type": "callback",
+      "type": "part",
       "part": "oh"
     },
     "id1374247591651": {
-      "type": "callback",
+      "type": "part",
       "part": "ot"
     },
     "id1375568711765": {
@@ -305,21 +303,46 @@
       "part": "oh"
     },
     "desc": {
-      "type": "callback",
+      "type": "part",
       "part": "tt"
     },
     "id1374245710031": {
-      "type": "default",
-      "part": "full"
+      "type": "part",
+      "part": "full",
+      "column": false
     },
     "logo": {
-      "type": "callback",
+      "type": "part",
       "part": "oh",
       "margin": false
     },
     "promo": {
       "type": "callback",
       "part": "tt"
+    },
+    "id1374247591652": {
+      "type": "part",
+      "column": false
+    },
+    "id1374247667768": {
+      "type": "part",
+      "column": false
+    },
+    "id1374269616989": {
+      "type": "part",
+      "column": false
+    },
+    "id1374247667769": {
+      "type": "part",
+      "column": false
+    },
+    "id1374245847531": {
+      "type": "part",
+      "column": false
+    },
+    "benefits": {
+      "type": "part",
+      "part": "oh"
     }
   },
   "typography": {
@@ -440,7 +463,7 @@
       {
         "value": {
           "type": "pattern",
-          "color": "#4e4e4e",
+          "color": "#131313",
           "pattern": "http://uxcandy.com/~boomyjee/templater/lib/modules/core/ui/controls/../../assets/patterns/new-retro-18b.jpg",
           "color_2": [
             2,

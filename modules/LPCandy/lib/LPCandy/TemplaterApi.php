@@ -36,8 +36,14 @@ class TemplaterApi extends \TemplaterApi {
         if (!file_exists($base)) mkdir($base,0777,true);
         
         foreach ($files as $path=>$text) {
+            if ($path=='/screenshot.png') {
+                if ($this->page->parent) {
+                    $path = "/screenshot-child-".$this->page->id.".png";
+                }
+            }
+            
             $path = $base.$path;
-
+            
             $mark = "data:image/png;base64,";
             if (strpos($text,$mark)===0)
                 $text = base64_decode(substr($text,strlen($mark)));

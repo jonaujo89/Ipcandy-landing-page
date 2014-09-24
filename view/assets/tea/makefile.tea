@@ -132,6 +132,7 @@ table.list {
     td, th {
         vertical-align: middle;
     }
+    margin-bottom: 1em;
 }
 
 .page-title {
@@ -150,6 +151,11 @@ table.list {
     }
 }
 
+td.preview {
+    text-align: right;
+    width: 0;
+}
+
 td.title h3 {
     margin-bottom: 0.3em;
 }
@@ -158,10 +164,23 @@ td.title h3 a {
     font-size: 12px;
 }
 
+.child td.title h3 {
+    font-size: 14px;
+}
+
+td.designer {
+    text-align: center;
+    width: 0;
+}
+
 td.designer a {
     .button({color:color(1,11)});
     font-size: 1.4em;
     line-height: 1.2em;
+}
+
+.child td.designer a {
+    font-size: 1.0em;
 }
 
 td.actions, th.actions {

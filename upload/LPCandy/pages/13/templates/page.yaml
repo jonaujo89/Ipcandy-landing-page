@@ -2,7 +2,7 @@
 container#header:
     logo#logo: []
     wysiwyg#phone:
-        html: '<h1 style="text-align: center;">call us 800-873-7536</h1>'
+        html: '<h1 style="text-align: center;">Call Us 800-873-7536</h1>'
     container#promo:
         image#promo_image:
             src: beachvacation.jpg
@@ -22,10 +22,11 @@ container#sheet:
             <p><span style="font-size: 18pt;"><span style="font-size: 12pt;">➤</span> Add a fith awesome reason right here</span></p>
             <p><span style="font-size: 14pt;"><span style="font-size: 12pt;">➤</span> <span style="font-size: 18pt;">Put your sixth awesome reason here</span></span></p>
             </div>
+            <p>&nbsp;</p>
             <p><span style="font-size: 14pt;"><br />Offers this good don't stay around forever! Apply now to secure your adventure before it's too late.</span></p>
     form#apply_now:
         wysiwyg#form_heading:
-            html: '<p style="text-align: center;">Apply for adventure now</p>'
+            html: '<h3 style="text-align: center;">Apply for adventure now</h3>'
         form_text#id1390406260861:
             label: Full Name
             name: name

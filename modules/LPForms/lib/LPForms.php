@@ -34,8 +34,8 @@ class LPForms extends \Bingo\Module {
         \Bingo\Action::add('lp_components',function($components) use (&$forms) {
             
             $page = Component::$api->page;
-
             $old_update = $components['form']['update'];
+            
             $components['form']['update'] = function ($val,$dataSource,$api,$fromEditor) use ($page,&$forms,&$old_update) {
                 
                 $ret = $old_update($val);
@@ -59,6 +59,9 @@ class LPForms extends \Bingo\Module {
                     $track->save();
                     $message = @$val['success'] ?: _t('Data was successfully submitted');
                     $message = "<div class='alert success'>".$message."</div>";
+                    
+                    $redirect = @$val['redirect'];
+                    if ($redirect) redirect($redirect);
                 }
                 
                 $ret['html'] = '<div><form method="POST">'.$message.'

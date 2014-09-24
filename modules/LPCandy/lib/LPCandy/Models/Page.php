@@ -21,6 +21,12 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     
     /** @Column(type="object") */
     public $form;    
+    
+    /**
+     * @ManyToOne(targetEntity="Page")
+     * @JoinColumn(name="parent_id", referencedColumnName="id")
+     */
+    public $parent;    
 
     /**
      * @ManyToOne(targetEntity="User", inversedBy="identities")
@@ -33,19 +39,29 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     }
     
     function getPath($sub=false) {
-        return INDEX_DIR.'/upload/LPCandy/pages/'.$this->id.($sub ? "/".$sub:"");
+        $id = $this->parent ? $this->parent->getField('id') : $this->id;
+        return INDEX_DIR.'/upload/LPCandy/pages/'.$id.($sub ? "/".$sub:"");
     }
     
     function getUrl($sub=false) {
-        return INDEX_URL.'/upload/LPCandy/pages/'.$this->id.($sub ? "/".$sub:"");
+        $id = $this->parent ? $this->parent->getField('id') : $this->id;
+        return INDEX_URL.'/upload/LPCandy/pages/'.$id.($sub ? "/".$sub:"");
     }
     
     function getScreenshotUrl() {
-        $file = $this->getPath("publish/screenshot.png");
+        if ($this->parent)
+            $file = $this->getPath("publish/screenshot-child-".$this->id.".png");
+        else
+            $file = $this->getPath("publish/screenshot.png");
         if (file_exists($file)) {
             return \Bingo\ImageResizer::get_file_url($file,200,150);
         }
         return url('view/assets/images/no-screenshot.png');
+    }
+    
+    function getTemplate() {
+        if (!$this->parent) return 'page';
+        return 'child-'.$this->id;
     }
     
     function getTemplatePath($sub=false) {
