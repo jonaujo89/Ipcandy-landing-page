@@ -32,6 +32,7 @@ class Page extends Base {
     function page_delete($id) {
         $page = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect('/');
+        foreach ($page->children as $ch) $ch->delete(false);
         $page->delete();
         redirect('page-list');
     }
@@ -133,8 +134,7 @@ class Page extends Base {
         if (!$page || $page->user!=$this->user) redirect('/');
         
         $modules = array();
-        $modules[] = "core";
-        $modules[] = url('view/assets/script/templater.js');
+        $modules[] = INDEX_URL."/templater_modules/lpcandy/lpcandy.js";
         
         if (file_exists($page->getPath("module.js")))
             $modules[] = $page->getUrl('module.js');

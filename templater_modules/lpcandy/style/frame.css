@@ -1,0 +1,86 @@
+@import "font-awesome.css";
+
+body > div {
+    position: relative;
+}
+
+.cmp-controls {
+    position: absolute;
+    left: 0px; right: 0px;
+    top: 0px; height: 0;
+    display: none;
+}
+
+.cmp-cover {
+    position: absolute;
+    left: 0px; right: 0px;
+    top: 0px; bottom: 0px;
+    z-index: 1000;
+    background: rgba(0,0,0,0.2);
+    cursor: pointer;
+    opacity: 0;
+}
+
+.cmp-cover:hover {
+    opacity: 1;
+}
+
+.cmp-cover:before {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-top: -25px;
+    margin-left: -25px;
+}
+
+div:hover > .cmp-controls {
+    display: block;
+}
+
+.lp-button {
+    background: #eee;
+    border: 1px #ccc solid;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 24px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.lp-button.right {
+    float: right;
+}
+
+body.dragging .lp-button {
+    display: none;
+}
+
+*[data-editor] {
+    position: relative;
+}
+
+*[data-editor="lp.text"]  {
+    min-height: 1em;
+    border: 1px solid transparent;
+}
+
+*[data-editor="lp.text"]:hover,
+*[data-editor="lp.text"]:focus
+{
+    border: 1px dashed #f80;
+}
+
+body.dragging *[data-editor="lp.text"] {
+    border-color: transparent;
+}

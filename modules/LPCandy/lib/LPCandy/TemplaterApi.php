@@ -27,7 +27,8 @@ class TemplaterApi extends \TemplaterApi {
         if (!file_exists($this->templatePath)) mkdir($this->templatePath,0777,true);
         if (!file_exists($this->uploadDir)) mkdir($this->uploadDir,0777,true);
         
-        $this->modules = array("core");
+        $this->modules = array();
+        $this->modules[] = INDEX_DIR."/templater_modules/lpcandy";
     }
     
     function publish() {

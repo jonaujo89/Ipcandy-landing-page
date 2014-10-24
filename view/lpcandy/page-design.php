@@ -6,6 +6,7 @@
 
         <link href="<?=url('view/assets/script/templater.css')?>" rel="stylesheet" type="text/css">
         <script src="/~boomyjee/templater/lib/templater.js"></script>
+        
         <script>
             templater({
                 template: "<?=$tpl?>",
@@ -13,7 +14,8 @@
                 ajax_url: "<?=url('page-ajax/'.$page->id)?>",
                 upload_url: "<?=url('upload/LPCandy/files/'.$page->user->id)?>",
                 browse_url: "<?=url('files/browse.php')?>",
-                modules: <?= json_encode($modules) ?>
+                modules: <?= json_encode($modules) ?>,
+                allowSkipType: false
             });
         </script>        
     </head>

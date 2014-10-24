@@ -23,10 +23,15 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     public $form;    
     
     /**
-     * @ManyToOne(targetEntity="Page")
+     * @ManyToOne(targetEntity="Page", inversedBy="children")
      * @JoinColumn(name="parent_id", referencedColumnName="id")
      */
     public $parent;    
+    
+    /**
+     * @OneToMany(targetEntity="Page", mappedBy="parent")
+     */
+    public $children;    
 
     /**
      * @ManyToOne(targetEntity="User", inversedBy="identities")

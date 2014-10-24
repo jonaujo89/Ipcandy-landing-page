@@ -1,0 +1,82 @@
+---
+Header#id1413831755021:
+    logo:
+        type: image
+        url: /~maxtun/lpcandy_new/templater_modules/lpcandy/assets/default_logo.png
+        text: Название компании
+        bold: true
+        italic: false
+        color: '#000'
+        size: 80
+        fontSize: 24
+    desc1: <div class='company_name' style='color:#C1103A;font-size:26px;font-family:Arial;font-weight:bold;font-style:normal;'>НАЗВАНИЕ
+        КОМПАНИИ</div>
+    desc2: ТРУБЫ С ДОСТАВКОЙ ПО ЦЕНАМ ПРОИЗВОДИТЕЛЯ
+    ico1:
+        ico: 14.png
+    ico2:
+        ico: 47.png
+    ico3:
+        ico: 27.png
+    text_1: ОПЫТ С 2005 ГОДА
+    text_2: БЕСПЛАТНАЯ ДОСТАВКА
+    text_3: ГАРАНТИЯ 1 ГОД
+    phone: 8 (800) 123 45 67
+    order_button:
+        text: Заказать доставку
+        colorBtn: red
+    variant: 4
+Order#id1413985067815:
+    bg_img: templater_modules/lpcandy/assets/order/bg_1.jpg
+    title_1: Используйте наш конструктор
+    title_2: Для своего лендинга
+    title_3: Создайте эффективный лендинг за несколько минут
+    form_title: 'Оставьте заявку на создание лендинга '
+    form_bottom_text: Мы не передаем Вашу персональную информацию третьим лицам
+    form:
+        valueBtn: Отправить заявку на разработку
+        colorBtn: blue
+    variant: 6
+Benefits#id1414002408886:
+    title: Преимущества нашей компании
+    items:
+    -   icon_1: templater_modules/lpcandy/assets/benefits/1.jpg
+        icon_2: templater_modules/lpcandy/assets/benefits/2.jpg
+        icon_3: templater_modules/lpcandy/assets/benefits/3.jpg
+        name_1: Бесплатная доставка
+        name_2: Индивидуальное обучение
+        name_3: Круглосуточная поддержка
+        desc_1: 'Коротко и ясно о преимуществах вашей компании. Например, бесплатная
+            доставка по Москве и области. '
+        desc_2: 'Коротко и ясно о преимуществах вашей компании. Например, бесплатная
+            доставка по Москве и области. '
+        desc_3: 'Коротко и ясно о преимуществах вашей компании. Например, бесплатная
+            доставка по Москве и области. '
+    -   icon_1: templater_modules/lpcandy/assets/benefits/1.jpg
+        icon_2: templater_modules/lpcandy/assets/benefits/2.jpg
+        icon_3: templater_modules/lpcandy/assets/benefits/3.jpg
+        name_1: Бесплатная доставка
+        name_2: Индивидуальное обучение
+        name_3: Круглосуточная поддержка
+        desc_1: 'Коротко и ясно о преимуществах вашей компании. Например, бесплатная
+            доставка по Москве и области. '
+        desc_2: 'Коротко и ясно о преимуществах вашей компании. Например, бесплатная
+            доставка по Москве и области. '
+        desc_3: 'Коротко и ясно о преимуществах вашей компании. Например, бесплатная
+            доставка по Москве и области. '
+    variant: 5
+Services#id1414002408887:
+    title_1: Что мы предлагаем
+    title_2: У нас огромный выбор самых различных услуг
+    img1: templater_modules/lpcandy/assets/services/1.jpg
+    name: Перевозки по России
+    desc: 'Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой
+        груз доставим вовремя.  '
+    price: '<span style=''color: #BBBBBB''><strike>7 000 руб.</strike></span> 3 000
+        руб. '
+    btn_note: Предложение ограниченно
+    btn:
+        text: <span>Заказать</span>
+        colorBtn: blue
+    variant: 3
+...
