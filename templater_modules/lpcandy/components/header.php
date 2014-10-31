@@ -45,6 +45,15 @@ class Logo extends Block {
     <?}
 }
 
+class Icon extends Block {
+    public $editor = "lp.icon";
+    public $internal = true;
+    
+    function tpl($val) {
+        echo "<div class='ico' style='background-image: url(".INDEX_URL."/".$val.")'></div>";
+    }
+}
+
 class ButtonForm extends Block {
     public $editor = "";
     public $internal = true;
@@ -60,15 +69,6 @@ class Button extends Block {
     
     function tpl($val) {
         echo "<a class='btn ".$val['colorBtn']."'>".$val['text']."</a>";
-    }
-}
-
-class Icon extends Block {
-    public $editor = "";
-    public $internal = true;    
-    
-    function tpl($val) {
-        echo "<div class='ico' style='background-image: url(".INDEX_URL .'/templater_modules/lpcandy/assets/ico/'.$val['ico'].")'></div>";
     }
 }
 
@@ -95,6 +95,7 @@ class Form extends Block {
 class Header extends Block {
     public $name = 'Header';
     public $description = 'Logo + contacts';
+    public $editor = "lp.header";
     
     function tpl($val) {?>
         <div class="container-fluid header header_1">        
@@ -209,10 +210,10 @@ class Header extends Block {
             <div class="container">
                 <div class="span6">
                     <div class="logo">                        
-                            <? $this->sub('Text','desc1') ?>
+                        <? $this->sub('Text','desc1') ?>
                     </div>
                     <div class="desc">
-                            <? $this->sub('Text','desc2') ?>
+                        <? $this->sub('Text','desc2') ?>
                     </div>
                 </div>
                 <div class="span6 span_ico">
@@ -249,9 +250,9 @@ class Header extends Block {
             'logo' => Logo::tpl_default(),
             'desc1' => "<div class='company_name' style='color:#C1103A;font-size:26px;font-family:Arial;font-weight:bold;font-style:normal;'>НАЗВАНИЕ КОМПАНИИ</div>",
             'desc2' => "ТРУБЫ С ДОСТАВКОЙ ПО ЦЕНАМ ПРОИЗВОДИТЕЛЯ",
-            "ico1" => array('ico'=>'14.png'),
-            'ico2'=> array('ico'=>'47.png'), 
-            'ico3' => array('ico'=>'27.png'),
+            "ico1" => 'templater_modules/lpcandy/assets/ico/14.png',
+            "ico2" => 'templater_modules/lpcandy/assets/ico/47.png',
+            "ico3" => 'templater_modules/lpcandy/assets/ico/27.png',
             'text_1' => "ОПЫТ С 2005 ГОДА",
             'text_2' => "БЕСПЛАТНАЯ ДОСТАВКА",
             'text_3' => "ГАРАНТИЯ 1 ГОД",

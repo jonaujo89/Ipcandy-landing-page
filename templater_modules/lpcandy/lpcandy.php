@@ -7,3 +7,4 @@ include "components/benefits.php";
 include "components/services.php";
 include "components/why_we.php";
 include "components/gallery.php";
+include "components/cases.php";

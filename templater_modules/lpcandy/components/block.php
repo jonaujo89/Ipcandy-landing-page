@@ -64,9 +64,10 @@ class Block {
                 } else {
                     $default = array();
                 }
+                $this->default_val = $default;
 
                 if ($current==$i) {
-                    $this->val = array_replace_recursive($default,$val);
+                    $this->val = array_replace($default,$val);
                 } else {
                     $this->val = $default;
                 }
@@ -114,7 +115,40 @@ class Block {
         $obj = @self::$list[$type];
         if ($obj) {
             $sub = @$this->val[$name];
+            $name = $this->repeating ? $this->repeating.".".$name : $name;
+            
             echo $obj->getHtml($sub,$this->edit,$name);
         }
+    }
+    
+    function repeat($name,$f) {
+        $list = array_values(@$this->val[$name] ?:array());
+        
+        if ($this->edit) {
+            echo '<div data-editor="lp.repeater" data-name="'.$name.'">';
+        } else {
+            echo "<div>";
+        }
+        
+        $old_val = $this->val;
+        foreach ($list as $i=>$sub) {
+            $this->repeating = $name.".".$i;
+            $this->val = $sub;
+            echo "<div>";
+            $f($sub,$this);
+            echo "</div>";
+        }
+        
+        if ($this->edit) {
+            $def_item = @$this->default_val[$name][0] ?:array();
+            $this->val = $def_item;
+            echo "<div data-dummy='1'>";
+            $f($def_item,$this);
+            echo "</div>";
+        }
+        
+        $this->repeating = false;
+        $this->val = $old_val;
+        echo "</div>";
     }
 }

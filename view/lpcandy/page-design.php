@@ -8,6 +8,7 @@
         <script src="/~boomyjee/templater/lib/templater.js"></script>
         
         <script>
+            var base_url = "<?=url('')?>";
             templater({
                 template: "<?=$tpl?>",
                 publishScreenshot: true,

@@ -2122,3 +2122,77 @@ img {
     font-family: "Open Sans",Arial;
     font-weight: 300;
 }
+
+
+.gallery_8 .item_list {
+    margin: 45px 20px 50px;
+}
+.gallery_8 .item_list .item {
+    text-align: center;
+}
+.gallery_8 .item_list .item .img_side {
+    float: left;
+    width: 30.1%;
+}
+.gallery_8 .item_list .item .img_double {
+    float: left;
+    width: 69.9%;
+}
+.gallery_8 .item_list .item .img {
+    float: left;
+    position: relative;
+    margin: 5px;
+    text-align: center;
+}
+.gallery_8 .item_list .item .img a.big_img {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.gallery_8 .item_list .item .img_h2 .preview_img {
+    height: 500px;
+}
+.gallery_8 .item_list .item .img_h1 .preview_img {
+    height: 245px;
+}
+.gallery_8 .item_list .item .img_w1 .preview_img {
+    width: 330px;
+}
+.gallery_8 .item_list .item .img_w2 .preview_img {
+    width: 439px;
+}
+.gallery_8 .item_list .item .img .preview_img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.gallery_8 .item_list .item .img .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    padding: 0px 30px;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out 0s;
+}
+.gallery_8 .item_list .item .img .overlay .outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.gallery_8 .item_list .item .img .overlay .outer .middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+.gallery_8 .item_list .item .img .overlay .outer .middle .inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* cases */

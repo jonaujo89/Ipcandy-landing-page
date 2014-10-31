@@ -5,3 +5,11 @@
     line-height: 24px;
     padding: 0 10px;
 }
+
+.teacss-ui .lp-icon-panel .combo-item {
+    width: 40px;
+    height: 40px;
+    background-size: 30px 30px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}

@@ -89,7 +89,7 @@ class Gallery extends Block {
      function tpl_default() { 
         return  array(
             'bg_color' => '#F7F7F7',
-            'title' => "Галерея работ",
+            'title' => "Галерея работ 1",
             'img1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",
             'img2' => "templater_modules/lpcandy/assets/gallery/gallery_2.jpg",
             'img3' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",
@@ -162,7 +162,7 @@ class Gallery extends Block {
      function tpl_default_2() { 
         return  array(
             'bg_color' => '#F7F7F7',
-            'title' => "Галерея работ",
+            'title' => "Галерея работ 2",
             'items' => array(
                 array(
                     'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
@@ -247,7 +247,7 @@ class Gallery extends Block {
      function tpl_default_3() { 
         return  array(
             'bg_color' => '#F7F7F7',
-            'title' => "Галерея работ",
+            'title' => "Галерея работ 3",
             'items' => array(
                 array(
                     'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
@@ -347,7 +347,7 @@ class Gallery extends Block {
      function tpl_default_4() { 
         return  array(
             'bg_color' => '#F7F7F7',
-            'title' => "Галерея работ",
+            'title' => "Галерея работ 4",
             'items' => array(
                 array(
                     'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
@@ -483,7 +483,7 @@ class Gallery extends Block {
      function tpl_default_5() { 
         return  array(
             'bg_color' => '#F7F7F7',
-            'title' => "Галерея работ",
+            'title' => "Галерея работ 5",
             'items' => array(
                 array(
                     'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
@@ -638,10 +638,10 @@ class Gallery extends Block {
                     'img_4' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
-                    'img_5' => "templater_modules/lpcandy/assets/gallery/gallery_4.jpg",                   
+                    'img_5' => "templater_modules/lpcandy/assets/gallery/gallery_5.jpg",                   
                     'img_title_5' => "Дорога в облака",
                     'img_desc_5' => "Подробное описание проекта",
-                    'img_6' => "templater_modules/lpcandy/assets/gallery/gallery_4.jpg",                   
+                    'img_6' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",                   
                     'img_title_6' => "Дорога в облака",
                     'img_desc_6' => "Подробное описание проекта",
                 )
@@ -727,7 +727,7 @@ class Gallery extends Block {
                                     <div style="clear: both"></div>
                                 </div>
                                 <div class="img img_w2 img_h1">
-                                    <a class="big_img" href="/" title="Дорога в облака">
+                                    <a class="big_img" href="" title="Дорога в облака">
                                         <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$sub['img_5']?>');"></div>
                                         <div class="overlay">
                                             <div class="outer">
@@ -742,7 +742,7 @@ class Gallery extends Block {
                                     </a>
                                 </div>
                                 <div class="img img_w3 img_h1">
-                                    <a class="big_img" href="/img/217204_1200/gallery_6.jpg" title="Дорога в облака">
+                                    <a class="big_img" href="" title="Дорога в облака">
                                         <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$sub['img_6']?>');"></div>
                                         <div class="overlay">
                                             <div class="outer">
@@ -797,98 +797,97 @@ class Gallery extends Block {
     
     
     function tpl_8($val) {?>
-        <div class="container-fluid gallery gallery_7" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">           
+        <div class="container-fluid gallery gallery_8" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">           
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
                         <?=$val['title'] ?>
                     </h1>
-                    
                     <div class="item_list clear">
-                      <? foreach ($val['items'] as $sub): ?>
-                        <div class="img_side">
-                            <div class="img img_w1 img_h2">
-                                <a class="big_img" href="" title="Дорога в облака">
-                                    <div class="preview_img" style="background-image: url('/img/217204_600/gallery_1.jpg');"></div>
-                                    <div class="overlay">
-                                        <div class="outer">
-                                            <div class="middle">
-                                                <div class="inner">
-                                                    <div class="img_title">Дорога в облака</div>
-                                                    <div class="img_desc">Подпись к фото</div>
+                        <? foreach ($val['items'] as $sub): ?>
+                            <div class="item clear">                      
+                                <div class="img_side">
+                                    <div class="img img_w1 img_h2">
+                                        <a class="big_img" href="" title="Дорога в облака">
+                                            <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$sub['img_1']?>');"></div>
+                                            <div class="overlay">
+                                                <div class="outer">
+                                                    <div class="middle">
+                                                        <div class="inner">
+                                                            <div class="img_title">Дорога в облака</div>
+                                                            <div class="img_desc">Подпись к фото</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="img_double">
-                            <div class="img img_w2 img_h1">
-                                <a class="big_img" href="" title="Дорога в облака">
-                                    <div class="preview_img" style="background-image: url('/img/217201_600/gallery_2.jpg');"></div>
-                                    <div class="overlay">
-                                        <div class="outer">
-                                            <div class="middle">
-                                                <div class="inner">
-                                                    <div class="img_title">Дорога в облака</div>
-                                                    <div class="img_desc">Подпись к фото</div>
+                                </div>
+                                <div class="img_double">
+                                    <div class="img img_w2 img_h1">
+                                        <a class="big_img" href="" title="Дорога в облака">
+                                            <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$sub['img_2']?>');"></div>
+                                            <div class="overlay">
+                                                <div class="outer">
+                                                    <div class="middle">
+                                                        <div class="inner">
+                                                            <div class="img_title">Дорога в облака</div>
+                                                            <div class="img_desc">Подпись к фото</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="img img_w1 img_h1">
-                                <a class="big_img" href="" title="Дорога в облака">
-                                    <div class="preview_img" style="background-image: url('/img/217199_600/gallery_3.jpg');"></div>
-                                    <div class="overlay">
-                                        <div class="outer">
-                                            <div class="middle">
-                                                <div class="inner">
-                                                    <div class="img_title">Дорога в облака</div>
-                                                    <div class="img_desc">Подпись к фото</div>
+                                    <div class="img img_w1 img_h1">
+                                        <a class="big_img" href="" title="Дорога в облака">
+                                            <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$sub['img_3']?>');"></div>
+                                            <div class="overlay">
+                                                <div class="outer">
+                                                    <div class="middle">
+                                                        <div class="inner">
+                                                            <div class="img_title">Дорога в облака</div>
+                                                            <div class="img_desc">Подпись к фото</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="img img_w1 img_h1">
-                                <a class="big_img" href="" title="Дорога в облака">
-                                    <div class="preview_img" style="background-image: url('/img/217206_600/gallery_4.jpg');"></div>
-                                    <div class="overlay">
-                                        <div class="outer">
-                                            <div class="middle">
-                                                <div class="inner">
-                                                    <div class="img_title">Дорога в облака</div>
-                                                    <div class="img_desc">Подпись к фото</div>
+                                    <div class="img img_w1 img_h1">
+                                        <a class="big_img" href="" title="Дорога в облака">
+                                            <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$sub['img_4']?>');"></div>
+                                            <div class="overlay">
+                                                <div class="outer">
+                                                    <div class="middle">
+                                                        <div class="inner">
+                                                            <div class="img_title">Дорога в облака</div>
+                                                            <div class="img_desc">Подпись к фото</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="img img_w2 img_h1">
-                                <a class="big_img" href="" title="Дорога в облака">
-                                    <div class="preview_img" style="background-image: url('/img/217202_600/gallery_5.jpg');"></div>
-                                    <div class="overlay">
-                                        <div class="outer">
-                                            <div class="middle">
-                                                <div class="inner">
-                                                    <div class="img_title">Дорога в облака</div>
-                                                    <div class="img_desc">Подпись к фото</div>
+                                    <div class="img img_w2 img_h1">
+                                        <a class="big_img" href="" title="Дорога в облака">
+                                            <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$sub['img_5']?>');"></div>
+                                            <div class="overlay">
+                                                <div class="outer">
+                                                    <div class="middle">
+                                                        <div class="inner">
+                                                            <div class="img_title">Дорога в облака</div>
+                                                            <div class="img_desc">Подпись к фото</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>
+                                </div>                      
                             </div>
-                            <div style="clear: both"></div>
-                        </div>
-                      <? endforeach ?>
-                    </div>
-                    
+                        <? endforeach ?>
+                        </div>                    
                     </div>
                 </div>
             </div>

@@ -17,10 +17,15 @@ Component.app.bind("initUI",function(){
 require("./lpcandy.css");
 
 require("./ui/block.js");
+require("./ui/repeater.js");
+require("./ui/header.js");
+
 require("./ui/text.js");
-require("./ui/uploadButton.js");
 require("./ui/logo.js");
+require("./ui/icon.js");
+require("./ui/uploadButton.js");
 require("./ui/fontCombo.js");
+
 
 
 

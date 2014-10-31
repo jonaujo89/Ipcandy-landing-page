@@ -12,24 +12,24 @@ class Benefits extends Block {
                         <? $this->sub('Text','title') ?>
                     </h1>
                     <div class="item_list">
-                        <? foreach ($val['items'] as $sub): ?>
+                        <? $this->repeat('items',function($val,$self){ ?>
                             <div class="item">
-                                <div class="ico" style="background-image: url('<?=INDEX_URL."/".$sub['icon_1']?>');" ></div>
-                                <div class="name"><?=$sub['name_1']?></div>
-                                <div class="desc"><?=$sub['desc_1']?></div>
+                                <?=$self->sub('Icon','icon_1')?>
+                                <div class="name"><?=$self->sub('Text','name_1')?></div>
+                                <div class="desc"><?=$self->sub('Text','desc_1')?></div>
                             </div>
                             <div class="item">
-                                <div class="ico" style="background-image: url('<?=INDEX_URL."/".$sub['icon_2']?>');" ></div>
-                                <div class="name"><?=$sub['name_2']?></div>
-                                <div class="desc"><?=$sub['desc_2']?></div>
+                                <?=$self->sub('Icon','icon_2')?>
+                                <div class="name"><?=$self->sub('Text','name_2')?></div>
+                                <div class="desc"><?=$self->sub('Text','desc_2')?></div>
                             </div>
                             <div class="item">
-                                <div class="ico" style="background-image: url('<?=INDEX_URL."/".$sub['icon_3']?>');" ></div>
-                                <div class="name"><?=$sub['name_3']?></div>
-                                <div class="desc"><?=$sub['desc_3']?></div>
+                                <?=$self->sub('Icon','icon_3')?>
+                                <div class="name"><?=$self->sub('Text','name_3')?></div>
+                                <div class="desc"><?=$self->sub('Text','desc_3')?></div>
                             </div>
                             <div style="clear: both"></div>
-                        <? endforeach ?>
+                        <? }) ?>
                     </div>
                 </div>
             </div>
@@ -40,17 +40,6 @@ class Benefits extends Block {
         return  array(
             'title' => "Преимущества нашей компании",
             'items' => array(
-                array(
-                    'icon_1' => "templater_modules/lpcandy/assets/ico/77.png",
-                    'icon_2' => "templater_modules/lpcandy/assets/ico/89.png",
-                    'icon_3' => "templater_modules/lpcandy/assets/ico/127.png",
-                    'name_1' => "Бесплатная доставка",
-                    'name_2' => "Индивидуальное обучение",
-                    'name_3' => "Круглосуточная поддержка",
-                    'desc_1' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
-                    'desc_2' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
-                    'desc_3' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
-                ),
                 array(
                     'icon_1' => "templater_modules/lpcandy/assets/ico/77.png",
                     'icon_2' => "templater_modules/lpcandy/assets/ico/89.png",

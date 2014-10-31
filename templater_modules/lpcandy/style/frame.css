@@ -25,6 +25,12 @@ body > div {
     opacity: 1;
 }
 
+.cmp-add-cover {
+    top: auto; 
+    height: 10px;
+    bottom: -10px;
+}
+
 .cmp-cover:before {
     color: white;
     font-size: 40px;
@@ -37,6 +43,49 @@ body > div {
     text-align: center;
     margin-top: -25px;
     margin-left: -25px;
+}
+
+.cmp-repeater-cover {
+    bottom: 0;
+    position: absolute;
+    right: -30px;
+    top: 0;
+    vertical-align: middle;
+    width: 30px;
+    display: none;
+    padding-left: 10px;
+}
+
+.cmp-repeater-cover:before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 9px;
+    border: 1px solid #ccc;
+    border-left: none;
+}
+
+div:hover > .cmp-repeater-cover {
+    display: block;
+}
+
+.cmp-repeater-cover .lp-button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -31px;
+}
+
+.cmp-repeater-cover .lp-button:nth-child(2) {
+    margin-top: 0px;
+}
+
+*[data-editor="lp.repeater"] > div {
+    position: relative;
+}
+
+*[data-dummy] {
+    display: none;
 }
 
 div:hover > .cmp-controls {
@@ -58,6 +107,10 @@ div:hover > .cmp-controls {
     display: inline-block;
 }
 
+.lp-button:hover {
+    color: #777;
+}
+
 .lp-button.right {
     float: right;
 }
@@ -73,6 +126,10 @@ body.dragging .lp-button {
 *[data-editor="lp.text"]  {
     min-height: 1em;
     border: 1px solid transparent;
+}
+
+[data-editor="lp.icon"] .ico {
+    position: relative;
 }
 
 *[data-editor="lp.text"]:hover,
