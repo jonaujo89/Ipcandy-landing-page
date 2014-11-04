@@ -1,22 +1,32 @@
 ---
-WorkOrder#id1414763097351:
-    bg_color: '#F7F7F7'
-    title: Преимущества нашей компании
-    icon_1: templater_modules/lpcandy/assets/ico/154.png
-    icon_2: templater_modules/lpcandy/assets/ico/90.png
-    icon_3: templater_modules/lpcandy/assets/ico/82.png
-    icon_4: templater_modules/lpcandy/assets/ico/77.png
-    name_1: Заявка или звонок
-    name_2: Расчет стоимости
-    name_3: Договор и оплата
-    name_4: Изготовление и доставка
-    desc_1: Оставляете заявку на нашем сайте. Наш менеджер свяжется с вами для уточнения
-        деталей.
-    desc_2: Бесплатно разрабатываем подробную смету. Согласовываем окончательную стоимость
-        заказа.
-    desc_3: Подписываем договор на поставку, предоплата 50%. Оплачиваете удобным вам
-        способом
-    desc_4: Изготавливаем материал в течение 3-5 дней, бесплатная доставка и консультация
-        по установке.
-Reviews#id1415011630384: []
+Header#id1415020897718:
+    logo:
+        type: image
+        url: /~boomyjee/lpcandy/templater_modules/lpcandy/assets/default_logo.png
+        text: Название компании
+        bold: true
+        italic: false
+        color: '#000'
+        size: 80
+        fontSize: 24
+    order_button:
+        color: red
+        text: Оставить заявку
+        form:
+            fields:
+            -   label: 'Имя:'
+                sub_label: ""
+                required: true
+                name: name
+                type: text
+            -   label: 'Телефон:'
+                sub_label: ""
+                required: true
+                name: name
+                type: text
+            button:
+                color: blue
+                label: Получить консультацию
+    phone: '8 <span style="color: #C1103A;">(800)</span> 123 45 67'
+    variant: 2
 ...

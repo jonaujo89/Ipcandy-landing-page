@@ -1,20 +1,3 @@
-lp.cover = teacss.ui.control.extend({
-    init: function (o) {
-        var me = this;
-        this._super(o);
-        this.element = this.options.element;
-        me.cover = $("<div class='cmp-cover fa fa-gear'>")
-            .click(function(){ 
-                me.config({my:"left center",at:"right+5px center+56px",of:me.cover,collision:"flipfit"});
-            })
-            .appendTo(this.element);
-        
-        if (me.options.init) me.options.init.call(me);
-    },
-    config: lp.block.prototype.config
-});
-
-
 lp.logo = lp.cover.extendOptions({
     change: function(){
         var me = this;

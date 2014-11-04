@@ -27,5 +27,8 @@ class LPCandy extends \Bingo\Module {
                 return true;
             }
         }));
+        
+        // admin
+        $this->connect('admin/developer/:action',array('controller'=>'\LPCandy\Controllers\Admin\Developer'));
     }
 }

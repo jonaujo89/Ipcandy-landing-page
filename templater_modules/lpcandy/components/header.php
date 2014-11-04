@@ -1,133 +1,5 @@
 <?php
 
-class Text extends Block {
-    public $editor = "lp.text";
-    public $internal = true;
-    
-    function tpl($val) {
-        echo $val ?:'';
-    }
-}
-
-class Logo extends Block {
-    public $editor = "lp.logo";
-    public $internal = true;
-    
-    function tpl_default() {
-        return array(
-            'type' => 'image',
-            'url' => INDEX_URL . '/templater_modules/lpcandy/assets/default_logo.png',
-            'text' => 'Название компании',
-            'bold' => true,
-            'italic' => false,
-            'color' => '#000',
-            'size' => 80,
-            'fontSize' => 24
-        );        
-    }
-    
-    function tpl($val) {?>
-        <div class="logo">
-            <? if ($val['type']=='image'): ?>
-                <img src="<?=$val['url']?>" width="<?=$val['size']?>%">
-            <? else: ?>
-                <?
-                    $style = "";
-                    if ($val['italic']) $style .= "font-style:italic;";
-                    if ($val['bold']) $style .= "font-weight:bold;";
-                    if ($val['font']) $style .= "font-family:".$val['font'].";";
-                    if ($val['color']) $style .= "color:".$val['color'].";";
-                    if ($val['fontSize']) $style .= "font-size:".$val['fontSize']."px;";
-                ?>
-                <span style="<?=$style?>"><?=$val['text']?></span>
-            <? endif ?>
-        </div>
-    <?}
-}
-
-class Icon extends Block {
-    public $editor = "lp.icon";
-    public $internal = true;
-    
-    function tpl($val) {
-        echo "<div class='ico' style='background: url(".INDEX_URL."/".$val.")'></div>";
-    }
-}
-
-class ImageBg extends Block {
-    public $editor = "";
-    public $internal = true;
-    
-    function tpl($val) {
-        echo "<div class='img' style='background: url(".INDEX_URL."/".$val.")'></div>";
-    }
-}
-
-class ImageSrc extends Block {
-    public $editor = "";
-    public $internal = true;
-    
-    function tpl($val) {
-        echo "<img src=".INDEX_URL."/".$val.">";
-    }
-}
-
-class ButtonForm extends Block {
-    public $editor = "";
-    public $internal = true;
-    
-    function tpl($val) {
-        echo "<button>Button</button>";
-    }
-}
-
-class VideoFrame extends Block {
-    public $editor = "";
-    public $internal = true;
-    
-    function tpl($val) {
-        echo "<iframe src='//".$val."' frameborder='0' allowfullscreen=''></iframe>";
-    }
-}
-
-class Clock extends Block {
-    public $editor = "";
-    public $internal = true;
-    
-    function tpl($val) {
-        echo '<div class="timer"><div class="d"> <div id="countDay" class="digitFont"></div><span>дней</span> </div> <div class="h"> <div id="countHour" class="digitFont"></div><span>часов</span> </div> <div class="m"> <div id="countMinute" class="digitFont"></div><span>минут</span> </div> <div class="s"> <div id="countSecond" class="digitFont"></div><span>секунд</span> </div> </div>';
-    }
-}
-
-class Button extends Block {
-    public $editor = "";
-    public $internal = true;    
-    
-    function tpl($val) {
-        echo "<a class='btn ".$val['colorBtn']."'>".$val['text']."</a>";
-    }
-}
-
-class Form extends Block {
-    public $editor = "";
-    public $internal = true;
-    
-    function tpl($val) {?>
-        <form>
-            <div class="form_field">
-                <label>Some label 1</label>
-                <input type="text" />
-            </div>
-            <div class="form_field">
-                <label>Some label 2</label>
-                <input type="text" />
-            </div>
-            <button>Submit form</button>
-        </form>
-    <?}
-}
-
-
 class Header extends Block {
     public $name = 'Header';
     public $description = 'Logo + contacts';
@@ -143,15 +15,15 @@ class Header extends Block {
                 </div>
                 <div class="span7">  
                     <div class="desc">
-                        <? $this->sub('Text','desc') ?>
+                        <? $this->sub('Text','desc',array('buttons'=>array("bold","italic","size","removeformat")) ) ?>
                     </div>
                 </div>
                 <div class="span5">        
                     <div class="phone">
-                        <? $this->sub("Text",'phone') ?>
+                        <? $this->sub("Text",'phone',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>true) ) ?>
                     </div>
                     <div class="phone_desc">
-                        <? $this->sub("Text",'phone_desc') ?>
+                        <? $this->sub("Text",'phone_desc',array('oneline'=>true)) ?>
                     </div>                          
                 </div>
             </div>
@@ -181,7 +53,7 @@ class Header extends Block {
                 <div class="span12"> 
                     <div class="span_btn">
                         <div class='btn_wrap'>
-                            <? $this->sub("Button",'order_button') ?>
+                            <? $this->sub("FormButton",'order_button') ?>
                         </div>
                     </div>
                     <div class="phone">
@@ -195,7 +67,7 @@ class Header extends Block {
     function tpl_default_2() { 
         return  array(
             'logo' => Logo::tpl_default(),
-            'order_button' => array('text'=>'Заказать доставку','colorBtn'=>'red'),
+            'order_button' => FormButton::tpl_default(),
             'phone' => '8 <span style="color: #C1103A;">(800)</span> 123 45 67'
         );
     }
@@ -221,7 +93,7 @@ class Header extends Block {
                     </div> 
                     <div class="span_btn">
                         <div class='btn_wrap'>
-                            <? $this->sub("Button",'order_button') ?>
+                            <? $this->sub("FormButton",'order_button') ?>
                         </div>
                     </div>
                 </div>
@@ -235,7 +107,7 @@ class Header extends Block {
             'desc1' => "Организация праздников",
             'desc2' => "Организация детских праздников под ключ",
             'phone' => "8 (800) 123 45 67",
-            'order_button' => array('text'=>'Оставить заявку','colorBtn'=>'red'),
+            'order_button' => FormButton::tpl_default()
         );
     }
     
@@ -272,7 +144,7 @@ class Header extends Block {
                     </div> 
                     <div class="span_btn">
                         <div class="btn_wrap">
-                            <? $this->sub("Button",'order_button') ?>
+                            <? $this->sub("FormButton",'order_button') ?>
                         </div>
                     </div>
                 </div>
@@ -284,7 +156,8 @@ class Header extends Block {
     function tpl_default_4() { 
         return  array(
             'logo' => Logo::tpl_default(),
-            'desc1' => "<div class='company_name' style='color:#C1103A;font-size:26px;font-family:Arial;font-weight:bold;font-style:normal;'>НАЗВАНИЕ КОМПАНИИ</div>",
+            'desc1' => "<div class='company_name' style='color:#C1103A;font-size:26px;
+                font-family:Arial;font-weight:bold;font-style:normal;'>НАЗВАНИЕ КОМПАНИИ</div>",
             'desc2' => "ТРУБЫ С ДОСТАВКОЙ ПО ЦЕНАМ ПРОИЗВОДИТЕЛЯ",
             "ico1" => 'templater_modules/lpcandy/assets/ico/14.png',
             "ico2" => 'templater_modules/lpcandy/assets/ico/47.png',
@@ -293,24 +166,12 @@ class Header extends Block {
             'text_2' => "БЕСПЛАТНАЯ ДОСТАВКА",
             'text_3' => "ГАРАНТИЯ 1 ГОД",
             'phone' => "8 (800) 123 45 67",
-            'order_button' => array('text'=>'Заказать доставку','colorBtn'=>'red'),
+            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать доставку'))
         );
     }
     
     
 }
-
-
-Text::register();
-Logo::register();
-ButtonForm::register();
-Button::register();
-Form::register();
-Icon::register();
-ImageSrc::register();
-ImageBg::register();
-VideoFrame::register();
-Clock::register();
 
 Header::register();
 

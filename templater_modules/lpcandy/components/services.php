@@ -31,7 +31,7 @@ class Services extends Block {
                                 </div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@ class Services extends Block {
                                 </div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@ class Services extends Block {
                                 </div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ class Services extends Block {
                                 </div>
                                 <div class="btn_wrap">
                                         <div class="btn form_btn">
-                                            <? $this->sub('Button','btn') ?>
+                                            <? $this->sub('FormButton','btn') ?>
                                         </div>
                                     </div>
                             </div>
@@ -150,7 +150,7 @@ class Services extends Block {
                                 </div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -208,7 +208,7 @@ class Services extends Block {
                                 </div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -258,7 +258,7 @@ class Services extends Block {
                                 </div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -277,7 +277,7 @@ class Services extends Block {
                                 </div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -296,7 +296,7 @@ class Services extends Block {
                                 </div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -347,7 +347,7 @@ class Services extends Block {
                                 <div class="price"><? $this->sub('Text','price_1') ?></div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -360,7 +360,7 @@ class Services extends Block {
                                 <div class="price"><? $this->sub('Text','price_2') ?></div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -373,7 +373,7 @@ class Services extends Block {
                                 <div class="price"><? $this->sub('Text','price_3') ?></div>
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                             </div>
@@ -422,7 +422,7 @@ class Services extends Block {
                                 <div class="img" style="background-image: url('<?=INDEX_URL."/".$val['img_1']?>');"></div>                           
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                                 <div class="price"><? $this->sub('Text','price_1') ?></div>
@@ -434,7 +434,7 @@ class Services extends Block {
                                 <div class="img" style="background-image: url('<?=INDEX_URL."/".$val['img_2']?>');"></div>                           
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                                 <div class="price"><? $this->sub('Text','price_2') ?></div>
@@ -446,7 +446,7 @@ class Services extends Block {
                                 <div class="img" style="background-image: url('<?=INDEX_URL."/".$val['img_3']?>');"></div>                           
                                 <div class="btn_wrap">
                                     <div class="btn form_btn">
-                                        <? $this->sub('Button','btn') ?>
+                                        <? $this->sub('FormButton','btn') ?>
                                     </div>
                                 </div>
                                 <div class="price"><? $this->sub('Text','price_3') ?></div>

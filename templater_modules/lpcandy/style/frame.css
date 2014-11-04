@@ -1,7 +1,20 @@
 @import "font-awesome.css";
+@import "../lib/spacedText/spacedText.css";
 
 body > div {
     position: relative;
+}
+
+.view-layout *[class^="cmp-"],
+.view-layout *[class*=" cmp-"],
+.view-layout *[class^="lp-"],
+.view-layout *[class*=" lp-"]
+{
+    display: none !important;
+}
+
+.view-layout *[data-editor="lp.text"] {
+    border: none !important;
 }
 
 .cmp-controls {
@@ -123,21 +136,28 @@ body.dragging .lp-button {
     position: relative;
 }
 
-*[data-editor="lp.text"]  {
-    min-height: 1em;
-    border: 1px solid transparent;
+.text_toolbar {
+    bottom: 100%;
+    left: -1px;
+    position: absolute;
+    z-index: 2001;
 }
 
 [data-editor="lp.icon"] .ico {
     position: relative;
 }
 
-*[data-editor="lp.text"]:hover,
-*[data-editor="lp.text"]:focus
+.editor_text {
+    min-height: 1em;
+    border: 1px solid transparent;
+}
+
+.editor_text:hover,
+.editor_text:focus
 {
     border: 1px dashed #f80;
 }
 
-body.dragging *[data-editor="lp.text"] {
+body.dragging .editor_text {
     border-color: transparent;
 }
