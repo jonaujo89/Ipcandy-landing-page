@@ -10,11 +10,17 @@ class Block {
     
     static $list = array();
     
+    static function get() {
+        $id = get_called_class();
+        if (!isset(self::$list[$id])) {
+            $obj = new $id;
+            self::$list[$id] = $obj;
+        }
+        return self::$list[$id];
+    }
+    
     static function register() {
-        $cls = get_called_class();
-        $obj = new $cls;
-        self::$list[$obj->id] = $obj;
-        
+        $obj = self::get();
         if (!$obj->internal) TemplaterApi::addAction('getComponents',function($api,&$components) use ($obj) {
             $components[$obj->id] = array(
                 'name' => $obj->name,
@@ -45,7 +51,7 @@ class Block {
         }
     }
     
-    function getHtml($val,$edit,$name=false) {
+    function getHtml($val,$edit,$name=false,$options=false) {
         $this->edit = $edit;
         ob_start();
         
@@ -53,10 +59,9 @@ class Block {
         $current = min($current,$this->tpl_count);
         $current = max($current,1);
         
-        
         if ($this->internal) {
             $this->val = $val;
-            $this->tpl($this->val);
+            $this->tpl($this->val,$name);
         } else {
             for ($i=1;$i<=$this->tpl_count;$i++) {
                 if (method_exists($this,"tpl_default_$i")) {
@@ -74,12 +79,12 @@ class Block {
 
                 if ($edit && !$this->internal) {
                     $default_json = htmlspecialchars(json_encode((object)$default),ENT_QUOTES);
-                    echo "<div data-variant='$i' data-default='$default_json'>";
-                    $this->{"tpl_$i"}($this->val);
+                    echo "<div data-variant='$i' data-default='$default_json' $extra>";
+                    $this->{"tpl_$i"}($this->val,$name);
                     echo "</div>";
                 } 
                 elseif ($current==$i) {
-                    $this->{"tpl_$i"}($this->val);
+                    $this->{"tpl_$i"}($this->val,$name);
                 }
             }
         }
@@ -90,7 +95,13 @@ class Block {
             $editor = $this->editor ? 'data-editor="'.$this->editor.'"' : "";
             $name = $name ? 'data-name="'.$name.'"' : "";
             $current = $this->tpl_count > 1 ? 'data-current="'.$current.'"':"";
-            return "<div $editor $name $current>".$tpl."</div>";
+            if ($options) {
+                $options = htmlspecialchars(json_encode((object)$options),ENT_QUOTES);
+                $options = "data-options='$options'";
+            } else {
+                $options = '';
+            }
+            return "<div $editor $name $current $options>".$tpl."</div>";
         } else {
             return "<div>".$tpl."</div>";
         }
@@ -111,13 +122,15 @@ class Block {
         return $this->tpl_default();
     }
     
-    function sub($type,$name) {
+    function sub($type,$name,$options=false) {
         $obj = @self::$list[$type];
         if ($obj) {
             $sub = @$this->val[$name];
             $name = $this->repeating ? $this->repeating.".".$name : $name;
             
-            echo $obj->getHtml($sub,$this->edit,$name);
+            echo $obj->getHtml($sub,$this->edit,$name,$options);
+        } else {
+            throw new \Exception("Block type is not registered $type");
         }
     }
     

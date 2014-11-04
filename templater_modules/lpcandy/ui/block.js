@@ -87,7 +87,7 @@ lp.block = teacss.ui.control.extend({
             this.Class.dialog = teacss.ui.dialog({
                 width: dialogWidth,
                 height: dialogHeight,
-                modal: true,
+                modal: false,
                 title: me.options.configForm.title || "Settings",
                 resizable: false,
                 items: [
@@ -95,6 +95,20 @@ lp.block = teacss.ui.control.extend({
                 ],
                 open: function (){
                     me.Class.dialog.detached.appendTo(me.Class.dialog.element);
+                    
+                    if (!lp.configOverlay) {
+                        lp.configOverlay = $("<div>").css({
+                            position: "absolute", left: 0, right: 0, top: 0, bottom: 0, zIndex: 20000
+                        }).click(function(){
+                            $(".ui-dialog-content:visible").dialog("close");
+                            $(".button-select-panel:visible").hide();
+                        });
+                        Component.previewFrame.$f("body").append(lp.configOverlay);
+                    }
+                    lp.configOverlay.show();
+                },
+                close: function () {
+                    lp.configOverlay.hide();
                 }
             });
             this.Class.form.bind("change",function(){
@@ -102,13 +116,6 @@ lp.block = teacss.ui.control.extend({
                 setVisible();
                 me.Class.current.trigger("change");
             });
-            
-            if (!lp.overlayClickBinded) {
-                lp.overlayClickBinded = true;
-                $("body").on("mousedown",'.ui-widget-overlay',function() {
-                    $(".ui-dialog-content:visible").dialog("close");
-                });            
-            }            
         }
         this.Class.form.setValue(this.value);
         this.Class.current = this;
@@ -156,7 +163,11 @@ lp.block = teacss.ui.control.extend({
             var editor = $(this).data("editor-control");
             
             if (!editor && name) {
-                editor = Component.classFromName(editorName)({element:$(this)});
+                var options = $(this).attr("data-options");
+                options = options ? JSON.parse(options) : {};
+                $(this).removeAttr("data-options");
+                
+                editor = Component.classFromName(editorName)($.extend(options,{element:$(this)}));
                 $(this).data("editor-control",editor);
                 
                 editor.options.name = name;
@@ -166,7 +177,7 @@ lp.block = teacss.ui.control.extend({
                     me.editorChange(name,editor.getValue());
                 });
             }
-            me.editors.push(editor);
+            if (editor) me.editors.push(editor);
         });        
     },
     

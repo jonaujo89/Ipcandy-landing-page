@@ -1,45 +1,12 @@
 <?php
 
-class FormOrder extends Block {
-    public $editor = "";
-    public $internal = true;
-    
-    function tpl($val) {?>
-         <form action="" method="post" >
-            <div class="form_fields">
-                <div class="form_field">
-                    <label>
-                        <div class="field_title">Имя:<i>*</i>
-                        </div>
-                        <input type="text" class="form_field_text" name="">
-                        <div class="error"></div>
-                    </label>
-                </div>
-                <div class="form_field">
-                    <label>
-                        <div class="field_title">Телефон:<i>*</i>
-                        </div>
-                        <input type="text" class="form_field_text" name="">
-                    </label>
-                </div>
-            </div>
-            <div class="form_submit">
-                <a class="form_field_submit <?=$val['colorBtn']?>">
-                    <div>
-                        <span><?=$val['valueBtn']?></span>
-                    </div>
-                </a>
-            </div>
-        </form>
-    <?}
-}
-
 class Order extends Block {
     public $name = 'Order';
     public $description = "Block with a picture and a form";
+    public $editor = "lp.order";
     
     function tpl($val) {?>
-        <div class="container-fluid order order_1" style="background-image: url('<?=INDEX_URL."/".$val['bg_img']?>');">
+        <div class="container-fluid order order_1" style="background-image: url('<?=INDEX_URL."/".$val['background']?>');">
             <div class="dark">
                 <div class="container">
                     <div class="span10">
@@ -73,13 +40,25 @@ class Order extends Block {
     
      function tpl_default() { 
         return  array(
-            'bg_img' =>'templater_modules/lpcandy/assets/order/bg_car.jpg',
+            'background' =>'templater_modules/lpcandy/assets/order/bg_car.jpg',
             'title_1' => "ЭКОНОМИЧНЫЕ<br>ГРУЗОПЕРЕВОЗКИ<br>ПО ВСЕЙ РОССИИ</li>",
             'title_2' => "С нами вы экономите до 50%<br> Гарантированная сохранность груза<br> Своевременная доставка</li>",
             'form_title_1' => "Оставьте заявку на бесплатный образец или расчет стоимости",
             'form_title_2' => "И получите выгодное предложение<br> в течение дня",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",
-            'form' => array('valueBtn'=>'Получить консультацию', 'colorBtn'=>'blue' ),
+            'form' => array(
+                'fields' => array(
+                    array(
+                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
+                        'name' => 'name', 'type' => 'text', 
+                    ),
+                    array(
+                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
+                        'name' => 'name', 'type' => 'text', 
+                    )
+                ),
+                'button' => array('color'=>'blue','label'=>'Получить консультацию')
+            )
         );
     }
     
@@ -99,14 +78,14 @@ class Order extends Block {
                     </div>
                     <br>
                     <div class="btn_wrap" >                        
-                        <span><? $this->sub('Button','btn') ?></span>                        
+                        <span><? $this->sub('FormButton','btn') ?></span>                        
                     </div>
                 </div>
             </div>
         </div>
     <?}
     
-     function tpl_default_2() { 
+    function tpl_default_2() { 
         return  array(
             'bg_img' =>'templater_modules/lpcandy/assets/order/bg_laptop.jpg',
             'title_1' => "Образование за рубежом",
@@ -133,7 +112,7 @@ class Order extends Block {
                         <? $this->sub('Text','desc') ?>
                     </div>
                     <div class="btn_wrap" >                        
-                        <? $this->sub('Button','button') ?>                        
+                        <? $this->sub('FormButton','button') ?>                        
                     </div>
                 </div>            
             </div>
@@ -188,7 +167,19 @@ class Order extends Block {
             'title_2' => "Мы работаем только с продукцией премиум класса из экологически чистых и высокачественных материалов.",
             'form_title' => "Оставьте заявку на бесплатный каталог или расчет стоимости",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",  
-            'form' => array('valueBtn'=>'Получить каталог бесплатно', 'colorBtn'=>'yellow' ),
+            'form' => array(
+                'fields' => array(
+                    array(
+                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
+                        'name' => 'name', 'type' => 'text', 
+                    ),
+                    array(
+                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
+                        'name' => 'name', 'type' => 'text', 
+                    )
+                ),
+                'button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно')
+            )
         );
     }
     
@@ -252,8 +243,20 @@ class Order extends Block {
             'icoDesc1' => "Компания зарекомендовала себя как надежный поставщик высококачественной садовой мебели.",
             'icoDesc2' => "Широкий выбор кресел, диванов, столов. ",
             'icoDesc3' => "Наличие товаров на складе позволяет получить мебель в кратчайшие сроки. ",
-            'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",  
-            'form' => array('valueBtn'=>'Получить каталог бесплатно', 'colorBtn'=>'yellow' ),
+            'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам", 
+            'form' => array(
+                'fields' => array(
+                    array(
+                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
+                        'name' => 'name', 'type' => 'text', 
+                    ),
+                    array(
+                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
+                        'name' => 'name', 'type' => 'text', 
+                    )
+                ),
+                'button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно')
+            )
         );
     }
     
@@ -297,5 +300,4 @@ class Order extends Block {
     
 }
 
-FormOrder::register();
 Order::register();

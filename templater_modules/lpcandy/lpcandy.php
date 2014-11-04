@@ -1,6 +1,7 @@
 <?php
 
 include "components/block.php";
+include "components/internal.php";
 include "components/header.php";
 include "components/order.php";
 include "components/benefits.php";
