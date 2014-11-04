@@ -1,25 +1,27 @@
 ---
-Gallery#id1414151381725:
+Gallery#id1415100166237:
     bg_color: '#F7F7F7'
-    title: Галерея работ 7
+    title: Галерея работ 2
     items:
     -   img_1: templater_modules/lpcandy/assets/gallery/gallery_1.jpg
         img_title_1: Дорога в облака
-        img_desc_1: Подробное описание проекта
+        img_desc_1: Подпись к фото
+        img_text_1: Подробное описание проекта, интересные факты, подробное описание
+            проекта, интересные факты
         img_2: templater_modules/lpcandy/assets/gallery/gallery_2.jpg
         img_title_2: Дорога в облака
-        img_desc_2: Подробное описание проекта
-        img_3: templater_modules/lpcandy/assets/gallery/gallery_3.jpg
-        img_title_3: Дорога в облака
-        img_desc_3: Подробное описание проекта
-        img_4: templater_modules/lpcandy/assets/gallery/gallery_4.jpg
-        img_title_4: Дорога в облака
-        img_desc_4: Подробное описание проекта
-        img_5: templater_modules/lpcandy/assets/gallery/gallery_1.jpg
-        img_title_5: Дорога в облака
-        img_desc_5: Подробное описание проекта
-        img_6: templater_modules/lpcandy/assets/gallery/gallery_6.jpg
-        img_title_6: Дорога в облака
-        img_desc_6: Подробное описание проекта
-    variant: 7
+        img_desc_2: Подпись к фото
+        img_text_2: Подробное описание проекта, интересные факты, подробное описание
+            проекта, интересные факты
+    -   img_1: templater_modules/lpcandy/assets/gallery/gallery_3.jpg
+        img_title_1: Дорога в облака
+        img_desc_1: Подпись к фото
+        img_text_1: Подробное описание проекта, интересные факты, подробное описание
+            проекта, интересные факты
+        img_2: templater_modules/lpcandy/assets/gallery/gallery_4.jpg
+        img_title_2: Дорога в облака
+        img_desc_2: Подпись к фото
+        img_text_2: Подробное описание проекта, интересные факты, подробное описание
+            проекта, интересные факты
+    variant: 2
 ...

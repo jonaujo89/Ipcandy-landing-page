@@ -118,6 +118,8 @@ class Block {
             $name = $this->repeating ? $this->repeating.".".$name : $name;
             
             echo $obj->getHtml($sub,$this->edit,$name);
+        } else {
+            throw new \Exception("Block type is not registered $type");
         }
     }
     

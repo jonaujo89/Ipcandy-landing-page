@@ -50,7 +50,25 @@ class Icon extends Block {
     public $internal = true;
     
     function tpl($val) {
-        echo "<div class='ico' style='background-image: url(".INDEX_URL."/".$val.")'></div>";
+        echo "<div class='ico' style='background: url(".INDEX_URL."/".$val.")'></div>";
+    }
+}
+
+class ImageBg extends Block {
+    public $editor = "";
+    public $internal = true;
+    
+    function tpl($val) {
+        echo "<div class='img' style='background: url(".INDEX_URL."/".$val.")'></div>";
+    }
+}
+
+class ImageSrc extends Block {
+    public $editor = "";
+    public $internal = true;
+    
+    function tpl($val) {
+        echo "<img src=".INDEX_URL."/".$val.">";
     }
 }
 
@@ -60,6 +78,24 @@ class ButtonForm extends Block {
     
     function tpl($val) {
         echo "<button>Button</button>";
+    }
+}
+
+class VideoFrame extends Block {
+    public $editor = "";
+    public $internal = true;
+    
+    function tpl($val) {
+        echo "<iframe src='//".$val."' frameborder='0' allowfullscreen=''></iframe>";
+    }
+}
+
+class Clock extends Block {
+    public $editor = "";
+    public $internal = true;
+    
+    function tpl($val) {
+        echo '<div class="timer"><div class="d"> <div id="countDay" class="digitFont"></div><span>дней</span> </div> <div class="h"> <div id="countHour" class="digitFont"></div><span>часов</span> </div> <div class="m"> <div id="countMinute" class="digitFont"></div><span>минут</span> </div> <div class="s"> <div id="countSecond" class="digitFont"></div><span>секунд</span> </div> </div>';
     }
 }
 
@@ -271,6 +307,10 @@ ButtonForm::register();
 Button::register();
 Form::register();
 Icon::register();
+ImageSrc::register();
+ImageBg::register();
+VideoFrame::register();
+Clock::register();
 
 Header::register();
 

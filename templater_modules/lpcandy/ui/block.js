@@ -166,7 +166,7 @@ lp.block = teacss.ui.control.extend({
                     me.editorChange(name,editor.getValue());
                 });
             }
-            me.editors.push(editor);
+            if (editor) me.editors.push(editor);
         });        
     },
     

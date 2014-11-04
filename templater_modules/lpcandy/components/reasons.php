@@ -1,7 +1,7 @@
 <?php
 
-class Why_we extends Block {
-    public $name = 'Why_we';
+class Reasons extends Block {
+    public $name = 'Reasons';
     public $description = "Otherness";
     
     function tpl($val) {?>
@@ -132,4 +132,4 @@ class Why_we extends Block {
 }
 
 
-Why_we::register();
+Reasons::register();

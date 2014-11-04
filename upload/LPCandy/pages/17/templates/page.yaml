@@ -1,55 +1,22 @@
 ---
-"": ~
-Header#id1414618947295:
-    logo:
-        type: image
-        url: /~boomyjee/lpcandy_maxtun/templater_modules/lpcandy/assets/default_logo.png
-        text: Название компании
-        bold: true
-        italic: false
-        color: '#000'
-        size: 80
-        fontSize: 24
-    desc1: <div class="company_name" style="color:#C1103A;font-size:26px;font-family:Arial;font-weight:bold;font-style:normal;">НАЗВАНИЕ
-        КОМПАНИИ</div>
-    desc2: ТРУБЫ С ДОСТАВКОЙ ПО ЦЕНАМ ПРОИЗВОДИТЕЛЯ
-    ico1: templater_modules/lpcandy/assets/ico/15.png
-    ico2: templater_modules/lpcandy/assets/ico/23.png
-    ico3: templater_modules/lpcandy/assets/ico/84.png
-    text_1: ОПЫТ С 2005 ГОДА
-    text_2: БЕСПЛАТНАЯ ДОСТАВКА
-    text_3: ГАРАНТИЯ 1 ГОД
-    phone: 8 (800) 123 45 67
-    order_button:
-        text: Заказать доставку
-        colorBtn: red
-    variant: 4
-Order#id1414632479716:
-    bg_img: templater_modules/lpcandy/assets/order/bg_car.jpg
-    title_1: ЭКОНОМИЧНЫЕ<br>ГРУЗОПЕРЕВОЗКИ<br>ПО ВСЕЙ РОССИИ
-    title_2: С нами вы экономите до 50%<br> Гарантированная сохранность груза<br>
-        Своевременная доставка</li>
-    form_title_1: Оставьте заявку на бесплатный образец или расчет стоимости
-    form_title_2: И получите выгодное предложение<br> в течение дня
-    form_bottom_text: Мы не передаем Вашу персональную информацию третьим лицам
-    form:
-        valueBtn: Получить консультацию
-        colorBtn: blue
-    variant: 1
-Benefits#id1414618947296:
+WorkOrder#id1414763097351:
+    bg_color: '#F7F7F7'
     title: Преимущества нашей компании
-    items:
-    -   icon_1: templater_modules/lpcandy/assets/ico/5.png
-        icon_2: templater_modules/lpcandy/assets/ico/233.png
-        icon_3: templater_modules/lpcandy/assets/ico/38.png
-        name_1: Бесплатная доставка
-        name_2: Индивидуальное обучение
-        name_3: Круглосуточная поддержка
-        desc_1: 'Коротко и ясно о преимуществах вашей компании. Например, бесплатная
-            доставка по Москве и области. '
-        desc_2: 'Коротко и ясно о преимуществах вашей компании. Например, бесплатная
-            доставка по Москве и области. '
-        desc_3: 'Коротко и ясно о преимуществах вашей компании. Например, бесплатная
-            доставка по Москве и области. '
-    variant: 1
+    icon_1: templater_modules/lpcandy/assets/ico/154.png
+    icon_2: templater_modules/lpcandy/assets/ico/90.png
+    icon_3: templater_modules/lpcandy/assets/ico/82.png
+    icon_4: templater_modules/lpcandy/assets/ico/77.png
+    name_1: Заявка или звонок
+    name_2: Расчет стоимости
+    name_3: Договор и оплата
+    name_4: Изготовление и доставка
+    desc_1: Оставляете заявку на нашем сайте. Наш менеджер свяжется с вами для уточнения
+        деталей.
+    desc_2: Бесплатно разрабатываем подробную смету. Согласовываем окончательную стоимость
+        заказа.
+    desc_3: Подписываем договор на поставку, предоплата 50%. Оплачиваете удобным вам
+        способом
+    desc_4: Изготавливаем материал в течение 3-5 дней, бесплатная доставка и консультация
+        по установке.
+Reviews#id1415011630384: []
 ...
