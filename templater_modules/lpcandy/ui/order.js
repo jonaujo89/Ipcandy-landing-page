@@ -8,11 +8,11 @@ lp.order = lp.block.extendOptions({
         items: [
             { type: "label", value: "Background image:", margin: "5px 0"},
             { 
-                name: "background", width: 225,
+                name: "background", width: 245,
                 type: ui.combo.extendOptions({
                     panelClass: "only-icons",
                     comboWidth: 660,
-                    comboHeith: 600,
+                    comboHeight: 600,
                     closeOnSelect: false,
                     icons: {secondary:'ui-icon-triangle-1-s'},
                     items: function () {

@@ -1,12 +1,13 @@
 lp.logo = lp.cover.extendOptions({
     change: function(){
         var me = this;
-        me.cover.detach();
-        me.element.empty();
+        //me.cover.detach();
+        var logo_div = me.element.find(".logo");
+        logo_div.empty();
         if (me.value.type=="image") {
-            me.element.append($("<img>").attr({src:me.value.url,width:me.value.size+"%"}));
+            logo_div.append($("<img>").attr({src:me.value.url,width:me.value.size+"%"}));
         } else {
-            me.element.append($("<span>").text(me.value.text).css({
+            logo_div.append($('<div class="company_name">').text(me.value.text).css({
                 fontStyle: me.value.italic ? 'italic' : '',
                 fontWeight: me.value.bold ? 'bold' : '',
                 fontFamily: me.value.font || '',
@@ -14,7 +15,6 @@ lp.logo = lp.cover.extendOptions({
                 fontSize: me.value.fontSize ? me.value.fontSize + 'px' : ''
             }));
         }
-        me.cover.appendTo(me.element);
     },
     configForm: {
         title: "Logotype",

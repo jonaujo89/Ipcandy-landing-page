@@ -1,17 +1,25 @@
 ---
-Header#id1415020897718:
+Header#id1415191014785:
     logo:
-        type: image
-        url: /~boomyjee/lpcandy/templater_modules/lpcandy/assets/default_logo.png
+        type: text
+        url: /~maxtun/lpcandy_merged/templater_modules/lpcandy/assets/default_logo.png
         text: Название компании
         bold: true
         italic: false
         color: '#000'
         size: 80
         fontSize: 24
+    desc: ТРУБЫ С ДОСТАВКОЙ ПО ЦЕНАМ ПРОИЗВОДИТЕЛЯ
+    ico_1: templater_modules/lpcandy/assets/ico/14.png
+    ico_2: templater_modules/lpcandy/assets/ico/178.png
+    ico_3: templater_modules/lpcandy/assets/ico/163.png
+    text_1: ОПЫТ С 2005 ГОДА
+    text_2: БЕСПЛАТНАЯ ДОСТАВКА
+    text_3: ГАРАНТИЯ 1 ГОД
+    phone: 8 (800) 123 45 67
     order_button:
         color: red
-        text: Оставить заявку
+        text: Заказать доставку
         form:
             fields:
             -   label: 'Имя:'
@@ -27,6 +35,6 @@ Header#id1415020897718:
             button:
                 color: blue
                 label: Получить консультацию
-    phone: '8 <span style="color: #C1103A;">(800)</span> 123 45 67'
-    variant: 2
+        background: '#409189'
+    variant: 4
 ...

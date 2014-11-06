@@ -3,9 +3,6 @@ require("./lpcandy.css");
 require("./ui/block.js");
 require("./ui/repeater.js");
 
-require("./ui/header.js");
-require("./ui/order.js");
-
 require("./ui/text.js");
 require("./ui/color.js");
 require("./ui/cover.js");
@@ -15,6 +12,9 @@ require("./ui/form.js");
 require("./ui/formButton.js");
 require("./ui/uploadButton.js");
 require("./ui/fontCombo.js");
+
+require("./ui/header.js");
+require("./ui/order.js");
 
 var dir = require.dir;
 

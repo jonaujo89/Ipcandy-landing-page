@@ -1,27 +1,32 @@
 ---
-Gallery#id1415100166237:
-    bg_color: '#F7F7F7'
-    title: Галерея работ 2
-    items:
-    -   img_1: templater_modules/lpcandy/assets/gallery/gallery_1.jpg
-        img_title_1: Дорога в облака
-        img_desc_1: Подпись к фото
-        img_text_1: Подробное описание проекта, интересные факты, подробное описание
-            проекта, интересные факты
-        img_2: templater_modules/lpcandy/assets/gallery/gallery_2.jpg
-        img_title_2: Дорога в облака
-        img_desc_2: Подпись к фото
-        img_text_2: Подробное описание проекта, интересные факты, подробное описание
-            проекта, интересные факты
-    -   img_1: templater_modules/lpcandy/assets/gallery/gallery_3.jpg
-        img_title_1: Дорога в облака
-        img_desc_1: Подпись к фото
-        img_text_1: Подробное описание проекта, интересные факты, подробное описание
-            проекта, интересные факты
-        img_2: templater_modules/lpcandy/assets/gallery/gallery_4.jpg
-        img_title_2: Дорога в облака
-        img_desc_2: Подпись к фото
-        img_text_2: Подробное описание проекта, интересные факты, подробное описание
-            проекта, интересные факты
+Header#id1415207870497:
+    logo:
+        type: image
+        url: /~maxtun/lpcandy_merged/templater_modules/lpcandy/assets/default_logo.png
+        text: Название компании
+        bold: true
+        italic: false
+        color: '#000'
+        size: 80
+        fontSize: 24
+    order_button:
+        color: red
+        text: Оставить заявку
+        form:
+            fields:
+            -   label: 'Имя:'
+                sub_label: ""
+                required: true
+                name: name
+                type: text
+            -   label: 'Телефон:'
+                sub_label: ""
+                required: true
+                name: name
+                type: text
+            button:
+                color: blue
+                label: Получить консультацию
+    phone: '8 <span style="color: #C1103A;">(800)</span> 123 45 67'
     variant: 2
 ...

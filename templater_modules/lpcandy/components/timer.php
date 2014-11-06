@@ -17,7 +17,7 @@ class Timer extends Block {
                     <div class="timer_desc">
                         <? $this->sub('Text','timer_desc') ?>
                     </div>
-                    <? $this->sub('Clock','clock') ?>
+                    <? $this->sub('Countdown','clock') ?>
                 </div>
             </div>
         </div>

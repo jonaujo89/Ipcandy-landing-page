@@ -284,16 +284,91 @@
 }
 
 
+/* modal form */
 
-
+form i {
+    color: #e93130;
+}
+.ajs-body {
+    padding: 0 35px;    
+}
+.ajs-dialog{
+    background: linear-gradient(to bottom, #fffefc, #e6e6e6) no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.ajs-body  form .form_fields label {
+    color: #383838;
+    display: block;
+    font-family: Arial;
+    font-size: 14px;
+    padding: 7px 0 6px;
+    text-align: left;
+}
+.ajs-body  form .form_fields label .field_title i {
+    color: #e93130;
+}
+.ajs-body  form .form_fields input.form_field_text{
+    height: 38px;
+    padding: 0 6px;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    color: #5b5b5b;
+    font-family: Arial;
+    font-size: 16px;
+    width: 97%;
+}
+.ajs-body  form .form_fields textarea.form_field_textarea {
+    height: auto;
+    padding: 0 6px;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    color: #5b5b5b;
+    font-family: Arial;
+    font-size: 16px;
+    width: 97%;
+}
+.ajs-body  form .form_fields .form_field label select{
+    width: 100%;
+}
+.ajs-body  form .form_submit {
+    margin: 15px 0 0 0;
+}
+.ajs-body  form .form_submit a.form_field_submit {
+    -moz-user-select: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+.ajs-body  form .form_submit a.form_field_submit div {
+    display: inline-block;
+    width: 100%;
+}
+.ajs-body  form .form_submit a.form_field_submit div span {
+    display: inline-block;
+    padding: 10px  0px;
+    text-align: center;
+    width: 100%;
+}
 
 
 /* header */
-img {
+.header img {
     border: 0 none;
     height: auto;
     max-width: 100%;
     vertical-align: middle;
+}
+.header .logo {
+    line-height: 350%;
+}
+.header .company_name{
+    overflow: hidden;
+    white-space: nowrap;
 }
 .header .container .span_btn .btn_wrap a {
     -moz-user-select: none;
@@ -307,28 +382,23 @@ img {
     text-decoration: none;
 }
 
-
 .header_1 .container {
     padding: 48px 0;
     color: #000000;
     font-family: Arial;
-}
-.header_1 .desc {
-    font-size: 20px;
-    line-height: 140%;
 }
 .header_1 .container .desc {
     font-size: 20px;
     line-height: 140%;
 }
 .header_1 .container .phone {
-    font-size: 29px;
+    font-size: 25px;
     line-height: 140%;
     text-align: right;
 }
 .header_1 .container .phone_desc {
     font-size: 16px;
-    line-height: 140%;
+    line-height: 120%;
     text-align: right;
 }
 
@@ -342,19 +412,20 @@ img {
     float: right;
     margin-right: 40px;
     text-align: right;
+    line-height: 110%;
 }
 .header_2 .container .span_btn .btn_wrap {
     display: inline-block;
-    margin-top: 10px;
 }
 .header_2 .container .phone {
     float: right;
     font-size: 29px;
-    line-height: 108%;
     margin-right: 40px;
-    margin-top: 10px;
     min-width: 300px;
     text-align: right;
+}
+.header_2 .span12 {
+    padding: 14px 0;
 }
 
 
@@ -392,7 +463,7 @@ img {
 }
 .header_3 .container .span_btn .btn_wrap {
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 
@@ -406,11 +477,6 @@ img {
     line-height: 100px;
     text-align: center;
 }
-.header_4 .container .logo .company_name {
-    margin-top: 25px;
-    overflow: hidden;
-    padding: 0 5px;
-}
 .header_4 .container .desc {
     font-size: 16px;
     margin-bottom: 15px;
@@ -420,6 +486,12 @@ img {
     float: left;
     padding: 5px;
     width: 30%;
+}
+.span5:first-child {
+    margin: 15px 0 0;
+}
+.span_ico {
+    margin: 2px 0 0;
 }
 .header_4 .container .ico_wrap .ico {
     background-position: center center;
@@ -530,10 +602,10 @@ img {
     font-size: 12px;
     font-family: Arial;
 }
-.order_1 .form .form_data .form_fields input.form_field_text, .container-fluid-1 .form .form_data .form_fields textarea.form_field_textarea {
+.order_1 .form .form_data .form_fields input.form_field_text, .order_1 .form .form_data .form_fields textarea.form_field_textarea {
     height: 38px;
     padding: 0px 7px;
-    width: 100%;
+    width: 99.5%;
     border: 1px solid #E8E8E8;
     background-color: #FFF;
     color: #5B5B5B;
@@ -551,7 +623,6 @@ img {
 .order_1 a.form_field_submit {
     display: inline-block;
     width: 100%;
-    padding: 1px 1px;
     border-radius: 3px;
     color: #FFFFFF;
     font-size: 16px;
@@ -569,7 +640,7 @@ img {
 }
 .order_1 .form_field_submit div span {
     display: inline-block;
-    width: 100%;
+    width: auto;
     padding: 14px 0 12px 0;
     text-align: center;
     border-radius: 3px;
@@ -639,7 +710,7 @@ img {
     width: 70px;
     height: 70px;
     content: "";
-    background-image: url("/~maxtun/lpcandy_new/templater_modules/lpcandy/assets/order/arrow2.png");
+    background-image: url("../../assets/order/arrow2.png");
     background-repeat: no-repeat;
 }
 .order_2 .btn_wrap a.btn span {
@@ -681,7 +752,7 @@ img {
     width: 450px;
     height: 20px;
     margin-top: 10px;
-    background: url("/~maxtun/lpcandy_new/templater_modules/lpcandy/assets/order/shadow.png") no-repeat;
+    background: url("../../assets/order/shadow.png") no-repeat;
 }
 .order_3 .data_wrap {
     float: left;
@@ -732,7 +803,6 @@ img {
     font-family: Arial;
     font-size: 16px;
     font-weight: bold;
-    padding: 1px;
     text-align: center;
     text-transform: uppercase;
     width: 100%;
@@ -831,7 +901,7 @@ img {
 .order_4 .form .form_data .form_fields input.form_field_text {
     margin: 0px;
     padding: 0px;
-    width: 100%;
+    width: 99.5%;
     border: 1px solid #E8E8E8;
     background-color: #FFF;
     color: #5B5B5B;
@@ -844,7 +914,6 @@ img {
 .order_4 .form .form_data .form_submit a.form_field_submit {
     display: inline-block;
     width: 100%;
-    padding: 1px 1px;
     border-radius: 3px;
     color: #FFFFFF;
     font-size: 16px;
@@ -985,7 +1054,7 @@ img {
 .order_5 .form .form_data .form_fields input.form_field_text {
     margin: 0px;
     padding: 0px;
-    width: 100%;
+    width: 99.5%;
     border: 1px solid #E8E8E8;
     background-color: #FFF;
     color: #5B5B5B;
@@ -997,7 +1066,7 @@ img {
 }
 .order_5 .form .form_data .form_submit a.form_field_submit {
     display: inline-block;
-    width: 100%;
+    width: 99.5%;
     padding: 1px 1px;
     border-radius: 3px;
     color: #FFFFFF;

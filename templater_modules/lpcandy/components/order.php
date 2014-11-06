@@ -288,7 +288,7 @@ class Order extends Block {
     
      function tpl_default_6() { 
         return  array(
-            'bg_img' =>'templater_modules/lpcandy/assets/order/bg_1.jpg',
+            'bg_img' =>'../../assets/order/bg_1.jpg',
             'title_1' => "Используйте наш конструктор",
             'title_2' => "Для своего лендинга",
             'title_3' => "Создайте эффективный лендинг за несколько минут",

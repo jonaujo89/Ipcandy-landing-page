@@ -39,7 +39,7 @@ class Logo extends Block {
                     if ($val['color']) $style .= "color:".$val['color'].";";
                     if ($val['fontSize']) $style .= "font-size:".$val['fontSize']."px;";
                 ?>
-                <span style="<?=$style?>"><?=$val['text']?></span>
+                <div class='company_name' style="<?=$style?>"><?=$val['text']?></div>
             <? endif ?>
         </div>
     <?}
@@ -81,15 +81,16 @@ class FormButton extends Block {
     function tpl($val,$name) {
         echo "<a class='btn_form btn ".$val['color']."'>".$val['text']."</a>";
         echo "<div style='display:none'>";
-            echo FormOrder::get()->getHtml($val['form'],$this->edit,$name.'.form');
+        echo FormOrder::get()->getHtml($val['form'],$this->edit,$name.'.form');
         echo "</div>";
     }
 }
 
 class FormOrder extends Block {
     public $editor = "lp.form";
-    public $internal = true;
+    public $internal = true;    
     
+
     function tpl($val) {?>
          <form action="" method="post" >
             <div class="form_fields">
@@ -123,8 +124,25 @@ class FormOrder extends Block {
                     </div>
                 </a>
             </div>
+            <div style="display:none">
+                <div class="form_done">
+                    <div class="form_done_title">
+                        <? $this->sub("Text", "form_done_title") ?>23
+                    </div>
+                    <div class="form_done_text">
+                        <? $this->sub("Text", "form_done_text") ?>
+                    </div>
+                 </div>
+             </div>
         </form>
     <?}
+    
+    function tpl_default() {
+        return array(
+            'form_done_title' => 'title',
+            'form_done_text' => 'text',
+        );        
+    }
 }
 
 class ImageBg extends Block {
@@ -154,7 +172,7 @@ class VideoFrame extends Block {
     }
 }
 
-class Clock extends Block {
+class Countdown extends Block {
     public $editor = "";
     public $internal = true;
     
@@ -171,4 +189,4 @@ Icon::register();
 ImageSrc::register();
 ImageBg::register();
 VideoFrame::register();
-Clock::register();
+Countdown::register();
