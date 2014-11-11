@@ -3,8 +3,6 @@
 @import "common/reset";
 
 @append "style.css";
-@append "../../../view/assets/script/jquery.js";
-@append "../ui/timer.js";
 
 @append "../lib/alertify/css/alertify.css";
 @append "../lib/alertify/css/themes/default.css";
@@ -13,6 +11,12 @@
 
 .grid(16,45,30);
 .reset();
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
 
 .container {
     .grid.container();

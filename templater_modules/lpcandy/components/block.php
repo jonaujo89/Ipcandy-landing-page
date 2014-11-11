@@ -133,11 +133,12 @@ class Block {
         }
     }
     
-    function repeat($name,$f) {
+    function repeat($name,$f,$options=false) {
         $list = array_values(@$this->val[$name] ?:array());
         
         if ($this->edit) {
-            echo '<div data-editor="lp.repeater" data-name="'.$name.'">';
+            $data_options = $options ? "data-options='".htmlspecialchars(json_encode((object)$options),ENT_QUOTES)."'" : "";
+            echo "<div data-editor='lp.repeater' data-name='".$name."' $data_options>";
         } else {
             echo "<div>";
         }
@@ -146,7 +147,7 @@ class Block {
         foreach ($list as $i=>$sub) {
             $this->repeating = $name.".".$i;
             $this->val = $sub;
-            echo "<div>";
+            echo "<div class='item_block'>";
             $f($sub,$this);
             echo "</div>";
         }
@@ -154,7 +155,7 @@ class Block {
         if ($this->edit) {
             $def_item = @$this->default_val[$name][0] ?:array();
             $this->val = $def_item;
-            echo "<div data-dummy='1'>";
+            echo "<div class='item_block' data-dummy='1'>";
             $f($def_item,$this);
             echo "</div>";
         }

@@ -5,6 +5,7 @@ lp.block = teacss.ui.control.extend({
         this._super(o);
         var me = this;
         this.cmp = this.options.cmp;
+        this.element = this.cmp.element;
         this.variantValues = {};
         this.variantDefault = {};
         
@@ -141,7 +142,6 @@ lp.block = teacss.ui.control.extend({
         }
         
         this.value = $.extend(
-            true,
             def,
             this.variantValues[this.current] || { type: me.type, id: me.id }
         );

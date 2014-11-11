@@ -13,17 +13,17 @@ class Benefits extends Block {
                     </h1>
                     <div class="item_list">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <div class="item">
+                            <div class='item'>
                                 <?=$self->sub('Icon','icon_1')?>
                                 <div class="name"><?=$self->sub('Text','name_1')?></div>
                                 <div class="desc"><?=$self->sub('Text','desc_1')?></div>
                             </div>
-                            <div class="item">
+                            <div class='item'>
                                 <?=$self->sub('Icon','icon_2')?>
                                 <div class="name"><?=$self->sub('Text','name_2')?></div>
                                 <div class="desc"><?=$self->sub('Text','desc_2')?></div>
                             </div>
-                            <div class="item">
+                            <div class='item'>
                                 <?=$self->sub('Icon','icon_3')?>
                                 <div class="name"><?=$self->sub('Text','name_3')?></div>
                                 <div class="desc"><?=$self->sub('Text','desc_3')?></div>

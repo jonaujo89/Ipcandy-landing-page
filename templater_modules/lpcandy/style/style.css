@@ -2813,14 +2813,16 @@ background-position: -240px 0;
     padding-bottom: 50px;
     text-align: center;
 }
-.logoClients1 .item_list .item {
+.logoClients1 .item_list .item_block {
     display: inline-block;
     width: 185px;
     height: 95px;
-    padding: 5px;
     text-align: center;
 }
-.logoClients1 .item_list.gray .item img {
+.logoClients1 .item_list .item_block > * {
+    padding: 5px;
+}
+.logoClients1 .item_list.gray .item_block img {
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
     -ms-filter: grayscale(100%);
@@ -2833,7 +2835,7 @@ background-position: -240px 0;
     -ms-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
-.logoClients1 .item_list .item img {
+.logoClients1 .item_list .item_block img {
     max-height: 85px;
     vertical-align: top;
 }

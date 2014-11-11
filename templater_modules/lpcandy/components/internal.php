@@ -137,7 +137,7 @@ class ImageBg extends Block {
 }
 
 class ImageSrc extends Block {
-    public $editor = "";
+    public $editor = "lp.image";
     public $internal = true;
     
     function tpl($val) {
