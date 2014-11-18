@@ -5,6 +5,7 @@ lp.block = teacss.ui.control.extend({
         this._super(o);
         var me = this;
         this.cmp = this.options.cmp;
+        this.element = this.cmp.element;
         this.variantValues = {};
         this.variantDefault = {};
         
@@ -49,15 +50,24 @@ lp.block = teacss.ui.control.extend({
     
     config: function (position) {
         var me = this;
+        
+        var dialogId = me.options.configForm.id || "dialog";
+        var dialog = me.Class[dialogId];
+        
         function setVisible() {
-            if (!me.Class.form.innerForm) return;
-            var val = me.Class.form.getValue();
-            $.each(me.Class.form.innerForm.items,function(i,item){
+            var form = dialog.form;
+            if (!form.innerForm) return;
+            var val = form.getValue();
+            $.each(form.innerForm.items,function(i,item){
                 var when = item.options.showWhen;
                 if (when) {
                     var show = true;
                     for (var key in when) {
-                        if (when[key]!=val[key]) show = false;
+                        if ($.isArray(when[key])) {
+                            if (jQuery.inArray(val[key],when[key])==-1) show = false;
+                        } else {
+                            if (when[key]!=val[key]) show = false;
+                        }
                     }
                     if (show)
                         item.element.show();
@@ -67,9 +77,11 @@ lp.block = teacss.ui.control.extend({
             });
         }
         
-        if (!this.Class.dialog) {
+        if (!dialog) {
             var dialogWidth = 500;
             var dialogHeight = undefined;
+            var form;
+            
             if (me.options.configForm.width) {
                 dialogWidth = me.options.configForm.width;
                 delete me.options.configForm.width;
@@ -79,23 +91,20 @@ lp.block = teacss.ui.control.extend({
                 delete me.options.configForm.height;
             }
             if (me.options.configForm.item) {
-                this.Class.form = me.options.configForm.item({});
+                form = me.options.configForm.item({});
             } else {
-                this.Class.form = teacss.ui.composite(me.options.configForm);
+                form = teacss.ui.composite(me.options.configForm);
             }
             
-            this.Class.dialog = teacss.ui.dialog({
+            dialog = this.Class[dialogId] = teacss.ui.dialog({
                 width: dialogWidth,
                 height: dialogHeight,
                 modal: false,
                 title: me.options.configForm.title || "Settings",
                 resizable: false,
-                items: [
-                    this.Class.form
-                ],
+                items: [ form ],
                 open: function (){
-                    me.Class.dialog.detached.appendTo(me.Class.dialog.element);
-                    
+                    dialog.detached.appendTo(dialog.element);
                     if (!lp.configOverlay) {
                         lp.configOverlay = $("<div>").css({
                             position: "absolute", left: 0, right: 0, top: 0, bottom: 0, zIndex: 20000
@@ -111,19 +120,22 @@ lp.block = teacss.ui.control.extend({
                     lp.configOverlay.hide();
                 }
             });
-            this.Class.form.bind("change",function(){
-                me.Class.current.value = me.Class.form.getValue();
+            form.bind("change",function(){
+                me.Class.current.value = form.getValue();
                 setVisible();
                 me.Class.current.trigger("change");
             });
+            dialog.form = form;
         }
-        this.Class.form.setValue(this.value);
+        dialog.form.setValue(this.value);
         this.Class.current = this;
         setVisible();
         
-        this.Class.dialog.detached = this.Class.dialog.element.children().detach();
-        if (position) this.Class.dialog.element.dialog("option","position",position);
-        this.Class.dialog.open();
+        dialog.detached = dialog.element.children().detach();
+        if (position) dialog.element.dialog("option","position",position);
+        
+        $(".ui-dialog-content:visible").dialog("close");
+        dialog.open();
     },
     
     getDefault: function (variant) {
@@ -146,6 +158,7 @@ lp.block = teacss.ui.control.extend({
             this.variantValues[this.current] || { type: me.type, id: me.id }
         );
         variant.show();
+        me.variant = variant;
 
         $.each(me.editors,function(e,editor){
             var sub_val = teacss.ui.prop(me.value,editor.options.name);
@@ -194,7 +207,9 @@ lp.block = teacss.ui.control.extend({
         
         me.controls = $("<div class='cmp-controls'>").appendTo(this.cmp.element);
         me.variants = this.cmp.element.children("[data-variant]").each(function(){
-            me.variantDefault[$(this).attr("data-variant")] = $.parseJSON($(this).attr("data-default"));
+            var def = $.parseJSON($(this).attr("data-default"));
+            var idx = $(this).attr("data-variant");
+            me.variantDefault[idx] = $.extend(def||{},{variant:parseInt(idx)});
             $(this).attr("data-default",null);
         });
         if (me.variants.length>1) {

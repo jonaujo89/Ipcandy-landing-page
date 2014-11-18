@@ -25,7 +25,7 @@ class Front extends Base {
             <head>
                 <meta charset="utf-8" />
                 <title><?= $page->title ?></title>
-                <script>var base_url = "<?=url('')?>"</script>
+                <script>var base_url = "<?=INDEX_DIR?>"</script>
                 <link rel="stylesheet" type="text/css" href="<?=$assets.'/default.css'?>">
                 <script src="<?=$assets.'/default.js'?>"> </script>
             </head>           

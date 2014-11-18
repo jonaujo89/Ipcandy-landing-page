@@ -3,21 +3,30 @@
 class Benefits extends Block {
     public $name = 'Benefits';
     public $description = "Benefits with icon";
+    public $editor = "lp.benefits";
     
     function tpl($val) {?>
-        <div class="container-fluid advantage advantage_1">
+        <div class="container-fluid benefits benefits_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <h1 class="title">
-                        <? $this->sub('Text','title') ?>
-                    </h1>
-                    <div class="item_list">
+                    <? if ($val['show_title'] || $this->edit): ?>
+                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title') ?>
+                        </h1>
+                    <? endif ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2') ?>
+                        </div>
+                    <? endif ?>
+                    <div class="item_list <?= $val['show_icon_border'] ? "" : "hide_ico_border" ?>">
+                        <? $show_icon_border = $val['show_benefits_name']?>
                         <? $this->repeat('items',function($val,$self){ ?>
                             <div class="item">
                                 <?=$self->sub('Icon','icon_1')?>
                                 <div class="name"><?=$self->sub('Text','name_1')?></div>
                                 <div class="desc"><?=$self->sub('Text','desc_1')?></div>
-                            </div>
+                            </div>   
                             <div class="item">
                                 <?=$self->sub('Icon','icon_2')?>
                                 <div class="name"><?=$self->sub('Text','name_2')?></div>
@@ -38,9 +47,15 @@ class Benefits extends Block {
     
      function tpl_default() { 
         return  array(
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_icon_border' => true,
+            'show_benefits_name' => true,
+            'background_color' =>'#FFFFFF',
             'title' => "Преимущества нашей компании",
+            'title_2' => "Подзаголовок",
             'items' => array(
-                array(
+                array(                    
                     'icon_1' => "templater_modules/lpcandy/assets/ico/77.png",
                     'icon_2' => "templater_modules/lpcandy/assets/ico/89.png",
                     'icon_3' => "templater_modules/lpcandy/assets/ico/127.png",
@@ -56,34 +71,38 @@ class Benefits extends Block {
     }
     
     function tpl_2($val) {?>
-        <div class="container-fluid advantage advantage_2">
+        <div class="container-fluid benefits benefits_2" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <h1 class="title">
-                        <? $this->sub('Text','title') ?>
-                    </h1>
+                    <? if ($val['show_title'] || $this->edit): ?>
+                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title') ?>
+                        </h1>
+                    <? endif ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2') ?>
+                        </div>
+                    <? endif ?>
                     <div class="item_list">
-                        <? foreach ($val['items'] as $sub): ?>
-                        <div class="item">
-                            <div class="ico" style="background-image: url('<?=INDEX_URL."/".$sub['icon_1']?>');"   >
+                        <? $this->repeat('items',function($val,$self){ ?>
+                            <div class="item">
+                                <?=$self->sub('Icon','icon_1')?>
+                                <div class="name"><?=$self->sub('Text','name_1')?></div>
+                                <div class="desc"><?=$self->sub('Text','desc_1')?></div>
+                            </div>   
+                            <div class="item">
+                                <?=$self->sub('Icon','icon_2')?>
+                                <div class="name"><?=$self->sub('Text','name_2')?></div>
+                                <div class="desc"><?=$self->sub('Text','desc_2')?></div>
                             </div>
-                            <div class="name"><?=$sub['name_1']?></div>
-                            <div class="desc"><?=$sub['desc_1']?></div>
-                        </div>
-                        <div class="item">
-                            <div class="ico" style="background-image: url('<?=INDEX_URL."/".$sub['icon_2']?>');"  >
+                            <div class="item">
+                                <?=$self->sub('Icon','icon_3')?>
+                                <div class="name"><?=$self->sub('Text','name_3')?></div>
+                                <div class="desc"><?=$self->sub('Text','desc_3')?></div>
                             </div>
-                            <div class="name"><?=$sub['name_2']?></div>
-                            <div class="desc"><?=$sub['desc_2']?></div>
-                        </div>
-                        <div class="item">
-                            <div class="ico" style="background-image: url('<?=INDEX_URL."/".$sub['icon_3']?>');"  >
-                            </div>
-                            <div class="name"><?=$sub['name_3']?></div>
-                            <div class="desc"><?=$sub['desc_3']?></div>
-                        </div>
-                        <div style="clear: both"></div>
-                        <? endforeach ?>
+                            <div style="clear: both"></div>
+                        <? }) ?>
                     </div>
                 </div>
             </div>
@@ -92,7 +111,11 @@ class Benefits extends Block {
     
      function tpl_default_2() { 
         return  array(
+            'show_title' => true,
+            'show_title_2' => false,
+            'background_color' =>'#FFFFFF',
             'title' => "Преимущества нашей компании",
+            'title_2' => "Подзаголовок",
             'items' => array(
                 array(
                     'icon_1' => "templater_modules/lpcandy/assets/ico/77.png",
@@ -122,12 +145,19 @@ class Benefits extends Block {
     
     
     function tpl_3($val) {?>
-        <div class="container-fluid advantage advantage_3">
+        <div class="container-fluid benefits benefits_3" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <h1 class="title">
-                        <? $this->sub('Text','title') ?>
-                    </h1>
+                    <? if ($val['show_title'] || $this->edit): ?>
+                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title') ?>
+                        </h1>
+                    <? endif ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2') ?>
+                        </div>
+                    <? endif ?>
                     <div class="item_list">
                         <? foreach ($val['items_top'] as $sub): ?>
                         <div class="item">
@@ -167,15 +197,19 @@ class Benefits extends Block {
     
      function tpl_default_3() { 
         return  array(
-            'title' => "Преимущества нашей компании",           
+            'show_title' => true,
+            'show_title_2' => false,
+            'background_color' =>'#FFFFFF',
+            'title' => "Преимущества нашей компании",
+            'title_2' => "Подзаголовок",           
             'items_top' => array(
                 array(
                     'icon_1' => "templater_modules/lpcandy/assets/ico/77.png",
                     'icon_2' => "templater_modules/lpcandy/assets/ico/89.png",
                     'name_1' => "Бесплатная доставка",
                     'name_2' => "Индивидуальное обучение",
-                    'desc_1' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
-                    'desc_2' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
+                    'desc_1' => "Коротко и ясно о преимуществах вашей компании. Можно обойтись и без этого краткого описания, только заголовки.",
+                    'desc_2' => "Коротко и ясно о преимуществах вашей компании. Можно обойтись и без этого краткого описания, только заголовки.",
                 ),
             ),
             'items_bottom' => array(
@@ -184,20 +218,27 @@ class Benefits extends Block {
                     'icon_4' => "templater_modules/lpcandy/assets/ico/165.png",                    
                     'name_3' => "Круглосуточная поддержка",
                     'name_4' => "Индивидуальное обучение ",
-                    'desc_3' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
-                    'desc_4' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
+                    'desc_3' => "Коротко и ясно о преимуществах вашей компании. Можно обойтись и без этого краткого описания, только заголовки.",
+                    'desc_4' => "Коротко и ясно о преимуществах вашей компании. Можно обойтись и без этого краткого описания, только заголовки.",
                 ),
             )
         );
     }
     
     function tpl_4($val) {?>
-        <div class="container-fluid advantage advantage_4">
+        <div class="container-fluid benefits benefits_4" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <h1 class="title">
-                        <? $this->sub('Text','title') ?>
-                    </h1>
+                    <? if ($val['show_title'] || $this->edit): ?>
+                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title') ?>
+                        </h1>
+                    <? endif ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2') ?>
+                        </div>
+                    <? endif ?>
                     <div class="item_list clear">
                         <? foreach ($val['items_top'] as $sub): ?>
                         <div class="item">
@@ -237,7 +278,11 @@ class Benefits extends Block {
     
      function tpl_default_4() { 
         return  array(
+           'show_title' => true,
+           'show_title_2' => false,
+           'background_color' =>'#FFFFFF',
            'title' => "Преимущества нашей компании",
+           'title_2' => "Подзаголовок",
            'items_top' => array(
                 array(
                     'icon_1' => "templater_modules/lpcandy/assets/benefits/1.jpg",
@@ -262,12 +307,19 @@ class Benefits extends Block {
     }
     
      function tpl_5($val) {?>
-        <div class="container-fluid advantage advantage_5">
+        <div class="container-fluid benefits benefits_5" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <h1 class="title">
-                        <? $this->sub('Text','title') ?>
-                    </h1>
+                    <? if ($val['show_title'] || $this->edit): ?>
+                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title') ?>
+                        </h1>
+                    <? endif ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2') ?>
+                        </div>
+                    <? endif ?>
                     <div class="item_list clear">
                         <? foreach ($val['items'] as $sub): ?>
                         <div class="item">
@@ -298,7 +350,11 @@ class Benefits extends Block {
     
      function tpl_default_5() { 
         return  array(
+            'show_title' => true,
+            'show_title_2' => false,
+            'background_color' =>'#FFFFFF',
             'title' => "Преимущества нашей компании",
+            'title_2' => "Подзаголовок",
             'items' => array(
                 array(
                     'icon_1' => "templater_modules/lpcandy/assets/benefits/1.jpg",

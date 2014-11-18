@@ -9,22 +9,33 @@
 @append "../lib/alertify/alertify.js";
 @append "js/core.js";
 
-.grid(16,45,30);
 .reset();
+
+.grid(16,45,30);
+.grid_spans() {
+    @{ 
+        for (var i=1;i<=grid.columnCount;i++) {
+            @{
+                .span@i {
+                    .grid.columns(i);
+                }        
+            }
+        }
+    }
+}
 
 .container {
     .grid.container();
     padding: 50px 0;
 }
+.grid_spans();
 
-@{ 
-    for (var i=1;i<=grid.columnCount;i++) {
-        @{
-            .span@i {
-                .grid.columns(i);
-            }        
-        }
+@media (max-width:1199px) {
+    .grid(16,30,30);
+    .container {
+        .grid.container();
     }
+    .grid_spans();
 }
 
 

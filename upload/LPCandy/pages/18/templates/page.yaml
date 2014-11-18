@@ -1,32 +1,29 @@
 ---
-Header#id1415207870497:
-    logo:
-        type: image
-        url: /~maxtun/lpcandy_merged/templater_modules/lpcandy/assets/default_logo.png
-        text: Название компании
-        bold: true
-        italic: false
-        color: '#000'
-        size: 80
-        fontSize: 24
-    order_button:
-        color: red
-        text: Оставить заявку
-        form:
-            fields:
-            -   label: 'Имя:'
-                sub_label: ""
-                required: true
-                name: name
-                type: text
-            -   label: 'Телефон:'
-                sub_label: ""
-                required: true
-                name: name
-                type: text
-            button:
-                color: blue
-                label: Получить консультацию
-    phone: '8 <span style="color: #C1103A;">(800)</span> 123 45 67'
-    variant: 2
+Order#id1416320466435:
+    show_form_title_2: true
+    show_form_bottom_text: true
+    background_image: templater_modules/lpcandy/assets/order/order_1.jpg
+    title_1: |
+        <p>ЭКОНОМИЧНЫЕ</p><p>ГРУЗОПЕРЕВОЗКИ</p><p>ПО ВСЕЙ РОССИИ</p>
+    title_2: <p>С нами вы экономите до 50%</p><p>Гарантированная сохранность груза</p><p>Своевременная
+        доставка</p>
+    form_title_1: Оставьте заявку на бесплатный образец или расчет стоимости
+    form_title_2: И получите выгодное предложение<br> в течение дня
+    form_bottom_text: Мы не передаем Вашу персональную информацию третьим лицам
+    form:
+        fields:
+        -   label: 'Имя:'
+            sub_label: ""
+            required: true
+            name: name
+            type: text
+        -   label: 'Телефон:'
+            sub_label: ""
+            required: true
+            name: phone
+            type: text
+        button:
+            color: blue
+            label: Получить консультацию
+    variant: 1
 ...

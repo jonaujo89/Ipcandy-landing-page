@@ -1,11 +1,10 @@
 lp.logo = lp.cover.extendOptions({
     change: function(){
         var me = this;
-        //me.cover.detach();
         var logo_div = me.element.find(".logo");
-        logo_div.empty();
+        logo_div.empty(logo_div);
         if (me.value.type=="image") {
-            logo_div.append($("<img>").attr({src:me.value.url,width:me.value.size+"%"}));
+            logo_div.append($("<img>").attr({src:base_url+"/"+me.value.url,width:me.value.size+"%"}));
         } else {
             logo_div.append($('<div class="company_name">').text(me.value.text).css({
                 fontStyle: me.value.italic ? 'italic' : '',
@@ -21,7 +20,7 @@ lp.logo = lp.cover.extendOptions({
         items: [
             {
                 name: 'type', type: 'radio', margin: "15px 0 20px", items: [
-                    { label: "Image logo ", value: 'image' },
+                    { label: "Image logo", value: 'image' },
                     { label: "Text name logo", value: 'text' }
                 ]
             },

@@ -29,7 +29,9 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
                 type: 'POST',
                 success: function(data){
                     data = $.parseJSON(data);
-                    me.value = data[0].url;
+                    var sub_url = data[0].url.substring(base_url.length);
+                    if (sub_url[0]=="/") sub_url = sub_url.substring(1);
+                    me.value = sub_url;
                     me.trigger("change");
                 }
             });            

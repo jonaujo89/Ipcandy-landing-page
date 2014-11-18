@@ -53,6 +53,7 @@ class Block {
     
     function getHtml($val,$edit,$name=false,$options=false) {
         $this->edit = $edit;
+        $this->name_prefix = $name;
         ob_start();
         
         $current = (int)@$val['variant'];
@@ -90,6 +91,7 @@ class Block {
         }
         
         $tpl = ob_get_clean();
+        $this->name_prefix = false;
         
         if ($edit) {
             $editor = $this->editor ? 'data-editor="'.$this->editor.'"' : "";
@@ -126,7 +128,7 @@ class Block {
         $obj = @self::$list[$type];
         if ($obj) {
             $sub = @$this->val[$name];
-            $name = $this->repeating ? $this->repeating.".".$name : $name;
+            $name = $this->name_prefix ? $this->name_prefix.".".$name : $name;
             echo $obj->getHtml($sub,$this->edit,$name,$options);
         } else {
             throw new \Exception("Block type is not registered $type");
@@ -144,9 +146,9 @@ class Block {
         
         $old_val = $this->val;
         foreach ($list as $i=>$sub) {
-            $this->repeating = $name.".".$i;
+            $this->name_prefix = $name.".".$i;
             $this->val = $sub;
-            echo "<div>";
+            echo "<div class='item_block'>";
             $f($sub,$this);
             echo "</div>";
         }
@@ -154,12 +156,12 @@ class Block {
         if ($this->edit) {
             $def_item = @$this->default_val[$name][0] ?:array();
             $this->val = $def_item;
-            echo "<div data-dummy='1'>";
+            echo "<div class='item_block' data-dummy='1'>";
             $f($def_item,$this);
             echo "</div>";
         }
         
-        $this->repeating = false;
+        $this->name_prefix = false;
         $this->val = $old_val;
         echo "</div>";
     }

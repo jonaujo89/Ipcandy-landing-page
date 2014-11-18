@@ -11,7 +11,7 @@
         <script src="/~boomyjee/dayside/client/lib/require.proxy.php"></script>
         
         <script>
-            var base_url = "<?=url('')?>";
+            var base_url = "<?=INDEX_URL?>";
             require(
                 "/~boomyjee/templater/lib/client/app.js",
                 "<?=url('templater_modules/lpcandy/lpcandy.js')?>",

@@ -12,14 +12,15 @@ class TemplaterApi extends \TemplaterApi {
     
     function __construct($page) {
         parent::__construct();
-        $this->base_url = "/~boomyjee";
-        $this->base_dir = realpath(BINGO_PATH."/..");
         $this->page = $page;
         $this->user = $page->user;
         $this->user_id = $page->user->getField('id');
         
         $this->settingsPath =  $this->page->getSettingsPath();
         $this->templatePath = $page->getTemplatePath();
+        
+        $this->base_dir = INDEX_DIR;
+        $this->base_url = INDEX_URL;
         
         $this->uploadDir = INDEX_DIR."/upload/LPCandy/files/".$this->user_id;
         $this->uploadUrl = INDEX_URL."/upload/LPCandy/files/".$this->user_id;

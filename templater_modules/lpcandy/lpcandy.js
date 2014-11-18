@@ -12,9 +12,11 @@ require("./ui/form.js");
 require("./ui/formButton.js");
 require("./ui/uploadButton.js");
 require("./ui/fontCombo.js");
+require("./ui/media.js");
 
 require("./ui/header.js");
 require("./ui/order.js");
+require("./ui/benefits.js");
 
 var dir = require.dir;
 
