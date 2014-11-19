@@ -47,7 +47,7 @@ class Benefits extends Block {
                                     </div>
                                 <? endif ?>
                             </div>
-                            <div class="item">
+                            <div class='item'>
                                 <?=$self->sub('Icon','icon_3')?>
                                 <? if ($val['show_benefits_name'] || $self->edit): ?>
                                     <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >

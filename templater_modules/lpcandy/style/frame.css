@@ -58,6 +58,14 @@ body > div {
     margin-left: -25px;
 }
 
+.cmp-repeater-cover,
+.cmp-repeater-cover:before
+{
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+}
+
 .cmp-repeater-cover {
     bottom: 0;
     position: absolute;
@@ -69,6 +77,10 @@ body > div {
     padding-left: 10px;
 }
 
+.cmp-repeater-cover-inline {
+    right: 0px;
+}
+
 .cmp-repeater-cover:before {
     content: "";
     position: absolute;
@@ -76,6 +88,11 @@ body > div {
     width: 9px;
     border: 1px solid #ccc;
     border-left: none;
+    
+}
+
+.cmp-repeater-cover-inline:before {
+    display: none;
 }
 
 div:hover > .cmp-repeater-cover {
@@ -93,12 +110,61 @@ div:hover > .cmp-repeater-cover {
     margin-top: 0px;
 }
 
+.cmp-repeater-cover-inline .lp-button {
+    top: 1px;
+    right: 1px;
+    margin-top: 0;
+    z-index: 1001;
+}
+
+.cmp-repeater-cover-inline .lp-button:nth-child(2) {
+    top: 32px;
+}
+
+.lp-button-repeater-add-wrap {
+    position: absolute !important;
+    top: 100%;
+    padding-top: 15px;
+    height: 45px;
+    left: 0; right: 0;
+    display: none;
+}
+
+*:hover > .lp-button-repeater-add-wrap {
+    display: block;
+}
+
+.lp-button.lp-button-repeater-add:before {
+    position: absolute;
+    left: 0; top: 0;
+    width: 30px; height: 30px;
+    border-right: 1px solid #ccc;
+    text-align: center;
+}
+
+.lp-button.lp-button-repeater-add {
+    position: relative;
+    font-size: 16px;
+    padding: 0 20px 0 50px;
+    margin: 0 auto;
+    width: auto;
+    opacity: 0.5;
+}
+
+.lp-button.lp-button-repeater-add:hover {
+    opacity: 1;
+}
+
 *[data-editor="lp.repeater"] > div {
     position: relative;
 }
 
+*[data-editor="lp.repeater"].dragging .lp-button {
+    display: none !important;
+}
+
 *[data-dummy] {
-    display: none;
+    display: none !important;
 }
 
 div:hover > .cmp-controls {

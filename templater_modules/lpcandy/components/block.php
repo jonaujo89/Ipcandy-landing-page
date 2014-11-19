@@ -135,11 +135,12 @@ class Block {
         }
     }
     
-    function repeat($name,$f) {
+    function repeat($name,$f,$options=false) {
         $list = array_values(@$this->val[$name] ?:array());
         
         if ($this->edit) {
-            echo '<div data-editor="lp.repeater" data-name="'.$name.'">';
+            $data_options = $options ? "data-options='".htmlspecialchars(json_encode((object)$options),ENT_QUOTES)."'" : "";
+            echo "<div data-editor='lp.repeater' data-name='".$name."' $data_options>";
         } else {
             echo "<div>";
         }

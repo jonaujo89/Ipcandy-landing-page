@@ -314,7 +314,7 @@ class Media extends Block {
 }
 
 class ImageSrc extends Block {
-    public $editor = "lp.imageSrc";
+    public $editor = "lp.image";
     public $internal = true;
     
     function tpl($val) {
