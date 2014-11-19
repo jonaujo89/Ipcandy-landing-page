@@ -4,9 +4,9 @@ lp.order = lp.block.extendOptions({
         var me = this;        
         
         //if для того, чтобы выполнять изменения фона только при наличии значения
-        if(me.value.background_image || me.value.background_texture){
+        if(me.value.background){
             me.element.find(".order_"+this.value.variant).css({
-                backgroundImage: "url("+base_url+"/"+(me.value.background_image || me.value.background_texture)+")",
+                backgroundImage: "url("+base_url+"/"+(me.value.background)+")",
             });
         }
         
@@ -62,7 +62,7 @@ lp.order = lp.block.extendOptions({
         items: [            
             { type: "label", value: "Background image:", margin: "5px 0", showWhen: { variant: [1,2,6] }},
             { 
-                name: "background_image", width: 245,
+                name: "background", width: 245,
                 type: ui.combo.extendOptions({
                     panelClass: "only-icons",
                     comboWidth: 660,
@@ -163,7 +163,7 @@ lp.order = lp.block.extendOptions({
             },
             { type: "label", value: "Background texture:", margin: "5px 0", showWhen: { variant: [3] }},
              { 
-                name: "background_texture", width: '95px',
+                name: "background", width: '95px',
                 type: ui.combo.extendOptions({
                     panelClass: "only-icons",
                     comboWidth: 480,

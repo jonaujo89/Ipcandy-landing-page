@@ -2,7 +2,7 @@ lp.formButton = lp.cover.extendOptions({
     change: function(){
         var me = this;
         var button = me.element.find(".btn_form");
-        button.text(me.value.text).prop("class", "btn_form "+me.value.color);
+        button.text(me.value.text).prop("class", "btn_form "+ me.value.color || "btn_form");
     },
     configForm: {
         title: "Order form",

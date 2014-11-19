@@ -6,7 +6,7 @@ class Order extends Block {
     public $editor = "lp.order";
     
     function tpl($val) {?>
-        <div class="container-fluid order order_1" style="background: url('<?=INDEX_URL."/".$val['background_image']?>') no-repeat scroll center top / cover rgba(0, 0, 0, 0);">
+        <div class="container-fluid order order_1" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat scroll center top / cover rgba(0, 0, 0, 0);">
             <div class="dark">
                 <div class="container">
                     <div class="span10">
@@ -46,7 +46,7 @@ class Order extends Block {
         return  array(
             'show_form_title_2' => true,
             'show_form_bottom_text' => true,
-            'background_image' =>'templater_modules/lpcandy/assets/order/order_1.jpg',
+            'background' =>'templater_modules/lpcandy/assets/order/order_1.jpg',
             'title_1' => "<p>ЭКОНОМИЧНЫЕ</p><p>ГРУЗОПЕРЕВОЗКИ</p><p>ПО ВСЕЙ РОССИИ</p>",
             'title_2' => "<p>С нами вы экономите до 50%</p><p>Гарантированная сохранность груза</p><p>Своевременная доставка</p>",
             'form_title_1' => "Оставьте заявку на бесплатный образец или расчет стоимости",
@@ -70,7 +70,7 @@ class Order extends Block {
     
     
     function tpl_2($val) {?>
-        <div class="container-fluid order order_2" style="background: url('<?=INDEX_URL."/".$val['background_image']?>') no-repeat scroll center top / cover rgba(0, 0, 0, 0);">
+        <div class="container-fluid order order_2" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat scroll center top / cover rgba(0, 0, 0, 0);">
             <div class="background_toggle_noise <?= $val['add_background_noise'] ? "with_noise" : "dark"?>">
                 <div class="container">
                     <div class="title_1">
@@ -98,7 +98,7 @@ class Order extends Block {
             'add_background_noise' => true,
             'show_text_above_button' => true,
             'add_arrow' => true,
-            'background_image' =>'templater_modules/lpcandy/assets/order/order_2.jpg',
+            'background' =>'templater_modules/lpcandy/assets/order/order_2.jpg',
             'title_1' => "Образование за рубежом",
             'title_2' => "150 языковых школ и 250 высших учебных заведений мира",
             'button_note' => "Присоединяйтесь к нашим студентам",
@@ -107,7 +107,7 @@ class Order extends Block {
     }
     
     function tpl_3($val) {?>
-        <div class="container-fluid order order_3" style="background: url('<?=INDEX_URL."/".$val['background_texture']?>');">
+        <div class="container-fluid order order_3" style="background: url('<?=INDEX_URL."/".$val['background']?>');">
             <div class="container">                
                 <div class="img_wrap <?= $val['show_border_media'] ? "" : "hide_border" ?>">
                     <? $this->sub('Media','media_file') ?>
@@ -143,7 +143,7 @@ class Order extends Block {
     
      function tpl_default_3() { 
         return  array(            
-            'background_texture' =>'templater_modules/lpcandy/assets/texture/1.png',
+            'background' =>'templater_modules/lpcandy/assets/texture/1.png',
             'media_file' =>  array_merge(Media::tpl_default(),array('type'=>'image_background','image_url'=> 'templater_modules/lpcandy/assets/order/order_3.jpg')),
             'title_1' => "КУПИТЕ КОНЯ ВАШЕЙ МЕЧТЫ ЗА 2 ЧАСА",
             'title_2' => "СЭКОНОМЬТЕ ВРЕМЯ ПРИ ПОКУПКЕ МОТО",
@@ -301,7 +301,7 @@ class Order extends Block {
     }
     
     function tpl_6($val) {?>
-        <div class="container-fluid order order_6" style="background: url('<?=INDEX_URL.$val['background_image']?>') no-repeat scroll center top / cover rgba(0, 0, 0, 0);">
+        <div class="container-fluid order order_6" style="background: url('<?=INDEX_URL.$val['background']?>') no-repeat scroll center top / cover rgba(0, 0, 0, 0);">
             <div class="dark">
                 <div class="container">
                     <div class="content_wrap <?= $val['move_form'] ? $val['move_form'] : "align_right" ?>">
@@ -344,7 +344,7 @@ class Order extends Block {
             'show_title_3' => true,
             'show_form_bottom_text' => true,
             'move_form' => "align_right",
-            'background_image' => "/templater_modules/lpcandy/assets/order/order_6.jpg",
+            'background' => "/templater_modules/lpcandy/assets/order/order_6.jpg",
             'title_1' => "Используйте наш конструктор",
             'title_2' => "Для своего лендинга",
             'title_3' => "Создайте эффективный лендинг за несколько минут",
