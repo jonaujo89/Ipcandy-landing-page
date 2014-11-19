@@ -3,81 +3,108 @@
 class Services extends Block {
     public $name = 'Services';
     public $description = "Services with image";
+    public $editor = "lp.services";
     
     function tpl($val) {?>
-        <div class="container-fluid services services_1" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid services services_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <h1 class="title">
-                        <? $this->sub('Text','title_1') ?> 
-                    </h1>
-                    <div class="title_2">
-                        <? $this->sub('Text','title_2') ?> 
-                    </div>    
+                    <? if ($val['show_title'] || $this->edit): ?>
+                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title') ?>
+                        </h1>
+                    <? endif ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2') ?>
+                        </div>
+                    <? endif ?>    
                     <div class="item_list clear">
-                        <div class="item">
-                            <div class="item_data">
-                                <div class="img">
-                                    <img src="<?=INDEX_URL."/".$val['img1']?>">
-                                </div>
-                                <div class="name">
-                                    <? $this->sub('Text','name_1') ?>
-                                </div>
-                                <div class="desc">
-                                    <? $this->sub('Text','desc_1') ?>
-                                </div>
-                                <div class="price">
-                                    <? $this->sub('Text','price_1') ?>
-                                </div>
-                                <div class="btn_wrap">
-                                    <div class="btn form_btn">
-                                        <? $this->sub('FormButton','btn') ?>
+                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                            <div class="item">
+                                <div class="item_data">
+                                    <? if ($val['show_image'] || $self->edit): ?>
+                                        <div class="img" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Image','image_1') ?>
+                                        </div>
+                                    <? endif ?>
+                                    <div class="name">
+                                        <? $self->sub('Text','name_1') ?>
                                     </div>
+                                    <? if ($val['show_desc'] || $self->edit): ?>
+                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Text','desc_1') ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($val['show_price'] || $self->edit): ?>
+                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Text','price_1') ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($val['show_order_button'] || $self->edit): ?>
+                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub("FormButton",'order_button_1') ;?>
+                                        </div>
+                                    <? endif ?>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="item_data">
-                                <div class="img">
-                                    <img src="<?=INDEX_URL."/".$val['img2']?>">
-                                </div>
-                                <div class="name">
-                                    <? $this->sub('Text','name_2') ?>
-                                </div>
-                                <div class="desc">
-                                    <? $this->sub('Text','desc_2') ?>
-                                </div>
-                                <div class="price">
-                                    <? $this->sub('Text','price_2') ?>
-                                </div>
-                                <div class="btn_wrap">
-                                    <div class="btn form_btn">
-                                        <? $this->sub('FormButton','btn') ?>
+                            <div class="item">
+                                <div class="item_data">
+                                    <? if ($val['show_image'] || $self->edit): ?>
+                                        <div class="img" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Image','image_2') ?>
+                                        </div>
+                                    <? endif ?>
+                                    <div class="name">
+                                        <? $self->sub('Text','name_2') ?>
                                     </div>
+                                    <? if ($val['show_desc'] || $self->edit): ?>
+                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Text','desc_2') ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($val['show_price'] || $self->edit): ?>
+                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Text','price_2') ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($val['show_order_button'] || $self->edit): ?>
+                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub("FormButton",'order_button_2') ;?>
+                                        </div>
+                                    <? endif ?>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="item_data">
-                                <div class="img">
-                                    <img src="<?=INDEX_URL."/".$val['img3']?>">
-                                </div>
-                                <div class="name">
-                                    <? $this->sub('Text','name_3') ?>
-                                </div>
-                                <div class="desc">
-                                    <? $this->sub('Text','desc_3') ?>
-                                </div>
-                                <div class="price">
-                                    <? $this->sub('Text','price_3') ?>
-                                </div>
-                                <div class="btn_wrap">
-                                    <div class="btn form_btn">
-                                        <? $this->sub('FormButton','btn') ?>
+                            <div class="item">
+                                <div class="item_data">
+                                    <? if ($val['show_image'] || $self->edit): ?>
+                                        <div class="img" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Image','image_3') ?>
+                                        </div>
+                                    <? endif ?>
+                                    <div class="name">
+                                        <? $self->sub('Text','name_1') ?>
                                     </div>
+                                    <? if ($val['show_desc'] || $self->edit): ?>
+                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Text','desc_3') ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($val['show_price'] || $self->edit): ?>
+                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Text','price_3') ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($val['show_order_button'] || $self->edit): ?>
+                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub("FormButton",'order_button_3') ;?>
+                                        </div>
+                                    <? endif ?>
                                 </div>
                             </div>
-                        </div>
+                        
+                            <div style="clear: both"></div>
+                        <? }) ?>                        
                     </div> 
                  </div>
             </div>
@@ -86,22 +113,34 @@ class Services extends Block {
     
      function tpl_default() { 
         return  array(
-            'bg_color' => '#F7F7F7',
-            'title_1' => "Что мы предлагаем",
-            'title_2' => "У нас огромный выбор самых различных услуг",
-            'img1' => "templater_modules/lpcandy/assets/services/1.jpg",
-            'img2' => "templater_modules/lpcandy/assets/services/2.jpg",
-            'img3' => "templater_modules/lpcandy/assets/services/3.jpg",
-            'name_1' => "Перевозки по России  ",
-            'name_2' => "Международные перевозки  ",
-            'name_3' => "Таможенное оформление ",
-            'desc_1' => "Все оформление берем на себя, от вас ничего не потребуется. Любой груз доставим вовремя. ",
-            'desc_2' => "еревозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя. ",
-            'desc_3' => "Все оформление берем на себя, от вас ничего не потребуется. Любой груз доставим вовремя. ",
-            'price_1' => "1 000 руб. ",
-            'price_2' => "3 000 руб. ",
-            'price_3' => "5 000 руб. ",
-            'btn' =>  array('text'=>'<span>Заказать</span>', 'colorBtn'=>'blue'),
+            'show_title' => true,
+            'show_title_2' => true,
+            'show_image' => true,
+            'show_desc' => true,
+            'show_price' => true,
+            'show_order_button' => true,
+            'background_color' =>'#FFFFFF',
+            'title' => "Что мы предлагаем",
+            'title_2' => "У нас огромный выбор самых различных услуг ",
+            'items' => array(
+                array(
+                    'image_1' =>  array_merge(Image::tpl_default(),array('type'=>'image_src','image_url'=>'templater_modules/lpcandy/assets/services/1.jpg')),
+                    'image_2' =>  array_merge(Image::tpl_default(),array('type'=>'image_src','image_url'=>'templater_modules/lpcandy/assets/services/2.jpg')),
+                    'image_3' =>  array_merge(Image::tpl_default(),array('type'=>'image_src','image_url'=>'templater_modules/lpcandy/assets/services/3.jpg')),
+                    'name_1' => "Перевозки по России",
+                    'name_2' => "Международные перевозки",
+                    'name_3' => "Таможенное оформлении",
+                    'desc_1' => "Все оформление берем на себя, от вас ничего не потребуется. Любой груз доставим вовремя.",
+                    'desc_2' => "Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя.",
+                    'desc_3' => "Все оформление берем на себя, от вас ничего не потребуется. Любой груз доставим вовремя.",
+                    'price_1' => "1 000 руб.",
+                    'price_2' => "3 000 руб.",
+                    'price_3' => "5 000 руб.",
+                    'order_button_1' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать')),
+                    'order_button_2' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать')),
+                    'order_button_3' => array_merge(FormButton::tpl_default(),array('text'=>'Оформить')),
+                )
+            )
         );
     }
     

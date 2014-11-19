@@ -1,29 +1,20 @@
 ---
-Order#id1416320466435:
-    show_form_title_2: true
-    show_form_bottom_text: true
-    background_image: templater_modules/lpcandy/assets/order/order_1.jpg
-    title_1: |
-        <p>ЭКОНОМИЧНЫЕ</p><p>ГРУЗОПЕРЕВОЗКИ</p><p>ПО ВСЕЙ РОССИИ</p>
-    title_2: <p>С нами вы экономите до 50%</p><p>Гарантированная сохранность груза</p><p>Своевременная
-        доставка</p>
-    form_title_1: Оставьте заявку на бесплатный образец или расчет стоимости
-    form_title_2: И получите выгодное предложение<br> в течение дня
-    form_bottom_text: Мы не передаем Вашу персональную информацию третьим лицам
-    form:
-        fields:
-        -   label: 'Имя:'
-            sub_label: ""
-            required: true
-            name: name
-            type: text
-        -   label: 'Телефон:'
-            sub_label: ""
-            required: true
-            name: phone
-            type: text
-        button:
-            color: blue
-            label: Получить консультацию
-    variant: 1
+Services#id1416399640485:
+    title_1: Что мы предлагаем
+    title_2: У нас огромный выбор самых различных услуг
+    img1: templater_modules/lpcandy/assets/services/1.jpg
+    img2: templater_modules/lpcandy/assets/services/2.jpg
+    name_1: Перевозки по России
+    name_2: Международные перевозки
+    desc_1: 'Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой
+        груз доставим вовремя.  '
+    desc_2: 'Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой
+        груз доставим вовремя. '
+    price_1: '2 000 руб. '
+    price_2: '<span style=''color: #BBBBBB''><strike>7 000 руб.</strike></span> 3
+        000 руб. '
+    btn:
+        text: <span>Заказать</span>
+        colorBtn: blue
+    variant: 2
 ...

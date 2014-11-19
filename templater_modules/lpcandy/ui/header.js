@@ -29,11 +29,11 @@ lp.header = lp.block.extendOptions({
         items: [                                   
             { 
                 name: "show_desc_and_order_button", label: "Show description and order button", type: "check", width: "auto", height: 27, 
-                margin: "10px 0 10px 0px", showWhen: { variant: [3] }
+                margin: "5px 49% 5px 0px", showWhen: { variant: [3] }
             },
             { 
                 name: "show_order_button", label: "Show order button", type: "check", width: "auto", height: 27, 
-                margin: "10px 0 10px 0px", showWhen: { variant: [2,4] }
+                margin: "5px 49% 5px 0px", showWhen: { variant: [2,4] }
             },
             { type: "label", value: "Background color:", margin: "5px 0"},
             { 

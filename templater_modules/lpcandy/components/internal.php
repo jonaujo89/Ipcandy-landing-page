@@ -241,8 +241,30 @@ class FormOrder extends Block {
     <?}
 }
 
+class Image extends Block {
+    public $editor = "lp.image";
+    public $internal = true;
+    
+    function tpl_default() {
+        return array(
+            'image_url' => '',
+            'type'=> 'image_background',
+        );        
+    }
+    
+    function tpl($val) {
+        if ($val['type']=='image_background'){
+            echo "<div class='img' style='background-image: url(".INDEX_URL."/".$val['image_url'].")'></div>";
+        } 
+        if ($val['type']=='image_src'){
+            echo "<img src=".INDEX_URL."/".$val['image_url'].">";
+        }
+        
+    }
+}
+
 class ImageBg extends Block {
-    public $editor = "lp.media";
+    public $editor = "lp.imageBg";
     public $internal = true;
     
     function tpl_default() {
@@ -292,7 +314,7 @@ class Media extends Block {
 }
 
 class ImageSrc extends Block {
-    public $editor = "lp.image";
+    public $editor = "lp.imageSrc";
     public $internal = true;
     
     function tpl($val) {
@@ -323,6 +345,7 @@ Logo::register();
 FormButton::register();
 FormOrder::register();
 Icon::register();
+Image::register();
 ImageSrc::register();
 ImageBg::register();
 VideoFrame::register();

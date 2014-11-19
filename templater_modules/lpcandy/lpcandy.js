@@ -13,10 +13,12 @@ require("./ui/formButton.js");
 require("./ui/uploadButton.js");
 require("./ui/fontCombo.js");
 require("./ui/media.js");
+require("./ui/image.js");
 
 require("./ui/header.js");
 require("./ui/order.js");
 require("./ui/benefits.js");
+require("./ui/services.js");
 
 var dir = require.dir;
 
