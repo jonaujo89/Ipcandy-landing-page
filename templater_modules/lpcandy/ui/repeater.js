@@ -158,6 +158,6 @@ lp.repeater = teacss.ui.control.extend({
                 }
             });
         });
-        this.options.block.bindEditors();
+        this.options.block.bindEditors(true);
     }
 });

@@ -12,7 +12,7 @@ class Cases extends Block {
                     <div class="item_list clear">
                         <? $this->repeat('items',function($val,$self){ ?>
                             <div class="item clear">
-                                <?=$self->sub('ImageBg','img_2')?>
+                                <?=$self->sub('Image','img_2')?>
                                 <div class="info">
                                     <div class="top"></div>
                                     <div class="name">
@@ -59,7 +59,7 @@ class Cases extends Block {
                                         </div>
                                     </div>
                                 </div>
-                                <?=$self->sub('ImageBg','img_1')?>
+                                <?=$self->sub('Image','img_1')?>
                             </div>
                         <? }) ?>
                     </div>

@@ -5453,3 +5453,24 @@ eval 'array' at order.php#145  <Trigger 'php-calltip-call-signature' at 7506 (ex
 done eval: success
 Done 'PHP' CodeIntel! Full CodeIntel took 25ms
 Autocomplete called (PHP) [calltips]
++ Info: processing `PHP': please wait...
++ Info: event
+error calling event reporter: [Errno 9] Bad file descriptor
+Traceback (most recent call last):
+  File "/var/www/uxcandy_boomyjee/data/public_html/daysideCodeintel/server/SublimeCodeIntel/libs/codeintel2/database/database.py", line 626, in report_event
+    self.event_reporter(desc)
+  File "/var/www/uxcandy_boomyjee/data/public_html/daysideCodeintel/server/codeintel.py", line 184, in <lambda>
+    mgr.db.event_reporter = lambda m: logger(view, 'event', m)
+  File "/var/www/uxcandy_boomyjee/data/public_html/daysideCodeintel/server/codeintel.py", line 107, in logger
+    set_status(view, ltype, msg, timeout=timeout, delay=delay, lid=lid + '-' + ltype, logger=getattr(log, ltype, None))
+  File "/var/www/uxcandy_boomyjee/data/public_html/daysideCodeintel/server/codeintel.py", line 97, in set_status
+    view.set_status(lid, "%s: %s" % (ltype.capitalize(), msg),timeout)
+  File "/var/www/uxcandy_boomyjee/data/public_html/daysideCodeintel/server/codeintel.py", line 549, in set_status
+    cb(lid,msg,timeout)
+  File "/var/www/uxcandy_boomyjee/data/public_html/daysideCodeintel/server/server.py", line 37, in _status_callback
+    self.sendMessage(json.dumps(msg))
+  File "/var/www/uxcandy_boomyjee/data/public_html/daysideCodeintel/server/lib/SimpleWebSocketServer.py", line 317, in sendMessage
+    self.sendBuffer(header + s)
+  File "/var/www/uxcandy_boomyjee/data/public_html/daysideCodeintel/server/lib/SimpleWebSocketServer.py", line 283, in sendBuffer
+    raise e
+error: [Errno 9] Bad file descriptor

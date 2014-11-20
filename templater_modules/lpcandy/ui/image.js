@@ -1,14 +1,13 @@
 lp.image = lp.cover.extendOptions({
+    init: function () {
+        this.cover.appendTo(this.element.find(".img"));
+    },
     change: function(){
-        var me = this;
-        var img;
-        if(img = me.element.find(".img")){
+        var img;        
+        if(img = this.element.find(".img")){
             img.css({
-                backgroundImage: "url('"+base_url+'/'+this.value.image_url+"')",
+                backgroundImage: "url('"+base_url+'/'+this.value+"')",
             }); 
-        }
-        if(img = me.element.find("img")){
-            img.attr({src:base_url+"/"+me.value.image_url});
         }
     },
     configForm: {
@@ -19,7 +18,7 @@ lp.image = lp.cover.extendOptions({
                  
             },  
             {
-                name: 'image_url', type: 'uploadButton', label: 'Select image file',
+                name: '', type: 'uploadButton', label: 'Select image file',
             }
         ]
     }

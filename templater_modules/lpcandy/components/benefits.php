@@ -199,7 +199,7 @@ class Benefits extends Block {
                     <? endif ?>
                     <div class="item_list <?= !$val['show_benefits_name'] ? "hide_name" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">
+                            <div class="item">                                
                                 <?=$self->sub('Icon','icon_1')?>
                                 <? if ($val['show_benefits_name'] || $self->edit): ?>
                                     <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
@@ -243,7 +243,7 @@ class Benefits extends Block {
                     'icon_1' => "templater_modules/lpcandy/assets/ico/77.png",
                     'name_1' => "Бесплатная доставка",
                     'desc_1' => "Коротко и ясно о преимуществах вашей компании. Можно обойтись и без этого краткого описания, только заголовки.",
-                    'icon_2' => "templater_modules/lpcandy/assets/ico/65.png",                    
+                    'icon_2' => "templater_modules/lpcandy/assets/ico/37.png",                    
                     'name_2' => "Индивидуальное обучение ",
                     'desc_2' => "Коротко и ясно о преимуществах вашей компании. Можно обойтись и без этого краткого описания, только заголовки.",
                 ),
@@ -275,8 +275,8 @@ class Benefits extends Block {
                     <? endif ?>
                     <div class="item_list clear <?= !$val['show_border_image'] ? "hide_border" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">
-                                <div class="image_wrap">
+                            <div class="item">                                
+                                <div class="image_wrap">                                     
                                     <?=$self->sub('Image','image_1')?>
                                 </div>
                                 <div class="name">
@@ -315,16 +315,16 @@ class Benefits extends Block {
            'title_2' => "Подзаголовок",
            'items' => array(
                 array(
-                    'image_1' =>  array_merge(Image::tpl_default(),array('type'=>'image_background','image_url'=>'templater_modules/lpcandy/assets/benefits/1.jpg')),
-                    'image_2' =>  array_merge(Image::tpl_default(),array('type'=>'image_background','image_url'=>'templater_modules/lpcandy/assets/benefits/2.jpg')),
+                    'image_1' => 'templater_modules/lpcandy/assets/benefits/1.jpg',
+                    'image_2' => 'templater_modules/lpcandy/assets/benefits/2.jpg',
                     'name_1' => "Бесплатная доставка",
                     'name_2' => "Индивидуальное обучение",
                     'desc_1' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
                     'desc_2' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
                 ),
                 array(
-                    'image_1' =>  array_merge(Image::tpl_default(),array('type'=>'image_background','image_url'=>'templater_modules/lpcandy/assets/benefits/3.jpg')),
-                    'image_2' =>  array_merge(Image::tpl_default(),array('type'=>'image_background','image_url'=>'templater_modules/lpcandy/assets/benefits/4.jpg')),                    
+                    'image_1' => 'templater_modules/lpcandy/assets/benefits/3.jpg',
+                    'image_2' => 'templater_modules/lpcandy/assets/benefits/4.jpg',                    
                     'name_1' => "Круглосуточная поддержка",
                     'name_2' => "Система скидок",
                     'desc_1' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
@@ -410,9 +410,9 @@ class Benefits extends Block {
             'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' =>  array_merge(Image::tpl_default(),array('type'=>'image_background','image_url'=>'templater_modules/lpcandy/assets/benefits/1.jpg')),
-                    'image_2' =>  array_merge(Image::tpl_default(),array('type'=>'image_background','image_url'=>'templater_modules/lpcandy/assets/benefits/2.jpg')),
-                    'image_3' =>  array_merge(Image::tpl_default(),array('type'=>'image_background','image_url'=>'templater_modules/lpcandy/assets/benefits/3.jpg')),
+                    'image_1' => 'templater_modules/lpcandy/assets/benefits/1.jpg',
+                    'image_2' => 'templater_modules/lpcandy/assets/benefits/2.jpg',
+                    'image_3' => 'templater_modules/lpcandy/assets/benefits/3.jpg',
                     'name_1' => "Бесплатная доставка",
                     'name_2' => "Индивидуальное обучение",
                     'name_3' => "Круглосуточная поддержка",

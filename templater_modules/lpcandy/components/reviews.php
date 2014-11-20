@@ -25,7 +25,7 @@ class Reviews extends Block {
                                         <?=$self->sub('Text','desc_1')?>                            
                                     </div>
                                     <div class="img_wrap">
-                                        <?=$self->sub('ImageBg','img_1')?>
+                                        <?=$self->sub('Image','img_1')?>
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ class Reviews extends Block {
                                         <?=$self->sub('Text','desc_2')?>                            
                                     </div>
                                     <div class="img_wrap">
-                                        <?=$self->sub('ImageBg','img_2')?>
+                                        <?=$self->sub('Image','img_2')?>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@ class Reviews extends Block {
                                         <?=$self->sub('Text','desc_3')?>                            
                                     </div>
                                     <div class="img_wrap">
-                                        <?=$self->sub('ImageBg','img_3')?>
+                                        <?=$self->sub('Image','img_3')?>
                                     </div>
                                 </div>
                             </div>

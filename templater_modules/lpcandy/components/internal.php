@@ -45,16 +45,7 @@ class Logo extends Block {
     <?}
 }
 
-class Icon extends Block {
-    public $editor = "lp.icon";
-    public $internal = true;
-    
-    function tpl($val) {
-        echo "<div class='ico' style='background-image: url(".INDEX_URL."/".$val.")'></div>";
-    }
-}
-
-class FormButton extends Block {
+Class FormButton extends Block {
     public $editor = "lp.formButton";
     public $internal = true;    
     
@@ -241,44 +232,32 @@ class FormOrder extends Block {
     <?}
 }
 
+class Icon extends Block {
+    public $editor = "lp.icon";
+    public $internal = true;
+    
+    function tpl($val) {
+        echo "<div class='ico' style='background-image: url(".INDEX_URL."/".$val.")'></div>";
+    }
+}
+
 class Image extends Block {
     public $editor = "lp.image";
-    public $internal = true;
-    
-    function tpl_default() {
-        return array(
-            'image_url' => '',
-            'type'=> 'image_background',
-        );        
-    }
-    
+    public $internal = true;    
+   
     function tpl($val) {
-        if ($val['type']=='image_background'){
-            echo "<div class='img' style='background-image: url(".INDEX_URL."/".$val['image_url'].")'></div>";
-        } 
-        if ($val['type']=='image_src'){
-            echo "<img src=".INDEX_URL."/".$val['image_url'].">";
-        }
-        
+       echo "<div class='img' style='background-image: url(".INDEX_URL."/".$val.")'></div>";                
     }
 }
 
-class ImageBg extends Block {
-    public $editor = "lp.imageBg";
+class ImageSrc extends Block {
+    public $editor = "";
     public $internal = true;
     
-    function tpl_default() {
-        return array(
-            'add_class' => '',
-            'image_url' => '',
-        );        
-    }
-    
     function tpl($val) {
-        echo "<div class='img ".$val['add_class']."' style='background-image: url(".INDEX_URL."/".$val['image_url'].")'></div>";
+        echo "<img src=".INDEX_URL."/".$val.">";
     }
 }
-
 
 class Media extends Block {
     public $editor = "lp.media";
@@ -313,15 +292,6 @@ class Media extends Block {
     <?}
 }
 
-class ImageSrc extends Block {
-    public $editor = "lp.image";
-    public $internal = true;
-    
-    function tpl($val) {
-        echo "<img src=".INDEX_URL."/".$val.">";
-    }
-}
-
 class VideoFrame extends Block {
     public $editor = "";
     public $internal = true;
@@ -347,7 +317,6 @@ FormOrder::register();
 Icon::register();
 Image::register();
 ImageSrc::register();
-ImageBg::register();
 VideoFrame::register();
 Countdown::register();
 Media::register();

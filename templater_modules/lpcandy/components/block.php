@@ -128,7 +128,11 @@ class Block {
         $obj = @self::$list[$type];
         if ($obj) {
             $sub = @$this->val[$name];
-            $name = $this->name_prefix ? $this->name_prefix.".".$name : $name;
+            if ($name && $name[0]=="@") {
+                $name = substr($name,1);
+            } else {
+                $name = $this->name_prefix ? $this->name_prefix.".".$name : $name;
+            }
             echo $obj->getHtml($sub,$this->edit,$name,$options);
         } else {
             throw new \Exception("Block type is not registered $type");
