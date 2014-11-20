@@ -165,7 +165,7 @@ lp.block = teacss.ui.control.extend({
         });
     },
     
-    bindEditors: function () {
+    bindEditors: function (setEditorValue) {
         var me = this;
         me.editors = [];
         this.cmp.element.find("[data-editor]:not([data-dummy] *)").each(function(){
@@ -186,10 +186,16 @@ lp.block = teacss.ui.control.extend({
                 editor.options.block = me;
                 
                 editor.bind("change",function(){
-                    me.editorChange(name,editor.getValue());
+                    me.editorChange(name,editor.getValue(),editor);
                 });
             }
-            if (editor) me.editors.push(editor);
+            if (editor) {
+                if (setEditorValue) {
+                    var sub_val = teacss.ui.prop(me.value,editor.options.name);
+                    editor.setValue(sub_val);
+                }
+                me.editors.push(editor);
+            }
         });        
     },
     
@@ -229,9 +235,18 @@ lp.block = teacss.ui.control.extend({
         );
     },
     
-    editorChange: function (name,val) {
+    editorChange: function (name,val,editor) {
+        var me = this;
         this.value = this.value || {};
         teacss.ui.prop(this.value,name,val);
+        if (editor) {
+            $.each(me.editors,function(idx,ed){
+                if (ed!=editor && name==ed.options.name) {
+                    ed.setValue(val);
+                    if (ed.options.change) ed.options.change.call(ed);
+                }
+            });
+        }
         this.trigger("change");
     }
 });

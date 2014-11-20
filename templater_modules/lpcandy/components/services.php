@@ -43,7 +43,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_1') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -70,7 +70,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_2') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -97,7 +97,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_3') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -136,11 +136,9 @@ class Services extends Block {
                     'price_1' => "1 000 руб.",
                     'price_2' => "3 000 руб.",
                     'price_3' => "5 000 руб.",
-                    'order_button_1' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать')),
-                    'order_button_2' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать')),
-                    'order_button_3' => array_merge(FormButton::tpl_default(),array('text'=>'Оформить')),
                 )
-            )
+            ),
+            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать'))
         );
     }
     
