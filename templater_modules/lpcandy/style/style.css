@@ -873,11 +873,8 @@
     position: absolute !important;
     top: -18px;
     width: 60px;  
-    filter: invert(100%);
-     -webkit-filter: invert(100%);
-     -moz-filter: invert(100%);
-     -ms-filter: invert(100%);
-     -o-filter: invert(100%);
+    border-radius: 30px;
+    overflow: hidden;
 }
 .order_5 .ico_list .item .name {
     color: #fff;
@@ -1191,6 +1188,7 @@
   background-size: 40px;
   background-position: center center;
   position: relative;
+  border-radius: 30px;
   overflow: hidden;
 }
 .benefits_2 .item_list .item .name {
@@ -1449,16 +1447,13 @@
     text-align: center;
 }
 
-
 .services_1 .container-fluid{
     background:#f7f7f7
 }
-
 .services_1 .container{
     padding:50px 0 60px 0;
     font-family:Arial
 }
-
 .services_1 h1.title{
     margin:10px 0 10px 0;
     text-align:center;
@@ -1468,7 +1463,6 @@
     font-family:"Open Sans",Arial;
     font-weight:400
 }
-
 .services_1 .title_2{
     margin:10px 0 25px 0;
     text-align:center;
@@ -1477,12 +1471,10 @@
     font-family:"Open Sans",Arial;
     font-weight:300
 }
-
 .services_1 .item_list{
     margin:0 5px;
     margin-top:55px
 }
-
 .services_1 .item_list .item{
     float:left;
     width:33.33%;
@@ -1490,12 +1482,10 @@
     padding:0 18px;
     text-align:center
 }
-
 .services_1 .item_list .item .item_data{
     border:1px solid #e3e3e3;
     background-color:#FFF
 }
-
 .services_1 .item_list .item .img{
     width:100%;
     height:250px;
@@ -1505,7 +1495,6 @@
     background-size: cover;
     background-position: center center;
 }
-
 .services_1 .item_list .item .name{
     margin:20px 20px 12px 20px;
     color:#2b2b2b;
@@ -1513,7 +1502,6 @@
     font-family:"Open Sans",Arial;
     font-weight:600
 }
-
 .services_1 .item_list .item .desc{
     margin:12px 20px 16px 20px;
     color:#5c5c5c;
@@ -1521,24 +1509,23 @@
     line-height:22px;
     font-family:Arial
 }
-
 .services_1 .item_list .item .price{
     margin:16px 20px 18px 20px;
     color:#2b2b2b;
     font-size:20px;
     font-family:Arial
 }
-
 .services_1 .item_list .item .btn_wrap{
     margin:0px 30px 20px;
     display: inline-block;
 }
-
 @media all and (max-width:1199px){
     .services_1 .item_list .item .img_wrap{
         height:190px
     }
-
+    .services_1 .item_list .item .img_wrap .img{
+        height:190px
+    }
 }
 
 
@@ -1622,7 +1609,7 @@
 }
 @media all and (max-width: 1199px) {
   .services_2 .item_list .item .item_data {
-    width: 295px;
+    width: 290px;
     padding: 0 0 0 25px;
   }
 }
@@ -1859,7 +1846,6 @@
 }
 
 
-
 .services_5 .container-fluid {
   background: #f7f7f7;
 }
@@ -2002,10 +1988,12 @@
   width: 100%;
   height: 215px;
   margin: 0 auto;
-  overflow: hidden;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1) inset;
+  overflow: hidden;
+  position: relative;
 }
 @media all and (max-width: 1199px) {
   .services_6 .item_list .item .img {
@@ -2048,69 +2036,69 @@
 
 
 
-/* Why we */
-.why_we .container {
-    font-family: Arial;
-    padding: 50px 0 60px;
+/* Reasons */
+.reasons_1 .container-fluid {
+  background: #ffffff;
 }
-.why_we h1.title {
-    color: #34383a;
-    font-family: "Open Sans",Arial;
-    font-size: 48px;
-    font-weight: 400;
-    line-height: 56px;
-    margin: 10px 0;
-    text-align: center;
+.reasons_1 .container {
+  padding: 50px 0 60px 0;
+  font-family: Arial;
 }
-.why_we .title_2 {
-    color: #5c5c5c;
-    font-family: "Open Sans",Arial;
-    font-size: 25px;
-    font-weight: 300;
-    margin-bottom: 25px;
-    margin-top: 10px;
-    text-align: center;
+.reasons_1 h1.title {
+  margin: 10px 0 10px 0;
+  text-align: center;
+  color: #34383A;
+  font-size: 48px;
+  line-height: 56px;
+  font-family: "Open Sans", Arial;
+  font-weight: 400;
 }
-.why_we_1 .item_list {
-    margin-top: 55px;
+.reasons_1 .title_2 {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #5C5C5C;
+  font-size: 25px;
+  font-family: "Open Sans", Arial;
+  font-weight: 300;
 }
-.why_we_1 .item_list .item {
-    float: left;
-    margin-bottom: 15px;
-    padding: 10px 25px 0 75px;
-    position: relative;
-    width: 485px;
+.reasons_1 .item_list {
+  margin-top: 55px;
 }
-.why_we_1 .item_list .item .ico_wrap {
-    height: 40px;
-    left: 18px;
-    position: absolute;
-    top: 5px;
-    width: 40px;
+.reasons_1 .item_list .item {
+  position: relative;
+  float: left;
+  width: 50%;
+  margin-bottom: 15px;
+  padding: 12px 25px 0px 75px;
 }
-.why_we_1 .item_list .item .ico_wrap i {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-    display: block;
-    height: 40px;
-    width: 40px;
+.reasons_1 .item_list .item .ico_wrap {
+  position: absolute;
+  top: 0px;
+  left: 15px;
 }
-.why_we_1 .item_list .item .name {
-    color: #2b2b2b;
-    font-family: "Open Sans",Arial;
-    font-size: 20px;
-    font-weight: 600;
+.reasons_1 .item_list .item .ico_wrap .ico {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 30px;
+  overflow: hidden;
+  background-size: 40px 40px;
 }
-.why_we_1 .item_list .item .desc {
-    color: #5c5c5c;
-    font-family: Arial;
-    font-size: 14px;
-    line-height: 22px;
-    margin-top: 15px;
+.reasons_1 .item_list .item .name {
+  color: #2B2B2B;
+  font-size: 20px;
+  font-family: "Open Sans", Arial;
+  font-weight: 600;
 }
-.why_we_1 .clear {
-    min-height: 5px;
+.reasons_1 .item_list .item .desc {
+  margin-top: 15px;
+  color: #5C5C5C;
+  font-size: 14px;
+  line-height: 22px;
+  font-family: Arial;
 }
 
 

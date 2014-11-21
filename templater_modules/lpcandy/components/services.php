@@ -43,7 +43,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_1') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -70,7 +70,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_1') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -97,7 +97,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_1') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -136,7 +136,7 @@ class Services extends Block {
                     'price_1' => "1 000 руб.",
                     'price_2' => "3 000 руб.",
                     'price_3' => "5 000 руб.",
-                    'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Оформить', 'color'=>'blue')),
+                    'order_button_services_1' => array_merge(FormButton::tpl_default(),array('text'=>'Оформить', 'color'=>'blue')),
                 )
             )
         );
@@ -179,7 +179,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_2') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -204,7 +204,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_2') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -238,7 +238,7 @@ class Services extends Block {
                 'desc_2' => "Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя. ",
                 'price_1' => "2 000 руб. ",
                 'price_2' => "<span style='color: #BBBBBB'><strike>7 000 руб.</strike></span> 3 000 руб. ",
-                'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
+                'order_button_services_2' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
                 )
             )
         );
@@ -286,7 +286,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_3') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -319,7 +319,7 @@ class Services extends Block {
                     'desc' => "Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя. Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя. ",
                     'price' => "<span style='color: #BBBBBB'><strike>7 000 руб.</strike></span> 3 000 руб.",
                     'btn_note' => "Предложение ограниченно",
-                    'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
+                    'order_button_services_3' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
                 )
             )
         );
@@ -364,7 +364,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_4') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -391,7 +391,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_4') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -418,7 +418,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_4') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -456,7 +456,7 @@ class Services extends Block {
                     'price_1' => "1 000 руб. ",
                     'price_2' => "3 000 руб. ",
                     'price_3' => "5 000 руб. ",
-                    'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' => 'blue')),
+                    'order_button_services_4' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' => 'blue')),
                 )
             )
         );
@@ -501,7 +501,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_5') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -528,7 +528,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_5') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -555,7 +555,7 @@ class Services extends Block {
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button') ;?>
+                                            <? $self->sub("FormButton",'order_button_services_5') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -595,7 +595,7 @@ class Services extends Block {
                     'price_1' => "1 000 руб.",
                     'price_2' => "3 000 руб.",
                     'price_3' => "5 000 руб.",
-                    'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
+                    'order_button_services_5' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
                 )
             )
         );
@@ -627,7 +627,7 @@ class Services extends Block {
                                         <? $self->sub('Image','image_1') ?>
                                     </div> 
                                     <div class="btn_wrap">
-                                        <? $self->sub("FormButton",'order_button_1') ;?>
+                                        <? $self->sub("FormButton",'order_button_services_6') ;?>
                                     </div>
                                     <div class="price">
                                         <? $self->sub('Text','price_1') ?>
@@ -643,7 +643,7 @@ class Services extends Block {
                                         <? $self->sub('Image','image_2') ?>
                                     </div> 
                                     <div class="btn_wrap">
-                                        <? $self->sub("FormButton",'order_button_2') ;?>
+                                        <? $self->sub("FormButton",'order_button_services_6') ;?>
                                     </div>
                                     <div class="price">
                                         <? $self->sub('Text','price_2') ?>
@@ -659,7 +659,7 @@ class Services extends Block {
                                         <? $self->sub('Image','image_3') ?>
                                     </div> 
                                     <div class="btn_wrap">
-                                        <? $self->sub("FormButton",'order_button_3') ;?>
+                                        <? $self->sub("FormButton",'order_button_services_6') ;?>
                                     </div>
                                     <div class="price">
                                         <? $self->sub('Text','price_3') ?>
@@ -683,18 +683,16 @@ class Services extends Block {
             'title_2' => "У нас огромный выбор самых различных услуг",
             'items' => array(
                 array(
-                    'image_1' =>  array_merge(Image::tpl_default(),array('type'=>'image_background','image_url'=>'templater_modules/lpcandy/assets/services/1.jpg')),
-                    'image_2' =>  array_merge(Image::tpl_default(),array('type'=>'image_background','image_url'=>'templater_modules/lpcandy/assets/services/2.jpg')),
-                    'image_3' =>  array_merge(Image::tpl_default(),array('type'=>'image_background','image_url'=>'templater_modules/lpcandy/assets/services/3.jpg')),
+                    'image_1' => 'templater_modules/lpcandy/assets/services/1.jpg',
+                    'image_2' => 'templater_modules/lpcandy/assets/services/2.jpg',
+                    'image_3' => 'templater_modules/lpcandy/assets/services/3.jpg',
                     'name_1' => "Перевозки по России",
                     'name_2' => "Международные перевозки",
                     'name_3' => "Таможенное оформлении",
                     'price_1' => "1 000 руб.",
                     'price_2' => "3 000 руб.",
                     'price_3' => "5 000 руб.",
-                    'order_button_1' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
-                    'order_button_2' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
-                    'order_button_3' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
+                    'order_button_services_6' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
                 )
             )
         );
