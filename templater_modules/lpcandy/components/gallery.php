@@ -3,84 +3,40 @@
 class Gallery extends Block {
     public $name = 'Gallery';
     public $description = "Photo and image";
+    public $editor = "lp.gallery";
     
     function tpl($val) {?>
-    <div class="container-fluid gallery gallery_1" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+    <div class="container-fluid gallery gallery_1" style="background: none repeat scroll 0% 0% <?=$val['background_color']?>;">
         <div class="container">
             <div class="span16">
-                <h1 class="title">
-                    <? $this->sub('Text','title') ?>
-                </h1>     
-                
+                <? if ($val['show_title'] || $this->edit): ?>
+                    <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <? $this->sub('Text','title') ?>
+                    </h1>
+                <? endif ?>
+                <? if ($val['show_title_2'] || $this->edit): ?>
+                    <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <? $this->sub('Text','title_2') ?>
+                    </div>
+                <? endif ?>
                 <div class="item_list">
-                    <div class="item">
-                        <a href="#">
-                            <img src="<?=INDEX_URL."/".$val['img1']?>"/>
-                            <span class="text-content">
+                    <? $this->repeat('items', function($sub,$self) { ?>
+                        <div class="item">
+                            <?= $self->sub('ImageSrc','image');?>
+                            <div class="text_content">
                                 <span>
-                                    <div class="img_title"><? $this->sub('Text','img_title_1') ?></div>
-                                    <div class="img_desc"><? $this->sub('Text','img_desc_1') ?></div>
+                                    <div class="image_title">
+                                        <? $self->sub('Text','image_title') ?>
+                                    </div>
+                                    <div class="image_desc">
+                                        <? $self->sub('Text','image_desc') ?>
+                                    </div>
                                 </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            <img src="<?=INDEX_URL."/".$val['img2']?>"/>
-                            <span class="text-content">
-                                <span>
-                                    <div class="img_title"><? $this->sub('Text','img_title_2') ?></div>
-                                    <div class="img_desc"><? $this->sub('Text','img_desc_2') ?></div>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            <img src="<?=INDEX_URL."/".$val['img3']?>"/>
-                            <span class="text-content">
-                                <span>
-                                    <div class="img_title"><? $this->sub('Text','img_title_3') ?></div>
-                                    <div class="img_desc"><? $this->sub('Text','img_desc_3') ?></div>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            <img src="<?=INDEX_URL."/".$val['img4']?>"/>
-                            <span class="text-content">
-                                <span>
-                                    <div class="img_title"><? $this->sub('Text','img_title_4') ?></div>
-                                    <div class="img_desc"><? $this->sub('Text','img_desc_4') ?></div>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            <img src="<?=INDEX_URL."/".$val['img5']?>"/>
-                            <span class="text-content">
-                                <span>
-                                    <div class="img_title"><? $this->sub('Text','img_title_5') ?></div>
-                                    <div class="img_desc"><? $this->sub('Text','img_desc_5') ?></div>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="#">
-                            <img src="<?=INDEX_URL."/".$val['img6']?>"/>
-                            <span class="text-content">
-                                <span>
-                                    <div class="img_title"><? $this->sub('Text','img_title_6') ?></div>
-                                    <div class="img_desc"><? $this->sub('Text','img_desc_6') ?></div>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-                
+                            </div>
+                        </div>
+                    <? }, array('inline' => true)) ?>
+                    <div style="clear: both"></div>
+                </div>                
             </div>
         </div>
     </div>
@@ -88,26 +44,31 @@ class Gallery extends Block {
     
      function tpl_default() { 
         return  array(
-            'bg_color' => '#F7F7F7',
-            'title' => "Галерея работ 1",
-            'img1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",
-            'img2' => "templater_modules/lpcandy/assets/gallery/gallery_2.jpg",
-            'img3' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",
-            'img4' => "templater_modules/lpcandy/assets/gallery/gallery_4.jpg",
-            'img5' => "templater_modules/lpcandy/assets/gallery/gallery_5.jpg",
-            'img6' => "templater_modules/lpcandy/assets/gallery/gallery_6.jpg",
-            'img_title_1' => "Дорога в облака",
-            'img_title_2' => "Дорога в облака",
-            'img_title_3' => "Дорога в облака",
-            'img_title_4' => "Дорога в облака",
-            'img_title_5' => "Дорога в облака",
-            'img_title_6' => "Дорога в облака",
-            'img_desc_1' => "Подпись к фото",
-            'img_desc_2' => "Подпись к фото",
-            'img_desc_3' => "Подпись к фото",
-            'img_desc_4' => "Подпись к фото",
-            'img_desc_5' => "Подпись к фото",
-            'img_desc_6' => "Подпись к фото",
+            'show_title' => true,
+            'show_title_2' => true,
+            'show_image_title' => true,
+            'show_image_desc' => true,
+            'show_price' => true,
+            'background_color' =>'#FFFFFF',
+            'title' => "Галерея работ №1",
+            'title_2' => "Подзаголовок",
+            'items' => array(                
+                array(
+                    'image'=>"templater_modules/lpcandy/assets/gallery/preview_img/1.jpg",
+                    'image_title' => "Дорога в облака",
+                    'image_desc' => "Подпись к фото",
+                ),
+                array(
+                    'image'=>"templater_modules/lpcandy/assets/gallery/preview_img/2.jpg",
+                    'image_title' => "Дорога в облака",
+                    'image_desc' => "Подпись к фото",
+                ),
+                array(
+                    'image'=>"templater_modules/lpcandy/assets/gallery/preview_img/3.jpg",
+                    'image_title' => "Дорога в облака",
+                    'image_desc' => "Подпись к фото",
+                ),
+            )
         );
     }
     

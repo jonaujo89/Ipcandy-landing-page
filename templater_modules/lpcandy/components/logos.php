@@ -3,19 +3,25 @@
 class Logos extends Block {
     public $name = 'Logos';
     public $description = "Logos our clients";
+    public $editor = "lp.logos";
     
     function tpl($val) {?>
-        <div class="container-fluid logoClients logoClients1" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid clientsLogos clientsLogos_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <h1 class="title">
-                        <?=$this->sub("Text",'title')?>
-                    </h1>
-                    <div class="item_list clear gray">
+                    <? if ($val['show_title'] || $this->edit): ?>
+                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title') ?>
+                        </h1>
+                    <? endif ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2') ?>
+                        </div>
+                    <? endif ?>
+                    <div class="item_list clear <?= $val['grayscale_logo'] ? "gray" : "" ?>">
                         <? 
-                            $this->repeat(
-                                'items',
-                                function($sub,$self) {
+                            $this->repeat('items', function($sub,$self) {
                                     $self->sub('ImageSrc','image');
                                 },
                                 array('inline' => true)
@@ -30,8 +36,12 @@ class Logos extends Block {
     
     function tpl_default() { 
         return  array(
-            'bg_color' => '#F7F7F7',
+            'show_title' => true,
+            'show_title_2' => false,
+            'grayscale_logo' => true,
+            'background_color' =>'#FFFFFF',
             'title' => "Наши клиенты",
+            'title_2' => "Подзаголовок ",
             'items' => array(
                 array('image'=>"templater_modules/lpcandy/assets/logos/logo_1.png"),
                 array('image'=>"templater_modules/lpcandy/assets/logos/logo_6.png"),

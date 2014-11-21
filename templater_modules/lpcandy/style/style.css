@@ -2126,6 +2126,14 @@
     font-family: "Open Sans",Arial;
     font-weight: 400;
 }
+.gallery .title_2 {
+    margin: 15px 0px 0px;
+    text-align: center;
+    color: #5C5C5C;
+    font-size: 25px;
+    font-family: "Open Sans",Arial;
+    font-weight: 300;
+}
 .gallery .clear {
     min-height: 5px;
 }
@@ -2139,14 +2147,14 @@
     visibility: hidden !important;
 }
 
-.gallery_1 div.img_title {
+.gallery_1 div.text_content span div.img_title {
     color: #FFF;
     font-size: 18px !important;
     font-family: "Open Sans",Arial;
     font-weight: 600;
     text-transform: uppercase;
 }
-.gallery_1 div.img_desc {
+.gallery_1 .img_desc {
     margin-top: 15px;
     color: #FFF;
     font-size: 13px !important;
@@ -2183,12 +2191,12 @@
       -ms-transition: all 1s ease;
           transition: all 1s ease;
 }
-.gallery_1 span.text-content span {
+.gallery_1 div.text_content span {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
 }
-.gallery_1 span.text-content {
+.gallery_1 div.text_content {
   background: rgba(0,0,0,0.5);
   color: white;
   cursor: pointer;
@@ -2205,7 +2213,7 @@
       -ms-transition: all 1s ease;
           transition: all 1s ease;
 } 
-.gallery_1 div.item_list .item:hover span.text-content {
+.gallery_1 div.item_list .item:hover div.text_content {
   opacity: 1;
 }
 .gallery_1 div.item_list .item:hover img {
@@ -3053,12 +3061,13 @@ background-position: -240px 0;
     color: #444;
 }
 
+
 /* logos */
-.logoClients1 .container {
+.clientsLogos_1 .container {
     padding: 20px 0 15px 0;
     font-family: Arial;
 }
-.logoClients1 h1.title {
+.clientsLogos_1 h1.title {
     margin: 40px 0 0 0;
     text-align: center;
     color: #34383a;
@@ -3066,38 +3075,53 @@ background-position: -240px 0;
     font-family: "Open Sans",Arial;
     font-weight: 400;
 }
-.logoClients1 .item_list {
+.clientsLogos .title_2 {
+    margin: 10px 0px 25px;
+    text-align: center;
+    color: #5C5C5C;
+    font-size: 25px;
+    font-family: "Open Sans",Arial;
+    font-weight: 300;
+}
+.clientsLogos_1 .item_list {
     margin: 0 5px;
     margin-top: 50px;
     padding-bottom: 50px;
     text-align: center;
 }
-.logoClients1 .item_list .item_block {
+.clientsLogos_1 .item_list .item_block {
     display: inline-block;
     width: 185px;
     height: 95px;
     text-align: center;
 }
-.logoClients1 .item_list .item_block > * {
+.clientsLogos_1 .item_list .item_block > * {
     padding: 5px;
 }
-.logoClients1 .item_list.gray .item_block img {
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter: gray;
-    -webkit-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+.clientsLogos_1 .item_list.gray .item_block img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: url('../../lpcandy/assets/logos/gray.svg#desaturate');
+  /* Firefox 4+ */
+
+  filter: gray;
+  /* IE 6-9 */
+
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
-.logoClients1 .item_list .item_block img {
+}
+.clientsLogos_1 .item_list .item_block img {
     max-height: 85px;
     vertical-align: top;
 }
+
 
 /* footer */
 .footer1 .show_copyright {

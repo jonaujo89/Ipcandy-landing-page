@@ -21,6 +21,8 @@ require("./ui/order.js");
 require("./ui/benefits.js");
 require("./ui/services.js");
 require("./ui/reasons.js");
+require("./ui/gallery.js");
+require("./ui/logos.js");
 
 
 var dir = require.dir;
