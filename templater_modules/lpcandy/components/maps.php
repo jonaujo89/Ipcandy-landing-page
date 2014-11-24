@@ -3,6 +3,7 @@
 class Maps extends Block {
     public $name = 'Maps';
     public $description = "Yandex map";
+    public $editor = "lp.maps";
     
     function tpl($val) {?>
         <div class="container-fluid map_yandex">
@@ -29,33 +30,39 @@ class Maps extends Block {
                 }
                 
             </script>
-            <div id="map"></div> <!--Уточнить нужно ли создавать класс под карты-->
-            <div class="container">
-                <div class="map_overlay">
-                    <div class="item_list"> 
-                        <div class="item" >
-                            <div class="title">
-                                <?=$this->sub('Text','title_1')?>
-                            </div>
-                            <div class="desc">
-                                <?=$this->sub('Text','desc_1')?>
-                            </div>
-                        </div>                     
+            <div id="map"></div>
+            <? if ($val['show_text'] || $this->edit): ?>
+               <div class="container" <?= !$val['show_text'] ? "style='display:none'" : "" ?> >                
+                    <div class="map_overlay">
+                        <div class="item_list"> 
+                            <? $this->repeat('items',function($item_val,$self) { ?>
+                                <div class="title">
+                                    <?=$self->sub('Text','title_1')?>
+                                </div>
+                                <div class="desc">
+                                    <?=$self->sub('Text','desc_1')?>
+                                </div>
+                            <? }) ?>                    
+                        </div>
                     </div>
                 </div>
-            </div>
+            <? endif ?>
+            
         </div>
     <?}
     
-     function tpl_default() { 
+    function tpl_default() { 
         return  array(
-            'title_1' => "Москва",
-            'desc_1' => "<div>ул. Тверская, дом 6, офис 202</div><div>200 от м. Театральная</div><div>Тел: +7 (495) 221 56 98</div><div>info@vashsite.ru",
-
+            'show_text' => true,
+            'items' => array(
+                array(
+                    'title_1' => "Москва",
+                     'desc_1' => "<div>ул. Тверская, дом 6, офис 202</div><div>200 от м. Театральная</div><div>Тел: +7 (495) 221 56 98</div><div>info@vashsite.ru",
+                )
+            ),
+            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
-        
 }
-
 
 Maps::register();

@@ -25,6 +25,9 @@ require("./ui/gallery.js");
 require("./ui/logos.js");
 require("./ui/cases.js");
 require("./ui/workOrder.js");
+require("./ui/reviews.js");
+require("./ui/maps.js");
+require("./ui/footer.js");
 
 
 var dir = require.dir;

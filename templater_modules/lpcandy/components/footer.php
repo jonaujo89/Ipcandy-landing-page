@@ -3,48 +3,50 @@
 class Footer extends Block {
     public $name = 'Footer';
     public $description = "Final block";
+    public $editor = "lp.footer";
     
     function tpl($val) {?>
-        <div class="container-fluid footer footer1" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
-            <div class="container show_copyright">
+        <div class="container-fluid footer footer_1" style="background: <?=$val['background_color']?>;">
+            <div class="container">
                 <div class="span4">
-                    <div class="logo">
-                        <? $this->sub("Logo",'logo') ?>
-                    </div>
+                    <? $this->sub("Logo",'logo') ?>
                 </div>
                 <div class="span7">
                     <div class="desc">
-                        <? $this->sub('Text','desc') ?>                            
+                        <? $this->sub('Text','desc',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"),'oneline'=>false)) ?>                            
                     </div>
-                    <div class="policy_wrap">
-                        <? $this->sub('Text','policy_wrap') ?>
-                    </div>
+                    <? if ($val['show_policy'] || $this->edit): ?>
+                        <div class="policy_wrap" <?= !$val['show_policy'] ? "style='display:none'" : "" ?>>
+                            <a class="policy">Политика конфиденциальности</a>
+                        </div>
+                    <? endif ?>                    
                 </div>
                 <div class="span5">
                     <div class="phone">
-                        <? $this->sub("Text",'phone') ?>
+                        <? $this->sub('Text','phone',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"),'oneline'=>true)) ?>
                     </div>
                     <div class="phone_desc">
-                        <? $this->sub("Text",'phone_desc') ?>
+                        <? $this->sub('Text','phone_desc',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"),'oneline'=>false)) ?>
                     </div>
                 </div>
-                <div class="copyright">
-                    <? $this->sub("Text",'copyright') ?>
-                </div>
+                <? if ($val['show_copyright'] || $this->edit): ?>
+                    <div class="copyright" <?= !$val['show_copyright'] ? "style='display:none'" : "" ?>>
+                        <a href='' target='_blank'><i></i><span>Создано на платформе</span></a>
+                    </div>
+                <? endif ?>                
             </div>
         </div>
     <?}
     
     function tpl_default() { 
         return  array(
-            'bg_color' => '#F7F7F7',
+            'show_policy' => true,
+            'show_copyright' => true,
+            'background_color' => '#FFFFFF',
             'logo' => Logo::tpl_default(),
-            'desc' => "<div>ООО «Компания», 123456, г.Москва, ул. Тверская, д.6</div>
-                       <div>ИНН 1234567890 ОГРН 123456789012</div>",
-            'policy_wrap' => '<a class="policy">Политика конфиденциальности</a>',
+            'desc' => "ООО «Компания», 123456, г.Москва, ул. Тверская, д.6<br>ИНН 1234567890 ОГРН 123456789012",            
             'phone' => '8 (800) 123 45 67',
             'phone_desc' => 'Звонок по России бесплатный',
-            'copyright' => '<a href="" target="_blank"><i></i><span>Создано на платформе "Beejee"</span></a>',
         );
     }
     

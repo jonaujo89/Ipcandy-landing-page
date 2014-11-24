@@ -43,10 +43,10 @@ class Header extends Block {
     function tpl_2($val) {?>
         <div class="container-fluid header header_2" style="background: <?=$val['background']?>;">    
             <div class="container">
-                <div class="span4">
+                <div class="span6">
                     <? $this->sub("Logo",'logo') ?>
                 </div>
-                <div class="span12">
+                <div class="span10">
                     <? if ($val['show_order_button'] || $this->edit): ?>
                         <div class="span_btn" <?= $val['show_order_button'] ? "" : "style='display:none'" ?>>
                             <div class='btn_wrap'>
