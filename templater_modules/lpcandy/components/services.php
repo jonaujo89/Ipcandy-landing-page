@@ -11,12 +11,12 @@ class Services extends Block {
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
                         <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title') ?>
+                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2') ?>
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>    
                     <div class="item_list clear">
@@ -29,21 +29,21 @@ class Services extends Block {
                                         </div>
                                     <? endif ?>
                                     <div class="name">
-                                        <? $self->sub('Text','name_1') ?>
+                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_1') ?>
+                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","alignleft","aligncenter","removeformat"),'oneline'=>false)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_1') ?>
+                                            <? $self->sub('Text','price_1',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_1') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -56,21 +56,21 @@ class Services extends Block {
                                         </div>
                                     <? endif ?>
                                     <div class="name">
-                                        <? $self->sub('Text','name_2') ?>
+                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_2') ?>
+                                            <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","alignleft","aligncenter","removeformat"),'oneline'=>false)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_2') ?>
+                                            <? $self->sub('Text','price_2',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_1') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -83,21 +83,21 @@ class Services extends Block {
                                         </div>
                                     <? endif ?>
                                     <div class="name">
-                                        <? $self->sub('Text','name_1') ?>
+                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_3') ?>
+                                            <? $self->sub('Text','desc_3',array('buttons'=>array("bold","italic","alignleft","aligncenter","removeformat"),'oneline'=>false)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_3') ?>
+                                            <? $self->sub('Text','price_3',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_1') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -129,16 +129,16 @@ class Services extends Block {
                     'image_3' => 'templater_modules/lpcandy/assets/services/3.jpg',
                     'name_1' => "Перевозки по России",
                     'name_2' => "Международные перевозки",
-                    'name_3' => "Таможенное оформлении",
+                    'name_3' => "Таможенное оформление",
                     'desc_1' => "Все оформление берем на себя, от вас ничего не потребуется. Любой груз доставим вовремя.",
                     'desc_2' => "Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя.",
                     'desc_3' => "Все оформление берем на себя, от вас ничего не потребуется. Любой груз доставим вовремя.",
                     'price_1' => "1 000 руб.",
                     'price_2' => "3 000 руб.",
                     'price_3' => "5 000 руб.",
-                    'order_button_services_1' => array_merge(FormButton::tpl_default(),array('text'=>'Оформить', 'color'=>'blue')),
                 )
-            )
+            ),
+            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
     
@@ -149,12 +149,12 @@ class Services extends Block {
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
                         <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title') ?>
+                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2') ?>
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>    
                     <div class="item_list clear <?= $val['image_format'] ? $val['image_format'] : "circle" ?>">
@@ -165,21 +165,21 @@ class Services extends Block {
                                 </div>
                                 <div class="item_data">
                                     <div class="name">
-                                        <? $self->sub('Text','name_1') ?>
+                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_1') ?>
+                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_1') ?>
+                                            <? $self->sub('Text','price_1',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_2') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -190,21 +190,21 @@ class Services extends Block {
                                 </div>
                                 <div class="item_data">
                                     <div class="name">
-                                        <? $self->sub('Text','name_2') ?>
+                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_2') ?>
+                                            <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_2') ?>
+                                            <? $self->sub('Text','price_2',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_2') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -238,9 +238,9 @@ class Services extends Block {
                 'desc_2' => "Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя. ",
                 'price_1' => "2 000 руб. ",
                 'price_2' => "<span style='color: #BBBBBB'><strike>7 000 руб.</strike></span> 3 000 руб. ",
-                'order_button_services_2' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
                 )
-            )
+            ),
+            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
     
@@ -251,12 +251,12 @@ class Services extends Block {
                 <div class="span16">
                    <? if ($val['show_title'] || $this->edit): ?>
                         <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title') ?>
+                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2') ?>
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>    
                     <div class="item_list clear">
@@ -267,26 +267,26 @@ class Services extends Block {
                                 </div>
                                 <div class="item_data">
                                     <div class="name">
-                                        <? $self->sub('Text','name') ?>
+                                        <? $self->sub('Text','name',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc') ?>
+                                            <? $self->sub('Text','desc',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price') ?>
+                                            <? $self->sub('Text','price',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_text_above_button'] || $self->edit): ?>
                                         <div class="btn_note" <?= !$val['show_text_above_button'] ? "style='display:none'" : "" ?> >
-                                            <i><? $self->sub('Text','btn_note') ?></i>
+                                            <? $self->sub('Text','btn_note',array('buttons'=>array("italic","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_3') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -319,9 +319,9 @@ class Services extends Block {
                     'desc' => "Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя. Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя. ",
                     'price' => "<span style='color: #BBBBBB'><strike>7 000 руб.</strike></span> 3 000 руб.",
                     'btn_note' => "Предложение ограниченно",
-                    'order_button_services_3' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
                 )
-            )
+            ),
+            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
         
@@ -332,12 +332,12 @@ class Services extends Block {
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
                         <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title') ?>
+                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2') ?>
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>    
                     <div class="item_list clear">
@@ -350,21 +350,21 @@ class Services extends Block {
                                 <? endif ?>                                
                                 <div class="item_data">
                                     <div class="name">
-                                        <? $self->sub('Text','name_1') ?>
+                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_1') ?>
+                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","removeformat"))) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_1') ?>
+                                            <? $self->sub('Text','price_1',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_4') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -377,21 +377,21 @@ class Services extends Block {
                                 <? endif ?>                                
                                 <div class="item_data">
                                     <div class="name">
-                                        <? $self->sub('Text','name_2') ?>
+                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_2') ?>
+                                            <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","removeformat"))) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_2') ?>
+                                            <? $self->sub('Text','price_2',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_4') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -404,21 +404,21 @@ class Services extends Block {
                                 <? endif ?>                          
                                 <div class="item_data">
                                     <div class="name">
-                                        <? $self->sub('Text','name_3') ?>
+                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_3') ?>
+                                            <? $self->sub('Text','desc_3',array('buttons'=>array("bold","italic","removeformat"))) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_3') ?>
+                                            <? $self->sub('Text','price_3',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_4') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -456,9 +456,9 @@ class Services extends Block {
                     'price_1' => "1 000 руб. ",
                     'price_2' => "3 000 руб. ",
                     'price_3' => "5 000 руб. ",
-                    'order_button_services_4' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' => 'blue')),
                 )
-            )
+            ),
+            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
     
@@ -469,12 +469,12 @@ class Services extends Block {
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
                         <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title') ?>
+                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2') ?>
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>   
                     <div class="item_list clear <?= $val['image_format'] ? $val['image_format'] : "circle" ?>">
@@ -487,21 +487,21 @@ class Services extends Block {
                                         </div>
                                     <? endif ?>
                                     <div class="name">
-                                        <? $self->sub('Text','name_1') ?>
+                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_1') ?>
+                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","removeformat"))) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_1') ?>
+                                            <? $self->sub('Text','price_1',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_5') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -514,21 +514,21 @@ class Services extends Block {
                                         </div>
                                     <? endif ?>
                                     <div class="name">
-                                        <? $self->sub('Text','name_1') ?>
+                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_2') ?>
+                                            <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","removeformat"))) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_2') ?>
+                                            <? $self->sub('Text','price_2',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_5') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -541,21 +541,21 @@ class Services extends Block {
                                         </div>
                                     <? endif ?>
                                     <div class="name">
-                                        <? $self->sub('Text','name_3') ?>
+                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_3') ?>
+                                            <? $self->sub('Text','desc_3',array('buttons'=>array("bold","italic","removeformat"))) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
                                         <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_3') ?>
+                                            <? $self->sub('Text','price_3',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
                                         <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'order_button_services_5') ;?>
+                                            <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -595,9 +595,9 @@ class Services extends Block {
                     'price_1' => "1 000 руб.",
                     'price_2' => "3 000 руб.",
                     'price_3' => "5 000 руб.",
-                    'order_button_services_5' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
                 )
-            )
+            ),
+            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
     
@@ -608,12 +608,12 @@ class Services extends Block {
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
                         <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title') ?>
+                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2') ?>
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>   
                     <div class="item_list clear <?= $val['image_format'] ? $val['image_format'] : "circle" ?>">
@@ -621,48 +621,48 @@ class Services extends Block {
                             <div class="item">
                                 <div class="item_data">
                                     <div class="name">
-                                        <? $self->sub('Text','name_1') ?>
+                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <div class="img_wrap">
                                         <? $self->sub('Image','image_1') ?>
                                     </div> 
                                     <div class="btn_wrap">
-                                        <? $self->sub("FormButton",'order_button_services_6') ;?>
+                                        <? $self->sub("FormButton",'@order_button') ;?>
                                     </div>
                                     <div class="price">
-                                        <? $self->sub('Text','price_1') ?>
+                                        <? $self->sub('Text','price_1',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="item_data">
                                     <div class="name">
-                                        <? $self->sub('Text','name_2') ?>
+                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <div class="img_wrap">
                                         <? $self->sub('Image','image_2') ?>
                                     </div> 
                                     <div class="btn_wrap">
-                                        <? $self->sub("FormButton",'order_button_services_6') ;?>
+                                        <? $self->sub("FormButton",'@order_button') ;?>
                                     </div>
                                     <div class="price">
-                                        <? $self->sub('Text','price_2') ?>
+                                        <? $self->sub('Text','price_2',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="item_data">
                                     <div class="name">
-                                        <? $self->sub('Text','name_3') ?>
+                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <div class="img_wrap">
                                         <? $self->sub('Image','image_3') ?>
                                     </div> 
                                     <div class="btn_wrap">
-                                        <? $self->sub("FormButton",'order_button_services_6') ;?>
+                                        <? $self->sub("FormButton",'@order_button') ;?>
                                     </div>
                                     <div class="price">
-                                        <? $self->sub('Text','price_3') ?>
+                                        <? $self->sub('Text','price_3',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                     </div>
                                 </div>
                             </div>                            
@@ -692,9 +692,9 @@ class Services extends Block {
                     'price_1' => "1 000 руб.",
                     'price_2' => "3 000 руб.",
                     'price_3' => "5 000 руб.",
-                    'order_button_services_6' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать', 'color'=>'blue')),
                 )
-            )
+            ),
+            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
 }

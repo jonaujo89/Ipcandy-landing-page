@@ -1523,7 +1523,7 @@
                                 }
                             }
                             a.each(n, a.proxy(function(s, e) {
-                                var v = false;
+                                var v = "left";
                                 if (i === "JustifyCenter") {
                                     v = "center"
                                 } else {
@@ -1536,9 +1536,9 @@
                                     }
                                 }
                                 if (v === false) {
-                                    e.css("text-align", "")
+                                    e.attr("align", "")
                                 } else {
-                                    e.css("text-align", v)
+                                    e.attr("align", v)
                                 }
                             }, this))
                         } else {

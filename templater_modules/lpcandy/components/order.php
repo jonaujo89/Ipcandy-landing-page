@@ -11,10 +11,10 @@ class Order extends Block {
                 <div class="container">
                     <div class="span10">
                         <div class="title_1">
-                            <div class="list"><? $this->sub('Text','title_1') ?></div>                               
+                            <div class="list"><? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?></div>                               
                         </div>
                         <div class="title_2">
-                            <div class="list"><? $this->sub('Text','title_2') ?></div>
+                            <div class="list"><? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?></div>
                         </div>
                     </div>
                     <div class="span6">  
@@ -74,14 +74,14 @@ class Order extends Block {
             <div class="background_toggle_noise <?= $val['add_background_noise'] ? "with_noise" : "dark"?>">
                 <div class="container">
                     <div class="title_1">
-                        <? $this->sub('Text','title_1') ?>
+                        <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </div>
                     <div class="title_2">
-                        <? $this->sub('Text','title_2') ?>
+                        <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </div>
                     <? if ($val['show_text_above_button'] || $this->edit): ?>
                         <div class="btn_note" <?= !$val['show_text_above_button'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','button_note') ?>
+                            <? $this->sub('Text','button_note',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <br>
@@ -114,20 +114,20 @@ class Order extends Block {
                 </div>
                 <div class="data_wrap">
                     <div class="title_1">
-                        <? $this->sub('Text','title_1') ?>
+                        <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                     </div>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2') ?>
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                         </div>
                     <? endif ?>
                     <div class="desc">
-                        <? $this->sub('Text','desc') ?>
+                        <? $this->sub('Text','desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </div>
                     <? if ($val['show_list_box'] || $this->edit): ?>
                         <div class="list" <?= !$val['show_list_box'] ? "style='display:none'" : "" ?> >
                             <ul>
-                                <? $this->sub('Text','list') ?>
+                                <? $this->sub('Text','list',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                             </ul>
                         </div>
                     <? endif ?>
@@ -160,11 +160,11 @@ class Order extends Block {
         <div class="container-fluid order order_4" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="title_1">
-                    <? $this->sub('Text','title_1') ?>
+                    <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                 </div>
                 <? if ($val['show_title_2'] || $this->edit): ?>
                     <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                        <? $this->sub('Text','title_2') ?>
+                        <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                     </div>
                 <? endif ?>
                 <div class="img_wrap <?= $val['show_box_shadow_media'] ? "" : "hide_box_shadow" ?>">
@@ -172,14 +172,14 @@ class Order extends Block {
                 </div>
                 <div class="form">
                     <div class="form_title">                        
-                        <? $this->sub('Text','form_title') ?>
+                        <? $this->sub('Text','form_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </div>
                     <div class="form_data">
                         <? $this->sub('FormOrder','form') ?>
                     </div>
                     <? if ($val['show_form_bottom_text'] || $this->edit): ?>
                         <div class="form_bottom" <?= !$val['show_form_bottom_text'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','form_bottom_text') ?>
+                            <? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                 </div>           
@@ -220,11 +220,11 @@ class Order extends Block {
             <div class="title_wrap">
                 <div class="container">
                     <div class="title_1">
-                        <? $this->sub('Text','title_1') ?>
+                        <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                     </div>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2') ?>
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                         </div>
                     <? endif ?>
                 </div>
@@ -234,21 +234,21 @@ class Order extends Block {
                     <? $this->repeat('items',function($val,$self){ ?>
                         <div class="item">
                             <?=$self->sub('Icon','icon',array('iconType'=>'white'))?>
-                            <div class="name"><?=$self->sub('Text','icon_title')?></div>
-                            <div class="desc"><?=$self->sub('Text','icon_desc')?></div>
+                            <div class="name"><?=$self->sub('Text','icon_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true))?></div>
+                            <div class="desc"><?=$self->sub('Text','icon_desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?></div>
                         </div> 
                     <? });?> 
                 </div>
                 <div class="form">
                     <div class="form_title">
-                        <? $this->sub('Text','form_title') ?>
+                        <? $this->sub('Text','form_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </div>
                     <div class="form_data">
                         <? $this->sub('FormOrder','form') ?>
                     </div>
                     <? if ($val['show_form_bottom_text'] || $this->edit): ?>
                         <div class="form_bottom" <?= !$val['show_form_bottom_text'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','form_bottom_text') ?>
+                            <? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                 </div>    
@@ -306,28 +306,28 @@ class Order extends Block {
                 <div class="container">
                     <div class="content_wrap <?= $val['move_form'] ? $val['move_form'] : "align_right" ?>">
                         <div class="title_1">
-                            <? $this->sub('Text','title_1') ?>
+                            <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                         <? if ($val['show_title_2'] || $this->edit): ?>
                             <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                                <? $this->sub('Text','title_2') ?>
+                                <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                             </div>
                         <? endif ?>
                         <? if ($val['show_title_3'] || $this->edit): ?>
                             <div class="title_3" <?= !$val['show_title_3'] ? "style='display:none'" : "" ?> >
-                                <? $this->sub('Text','title_3') ?>
+                                <? $this->sub('Text','title_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                             </div>
                         <? endif ?>
                         <div class="form">
                             <div class="form_title">
-                                <? $this->sub('Text','form_title') ?>
+                                <? $this->sub('Text','form_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                             </div>
                             <div class="form_data">
                                 <? $this->sub('FormOrder','form') ?>
                             </div>
                             <? if ($val['show_form_bottom_text'] || $this->edit): ?>
                                 <div class="form_bottom" <?= !$val['show_form_bottom_text'] ? "style='display:none'" : "" ?> >
-                                    <? $this->sub('Text','form_bottom_text') ?>
+                                    <? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                                 </div>
                             <? endif ?>
                         </div>

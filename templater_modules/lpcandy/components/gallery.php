@@ -6,7 +6,7 @@ class Gallery extends Block {
     public $editor = "lp.gallery";
     
     function tpl($val) {?>
-    <div class="container-fluid gallery gallery_1" style="background: none repeat scroll 0% 0% <?=$val['background_color']?>;">
+    <div class="container-fluid gallery gallery_1" style="background: <?=$val['background_color']?>;">
         <div class="container">
             <div class="span16">
                 <? if ($val['show_title'] || $this->edit): ?>
@@ -21,17 +21,15 @@ class Gallery extends Block {
                 <? endif ?>
                 <div class="item_list">
                     <? $this->repeat('items', function($sub,$self) { ?>
-                        <div class="item">
-                            <?= $self->sub('ImageSrc','image');?>
-                            <div class="text_content">
-                                <span>
-                                    <div class="image_title">
-                                        <? $self->sub('Text','image_title') ?>
-                                    </div>
-                                    <div class="image_desc">
-                                        <? $self->sub('Text','image_desc') ?>
-                                    </div>
-                                </span>
+                        <?= $self->sub('ImageSrc','image');?>
+                        <div class="text_content">
+                            <div>
+                                <div class="image_title">
+                                    <? $self->sub('Text','image_title') ?>
+                                </div>
+                                <div class="image_desc">
+                                    <? $self->sub('Text','image_desc') ?>
+                                </div>
                             </div>
                         </div>
                     <? }, array('inline' => true)) ?>

@@ -11,12 +11,12 @@ class Reasons extends Block {
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
                         <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title') ?>
+                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2') ?>
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?> 
                     <div class="item_list clear">
@@ -26,10 +26,10 @@ class Reasons extends Block {
                                     <? $self->sub('Icon','icon_1') ?>
                                 </div>                    
                                 <div class="name">
-                                    <? $self->sub('Text','name_1') ?>
+                                    <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                 </div>
                                 <div class="desc">
-                                    <? $self->sub('Text','desc_1') ?>
+                                    <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
                                 </div>
                             </div>
                             <div class="item">
@@ -37,10 +37,10 @@ class Reasons extends Block {
                                     <? $self->sub('Icon','icon_2') ?>
                                 </div>                    
                                 <div class="name">
-                                    <? $self->sub('Text','name_2') ?>
+                                    <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                 </div>
                                 <div class="desc">
-                                    <? $self->sub('Text','desc_2') ?>
+                                    <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
                                 </div>
                             </div>
                             <div style="clear: both"></div>

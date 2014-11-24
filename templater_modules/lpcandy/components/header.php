@@ -55,7 +55,7 @@ class Header extends Block {
                         </div>
                     <? endif ?>                    
                     <div class="phone <? if($val['show_order_button'] == 0){?>no_btn<?}?>">
-                        <? $this->sub("Text",'phone',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>true) ) ?>
+                        <? $this->sub("Text",'phone',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>true) ) ?>
                     </div>                                          
                 </div>
             </div>
@@ -78,11 +78,11 @@ class Header extends Block {
             <div class="container">
                 <div class="span6">
                     <div class="desc_1 <?= !$val['show_desc_and_order_button'] ? "no_btn" : ""?>" >
-                        <? $this->sub('Text','desc_1') ?>
+                        <? $this->sub('Text','desc_1',array('oneline'=>true)) ?>
                     </div>                    
                     <? if ($val['show_desc_and_order_button'] || $this->edit): ?>
                         <div class="desc_2" <?= !$val['show_desc_and_order_button'] ? "style='display:none'" : "" ?> >
-                                <? $this->sub('Text','desc_2',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>false)) ?>
+                                <? $this->sub('Text','desc_2',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>true)) ?>
                         </div>
                     <? endif ?>                    
                 </div>
@@ -91,7 +91,7 @@ class Header extends Block {
                 </div>
                 <div class="span5">
                     <div class="phone <?= !$val['show_desc_and_order_button'] ? "no_btn" : ""?>">
-                        <? $this->sub("Text",'phone') ?>
+                        <? $this->sub("Text",'phone',array('oneline'=>true)) ?>
                     </div> 
                     <? if ($val['show_desc_and_order_button'] || $this->edit): ?>
                         <div class="span_btn" <?= !$val['show_desc_and_order_button'] ? "style='display:none'" : "" ?>>
@@ -146,7 +146,7 @@ class Header extends Block {
                 </div>           
                 <div class="span4">
                     <div class="phone <?= !$val['show_order_button'] ? "no_btn" : ""?>">
-                        <? $this->sub("Text",'phone') ?>
+                        <? $this->sub("Text",'phone',array('oneline'=>true)) ?>
                     </div> 
                     <? if ($val['show_order_button'] || $this->edit): ?>
                         <div class="span_btn" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >

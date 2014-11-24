@@ -127,12 +127,14 @@ class Block {
     function sub($type,$name,$options=false) {
         $obj = @self::$list[$type];
         if ($obj) {
-            $sub = @$this->val[$name];
-            if ($name && $name[0]=="@") {
+            if ($name && $name[0]=="@" && $this->name_prefix) {
                 $name = substr($name,1);
+                $sub = @$this->val_prefix[$name];
             } else {
+                $sub = @$this->val[$name];
                 $name = $this->name_prefix ? $this->name_prefix.".".$name : $name;
             }
+            $obj->val_prefix = $this->val;
             echo $obj->getHtml($sub,$this->edit,$name,$options);
         } else {
             throw new \Exception("Block type is not registered $type");
@@ -149,9 +151,10 @@ class Block {
             echo "<div>";
         }
         
-        $old_val = $this->val;
+        $this->val_prefix = $this->val;
         foreach ($list as $i=>$sub) {
             $this->name_prefix = $name.".".$i;
+            
             $this->val = $sub;
             echo "<div class='item_block'>";
             $f($sub,$this);
@@ -167,7 +170,7 @@ class Block {
         }
         
         $this->name_prefix = false;
-        $this->val = $old_val;
+        $this->val = $this->val_prefix;
         echo "</div>";
     }
 }
