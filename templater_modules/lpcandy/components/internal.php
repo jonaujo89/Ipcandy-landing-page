@@ -251,7 +251,7 @@ class Image extends Block {
 }
 
 class ImageSrc extends Block {
-    public $editor = "";
+    public $editor = "lp.imageWithSignature";
     public $internal = true;
     
     function tpl($val) {

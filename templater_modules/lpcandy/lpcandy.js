@@ -10,11 +10,11 @@ require("./ui/logo.js");
 require("./ui/icon.js");
 require("./ui/form.js");
 require("./ui/image.js");
-require("./ui/imageSrc.js");
 require("./ui/formButton.js");
 require("./ui/uploadButton.js");
 require("./ui/fontCombo.js");
 require("./ui/media.js");
+require("./ui/imageWithSignature.js");
 
 require("./ui/header.js");
 require("./ui/order.js");
@@ -24,6 +24,7 @@ require("./ui/reasons.js");
 require("./ui/gallery.js");
 require("./ui/logos.js");
 require("./ui/cases.js");
+require("./ui/workOrder.js");
 
 
 var dir = require.dir;

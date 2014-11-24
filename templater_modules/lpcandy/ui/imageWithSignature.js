@@ -1,6 +1,8 @@
-lp.imageSrc = lp.cover.extendOptions({
+lp.imageWithSignature = lp.cover.extendOptions({
     change: function(){
-
+        this.element.find("img").attr({src:base_url+"/"+me.value.url}); 
+        this.element.find(".image_title").text(this.value.image_title);
+        this.element.find(".image_desc").text(this.value.image_desc);
     },
     configForm: {
         title: "Upload image",

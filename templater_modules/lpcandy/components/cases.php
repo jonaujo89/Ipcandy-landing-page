@@ -9,7 +9,7 @@ class Cases extends Block {
         <div class="container-fluid cases cases_1" style="background: <? $this->sub['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                   <? if ($val['show_title'] || $this->edit): ?>
+                    <? if ($val['show_title'] || $this->edit): ?>
                         <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
@@ -51,7 +51,7 @@ class Cases extends Block {
      function tpl_default() { 
         return  array(
             'show_title' => true,
-            'show_title_2' => true,
+            'show_title_2' => false,
             'show_name' => true,
             'show_desc' => true,
             'background_color' =>'#F7F7F7',

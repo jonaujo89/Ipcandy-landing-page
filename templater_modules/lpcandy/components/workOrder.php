@@ -3,53 +3,62 @@
 class WorkOrder extends Block {
     public $name = 'Work order';
     public $description = "Benefits with icon";
+    public $editor = "lp.workOrder";
+    
     
     function tpl($val) {?>
-        <div class="container-fluid workOrder workOrder1" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid workOrder workOrder1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <h1 class="title">
-                        <?=$this->sub('Text','title')?>
-                    </h1>
+                    <? if ($val['show_title'] || $this->edit): ?>
+                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        </h1>
+                    <? endif ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        </div>
+                    <? endif ?>
                     <div class="item_list clear">
                         <div class="item">
                             <div class="arrow"></div>
                             <?=$this->sub('Icon','icon_1')?>
                             <div class="name">
-                                <?=$this->sub('Text','name_1')?>
+                                <?=$this->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
                             </div>
                             <div class="desc">
-                                <?=$this->sub('Text','desc_1')?>
+                                <?=$this->sub('Text','desc_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
                             </div>
                         </div>
                         <div class="item">
                             <div class="arrow"></div>
                             <?=$this->sub('Icon','icon_2')?>
                             <div class="name">
-                                <? $this->sub('Text','name_2')?>
+                                <? $this->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
                             </div>
                             <div class="desc">
-                                <? $this->sub('Text','desc_2')?>
+                                <? $this->sub('Text','desc_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
                             </div>
                         </div>
                         <div class="item">
                             <div class="arrow"></div>
                             <?=$this->sub('Icon','icon_3')?>
                             <div class="name">
-                                <? $this->sub('Text','name_3')?>
+                                <? $this->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
                             </div>
                             <div class="desc">
-                                <? $this->sub('Text','desc_3')?>
+                                <? $this->sub('Text','desc_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
                             </div>
                         </div>
                         <div class="item">
                             <div class="arrow"></div>
                             <?=$this->sub('Icon','icon_4')?>
                             <div class="name">
-                                <? $this->sub('Text','name_4')?>
+                                <? $this->sub('Text','name_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
                             </div>
                             <div class="desc">
-                                <? $this->sub('Text','desc_4')?>
+                                <? $this->sub('Text','desc_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
                             </div>
                         </div>
                     </div>
@@ -60,8 +69,13 @@ class WorkOrder extends Block {
     
      function tpl_default() { 
         return  array(
-            'bg_color' => '#F7F7F7',
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_name' => true,
+            'show_desc' => true,         
+            'background_color' => '#FFFFFF',
             'title' => "Порядок работы",
+            'title_2' => "Подзаголовок",
             'icon_1' => "templater_modules/lpcandy/assets/ico/154.png",
             'icon_2' => "templater_modules/lpcandy/assets/ico/90.png",
             'icon_3' => "templater_modules/lpcandy/assets/ico/82.png",
@@ -79,14 +93,21 @@ class WorkOrder extends Block {
     
     
     function tpl_2($val) {?>
-        <div class="container-fluid workOrder workOrder2" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid workOrder workOrder2" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <h1 class="title">
-                        <?=$this->sub('Text','title')?>
-                    </h1>
+                     <? if ($val['show_title'] || $this->edit): ?>
+                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        </h1>
+                    <? endif ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        </div>
+                    <? endif ?>
                     <div class="item_list clear">
-                        <div class="item item0">
+                        <div class="item">
                             <div class="line"></div>
                             <div class="number"></div>
                             <div class="name">
@@ -94,7 +115,7 @@ class WorkOrder extends Block {
                             </div>
                         </div>
 
-                        <div class="item item1">
+                        <div class="item">
                             <div class="line"></div>
                             <div class="number"></div>
                             <div class="name">
@@ -102,7 +123,7 @@ class WorkOrder extends Block {
                             </div>
                         </div>
 
-                        <div class="item item2">
+                        <div class="item">
                             <div class="line"></div>
                             <div class="number"></div>
                             <div class="name">
@@ -110,7 +131,7 @@ class WorkOrder extends Block {
                             </div>
                         </div>
 
-                        <div class="item item3">
+                        <div class="item">
                             <div class="line"></div>
                             <div class="number"></div>
                             <div class="name">
@@ -118,7 +139,7 @@ class WorkOrder extends Block {
                             </div>
                         </div>
 
-                        <div class="item item4">
+                        <div class="item">
                             <div class="line"></div>
                             <div class="number"></div>
                             <div class="name">
@@ -134,8 +155,13 @@ class WorkOrder extends Block {
     
      function tpl_default_2() { 
         return  array(
-            'bg_color' => '#F7F7F7',
-            'title' => "Как мы работаем",
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_name' => true,
+            'show_desc' => true,         
+            'background_color' => '#FFFFFF',
+            'title' => "Порядок работы",
+            'title_2' => "Подзаголовок",
             'name_1' => "Заявка или звонок",
             'name_2' => "Расчет стоимости",
             'name_3' => "Договор и оплата",

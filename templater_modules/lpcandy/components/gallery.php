@@ -72,7 +72,7 @@ class Gallery extends Block {
     
     
     function tpl_2($val) {?>
-        <div class="container-fluid gallery gallery_2" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid gallery 2" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
@@ -124,21 +124,21 @@ class Gallery extends Block {
             'title' => "Галерея работ 2",
             'items' => array(
                 array(
-                    'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
+                    'img_1' => "templater_modules/lpcandy/assets/gallery/1.jpg",                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подпись к фото",
                     'img_text_1' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
-                    'img_2' => "templater_modules/lpcandy/assets/gallery/gallery_2.jpg",
+                    'img_2' => "templater_modules/lpcandy/assets/gallery/2.jpg",
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подпись к фото",
                     'img_text_2' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
                 ),
                 array(
-                    'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",                   
+                    'img_1' => "templater_modules/lpcandy/assets/gallery/3.jpg",                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подпись к фото",
                     'img_text_1' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
-                    'img_2' => "templater_modules/lpcandy/assets/gallery/gallery_4.jpg",
+                    'img_2' => "templater_modules/lpcandy/assets/gallery/4.jpg",
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подпись к фото",
                     'img_text_2' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
@@ -148,7 +148,7 @@ class Gallery extends Block {
     }
     
     function tpl_3($val) {?>
-        <div class="container-fluid gallery gallery_3" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid gallery 3" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
            <div class="container">
                 <div class="span16">
                     <h1 class="title">
@@ -209,24 +209,24 @@ class Gallery extends Block {
             'title' => "Галерея работ 3",
             'items' => array(
                 array(
-                    'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
+                    'img_1' => "templater_modules/lpcandy/assets/gallery/1.jpg",                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта, интересные факты",
-                    'img_2' => "templater_modules/lpcandy/assets/gallery/gallery_2.jpg",
+                    'img_2' => "templater_modules/lpcandy/assets/gallery/2.jpg",
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта, интересные факты",
-                    'img_3' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",
+                    'img_3' => "templater_modules/lpcandy/assets/gallery/3.jpg",
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта, интересные факты",
                 ),
                 array(
-                    'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_4.jpg",                   
+                    'img_1' => "templater_modules/lpcandy/assets/gallery/4.jpg",                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта, интересные факты",
-                    'img_2' => "templater_modules/lpcandy/assets/gallery/gallery_5.jpg",
+                    'img_2' => "templater_modules/lpcandy/assets/gallery/5.jpg",
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта, интересные факты",
-                    'img_3' => "templater_modules/lpcandy/assets/gallery/gallery_6.jpg",
+                    'img_3' => "templater_modules/lpcandy/assets/gallery/6.jpg",
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта, интересные факты",
                 )
@@ -235,7 +235,7 @@ class Gallery extends Block {
     }
     
     function tpl_4($val) {?>
-        <div class="container-fluid gallery gallery_4" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid gallery 4" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
            <div class="container">
                 <div class="span16">
                     <h1 class="title">
@@ -309,30 +309,30 @@ class Gallery extends Block {
             'title' => "Галерея работ 4",
             'items' => array(
                 array(
-                    'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
+                    'img_1' => "templater_modules/lpcandy/assets/gallery/1.jpg",                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта",
-                    'img_2' => "templater_modules/lpcandy/assets/gallery/gallery_2.jpg",
+                    'img_2' => "templater_modules/lpcandy/assets/gallery/2.jpg",
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта",
-                    'img_3' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",
+                    'img_3' => "templater_modules/lpcandy/assets/gallery/3.jpg",
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта",
-                    'img_4' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",
+                    'img_4' => "templater_modules/lpcandy/assets/gallery/1.jpg",
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
                 ),
                 array(
-                    'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_4.jpg",                   
+                    'img_1' => "templater_modules/lpcandy/assets/gallery/4.jpg",                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта",
-                    'img_2' => "templater_modules/lpcandy/assets/gallery/gallery_5.jpg",
+                    'img_2' => "templater_modules/lpcandy/assets/gallery/5.jpg",
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта",
-                    'img_3' => "templater_modules/lpcandy/assets/gallery/gallery_6.jpg",
+                    'img_3' => "templater_modules/lpcandy/assets/gallery/6.jpg",
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта",
-                    'img_4' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",
+                    'img_4' => "templater_modules/lpcandy/assets/gallery/3.jpg",
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
                 )
@@ -342,7 +342,7 @@ class Gallery extends Block {
     
     
     function tpl_5($val) {?>
-        <div class="container-fluid gallery gallery_5" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">           
+        <div class="container-fluid gallery 5" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">           
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
@@ -445,19 +445,19 @@ class Gallery extends Block {
             'title' => "Галерея работ 5",
             'items' => array(
                 array(
-                    'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
+                    'img_1' => "templater_modules/lpcandy/assets/gallery/1.jpg",                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта",
-                    'img_2' => "templater_modules/lpcandy/assets/gallery/gallery_2.jpg",
+                    'img_2' => "templater_modules/lpcandy/assets/gallery/2.jpg",
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта",
-                    'img_3' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",
+                    'img_3' => "templater_modules/lpcandy/assets/gallery/3.jpg",
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта",
-                    'img_4' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",
+                    'img_4' => "templater_modules/lpcandy/assets/gallery/1.jpg",
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
-                    'img_5' => "templater_modules/lpcandy/assets/gallery/gallery_4.jpg",                   
+                    'img_5' => "templater_modules/lpcandy/assets/gallery/4.jpg",                   
                     'img_title_5' => "Дорога в облака",
                     'img_desc_5' => "Подробное описание проекта",
                 )
@@ -467,7 +467,7 @@ class Gallery extends Block {
     
     
     function tpl_6($val) {?>
-        <div class="container-fluid gallery gallery_6" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">           
+        <div class="container-fluid gallery 6" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">           
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
@@ -585,22 +585,22 @@ class Gallery extends Block {
             'title' => "Галерея работ 6",
             'items' => array(
                 array(
-                    'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
+                    'img_1' => "templater_modules/lpcandy/assets/gallery/1.jpg",                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта",
-                    'img_2' => "templater_modules/lpcandy/assets/gallery/gallery_2.jpg",
+                    'img_2' => "templater_modules/lpcandy/assets/gallery/2.jpg",
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта",
-                    'img_3' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",
+                    'img_3' => "templater_modules/lpcandy/assets/gallery/3.jpg",
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта",
-                    'img_4' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",
+                    'img_4' => "templater_modules/lpcandy/assets/gallery/1.jpg",
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
-                    'img_5' => "templater_modules/lpcandy/assets/gallery/gallery_5.jpg",                   
+                    'img_5' => "templater_modules/lpcandy/assets/gallery/5.jpg",                   
                     'img_title_5' => "Дорога в облака",
                     'img_desc_5' => "Подробное описание проекта",
-                    'img_6' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",                   
+                    'img_6' => "templater_modules/lpcandy/assets/gallery/3.jpg",                   
                     'img_title_6' => "Дорога в облака",
                     'img_desc_6' => "Подробное описание проекта",
                 )
@@ -610,7 +610,7 @@ class Gallery extends Block {
     
     
     function tpl_7($val) {?>
-        <div class="container-fluid gallery gallery_7" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">           
+        <div class="container-fluid gallery 7" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">           
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
@@ -731,22 +731,22 @@ class Gallery extends Block {
             'title' => "Галерея работ 7",
             'items' => array(
                 array(
-                    'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
+                    'img_1' => "templater_modules/lpcandy/assets/gallery/1.jpg",                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта",
-                    'img_2' => "templater_modules/lpcandy/assets/gallery/gallery_2.jpg",
+                    'img_2' => "templater_modules/lpcandy/assets/gallery/2.jpg",
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта",
-                    'img_3' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",
+                    'img_3' => "templater_modules/lpcandy/assets/gallery/3.jpg",
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта",
-                    'img_4' => "templater_modules/lpcandy/assets/gallery/gallery_4.jpg",
+                    'img_4' => "templater_modules/lpcandy/assets/gallery/4.jpg",
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
-                    'img_5' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
+                    'img_5' => "templater_modules/lpcandy/assets/gallery/1.jpg",                   
                     'img_title_5' => "Дорога в облака",
                     'img_desc_5' => "Подробное описание проекта",
-                    'img_6' => "templater_modules/lpcandy/assets/gallery/gallery_6.jpg",                   
+                    'img_6' => "templater_modules/lpcandy/assets/gallery/6.jpg",                   
                     'img_title_6' => "Дорога в облака",
                     'img_desc_6' => "Подробное описание проекта",
                 )
@@ -756,7 +756,7 @@ class Gallery extends Block {
     
     
     function tpl_8($val) {?>
-        <div class="container-fluid gallery gallery_8" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">           
+        <div class="container-fluid gallery 8" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">           
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
@@ -859,22 +859,22 @@ class Gallery extends Block {
             'title' => "Галерея работ 8",
             'items' => array(
                 array(
-                    'img_1' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
+                    'img_1' => "templater_modules/lpcandy/assets/gallery/1.jpg",                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта",
-                    'img_2' => "templater_modules/lpcandy/assets/gallery/gallery_2.jpg",
+                    'img_2' => "templater_modules/lpcandy/assets/gallery/2.jpg",
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта",
-                    'img_3' => "templater_modules/lpcandy/assets/gallery/gallery_3.jpg",
+                    'img_3' => "templater_modules/lpcandy/assets/gallery/3.jpg",
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта",
-                    'img_4' => "templater_modules/lpcandy/assets/gallery/gallery_4.jpg",
+                    'img_4' => "templater_modules/lpcandy/assets/gallery/4.jpg",
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
-                    'img_5' => "templater_modules/lpcandy/assets/gallery/gallery_1.jpg",                   
+                    'img_5' => "templater_modules/lpcandy/assets/gallery/1.jpg",                   
                     'img_title_5' => "Дорога в облака",
                     'img_desc_5' => "Подробное описание проекта",
-                    'img_6' => "templater_modules/lpcandy/assets/gallery/gallery_6.jpg",                   
+                    'img_6' => "templater_modules/lpcandy/assets/gallery/6.jpg",                   
                     'img_title_6' => "Дорога в облака",
                     'img_desc_6' => "Подробное описание проекта",
                 )
