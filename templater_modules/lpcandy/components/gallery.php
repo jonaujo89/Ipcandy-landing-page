@@ -6,41 +6,41 @@ class Gallery extends Block {
     public $editor = "lp.gallery";
     
     function tpl($val) {?>
-    <div class="container-fluid gallery gallery_1" style="background: <?=$val['background_color']?>;">
-        <div class="container">
-            <div class="span16">
-                <? if ($val['show_title'] || $this->edit): ?>
-                    <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
-                        <? $this->sub('Text','title') ?>
-                    </h1>
-                <? endif ?>
-                <? if ($val['show_title_2'] || $this->edit): ?>
-                    <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                        <? $this->sub('Text','title_2') ?>
-                    </div>
-                <? endif ?>
-                <div class="item_list">
-                    <? $this->repeat('items', function($sub,$self) { ?>
-                        <?= $self->sub('ImageSrc','image');?>
-                        <div class="text_content">
-                            <div>
-                                <div class="image_title">
-                                    <? $self->sub('Text','image_title') ?>
-                                </div>
-                                <div class="image_desc">
-                                    <? $self->sub('Text','image_desc') ?>
+        <div class="container-fluid gallery gallery_1" style="background: <?=$val['background_color']?>;">
+            <div class="container">
+                <div class="span16">
+                    <? if ($val['show_title'] || $this->edit): ?>
+                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title') ?>
+                        </h1>
+                    <? endif ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2') ?>
+                        </div>
+                    <? endif ?>
+                    <div class="item_list">
+                        <? $this->repeat('items', function($sub,$self) { ?>
+                            <?= $self->sub('ImageSrc','image');?>
+                            <div class="text_content">
+                                <div>
+                                    <div class="image_title">
+                                        <? $self->sub('Text','image_title') ?>
+                                    </div>
+                                    <div class="image_desc">
+                                        <? $self->sub('Text','image_desc') ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <? }, array('inline' => true)) ?>
-                    <div style="clear: both"></div>
-                </div>                
+                        <? }, array('inline' => true)) ?>
+                        <div style="clear: both"></div>
+                    </div>                
+                </div>
             </div>
         </div>
-    </div>
     <?}
     
-     function tpl_default() { 
+    function tpl_default() { 
         return  array(
             'show_title' => true,
             'show_title_2' => true,
@@ -118,7 +118,7 @@ class Gallery extends Block {
         </div>
     <?}
     
-     function tpl_default_2() { 
+    function tpl_default_2() { 
         return  array(
             'bg_color' => '#F7F7F7',
             'title' => "Галерея работ 2",
@@ -203,7 +203,7 @@ class Gallery extends Block {
         </div>
     <?}
     
-     function tpl_default_3() { 
+    function tpl_default_3() { 
         return  array(
             'bg_color' => '#F7F7F7',
             'title' => "Галерея работ 3",
@@ -303,7 +303,7 @@ class Gallery extends Block {
         </div>
     <?}
     
-     function tpl_default_4() { 
+    function tpl_default_4() { 
         return  array(
             'bg_color' => '#F7F7F7',
             'title' => "Галерея работ 4",
@@ -439,7 +439,7 @@ class Gallery extends Block {
         </div>
     <?}
     
-     function tpl_default_5() { 
+    function tpl_default_5() { 
         return  array(
             'bg_color' => '#F7F7F7',
             'title' => "Галерея работ 5",
@@ -579,7 +579,7 @@ class Gallery extends Block {
         </div>
     <?}
     
-     function tpl_default_6() { 
+    function tpl_default_6() { 
         return  array(
             'bg_color' => '#F7F7F7',
             'title' => "Галерея работ 6",
@@ -725,7 +725,7 @@ class Gallery extends Block {
 
     <?}
     
-     function tpl_default_7() { 
+    function tpl_default_7() { 
         return  array(
             'bg_color' => '#F7F7F7',
             'title' => "Галерея работ 7",
@@ -853,7 +853,7 @@ class Gallery extends Block {
 
     <?}
     
-     function tpl_default_8() { 
+    function tpl_default_8() { 
         return  array(
             'bg_color' => '#F7F7F7',
             'title' => "Галерея работ 8",

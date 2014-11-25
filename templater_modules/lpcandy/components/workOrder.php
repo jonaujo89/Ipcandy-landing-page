@@ -67,7 +67,7 @@ class WorkOrder extends Block {
         </div>
     <?}
     
-     function tpl_default() { 
+    function tpl_default() { 
         return  array(
             'show_title' => true,
             'show_title_2' => false,
@@ -96,7 +96,7 @@ class WorkOrder extends Block {
         <div class="container-fluid workOrder workOrder2" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                     <? if ($val['show_title'] || $this->edit): ?>
+                    <? if ($val['show_title'] || $this->edit): ?>
                         <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
@@ -153,7 +153,7 @@ class WorkOrder extends Block {
         </div>
     <?}
     
-     function tpl_default_2() { 
+    function tpl_default_2() { 
         return  array(
             'show_title' => true,
             'show_title_2' => false,
@@ -168,9 +168,7 @@ class WorkOrder extends Block {
             'name_4' => "Изготовление и доставка",
             'name_5' => "Вы наш постоянный клиент",
         );
-    }
-    
+    }    
 }
-
 
 WorkOrder::register();

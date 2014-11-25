@@ -52,9 +52,7 @@ class Logos extends Block {
                 array('image'=>"templater_modules/lpcandy/assets/logos/logo_7.png"),
             )
         );
-    }
-    
+    }    
 }
-
 
 Logos::register();

@@ -68,7 +68,7 @@ class Benefits extends Block {
         </div>
     <?}
     
-     function tpl_default() { 
+    function tpl_default() { 
         return  array(
             'show_title' => true,
             'show_title_2' => false,
@@ -157,7 +157,7 @@ class Benefits extends Block {
         </div>
     <?}
     
-     function tpl_default_2() { 
+    function tpl_default_2() { 
         return  array(
             'show_title' => true,
             'show_title_2' => false,
@@ -229,7 +229,7 @@ class Benefits extends Block {
         </div>
     <?}
     
-     function tpl_default_3() { 
+    function tpl_default_3() { 
         return  array(
             'show_title' => true,
             'show_title_2' => false,
@@ -305,7 +305,7 @@ class Benefits extends Block {
         </div>
     <?}
     
-     function tpl_default_4() { 
+    function tpl_default_4() { 
         return  array(
            'show_title' => true,
            'show_title_2' => false,
@@ -334,7 +334,7 @@ class Benefits extends Block {
         );
     }
     
-     function tpl_5($val) {?>
+    function tpl_5($val) {?>
         <div class="container-fluid benefits benefits_5" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
@@ -398,7 +398,7 @@ class Benefits extends Block {
         </div>
     <?}
     
-     function tpl_default_5() { 
+    function tpl_default_5() { 
         return  array(
             'show_title' => true,
             'show_title_2' => false,
@@ -425,6 +425,5 @@ class Benefits extends Block {
     }
         
 }
-
 
 Benefits::register();

@@ -275,18 +275,17 @@ class Media extends Block {
         <div class="media">
             <? if ($val['type']=='image_background'): ?>
                 <div class='img' style='background-image: url("<?= INDEX_URL."/".$val['image_url']?>")'></div>
-            <? elseif ($val['type']=='image'): ?>
-                <img src="<?= INDEX_URL."/".$val['image_url']?>"/>
             <? elseif($val['type']=='video'): 
                     preg_match("/(vimeo)|(youtu)/", $val['video_url'], $video_source);
                     if($video_source[0] == "youtu"){
-                        preg_match("/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/", $val['video_url'], $matches);?>                        
+                        preg_match("/^.*((youtu\.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/", $val['video_url'], $matches);?>                        
                         <iframe frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/<?=($matches[7]);?>"></iframe><?
-                    } 
-                    if ($video_source[0] == "vimeo") {
+                    } else if ($video_source[0] == "vimeo") {
                         preg_match("/^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/", $val['video_url'], $matches);?>
                         <iframe frameborder="0" allowfullscreen="" src="//player.vimeo.com/video/<?=($matches[5]);?>"></iframe><? 
-                    } ?>                            
+                    } else {?>
+                        <iframe frameborder="0" allowfullscreen="" src="<?= INDEX_URL."/"?>templater_modules/lpcandy/assets/video_404.html"></iframe><?
+                    }?>             
             <? endif ?>
         </div>
     <?}
@@ -298,39 +297,36 @@ class Map extends Block {
     
     function tpl_default() {
         return array(
-            'type' => '',
-            'image_url' => '',
-            'video_url' => 'http://youtu.be/z1SXw6nlTr0',
+
         );        
     }
     
     function tpl($val) {?>
-        <div class="media">
-            <? if ($val['type']=='image_background'): ?>
-                <div class='img' style='background-image: url("<?= INDEX_URL."/".$val['image_url']?>")'></div>
-            <? elseif ($val['type']=='image'): ?>
-                <img src="<?= INDEX_URL."/".$val['image_url']?>"/>
-            <? elseif($val['type']=='video'): 
-                    preg_match("/(vimeo)|(youtu)/", $val['video_url'], $video_source);
-                    if($video_source[0] == "youtu"){
-                        preg_match("/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/", $val['video_url'], $matches);?>                        
-                        <iframe frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/<?=($matches[7]);?>"></iframe><?
-                    } 
-                    if ($video_source[0] == "vimeo") {
-                        preg_match("/^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/", $val['video_url'], $matches);?>
-                        <iframe frameborder="0" allowfullscreen="" src="//player.vimeo.com/video/<?=($matches[5]);?>"></iframe><? 
-                    } ?>                            
-            <? endif ?>
-        </div>
+
     <?}
 }
 
-class VideoFrame extends Block {
-    public $editor = "";
+class VideoStream extends Block {
+    public $editor = "lp.videoStream";
     public $internal = true;
     
+    function tpl_default() {
+        return array(
+            'video_url' => 'http://youtu.be/z1SXw6nlTr0',
+        );        
+    }
+    
     function tpl($val) {
-        echo "<iframe src='//".$val."' frameborder='0' allowfullscreen=''></iframe>";
+        preg_match("/(vimeo)|(youtu)/", $val['video_url'], $video_source);
+        if($video_source[0] == "youtu"){
+            preg_match("/^.*((youtu\.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/", $val['video_url'], $matches);?>                        
+            <iframe frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/<?=($matches[7]);?>"></iframe><?
+        } else if ($video_source[0] == "vimeo") {
+            preg_match("/^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/", $val['video_url'], $matches);?>
+            <iframe frameborder="0" allowfullscreen="" src="//player.vimeo.com/video/<?=($matches[5]);?>"></iframe><? 
+        } else {
+            ?><iframe frameborder="0" allowfullscreen="" src="<?= INDEX_URL."/"?>templater_modules/lpcandy/assets/video_404.html"></iframe><?
+        }
     }
 }
 
@@ -350,6 +346,6 @@ FormOrder::register();
 Icon::register();
 Image::register();
 ImageSrc::register();
-VideoFrame::register();
+VideoStream::register();
 Countdown::register();
 Media::register();

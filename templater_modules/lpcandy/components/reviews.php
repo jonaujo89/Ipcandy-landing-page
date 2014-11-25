@@ -110,9 +110,7 @@ class Reviews extends Block {
                 )
             )
         );
-    }
-    
+    }    
 }
-
 
 Reviews::register();

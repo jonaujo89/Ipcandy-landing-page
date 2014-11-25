@@ -674,7 +674,7 @@ class Services extends Block {
         </div>
     <?}
     
-     function tpl_default_6() { 
+    function tpl_default_6() { 
         return  array(
             'show_title' => true,
             'show_title_2' => true,
@@ -698,6 +698,5 @@ class Services extends Block {
         );
     }
 }
-
 
 Services::register();

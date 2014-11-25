@@ -15,6 +15,7 @@ require("./ui/uploadButton.js");
 require("./ui/fontCombo.js");
 require("./ui/media.js");
 require("./ui/imageWithSignature.js");
+require("./ui/videoStream.js");
 
 require("./ui/header.js");
 require("./ui/order.js");
@@ -28,6 +29,7 @@ require("./ui/workOrder.js");
 require("./ui/reviews.js");
 require("./ui/maps.js");
 require("./ui/footer.js");
+require("./ui/video.js");
 
 
 var dir = require.dir;

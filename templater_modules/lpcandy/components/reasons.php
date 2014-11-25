@@ -52,7 +52,7 @@ class Reasons extends Block {
         </div>
     <?}
     
-     function tpl_default() { 
+    function tpl_default() { 
         return  array(
             'show_title' => true,
             'show_title_2' => true,
@@ -89,8 +89,6 @@ class Reasons extends Block {
             )
         );
     }
-   
 }
-
 
 Reasons::register();

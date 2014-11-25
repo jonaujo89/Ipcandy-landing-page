@@ -106,6 +106,7 @@ class Order extends Block {
         );
     }
     
+    
     function tpl_3($val) {?>
         <div class="container-fluid order order_3" style="background: url('<?=INDEX_URL."/".$val['background']?>');">
             <div class="container">                
@@ -141,7 +142,7 @@ class Order extends Block {
 
     <?}
     
-     function tpl_default_3() { 
+    function tpl_default_3() { 
         return  array(            
             'background' =>'templater_modules/lpcandy/assets/texture/1.png',
             'media_file' =>  array_merge(Media::tpl_default(),array('type'=>'image_background','image_url'=> 'templater_modules/lpcandy/assets/order/order_3.jpg')),
@@ -155,6 +156,7 @@ class Order extends Block {
             'show_list_box' => false,
         );
     }
+    
     
     function tpl_4($val) {?>
         <div class="container-fluid order order_4" style="background: <?=$val['background_color']?>;">
@@ -188,7 +190,7 @@ class Order extends Block {
 
     <?}
     
-     function tpl_default_4() { 
+    function tpl_default_4() { 
         return  array(
             'show_form_bottom_text' => true,
             'show_box_shadow_media' => true,
@@ -215,7 +217,8 @@ class Order extends Block {
         );
     }
     
-     function tpl_5($val) {?>
+    
+    function tpl_5($val) {?>
         <div class="container-fluid order order_5" style="background: <?=$val['background_color']?>;">
             <div class="title_wrap">
                 <div class="container">
@@ -257,7 +260,7 @@ class Order extends Block {
 
     <?}
     
-     function tpl_default_5() { 
+    function tpl_default_5() { 
         return  array(
             'show_form_bottom_text' => true,
             'show_title_2' => true,
@@ -300,6 +303,7 @@ class Order extends Block {
         );
     }
     
+    
     function tpl_6($val) {?>
         <div class="container-fluid order order_6" style="background: url('<?=INDEX_URL.$val['background']?>') no-repeat scroll center top / cover rgba(0, 0, 0, 0);">
             <div class="dark">
@@ -338,7 +342,7 @@ class Order extends Block {
 
     <?}
     
-     function tpl_default_6() { 
+    function tpl_default_6() { 
         return  array(
             'show_title_2' => true,
             'show_title_3' => true,
