@@ -100,7 +100,6 @@ class FormOrder extends Block {
     public $editor = "lp.form";
     public $internal = true;    
     
-
     function tpl($val) {?>
             <form action="" method="post" >
                 <div class="form_fields">

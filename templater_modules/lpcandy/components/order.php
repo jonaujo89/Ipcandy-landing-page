@@ -115,7 +115,7 @@ class Order extends Block {
                 </div>
                 <div class="data_wrap">
                     <div class="title_1">
-                        <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                        <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
                     </div>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
@@ -272,7 +272,7 @@ class Order extends Block {
                 array(
                     'icon' =>'templater_modules/lpcandy/assets/ico/388.png',
                     'icon_title' => "10 лет на рынке",
-                    'icon_desc' => "Компания зарекомендовала себя как надежный поставщик садовой мебели."
+                    'icon_desc' => "Компания зарекомендовала себя как надежный поставщик высококачественной садовой мебели."
                 ),
                 array(
                     'icon' =>'templater_modules/lpcandy/assets/ico/523.png',

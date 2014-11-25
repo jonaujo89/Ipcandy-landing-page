@@ -30,6 +30,7 @@ require("./ui/reviews.js");
 require("./ui/maps.js");
 require("./ui/footer.js");
 require("./ui/video.js");
+require("./ui/textBlock.js");
 
 
 var dir = require.dir;

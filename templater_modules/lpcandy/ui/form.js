@@ -280,7 +280,7 @@ lp.form = lp.cover.extendOptions({
             },
             { 
                 type: "button", label: "Show success window", width: 'auto',  margin: "0 0 10px 0px", click: function () {
-                    lp.formButton.showFormSuccess();
+                    lp.form.showFormSuccess();
                 }
             }
         ]
