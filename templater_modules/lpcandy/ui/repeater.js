@@ -8,6 +8,24 @@ lp.repeater = teacss.ui.control.extend({
         this.addCovers();
     },
     
+    config: function (pos,item) {
+        var me = this;
+        var idx = item.index();
+        var sub = me.value[idx];
+        
+        lp.block.prototype.config.call({
+            Class: me.Class,
+            options: { configForm: me.options.configForm },
+            value: sub,
+            trigger: function(type) {
+                if (type!="change") return;
+                me.value[idx] = this.value;
+                if (me.options.itemChange) me.options.itemChange.call(me,this.value,item);
+                me.trigger("change");
+            },
+        },pos);
+    },
+    
     addAfter: function (item) {
         var block = this.options.block;
         var def = teacss.ui.prop(block.getDefault(),this.options.name);
@@ -53,6 +71,15 @@ lp.repeater = teacss.ui.control.extend({
                     item.dragCover = $("<div class='cmp-cover cmp-drag-cover fa fa-arrows'>").css({opacity:1}).hide(),
                     item.addCover = $("<div class='cmp-cover cmp-add-cover'>").css({opacity:1}).hide()
                 );
+                
+                if (me.options.configForm) {
+                    item.cover.append(
+                        $("<div class='fa fa-gear lp-button'>")
+                        .click(function(){
+                            me.config({my:"left top",at:"right top+56px",of:$(this)},item)
+                        })
+                    );
+                }
                 if (!me.options.inline) {
                     item.cover.append(
                         $("<div class='fa fa-plus lp-button'>")

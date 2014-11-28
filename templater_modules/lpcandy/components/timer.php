@@ -2,22 +2,27 @@
 
 class Timer extends Block {
     public $name = 'Timer';
-    public $description = "Counter+clock";
+    public $description = "Countdown";
+    public $editor = "lp.timer";
     
     function tpl($val) {?>
-        <div class="container-fluid timerBlock timerBlock1" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid timer timer_1" style="background:<?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
-                        <? $this->sub('Text','title') ?>
+                        <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </h1>
-                    <div class="title_2">
-                        <? $this->sub('Text','title_2') ?>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        </div>
+                    <? endif ?>
+                    <div class="countdown_desc">
+                        <? $this->sub('Text','countdown_desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </div>
-                    <div class="timer_desc">
-                        <? $this->sub('Text','timer_desc') ?>
-                    </div>
-                    <? $this->sub('Countdown','clock') ?>
+					<div class="countdown_wrap" style="color:<?=$val['countdown_color']?>;">
+						<? $this->sub('Countdown','countdown') ?>
+					</div>
                 </div>
             </div>
         </div>
@@ -25,42 +30,44 @@ class Timer extends Block {
     
     function tpl_default() { 
         return  array(
-            'clock' => Logo::tpl_default(),
-            'bg_color' => '#F7F7F7',
+            'show_title_2' => true,			
+            'background_color' => '#FFFFFF',
+            'countdown_color' => '#E76953',
             'title' => 'Семинар пройдет 1 декабря 2014г. в 12:00',
             'title_2' => 'Количество мест ограничено, успейте оплатить участие',
-            'timer_desc' => 'До начала мероприятия осталось:',            
+            'countdown_desc' => 'До начала мероприятия осталось:',  
+            'countdown' => array('time_end' => '2014/12/1 10:00:00'),
         );
     }
     
     
     function tpl_2($val) {?>
-        <div class="container-fluid timerBlock timerBlock2" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid timer timer_2" style="
+            <?
+                preg_match("/#\w{3,6}/", $val['background'], $background);
+                if($background){
+                  print('background:'.$background[0]);
+                } else {
+                  print('background:repeat scroll 0% 0% transparent url('.INDEX_URL.$val['background'].')');
+                }
+            ?> 
+         ;">
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
-                        <? $this->sub('Text','title') ?>
+                        <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </h1>
-                    <div class="title_2">
-                        <? $this->sub('Text','title_2') ?>
-                    </div>
-                    <div class="timer_desc">
-                        <? $this->sub('Text','timer_desc') ?>
-                    </div>
-                    <div class="timer">
-                        <div class="d">
-                            <div id="countDay" class="digitFont"></div><span>дней</span>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2 <?= $val['title_2_color'] ? $val['title_2_color'] : "" ?>" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
-                        <div class="h">
-                            <div id="countHour" class="digitFont"></div><span>часов</span>
-                        </div>    
-                        <div class="m">
-                            <div id="countMinute" class="digitFont"></div><span>минут</span>
-                        </div>    
-                        <div class="s">
-                            <div id="countSecond" class="digitFont"></div><span>секунд</span>
-                        </div>
+                    <? endif ?>
+                    <div class="countdown_desc">
+                        <? $this->sub('Text','countdown_desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </div>
+                    <div class="countdown_wrap <?= $val['title_2_color'] ? $val['title_2_color'] : "" ?>">
+						<? $this->sub('Countdown','countdown') ?>
+					</div>
                 </div>
             </div>
         </div>
@@ -68,41 +75,35 @@ class Timer extends Block {
     
     function tpl_default_2() { 
         return  array(
-            'bg_color' => '#272727',
+            'show_title_2' => true,
+            'title_2_color' => 'timer_red',
+            'background' => '/templater_modules/lpcandy/assets/texture_black/1.jpg',
             'title' => 'Семинар пройдет 1 декабря 2014г. в 12:00',
             'title_2' => 'Количество мест ограничено, успейте оплатить участие',
-            'timer_desc' => 'До начала мероприятия осталось:',
+            'countdown_desc' => 'До начала мероприятия осталось:',
+            'countdown' => array('time_end' => '2014/12/1 10:00:00'),
         );
     }
     
     
     function tpl_3($val) {?>
-        <div class="container-fluid -fluid timerBlock timerBlock3" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid timer timer_3" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span8">
                     <h1 class="title">
-                        <? $this->sub('Text','title') ?>
+                        <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </h1>
                     <div class="timer_desc">
-                        <? $this->sub('Text','timer_desc') ?>
+                        <? $this->sub('Text','timer_desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </div>
-                    <div class="timer">
-                        <div class="d">
-                            <div id="countDay" class="digitFont"></div><span>дней</span>
+                    <div class="countdown_wrap">
+						<? $this->sub('Countdown','countdown') ?>
+					</div>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
-                        <div class="h">
-                            <div id="countHour" class="digitFont"></div><span>часов</span>
-                        </div>    
-                        <div class="m">
-                            <div id="countMinute" class="digitFont"></div><span>минут</span>
-                        </div>    
-                        <div class="s">
-                            <div id="countSecond" class="digitFont"></div><span>секунд</span>
-                        </div>
-                    </div>
-                    <div class="title_2">
-                        <? $this->sub('Text','title_2') ?>
-                    </div>
+                    <? endif ?>
                 </div>
                 <div class="span8">
                     <div class="form">
@@ -112,9 +113,11 @@ class Timer extends Block {
                         <div class="form_data">
                             <? $this->sub('FormOrder','form') ?>
                         </div>
-                        <div class="form_bottom" >
-                            <? $this->sub('Text','form_bottom_text') ?>
-                        </div>                
+                        <? if ($val['show_form_bottom_text'] || $this->edit): ?>
+							<div class="form_bottom" <?= !$val['show_form_bottom_text'] ? "style='display:none'" : "" ?> >
+								<? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+							</div>
+						<? endif ?>                
                     </div>
                 </div>
             </div>
@@ -123,44 +126,61 @@ class Timer extends Block {
     
     function tpl_default_3() { 
         return  array(
-            'bg_color' => '#fff',
+			'show_title_2' => true,
+			'show_form_bottom_text' => true,
+            'background_color' => '#FFFFFF',
             'title' => '<div>Семинар пройдет</div><div>1 декабря 2014 в 12:00</div>',
             'title_2' => '<div>Количество мест ограничено,</div><div>успейте оплатить участие</div>',
             'timer_desc' => 'До начала мероприятия осталось:',
             'form_title_1' => "Заявка на участие",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",
-            'form' => array('valueBtn'=>'Отправить заявку', 'colorBtn'=>'blue' ),
+            'form' => array(
+                'fields' => array(
+                    array(
+                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
+                        'name' => 'name', 'type' => 'text', 
+                    ),
+                    array(
+                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
+                        'name' => 'phone', 'type' => 'text', 
+                    )
+                ),
+                'button' => array('color'=>'blue','label'=>'Отправить заявку'),
+                'form_done_title' => 'Спасибо за заявку',
+                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
+            ),
+			'countdown' => array('time_end' => '2014/12/1 10:00:00'),
         );
     }
     
     
     function tpl_4($val) {?>
-        <div class="container-fluid -fluid timerBlock timerBlock4" style="background: none repeat scroll 0% 0% <?=$val['bg_color']?>;">
+        <div class="container-fluid timer timer_4" style="
+            <?
+                preg_match("/#\w{3,6}/", $val['background'], $background);
+                if($background){
+                  print('background:'.$background[0]);
+                } else {
+                  print('background:repeat scroll 0% 0% transparent url('.INDEX_URL.$val['background'].')');
+                }
+            ?> 
+         ;">
             <div class="container">
                 <div class="span8">
                     <h1 class="title">
-                        <? $this->sub('Text','title') ?>
+                        <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </h1>
                     <div class="timer_desc">
-                        <? $this->sub('Text','timer_desc') ?>
+                        <? $this->sub('Text','timer_desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </div>
-                    <div class="timer">
-                        <div class="d">
-                            <div id="countDay" class="digitFont"></div><span>дней</span>
+                    <div class="countdown_wrap">
+						<? $this->sub('Countdown','countdown') ?>
+					</div>
+                    <? if ($val['show_title_2'] || $this->edit): ?>
+                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
-                        <div class="h">
-                            <div id="countHour" class="digitFont"></div><span>часов</span>
-                        </div>    
-                        <div class="m">
-                            <div id="countMinute" class="digitFont"></div><span>минут</span>
-                        </div>    
-                        <div class="s">
-                            <div id="countSecond" class="digitFont"></div><span>секунд</span>
-                        </div>
-                    </div>
-                    <div class="title_2">
-                        <? $this->sub('Text','title_2') ?>
-                    </div>
+                    <? endif ?>
                 </div>
                 <div class="span8">
                     <div class="form">
@@ -170,9 +190,11 @@ class Timer extends Block {
                         <div class="form_data">
                             <? $this->sub('FormOrder','form') ?>
                         </div>
-                        <div class="form_bottom" >
-                            <? $this->sub('Text','form_bottom_text') ?>
-                        </div>                
+                        <? if ($val['show_form_bottom_text'] || $this->edit): ?>
+							<div class="form_bottom" <?= !$val['show_form_bottom_text'] ? "style='display:none'" : "" ?> >
+								<? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+							</div>
+						<? endif ?>                
                     </div>
                 </div>
             </div>
@@ -181,17 +203,32 @@ class Timer extends Block {
     
     function tpl_default_4() { 
         return  array(
-            'bg_color' => '#272727',
+            'show_title_2' => true,
+			'show_form_bottom_text' => true,
+			'background' => '/templater_modules/lpcandy/assets/texture_black/1.jpg',
             'title' => '<div>Семинар пройдет</div><div>1 декабря 2014 в 12:00</div>',
             'title_2' => '<div>Количество мест ограничено,</div><div>успейте оплатить участие</div>',
             'timer_desc' => 'До начала мероприятия осталось:',
             'form_title_1' => "Заявка на участие",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",
-            'form' => array('valueBtn'=>'Отправить заявку', 'colorBtn'=>'blue' ),
+            'form' => array(
+                'fields' => array(
+                    array(
+                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
+                        'name' => 'name', 'type' => 'text', 
+                    ),
+                    array(
+                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
+                        'name' => 'phone', 'type' => 'text', 
+                    )
+                ),
+                'button' => array('color'=>'blue','label'=>'Отправить заявку'),
+                'form_done_title' => 'Спасибо за заявку',
+                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
+            ),
+			'countdown' => array('time_end' => '2014/12/1 10:00:00'),
         );
-    }
-        
+    }        
 }
-
 
 Timer::register();

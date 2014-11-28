@@ -121,6 +121,10 @@ div:hover > .cmp-repeater-cover {
     top: 32px;
 }
 
+.cmp-repeater-cover-inline .lp-button:nth-child(3) {
+    top: 63px;
+}
+
 .lp-button-repeater-add-wrap {
     position: absolute !important;
     top: 100%;

@@ -178,7 +178,7 @@ lp.formControls.file = teacss.ui.composite.extendOptions({
     ]
 });
 
-lp.form = lp.cover.extendOptions({
+lp.formOrder = lp.cover.extendOptions({
 },{
     change: function(){
         var val = this.getValue();
@@ -280,7 +280,7 @@ lp.form = lp.cover.extendOptions({
             },
             { 
                 type: "button", label: "Show success window", width: 'auto',  margin: "0 0 10px 0px", click: function () {
-                    lp.form.showFormSuccess();
+                    lp.formOrder.showFormSuccess();
                 }
             }
         ]

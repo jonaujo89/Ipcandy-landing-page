@@ -63,7 +63,9 @@ class Order extends Block {
                         'name' => 'phone', 'type' => 'text', 
                     )
                 ),
-                'button' => array('color'=>'blue','label'=>'Получить консультацию')
+                'button' => array('color'=>'blue','label'=>'Получить консультацию'),
+                'form_done_title' => 'Спасибо за заявку',
+                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
             )
         );
     }
@@ -212,7 +214,9 @@ class Order extends Block {
                         'name' => 'phone', 'type' => 'text', 
                     )
                 ),
-                'button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно')
+                'button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно'),
+                'form_done_title' => 'Спасибо за заявку',
+                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
             )
         );
     }
@@ -298,7 +302,9 @@ class Order extends Block {
                         'name' => 'phone', 'type' => 'text', 
                     )
                 ),
-                'button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно')
+                'button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно'),
+                'form_done_title' => 'Спасибо за заявку',
+                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
             )
         );
     }
@@ -369,7 +375,9 @@ class Order extends Block {
                         'name' => 'email', 'type' => 'text', 
                     )
                 ),
-                'button' => array('color'=>'blue','label'=>'Получить каталог бесплатно')
+                'button' => array('color'=>'blue','label'=>'Получить каталог бесплатно'),
+                'form_done_title' => 'Спасибо за заявку',
+                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
             )
         );
     }

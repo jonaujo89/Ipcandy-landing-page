@@ -14,4 +14,15 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
             };
         }
     };
-});   
+});
+
+$(function() {
+    var datatime = $('.countdown').attr('data-time');
+    $('.countdown').countdown(datatime).on('update.countdown', function(event) {
+        var $this = $(this).html(event.strftime(''
+        + '<div class="d"><div>%-D</div><span>дней</span></div>'
+        + '<div class="h"><div>%H</div><span>часов</span></div> '
+        + '<div class="m"><div>%M</div><span>минут</span></div>'
+        + '<div class="s"><div>%S</div><span>секунд</span></div>'));
+    });
+});

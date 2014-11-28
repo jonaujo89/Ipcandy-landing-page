@@ -146,7 +146,8 @@ class Block {
         
         if ($this->edit) {
             $data_options = $options ? "data-options='".htmlspecialchars(json_encode((object)$options),ENT_QUOTES)."'" : "";
-            echo "<div data-editor='lp.repeater' data-name='".$name."' $data_options>";
+            $editor = @$options['editor'] ?: "lp.repeater";
+            echo "<div data-editor='".$editor."' data-name='".$name."' $data_options>";
         } else {
             echo "<div>";
         }

@@ -5,7 +5,7 @@ class Gallery extends Block {
     public $description = "Photo and image";
     public $editor = "lp.gallery";
     
-    function tpl($val) {?>
+    function tpl($val) {?>		
         <div class="container-fluid gallery gallery_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
@@ -20,25 +20,36 @@ class Gallery extends Block {
                         </div>
                     <? endif ?>
                     <div class="item_list">
-                        <? $this->repeat('items', function($sub,$self) { ?>
-                            <?= $self->sub('ImageSrc','image');?>
-                            <div class="text_content">
-                                <div>
-                                    <div class="image_title">
-                                        <? $self->sub('Text','image_title') ?>
+                        <? 
+                            $this->repeat('items', function($val,$self) { ?>
+                                <img src="<?=INDEX_URL."/".$val['image']?>">
+                                <div class="text_content">
+                                    <div>
+                                        <div class="image_title">
+                                            <?=$val['title']?>
+                                        </div>
+                                        <div class="image_desc">
+                                            <?=$val['desc']?>
+                                        </div>
                                     </div>
-                                    <div class="image_desc">
-                                        <? $self->sub('Text','image_desc') ?>
-                                    </div>
-                                </div>
-                            </div>
-                        <? }, array('inline' => true)) ?>
+                                </div>                                
+                            <? },array('editor' => 'lp.galleryRepeater'));                         
+                        ?>
                         <div style="clear: both"></div>
+                        
                     </div>                
                 </div>
             </div>
         </div>
     <?}
+    
+    function item_default($url) {
+        return array(
+            'image' => $url,
+            'title' => 'Заголовок картинки',
+            'desc' => 'Описание картинки'
+        );
+    }
     
     function tpl_default() { 
         return  array(
@@ -46,26 +57,16 @@ class Gallery extends Block {
             'show_title_2' => true,
             'show_image_title' => true,
             'show_image_desc' => true,
-            'show_price' => true,
             'background_color' =>'#FFFFFF',
             'title' => "Галерея работ №1",
             'title_2' => "Подзаголовок",
-            'items' => array(                
-                array(
-                    'image'=>"templater_modules/lpcandy/assets/gallery/preview_img/1.jpg",
-                    'image_title' => "Дорога в облака",
-                    'image_desc' => "Подпись к фото",
-                ),
-                array(
-                    'image'=>"templater_modules/lpcandy/assets/gallery/preview_img/2.jpg",
-                    'image_title' => "Дорога в облака",
-                    'image_desc' => "Подпись к фото",
-                ),
-                array(
-                    'image'=>"templater_modules/lpcandy/assets/gallery/preview_img/3.jpg",
-                    'image_title' => "Дорога в облака",
-                    'image_desc' => "Подпись к фото",
-                ),
+            'items' => array(
+                $this->item_default('templater_modules/lpcandy/assets/gallery/1.jpg'),
+                $this->item_default('templater_modules/lpcandy/assets/gallery/2.jpg'),
+                $this->item_default('templater_modules/lpcandy/assets/gallery/3.jpg'),
+                $this->item_default('templater_modules/lpcandy/assets/gallery/4.jpg'),
+                $this->item_default('templater_modules/lpcandy/assets/gallery/5.jpg'),
+                $this->item_default('templater_modules/lpcandy/assets/gallery/6.jpg'),
             )
         );
     }

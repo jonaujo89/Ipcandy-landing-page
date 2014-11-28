@@ -40,7 +40,7 @@ class TextBlock extends Block {
     function tpl_default() { 
         return  array(
             'show_title' => true,
-            'show_title_2' => false,
+            'show_title_2' => true,
             'show_list' => false,
             'background_color' => '#FFFFFF',
             'title' => 'Заголовок текстового блока',

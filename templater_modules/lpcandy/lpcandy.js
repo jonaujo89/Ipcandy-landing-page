@@ -8,14 +8,17 @@ require("./ui/color.js");
 require("./ui/cover.js");
 require("./ui/logo.js");
 require("./ui/icon.js");
-require("./ui/form.js");
+require("./ui/formOrder.js");
 require("./ui/image.js");
+require("./ui/imageSrc.js");
 require("./ui/formButton.js");
 require("./ui/uploadButton.js");
 require("./ui/fontCombo.js");
 require("./ui/media.js");
 require("./ui/imageWithSignature.js");
 require("./ui/videoStream.js");
+require("./ui/countdown.js");
+require("./ui/galleryRepeater.js");
 
 require("./ui/header.js");
 require("./ui/order.js");
@@ -31,6 +34,8 @@ require("./ui/maps.js");
 require("./ui/footer.js");
 require("./ui/video.js");
 require("./ui/textBlock.js");
+require("./ui/digits.js");
+require("./ui/timer.js");
 
 
 var dir = require.dir;

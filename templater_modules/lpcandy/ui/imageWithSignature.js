@@ -1,6 +1,6 @@
 lp.imageWithSignature = lp.cover.extendOptions({
     change: function(){
-        this.element.find("img").attr({src:base_url+"/"+me.value.url}); 
+        this.element.find("img").attr({src:base_url+"/"+this.value.image_url}); 
         this.element.find(".image_title").text(this.value.image_title);
         this.element.find(".image_desc").text(this.value.image_desc);
     },
@@ -12,7 +12,7 @@ lp.imageWithSignature = lp.cover.extendOptions({
                  
             },  
             {
-                name: '', type: 'uploadButton', label: 'Select image file',
+                name: 'image_url', type: 'uploadButton', label: 'Select image file',
             },
             {
                 type: 'label',

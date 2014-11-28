@@ -97,8 +97,8 @@ Class FormButton extends Block {
 }
 
 class FormOrder extends Block {
-    public $editor = "lp.form";
-    public $internal = true;    
+    public $editor = "lp.formOrder";
+    public $internal = true;
     
     function tpl($val) {?>
             <form action="" method="post" >
@@ -250,12 +250,39 @@ class Image extends Block {
 }
 
 class ImageSrc extends Block {
-    public $editor = "lp.imageWithSignature";
+    public $editor = "lp.imageSrc";
     public $internal = true;
     
     function tpl($val) {
         echo "<img src=".INDEX_URL."/".$val.">";
     }
+}
+
+class ImageWithSignature extends Block {
+    public $editor = "lp.imageWithSignature";
+    public $internal = true;
+    
+    function tpl_default() {
+        return array(
+            'image_title' => 'Дорога в облака',
+            'image_desc' => 'Подпись к фото',
+            'image_url' => '',
+        );        
+    }
+    
+    function tpl($val) {?>
+        <img src="<?=INDEX_URL."/".$val['image_url']?>">
+        <div class="text_content">
+            <div>
+                <div class="image_title">
+                    <?=$val['image_title']?>
+                </div>
+                <div class="image_desc">
+                    <?=$val['image_desc']?>
+                </div>
+            </div>
+        </div>
+    <?}
 }
 
 class Media extends Block {
@@ -318,11 +345,11 @@ class VideoStream extends Block {
     function tpl($val) {
         preg_match("/(vimeo)|(youtu)/", $val['video_url'], $video_source);
         if($video_source[0] == "youtu"){
-            preg_match("/^.*((youtu\.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/", $val['video_url'], $matches);?>                        
-            <iframe frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/<?=($matches[7]);?>"></iframe><?
+            preg_match("/^.*((youtu\.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/", $val['video_url'], $matches);                        
+            ?><iframe frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/<?=($matches[7]);?>"></iframe><?
         } else if ($video_source[0] == "vimeo") {
-            preg_match("/^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/", $val['video_url'], $matches);?>
-            <iframe frameborder="0" allowfullscreen="" src="//player.vimeo.com/video/<?=($matches[5]);?>"></iframe><? 
+            preg_match("/^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/", $val['video_url'], $matches);
+            ?><iframe frameborder="0" allowfullscreen="" src="//player.vimeo.com/video/<?=($matches[5]);?>"></iframe><? 
         } else {
             ?><iframe frameborder="0" allowfullscreen="" src="<?= INDEX_URL."/"?>templater_modules/lpcandy/assets/video_404.html"></iframe><?
         }
@@ -330,12 +357,20 @@ class VideoStream extends Block {
 }
 
 class Countdown extends Block {
-    public $editor = "";
+    public $editor = "lp.countdown";
     public $internal = true;
     
-    function tpl($val) {
-        echo '<div class="timer"><div class="d"> <div id="countDay" class="digitFont"></div><span>дней</span> </div> <div class="h"> <div id="countHour" class="digitFont"></div><span>часов</span> </div> <div class="m"> <div id="countMinute" class="digitFont"></div><span>минут</span> </div> <div class="s"> <div id="countSecond" class="digitFont"></div><span>секунд</span> </div> </div>';
+		function tpl_default() {
+        return array(
+            'time_end' => '',
+        );        
     }
+	
+    function tpl($val) {?>
+		<div class="countdown" data-time="<?= $val['time_end']?>">
+		</div>
+    <?}
+
 }
 
 Text::register();
@@ -345,6 +380,7 @@ FormOrder::register();
 Icon::register();
 Image::register();
 ImageSrc::register();
+ImageWithSignature::register();
 VideoStream::register();
 Countdown::register();
 Media::register();
