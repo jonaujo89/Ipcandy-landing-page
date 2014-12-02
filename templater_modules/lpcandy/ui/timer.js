@@ -1,5 +1,8 @@
 lp.timer = lp.block.extendOptions({
-    change: function(){         
+    init: function () {
+		var countdown = this.element.find(".countdown");
+    },	
+	change: function(){         
         this.variant.find(".title_2").toggle(this.value.show_title_2);
 		
 		if (this.value.variant == 1) { 

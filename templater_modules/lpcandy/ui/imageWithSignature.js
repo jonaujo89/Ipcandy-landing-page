@@ -1,18 +1,26 @@
 lp.imageWithSignature = lp.cover.extendOptions({
+    init: function () {
+        this.cover.addClass("lp-button");
+    },
     change: function(){
-        this.element.find("img").attr({src:base_url+"/"+this.value.image_url}); 
-        this.element.find(".image_title").text(this.value.image_title);
-        this.element.find(".image_desc").text(this.value.image_desc);
+		this.element.find(".img_title").text(this.value.title);
+        this.element.find(".img_desc").text(this.value.desc);
+		if(this.value.url_image_preview){
+			this.element.find(".preview_img").css({
+				backgroundImage: "url('"+base_url+'/'+this.value.url_image_preview+"')",
+			});
+			this.element.find(".big_img").attr("href", base_url+'/'+this.value.url_image_preview);
+		}		         
     },
     configForm: {
-        title: "Upload image",
+        title: "Upload image and edit signature",
         items: [
             {   
                 type: "label", value:'Upload image file', margin: "10px 0 5px", 
                  
             },  
             {
-                name: 'image_url', type: 'uploadButton', label: 'Select image file',
+                name: 'url_image_preview', type: 'uploadButton', label: 'Select image file',
             },
             {
                 type: 'label',
@@ -20,7 +28,7 @@ lp.imageWithSignature = lp.cover.extendOptions({
                 margin: "10px 0 5px",
             },
             {
-                name: "image_title", type: "text",
+                name: "title", type: "text",
             },
             {
                 type: 'label',
@@ -28,8 +36,9 @@ lp.imageWithSignature = lp.cover.extendOptions({
                 margin: "10px 0 5px",
             },
             {
-                name: "image_desc", type: "text",
+                name: "desc", type: "text"
             }
         ]
+        
     }
 })

@@ -258,30 +258,39 @@ class ImageSrc extends Block {
     }
 }
 
-class ImageWithSignature extends Block {
+class ImageWithSiganture extends Block {
     public $editor = "lp.imageWithSignature";
-    public $internal = true;
-    
-    function tpl_default() {
+    public $internal = true;	
+	
+	function tpl_default() {
         return array(
-            'image_title' => 'Дорога в облака',
-            'image_desc' => 'Подпись к фото',
-            'image_url' => '',
+			'url_image' => '',
+			'url_image_preview' => '',
+            'show_image_title' => true,
+            'show_image_desc' => true,			
+            'title' => 'Дорога в облака',
+			'desc' => 'Описание',
         );        
     }
-    
+   
     function tpl($val) {?>
-        <img src="<?=INDEX_URL."/".$val['image_url']?>">
-        <div class="text_content">
-            <div>
-                <div class="image_title">
-                    <?=$val['image_title']?>
-                </div>
-                <div class="image_desc">
-                    <?=$val['image_desc']?>
-                </div>
-            </div>
-        </div>
+        <a class="fancybox big_img" rel="group" href="<?=INDEX_URL."/".$val['url_image']?>" title="<?=$val['title']?>">
+			<div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$val['url_image_preview']?>');"></div>
+			<div class="overlay">
+				<div class="wrap_title_desc">
+					<? if ($val['show_image_title'] || $val->edit): ?>
+						<div class="img_title" <?= !$val['show_image_title'] ? "style='display:none'" : "" ?> >
+							<?= $val['title'] ?>
+						</div>
+					<? endif ?>
+					<? if ($val['show_image_desc'] || $val->edit): ?>
+						<div class="img_desc" <?= !$val['show_image_desc'] ? "style='display:none'" : "" ?> >
+							<?= $val['desc'] ?>
+						</div>
+					<? endif ?>
+				</div>
+			</div> 
+		</a>
     <?}
 }
 
@@ -362,12 +371,16 @@ class Countdown extends Block {
     
 		function tpl_default() {
         return array(
-            'time_end' => '',
+            'type' => '',			
+			'date' => '',
+			'dayOfWeek' => '',
+			'day' => '',
+			'time' => '',
         );        
     }
-	
+
     function tpl($val) {?>
-		<div class="countdown" data-time="<?= $val['time_end']?>">
+		<div class="countdown" data-datetime='{"type":"<?= $val['type']?>","date":"<?= $val['date']?>","day":"<?= $val['day']?>","dayOfWeek":"<?= $val['dayOfWeek']?>","time":"<?= $val['time']?>"}'>
 		</div>
     <?}
 
@@ -380,7 +393,7 @@ FormOrder::register();
 Icon::register();
 Image::register();
 ImageSrc::register();
-ImageWithSignature::register();
+ImageWithSiganture::register();
 VideoStream::register();
 Countdown::register();
 Media::register();

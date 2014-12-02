@@ -15,10 +15,10 @@ require("./ui/formButton.js");
 require("./ui/uploadButton.js");
 require("./ui/fontCombo.js");
 require("./ui/media.js");
-require("./ui/imageWithSignature.js");
 require("./ui/videoStream.js");
 require("./ui/countdown.js");
 require("./ui/galleryRepeater.js");
+require("./ui/imageWithSignature.js");
 
 require("./ui/header.js");
 require("./ui/order.js");
@@ -46,7 +46,8 @@ exports = function(templater_app,options) {
             teacss.ui.Control.prototype.init.call(this,o);
             Component.app = this;
             
-            this.styles = [dir + "/style/style.tea"];
+            this.staticStyles = [dir + "/style/style.tea"];
+            this.styles = [];
             
             var me = this;
             teacss.jQuery(function(){

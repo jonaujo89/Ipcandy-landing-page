@@ -26,6 +26,8 @@ lp.block = teacss.ui.control.extend({
         this.removeButton.click(function(){me.remove()});
         this.prevButton.click(function(){me.prev()});
         this.nextButton.click(function(){me.next()});
+        
+        if (me.options.init) me.options.init.call(me);
    },
     
     remove: function () {

@@ -1,8 +1,8 @@
 lp.galleryRepeater = lp.repeater.extendOptions({
     inline: true,
     itemChange: function (sub,item) {
-        item.find(".image_title").text(sub.title);
-        item.find(".image_desc").text(sub.desc);
+		item.find(".img_title").text(sub.title);
+        item.find(".img_desc").text(sub.desc);
         item.find("img").attr("src",base_url+"/"+sub.image);
     },
     configForm: {

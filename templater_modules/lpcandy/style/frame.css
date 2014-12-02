@@ -34,17 +34,20 @@ body > div {
     opacity: 0;
 }
 
+.cmp-cover.lp-button {
+    right: 5px;
+    top: 5px;
+    left: auto;
+    bottom: auto;
+    opacity: 0;
+}
+
+:hover > .cmp-cover.lp-button,
 .cmp-cover:hover {
     opacity: 1;
 }
 
-.cmp-add-cover {
-    top: auto; 
-    height: 10px;
-    bottom: -10px;
-}
-
-.cmp-cover:before {
+.cmp-cover:not(.lp-button):before {
     color: white;
     font-size: 40px;
     position: absolute;
@@ -56,6 +59,20 @@ body > div {
     text-align: center;
     margin-top: -25px;
     margin-left: -25px;
+    box-sizing: border-box;
+}
+
+.cmp-add-cover {
+    top: auto; 
+    height: 10px;
+    bottom: -10px;
+}
+
+.item_block:nth-child(1) .cmp-repeater-cover .fa.fa-trash-o.lp-button:nth-child(2) {
+    display: none;
+}
+.item_block:nth-child(1) .cmp-repeater-cover .fa.fa-plus.lp-button {
+    margin-top: -16px;
 }
 
 .cmp-repeater-cover,
@@ -75,6 +92,8 @@ body > div {
     width: 40px;
     display: none;
     padding-left: 10px;
+    box-sizing: border-box;
+
 }
 
 .cmp-repeater-cover-inline {
@@ -88,7 +107,7 @@ body > div {
     width: 9px;
     border: 1px solid #ccc;
     border-left: none;
-    
+    box-sizing: border-box;
 }
 
 .cmp-repeater-cover-inline:before {
@@ -102,7 +121,7 @@ div:hover > .cmp-repeater-cover {
 .cmp-repeater-cover .lp-button {
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 1px;
     margin-top: -31px;
 }
 
@@ -144,6 +163,7 @@ div:hover > .cmp-repeater-cover {
     width: 30px; height: 30px;
     border-right: 1px solid #ccc;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .lp-button.lp-button-repeater-add {
@@ -180,14 +200,15 @@ div:hover > .cmp-controls {
     border: 1px #ccc solid;
     width: 30px;
     height: 30px;
-    line-height: 30px;
-    font-size: 24px;
+    line-height: 28px;
+    font-size: 22px;
     text-align: center;
     color: black;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
     display: inline-block;
+    box-sizing: border-box;
 }
 
 .lp-button:hover {
