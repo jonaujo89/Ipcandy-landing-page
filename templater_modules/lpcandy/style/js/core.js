@@ -16,6 +16,7 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
     };
 });
 
+
 $.fn.lpCounty = function () {
 	$(this).each(function(){	
 
@@ -38,19 +39,58 @@ $.fn.lpCounty = function () {
 			break;
 
 		  case 'monthly':
-			date_end = new Date(year+'/'+month+'/'+dateTime.day+' '+dateTime.time);
+			var dayPlus;
+			var countMonth;
+			dayPlus = dateTime.day - day;
+				
+			if(month == 2){ // если февраль то 29-30 не считать
+				if (year % 4 === 0){ // если високосный год
+					if(dateTime.day == 30 || dateTime.day == 31){	
+						dayPlus = 29 - day;
+					}
+					countMonth = 29;
+				} else {
+					if(dateTime.day == 29 || dateTime.day == 30 || dateTime.day == 31){	
+						dayPlus = 28 - day;
+					}
+					countMonth = 28;
+				}	
+			} else {
+				if (month == 4 || month == 6 || month == 9 || month == 11) { // если в месяце 30 дней то 31 не считать
+					if(dateTime.day == 31){	
+						dayPlus = 30 - day;
+					}
+					countMonth = 30;					
+				}else{
+					countMonth = 31;
+				}
+			}
+				
+			if (dayPlus < 0 ) {
+				dayPlus = countMonth + dayPlus;
+			} else if(dayPlus == 0){
+				var timeX = new Date(year+'/'+month+'/'+day+' '+dateTime.time);
+				if (timeX < now){
+					dayPlus = countMonth;
+				}		
+			}
+				
+			date_end = new Date(year+'/'+month+'/'+(day+dayPlus)+' '+dateTime.time);
 			$(this).empty().county({
 				endDateTime: date_end,
 			});
 			break;
 			
 		  case 'weekly':			
-			var dayPlus = dayOfWeek - dateTime.dayOfWeek;
-			if(dayPlus < 0){
-				dayPlus = dayPlus * -1;
-			} else if (dayPlus == 0) {
-				dayPlus = 7;
-			}				
+			var dayPlus = dateTime.dayOfWeek - dayOfWeek;
+			if(dayPlus == 0) {
+				var timeX = new Date(year+'/'+month+'/'+day+' '+dateTime.time);
+				if (timeX < now){
+					dayPlus = 7;
+				}				
+			} else if(dayPlus < 0){
+				dayPlus = 7 + dayPlus;
+			}
 			date_end = new Date(year+'/'+month+'/'+(day+dayPlus)+' '+dateTime.time);
 			$(this).empty().county({
 				endDateTime: date_end,
@@ -70,13 +110,8 @@ $.fn.lpCounty = function () {
 	});
 };
 
-$(function() { 
-    $(".countdown").lpCounty();	
-});
-
-$(document).on('click','.fancybox',function(e){
-	e.preventDefault();
-	$('.fancybox').fancybox({
+$.fn.lpFancybox = function () {
+	$(this).fancybox({
 		openEffect	: 'elastic',
 		closeEffect	: 'elastic',
 
@@ -86,5 +121,17 @@ $(document).on('click','.fancybox',function(e){
 			}
 		}
 	}); 
-	$(this).trigger('click.fb');
+};
+
+$.fn.lpFancyboxWhithoutTitle = function () {
+	$(this).fancybox({
+		openEffect	: 'elastic',
+		closeEffect	: 'elastic',
+	}); 
+};
+
+$(function() { 
+    $(".countdown").lpCounty();	
+	$(".fancybox").lpFancybox();
+	$(".fancybox-whithout-title").lpFancyboxWhithoutTitle();
 });

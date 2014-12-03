@@ -18,6 +18,7 @@ lp.gallery = lp.block.extendOptions({
 			this.variant.find(".item_list").toggleClass("hide_overlay",!this.value.show_image_overlay);
 		}
 		if (this.value.variant == 3 || this.value.variant == 4) {
+			this.variant.find(".fancybox").attr('title',this.value.title);
 			this.variant.find(".img_desc").toggle(this.value.show_image_desc);
 			this.variant.find(".overlay").toggle(this.value.show_image_overlay);			
 		}
@@ -38,7 +39,7 @@ lp.gallery = lp.block.extendOptions({
             },
             { 
                 name: "show_image_desc", label: "Show image second title", type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [2,3,4,6,7,8] }
+                margin: "5px 49% 5px 0px", showWhen: { variant: [1,2,3,4,6,7,8] }
             },
 			{ 
                 name: "show_image_overlay", label: "Show image signature", type: "check", width: "auto", height: 27, 

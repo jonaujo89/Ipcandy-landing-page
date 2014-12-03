@@ -36,7 +36,8 @@ class Timer extends Block {
             'title' => 'Семинар пройдет 1 декабря 2014г. в 12:00',
             'title_2' => 'Количество мест ограничено, успейте оплатить участие',
             'countdown_desc' => 'До начала мероприятия осталось:',  
-            'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => '7','day' => '5','time' => '23:55')),
+            'countdown' => array_merge(Countdown::tpl_default(),
+                   array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => 0 ,'day' => 5,'time' => '23:55')),
         );
     }
     
@@ -81,7 +82,7 @@ class Timer extends Block {
             'title' => 'Семинар пройдет 1 декабря 2014г. в 12:00',
             'title_2' => 'Количество мест ограничено, успейте оплатить участие',
             'countdown_desc' => 'До начала мероприятия осталось:',
-            'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => '2','day' => '5','time' => '23:55')),
+            'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
         );
     }
     
@@ -149,7 +150,7 @@ class Timer extends Block {
                 'form_done_title' => 'Спасибо за заявку',
                 'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
             ),
-			'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => '2','day' => '5','time' => '23:55')),
+			'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
         );
     }
     
@@ -226,7 +227,7 @@ class Timer extends Block {
                 'form_done_title' => 'Спасибо за заявку',
                 'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
             ),
-			'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => '2','day' => '5','time' => '23:55')),
+			'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
         );
     }        
 }

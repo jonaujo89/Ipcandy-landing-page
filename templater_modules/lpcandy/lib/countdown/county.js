@@ -14,7 +14,7 @@
             var container = $(this);
             container.addClass('county');
             container.append(
-                settings.days ? '<div class="county-days"><div>000</div><span>дней</span></div>':'',
+                settings.days ? '<div class="county-days"><div>00</div><span>дней</span></div>':'',
 				'<div class="county-hours separator-left"><div>00</div><span>часов</span></div>',
 				'<div class="county-minutes separator-left"><div>00</div><span>минут</span></div>',
 				'<div class="county-seconds separator-left"><div>00</div><span>секунд</span></div>'

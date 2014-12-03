@@ -1,6 +1,10 @@
 lp.timer = lp.block.extendOptions({
     init: function () {
-		var countdown = this.element.find(".countdown");
+        var countdown = this.element.find(".countdown");
+        var jq = Component.previewFrame.window.$;
+        if (jq) {
+            jq(countdown).lpCounty();
+        }
     },	
 	change: function(){         
         this.variant.find(".title_2").toggle(this.value.show_title_2);
@@ -60,7 +64,7 @@ lp.timer = lp.block.extendOptions({
             },
 			{ 
                 name: "show_form_bottom_text", label: "Show text under the form", type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [4] }
+                margin: "5px 49% 5px 0px", showWhen: { variant: [3,4] }
             },
             {   type: "label", value: "Countdown color:", margin: "5px 0 0", showWhen: { variant: [1] } },
             { 

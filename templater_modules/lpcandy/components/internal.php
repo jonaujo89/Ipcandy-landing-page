@@ -249,6 +249,25 @@ class Image extends Block {
     }
 }
 
+class ImageFancyboxWhithoutTitle extends Block {
+    public $editor = "lp.imageFancyboxWhithoutTitle";
+    public $internal = true;   
+	
+	function tpl_default() {
+        return array(
+			'url_image' => '',	
+			'url_image_preview' => '',
+			'fancy_group' => '',
+        );        
+    }
+   
+    function tpl($val) {?>
+		<a class="fancybox-whithout-title big_img" rel="<?=$val['fancy_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>">
+			<div class='img preview_img' style='background-image: url("<?=INDEX_URL."/".$val['url_image_preview']?>")'></div>
+		</a>		
+    <?}
+}
+
 class ImageSrc extends Block {
     public $editor = "lp.imageSrc";
     public $internal = true;
@@ -270,11 +289,12 @@ class ImageWithSiganture extends Block {
             'show_image_desc' => true,			
             'title' => 'Дорога в облака',
 			'desc' => 'Описание',
+			'fancy_group' => '',
         );        
     }
    
     function tpl($val) {?>
-        <a class="fancybox big_img" rel="group" href="<?=INDEX_URL."/".$val['url_image']?>" title="<?=$val['title']?>">
+        <a class="fancybox big_img" rel="<?=$val['fancy_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>" title="<?=$val['title']?>">
 			<div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$val['url_image_preview']?>');"></div>
 			<div class="overlay">
 				<div class="wrap_title_desc">
@@ -393,6 +413,7 @@ FormOrder::register();
 Icon::register();
 Image::register();
 ImageSrc::register();
+ImageFancyboxWhithoutTitle::register();
 ImageWithSiganture::register();
 VideoStream::register();
 Countdown::register();

@@ -2396,20 +2396,21 @@
 }
 
 .gallery_1 .img_title {
-  margin-top: 3%;
   color: #FFF;
   font-size: 18px !important;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans Bold",Arial;
   font-weight: 600;
+  line-height: 150%;
   text-transform: uppercase;
 }
 
 .gallery_1 .img_desc {
-  margin-top: 4%;
+  margin-top: 5px;
   color: #FFF;
-  font-size: 13px !important;
+  font-size: 14px !important;
   font-family: "Open Sans", Arial;
   font-weight: 300;
+  line-height: 150%;
 }
 
 .gallery_1 .item_list {
@@ -2428,9 +2429,20 @@
   overflow: hidden;
 }
 
-.gallery_1 img {
+.gallery_1 .item_list .item_block a.big_img {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery_1 .item_list .item_block .preview_img {
   height: 290px;
   width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; 
   overflow: hidden;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -2439,31 +2451,27 @@
   transition: all 1s ease;
 }
 
-.gallery_1 .overlay {
-  padding: 110px 0px 0;
-  background: rgba(0,0,0,0.5);
-  color: white;
-  display: table;
-  height: 290px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  opacity: 0;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 1s ease;
+.gallery_1 .item_list .item_block .overlay {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+	color: white;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	padding: 130px 30px 0;
+	position: absolute;
+	top: 0;
+	transition: all 1s ease 0s;
+	width: 100%;
 }
 
-.gallery_1 div.item_list .item_block:hover div.overlay {
+.gallery_1 div.item_list .item_block .overlay:hover {
   opacity: 1;
 }
 
-.gallery_1 div.item_list .item_block:hover img {
+.gallery_1 div.item_list .item_block a:hover div.preview_img {
   transform: scale(1.1,1.1);
 }
+
 
 .gallery_2 .item_list .item {
   position: relative;
@@ -2512,7 +2520,7 @@
   overflow: hidden;
   color: #2B2B2B;
   font-size: 16px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans Bold",Arial;
   font-weight: 600;
   text-transform: uppercase;
   white-space: nowrap;
@@ -2608,7 +2616,7 @@
 .gallery_3 .item_list .item .overlay .img_title {
   color: #2B2B2B;
   font-size: 15px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans Bold",Arial;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -2696,7 +2704,7 @@
 .gallery_4 .item_list .item .overlay .img_title {
   color: #2B2B2B;
   font-size: 15px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Bold", Arial;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -2792,7 +2800,7 @@
 .gallery_5 .item_list .item .overlay .img_title {
   color: #2B2B2B;
   font-size: 15px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Bold", Arial;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -2919,7 +2927,7 @@
 .gallery_6 .img_title {
   color: #FFF;
   font-size: 18px !important;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans Bold",Arial;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -3074,7 +3082,7 @@
 .gallery_7 .img_title {
   color: #FFF;
   font-size: 18px !important;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans Bold",Arial;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -3242,7 +3250,7 @@
 .gallery_8 .img_title {
   color: #FFF;
   font-size: 18px !important;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans Bold",Arial;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -3430,7 +3438,7 @@
 .gallery_9 .img_title {
   color: #FFF;
   font-size: 18px !important;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans Bold",Arial;
   font-weight: 600;
   text-transform: uppercase;
 }
