@@ -1,5 +1,6 @@
 lp.services = lp.block.extendOptions({
     change: function(){
+		
         this.cmp.element.find(".services").css({
             background: this.value.background || '',
         }); 
@@ -45,10 +46,7 @@ lp.services = lp.block.extendOptions({
             this.variant.find(".btn_wrap").toggle(this.value.show_order_button);
             this.variant.find(".item_list").prop("class","item_list "+this.value.image_format);
         }
-        
-        if (this.value.variant==6) {
-            
-        }
+
     },
     configForm: {
         items: [   

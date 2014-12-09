@@ -1,5 +1,6 @@
 lp.textBlock = lp.block.extendOptions({
     change: function(){
+		
         this.cmp.element.find(".text_block").css({
             background: this.value.background_color || '',
         }); 

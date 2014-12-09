@@ -1,18 +1,16 @@
 lp.order = lp.block.extendOptions({
     change: function () {
-       
-        var me = this;        
-        
-        //if для того, чтобы выполнять изменения фона только при наличии значения
-        if(me.value.background){
-            me.element.find(".order_"+this.value.variant).css({
-                backgroundImage: "url("+base_url+"/"+(me.value.background)+")",
+		
+        //if для того, чтобы выполнять изменения фона только при выбранной картинке
+        if(this.value.background){
+            this.element.find(".order_"+this.value.variant).css({
+                backgroundImage: "url("+base_url+"/"+(this.value.background)+")",
             });
         }
         
-        if(me.value.background_color){
-            me.element.find(".order_"+this.value.variant).css({
-                background: me.value.background_color || '',
+        if(this.value.background_color){
+            this.element.find(".order_"+this.value.variant).css({
+                background: this.value.background_color || '',
             });
         }
 
@@ -26,10 +24,10 @@ lp.order = lp.block.extendOptions({
             this.variant.find(".btn_wrap").toggleClass('no_btn_note',!this.value.show_text_above_button);
             this.variant.find(".btn_wrap").toggleClass("no_arrow",!this.value.add_arrow);
             
-            if (me.value.add_background_noise) {
-                me.element.find(".background_toggle_noise").addClass("with_noise").removeClass("dark");            
+            if (this.value.add_background_noise) {
+                this.element.find(".background_toggle_noise").addClass("with_noise").removeClass("dark");            
             } else {
-                me.element.find(".background_toggle_noise").removeClass("with_noise").addClass("dark");
+                this.element.find(".background_toggle_noise").removeClass("with_noise").addClass("dark");
             }
         }
         
@@ -71,10 +69,10 @@ lp.order = lp.block.extendOptions({
                     icons: {secondary:'ui-icon-triangle-1-s'},
                     items: function () {
                         var items = [];
-                        for (var i=1;i<=218;i++) {
+                        for (var i=1;i<=220;i++) {
                             items.push({
-                                value:"/templater_modules/lpcandy/assets/background/"+i+".jpg",
-                                thumb:"/templater_modules/lpcandy/assets/background/thumbs/"+i+".jpg",
+                                value:"templater_modules/lpcandy/assets/background/"+i+".jpg",
+                                thumb:"templater_modules/lpcandy/assets/background/thumbs/"+i+".jpg",
                             });
                         }
                         return items;
@@ -86,7 +84,7 @@ lp.order = lp.block.extendOptions({
                                 height: 50,
                                 backgroundSize: "cover",
                                 backgroundPosition: "50% 50%",
-                                backgroundImage:"url("+base_url+(item.thumb || item.value)+")"
+                                backgroundImage:"url("+base_url+"/"+(item.thumb || item.value)+")"
                             })
                         );
                     }

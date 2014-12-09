@@ -135,7 +135,9 @@ class Block {
                 $name = $this->name_prefix ? $this->name_prefix.".".$name : $name;
             }
             $obj->val_prefix = $this->val;
+            $obj->parent = $this;
             echo $obj->getHtml($sub,$this->edit,$name,$options);
+            $obj->parent = false;
         } else {
             throw new \Exception("Block type is not registered $type");
         }

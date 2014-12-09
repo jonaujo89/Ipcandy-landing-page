@@ -249,8 +249,8 @@ class Image extends Block {
     }
 }
 
-class ImageFancyboxWhithoutTitle extends Block {
-    public $editor = "lp.imageFancyboxWhithoutTitle";
+class ImageFancyboxWithoutTitle extends Block {
+    public $editor = "lp.imageFancyboxWithoutTitle";
     public $internal = true;   
 	
 	function tpl_default() {
@@ -262,9 +262,11 @@ class ImageFancyboxWhithoutTitle extends Block {
     }
    
     function tpl($val) {?>
-		<a class="fancybox-whithout-title big_img" rel="<?=$val['fancy_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>">
-			<div class='img preview_img' style='background-image: url("<?=INDEX_URL."/".$val['url_image_preview']?>")'></div>
-		</a>		
+		<div class='img preview_img' style='background-image: url("<?=INDEX_URL."/".$val['url_image_preview']?>")'>
+			<? if ($this->parent->val_prefix['enable_fancybox'] || $val->edit): ?>
+				<a <?= !$this->parent->val_prefix['enable_fancybox'] ? "style='display:none'" : "" ?> class="fancybox_whithout_title big_img" rel="<?=$val['fancy_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>"></a>
+			<? endif ?>			
+		</div>
     <?}
 }
 
@@ -413,7 +415,7 @@ FormOrder::register();
 Icon::register();
 Image::register();
 ImageSrc::register();
-ImageFancyboxWhithoutTitle::register();
+ImageFancyboxWithoutTitle::register();
 ImageWithSiganture::register();
 VideoStream::register();
 Countdown::register();

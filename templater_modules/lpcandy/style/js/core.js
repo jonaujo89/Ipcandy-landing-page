@@ -133,5 +133,25 @@ $.fn.lpFancyboxWhithoutTitle = function () {
 $(function() { 
     $(".countdown").lpCounty();	
 	$(".fancybox").lpFancybox();
-	$(".fancybox-whithout-title").lpFancyboxWhithoutTitle();
+	$(".fancybox_whithout_title").lpFancyboxWhithoutTitle();
+	
+	$('.item_autocolumnlist').autocolumnlist({});
+	
+	var window_width = $(window).width();
+	var slider = $('.slider').flexbeSlider({
+		controls:true,
+		pager:true,
+		slideMove:3,
+		slideMargin:0,
+		slideWidth: (window_width>=1200)?370:293
+	});
+
+	$(window).on("resize",function(){
+		var window_width_resize = $(window).width();
+		slider.setSettings({
+			slideMargin:0,
+			slideWidth:(window_width_resize>=1200)?370:293
+		});
+
+	});
 });

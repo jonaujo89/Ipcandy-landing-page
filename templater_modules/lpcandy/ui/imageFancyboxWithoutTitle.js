@@ -1,4 +1,4 @@
-lp.imageFancyboxWhithoutTitle = lp.cover.extendOptions({
+lp.imageFancyboxWithoutTitle = lp.cover.extendOptions({
     init: function () {
         this.cover.addClass("lp-button");
     },
@@ -20,7 +20,7 @@ lp.imageFancyboxWhithoutTitle = lp.cover.extendOptions({
             },  
             {
                 name: 'url_image_preview', type: 'uploadButton', label: 'Select image file',
-            }
+            },
         ]
     }
 })

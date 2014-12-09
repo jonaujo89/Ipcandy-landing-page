@@ -1,12 +1,13 @@
 lp.logos = lp.block.extendOptions({
     change: function(){
-        this.cmp.element.find(".clientsLogos").css({
+        this.element.find(".clientsLogos").css({
             background: this.value.background || '',
         }); 
-        
-        this.variant.find(".title").toggle(this.value.show_title);
-        this.variant.find(".title_2").toggle(this.value.show_title_2);   
-        this.variant.find(".item_list").toggleClass("gray",this.value.grayscale_logo);
+        if (this.value.variant == 1) {
+			this.variant.find(".title").toggle(this.value.show_title);
+			this.variant.find(".title_2").toggle(this.value.show_title_2);   
+			this.variant.find(".item_list").toggleClass("gray",this.value.grayscale_logo);
+		}
     },
     configForm: {
         items: [   

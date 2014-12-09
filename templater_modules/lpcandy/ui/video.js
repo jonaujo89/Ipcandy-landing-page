@@ -1,6 +1,7 @@
 lp.video = lp.block.extendOptions({
     change: function(){
-        this.cmp.element.find(".video_block").css({
+		
+        this.element.find(".video_block").css({
             background: this.value.background_color || '',
         }); 
         

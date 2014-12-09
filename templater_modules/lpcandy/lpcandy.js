@@ -19,7 +19,7 @@ require("./ui/videoStream.js");
 require("./ui/countdown.js");
 require("./ui/galleryRepeater.js");
 require("./ui/imageWithSignature.js");
-require("./ui/imageFancyboxWhithoutTitle.js");
+require("./ui/imageFancyboxWithoutTitle.js");
 
 require("./ui/header.js");
 require("./ui/order.js");

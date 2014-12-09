@@ -1,15 +1,11 @@
 lp.digits = lp.block.extendOptions({
     change: function(){  
+		
         this.variant.find(".title").toggle(this.value.show_title);
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
+		this.variant.find(".title_2").toggle(this.value.show_title_2);
         
-        if (this.value.variant == 1) { 
-            this.cmp.element.find(".digits").css({
-                background: this.value.background_color || '',
-            });             
-        }
-        if (this.value.variant == 2) { 
-            this.cmp.element.find(".digits").css({
+        if (this.value.variant == 1 || this.value.variant == 2 || this.value.variant == 4 || this.value.variant == 8) { 
+            this.variant.find(".digits").css({
                 background: this.value.background_color || '',
             });
         }
@@ -25,19 +21,10 @@ lp.digits = lp.block.extendOptions({
                 });
             }
         }
-        if (this.value.variant == 4) { 
-            this.cmp.element.find(".digits").css({
-                background: this.value.background_color || '',
-            });
-            this.variant.find(".item_list").prop("class","item_list "+this.value.icon_color);
-        }
-        if (this.value.variant == 7) {
+        if (this.value.variant == 4 || this.value.variant == 7) { 
             this.variant.find(".item_list").prop("class","item_list "+this.value.icon_color);
         }
         if (this.value.variant == 8) {
-            this.cmp.element.find(".digits").css({
-                background: this.value.background_color || '',
-            });
             this.variant.find(".value").css({color: this.value.digits_color});
         }
     },

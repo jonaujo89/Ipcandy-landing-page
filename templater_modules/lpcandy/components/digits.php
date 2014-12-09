@@ -608,7 +608,7 @@ class Digits extends Block {
             'show_title_2' => false,
             'icon_color' => 'icon_grey',
             'background' => '/templater_modules/lpcandy/assets/texture_black/1.jpg',
-            'title' => 'Факты о нашей компании 7',
+            'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
             'items' => array(
                 array(
