@@ -7,8 +7,6 @@ lp.repeater = teacss.ui.control.extend({
         this.element = this.options.element;
         this.options.name = this.element.data("name");
         this.addCovers();
-        
-        console.debug(this.options);
     },
     
     config: function (pos,item) {
@@ -92,7 +90,7 @@ lp.repeater = teacss.ui.control.extend({
                     );
                 } else {
                     item.cover.addClass("cmp-repeater-cover-inline");
-                    if (this.options.sortable) item.cover.append(
+                    if (me.options.sortable) item.cover.append(
                         $("<div class='fa fa-arrows lp-button lp-drag-handle'>")
                         .mouseover(function(){ item.dragCover.show() })
                         .mouseout (function(){ item.dragCover.hide() })

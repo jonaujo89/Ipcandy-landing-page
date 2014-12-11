@@ -39,9 +39,9 @@
         onBeforeNextSlide: function () {},
         onBeforePrevSlide: function () {}
     };
-    $.fn.flexbeSlider = function (options) {
+    $.fn.lightSlider = function (options) {
         if(this.length > 1){
-            this.each(function(){$(this).flexbeSlider(options)});
+            this.each(function(){$(this).lightSlider(options)});
             return this;
         }
         var plugin = {};
@@ -110,7 +110,7 @@
                 }
             },
             initialStyle: function () {
-                $el.addClass('flexbeSlider').wrap("<div class='slider_wrap'><div class='slider_list'></div></div>");
+                $el.addClass('lightSlider').wrap("<div class='slider_wrap'><div class='slider_list'></div></div>");
                 $slide = $el.parent('.slider_list');
                 settings.onBeforeStart.call(this);
                 elWidth = $el.outerWidth();
@@ -342,12 +342,12 @@
                 if (isTouch) {
                     var startCoords = {},
                         endCoords = {};
-                    $slide.on('touchstart.flexbeSlider', function (e) {
+                    $slide.on('touchstart.lightSlider', function (e) {
                         endCoords = e.originalEvent.targetTouches[0];
                         startCoords.pageX = e.originalEvent.targetTouches[0].pageX;
                         startCoords.pageY = e.originalEvent.targetTouches[0].pageY;
                     });
-                    $slide.on('touchmove.flexbeSlider', function (e) {
+                    $slide.on('touchmove.lightSlider', function (e) {
                         var orig = e.originalEvent;
                         endCoords = orig.targetTouches[0];
                         var xMovement = Math.abs(endCoords.pageX - startCoords.pageX);
@@ -356,7 +356,7 @@
                             e.preventDefault();
                         }
                     });
-                    $slide.on('touchend.flexbeSlider', function () {
+                    $slide.on('touchend.lightSlider', function () {
                         var distance = endCoords.pageX - startCoords.pageX,
                             swipeThreshold = settings.swipeThreshold;
                         if (distance >= swipeThreshold) {

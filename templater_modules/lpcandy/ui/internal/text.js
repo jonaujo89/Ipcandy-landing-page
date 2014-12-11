@@ -1,5 +1,5 @@
-require("./../lib/spacedText/spacedText.js");
-require("./../lib/spacedText/spacedText.css");
+require("../../lib/spacedText/spacedText.js");
+require("../../lib/spacedText/spacedText.css");
 
 lp.text = teacss.ui.control.extend({
     init: function (o) {

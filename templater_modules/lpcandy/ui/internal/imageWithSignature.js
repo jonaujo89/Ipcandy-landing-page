@@ -10,6 +10,7 @@ lp.imageWithSignature = lp.cover.extendOptions({
 			this.element.find(".preview_img").css({
 				backgroundImage: "url('"+base_url+'/'+this.value.url_image_preview+"')",
 			});
+			this.element.find(".preview_img").attr({ src: base_url+'/'+this.url_image_preview });
 			this.value.url_image = this.value.url_image_preview;
 			this.element.find(".big_img").attr("href", base_url+'/'+this.value.url_image);
 		}		         

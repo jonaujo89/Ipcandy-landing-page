@@ -1,25 +1,26 @@
 require("./lpcandy.css");
 
-require("./ui/block.js");
-require("./ui/repeater.js");
+require("./ui/internal/block.js");
+require("./ui/internal/repeater.js");
 
-require("./ui/text.js");
-require("./ui/color.js");
-require("./ui/cover.js");
-require("./ui/logo.js");
-require("./ui/icon.js");
-require("./ui/formOrder.js");
-require("./ui/image.js");
-require("./ui/imageSrc.js");
-require("./ui/formButton.js");
-require("./ui/uploadButton.js");
-require("./ui/fontCombo.js");
-require("./ui/media.js");
-require("./ui/videoStream.js");
-require("./ui/countdown.js");
-require("./ui/galleryRepeater.js");
-require("./ui/imageWithSignature.js");
-require("./ui/imageFancyboxWithoutTitle.js");
+require("./ui/internal/text.js");
+require("./ui/internal/color.js");
+require("./ui/internal/cover.js");
+require("./ui/internal/logo.js");
+require("./ui/internal/icon.js");
+require("./ui/internal/formOrder.js");
+require("./ui/internal/image.js");
+require("./ui/internal/imageSrc.js");
+require("./ui/internal/formButton.js");
+require("./ui/internal/uploadButton.js");
+require("./ui/internal/fontCombo.js");
+require("./ui/internal/media.js");
+require("./ui/internal/videoStream.js");
+require("./ui/internal/countdown.js");
+require("./ui/internal/galleryRepeater.js");
+require("./ui/internal/galleryRepeaterImageScr.js");
+require("./ui/internal/imageWithSignature.js");
+require("./ui/internal/imageFancyboxWithoutTitle.js");
 
 require("./ui/header.js");
 require("./ui/order.js");

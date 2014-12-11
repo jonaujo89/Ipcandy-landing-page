@@ -296,22 +296,25 @@ class ImageWithSiganture extends Block {
     }
    
     function tpl($val) {?>
-        <a class="fancybox big_img" rel="<?=$val['fancy_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>" title="<?=$val['title']?>">
-			<div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$val['url_image_preview']?>');"></div>
+		<a class="fancybox big_img" rel="<?=$val['fancy_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>" title="<?=$val['title']?>">
+			<div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$val['url_image_preview']?>');">	
+			</div>
 			<div class="overlay">
-				<div class="wrap_title_desc">
-					<? if ($val['show_image_title'] || $val->edit): ?>
-						<div class="img_title" <?= !$val['show_image_title'] ? "style='display:none'" : "" ?> >
-							<?= $val['title'] ?>
-						</div>
-					<? endif ?>
-					<? if ($val['show_image_desc'] || $val->edit): ?>
-						<div class="img_desc" <?= !$val['show_image_desc'] ? "style='display:none'" : "" ?> >
-							<?= $val['desc'] ?>
-						</div>
-					<? endif ?>
+				<div class="outer">
+					<div class="wrap_title_desc">					
+						<? if ($val['show_image_title'] || $val->edit): ?>
+							<div class="img_title" <?= !$val['show_image_title'] ? "style='display:none'" : "" ?> >
+								<?= $val['title'] ?>
+							</div>
+						<? endif ?>
+						<? if ($val['show_image_desc'] || $val->edit): ?>
+							<div class="img_desc" <?= !$val['show_image_desc'] ? "style='display:none'" : "" ?> >
+								<?= $val['desc'] ?>
+							</div>
+						<? endif ?>
+					</div>
 				</div>
-			</div> 
+			</div>
 		</a>
     <?}
 }

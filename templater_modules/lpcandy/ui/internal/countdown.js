@@ -1,5 +1,5 @@
-require('./../lib/datetimePicker/jquery.datetimepicker.css');
-require('./../lib/datetimePicker/jquery.datetimepicker.js');
+require('../../lib/datetimePicker/jquery.datetimepicker.css');
+require('../../lib/datetimePicker/jquery.datetimepicker.js');
 
 lp.dateText = ui.text.extend({
     init: function (o) {
