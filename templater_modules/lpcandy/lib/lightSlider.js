@@ -6,7 +6,7 @@
 
 =========================================================/**/
 ;
-(function ($, undefined) {
+(function ($, undefined) {    
     "use strict";
     var defaults = {
         slideWidth: 293,
@@ -39,6 +39,7 @@
         onBeforeNextSlide: function () {},
         onBeforePrevSlide: function () {}
     };
+        
     $.fn.lightSlider = function (options) {
         if(this.length > 1){
             this.each(function(){$(this).lightSlider(options)});

@@ -1,4 +1,4 @@
-(function ($) {
+;(function ($) {
     
     if ($.fn.county) return;
     $.fn.county = function (options) {

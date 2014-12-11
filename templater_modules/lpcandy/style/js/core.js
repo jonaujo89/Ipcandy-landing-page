@@ -149,11 +149,21 @@ $.fn.lpMasonryLayout = function () {
 $.fn.lpLightSlider = function () {
 	var window_width = $(window).width();
 	$(this).lightSlider({
+        item:3,
+        slideMove:3,
+        slideMargin:0,
 		controls:true,
 		pager:true,
-		slideMove:3,
-		slideMargin:0,
-		slideWidth: (window_width>=1200)?370:293
+        responsive: [
+            {
+                breakpoint:1199,
+                settings: {
+                    item:2,
+                    slideMove:2,
+                    slideMargin:0,
+                }
+            },
+        ]
 	}); 
 };
 
@@ -162,10 +172,8 @@ $(function() {
 	$(".fancybox").lpFancybox();
 	$(".fancybox_whithout_title").lpFancyboxWhithoutTitle();
 	$(".masonry").lpMasonry();
-    $(".slider").bxSlider({
-        slideSelector: 'div.item_block',
-    });
+    $(".slider > div").lpLightSlider();
 	$(window).on("resize",function(){
-		$(".slider").lpLightSlider();
+		//$(".slider").lpLightSlider();
 	});
 });
