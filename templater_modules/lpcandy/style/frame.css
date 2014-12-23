@@ -250,6 +250,14 @@ body.dragging .lp-button {
     position: relative;
 }
 
+.masonry > div[data-name] { 
+    position: absolute; 
+    top: 0; 
+    bottom: 0;
+    left: 0 ;
+    right: 0;
+}
+
 .text_toolbar {
     bottom: 100%;
     left: -1px;
