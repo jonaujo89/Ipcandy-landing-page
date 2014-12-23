@@ -131,21 +131,20 @@ $.fn.lpFancyboxWhithoutTitle = function () {
 };
 
 $.fn.lpMasonry = function () {    
-
-        $(this).masonry({
+    var $el = $(this);
+    function doit() {
+        $el.masonry({
             itemSelector: ".masonry .item_block",
             gutter: 10,
             singleMode: true,
             columnWidth: ".masonry .item_block"
         }); 
-
+    }
+    $el.find("img").unbind("load").bind("load",doit);
+    doit();
 };
 
-$.fn.lpMasonryReloadItems = function () {
-	$(this).masonry('reloadItems');
-};
- 
-$.fn.lpbxSlider = function () {
+$.fn.lpBxSlider = function () {
     var bx_wrapper = $(".bxslider > .bx-wrapper").size();       
    
     if (bx_wrapper == 0) {
@@ -267,6 +266,6 @@ $(function() {
 	$(".fancybox").lpFancybox();
 	$(".fancybox_whithout_title").lpFancyboxWhithoutTitle();
 	$(".masonry img").lpMasonry();
-    $(".bxslider [data-name=items]").lpbxSlider();
+    $(".bxslider [data-name=items]").lpBxSlider();
     $("#map").mapYandex();
 });

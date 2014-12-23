@@ -6,7 +6,7 @@ class Gallery extends Block {
     public $editor = "lp.gallery";
     
     function tpl($val) {?>		
-        <div class="container-fluid gallery gallery_1" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid gallery gallery_1" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -60,7 +60,7 @@ class Gallery extends Block {
             'show_title_2' => true,
             'show_image_title' => true,
             'show_image_desc' => true,
-            'background_color' =>'#FFFFFF',
+            'background' =>'#FFFFFF',
             'title' => "Галерея работ 1",
             'title_2' => "Подзаголовок",
             'items' => array(
@@ -76,7 +76,7 @@ class Gallery extends Block {
     
     
     function tpl_2($val) {?>
-        <div class="container-fluid gallery gallery_2" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid gallery gallery_2" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                      <? if ($val['show_title'] || $this->edit): ?>
@@ -141,7 +141,7 @@ class Gallery extends Block {
             'show_title_2' => true,
 			'show_image_desc' => true,
 			'show_image_overlay' => true,
-            'background_color' => '#FFFFFF',
+            'background' => '#FFFFFF',
             'title' => "Галерея работ 2",
 			'title_2' => "Подзаголовок",
             'items' => array(
@@ -170,7 +170,7 @@ class Gallery extends Block {
     }
     
     function tpl_3($val) {?>
-        <div class="container-fluid gallery gallery_3" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid gallery gallery_3" style="background: <?=$val['background']?>;">
            <div class="container">
                 <div class="span16">
                      <? if ($val['show_title'] || $this->edit): ?>
@@ -245,29 +245,29 @@ class Gallery extends Block {
 			'show_image_desc' => true,
 			'show_image_overlay' => true,
 			'enable_fancybox' => true,
-            'background_color' => '#FFFFFF',
+            'background' => '#FFFFFF',
             'title' => "Галерея работ 3",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg','fancy_group' => 'group_3')),                   
+                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта, интересные факты",
-                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg','fancy_group' => 'group_3')),                   
+                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта, интересные факты",
-                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancy_group' => 'group_3')),                   
+                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта, интересные факты",
                 ),
                 array(
-                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg','fancy_group' => 'group_3')),                   
+                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта, интересные факты",
-                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg','fancy_group' => 'group_3')),                   
+                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта, интересные факты",
-                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/6.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/6.jpg','fancy_group' => 'group_3')),                   
+                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/6.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/6.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта, интересные факты",
                 )
@@ -276,7 +276,7 @@ class Gallery extends Block {
     }
     
     function tpl_4($val) {?>
-        <div class="container-fluid gallery gallery_4" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid gallery gallery_4" style="background: <?=$val['background']?>;">
            <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -366,35 +366,35 @@ class Gallery extends Block {
 			'show_image_desc' => true,
 			'show_image_overlay' => true,
 			'enable_fancybox' => true,
-            'background_color' => '#FFFFFF',
+            'background' => '#FFFFFF',
             'title' => "Галерея работ 4",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg','fancy_group' => 'group_4')),                   
+                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта",
-                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg','fancy_group' => 'group_4')),                   
+                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта",
-                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancy_group' => 'group_4')),                   
+                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта",
-					'imageFancybox_4' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/6.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancy_group' => 'group_4')),                   
+					'imageFancybox_4' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/6.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
                 ),
                 array(
-                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg','fancy_group' => 'group_4')),                   
+                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта",
-                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg','fancy_group' => 'group_4')),                   
+                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта",
-                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/6.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/6.jpg','fancy_group' => 'group_4')),                   
+                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/6.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/6.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта",
-					'imageFancybox_4' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancy_group' => 'group_4')),                   
+					'imageFancybox_4' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
                 )
@@ -404,7 +404,7 @@ class Gallery extends Block {
     
     
     function tpl_5($val) {?>
-        <div class="container-fluid gallery gallery_5" style="background: <?=$val['background_color']?>;">           
+        <div class="container-fluid gallery gallery_5" style="background: <?=$val['background']?>;">           
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -418,27 +418,29 @@ class Gallery extends Block {
                         </div>
                     <? endif ?>
 					<div class="item_list clear">
-						<ul class="slider">
+						<div class="bxslider">
 							<? $this->repeat('items', function($item_val,$self) use ($val){ ?>
-								<a class="fancybox big_img" rel="<?=$item_val['fancybox_group']?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>">
-									<div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$item_val['image']?>');"></div>
-									<div class="overlay">
-										<div class="wrap_title_desc">
-											<? if ($val['show_image_title'] || $self->edit): ?>
-												<div class="img_title" <?= !$val['show_image_title'] ? "style='display:none'" : "" ?> >
-													<?= $item_val['title'] ?>
-												</div>
-											<? endif ?>
-											<? if ($val['show_image_desc'] || $self->edit): ?>
-												<div class="img_desc" <?= !$val['show_image_desc'] ? "style='display:none'" : "" ?> >
-													<?= $item_val['desc'] ?>
-												</div>
-											<? endif ?>
-										</div>
-									</div>
-								</a>
-							<? },array('editor' => 'lp.galleryRepeater'));?>											
-						</ul>
+                                <a class="fancybox big_img" rel="<?=$item_val['fancybox_group']?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>">
+                                    <div class="preview_img">									
+                                        <img src="<?=INDEX_URL."/".$item_val['image']?>">
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="wrap_title_desc">
+                                            <? if ($val['show_image_title'] || $self->edit): ?>
+                                                <div class="img_title" <?= !$val['show_image_title'] ? "style='display:none'" : "" ?> >
+                                                    <?= $item_val['title'] ?>
+                                                </div>
+                                            <? endif ?>
+                                            <? if ($val['show_image_desc'] || $self->edit): ?>
+                                                <div class="img_desc" <?= !$val['show_image_desc'] ? "style='display:none'" : "" ?> >
+                                                    <?= $item_val['desc'] ?>
+                                                </div>
+                                            <? endif ?>
+                                        </div>
+                                    </div>
+                                </a>
+							<? },array('editor' => 'lp.galleryRepeaterImg'));?>											
+						</div>
 					</div>
                 </div>
             </div>
@@ -461,7 +463,7 @@ class Gallery extends Block {
             'show_image_title' => true,
             'show_image_desc' => true,
 			'enable_fancybox' => true,
-            'background_color' =>'#FFFFFF',
+            'background' => '#F7F7F7',
             'title' => "Галерея работ 5",
             'title_2' => "Подзаголовок",
             'items' => array(
@@ -470,14 +472,17 @@ class Gallery extends Block {
                 $this->item_default_5('3.jpg'),
                 $this->item_default_5('4.jpg'),
                 $this->item_default_5('5.jpg'),
+                $this->item_default_5('3.jpg'),
+                $this->item_default_5('5.jpg'),
                 $this->item_default_5('6.jpg'),
+                $this->item_default_5('4.jpg'),
             )
         );
     }
     
-	
+     
 	function tpl_6($val) {?>		
-        <div class="container-fluid gallery gallery_6" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid gallery gallery_6" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -492,24 +497,32 @@ class Gallery extends Block {
                     <? endif ?>
                      <div class="item_list masonry">
 						<? $this->repeat('items', function($item_val,$self) use ($val){ ?>
-							<a class="fancybox big_img" rel="<?=$item_val['fancybox_group']?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>">
+                            <? if ($val['enable_fancybox'] || $self->edit): ?>
+                                <a class="<?= $val['enable_fancybox'] ? "fancybox" : "" ?> big_img" rel="<?=$item_val['fancybox_group']?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>">
+                            <? endif ?>							
 								<div class="preview_img">									
 									<img src="<?=INDEX_URL."/".$item_val['image']?>">
 								</div>
 								<div class="overlay">
 									<div class="outer">
 										<div class="wrap_title_desc">
-											<div class="img_title" >
-												<?= $item_val['title'] ?>
-											</div>
-											<div class="img_desc" >
-												<?= $item_val['desc'] ?>
-											</div>
+											<? if ($val['show_image_title'] || $self->edit): ?>
+                                                <div class="img_title" <?= !$val['show_image_title'] ? "style='display:none'" : "" ?> >
+                                                    <?= $item_val['title'] ?>
+                                                </div>
+                                            <? endif ?>
+                                            <? if ($val['show_image_desc'] || $self->edit): ?>
+                                                <div class="img_desc" <?= !$val['show_image_desc'] ? "style='display:none'" : "" ?> >
+                                                    <?= $item_val['desc'] ?>
+                                                </div>
+                                            <? endif ?>
 										</div>
 									</div>
 								</div>
-							</a>
-						<? },array('editor' => 'lp.galleryRepeaterImageScr'));?> 
+							<? if ($val['enable_fancybox'] || $self->edit): ?>
+                                </a>
+                            <? endif ?>	
+						<? },array('editor' => 'lp.galleryRepeaterImg'));?> 
 					</div> 
                 </div>
             </div>
@@ -532,7 +545,7 @@ class Gallery extends Block {
             'show_image_title' => true,
             'show_image_desc' => true,
 			'enable_fancybox' => true,
-            'background_color' =>'#FFFFFF',
+            'background' =>'#FFFFFF',
             'title' => "Галерея работ 6",
             'title_2' => "Подзаголовок",
             'items' => array(
@@ -556,7 +569,7 @@ class Gallery extends Block {
 	
     
     function tpl_7($val) {?>
-        <div class="container-fluid gallery gallery_7" style="background: <?=$val['background_color']?>;">           
+        <div class="container-fluid gallery gallery_7" style="background: <?=$val['background']?>;">           
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -605,16 +618,16 @@ class Gallery extends Block {
 			'show_image_desc' => true,
 			'show_image_title' => true,
 			'enable_fancybox' => true,
-            'background_color' => '#FFFFFF',
+            'background' => '#FFFFFF',
             'title' => "Галерея работ 7",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-					'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg','fancy_group' => 'group_6')),
-                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg','fancy_group' => 'group_6')),
-                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancy_group' => 'group_6')),
-                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg','fancy_group' => 'group_6')),
-                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg','fancy_group' => 'group_6')),
+					'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg','fancybox_group' => 'group_7')),
+                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg','fancybox_group' => 'group_7')),
+                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancybox_group' => 'group_7')),
+                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg','fancybox_group' => 'group_7')),
+                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg','fancybox_group' => 'group_7')),
                 )
             )
         );    
@@ -622,7 +635,7 @@ class Gallery extends Block {
     
     
     function tpl_8($val) {?>
-        <div class="container-fluid gallery gallery_8" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid gallery gallery_8" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -674,17 +687,17 @@ class Gallery extends Block {
 			'show_image_desc' => true,
 			'show_image_title' => true,
 			'enable_fancybox' => true,
-            'background_color' => '#FFFFFF',
+            'background' => '#FFFFFF',
             'title' => "Галерея работ 8",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg')),
-                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg')),
-                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg')),
-                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg')),
-                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg')),
-					'ImageWithSiganture_6' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/6.jpg')),
+                    'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg','fancybox_group' => 'group_8')),
+                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg','fancybox_group' => 'group_8')),
+                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancybox_group' => 'group_8')),
+                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg','fancybox_group' => 'group_8')),
+                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg','fancybox_group' => 'group_8')),
+					'ImageWithSiganture_6' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/6.jpg','fancybox_group' => 'group_8')),
 				)              
             )
         );    
@@ -692,7 +705,7 @@ class Gallery extends Block {
     
     
     function tpl_9($val) {?>
-        <div class="container-fluid gallery gallery_9" style="background: <?=$val['background_color']?>;">           
+        <div class="container-fluid gallery gallery_9" style="background: <?=$val['background']?>;">           
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -745,17 +758,17 @@ class Gallery extends Block {
 			'show_image_desc' => true,
 			'show_image_title' => true,
 			'enable_fancybox' => true,
-            'background_color' => '#FFFFFF',
+            'background' => '#FFFFFF',
             'title' => "Галерея работ 9",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg')),
-                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg')),
-                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg')),
-                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg')),
-                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg')),
-					'ImageWithSiganture_6' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/6.jpg')),
+                    'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg','fancybox_group' => 'group_9')),
+                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg','fancybox_group' => 'group_9')),
+                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancybox_group' => 'group_9')),
+                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg','fancybox_group' => 'group_9')),
+                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg','fancybox_group' => 'group_9')),
+					'ImageWithSiganture_6' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/6.jpg','fancybox_group' => 'group_9')),
 				)
             )
         );    
@@ -763,7 +776,7 @@ class Gallery extends Block {
     
     
     function tpl_10($val) {?>
-        <div class="container-fluid gallery gallery_10" style="background: <?=$val['background_color']?>;">           
+        <div class="container-fluid gallery gallery_10" style="background: <?=$val['background']?>;">           
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -813,22 +826,22 @@ class Gallery extends Block {
 			'show_image_desc' => true,
 			'show_image_title' => true,
 			'enable_fancybox' => true,
-            'background_color' => '#FFFFFF',
+            'background' => '#FFFFFF',
             'title' => "Галерея работ 10",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg')),
-                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg')),
-                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg')),
-                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg')),
-                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg')),
-					'ImageWithSiganture_6' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/6.jpg')),
+                    'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/1.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/1.jpg','fancybox_group' => 'group_10')),
+                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/2.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/2.jpg','fancybox_group' => 'group_10')),
+                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/3.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/3.jpg','fancybox_group' => 'group_10')),
+                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/4.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/4.jpg','fancybox_group' => 'group_10')),
+                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/5.jpg','fancybox_group' => 'group_10')),
+					'ImageWithSiganture_6' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'templater_modules/lpcandy/assets/gallery/preview_image/5.jpg','url_image'=> 'templater_modules/lpcandy/assets/gallery/6.jpg','fancybox_group' => 'group_10')),
 				)
             )
         );    
     }
-    
+     
 }
 
 Gallery::register();

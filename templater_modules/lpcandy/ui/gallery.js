@@ -1,5 +1,16 @@
 lp.gallery = lp.block.extendOptions({
 	init: function () {
+        var jq = Component.previewFrame.window.$; 
+        if (jq) {
+            jq(".gallery_2 .item_list .item_block .item").hover(
+                function() {
+                    jq( this ).addClass('hover');
+                },
+                function() {
+                    jq( this ).removeClass('hover');
+                }        
+            );
+        }
     },
     change: function(){		
         var jq = Component.previewFrame.window.$;      
@@ -31,17 +42,16 @@ lp.gallery = lp.block.extendOptions({
 				jq(".fancybox_whithout_title").lpFancyboxWhithoutTitle();				
 			}			
 		}
-		if (this.value.variant == 6 || this.value.variant == 7 || this.value.variant == 8 || this.value.variant == 9 || this.value.variant == 10) {
-            var preview_img = this.element.find(".preview_img");
-			if (jq && this.value.enable_fancybox) {
+		if (this.value.variant == 5 || this.value.variant == 6 || this.value.variant == 7 || this.value.variant == 8 || this.value.variant == 9 || this.value.variant == 10) {
+            this.variant.find(".big_img").toggleClass("fancybox",this.value.enable_fancybox);
+            if (jq && !this.value.enable_fancybox) {
                 jq(".fancybox").lpFancybox();
-            }
-		}
+            } 
+		}        
         if (this.value.variant == 5){ 
             var bxslider = this.element.find('.bxslider [data-name=items]');
-            jq(bxslider).lpbxSlider();
-        }
-
+            jq(bxslider).lpBxSlider();
+        }        
         if (this.value.variant == 6) {
             var masonry = this.element.find(".masonry");
             jq(masonry).lpMasonry();
@@ -63,17 +73,17 @@ lp.gallery = lp.block.extendOptions({
                 margin: "5px 49% 5px 0px", showWhen: { variant: [1,5,6,7,8,9,10] }
             },
             { 
-                name: "show_image_desc", label: "Show image second title", type: "check", width: "auto", height: 27, 
+                name: "show_image_overlay", label: "Show image signature", type: "check", width: "auto", height: 27, 
+                margin: "5px 49% 5px 0px", showWhen: { variant: [2,3,4] }
+            },
+            { 
+                name: "show_image_desc", label: "Show image descroption", type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [1,2,3,4,5,6,7,8,9,10] }
             },
 			{ 
                 name: "enable_fancybox", label: "Show big image (enable fancybox)", type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [3,4,5,6,7,8,9,10] }
-            },
-			{ 
-                name: "show_image_overlay", label: "Show image signature", type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [2,3,4] }
-            },
+            },			
             { type: "label", value: "Background color:", margin: "5px 0"},
             { 
                 type: lp.color, name: "background",  
