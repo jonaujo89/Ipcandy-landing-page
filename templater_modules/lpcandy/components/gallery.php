@@ -841,7 +841,7 @@ class Gallery extends Block {
             )
         );    
     }
-     
+
 }
 
 Gallery::register();
