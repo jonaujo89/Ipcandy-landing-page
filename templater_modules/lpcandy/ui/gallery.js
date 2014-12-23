@@ -1,11 +1,5 @@
 lp.gallery = lp.block.extendOptions({
 	init: function () {
-        var jq = Component.previewFrame.window.$; 
-        var slider = this.element.find(".slider > div");        
-        if (jq) {
-            jq(slider).lpLightSlider();
-            console.log("init");
-        }
     },
     change: function(){		
         var jq = Component.previewFrame.window.$;      
@@ -41,22 +35,16 @@ lp.gallery = lp.block.extendOptions({
             var preview_img = this.element.find(".preview_img");
 			if (jq && this.value.enable_fancybox) {
                 jq(".fancybox").lpFancybox();
-            } else {
-
-            }            
-   
+            }
 		}
+        if (this.value.variant == 5){ 
+            var bxslider = this.element.find('.bxslider [data-name=items]');
+            jq(bxslider).lpbxSlider();
+        }
+
         if (this.value.variant == 6) {
-            var masonry = this.element.find(".masonry"); 
-            var img = this.element.find("img");            
-            if (jq) {
-                var jqMasonry = jq(masonry);
-                jqMasonry.lpMasonry(); 
-                jq(img).load(function() {
-                    jqMasonry.lpMasonry();
-                });
-                jqMasonry.lpMasonryReloadItems();
-            }             
+            var masonry = this.element.find(".masonry");
+            jq(masonry).lpMasonry();
         }
 
     },

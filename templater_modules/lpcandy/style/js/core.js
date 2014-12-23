@@ -130,50 +130,143 @@ $.fn.lpFancyboxWhithoutTitle = function () {
 	}); 
 };
 
-$.fn.lpMasonry = function () {
-    $(this).masonry({
-        itemSelector: '.item_block',
-        gutter: 10,
-        singleMode: true,
-    }); 
+$.fn.lpMasonry = function () {    
+
+        $(this).masonry({
+            itemSelector: ".masonry .item_block",
+            gutter: 10,
+            singleMode: true,
+            columnWidth: ".masonry .item_block"
+        }); 
+
 };
 
 $.fn.lpMasonryReloadItems = function () {
 	$(this).masonry('reloadItems');
 };
-
-$.fn.lpMasonryLayout = function () {
-	$(this).masonry('layout');
+ 
+$.fn.lpbxSlider = function () {
+    var bx_wrapper = $(".bxslider > .bx-wrapper").size();       
+   
+    if (bx_wrapper == 0) {
+        bx_slider = $(this).bxSlider({
+            controls: true,
+            slideWidth: 367,
+            minSlides: 3,
+            maxSlides: 3,
+            slideMargin: 10,
+            slideSelector: 'div.item_block:visible',
+        });
+        var count_photo_init = $(".bxslider .item_block:visible").not(".bx-clone").size(); 
+        $(this).data('counter', count_photo_init);        
+    } else {  
+        var count_photo_in_data_counter = $(this).data('counter');
+        var count_photo = $(".bxslider .item_block:visible").not(".bx-clone").size();
+        if(count_photo_in_data_counter != count_photo){
+            bx_slider.reloadSlider(); 
+            $(this).data('counter', count_photo);
+        }
+    }
 };
 
-$.fn.lpLightSlider = function () {
-	var window_width = $(window).width();
-	$(this).lightSlider({
-        item:3,
-        slideMove:3,
-        slideMargin:0,
-		controls:true,
-		pager:true,
-        responsive: [
+$.fn.mapYandexAddPlacemark = function (map,coords,title,address,phone,color) {        
+
+    var myMap = map,
+        yandexPlacemark;
+
+    function addPlacemark(c,t,a,p,col){
+        yandexPlacemark = new ymaps.Placemark( c ,
             {
-                breakpoint:1199,
-                settings: {
-                    item:2,
-                    slideMove:2,
-                    slideMargin:0,
+              hintContent: t,
+              balloonContentHeader: t,
+              balloonContentBody: [ // Содержимое баллуна
+                  a,
+              ].join(''),
+              balloonContentFooter: p
+            }, { //Конец содержимого балуна
+              balloonCloseButton: true, //Кнопка закрыть на баллуне есть
+              balloonPanelMaxMapArea: 'Infinity', //Баллун открывается в виде панели снизу
+              balloonPane: 'outerBalloon',
+              preset: 'islands#'+col+'DotIcon',
+            });
+        myMap.geoObjects.add(yandexPlacemark);
+    };
+
+    if (ymaps.Placemark) {
+        addPlacemark(coords,title,address,phone,color);
+    } else {
+        ymaps.modules.require(['Placemark', 'overlay.Placemark'])
+        .spread(function (Placemark, PlacemarkOverlay) {
+            ymaps.Placemark = Placemark;
+            addPlacemark(coords,title,address,phone,color);
+        });
+    }
+
+};
+
+
+$.fn.mapYandex = function (mapSettings) { 
+    
+    var mapSettingsString = $(this).attr('data-map-settings');
+    if(mapSettingsString){        
+        if(mapSettingsString){
+            var mapSettings = JSON.parse(mapSettingsString);
+
+            var center = JSON.parse("[" + mapSettings.map_center + "]");
+            var placesArray = mapSettings.map_places,        
+                type = mapSettings.map_type,
+                zoom = mapSettings.map_zoom;
+
+            function init(){ 
+                var yandexPlacemark;
+
+                var myMap = new ymaps.Map(document.getElementById("map"), {
+                    center: center,
+                    zoom: zoom,
+                    controls: ['geolocationControl','fullscreenControl','zoomControl']
+                });
+                window.ymaps.myMap = myMap;
+
+                myMap.behaviors.disable('scrollZoom');
+                var coords;
+                
+                for(i = 0; i < placesArray.length; i++){
+                    var coords = JSON.parse("[" + placesArray[i].coords + "]");
+                    yandexPlacemark = new ymaps.Placemark( coords ,
+                    {
+                      hintContent: placesArray[i].title,
+                      balloonContentHeader: placesArray[i].title,
+                      balloonContentBody: [ // Содержимое баллуна
+                          placesArray[i].address,
+                      ].join(''),
+                      balloonContentFooter: placesArray[i].phone
+                    }, { //Конец содержимого балуна
+                      balloonCloseButton: true, //Кнопка закрыть на баллуне есть
+                      balloonPanelMaxMapArea: 'Infinity', //Баллун открывается в виде панели снизу
+                      balloonPane: 'outerBalloon',
+                      preset: 'islands#'+placesArray[i].color+'DotIcon',
+                    });
+                    myMap.geoObjects.add(yandexPlacemark);
                 }
-            },
-        ]
-	}); 
+            }
+            ymaps.ready( init );
+        }        
+    }
 };
 
 $(function() { 
+    $(".gallery_2 .item_list .item_block .item").hover(
+        function() {
+            $( this ).addClass('hover');
+        },
+        function() {
+            $( this ).removeClass('hover');
+        }        
+    );
     $(".countdown").lpCounty();	
 	$(".fancybox").lpFancybox();
 	$(".fancybox_whithout_title").lpFancyboxWhithoutTitle();
-	$(".masonry").lpMasonry();
-    $(".slider > div").lpLightSlider();
-	$(window).on("resize",function(){
-		//$(".slider").lpLightSlider();
-	});
+	$(".masonry img").lpMasonry();
+    $(".bxslider [data-name=items]").lpbxSlider();
+    $("#map").mapYandex();
 });

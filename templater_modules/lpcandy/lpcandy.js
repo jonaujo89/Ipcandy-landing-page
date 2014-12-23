@@ -21,6 +21,7 @@ require("./ui/internal/galleryRepeater.js");
 require("./ui/internal/galleryRepeaterImageScr.js");
 require("./ui/internal/imageWithSignature.js");
 require("./ui/internal/imageFancyboxWithoutTitle.js");
+require("./ui/internal/map.js");
 
 require("./ui/header.js");
 require("./ui/order.js");

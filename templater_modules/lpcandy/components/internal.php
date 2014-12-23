@@ -263,7 +263,7 @@ class ImageFancyboxWithoutTitle extends Block {
    
     function tpl($val) {?>
 		<div class='img preview_img' style='background-image: url("<?=INDEX_URL."/".$val['url_image_preview']?>")'>
-			<? if ($this->parent->val_prefix['enable_fancybox'] || $val->edit): ?>
+			<? if ($this->parent->val_prefix['enable_fancybox'] || $this->edit): ?>
 				<a <?= !$this->parent->val_prefix['enable_fancybox'] ? "style='display:none'" : "" ?> class="fancybox_whithout_title big_img" rel="<?=$val['fancy_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>"></a>
 			<? endif ?>			
 		</div>
@@ -286,36 +286,37 @@ class ImageWithSiganture extends Block {
 	function tpl_default() {
         return array(
 			'url_image' => '',
-			'url_image_preview' => '',
-            'show_image_title' => true,
-            'show_image_desc' => true,			
+			'url_image_preview' => '',			
             'title' => 'Дорога в облака',
 			'desc' => 'Описание',
-			'fancy_group' => '',
+			'fancybox_group' => '',
         );        
     }
    
     function tpl($val) {?>
-		<a class="fancybox big_img" rel="<?=$val['fancy_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>" title="<?=$val['title']?>">
-			<div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$val['url_image_preview']?>');">	
-			</div>
-			<div class="overlay">
-				<div class="outer">
-					<div class="wrap_title_desc">					
-						<? if ($val['show_image_title'] || $val->edit): ?>
-							<div class="img_title" <?= !$val['show_image_title'] ? "style='display:none'" : "" ?> >
-								<?= $val['title'] ?>
-							</div>
-						<? endif ?>
-						<? if ($val['show_image_desc'] || $val->edit): ?>
-							<div class="img_desc" <?= !$val['show_image_desc'] ? "style='display:none'" : "" ?> >
-								<?= $val['desc'] ?>
-							</div>
-						<? endif ?>
-					</div>
-				</div>
-			</div>
-		</a>
+		<? if ($this->parent->val_prefix['enable_fancybox'] || $this->edit): ?>
+            <a class="<?= $this->parent->val_prefix['enable_fancybox'] ? "fancybox" : "" ?>  big_img" rel="<?=$val['fancybox_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>" title="<?=$val['title']?>">
+        <? endif ?>        
+                <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$val['url_image_preview']?>');"></div>
+                <div class="overlay">
+                    <div class="outer">
+                        <div class="wrap_title_desc">					
+                            <? if ($this->parent->val_prefix['show_image_title'] || $this->edit): ?>
+                                <div class="img_title" <?= !$this->parent->val_prefix['show_image_title'] ? "style='display:none'" : "" ?> >
+                                    <?= $val['title'] ?>
+                                </div>
+                            <? endif ?>
+                            <? if ($this->parent->val_prefix['show_image_desc'] || $this->edit): ?>
+                                <div class="img_desc" <?= !$this->parent->val_prefix['show_image_desc'] ? "style='display:none'" : "" ?> >
+                                    <?= $val['desc'] ?>
+                                </div>
+                            <? endif ?>
+                        </div>
+                    </div>
+                </div>
+		<? if ($this->parent->val_prefix['enable_fancybox'] || $this->edit): ?>
+            </a>
+        <? endif ?> 
     <?}
 }
 
@@ -357,12 +358,31 @@ class Map extends Block {
     
     function tpl_default() {
         return array(
-
+            'map_type' => 'yandex',
+			'map_center' => '',
+			'map_zoom' => 15,
+            'map_places' => array(
+                array(
+                    'type' => 'placemark',
+                    'title' => 'Офис №1',
+                    'address' => 'г.Москва, улица Тверская, 6', 
+                    'phone' => '+7 (526) 565-615-65',
+                    'coords' => '55.757789, 37.611652',
+                    'color' => 'red' 
+                ),                              
+            )
         );        
     }
     
     function tpl($val) {?>
-
+        
+        <?  $placesArray = array();
+            if (is_array(@$val['map_places'])) foreach ($val['map_places'] as $places){
+                array_push($placesArray, '{"type":"'.$places['type'].'", "title":"'.$places['title'].'", "address":"'.$places['address'].'", "phone":"'.$places['phone'].'", "coords":"'.$places['coords'].'", "color":"'.$places['color'].'"}');
+            }
+            $placesArrayObjects = implode(",", $placesArray);
+        ?>
+        <div id="map" data-map-settings='{ "map_type":"<?= $val['map_type']?>", "map_center":"<?= $val['map_center']?>", "map_zoom":<?= $val['map_zoom']?>, "map_places":[<?= $placesArrayObjects?>] }'></div>
     <?}
 }
 
@@ -423,3 +443,4 @@ ImageWithSiganture::register();
 VideoStream::register();
 Countdown::register();
 Media::register();
+Map::register();
