@@ -28,7 +28,7 @@ body > div {
     position: absolute;
     left: 0px; right: 0px;
     top: 0px; bottom: 0px;
-    z-index: 1000;
+    z-index: 100;
     background: rgba(0,0,0,0.2);
     cursor: pointer;
     opacity: 0;
@@ -90,7 +90,7 @@ body > div {
 .cmp-repeater-cover {
     bottom: 0;
     position: absolute;
-    right: -35px;
+    right: -32px;
     top: 0;
     vertical-align: middle;
     width: 40px;

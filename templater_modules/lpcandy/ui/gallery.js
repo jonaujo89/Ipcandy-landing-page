@@ -53,7 +53,7 @@ lp.gallery = lp.block.extendOptions({
             jq(bxslider).lpBxSlider();
         }        
         if (this.value.variant == 6) {
-            var masonry = this.element.find(".masonry");
+            var masonry = this.element.find(".masonry img");
             jq(masonry).lpMasonry();
         }
 
