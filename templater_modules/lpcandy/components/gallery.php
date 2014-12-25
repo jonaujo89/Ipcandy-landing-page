@@ -418,7 +418,7 @@ class Gallery extends Block {
                         </div>
                     <? endif ?>
 					<div class="item_list clear">
-						<div class="bxslider">
+						<div class="slider">
 							<? $this->repeat('items', function($item_val,$self) use ($val){ ?>
                                 <a class="fancybox big_img" rel="<?=$item_val['fancybox_group']?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>">
                                     <div class="preview_img">									

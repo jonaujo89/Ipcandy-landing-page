@@ -1,175 +1,146 @@
-lp.formPlaces = {};
-
-lp.formPlaces.placemark = teacss.ui.composite.extendOptions({
-    selectLabel: "Add placemark",
-    selectIcon: "fa fa-map-marker",
-    defaultColor: "blue",
-    defaultAddress: "г.Москва, ул.Тверская, д.6",
-    defaultPhone: "+7 (526) 888-615-65",
-    defaultCoords: '55.757789, 37.611652',
-    
-    geocode: function (val, map) {
-        var jq = Component.previewFrame.window.$;
-       
-        function reverse(stringCoords) {
-            var array = stringCoords.split(' ');
-            var arrayReverse = JSON.parse("["+array[1] +','+array[0]+"]");
-            //var arrayReverse = [Number(array[1]) , Number(array[0])];
-            return arrayReverse;
-        };
-        
-        if(jq){
-            jq.ajax({
-                url: 'http://geocode-maps.yandex.ru/1.x/?format=json&results=1&geocode='+val.address,//geocoder ver. 1.x, map ver.2.1 = positionReverse
-                success: function(data){                
-                    var placemarkCoords = reverse(data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos);
-                    jq.fn.mapYandexAddPlacemark(map, placemarkCoords, val.title, val.address, val.phone, val.color);
-                }
-            });            
-        }
-    }
-},{
-    
-    items: [
-        "Name",
-        { type: "text", name: "title" },
-        "Address",
-        { type: "text", name: "address" },   
-        "Phone",
-        { type: "text", name: "phone" }, 
-        "Color",
-        { 
-            type: lp.color, name: "color", width: "auto", iconSize: 15, margin: "0 0 8px",
+lp.placemarkRepeater = teacss.ui.repeater.extend({
+    init: function (o) { 
+        var me = this;
+        this._super($.extend({
+            addLabel: "Add placemark",
+            repeaterClass: "lp-placemark-repeater",
             items: [
-                { value: 'blue', color: '#0187BC' },
-                { value: 'green', color: '#56DB40' },
-                { value: 'orange', color: '#E6761B' },
-                { value: 'violet', color: '#B51EFF' },
-                { value: 'pink', color: '#F371D1' },
-                { value: 'red', color: '#ED4543' },
-                { value: 'yellow', color: '#FFD21E' }
+                { type: "text", name: "title", width: "32%", margin: "0 1% 0 0"},                               
+                { type: lp.addressText, name: "", width: "32%", margin: "0 1% 0 0" },
+                { 
+                    type: lp.color, name: "color", width: "23%", iconSize: 12, margin: "0",
+                    items: [
+                        { value: 'blue', color: '#0187BC' },
+                        { value: 'green', color: '#56DB40' },
+                        { value: 'orange', color: '#E6761B' },
+                        { value: 'violet', color: '#B51EFF' },
+                        { value: 'pink', color: '#F371D1' },
+                        { value: 'red', color: '#ED4543' },
+                        { value: 'yellow', color: '#FFD21E' }
+                    ]
+                },
+                { type: 'button', label: "center", width: "7%", margin: "0 1% 0 0", 
+                    click: function (val) {
+                        var map = lp.map.current;                   
+                        map.value.map_center = [this.form.value.lat, this.form.value.lng];
+                        me.trigger("change");
+                    }
+                }
             ]
-        },
-        "Coords",
-        { type: "text", name: "coords", showWhen: { type: '' } },
-        "Center",
-        { type: "button", name: "center" }
-    ]
+        },o));
+    },
+    newElement: function () {
+        var value = this.getValue();
+        if (value.length)
+            this.addElement($.extend(true,{},value[value.length-1]));
+        else
+            this.addElement();
+    }
 });
+
+lp.addressText = ui.text.extend({
+    init: function (o) {
+        var me = this;
+        this._super(o);
+        
+        this.bind("change",function(){
+            if (me.coordsChange) return;
+            
+            var address = me.input.val();
+            if (address == me.lastAddress) return;
+            
+            if (address) {
+                clearTimeout(me.geocodeTimeout);
+                me.geocodeTimeout = setTimeout(function(){
+                    $.get('http://geocode-maps.yandex.ru/1.x/',{format:'json',results:1,geocode:address},update);
+                },500);
+            } else {
+                update(false);
+            }
+                
+            function update(data) {
+                if (address!=me.input.val()) return;
+                var members = data ? data.response.GeoObjectCollection.featureMember : false;
+                if (members && members.length) {
+                    var coords = members[0].GeoObject.Point.pos;
+                    var parts = coords.split(" ");
+                    me.value.lat = parts[1];
+                    me.value.lng = parts[0];
+                    me.input.removeClass("error");
+                    console.log(me);
+                    var map = lp.map.current;
+                    map.value.map_center = [me.value.lat,me.value.lng];
+                    me.trigger("change");
+                } else {
+                    me.input.addClass("error");
+                    me.value.lat = '';
+                    me.value.lng = '';
+                }
+                me.lastAddress = address;
+                me.coordsChange = true;
+                me.trigger("change");
+                me.coordsChange = false;
+            }
+        });
+    },
+    setValue: function (val) {
+        val = val || {};
+        this.input.val(val.address);
+        this.value = val;
+    },
+    getValue: function () {
+        this.value.address = this.input.val();
+        return this.value;
+    }
+})
 
 lp.map = lp.cover.extendOptions({
 },{        
-    init: function () {        
-        this.cover.addClass("lp-button");        
+    init: function () { 
+        var jq = Component.previewFrame.window.$;
+        if(jq){
+            var jq = Component.previewFrame.window.$;
+            jq(this.element.find(".map")).mapYandex(this.getValue());
+        };     
     },
     change: function(){         
-        
-        var jq = Component.previewFrame.window.$;
-        var mapSettings = this.getValue();
-        var myMap = Component.previewFrame.window.ymaps.myMap;
-
-        if(jq){
-            jq.each(mapSettings.map_places, function(p,places){ 
-                myMap.geoObjects.removeAll();
-                var sub = lp.formPlaces[places.type];
-                sub.geocode(places, myMap);
-            }); 
-            
-            function coords(stringCoords) {
-                var arr = stringCoords.split(',');
-                var arrayCoords = [Number(arr[0]), Number(arr[1])];
-                return arrayCoords;
-            };
-            myMap.setCenter(coords(this.value.map_center), Number(this.value.map_zoom));
-        }
+        var jq = Component.previewFrame.window.$;        
+        jq(this.element.find(".map")).mapYandex(this.getValue());  
     },
     configForm: {
         title: "Map",
+        width: 800,
         items: [
             {
-                name: 'map_type', type: 'radio', margin: "10px 0 15px", items: [
-                    { label: "Yandex maps", value: 'yandex' },
-					{ label: "Google maps", value: 'google' }
+                type: 'composite', skipForm: true, margin: 0,
+                items: [    
+                    { type: "label", value: "Name", width: "32%", margin: "0 1% 2px 0"},
+                    { type: "label", value: "Address", width: "32%", margin: "0 1% 2px 0"},
+                    { type: "label", value: "Color", width: "23%", margin: "0 0 2px 0"},
+                    { type: lp.placemarkRepeater, name: "map_places" }
                 ]
-            },            
-            {
-                name: "map_center", type: "text", margin: "10px 0 15px"
             },
             {
-                type: 'label',
-                value: "Default map zoom (after loading window):", margin: "10px 0 0"
-            },
-            {
-                margin: "5px 0",
-                name: 'map_zoom', type: 'slider', min: 5, max: 18, margin: "10px 0 20px"
-            },
-            {
-                name: "map_places", 
-                repeaterClass: "lp-field-repeater",
-                type:  teacss.ui.repeater.extend({
+                height: 300, margin: 0, name: "",
+                type: ui.panel.extend({
                     init: function (o) {
                         this._super(o);
-                        
+                    },
+                    setValue: function (val) {
                         var me = this;
-                        this.addCombo = teacss.ui.combo({
-                            label: "Add place",
-                            comboWidth: 100,
-                            itemTpl: function (item) {
-                                return $("<div>")
-                                    .addClass("lp-add-field "+item.sub.selectIcon)
-                                    .text(item.sub.selectLabel)
-                                    .mousedown(function(){
-                                        me.addElement($.extend(
-                                            item.sub.default || {},
-                                            { type: item.type, title: item.sub.selectLabel, color: item.sub.defaultColor, address: item.sub.defaultAddress, phone: item.sub.defaultPhone, coords: item.sub.defaultCoords }
-                                        ));
-                                        me.trigger("change");
-                                    });
-                            },
-                            items: function () {
-                                var items = [];
-                                $.each(lp.formPlaces,function (key,sub){
-                                    if (sub && sub.selectLabel) {
-                                        items.push({ value: key, sub: sub, type: key });
-                                    }
-                                });
-                                return items;
+                        function updateMap() {                             
+                            me.element.mapYandex(val, window.ymaps);
+                        }
+                        if (val && val.map_type) {
+                            if (window.ymaps) {
+                                updateMap();
+                            } else {
+                                teacss.LazyLoad_f(document).js("http://api-maps.yandex.ru/2.1/?lang=ru_RU",updateMap);
                             }
-                        });
-                        this.addButton.replaceWith(this.addCombo.element);
-                    },
-                    itemTemplate: function (el) {
-                        var ret = this._super(el);
-                        var content = ret.find(".ui-repeater-item-content").hide();
-                        ret.find(".ui-repeater-item-title").css({cursor:"pointer"})
-                        .prepend($("<span>"))
-                        .click(function(){
-                            var visible = content.is(":visible");
-                            ret.parent().find(".ui-repeater-item-content").hide();
-                            content.toggle(!visible);
-                        });
-                        return ret;
-                    },                    
-                    updateLabel: function (el) {
-                        var val = el.getValue();
-                        var title = el.itemContainer.find(".ui-repeater-item-title").addClass(lp.formPlaces[val.type].selectIcon);
-                        title.children("span").eq(0).text(val.title);
-                    },
-                    addElement: function (val) {
-                        val = val || {};
-                        var el = lp.formPlaces[val.type]();
-                        el.setValue(val);
-                        var me = this;
-                        el.bind("change",function(){
-                            me.updateLabel(el);
-                            me.trigger("change");
-                        });
-                        this.push(el);
-                        this.updateLabel(el);
-                        return el;
+                        }
                     }
                 })
-            },
+            }
         ]
     }
 })

@@ -34,35 +34,16 @@ body > div {
     opacity: 0;
 }
 
+.map_block_1 .cmp-cover {
+    z-index: 0;
+}
+
 .cmp-cover.lp-button {
     right: 5px;
     top: 5px;
     left: auto;
     bottom: auto;
     opacity: 0;
-}
-
-.map_block_1 .cmp-cover.lp-button {
-    right: 49%;
-    top: 20px;
-    left: auto;
-    bottom: auto;
-    opacity: 0;
-}
-
-.map_block_1 .lp-button {
-    background: none repeat scroll 0 0 #eee;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    color: black;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 38px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    text-decoration: none;
-    width: 50px;
 }
 
 :hover > .cmp-cover.lp-button,
@@ -256,6 +237,10 @@ body.dragging .lp-button {
     bottom: 0;
     left: 0 ;
     right: 0;
+}
+
+.masonry > div[data-name] {
+    position: absolute;
 }
 
 .text_toolbar {

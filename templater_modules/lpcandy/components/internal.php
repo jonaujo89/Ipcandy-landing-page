@@ -358,31 +358,34 @@ class Map extends Block {
     
     function tpl_default() {
         return array(
-            'map_type' => 'yandex',
-			'map_center' => '',
-			'map_zoom' => 15,
+            'map_type' => 'yandex',			
+            'map_center' => array(55.75824, 37.622575),
+            'map_zoom' => 15,
             'map_places' => array(
                 array(
+                    'center' => '',
                     'type' => 'placemark',
                     'title' => 'Офис №1',
-                    'address' => 'г.Москва, улица Тверская, 6', 
-                    'phone' => '+7 (526) 565-615-65',
-                    'coords' => '55.757789, 37.611652',
+                    'address' => 'г.Москва, улица Никольская, 17', 
+                    'lat' => '55.75824',
+                    'lng' => '37.622575',
                     'color' => 'red' 
-                ),                              
+                ),
+                array(
+                    'center' => '',
+                    'type' => 'placemark',
+                    'title' => 'Офис №2',
+                    'address' => 'г.Москва, улица Тверская, 6',
+                    'lat' => '55.757789', 
+                    'lng' => '37.611652',
+                    'color' => 'green' 
+                ), 
             )
         );        
     }
     
     function tpl($val) {?>
-        
-        <?  $placesArray = array();
-            if (is_array(@$val['map_places'])) foreach ($val['map_places'] as $places){
-                array_push($placesArray, '{"type":"'.$places['type'].'", "title":"'.$places['title'].'", "address":"'.$places['address'].'", "phone":"'.$places['phone'].'", "coords":"'.$places['coords'].'", "color":"'.$places['color'].'"}');
-            }
-            $placesArrayObjects = implode(",", $placesArray);
-        ?>
-        <div id="map" data-map-settings='{ "map_type":"<?= $val['map_type']?>", "map_center":"<?= $val['map_center']?>", "map_zoom":<?= $val['map_zoom']?>, "map_places":[<?= $placesArrayObjects?>] }'></div>
+        <div class="map" data-map-settings='<?=json_encode($val)?>'></div>
     <?}
 }
 

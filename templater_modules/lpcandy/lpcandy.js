@@ -1,3 +1,5 @@
+function _t(s){ return s; }
+
 require("./lpcandy.css");
 
 require("./ui/internal/block.js");
@@ -21,6 +23,8 @@ require("./ui/internal/galleryRepeater.js");
 require("./ui/internal/galleryRepeaterImg.js");
 require("./ui/internal/imageWithSignature.js");
 require("./ui/internal/imageFancyboxWithoutTitle.js");
+
+require("./lib/ymaps.js");
 require("./ui/internal/map.js");
 
 require("./ui/header.js");

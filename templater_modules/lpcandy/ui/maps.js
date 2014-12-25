@@ -1,10 +1,6 @@
 lp.maps = lp.block.extendOptions({
     init: function(){
         var jq = Component.previewFrame.window.$;
-        
-        if(jq){
-            jq("#map").mapYandex();
-        };
     },
     change: function(){  
         

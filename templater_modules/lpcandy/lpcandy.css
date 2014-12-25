@@ -92,3 +92,36 @@
 .teacss-ui .lp-add-field:hover {
     background: #eee;
 }
+
+.lp-placemark-repeater .ui-repeater-item {
+    position: relative;
+    border: none;
+}
+
+.lp-placemark-repeater .ui-repeater-item-title {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    z-index: 10;
+    border: 1px solid #d3d3d3;
+}
+
+.lp-placemark-repeater .ui-repeater-item-title {
+    background: none repeat scroll 0 0 #EEEEEE;
+    overflow: hidden;
+    padding: 0.3em 0.2em;
+}
+
+.lp-placemark-repeater .ui-repeater-item-content,
+.lp-placemark-repeater .ui-repeater-footer
+{
+    padding: 0.2em 0;
+}
+
+.lp-placemark-repeater .ui-repeater-footer {
+    border: none;
+    text-align: left;
+}
+.error{
+    background-color:red;
+}

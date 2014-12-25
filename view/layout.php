@@ -37,7 +37,6 @@
     <? endif ?>
 </head>
 <body>
-    
     <div id="logged_info">
         <? $user = \LPCandy\Models\User::checkLoggedIn() ?>
         <? if ($user): ?>

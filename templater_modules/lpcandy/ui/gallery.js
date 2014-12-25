@@ -49,7 +49,7 @@ lp.gallery = lp.block.extendOptions({
             } 
 		}        
         if (this.value.variant == 5){ 
-            var bxslider = this.element.find('.bxslider [data-name=items]');
+            var bxslider = this.element.find('.slider [data-name=items]');
             jq(bxslider).lpBxSlider();
         }        
         if (this.value.variant == 6) {
