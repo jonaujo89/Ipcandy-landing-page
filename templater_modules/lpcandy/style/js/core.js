@@ -132,29 +132,18 @@ $.fn.lpFancyboxWhithoutTitle = function () {
 
 $.fn.lpMasonry = function () {    
     var $el = $(this);
-    /*function doit() {
+    function doit() {
         $el.masonry({
             itemSelector: ".masonry .item_block",
             gutter: 10,
             singleMode: true,
             columnWidth: ".masonry .item_block"
         });
-        $el.masonry('reloadItems');
-        $el.masonry('layout'); 
-    };*/
-    $el.imagesLoaded( function() {
-        console.log("ready");
-        $el.masonry({
-            itemSelector: ".masonry .item_block",
-            gutter: 10,
-            singleMode: true,
-            columnWidth: ".masonry .item_block"
-        });
-    });
-    /*
+    };
+    doit();
     $el.find("img").unbind("load").bind("load",doit);
     doit();
-    */
+    
 };
 
 $.fn.lpBxSlider = function () {
