@@ -2,7 +2,7 @@ lp.placemarkRepeater = teacss.ui.repeater.extend({
     init: function (o) { 
         var me = this;
         this._super($.extend({
-            addLabel: "Add placemark",
+            addLabel: _t("Add placemark"),
             repeaterClass: "lp-placemark-repeater",
             items: [
                 { type: "text", name: "title", width: "32%", margin: "0 1% 0 0"},                               
@@ -19,7 +19,7 @@ lp.placemarkRepeater = teacss.ui.repeater.extend({
                         { value: 'yellow', color: '#FFD21E' }
                     ]
                 },
-                { type: 'button', label: "center", width: "7%", margin: "0 1% 0 0", 
+                { type: 'button', label: _t("center"), width: "7%", margin: "0 1% 0 0", 
                     click: function (val) {
                         var map = lp.map.current;                   
                         map.value.map_center = [this.form.value.lat, this.form.value.lng];
@@ -108,15 +108,15 @@ lp.map = lp.cover.extendOptions({
         jq(this.element.find(".map")).mapYandex(this.getValue());  
     },
     configForm: {
-        title: "Map",
+        title: _t("Map"),
         width: 800,
         items: [
             {
                 type: 'composite', skipForm: true, margin: 0,
                 items: [    
-                    { type: "label", value: "Name", width: "32%", margin: "0 1% 2px 0"},
-                    { type: "label", value: "Address", width: "32%", margin: "0 1% 2px 0"},
-                    { type: "label", value: "Color", width: "23%", margin: "0 0 2px 0"},
+                    { type: "label", value: _t("Name"), width: "32%", margin: "0 1% 2px 0"},
+                    { type: "label", value: _t("Address"), width: "32%", margin: "0 1% 2px 0"},
+                    { type: "label", value: _t("Color"), width: "23%", margin: "0 0 2px 0"},
                     { type: lp.placemarkRepeater, name: "map_places" }
                 ]
             },

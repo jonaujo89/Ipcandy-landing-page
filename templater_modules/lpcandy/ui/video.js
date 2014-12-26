@@ -23,33 +23,33 @@ lp.video = lp.block.extendOptions({
     configForm: {
         items: [   
             { 
-                name: "show_title", label: "Show first title", type: "check", width: "auto", height: 27, 
+                name: "show_title", label: _t("Show first title"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [1,3] }
             },
             { 
-                name: "show_title_2", label: "Show second title", type: "check", width: "auto", height: 27, 
+                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [1,3] }
             },
             { 
-                name: "show_text_title_2", label: "Show second text title", type: "check", width: "auto", height: 27, 
+                name: "show_text_title_2", label: _t("Show second text title"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "show_desc", label: "Show description", type: "check", width: "auto", height: 27, 
+                name: "show_desc", label: _t("Show description"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [3] }
             },
             { 
-                name: "show_border", label: "Show border", type: "check", width: "auto", height: 27, 
+                name: "show_border", label: _t("Show border"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [3] }
             },
-            { type: "label", value: "Video size:", margin: "5px 49% 0px 0px", showWhen: { variant: [1] }},
+            { type: "label", value: _t("Video size:"), margin: "5px 49% 0px 0px", showWhen: { variant: [1] }},
             { 
                 name: "video_size",
-                items: [{ label: "small<br>", value:"small"},{ label: "medium<br>", value:"medium"},{ label: "large", value:"large"}],
+                items: [{ label: _t("small<br>"), value:"small"},{ label: _t("medium<br>"), value:"medium"},{ label: _t("large"), value:"large"}],
                 type: "radio", width: "auto", height: 70, 
                 margin: "0px 49% 5px 0px", showWhen: { variant: [1] }
             },
-            { type: "label", value: "Background color:", margin: "5px 0"},
+            { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
                 type: lp.color, name: "background_color",  
                 items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]

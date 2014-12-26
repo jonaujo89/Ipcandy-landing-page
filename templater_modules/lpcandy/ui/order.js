@@ -58,7 +58,7 @@ lp.order = lp.block.extendOptions({
     },
     configForm: {
         items: [            
-            { type: "label", value: "Background image:", margin: "5px 0", showWhen: { variant: [1,2,6] }},
+            { type: "label", value: _t("Background image:"), margin: "5px 0", showWhen: { variant: [1,2,6] }},
             { 
                 name: "background", width: 245,
                 type: ui.combo.extendOptions({
@@ -92,53 +92,53 @@ lp.order = lp.block.extendOptions({
                 showWhen: { variant: [1,2,6] }
             },  
             { 
-                name: "add_background_noise", label: "Add noise", type: "check", width: "auto", height: 27, 
+                name: "add_background_noise", label: _t("Add noise"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "show_text_above_button", label: "Show text above the button", type: "check", width: "auto", height: 27, 
+                name: "show_text_above_button", label: _t("Show text above the button"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "add_arrow", label: "Add arrow", type: "check", width: "auto", height: 27, 
+                name: "add_arrow", label: _t("Add arrow"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "show_form_title_2", label: "Show text under the title", type: "check", width: "auto", height: 27, value: 1,
+                name: "show_form_title_2", label: _t("Show text under the form title"), type: "check", width: "auto", height: 27, value: 1,
                 margin: "5px 49% 5px 0px", showWhen: { variant: [1] }
             },
             { 
-                name: "show_title_2", label: "Show second title", type: "check", width: "auto", height: 27, 
+                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [3,4,5,6] }
             },
             { 
-                name: "show_title_3", label: "Show third title", type: "check", width: "auto", height: 27, 
+                name: "show_title_3", label: _t("Show third title"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [6] }
             },
             { 
-                name: "show_form_bottom_text", label: "Show text under the form", type: "check", width: "auto", height: 27, 
+                name: "show_form_bottom_text", label: _t("Show text under the form"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [1,4,5,6] }
             },
             { 
-                name: "show_border_media", label: "Show border from media", type: "check", width: "auto", height: 27, 
+                name: "show_border_media", label: _t("Show border from media"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [3] }
             },
             { 
-                name: "show_box_shadow_media", label: "Show shadow from media", type: "check", width: "auto", height: 27, 
+                name: "show_box_shadow_media", label: _t("Show shadow from media"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [4] }
             },
             { 
-                name: "show_list_box", label: "Show list box", type: "check", width: "auto", height: 27, 
+                name: "show_list_box", label: _t("Show list box"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [3] }
             },
-            { type: "label", value: "Form align:", margin: "10px 0 0 0", showWhen: { variant: [6] }},
+            { type: "label", value: _t("Form align:"), margin: "10px 0 0 0", showWhen: { variant: [6] }},
             { 
                 name: "move_form",
-                items: [{ label: "Move left<br>", value:"align_left"},{ label: "Move center<br>", value:"align_center"},{ label: "Move right", value:"align_right"}],
+                items: [{ label: _t("Move left<br>"), value:"align_left"},{ label: _t("Move center<br>"), value:"align_center"},{ label: _t("Move right"), value:"align_right"}],
                 type: "radio", width: "auto", height: 27, 
                 margin: "0px 0px 5px 0px", showWhen: { variant: [6] }
             },
-            { type: "label", value: "Background color:", margin: "5px 0", showWhen: { variant: [4,5] }},
+            { type: "label", value: _t("Background color:"), margin: "5px 0", showWhen: { variant: [4,5] }},
              { 
                 type: lp.color, name: "background_color",  
                 items: [
@@ -159,7 +159,7 @@ lp.order = lp.block.extendOptions({
                 ], 
                 showWhen: { variant: [4,5] }
             },
-            { type: "label", value: "Background texture:", margin: "5px 0", showWhen: { variant: [3] }},
+            { type: "label", value: _t("Background texture:"), margin: "5px 0", showWhen: { variant: [3] }},
              { 
                 name: "background", width: '95px',
                 type: ui.combo.extendOptions({
@@ -172,7 +172,7 @@ lp.order = lp.block.extendOptions({
                         var items = [];
                         for (var i=1;i<=19;i++) {
                             items.push({
-                                value:"/templater_modules/lpcandy/assets/texture/"+i+".png",
+                                value:"templater_modules/lpcandy/assets/texture/"+i+".png",
                             });
                         }
                         return items;
@@ -184,7 +184,7 @@ lp.order = lp.block.extendOptions({
                                 height: 50,
                                 backgroundSize: "cover",
                                 backgroundPosition: "auto 100%",
-                                backgroundImage:"url("+base_url+item.value+")"
+                                backgroundImage:"url("+base_url+"/"+item.value+")"
                             })
                         );
                     }

@@ -16,27 +16,27 @@ lp.imageWithSignature = lp.cover.extendOptions({
 		}		         
     },
     configForm: {
-        title: "Upload image and edit signature",
+        title: _t("Image"),
         items: [
             {   
-                type: "label", value:'Upload image file', margin: "10px 0 5px", 
+                type: "label", value:_t('Select image file'), margin: "10px 0 5px", 
                  
             },  
             {
-                name: 'url_image_preview', type: 'uploadButton', label: 'Select image file',
+                name: 'url_image_preview', type: 'uploadButton', label: _t('Upload image file'),
             },
             {
                 type: 'label',
-                value: "Image title:",
-                margin: "10px 0 5px",
+                value: _t("Image title:"),
+                margin: "10px 0 5px"
             },
             {
                 name: "title", type: "text",
             },
             {
                 type: 'label',
-                value: "Image description:",
-                margin: "10px 0 5px",
+                value: _t("Image description:"),
+                margin: "10px 0 5px"
             },
             {
                 name: "desc", type: "text"

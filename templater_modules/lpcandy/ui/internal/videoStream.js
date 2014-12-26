@@ -23,11 +23,11 @@ lp.videoStream = lp.cover.extendOptions({
        
     },
     configForm: {
-        title: "Video",
+        title: _t("Video"),
         items: [
             {
                 type: 'label',
-                value: "Video url (youtube or vimeo):",
+                value: _t("Video url (youtube or vimeo):"),
                 margin: "20px 0 5px"
             },
             {
@@ -37,7 +37,7 @@ lp.videoStream = lp.cover.extendOptions({
             },
             {
                 type: 'label',
-                value: "example: www.youtube.com/embed/xbK8rl9wH4Q", height: 5, margin: "0 0 5px 2px",
+                value: _t("example: www.youtube.com/embed/xbK8rl9wH4Q"), height: 5, margin: "0 0 5px 2px",
             },
         ]
     }

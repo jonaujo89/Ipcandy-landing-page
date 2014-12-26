@@ -56,24 +56,18 @@ lp.timer = lp.block.extendOptions({
     configForm: {
         items: [   
             { 
-                name: "show_title_2", 
-                label: "Show second title", 
-                type: "check", 
-                width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", 
+                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto", height: 27, margin: "5px 49% 5px 0px", 
             },
 			{ 
-                name: "show_form_bottom_text", label: "Show text under the form", type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [3,4] }
+                name: "show_form_bottom_text", label: _t("Show text under the form"), type: "check", width: "auto", height: 27, margin: "5px 49% 5px 0px", 
+                showWhen: { variant: [3,4] }
             },
-            {   type: "label", value: "Countdown color:", margin: "5px 0 0", showWhen: { variant: [1] } },
+            {   type: "label", value: _t("Countdown color:"), margin: "5px 0 0", showWhen: { variant: [1] } },
             { 
-                type: lp.color, 
-                name: "countdown_color",  
-                items: [{ value: "#E76953" },{ value: "#3F3F3F" }],
+                type: lp.color,  name: "countdown_color", items: [{ value: "#E76953" },{ value: "#3F3F3F" }],
                 showWhen: { variant: [1] }
             },
-            {   type: "label", value: "Second title color:", margin: "5px 0 0", showWhen: { variant: [2] } },
+            {   type: "label", value: _t("Second title color:"), margin: "5px 0 0", showWhen: { variant: [2] } },
 			{ 
                 type: lp.color, name: "title_2_color", width: "auto", iconSize: 20, margin: "0 0 8px",
                 items: [
@@ -88,7 +82,7 @@ lp.timer = lp.block.extendOptions({
                 ],
 				showWhen: { variant: [2] }
             },
-            {   type: "label", value: "Background:", margin: "5px 0" },
+            {   type: "label", value: _t("Background:"), margin: "5px 0" },
             { 
                 type: lp.color, 
                 name: "background_color",  

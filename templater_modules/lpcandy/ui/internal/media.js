@@ -33,21 +33,21 @@ lp.media = lp.cover.extendOptions({
         }
     },
     configForm: {
-        title: "Media files",
+        title: _t("Media files"),
         items: [
             {
                 name: 'type', type: 'radio', margin: "15px 0 20px", items: [
-                    { label: "Image ", value: 'image_background' },
-                    { label: "Video", value: 'video' }
+                    { label: _t("Image"), value: 'image_background' },
+                    { label: _t("Video"), value: 'video' }
                 ]
             },
             {
-                name: 'image_url', type: 'uploadButton', label: 'Upload image file',
+                name: 'image_url', type: 'uploadButton', label: _t('Upload file'),
                 showWhen: { type: 'image_background' }
             },
             {
                 type: 'label',
-                value: "Video url (youtube or vimeo):", margin: "5px 0 0",
+                value: _t("Video url (youtube or vimeo):"), margin: "5px 0 0",
                 showWhen: { type: 'video' }
             },
             {
@@ -56,7 +56,7 @@ lp.media = lp.cover.extendOptions({
             },
             {
                 type: 'label',
-                value: "example: www.youtube.com/embed/xbK8rl9wH4Q", margin: "0 0 5px 2px",
+                value: _t("example: www.youtube.com/embed/xbK8rl9wH4Q"), margin: "0 0 5px 2px",
                 showWhen: { type: 'video' }
             },
         ]

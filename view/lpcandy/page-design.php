@@ -31,7 +31,7 @@
         </script>        
     </head>
     <body>
-        <div id="logged_info">
+        <!--<div id="logged_info">
             <? $user = \LPCandy\Models\User::checkLoggedIn() ?>
             <? if ($user): ?>
                 <?=_t('Logged as')?>
@@ -39,6 +39,6 @@
                 |
                 <a href="<?=url('logout')?>"><?=_t('Logout')?></a>
             <? endif ?>
-        </div>            
+        </div>-->
     </body>
 </html>

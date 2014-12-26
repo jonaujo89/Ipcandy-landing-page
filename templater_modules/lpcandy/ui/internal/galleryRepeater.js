@@ -10,14 +10,14 @@ lp.galleryRepeater = lp.repeater.extendOptions({
 		item.find(".big_img").attr("title", sub.title);
     },
     configForm: {
-        title: "Upload image",
+        title: _t("Image"),
         items: [
             {   
-                type: "label", value:'Upload image file', margin: "10px 0 5px", 
+                type: "label", value:_t('Upload image file'), margin: "10px 0 5px", 
                  
             },  
             {
-                name: 'image', type: 'uploadButton', label: 'Select image file',
+                name: 'image', type: 'uploadButton', label: _t('Select image file'),
             },
             {
                 type: 'label',

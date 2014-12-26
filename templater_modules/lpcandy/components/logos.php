@@ -6,17 +6,17 @@ class Logos extends Block {
     public $editor = "lp.logos";
     
     function tpl($val) {?>
-        <div class="container-fluid clientsLogos clientsLogos_1" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid clientsLogos clientsLogos_1" style="background: ;">
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
                         <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title') ?>
+                            <? $this->sub('Text','title', array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2') ?>
+                            <? $this->sub('Text','title_2', array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear <?= $val['grayscale_logo'] ? "gray" : "" ?>">
@@ -39,7 +39,7 @@ class Logos extends Block {
             'show_title' => true,
             'show_title_2' => false,
             'grayscale_logo' => true,
-            'background_color' =>'#FFFFFF',
+            'background_color' =>'rgb(247, 247, 247)',
             'title' => "Наши клиенты",
             'title_2' => "Подзаголовок ",
             'items' => array(

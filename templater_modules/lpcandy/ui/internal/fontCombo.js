@@ -24,7 +24,9 @@ ui.fontCombo = ui.combo.extendOptions({
             {value: 'Trebuchet MS'},
             {value: 'Palatino Linotype'},
             {value: 'Comic Sans MS'},
-            {value: 'Century Gothic'}
+            {value: 'Century Gothic'},
+            {value: 'Open Sans'},
+            {value: 'TeXGyreAdventor'},
         ]);
         return ret;
     }

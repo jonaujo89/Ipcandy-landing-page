@@ -76,6 +76,7 @@ $.fn.lpCounty = function () {
 			}
 				
 			date_end = new Date(year+'/'+month+'/'+(day+dayPlus)+' '+dateTime.time);
+            if(isNaN(date_end)) date_end = 0;
 			$(this).empty().county({
 				endDateTime: date_end,
 			});
@@ -148,12 +149,9 @@ $.fn.lpMasonry = function () {
 $.fn.lpBxSlider = function () {
     $(this).each(function(){
         var $this = $(this);
-		var bx_wrapper = $(".slider > .bx-wrapper").size();
-        console.log("bx_wrapper == "+bx_wrapper);
-        //var counter = $this.data('counter');
+		var bx_wrapper = $this.find("div.item_block.bx-clone").size();
         if (bx_wrapper == 0) {        
-            console.log("bx_wrapper == 0 подключаем плагин");
-            bx_slider = $this.bxSlider({
+            var bxSlider = $this.bxSlider({
                 controls: true,
                 slideWidth: 367,
                 minSlides: 3,
@@ -162,15 +160,14 @@ $.fn.lpBxSlider = function () {
                 slideSelector: 'div.item_block:visible',
             });
             var count_photo_init = $this.find(".item_block:visible").not(".bx-clone").size();
-            console.log("колличество фото при инициализации = "+count_photo_init);
-            $this.data('counter', count_photo_init);        
+            $this.data('counter', count_photo_init); 
+            $this.data('slider', bxSlider);
         } else {  
-            console.log("bx_wrapper != 0 обновляем плагин");
             var count_photo_in_data_counter = $this.data('counter');
+            var bxSlider = $this.data('slider');
             var count_photo = $this.find(".item_block:visible").not(".bx-clone").size();
-            console.log("колличество фото до удаления/добавления = "+count_photo_in_data_counter+" после удаления/добавления = "+count_photo);
             if(count_photo_in_data_counter != count_photo){
-                bx_slider.reloadSlider(); 
+                bxSlider.reloadSlider(); 
                 $this.data('counter', count_photo);
             }
         }

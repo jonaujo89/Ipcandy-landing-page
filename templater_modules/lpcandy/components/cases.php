@@ -6,7 +6,7 @@ class Cases extends Block {
     public $editor = "lp.cases";
     
     function tpl($val) {?>
-        <div class="container-fluid cases cases_1" style="background: <? $this->sub['background_color']?>;">
+        <div class="container-fluid cases cases_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -33,11 +33,11 @@ class Cases extends Block {
                                 <? endif ?>
                                 <? if ($val['show_desc'] || $self->edit): ?>
                                     <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','desc',array('buttons'=>array("bold"=>false,"italic","fontcolor","removeformat"),'oneline'=>true)) ?>
+                                        <? $self->sub('Text','desc',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>true)) ?>
                                     </div>
                                 <? endif ?>
                                 <div class="text">
-                                    <? $self->sub('Text','text',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>true)) ?>
+                                    <? $self->sub('Text','text',array('buttons'=>array("bold","italic","fontcolor","removeformat"))) ?>
                                 </div>
                             </div>
                             <div style="clear: both"></div>
@@ -54,7 +54,7 @@ class Cases extends Block {
             'show_title_2' => false,
             'show_name' => true,
             'show_desc' => true,
-            'background_color' =>'#F7F7F7',
+            'background_color' =>'#FFFFFF',
             'title' => "Результаты наших клиентов",
             'title_2' => "Подзаголовок",
             'items' => array(

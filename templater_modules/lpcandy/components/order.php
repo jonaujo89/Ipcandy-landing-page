@@ -117,15 +117,15 @@ class Order extends Block {
                 </div>
                 <div class="data_wrap">
                     <div class="title_1">
-                        <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                        <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"))) ?>
                     </div>
                     <? if ($val['show_title_2'] || $this->edit): ?>
                         <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"))) ?>
                         </div>
                     <? endif ?>
                     <div class="desc">
-                        <? $this->sub('Text','desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','desc',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
                     </div>
                     <? if ($val['show_list_box'] || $this->edit): ?>
                         <div class="list" <?= !$val['show_list_box'] ? "style='display:none'" : "" ?> >

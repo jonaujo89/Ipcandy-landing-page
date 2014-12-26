@@ -3541,6 +3541,7 @@
 }
 
 .cases_1 .item_block {
+  height: 370px;
   padding: 0;
   border: 1px solid #e0e0e0;
   border-top: 0;
@@ -3549,7 +3550,7 @@
 
 .cases_1 .media_wrap {
   float: left;
-  height: 350px;
+  height: 370px;
   width: 50%;
 }
 
@@ -3558,11 +3559,11 @@
 }
 
 .cases_1 .media {
-  height: 350px;
+  height: 370px;
 }
 
 .cases_1 iframe {
-  height: 350px;
+  height: 370px;
   width: 100%;
 }
 
@@ -4064,10 +4065,6 @@
 
 
 /* footer */
-.footer_1 .container-fluid {
-  background: #ffffff;
-}
-
 .footer_1 .container {
   position: relative;
   padding: 70px 0;
@@ -5892,7 +5889,7 @@
 .timer_3 .countdown .county-seconds div {
   font-size: 100px;
   line-height: 100%;
-  padding: 20px 0 0;
+  padding: 0 0 10px;
 }
 
 .timer_3 .countdown .county-days div, 

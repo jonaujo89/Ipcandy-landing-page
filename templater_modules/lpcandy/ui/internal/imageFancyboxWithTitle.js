@@ -12,14 +12,14 @@ lp.imageFancyboxWithTitle = lp.imageFancyboxWithoutTitle({
 		}
     },
     configForm: {
-        title: "Upload image",
+        title: _t("Image"),
         items: [
             {   
-                type: "label", value:'Upload image file', margin: "10px 0 5px", 
+                type: "label", value:_t('Select image file'), margin: "10px 0 5px", 
                  
             },  
             {
-                name: 'url_image_preview', type: 'uploadButton', label: 'Select image file',
+                name: 'url_image_preview', type: 'uploadButton', label: _t('Upload image file'),
             },
         ]
     }

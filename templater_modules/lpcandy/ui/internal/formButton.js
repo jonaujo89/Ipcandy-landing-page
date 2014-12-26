@@ -5,10 +5,10 @@ lp.formButton = lp.cover.extendOptions({
         button.text(me.value.text).prop("class", "btn_form "+ me.value.color || "btn_form");
     },
     configForm: {
-        title: "Order form",
+        title: _t("Order form"),
         items: [            
-            { type: "label", value: "Button text:", width: "53%", margin: "10px 0 5px 0" },
-            { type: "label", value: "Button color:", width: "47%", margin: "10px 0 5px 0" },
+            { type: "label", value: _t("Button text:"), width: "53%", margin: "10px 0 5px 0" },
+            { type: "label", value: _t("Button color:"), width: "47%", margin: "10px 0 5px 0" },
             { type: "text", name: "text", width: "50%", margin: "0 3% 10px 0" },
             { 
                 type: lp.color, name: "color", width: "47%", iconSize: 15, margin: "0 0 8px",
@@ -23,14 +23,14 @@ lp.formButton = lp.cover.extendOptions({
                     { value: 'yellow', color: '#FFC415' }
                 ]
             },
-            { type: "label", value: "Form:", width: "100%", margin: "0 0 5px" },
+            { type: "label", value: _t("Form:"), width: "100%", margin: "0 0 5px" },
             { 
-                type: "button", label: "Show form", width: 'auto', margin: "0 0 10px", click: function () {
+                type: "button", label: _t("Show form"), width: 'auto', margin: "0 0 10px", click: function () {
                     lp.formButton.showForm();
                 }
             },
             { 
-                type: "button", label: "Show success window", width: 'auto',  margin: "0 0 10px 8px", click: function () {
+                type: "button", label: _t("Show success window"), width: 'auto',  margin: "0 0 10px 8px", click: function () {
                     lp.formButton.showFormSuccess();
                 }
             }

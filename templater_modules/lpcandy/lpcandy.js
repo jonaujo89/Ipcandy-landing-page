@@ -1,4 +1,10 @@
-function _t(s){ return s; }
+var ru = $.extend(require("./lpcandy_ru.js"),{
+    "Preview" : "Предпосмотр",
+    "Publish" : "Публиковать",
+    "Editor" : "Редактор",
+    "Add Section" : "Добавить блок"
+});
+window._t.load(ru);
 
 require("./lpcandy.css");
 
@@ -25,7 +31,6 @@ require("./ui/internal/imageWithSignature.js");
 require("./ui/internal/imageFancyboxWithoutTitle.js");
 
 require("./lib/ymaps.js");
-require("./ui/internal/map.js");
 
 require("./ui/header.js");
 require("./ui/order.js");

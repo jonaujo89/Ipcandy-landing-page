@@ -59,11 +59,11 @@ Class FormButton extends Block {
             'form' => array(
                 'fields' => array(
                     array(
-                        'label' => 'Name', 'sub_label' => '', 'required' => true,
+                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
                         'name' => 'name', 'type' => 'text', 
                     ),
                     array(
-                        'label' => 'Phone', 'sub_label' => '', 'required' => true,
+                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
                         'name' => 'phone', 'type' => 'text', 
                     ),
                     array(

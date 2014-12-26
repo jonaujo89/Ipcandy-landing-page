@@ -5,7 +5,7 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
     init: function (o) {
         var me = this;
         this._super($.extend({
-            label: "Upload file",
+            label: _t("Upload file"),
             uploadDir: 'files'
         },o));
         

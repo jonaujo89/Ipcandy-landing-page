@@ -12,18 +12,18 @@ lp.logos = lp.block.extendOptions({
     configForm: {
         items: [   
             { 
-                name: "show_title", label: "Show first title", type: "check", width: "auto", height: 27, 
+                name: "show_title", label: _t("Show first title"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px",
             },
             { 
-                name: "show_title_2", label: "Show second title", type: "check", width: "auto", height: 27, 
+                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px",
             },
             { 
-                name: "grayscale_logo", label: "Grayscale logo", type: "check", width: "auto", height: 27, 
+                name: "grayscale_logo", label: _t("Grayscale logo"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px",
             },
-            { type: "label", value: "Background color:", margin: "5px 0"},
+            { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
                 type: lp.color, name: "background",  
                 items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]

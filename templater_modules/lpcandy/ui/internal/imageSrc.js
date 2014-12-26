@@ -3,14 +3,14 @@ lp.imageSrc = lp.cover.extendOptions({
         this.element.find("img").attr({ src: base_url+'/'+this.value }); 
     },
     configForm: {
-        title: "Upload image",
+        title: _t("Image"),
         items: [
             {   
-                type: "label", value:'Upload image file', margin: "10px 0 5px", 
+                type: "label", value:_t('Select image file'), margin: "10px 0 5px", 
                  
             },  
             {
-                name: '', type: 'uploadButton', label: 'Select image file',
+                name: '', type: 'uploadButton', label: _t('Upload image file'),
             }
         ]
     }

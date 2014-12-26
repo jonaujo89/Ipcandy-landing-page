@@ -157,6 +157,9 @@ div:hover > .cmp-repeater-cover {
     display: none;
     text-align: center;
 }
+.masonry .lp-button-repeater-add-wrap {
+    margin-top: -15px !important;
+}
 
 *:hover > .lp-button-repeater-add-wrap {
     display: block;

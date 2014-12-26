@@ -18,11 +18,11 @@ lp.formControls.text = teacss.ui.composite.extendOptions({
     }
 },{
     items: [
-        "Field label",
+        _t("Field label"),
         { type: "text", name: "label" },
-        "Field description",
+        _t("Field description"),
         { type: "text", name: "desc" },
-        { type: "check", name: "required", label: "Is required?" }
+        { type: "check", name: "required", label: _t("Is required?") }
     ]
 });
 
@@ -44,18 +44,18 @@ lp.formControls.textarea = lp.formControls.text.extend({
     }
 },{
     items: [
-        "Field label",
+        _t("Field label"),
         { type: "text", name: "label" },
-        "Field description",
+        _t("Field description"),
         { type: "text", name: "desc" },
-        { type: "check", name: "required", label: "Is required?" }
+        { type: "check", name: "required", label: _t("Is required?") }
     ]
 });
 
 lp.formControls.checkbox = teacss.ui.composite.extendOptions({
     selectLabel: "Checkbox",
     selectIcon: "fa fa-check-square-o",
-    default: { options: "Option 1\nOption 2\nOption 3" },
+    default: { options: _t("Option 1\nOption 2\nOption 3") },
     tpl: function (val) {
         var star_required, show_desc, checkbox;
         if (val.required) {star_required = " <i>*</i>"};
@@ -75,20 +75,20 @@ lp.formControls.checkbox = teacss.ui.composite.extendOptions({
     }
 },{
     items: [
-        "Field label",
+        _t("Field label"),
         { type: "text", name: "label" },
-        "Field description",
+        _t("Field description"),
         { type: "text", name: "desc" },
-        "Options",
+        _t("Options"),
         { type: "textarea", name: "options" },
-        { type: "check", name: "required", label: "Is required?" }
+        { type: "check", name: "required", label: _t("Is required?") }
     ]
 });
 
 lp.formControls.select = teacss.ui.composite.extendOptions({
     selectLabel: "Select",
     selectIcon: "fa fa-toggle-down",
-    default: { options: "Option 1\nOption 2\nOption 3" },
+    default: { options: _t("Option 1\nOption 2\nOption 3") },
     tpl: function (val) {
         var star_required, show_desc, select;
         if (val.required) {star_required = " <i>*</i>"};
@@ -109,20 +109,20 @@ lp.formControls.select = teacss.ui.composite.extendOptions({
     }
 },{
     items: [
-        "Field label",
+        _t("Field label"),
         { type: "text", name: "label" },
-        "Field description",
+        _t("Field description"),
         { type: "text", name: "desc" },
-        "Options",
+        _t("Options"),
         { type: "textarea", name: "options" },
-        { type: "check", name: "required", label: "Is required?" }
+        { type: "check", name: "required", label: _t("Is required?") }
     ]
 });
 
 lp.formControls.radio = teacss.ui.composite.extendOptions({
     selectLabel: "Radio",
     selectIcon: "fa fa-dot-circle-o",
-    default: { options: "Option 1\nOption 2\nOption 3" },
+    default: { options: _t("Option 1\nOption 2\nOption 3") },
     tpl: function (val) {
         var star_required, show_desc, radio;
         if (val.required) {star_required = " <i>*</i>"};
@@ -142,13 +142,13 @@ lp.formControls.radio = teacss.ui.composite.extendOptions({
     }
 },{
     items: [
-        "Field label",
+        _t("Field label"),
         { type: "text", name: "label" },
-        "Field description",
+        _t("Field description"),
         { type: "text", name: "desc" },
-        "Options",
+        _t("Options"),
         { type: "textarea", name: "options" },
-        { type: "check", name: "required", label: "Is required?" }
+        { type: "check", name: "required", label: _t("Is required?") }
     ]
 });
 
@@ -170,11 +170,11 @@ lp.formControls.file = teacss.ui.composite.extendOptions({
     }
 },{
     items: [
-        "Field label",
+        _t("Field label"),
         { type: "text", name: "label" },
-        "Field description",
+        _t("Field description"),
         { type: "text", name: "desc" },
-        { type: "check", name: "required", label: "Is required?" }
+        { type: "check", name: "required", label: _t("Is required?") }
     ]
 });
 
@@ -193,7 +193,7 @@ lp.formOrder = lp.cover.extendOptions({
             .find("span").text(val.button.label);
     },
     configForm: {
-        title: "Form",
+        title: _t("Form"),
         items: [
             {
                 name: "fields", 
@@ -204,7 +204,7 @@ lp.formOrder = lp.cover.extendOptions({
                         
                         var me = this;
                         this.addCombo = teacss.ui.combo({
-                            label: "Add Field",
+                            label: _t("Add Field"),
                             comboWidth: 300,
                             itemTpl: function (item) {
                                 return $("<div>")
@@ -262,8 +262,8 @@ lp.formOrder = lp.cover.extendOptions({
                     }
                 })
             },
-            { type: "label", value: "Button text:", width: "53%", margin: "0 0 5px" },
-            { type: "label", value: "Button color:", width: "47%", margin: "0 0 5px" },
+            { type: "label", value: _t("Button text:"), width: "53%", margin: "0 0 5px" },
+            { type: "label", value: _t("Button color:"), width: "47%", margin: "0 0 5px" },
             { type: "text", name: "button.label", width: "50%", margin: "0 3% 12px 0" },
             { 
                 type: lp.color, name: "button.color", width: "47%", iconSize: 15,
@@ -279,7 +279,7 @@ lp.formOrder = lp.cover.extendOptions({
                 ]
             },
             { 
-                type: "button", label: "Show success window", width: 'auto',  margin: "0 0 10px 0px", click: function () {
+                type: "button", label: _t("Show success window"), width: 'auto',  margin: "0 0 10px 0px", click: function () {
                     lp.formOrder.showFormSuccess();
                 }
             }

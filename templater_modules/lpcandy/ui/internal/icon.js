@@ -43,7 +43,7 @@ lp.icon = lp.cover.extendOptions({
 }).extend({
     init: function(o){
         o.configForm = {
-            title: "Icon",
+            title: _t("Icons"),
             width: 550,
             height: 500,
             item: o.iconType=='white' ? lp.iconComboWhite : lp.iconCombo

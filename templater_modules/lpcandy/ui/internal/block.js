@@ -11,7 +11,7 @@ lp.block = teacss.ui.control.extend({
         
         if (this.options.configForm) {
             this.configButton = $("<div class='fa fa-gear lp-button right'>").click(function(){
-                me.config({my:"right top",at:"right top+56px",of:me.configButton})
+                me.config({my:"right top",at:"right top",of:me.configButton})
             });
         } else {
             this.configButton = "";
@@ -31,7 +31,7 @@ lp.block = teacss.ui.control.extend({
    },
     
     remove: function () {
-        if (confirm("Sure to remove component?")) {
+        if (confirm(_t("Sure to remove component?"))) {
             this.cmp.remove();
         }
     },
@@ -102,7 +102,7 @@ lp.block = teacss.ui.control.extend({
                 width: dialogWidth,
                 height: dialogHeight,
                 modal: false,
-                title: me.options.configForm.title || "Settings",
+                title: me.options.configForm.title || _t("Settings"),
                 resizable: false,
                 items: [ form ],
                 open: function (){
@@ -134,7 +134,17 @@ lp.block = teacss.ui.control.extend({
         setVisible();
         
         dialog.detached = dialog.element.children().detach();
-        if (position) dialog.element.dialog("option","position",position);
+        if (position) {
+            position = $.extend({},position);
+            
+            var off = position.of.offset();
+            var scrollY = $(Component.previewFrame.window).scrollTop();
+            var frame_off = Component.previewFrame.frame.offset();
+            var y = Math.floor(frame_off.top - scrollY);
+            
+            position.at = position.at.replace("top","top+"+y+"px");
+            dialog.element.dialog("option","position",position);
+        }
         
         $(".ui-dialog-content:visible").dialog("close");
         dialog.open();

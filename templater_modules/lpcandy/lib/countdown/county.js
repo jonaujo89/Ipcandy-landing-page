@@ -14,10 +14,10 @@
             var container = $(this);
             container.addClass('county');
             container.append(
-                settings.days ? '<div class="county-days"><div>00</div><span>дней</span></div>':'',
-				'<div class="county-hours separator-left"><div>00</div><span>часов</span></div>',
-				'<div class="county-minutes separator-left"><div>00</div><span>минут</span></div>',
-				'<div class="county-seconds separator-left"><div>00</div><span>секунд</span></div>'
+                settings.days ? '<div class="county-days"><div>00</div><span>дни</span></div>':'',
+				'<div class="county-hours separator-left"><div>00</div><span>часы</span></div>',
+				'<div class="county-minutes separator-left"><div>00</div><span>минуты</span></div>',
+				'<div class="county-seconds separator-left"><div>00</div><span>секунды</span></div>'
             );
             if (container.attr('id') == undefined || container.attr('id') == null) {
                 $.fn.county.total = ($.fn.county.total || 0)+1;
@@ -138,17 +138,17 @@
 
             }
             function formatNumber(number, isday) {
-                var strNumber = number.toString();
+                var strNumber = number.toString();                
                 if (!isday) {
-                    if (strNumber.length == 1)
+                    if (strNumber.length == 0)
                         return '0' + strNumber;
                     else
                         return strNumber;
                 }
                 else {
                     if (strNumber.length == 1)
-                        return '00' + strNumber;
-                    else if (strNumber == 2)
+                        return '0' + strNumber;
+                    else if (strNumber.length == 2)
                         return '0' + strNumber;
                     else
                         return strNumber;

@@ -32,39 +32,39 @@ lp.digits = lp.block.extendOptions({
         items: [   
             { 
                 name: "show_title", 
-                label: "Show first title", 
+                label: _t("Show first title"), 
                 type: "check", 
                 width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", 
             },
             { 
                 name: "show_title_2", 
-                label: "Show second title", 
+                label: _t("Show second title"), 
                 type: "check", 
                 width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", 
             },
-            {   type: "label", value: "Icon color:", margin: "5px 0 0", showWhen: { variant: [4,7] } },
+            {   type: "label", value: _t("Icons color:"), margin: "5px 0 0", showWhen: { variant: [4,7] } },
             { 
                 name: "icon_color",
-                items: [{ label: "black<br>", value:"icon_black"},{ label: "grey<br>", value:"icon_grey"}],
-                type: "radio", width: "auto", height: 50, 
+                items: [{ label: _t("black"), value:"icon_black"},{ label: _t("grey"), value:"icon_grey"}],
+                type: "radio", width: "auto", 
                 margin: "0px 49% 5px 0px", showWhen: { variant: [4] }
             },
             { 
                 name: "icon_color",
-                items: [{ label: "white<br>", value:"icon_white"},{ label: "grey<br>", value:"icon_grey"}],
-                type: "radio", width: "auto", height: 50, 
+                items: [{ label: _t("white"), value:"icon_white"},{ label: _t("grey"), value:"icon_grey"}],
+                type: "radio", width: "auto",
                 margin: "0px 49% 5px 0px", showWhen: { variant: [7] }
             },
-            {   type: "label", value: "Digits color:", margin: "5px 0 0", showWhen: { variant: [8] } },
+            {   type: "label", value: _t("Digits color:"), margin: "5px 0 0", showWhen: { variant: [8] } },
             { 
                 type: lp.color, 
                 name: "digits_color",  
                 items: [{ value: "#000" },{ value: "#979797" },{ value: "#E6332A" },{ value: "#FF3E3E" },{ value: "#78CA43" },{ value: "#12ABE7" },{ value: "#FD6F00" },{ value: "#A659E2" },{ value: "#E05189" }],
                 showWhen: { variant: [8] }
             },
-            {   type: "label", value: "Background:", margin: "5px 0" },
+            {   type: "label", value: _t("Background:"), margin: "5px 0" },
             { 
                 type: lp.color, 
                 name: "background_color",  

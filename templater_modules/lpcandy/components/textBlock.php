@@ -25,10 +25,10 @@ class TextBlock extends Block {
                     <? if ($val['show_list'] || $this->edit): ?>
                         <div class="list_wrap clear" <?= !$val['show_list'] ? "style='display:none'" : "" ?>>
                             <div class="list list_1">
-                                <? $this->sub('Text','list_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true)) ?>
+                                <? $this->sub('Text','list_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> false)) ?>
                             </div>
                             <div class="list list_2">
-                                <? $this->sub('Text','list_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true)) ?>
+                                <? $this->sub('Text','list_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> false)) ?>
                             </div>
                         </div>
                     <? endif ?>
@@ -322,8 +322,8 @@ class TextBlock extends Block {
                         <h1 class="title">
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true)) ?>
                         </h1>
-                        <? if ($val['show_title_2'] || $this->edit): ?>
-                            <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <? if ($val['show_text_title_2'] || $this->edit): ?>
+                            <div class="title_2" <?= !$val['show_text_title_2'] ? "style='display:none'" : "" ?> >
                                 <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"),'oneline' => true)) ?>
                             </div>
                         <? endif ?> 
@@ -353,7 +353,7 @@ class TextBlock extends Block {
     
     function tpl_default_6() { 
         return  array(
-			'show_title_2' => true,
+			'show_text_title_2' => true,
 			'show_border' => true,
 			'background_color' => '#FFFFFF',
 			'title' => 'Текст с иконками',

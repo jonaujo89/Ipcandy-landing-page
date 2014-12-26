@@ -16,21 +16,21 @@ lp.logo = lp.cover.extendOptions({
         }
     },
     configForm: {
-        title: "Logotype",
+        title: _t("Logotype"),
         items: [
             {
                 name: 'type', type: 'radio', margin: "15px 0 20px", items: [
-                    { label: "Image logo", value: 'image' },
-                    { label: "Text name logo", value: 'text' }
+                    { label: _t("Image logo"), value: 'image' },
+                    { label: _t("Text name logo"), value: 'text' }
                 ]
             },
             {
-                name: 'url', type: 'uploadButton', label: 'Upload image file',
+                name: 'url', type: 'uploadButton', label: _t('Upload file'),
                 showWhen: { type: 'image' }
             },
             {
                 type: 'label',
-                value: "Company name:",
+                value: _t("Company name:"),
                 showWhen: { type: 'text' }
             },
             {
@@ -39,7 +39,7 @@ lp.logo = lp.cover.extendOptions({
             },
             { 
                 type: 'label',
-                value: "Font settings:",
+                value: _t("Font settings:"),
                 showWhen: { type: 'text' }
             },
             {
@@ -60,7 +60,7 @@ lp.logo = lp.cover.extendOptions({
                 name: "color", type: "colorPicker", width: 27, height: 27, margin: "0 0 10px 5px",
                 showWhen: { type: 'text' }
             },
-            "Size:",
+            _t("Size:"),
             {
                 margin: "5px 0",
                 name: 'size', type: 'slider', min: 0, max: 100,
@@ -68,7 +68,7 @@ lp.logo = lp.cover.extendOptions({
             },
             {
                 margin: "5px 0",
-                name: 'fontSize', type: 'slider', min: 8, max: 100,
+                name: 'fontSize', type: 'slider', min: 14, max: 30,
                 showWhen: { type: 'text' }
             }
         ]

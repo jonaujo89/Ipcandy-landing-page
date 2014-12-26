@@ -24,42 +24,58 @@ class WorkOrder extends Block {
                         <div class="item">
                             <div class="arrow"></div>
                             <?=$this->sub('Icon','icon_1')?>
-                            <div class="name">
-                                <?=$this->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
-                            </div>
-                            <div class="desc">
-                                <?=$this->sub('Text','desc_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
-                            </div>
+                            <? if ($val['show_name'] || $this->edit): ?>
+                                <div class="name" <?= !$val['show_name'] ? "style='display:none'" : "" ?> >
+                                    <?=$this->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
+                                </div>
+                            <? endif ?>
+                            <? if ($val['show_desc'] || $this->edit): ?>
+                                <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
+                                    <?=$this->sub('Text','desc_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
+                                </div>
+                            <? endif ?>
                         </div>
                         <div class="item">
                             <div class="arrow"></div>
                             <?=$this->sub('Icon','icon_2')?>
-                            <div class="name">
-                                <? $this->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
-                            </div>
-                            <div class="desc">
-                                <? $this->sub('Text','desc_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
-                            </div>
+                            <? if ($val['show_name'] || $this->edit): ?>
+                                <div class="name" <?= !$val['show_name'] ? "style='display:none'" : "" ?> >
+                                    <? $this->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
+                                </div>
+                            <? endif ?>
+                            <? if ($val['show_desc'] || $this->edit): ?>
+                                <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
+                                    <? $this->sub('Text','desc_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
+                                </div>
+                            <? endif ?>
                         </div>
                         <div class="item">
                             <div class="arrow"></div>
                             <?=$this->sub('Icon','icon_3')?>
-                            <div class="name">
-                                <? $this->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
-                            </div>
-                            <div class="desc">
-                                <? $this->sub('Text','desc_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
-                            </div>
+                            <? if ($val['show_name'] || $this->edit): ?>
+                                <div class="name" <?= !$val['show_name'] ? "style='display:none'" : "" ?> >
+                                    <? $this->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
+                                </div>
+                            <? endif ?>
+                            <? if ($val['show_desc'] || $this->edit): ?>
+                                <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
+                                    <? $this->sub('Text','desc_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
+                                </div>
+                            <? endif ?>
                         </div>
                         <div class="item">
                             <div class="arrow"></div>
                             <?=$this->sub('Icon','icon_4')?>
-                            <div class="name">
-                                <? $this->sub('Text','name_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
-                            </div>
-                            <div class="desc">
-                                <? $this->sub('Text','desc_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
-                            </div>
+                            <? if ($val['show_name'] || $this->edit): ?>
+                                <div class="name" <?= !$val['show_name'] ? "style='display:none'" : "" ?> >
+                                    <? $this->sub('Text','name_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
+                                </div>
+                            <? endif ?>
+                            <? if ($val['show_desc'] || $this->edit): ?>
+                                <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
+                                    <? $this->sub('Text','desc_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
+                                </div>
+                            <? endif ?>
                         </div>
                     </div>
                 </div>

@@ -61,30 +61,30 @@ lp.gallery = lp.block.extendOptions({
     configForm: {
         items: [   
             { 
-                name: "show_title", label: "Show first title", type: "check", width: "auto", height: 27, 
+                name: "show_title", label: _t("Show first title"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px",
             },
             { 
-                name: "show_title_2", label: "Show second title", type: "check", width: "auto", height: 27, 
+                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px",
             },
             { 
-                name: "show_image_title", label: "Show image name", type: "check", width: "auto", height: 27, 
+                name: "show_image_title", label: _t("Show image name"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [1,5,6,7,8,9,10] }
             },
             { 
-                name: "show_image_overlay", label: "Show image signature", type: "check", width: "auto", height: 27, 
+                name: "show_image_overlay", label: _t("Show image signature"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [2,3,4] }
             },
             { 
-                name: "show_image_desc", label: "Show image descroption", type: "check", width: "auto", height: 27, 
+                name: "show_image_desc", label: _t("Show image descroption"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [1,2,3,4,5,6,7,8,9,10] }
             },
 			{ 
-                name: "enable_fancybox", label: "Show big image (enable fancybox)", type: "check", width: "auto", height: 27, 
+                name: "enable_fancybox", label: _t("Show big image (enable fancybox)"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [3,4,5,6,7,8,9,10] }
             },			
-            { type: "label", value: "Background color:", margin: "5px 0"},
+            { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
                 type: lp.color, name: "background",  
                 items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]

@@ -116,7 +116,7 @@ class Video extends Block {
                                 </div>
                                 <div class="info">
                                     <div class="name">
-                                        <?=$self->sub('Text','name_1',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"), "oneline"=> true))?>
+                                        <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> true))?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
@@ -131,7 +131,7 @@ class Video extends Block {
                                 </div>
                                 <div class="info">
                                     <div class="name">
-                                        <?=$self->sub('Text','name_2',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"), "oneline"=> true))?>
+                                        <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> true))?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
@@ -146,7 +146,7 @@ class Video extends Block {
                                 </div>
                                 <div class="info">
                                     <div class="name">
-                                        <?=$self->sub('Text','name_3',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"), "oneline"=> true))?>
+                                        <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> true))?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >

@@ -203,7 +203,7 @@ class Benefits extends Block {
                                 <?=$self->sub('Icon','icon_1')?>
                                 <? if ($val['show_benefits_name'] || $self->edit): ?>
                                     <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                 <? endif ?>
                                 <div class="desc">
@@ -214,7 +214,7 @@ class Benefits extends Block {
                                 <?=$self->sub('Icon','icon_2')?>
                                 <? if ($val['show_benefits_name'] || $self->edit): ?>
                                     <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                 <? endif ?>
                                 <div class="desc">

@@ -116,7 +116,7 @@ class Timer extends Block {
                         </div>
                         <? if ($val['show_form_bottom_text'] || $this->edit): ?>
 							<div class="form_bottom" <?= !$val['show_form_bottom_text'] ? "style='display:none'" : "" ?> >
-								<? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+								<? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
 							</div>
 						<? endif ?>                
                     </div>
@@ -193,7 +193,7 @@ class Timer extends Block {
                         </div>
                         <? if ($val['show_form_bottom_text'] || $this->edit): ?>
 							<div class="form_bottom" <?= !$val['show_form_bottom_text'] ? "style='display:none'" : "" ?> >
-								<? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+								<? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
 							</div>
 						<? endif ?>                
                     </div>

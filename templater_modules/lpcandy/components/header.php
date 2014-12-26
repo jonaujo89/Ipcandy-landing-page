@@ -33,7 +33,7 @@ class Header extends Block {
         return  array(
             'background' =>'#FFFFFF',
             'logo' => Logo::tpl_default(),
-            'desc' => "<div>Производство чего либо компанией</div><div>Доставка по всей России</div>",
+            'desc' => "Производство чего либо компанией<br>Доставка по всей России",
             'phone' => '8 <span style="color: #C1103A;">(800)</span> 123 45 67',
             'phone_desc' => 'г.Москва, ул. Тверская, д.6, офис 207'
         );

@@ -1,7 +1,7 @@
 lp.repeater = teacss.ui.control.extend({
     init: function (o) {
         this._super($.extend({
-            addItemText: "Add Item",
+            addItemText: _t("Add Item"),
             sortable: true
         },o));
         this.element = this.options.element;
@@ -81,7 +81,7 @@ lp.repeater = teacss.ui.control.extend({
                     item.cover.append(
                         $("<div class='fa fa-gear lp-button'>")
                         .click(function(){
-                            me.config({my:"left top",at:"right top+56px",of:$(this)},item)
+                            me.config({my:"left top",at:"right top",of:$(this)},item)
                         })
                     );
                 }
