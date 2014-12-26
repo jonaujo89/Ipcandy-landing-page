@@ -9,9 +9,13 @@ lp.repeater = teacss.ui.control.extend({
         this.addCovers();
     },
     
+    itemIndex: function (item) {
+        return item.parent().children('[class=item_block]').index(item);
+    },
+    
     config: function (pos,item) {
         var me = this;
-        var idx = item.index();
+        var idx = me.itemIndex(item);
         var sub = me.value[idx];
         
         lp.block.prototype.config.call({
@@ -32,7 +36,7 @@ lp.repeater = teacss.ui.control.extend({
         var def = teacss.ui.prop(block.getDefault(),this.options.name);
         var item_value = $.extend(true, {}, def[0]);
         
-        var idx = item ? item.index() : -1;
+        var idx = item ? this.itemIndex(item) : -1;
         if (idx==this.items.length-1 || idx==-1)
             this.value.push(item_value);
         else
@@ -52,7 +56,7 @@ lp.repeater = teacss.ui.control.extend({
     },
     
     remove: function (item) {
-        var idx = item.index();
+        var idx = this.itemIndex(item);
         item.remove();
         
         this.value.splice(idx, 1);
@@ -106,7 +110,7 @@ lp.repeater = teacss.ui.control.extend({
         });
         if (!me.addButton && me.options.inline) {
             me.element.append(
-                $("<div class='lp-button-repeater-add-wrap'>").append(
+                me.addButtonWrap = $("<div class='lp-button-repeater-add-wrap'>").append(
                     me.addButton = $("<div class='fa fa-plus lp-button lp-button-repeater-add'>")
                         .text(me.options.addItemText)
                         .click(function(){ me.addAfter() })
@@ -138,10 +142,10 @@ lp.repeater = teacss.ui.control.extend({
             
             dragging = this;
             me.element.addClass("dragging");
-            oldIndex = $(dragging).index();
+            oldIndex = me.itemIndex(dragging);
         })
         .bind("dragend",function(e){
-            var newIndex = $(dragging).index();
+            var newIndex = me.itemIndex(dragging);
             dragging = null;
             me.element.find(".cmp-drag-cover").hide();
             me.element.removeClass("dragging");
@@ -157,7 +161,7 @@ lp.repeater = teacss.ui.control.extend({
             if (this==dragging) return;
             if (dragTimeout) return;
             
-            if ($(dragging).index()<$(this).index()) {
+            if (me.itemIndex(dragging)<me.itemIndex(this)) {
                 $(dragging).insertAfter(this);
             } else {
                 $(dragging).insertBefore(this);
