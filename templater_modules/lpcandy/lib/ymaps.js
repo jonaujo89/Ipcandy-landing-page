@@ -1,4 +1,4 @@
-$.fn.mapYandex = function (mapSettings) {
+$.fn.mapYandex = function (mapSettings,onInit) {
     
     $(this).each(function(){
         mapSettings = mapSettings || JSON.parse($(this).attr('data-map-settings'));
@@ -8,8 +8,6 @@ $.fn.mapYandex = function (mapSettings) {
             type = mapSettings.map_type,
             zoom = mapSettings.map_zoom;
         var $this = $(this);
-
-        var modalWindowMap = mapSettings.modalWindowMap;
 
         function init(){ 
             var yandexPlacemark;
@@ -21,17 +19,8 @@ $.fn.mapYandex = function (mapSettings) {
                     zoom: zoom,
                     controls: ['geolocationControl','fullscreenControl','zoomControl']
                 });
-                $this.data("ymap",myMap);            
-
-                if($this[0].className == 'fixed'){
-                    myMap.events.add('boundschange', function ($this) {
-                        var map = lp.map.current; 
-                        map.value.map_center = myMap.getCenter();
-                        map.value.map_zoom = myMap.getZoom();
-                        map.trigger('change');
-                    });
-                }
-
+                $this.data("ymap", myMap);        
+                if (onInit) onInit(myMap);
             } else {
                 myMap.setCenter(center, Number(zoom));
             }

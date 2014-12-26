@@ -155,6 +155,7 @@ div:hover > .cmp-repeater-cover {
     height: 45px;
     left: 0; right: 0;
     display: none;
+    text-align: center;
 }
 
 *:hover > .lp-button-repeater-add-wrap {
@@ -237,10 +238,6 @@ body.dragging .lp-button {
     bottom: 0;
     left: 0 ;
     right: 0;
-}
-
-.masonry > div[data-name] {
-    position: absolute;
 }
 
 .text_toolbar {

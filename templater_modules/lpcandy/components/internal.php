@@ -353,7 +353,7 @@ class Media extends Block {
 }
 
 class Map extends Block {
-    public $editor = "lp.map";
+    public $editor = "";
     public $internal = true;
     
     function tpl_default() {

@@ -138,17 +138,16 @@ $.fn.lpMasonry = function () {
             gutter: 10,
             singleMode: true,
             columnWidth: ".masonry .item_block"
-        });
-    };
+        });        
+        $el.masonry('reloadItems');
+    }
+    $el.find("img").unbind("load").bind("load", doit);
     doit();
-    $el.find("img").unbind("load").bind("load",doit);
-    doit();
-    
 };
 
 $.fn.lpBxSlider = function () {
-    var $this = $(this);
-    $this.each(function(){
+    $(this).each(function(){
+        var $this = $(this);
         var counter = $this.data('counter');
         if (counter == undefined) {            
             bx_slider = $this.bxSlider({
@@ -185,7 +184,7 @@ $(function() {
     $(".countdown").lpCounty();	
 	$(".fancybox").lpFancybox();
 	$(".fancybox_whithout_title").lpFancyboxWhithoutTitle();
-	$(".masonry img").lpMasonry();
+    $(".masonry:visible").lpMasonry();
     $(".slider [data-name=items]").lpBxSlider();
     $(".map").mapYandex();
 });
