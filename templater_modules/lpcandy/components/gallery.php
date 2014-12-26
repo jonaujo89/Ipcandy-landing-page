@@ -445,8 +445,8 @@ class Gallery extends Block {
                 </div>
             </div>
         </div>
-    <?} 
-
+    <?}
+    
 	function item_default_5($url) {
         return array(
             'image' => "templater_modules/lpcandy/assets/gallery/preview_image/".$url,
