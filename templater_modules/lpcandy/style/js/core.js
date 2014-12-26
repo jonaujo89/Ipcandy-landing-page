@@ -148,8 +148,11 @@ $.fn.lpMasonry = function () {
 $.fn.lpBxSlider = function () {
     $(this).each(function(){
         var $this = $(this);
-        var counter = $this.data('counter');
-        if (counter == undefined) {            
+		var bx_wrapper = $(".slider > .bx-wrapper").size();
+        console.log("bx_wrapper == "+bx_wrapper);
+        //var counter = $this.data('counter');
+        if (bx_wrapper == 0) {        
+            console.log("bx_wrapper == 0 подключаем плагин");
             bx_slider = $this.bxSlider({
                 controls: true,
                 slideWidth: 367,
@@ -158,12 +161,14 @@ $.fn.lpBxSlider = function () {
                 slideMargin: 10,
                 slideSelector: 'div.item_block:visible',
             });
-            var count_photo_init = $(".slider .item_block:visible").not(".bx-clone").size();
-            console.log(count_photo_init);
+            var count_photo_init = $this.find(".item_block:visible").not(".bx-clone").size();
+            console.log("колличество фото при инициализации = "+count_photo_init);
             $this.data('counter', count_photo_init);        
         } else {  
+            console.log("bx_wrapper != 0 обновляем плагин");
             var count_photo_in_data_counter = $this.data('counter');
-            var count_photo = $this.filter(".item_block:visible").not(".bx-clone").size();
+            var count_photo = $this.find(".item_block:visible").not(".bx-clone").size();
+            console.log("колличество фото до удаления/добавления = "+count_photo_in_data_counter+" после удаления/добавления = "+count_photo);
             if(count_photo_in_data_counter != count_photo){
                 bx_slider.reloadSlider(); 
                 $this.data('counter', count_photo);
