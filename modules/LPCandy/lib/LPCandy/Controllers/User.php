@@ -5,7 +5,7 @@ namespace LPCandy\Controllers;
 class User extends Base {
     function login() {
         $token = @$_POST['token'];
-        $redirect = @$_GET['redirect'];
+        $redirect = @$_GET['redirect']?:'page-list';
 
         if ($this->user) { redirect($redirect);return; }
         if ($token) {

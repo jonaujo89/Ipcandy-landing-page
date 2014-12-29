@@ -57,6 +57,7 @@ class Page extends Base {
         $form->text('title',_t('Title'),'required');
         $form->text('domain',_t('Domain'));
         $form->radio('template',_t('Template'),$templates,"")->add_class("template-select");
+        $form->fieldset();
         $form->submit(_t('Create page'));
         
         if ($form->validate()) {
@@ -92,6 +93,7 @@ class Page extends Base {
         $form = new \Bingo\Form;
         $form->fieldset();
         $form->text('title',_t('Title'),'required',$page->title);
+        $form->fieldset();
         $form->submit(_t('Save child page'));
         
         if ($form->validate()) {
@@ -115,6 +117,7 @@ class Page extends Base {
         $form->fieldset();
         $form->text('title',_t('Title'),'required',$page->title);
         $form->text('domain',_t('Domain'),'',$page->domain);
+        $form->fieldset();
         $form->submit(_t('Save page'));
         
         if ($form->validate()) {
@@ -134,7 +137,7 @@ class Page extends Base {
         if (!$page || $page->user!=$this->user) redirect('/');
         
         $modules = array();
-        $modules[] = INDEX_URL."/templater_modules/lpcandy/lpcandy.js";
+        $modules[] = INDEX_URL."/view/editor/editor.js";
         
         if (file_exists($page->getPath("module.js")))
             $modules[] = $page->getUrl('module.js');

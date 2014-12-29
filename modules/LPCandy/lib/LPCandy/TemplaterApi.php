@@ -29,13 +29,37 @@ class TemplaterApi extends \TemplaterApi {
         if (!file_exists($this->uploadDir)) mkdir($this->uploadDir,0777,true);
         
         $this->modules = array();
-        $this->modules[] = INDEX_DIR."/templater_modules/lpcandy";
+        $this->modules[] = INDEX_DIR."/view/editor";
+    }
+    
+    function view($name,$dataSource,$ret) {
+        $this->templatePath = $this->page->getPublishPath()."/templates";
+        return parent::view($name,$dataSource,$ret);
+    }
+    
+    function makeScreenshot() {
+        if ($this->page->parent) {
+            $path = "/screenshot-child-".$this->page->id.".png";
+        } else {
+            $path = "/screenshot.png";
+        }
+        
+        $screen_file = $this->page->getPublishPath().$path;
+        $url = 'http://'.$_SERVER['SERVER_NAME'].url('page-view/'.$this->page->id);
+        $rasterize = INDEX_DIR."/modules/LPCandy/rasterize.js";
+        
+        $pageWidth = 1200;
+        
+        $cmd = 'phantomjs '.escapeshellarg($rasterize)." ".escapeshellarg($url)." ".escapeshellarg($screen_file)." ".$pageWidth;
+        $cmd .= " > /dev/null 2>/dev/null &";
+        exec($cmd);
     }
     
     function publish() {
         $files = $_REQUEST['files'];
         $base = $this->page->getPublishPath();
         if (!file_exists($base)) mkdir($base,0777,true);
+        if (!file_exists($base."/templates")) mkdir($base."/templates",0777,true);
         
         foreach ($files as $path=>$text) {
             if ($path=='/screenshot.png') {
@@ -52,6 +76,11 @@ class TemplaterApi extends \TemplaterApi {
             
             $res = file_put_contents($path,$text);
         }
+        
+        $this->makeScreenshot();
+        
+        $tpl = $this->page->getTemplate().".yaml";
+        copy($this->page->getTemplatePath($tpl),$base."/templates/".$tpl);
     }
     
     function liquid($template,$dataSource) {

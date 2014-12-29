@@ -4,7 +4,11 @@
 
     <h3><?= $post->title ?></h3>
     <section>
-        <?= $post->content ?>
+        <form>
+            <fieldset>
+                <?= $post->content ?>
+            </fieldset>
+        </form>
     </section>
 
 <? endblock() ?>

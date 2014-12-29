@@ -5,36 +5,17 @@
     <meta charset="utf-8" />
 
     <script>var base_url = "<?=url('')?>"</script>
-    
-    <? if (isset($_GET['dev']) && \CMS\Models\User::checkLoggedIn()): ?>
-        <? 
-            if (isset($_POST['css'])) {
-                file_put_contents(__DIR__."/assets/style.css",$_POST['css']);
-                if (isset($_POST['js'])) {
-                    file_put_contents(__DIR__."/assets/script.js",$_POST['js']);
-                }
-                die();
-            }
-        ?>
-    
-        <script tea="<?=t_url('assets/tea/makefile.tea')?>"></script>
-        <script src="<?=t_url('assets/script/jquery.js')?>"></script>
-        <script src="/~boomyjee/teacss/lib/teacss.js"></script>
-        <script>
-            teacss.buildCallback = function (files) {
-                var dir = teacss.path.absolute("../src/teacss-ui/style")+"/";
-                var css = files['/default.css'];
-                while (css.indexOf(dir)!=-1) css = css.replace(dir,"");
-                $.post(location.href,{css:css,js:files['/default.js']},function(data){
-                    alert('ok');
-                });
-            }
-            teacss.update();
-        </script>    
-    <? else: ?>
-        <link rel="stylesheet" type="text/css" href="<?=t_url('assets/style.css')?>">
-        <script src="<?=t_url('assets/script.js')?>"></script>
-    <? endif ?>
+    <?
+        include BINGO_PATH."/../teacss/lib/teacss.php";
+        teacss(
+            $makefile = t_url('assets/tea/makefile.tea'),
+            $css = t_url('assets/style.css'),
+            $js = t_url('assets/script.js'),
+            $dir = __DIR__."/assets",
+            $dev = (isset($_GET['dev']) && \CMS\Models\User::checkLoggedIn()),
+            $teacss = "/~boomyjee/teacss/lib/teacss.js"
+        );
+    ?>
 </head>
 <body>
     <div id="logged_info">
@@ -49,41 +30,34 @@
         <? endif ?>
     </div>            
     
-    <div id="header">
-        <div class="in">
-            <a id="logo" href="<?=url('')?>">LP-Candy</a>
-            <div id="cloud">
-                Extensive landing page generator
-            </div>
-        </div>
+    <? $menu = array() ?>
+    <? 
+        if ($user) {
+            $menu = array(
+                array('url'=>'page-list','label'=>'Pages'),
+                array('url'=>'track-list','label'=>'Track'),
+                array('url'=>'profile','label'=>'Profile')
+            );
+        }
+        $menu = \Bingo\Action::filter('admin_menu',array($menu,$user));
+    ?>
+    <div id="menu">
+        <ul>
+            <li>
+                <a id="logo" href="<?=url('')?>">LP-Candy</a>
+            </li>
+            <? if (count($menu)) foreach ($menu as $item): ?> 
+                <?
+                    $cls = ($item['url']==\Bingo\Routing::$uri) ? "current-menu-item":"";
+                ?>
+                <li class="<?= $cls ?>">
+                    <a href="<?=url($item['url'])?>"><?= $item['label'] ?></a>
+                </li>
+            <? endforeach ?>
+        </ul>
     </div>
     
     <div id="page">
-
-        <? $menu = array() ?>
-        <? 
-            if ($user) {
-                $menu = array(
-                    array('url'=>'page-list','label'=>'Pages')
-                );
-            }
-            $menu = \Bingo\Action::filter('admin_menu',array($menu,$user));
-        ?>
-        <? if (count($menu)): ?>
-            <div id="menu">
-                <ul>
-                    <? foreach ($menu as $item): ?> 
-                        <?
-                            $cls = ($item['url']==\Bingo\Routing::$uri) ? "current-menu-item":"";
-                        ?>
-                        <li class="<?= $cls ?>">
-                            <a href="<?=url($item['url'])?>"><?= $item['label'] ?></a>
-                        </li>
-                    <? endforeach ?>
-                </ul>
-            </div>
-        <? endif ?>
-    
         <div id="content">
             <? emptyblock('content') ?>
         </div>

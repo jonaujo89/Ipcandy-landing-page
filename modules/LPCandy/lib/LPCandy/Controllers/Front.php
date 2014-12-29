@@ -12,7 +12,6 @@ class Front extends Base {
         if (!$page) return true;
         
         $api = new \LPCandy\TemplaterApi($page);
-        $api->includeModules(array("core"));
         
         $id = $page->parent ? $page->parent->getField('id') : $page->id;
         $assets = url('upload/LPCandy/pages/'.$id."/publish");

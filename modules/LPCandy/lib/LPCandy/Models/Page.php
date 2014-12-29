@@ -59,7 +59,7 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
         else
             $file = $this->getPath("publish/screenshot.png");
         if (file_exists($file)) {
-            return \Bingo\ImageResizer::get_file_url($file,200,150);
+            return \Bingo\ImageResizer::get_file_url($file,200,150)."?t=".filemtime($file);
         }
         return url('view/assets/images/no-screenshot.png');
     }

@@ -1,6 +1,0 @@
----
-container#id1:
-    container#id2: []
-    container#id3: []
-    container#id4: []
-...
