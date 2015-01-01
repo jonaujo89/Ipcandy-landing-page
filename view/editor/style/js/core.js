@@ -177,13 +177,8 @@ $.fn.lpBxSlider = function () {
 
 $.fn.formValidateSubmit = function () {   
     var form = $(this);
-
-    form.find(':input').on('focus', function(){        
-        $(this).removeClass("error_input");
-        $(this).next(".error").text("");
-    });
     
-    form.find('.form_field_checkbox_values').on('focus', function(){        
+    form.find(':input').on('focus', function(){        
         $(this).removeClass("error_input");
         $(this).next(".error").text("");
     });
@@ -193,16 +188,11 @@ $.fn.formValidateSubmit = function () {
         var input = form.find(':input');
         input.each(function(){            
             var required_input = $(this).prevAll(".field_title").find("i").text();//Обязательное поле или нет
-            //var form_field = document.getElementsByClassName("form_field");
-            //var required = $(this).closest(".field_title", form_field);
-            //console.log(required_input);
             if(required_input == '*'){
                 if (!$(this).val()){
-                    $(this).addClass("error_input"); 
-                    $(this).next(".error").text("Обязательное поле!");
+                    $(this).addClass("error_input").next(".error").text("Обязательное поле!");
                 } else {
-                    $(this).removeClass("error_input");
-                    $(this).next(".error").text("");                    
+                    $(this).removeClass("error_input").next(".error").text("");                    
                 }
             }
         });
@@ -214,11 +204,9 @@ $.fn.formValidateSubmit = function () {
             if(required_checkbox == '*'){
                 var checkbox_checked = $checkbox_group.find(':checkbox').is(':checked');            
                 if(checkbox_checked){
-                    $(this).removeClass("error_input"); 
-                    $(this).next(".error").text("");
+                    $(this).removeClass("error_input").next(".error").text("");
                 } else {
-                    $(this).addClass("error_input"); 
-                    $(this).next(".error").text("Обязательное поле!");
+                    $(this).addClass("error_input").next(".error").text("Обязательное поле!");
                 }
             }
             
@@ -231,11 +219,9 @@ $.fn.formValidateSubmit = function () {
             if(required_radio == '*'){
                 var radio_checked = $radio_group.find(':radio').is(':checked');            
                 if(radio_checked){
-                    $(this).removeClass("error_input"); 
-                    $(this).next(".error").text("");
+                    $(this).removeClass("error_input").next(".error").text("");
                 } else {
-                    $(this).addClass("error_input"); 
-                    $(this).next(".error").text("Обязательное поле!");
+                    $(this).addClass("error_input").next(".error").text("Обязательное поле!");
                 }
             }
             
@@ -246,13 +232,10 @@ $.fn.formValidateSubmit = function () {
             var required_select = $(select_group).prevAll(".field_title").find("i").text();//Обязательная группа checkbox или нет
             if(required_select == '*'){
                 var selected = $(select_group).find('option').filter(':selected');  
-                console.log();
                 if(selected.val() != ""){
-                    $(this).removeClass("error_input"); 
-                    $(this).next(".error").text("");
+                    $(this).removeClass("error_input").next(".error").text("");
                 } else {
-                    $(this).addClass("error_input"); 
-                    $(this).next(".error").text("Обязательное поле!");
+                    $(this).addClass("error_input").next(".error").text("Обязательное поле!");
                 }
             }
             
@@ -268,7 +251,10 @@ $.fn.formValidateSubmit = function () {
         });
         */
 
-    });   
+    });     
+    
+    var f = $("form:visible")[0];
+    console.log($(f).serialize());
 };
 
 $.fn.textBlockHeight = function () {
