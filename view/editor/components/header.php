@@ -1,8 +1,8 @@
 <?php
 
 class Header extends Block {
-    public $name = 'Header';
-    public $description = 'Logo + contacts';
+    public $name = 'Шапка';
+    public $description = 'Логотип и контакты компании';
     public $editor = "lp.header";
     
     function tpl($val) {?>

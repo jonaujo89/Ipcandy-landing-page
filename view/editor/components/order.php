@@ -1,12 +1,12 @@
 <?php
 
 class Order extends Block {
-    public $name = 'Order';
-    public $description = "Block with a picture and a form";
+    public $name = 'Заявка';
+    public $description = "Блок с картинкой и формой";
     public $editor = "lp.order";
     
     function tpl($val) {?>
-        <div class="container-fluid order order_1" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat scroll center top / cover rgba(0, 0, 0, 0);">
+        <div class="container-fluid order order_1" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat center top;background-size:cover;">
             <div class="dark">
                 <div class="container">
                     <div class="span10">
@@ -72,7 +72,7 @@ class Order extends Block {
     
     
     function tpl_2($val) {?>
-        <div class="container-fluid order order_2" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat scroll center top / cover rgba(0, 0, 0, 0);">
+        <div class="container-fluid order order_2" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat center top;background-size:cover;">
             <div class="background_toggle_noise <?= $val['add_background_noise'] ? "with_noise" : "dark"?>">
                 <div class="container">
                     <div class="title_1">
@@ -311,7 +311,7 @@ class Order extends Block {
     
     
     function tpl_6($val) {?>
-        <div class="container-fluid order order_6" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat scroll center top / cover rgba(0, 0, 0, 0);">
+        <div class="container-fluid order order_6" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat center top;background-size:cover;">
             <div class="dark">
                 <div class="container">
                     <div class="content_wrap <?= $val['move_form'] ? $val['move_form'] : "align_right" ?>">

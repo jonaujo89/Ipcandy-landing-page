@@ -93,12 +93,12 @@ lp.services = lp.block.extendOptions({
                 type: "radio", width: "auto",
                 margin: "0px 49% 10px 0px", showWhen: { variant: [3] }
             },
-            { type: "label", value: _t("Image format:"), margin: "5px 49% 0px 0px", showWhen: { variant: [2] }},
+            { type: "label", value: _t("Image format:"), margin: "5px 49% 0px 0px", showWhen: { variant: [2,5] }},
             { 
                 name: "image_format",
                 items: [{ label: _t("circle<br>"), value:"circle"},{ label: _t("square"), value:"square"}],
-                type: "radio", width: "auto", height: 50, 
-                margin: "0px 49% 5px 0px", showWhen: { variant: [2,5] }
+                type: "radio", width: "auto",
+                margin: "0px 49% 10px 0px", showWhen: { variant: [2,5] }
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 

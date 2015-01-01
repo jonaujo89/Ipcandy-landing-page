@@ -8,7 +8,6 @@ class Page extends Base {
     }
 
     function page_list() {
-        
         $top = array();
         $list = \LPCandy\Models\Page::findBy(array('user'=>$this->user));
         foreach ($list as $page) {

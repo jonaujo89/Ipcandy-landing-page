@@ -1,8 +1,8 @@
 <?php
 
 class Benefits extends Block {
-    public $name = 'Benefits';
-    public $description = "Benefits with icon";
+    public $name = 'Преимущества';
+    public $description = "Ваши главные преимущества";
     public $editor = "lp.benefits";
     
     function tpl($val) {?>

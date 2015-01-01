@@ -1,8 +1,8 @@
 <?php
 
 class TextBlock extends Block {
-    public $name = 'Text';
-    public $description = "Text blocks";
+    public $name = 'Текст';
+    public $description = "Текстовые блоки";
     public $editor = "lp.textBlock";
     
     function tpl($val) {?>

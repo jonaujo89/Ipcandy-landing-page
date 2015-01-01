@@ -1,8 +1,8 @@
 <?php
 
 class Digits extends Block {
-    public $name = 'Digits';
-    public $description = "Сompany figures";
+    public $name = 'Цифры';
+    public $description = "Цифры компании";
     public $editor = "lp.digits";
     
     function tpl($val) {?>

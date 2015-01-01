@@ -13,6 +13,7 @@
         
         <script>
             var base_url = "<?=INDEX_URL?>";
+            var page_id = <?=$page->id?>;
             require(
                 "/~boomyjee/templater/lib/client/app.js",
                 "<?=url('view/editor/editor.js')?>",

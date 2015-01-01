@@ -1,8 +1,8 @@
 <?php
 
 class Video extends Block {
-    public $name = 'Video';
-    public $description = "Мideo about our activities";
+    public $name = 'Видео';
+    public $description = "Вставка видео";
     public $editor = "lp.video";
     
     function tpl($val) {?>
@@ -46,7 +46,7 @@ class Video extends Block {
                 <div class="span16">
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
-                            <div class="item clear editor_hide_remove">
+                            <div class="item">
                                 <div class="video">
                                     <?=$self->sub('VideoStream','video')?>
                                 </div>

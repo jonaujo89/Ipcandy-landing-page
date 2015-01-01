@@ -21,7 +21,7 @@ lp.galleryRepeater = lp.repeater.extendOptions({
             },
             {
                 type: 'label',
-                value: "Image title:",
+                value: _t("Image title:"),
                 margin: "10px 0 5px",
             },
             {
@@ -29,7 +29,7 @@ lp.galleryRepeater = lp.repeater.extendOptions({
             },
             {
                 type: 'label',
-                value: "Image description:",
+                value: _t("Image description:"),
                 margin: "10px 0 5px",
             },
             {

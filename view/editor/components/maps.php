@@ -1,8 +1,8 @@
 <?php
 
 class Maps extends Block {
-    public $name = 'Maps';
-    public $description = "Geolocation";
+    public $name = 'Карта';
+    public $description = "Местораположение компании";
     public $editor = "lp.maps";
     
     function tpl($val) {?>

@@ -1,8 +1,8 @@
 <?php
 
 class Timer extends Block {
-    public $name = 'Timer';
-    public $description = "Countdown";
+    public $name = 'Таймер';
+    public $description = "Счетчик для акции";
     public $editor = "lp.timer";
     
     function tpl($val) {?>

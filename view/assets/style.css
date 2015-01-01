@@ -454,11 +454,15 @@ url('/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawes
     border-color: #9a9;
     background: #afa;
 }
-html, body {
+html {
     height: 100%;
 }
 body {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAM0lEQVQIW2O8e/fufwYGhgtMTEyB//7928AIFLgAFNCHCTLev39fASQDEwSrACoPgAkCAOjoHCX0rBG5AAAAAElFTkSuQmCC);
+    min-height: 100%;
+    position: relative;
+}
+body {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAANklEQVQIW2O8e/fufwYGhgtMTEyB//7928B49+7dCwwMDPowQcb79+8rgGRggmAVTExMATBBAOjoHCXWaHqyAAAAAElFTkSuQmCC);
 }
 #header {
     background: white;
@@ -521,7 +525,8 @@ body {
     min-height: 100%;
 }
 #menu {
-    position: absolute;
+    z-index: 1;
+    position: fixed;
     background: white;
     left: 0;
     width: 250px;

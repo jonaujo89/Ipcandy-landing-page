@@ -1,6 +1,10 @@
 @import "font-awesome.css";
 @import "../lib/spacedText/spacedText.css";
 
+input, textarea { outline:none; }
+input:active, textarea:active { outline:none; }
+:focus { outline:none; }
+
 body > div {
     position: relative;
 }

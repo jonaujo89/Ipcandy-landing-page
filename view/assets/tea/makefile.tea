@@ -27,8 +27,13 @@ form {
     .alerts();
 }
 
-html, body {
+html {
     height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
 }
 
 body {
@@ -66,7 +71,8 @@ body {
 }
 
 #menu {
-    position: absolute;
+    z-index: 1;
+    position: fixed;
     background: white;
     left: 0; width: 250px;
     top: 0px; bottom: 0px;

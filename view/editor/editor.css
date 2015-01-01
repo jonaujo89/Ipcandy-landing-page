@@ -145,5 +145,5 @@ body.view-layout #teacss-layer > .editor-panel > .preview-toolbar > .close-butto
     text-align: left;
 }
 .error{
-    background-color:red;
+    background-color: rgba(255, 0, 0, 0.28);
 }

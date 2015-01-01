@@ -1,10 +1,10 @@
 <?php
 
-namespace LPForms\Models;
+namespace LPCandy\Models;
 
 /**
 * @Entity
-* @Table(name="lp_forms_tracking")
+* @Table(name="lp_tracking")
 */
 class Track extends \DoctrineExtensions\ActiveEntity\ActiveEntity
 {
@@ -17,7 +17,7 @@ class Track extends \DoctrineExtensions\ActiveEntity\ActiveEntity
     public $data;
     /** @Column(type="datetime") */
     public $date;
-    /** @Column(length="128") */
+    /** @Column(length=128) */
     public $form;
     
     /**

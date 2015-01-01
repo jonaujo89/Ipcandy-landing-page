@@ -24,12 +24,29 @@ class Front extends Base {
             <head>
                 <meta charset="utf-8" />
                 <title><?= $page->title ?></title>
-                <script>var base_url = "<?=INDEX_DIR?>"</script>
+                <script>
+                    var base_url = "<?=INDEX_URL?>";
+                    var page_id = <?=$page->id?>;
+                </script>
                 <link rel="stylesheet" type="text/css" href="<?=$assets.'/default.css'?>">
                 <script src="<?=$assets.'/default.js'?>"> </script>
             </head>           
                 <?= $body_html ?>
             </html>
         <?
+    }
+    
+    function track($id) {
+        $page = \LPCandy\Models\Page::find($id);
+        if (!$page) return;
+        
+        $track = new \LPCandy\Model\Track;
+        $track->user = $page->user;
+        
+        $track->data = array(); // some data
+        
+        $track->save();
+        
+        echo 'ok';
     }
 }

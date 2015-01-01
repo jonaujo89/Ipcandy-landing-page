@@ -1,8 +1,8 @@
 <?php
 
 class Cases extends Block {
-    public $name = 'Cases';
-    public $description = "The results of our clients";
+    public $name = 'Кейсы';
+    public $description = "Результаты наших клиентов";
     public $editor = "lp.cases";
     
     function tpl($val) {?>

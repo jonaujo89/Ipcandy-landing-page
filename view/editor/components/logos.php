@@ -1,8 +1,8 @@
 <?php
 
 class Logos extends Block {
-    public $name = 'Logos';
-    public $description = "Logos our clients";
+    public $name = 'Логотипы';
+    public $description = "Логотипы клиентов и партнёров";
     public $editor = "lp.logos";
     
     function tpl($val) {?>

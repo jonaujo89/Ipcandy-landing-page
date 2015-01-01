@@ -124,7 +124,7 @@ lp.order = lp.block.extendOptions({
                 margin: "5px 49% 5px 0px", showWhen: { variant: [3] }
             },
             { 
-                name: "show_box_shadow_media", label: _t("Show shadow from media"), type: "check", width: "auto", height: 27, 
+                name: "show_box_shadow_media", label: _t("Show border from media"), type: "check", width: "auto", height: 27, 
                 margin: "5px 49% 5px 0px", showWhen: { variant: [4] }
             },
             { 

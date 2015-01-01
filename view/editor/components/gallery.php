@@ -1,8 +1,8 @@
 <?php
 
 class Gallery extends Block {
-    public $name = 'Gallery';
-    public $description = "Photo and image";
+    public $name = 'Галерея';
+    public $description = "Фотографии работ";
     public $editor = "lp.gallery";
     
     function tpl($val) {?>		

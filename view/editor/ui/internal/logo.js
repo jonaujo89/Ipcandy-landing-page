@@ -30,7 +30,7 @@ lp.logo = lp.cover.extendOptions({
             },
             {
                 type: 'label',
-                value: _t("Company name:"),
+                value: _t("Company name:"), margin: "10px 0 5px",
                 showWhen: { type: 'text' }
             },
             {
@@ -39,7 +39,7 @@ lp.logo = lp.cover.extendOptions({
             },
             { 
                 type: 'label',
-                value: _t("Font settings:"),
+                value: _t("Font settings:"), margin: "10px 0 5px",
                 showWhen: { type: 'text' }
             },
             {

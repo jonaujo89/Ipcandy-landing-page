@@ -150,11 +150,8 @@ $.fn.lpBxSlider = function () {
     $(this).each(function(){
         var $this = $(this);
 		var bx_wrapper = $this.find("div.item_block.bx-clone").size();
-        console.log($this.find(".item_block:visible").not(".bx-clone").size());
-        if ($this.find(".item_block:visible").not(".bx-clone").size() == 0) return;
-        
+        if ($this.find(".item_block:visible").not(".bx-clone").size() == 0) return;        
         if (bx_wrapper == 0) {  
-            console.log("bxSlider add");
             var bxSlider = $this.bxSlider({
                 controls: true,
                 slideWidth: 367,
@@ -167,7 +164,6 @@ $.fn.lpBxSlider = function () {
             $this.data('counter', count_photo_init); 
             $this.data('slider', bxSlider);
         } else {  
-            console.log("bxSlider reload");
             var count_photo_in_data_counter = $this.data('counter');
             var bxSlider = $this.data('slider');
             var count_photo = $this.find(".item_block:visible").not(".bx-clone").size();
@@ -179,19 +175,133 @@ $.fn.lpBxSlider = function () {
     });
 };
 
-$(function() { 
-    $(".gallery_2 .item_list .item_block .item").hover(
-        function() {
-            $( this ).addClass('hover');
-        },
-        function() {
-            $( this ).removeClass('hover');
-        }        
-    );
+$.fn.formValidateSubmit = function () {   
+    var form = $(this);
+
+    form.find(':input').on('focus', function(){        
+        $(this).removeClass("error_input");
+        $(this).next(".error").text("");
+    });
+    
+    form.find('.form_field_checkbox_values').on('focus', function(){        
+        $(this).removeClass("error_input");
+        $(this).next(".error").text("");
+    });
+    
+    form.each(function(){
+        
+        var input = form.find(':input');
+        input.each(function(){            
+            var required_input = $(this).prevAll(".field_title").find("i").text();//Обязательное поле или нет
+            //var form_field = document.getElementsByClassName("form_field");
+            //var required = $(this).closest(".field_title", form_field);
+            //console.log(required_input);
+            if(required_input == '*'){
+                if (!$(this).val()){
+                    $(this).addClass("error_input"); 
+                    $(this).next(".error").text("Обязательное поле!");
+                } else {
+                    $(this).removeClass("error_input");
+                    $(this).next(".error").text("");                    
+                }
+            }
+        });
+        
+        var checkbox_group_all = form.find('.form_field_checkbox_values');
+        checkbox_group_all.each(function(index_check_group, checkbox_group){
+            var $checkbox_group = $(checkbox_group);
+            var required_checkbox = $checkbox_group.prevAll(".field_title").find("i").text();//Обязательная группа checkbox или нет
+            if(required_checkbox == '*'){
+                var checkbox_checked = $checkbox_group.find(':checkbox').is(':checked');            
+                if(checkbox_checked){
+                    $(this).removeClass("error_input"); 
+                    $(this).next(".error").text("");
+                } else {
+                    $(this).addClass("error_input"); 
+                    $(this).next(".error").text("Обязательное поле!");
+                }
+            }
+            
+        });
+        
+        var radio_group_all = form.find('.form_field_radio_values');
+        radio_group_all.each(function(index_radio_group, radio_group){
+            var $radio_group = $(radio_group);
+            var required_radio = $radio_group.prevAll(".field_title").find("i").text();//Обязательная группа checkbox или нет
+            if(required_radio == '*'){
+                var radio_checked = $radio_group.find(':radio').is(':checked');            
+                if(radio_checked){
+                    $(this).removeClass("error_input"); 
+                    $(this).next(".error").text("");
+                } else {
+                    $(this).addClass("error_input"); 
+                    $(this).next(".error").text("Обязательное поле!");
+                }
+            }
+            
+        });
+        
+        var select_group_all = form.find('.form_field_select_wrap');
+        select_group_all.each(function(index_select_group, select_group){
+            var required_select = $(select_group).prevAll(".field_title").find("i").text();//Обязательная группа checkbox или нет
+            if(required_select == '*'){
+                var selected = $(select_group).find('option').filter(':selected');  
+                console.log();
+                if(selected.val() != ""){
+                    $(this).removeClass("error_input"); 
+                    $(this).next(".error").text("");
+                } else {
+                    $(this).addClass("error_input"); 
+                    $(this).next(".error").text("Обязательное поле!");
+                }
+            }
+            
+        });
+
+        /*
+        $.ajax({
+            url: 'base_url+"/track/"+page_id',
+            data: dataForm,
+            success: function(){
+                alert('Load was performed.');
+            }
+        });
+        */
+
+    });   
+};
+
+$.fn.textBlockHeight = function () {
+    $(this).each(function(){
+        
+        var $this = $(this);
+        var overlay = $this.find('.overlay');
+        var paddingBottomPx = overlay.css("paddingBottom");
+        var paddingBottom = parseInt(paddingBottomPx.slice(0,-2), 10);
+        
+		$this.hover(
+            function(){
+                overlay.height(overlay.find(".img_text").height() + overlay.height() + paddingBottom);
+            },
+            function(){
+                overlay.css("height","");
+            }
+        );
+    });
+};
+
+$(function() {    
+    
+    $(".gallery_2 .item_list .item_block .item").textBlockHeight();
     $(".countdown").lpCounty();	
 	$(".fancybox").lpFancybox();
 	$(".fancybox_whithout_title").lpFancyboxWhithoutTitle();
     $(".masonry:visible").lpMasonry();
     $(".slider [data-name=items]").lpBxSlider();
     $(".map").mapYandex();
+    
+    $('form:visible .form_field_submit').on('click', function(event){        
+        $('form:visible').formValidateSubmit();
+        event.preventDefault();     
+    });    
 });

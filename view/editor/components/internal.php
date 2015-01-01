@@ -117,6 +117,7 @@ class FormOrder extends Block {
                                         </div>
                                     <? endif ?>
                                     <input type="text" class="form_field_text">
+                                    <div class="error"></div>
                                 </label>
                             <? elseif ($field['type']=='select'): ?>
                                  <label>
@@ -138,6 +139,7 @@ class FormOrder extends Block {
                                             <? endforeach ?>
                                         </select>
                                      </div>
+                                     <div class="error"></div>
                                 </label>
                             <? elseif ($field['type']=='textarea'): ?>
                                  <label>
@@ -151,6 +153,7 @@ class FormOrder extends Block {
                                         </div>
                                     <? endif ?>
                                     <textarea class="form_field_textarea" rows="3"></textarea>
+                                    <div class="error"></div>
                                 </label>
                             <? elseif ($field['type']=='checkbox'): ?>
                                 <label>
@@ -170,6 +173,7 @@ class FormOrder extends Block {
                                             </div>
                                         <? endforeach ?>
                                     </div>
+                                    <div class="error"></div>
                                 </label>
                             <? elseif ($field['type']=='radio'): ?>
                                 <label>
@@ -191,6 +195,7 @@ class FormOrder extends Block {
                                             </div>
                                         <? endforeach ?>
                                     </div>
+                                    <div class="error"></div>
                                 </label>
                             <? elseif ($field['type']=='file'): ?>
                                  <label>
@@ -204,9 +209,9 @@ class FormOrder extends Block {
                                         </div>
                                     <? endif ?>
                                     <input class="form_field_file" multiple="" type="file">
+                                    <div class="error"></div>
                                 </label>
-                            <? endif ?>
-                            <div class="error"></div>
+                            <? endif ?>                            
                         </div>
                     <? endforeach ?>
                 </div>
@@ -250,7 +255,7 @@ class Image extends Block {
 }
 
 class ImageFancyboxWithoutTitle extends Block {
-    public $editor = "lp.imageFancyboxWithoutTitle";
+    public $editor = "lp.imageWithSignature";
     public $internal = true;   
 	
 	function tpl_default() {

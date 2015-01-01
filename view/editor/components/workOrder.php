@@ -1,8 +1,8 @@
 <?php
 
 class WorkOrder extends Block {
-    public $name = 'Work order';
-    public $description = "Benefits with icon";
+    public $name = 'Порядок работы';
+    public $description = "Основные этапы работы";
     public $editor = "lp.workOrder";
     
     

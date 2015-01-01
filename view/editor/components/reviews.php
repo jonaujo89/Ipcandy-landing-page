@@ -1,8 +1,8 @@
 <?php
 
 class Reviews extends Block {
-    public $name = 'Reviews';
-    public $description = "Clients with photo";
+    public $name = 'Отзывы';
+    public $description = "Отзывы наших клиентов";
     public $editor = "lp.reviews";
     
     function tpl($val) {?>

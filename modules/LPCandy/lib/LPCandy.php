@@ -11,9 +11,12 @@ class LPCandy extends \Bingo\Module {
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Page','id'=>false),
             array('action'=>'(page-list|page-delete|page-edit|page-create|page-design|page-ajax|page-child-edit)'));
-
+        
+        $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Track','id'=>false),
+            array('action'=>'(track-list)'));
+        
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Front','id'=>false),
-            array('action'=>'(page-view)'));
+            array('action'=>'(page-view|track)'));
         
         $this->connect("*any",array('function'=>function($route){
             if (substr($route['any'],0,5)=='admin') return true;

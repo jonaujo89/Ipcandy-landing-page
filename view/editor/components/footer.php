@@ -1,8 +1,8 @@
 <?php
 
 class Footer extends Block {
-    public $name = 'Footer';
-    public $description = "Final block";
+    public $name = 'Подвал';
+    public $description = "Завершающий блок";
     public $editor = "lp.footer";
     
     function tpl($val) {?>

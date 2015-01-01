@@ -27,7 +27,6 @@ require("./ui/internal/countdown.js");
 require("./ui/internal/galleryRepeater.js");
 require("./ui/internal/galleryRepeaterImg.js");
 require("./ui/internal/imageWithSignature.js");
-require("./ui/internal/imageFancyboxWithoutTitle.js");
 
 require("./lib/ymaps.js");
 

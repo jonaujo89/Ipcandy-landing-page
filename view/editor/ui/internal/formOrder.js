@@ -55,7 +55,7 @@ lp.formControls.textarea = lp.formControls.text.extend({
 lp.formControls.checkbox = teacss.ui.composite.extendOptions({
     selectLabel: "Checkbox",
     selectIcon: "fa fa-check-square-o",
-    default: { options: _t("Option 1\nOption 2\nOption 3") },
+    default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
     tpl: function (val) {
         var star_required, show_desc, checkbox;
         if (val.required) {star_required = " <i>*</i>"};
@@ -88,7 +88,7 @@ lp.formControls.checkbox = teacss.ui.composite.extendOptions({
 lp.formControls.select = teacss.ui.composite.extendOptions({
     selectLabel: "Select",
     selectIcon: "fa fa-toggle-down",
-    default: { options: _t("Option 1\nOption 2\nOption 3") },
+    default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
     tpl: function (val) {
         var star_required, show_desc, select;
         if (val.required) {star_required = " <i>*</i>"};
@@ -122,7 +122,7 @@ lp.formControls.select = teacss.ui.composite.extendOptions({
 lp.formControls.radio = teacss.ui.composite.extendOptions({
     selectLabel: "Radio",
     selectIcon: "fa fa-dot-circle-o",
-    default: { options: _t("Option 1\nOption 2\nOption 3") },
+    default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
     tpl: function (val) {
         var star_required, show_desc, radio;
         if (val.required) {star_required = " <i>*</i>"};

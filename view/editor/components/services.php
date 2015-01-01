@@ -1,8 +1,8 @@
 <?php
 
 class Services extends Block {
-    public $name = 'Services';
-    public $description = "Services with image";
+    public $name = 'Услуги';
+    public $description = "Перечень услуг";
     public $editor = "lp.services";
     
     function tpl($val) {?>
@@ -318,7 +318,7 @@ class Services extends Block {
                     'name' => "Международные перевозки ",
                     'desc' => "Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя. Перевозки грузов на дальние расстояния без каких-либо ограничений. Любой груз доставим вовремя. ",
                     'price' => "<span style='color: #BBBBBB'><strike>7 000 руб.</strike></span> 3 000 руб.",
-                    'btn_note' => "Предложение ограниченно",
+                    'btn_note' => "<i>Предложение ограниченно</i>",
                 )
             ),
             'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))

@@ -10,7 +10,7 @@ lp.imageWithSignature = lp.cover.extendOptions({
 			this.element.find(".preview_img").css({
 				backgroundImage: "url('"+base_url+'/'+this.value.url_image_preview+"')",
 			});
-			this.element.find(".preview_img").attr({ src: base_url+'/'+this.url_image_preview });
+			//this.element.find(".preview_img").attr({ src: base_url+'/'+this.url_image_preview });
 			this.value.url_image = this.value.url_image_preview;
 			this.element.find(".big_img").attr("href", base_url+'/'+this.value.url_image);
 		}		         
@@ -27,20 +27,30 @@ lp.imageWithSignature = lp.cover.extendOptions({
             },
             {
                 type: 'label',
-                value: _t("Image title:"),
+                value: _t("Image title:"), showWhen: { variant: [1,5,6,7,8,9,10] },
                 margin: "10px 0 5px"
+            },            
+            {
+                name: "title", type: "text", showWhen: { variant: [1,5,6,7,8,9,10] }
             },
             {
-                name: "title", type: "text",
+                type: 'label', showWhen: { variant: [1,5,6,7,8,9,10] },
+                value: _t("Is displayed when you hover over the photo"), margin: "0 0 5px 2px",
+                showWhen: { type: 'video' }
             },
             {
-                type: 'label',
+                type: 'label', showWhen: { variant: [1,5,6,7,8,9,10] },
                 value: _t("Image description:"),
                 margin: "10px 0 5px"
             },
             {
-                name: "desc", type: "text"
-            }
+                name: "desc", type: "text", showWhen: { variant: [1,5,6,7,8,9,10] },
+            },
+            {
+                type: 'label', showWhen: { variant: [1,5,6,7,8,9,10] },
+                value: _t("Is displayed when you hover over the photo"), margin: "0 0 5px 2px",
+                showWhen: { type: 'video' }
+            },
         ]
         
     }
