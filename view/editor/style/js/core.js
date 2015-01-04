@@ -185,76 +185,122 @@ $.fn.formValidateSubmit = function () {
     
     form.each(function(){
         
-        var input = form.find(':input');
-        input.each(function(){            
-            var required_input = $(this).prevAll(".field_title").find("i").text();//Обязательное поле или нет
-            if(required_input == '*'){
-                if (!$(this).val()){
-                    $(this).addClass("error_input").next(".error").text("Обязательное поле!");
+        var errorArray = [];   
+        var inputFormArray = {};
+        
+        var input = form.find('.form_field_text, .form_field_textarea, .form_field_file');
+        input.each(function(){
+            
+            var $this = $(this);            
+            var $value = $this.val();
+            console.log($value);
+            var field_title = $this.prevAll(".field_title");
+            var required_input = field_title.find("i").text();
+            
+            if(required_input == '*'){                
+                if (!$value){
+                    $this.addClass("error_input").next(".error").text("Обязательное поле!");
+                    errorArray.push("error");
                 } else {
-                    $(this).removeClass("error_input").next(".error").text("");                    
+                    $this.removeClass("error_input").next(".error").text("");                    
                 }
             }
+            
+            var title = field_title.text();
+            var name = title.replace("\*", "").trim();
+            inputFormArray[name] = $value;
         });
         
         var checkbox_group_all = form.find('.form_field_checkbox_values');
-        checkbox_group_all.each(function(index_check_group, checkbox_group){
+        checkbox_group_all.each(function(index_check_group, checkbox_group){           
+            
             var $checkbox_group = $(checkbox_group);
-            var required_checkbox = $checkbox_group.prevAll(".field_title").find("i").text();//Обязательная группа checkbox или нет
+            var required_checkbox = $checkbox_group.prevAll(".field_title").find("i").text();
             if(required_checkbox == '*'){
-                var checkbox_checked = $checkbox_group.find(':checkbox').is(':checked');            
+                var checkbox_checked = $checkbox_group.find(':checkbox').is(':checked'); 
                 if(checkbox_checked){
-                    $(this).removeClass("error_input").next(".error").text("");
+                    $(this).removeClass("error_input").next(".error").text("");                    
                 } else {
                     $(this).addClass("error_input").next(".error").text("Обязательное поле!");
+                    errorArray.push("error");
                 }
-            }
+            }      
+            
+            var checked = [];
+            var check = $checkbox_group.find(':checkbox');
+            check.each(function(index_check, checkbox){
+                if($(checkbox).is(':checked')){
+                    checked.push($(checkbox).val());
+                }                
+            });
+            
+            var title = $checkbox_group.prevAll(".field_title").text();
+            var name = title.replace("\*", "").trim();
+            inputFormArray[name] = checked;
             
         });
         
         var radio_group_all = form.find('.form_field_radio_values');
         radio_group_all.each(function(index_radio_group, radio_group){
             var $radio_group = $(radio_group);
-            var required_radio = $radio_group.prevAll(".field_title").find("i").text();//Обязательная группа checkbox или нет
+            var required_radio = $radio_group.prevAll(".field_title").find("i").text();
             if(required_radio == '*'){
                 var radio_checked = $radio_group.find(':radio').is(':checked');            
                 if(radio_checked){
                     $(this).removeClass("error_input").next(".error").text("");
                 } else {
                     $(this).addClass("error_input").next(".error").text("Обязательное поле!");
+                    errorArray.push("error");
                 }
             }
+            
+            var checked = [];
+            var radio_all = $radio_group.find(':radio');
+            radio_all.each(function(index_radio, radio){
+                if($(radio).is(':checked')){
+                    checked.push($(radio).val());
+                }                
+            });
+            
+            var title = $radio_group.prevAll(".field_title").text();
+            var name = title.replace("\*", "").trim();
+            inputFormArray[name] = checked;
             
         });
         
         var select_group_all = form.find('.form_field_select_wrap');
         select_group_all.each(function(index_select_group, select_group){
-            var required_select = $(select_group).prevAll(".field_title").find("i").text();//Обязательная группа checkbox или нет
+            var required_select = $(select_group).prevAll(".field_title").find("i").text();
             if(required_select == '*'){
                 var selected = $(select_group).find('option').filter(':selected');  
                 if(selected.val() != ""){
                     $(this).removeClass("error_input").next(".error").text("");
+                    //inputFormArray.push(selected.val());
                 } else {
                     $(this).addClass("error_input").next(".error").text("Обязательное поле!");
+                    errorArray.push("error");
                 }
             }
             
         });
+        
+        if(errorArray.indexOf("error") == -1){
+            console.log(inputFormArray);
+        }
 
         /*
         $.ajax({
             url: 'base_url+"/track/"+page_id',
             data: dataForm,
             success: function(){
-                alert('Load was performed.');
+                ;
             }
         });
-        */
+        */ 
+        
+        
 
-    });     
-    
-    var f = $("form:visible")[0];
-    console.log($(f).serialize());
+    });
 };
 
 $.fn.textBlockHeight = function () {
@@ -286,8 +332,10 @@ $(function() {
     $(".slider [data-name=items]").lpBxSlider();
     $(".map").mapYandex();
     
-    $('form:visible .form_field_submit').on('click', function(event){        
-        $('form:visible').formValidateSubmit();
-        event.preventDefault();     
-    });    
+    $('form:visible .form_field_submit').click( function(event){  
+        var $form = $('form:visible');
+        $form.formValidateSubmit();
+        event.preventDefault();
+    }); 
+    
 });

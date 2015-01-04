@@ -88,7 +88,7 @@ lp.formControls.checkbox = teacss.ui.composite.extendOptions({
 lp.formControls.select = teacss.ui.composite.extendOptions({
     selectLabel: "Select",
     selectIcon: "fa fa-toggle-down",
-    default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
+    default: { options: _t("\nВариант 1\nВариант 2\nВариант 3") },
     tpl: function (val) {
         var star_required, show_desc, select;
         if (val.required) {star_required = " <i>*</i>"};
