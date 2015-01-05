@@ -40,10 +40,13 @@ class Front extends Base {
         $page = \LPCandy\Models\Page::find($id);
         if (!$page) return;
         
-        $track = new \LPCandy\Model\Track;
+        $data =  json_decode($_POST['form'], true);       
+         
+        $track = new \LPCandy\Models\Track;
+
         $track->user = $page->user;
         
-        $track->data = array(); // some data
+        $track->data = $data; // some data
         
         $track->save();
         

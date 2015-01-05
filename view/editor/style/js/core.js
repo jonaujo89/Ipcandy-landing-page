@@ -175,8 +175,11 @@ $.fn.lpBxSlider = function () {
     });
 };
 
-$.fn.formValidateSubmit = function () {   
-    var form = $(this);
+$.fn.formValidateSubmit = function (event) {   
+    
+    var object = {};
+    var button = event.target;    
+    var form = $(button).parents("form");
     
     form.find(':input').on('focus', function(){        
         $(this).removeClass("error_input");
@@ -186,15 +189,14 @@ $.fn.formValidateSubmit = function () {
     form.each(function(){
         
         var errorArray = [];   
-        var inputFormArray = {};
+        var values = {};        
+        
         
         var input = form.find('.form_field_text, .form_field_textarea, .form_field_file');
-        input.each(function(){
-            
+        input.each(function(){            
             var $this = $(this);            
-            var $value = $this.val();
-            console.log($value);
-            var field_title = $this.prevAll(".field_title");
+            var $value = $this.val();            
+            var field_title = $this.prev(".field_title");
             var required_input = field_title.find("i").text();
             
             if(required_input == '*'){                
@@ -207,17 +209,19 @@ $.fn.formValidateSubmit = function () {
             }
             
             var title = field_title.text();
-            var name = title.replace("\*", "").trim();
-            inputFormArray[name] = $value;
-        });
+            var name = title.replace("\*", "").replace("\:", "").trim();
+            if(name == "") name = 'Текстовое поле';
+            values[name] = $value;
+        });        
+        
         
         var checkbox_group_all = form.find('.form_field_checkbox_values');
         checkbox_group_all.each(function(index_check_group, checkbox_group){           
             
             var $checkbox_group = $(checkbox_group);
-            var required_checkbox = $checkbox_group.prevAll(".field_title").find("i").text();
-            if(required_checkbox == '*'){
-                var checkbox_checked = $checkbox_group.find(':checkbox').is(':checked'); 
+            var required_checkbox = $checkbox_group.prev(".field_title").find("i").text();
+            var checkbox_checked = $checkbox_group.find(':checkbox').is(':checked'); 
+            if(required_checkbox == '*'){                
                 if(checkbox_checked){
                     $(this).removeClass("error_input").next(".error").text("");                    
                 } else {
@@ -235,17 +239,18 @@ $.fn.formValidateSubmit = function () {
             });
             
             var title = $checkbox_group.prevAll(".field_title").text();
-            var name = title.replace("\*", "").trim();
-            inputFormArray[name] = checked;
-            
-        });
+            var name = title.replace("\*", "").replace("\:", "").trim();
+            if(name == "") name = 'Чекбокс(ы)';
+            values[name] = checked;            
+        });        
+        
         
         var radio_group_all = form.find('.form_field_radio_values');
         radio_group_all.each(function(index_radio_group, radio_group){
             var $radio_group = $(radio_group);
-            var required_radio = $radio_group.prevAll(".field_title").find("i").text();
-            if(required_radio == '*'){
-                var radio_checked = $radio_group.find(':radio').is(':checked');            
+            var required_radio = $radio_group.prev(".field_title").find("i").text();
+            var radio_checked = $radio_group.find(':radio').is(':checked'); 
+            if(required_radio == '*'){                           
                 if(radio_checked){
                     $(this).removeClass("error_input").next(".error").text("");
                 } else {
@@ -263,43 +268,67 @@ $.fn.formValidateSubmit = function () {
             });
             
             var title = $radio_group.prevAll(".field_title").text();
-            var name = title.replace("\*", "").trim();
-            inputFormArray[name] = checked;
-            
-        });
+            var name = title.replace("\*", "").replace("\:", "").trim();    
+            if(name == "") name = 'Радио кнопка(и)';
+            values[name] = checked; 
+        });        
+        
         
         var select_group_all = form.find('.form_field_select_wrap');
         select_group_all.each(function(index_select_group, select_group){
-            var required_select = $(select_group).prevAll(".field_title").find("i").text();
-            if(required_select == '*'){
-                var selected = $(select_group).find('option').filter(':selected');  
+            var $select_group = $(select_group);
+            var required_select = $select_group.prev(".field_title").find("i").text();
+            var selected = $select_group.find('option').filter(':selected');
+            if(required_select == '*'){                                
                 if(selected.val() != ""){
                     $(this).removeClass("error_input").next(".error").text("");
-                    //inputFormArray.push(selected.val());
                 } else {
                     $(this).addClass("error_input").next(".error").text("Обязательное поле!");
                     errorArray.push("error");
                 }
             }
             
-        });
+            var title = $select_group.prevAll(".field_title").text();
+            var name = title.replace("\*", "").replace("\:", "").trim();
+            if(name == "") name = 'Селектор';
+            values[name] = selected.val();          
+        });        
         
-        if(errorArray.indexOf("error") == -1){
-            console.log(inputFormArray);
+        if (errorArray.indexOf("error") == -1) {
+
+            $.getJSON("http://jsonip.com?callback=?", function(callbackData) {
+               
+                var baseUrl = window.parent.base_url; 
+                var pageId = window.parent.page_id;
+
+                var form_done = form.find('.form_done').html();
+                
+                object.pageId = pageId;
+                object.ipClient = callbackData.ip;
+                object.eventTimeStamp = event.timeStamp;
+                object.values = values;                
+                
+                var dataStringify = JSON.stringify(object);
+                
+                $.ajax({
+                    url: baseUrl + "/track/" + pageId,
+                    type: "POST",
+                    data: "form="+dataStringify,
+                    dataType: 'json',
+                    success: function(data) {
+                        alertify.dialog('minimalDialog',function(){
+                            return {
+                                main:function(data){
+                                    this.setContent(data); 
+                                }
+                            };
+                        });
+                        alertify.minimalDialog(form_done);
+                    }
+                });
+                
+            });
         }
-
-        /*
-        $.ajax({
-            url: 'base_url+"/track/"+page_id',
-            data: dataForm,
-            success: function(){
-                ;
-            }
-        });
-        */ 
-        
-        
-
     });
 };
 
@@ -334,7 +363,7 @@ $(function() {
     
     $('form:visible .form_field_submit').click( function(event){  
         var $form = $('form:visible');
-        $form.formValidateSubmit();
+        $form.formValidateSubmit(event);
         event.preventDefault();
     }); 
     

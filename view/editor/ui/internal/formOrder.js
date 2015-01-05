@@ -187,7 +187,7 @@ lp.formOrder = lp.cover.extendOptions({
             var sub = lp.formControls[field.type];
             fields_div.append(sub.tpl(field));
         });
-
+        
         this.element.find(".form_submit .form_field_submit")
             .attr("class","form_field_submit "+val.button.color)
             .find("span").text(val.button.label);

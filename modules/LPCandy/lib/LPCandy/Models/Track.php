@@ -18,7 +18,7 @@ class Track extends \DoctrineExtensions\ActiveEntity\ActiveEntity
     /** @Column(type="datetime") */
     public $date;
     /** @Column(length=128) */
-    public $form;
+    //public $form;
     
     /**
      * @ManyToOne(targetEntity="LPCandy\Models\User", inversedBy="identities")

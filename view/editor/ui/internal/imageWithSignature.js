@@ -27,31 +27,20 @@ lp.imageWithSignature = lp.cover.extendOptions({
             },
             {
                 type: 'label',
-                value: _t("Image title:"), showWhen: { variant: [1,5,6,7,8,9,10] },
+                value: _t("Image title:"),
                 margin: "10px 0 5px"
             },            
             {
-                name: "title", type: "text", showWhen: { variant: [1,5,6,7,8,9,10] }
+                name: "title", type: "text"
             },
             {
-                type: 'label', showWhen: { variant: [1,5,6,7,8,9,10] },
-                value: _t("Is displayed when you hover over the photo"), margin: "0 0 5px 2px",
-                showWhen: { type: 'video' }
-            },
-            {
-                type: 'label', showWhen: { variant: [1,5,6,7,8,9,10] },
+                type: 'label',
                 value: _t("Image description:"),
                 margin: "10px 0 5px"
             },
             {
-                name: "desc", type: "text", showWhen: { variant: [1,5,6,7,8,9,10] },
+                name: "desc", type: "text",
             },
-            {
-                type: 'label', showWhen: { variant: [1,5,6,7,8,9,10] },
-                value: _t("Is displayed when you hover over the photo"), margin: "0 0 5px 2px",
-                showWhen: { type: 'video' }
-            },
-        ]
-        
+        ]        
     }
 })
