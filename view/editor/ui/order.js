@@ -1,6 +1,22 @@
 lp.order = lp.block.extendOptions({
+    init: function () {
+        var jq = Component.previewFrame.window.$;
+        if(jq){
+            jq('form .form_field_submit').click( function(event){  
+                jq('form').formValidateSubmit(event);
+                event.preventDefault();
+            });
+        }
+    },    
     change: function () {
-		
+		var jq = Component.previewFrame.window.$;
+        if(jq){
+            jq('form .form_field_submit').click( function(event){  
+                jq('form').formValidateSubmit(event);
+                event.preventDefault();
+            });
+        }        
+        
         //if для того, чтобы выполнять изменения фона только при выбранной картинке
         if(this.value.background){
             this.element.find(".order_"+this.value.variant).css({

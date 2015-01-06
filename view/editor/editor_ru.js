@@ -112,9 +112,14 @@ exports = {
     "Show name company":"Название компании",
     "Show branch company":"Отрасль",
     "Is displayed when you hover over the photo":"Выводится при наведении на фотографию",
-    "Show order form after clicking":"Показавать форму после клика",
-    "Go to the link after clicking":"Переходить по ссылке после клика",
+    "Show order form":"Показавать форму",
+    "Go to the link":"Переходить по ссылке",
     "Form":"Форма",
     "Link":"Ссылка",
-    "Button behavior:":"Поведение кнопки заказа:"
+    "Button behavior after click:":"Поведение кнопки заказа (после клика):",
+    "Text":"Текст",
+    "Text area":"Текстовое поле",
+    "Checkbox":"Флажок",
+    "Select":"Селектор",
+    "Radio":"Переключатель",
 }

@@ -7,11 +7,11 @@ lp.formButton = lp.cover.extendOptions({
     configForm: {
         title: _t("Order button"),        
         items: [
-            { type: "label", value: _t("Button behavior:"), width: "100%", margin: "2px 0" },
+            { type: "label", value: _t("Button behavior after click:"), width: "100%", margin: "2px 0" },
             {
                 name: 'type', type: 'radio', margin: "5px 0 15px", items: [
-                    { label: _t("Show order form after clicking"), value: 'form' },
-                    { label: _t("Go to the link after clicking"), value: 'link' }
+                    { label: _t("Show order form"), value: 'form' },
+                    { label: _t("Go to the link"), value: 'link' }
                 ]
             },    
             { type: "label", value: _t("Button text:"), width: "53%", margin: "5px 0 2px 0" },

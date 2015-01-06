@@ -50,7 +50,8 @@ Class FormButton extends Block {
     public $internal = true;    
     
     function tpl_default() {
-        return array(  
+        return array( 
+            'type' => 'form',
             'class' => '',
             'form_title' => 'Оставить заявку ',
             'form_bottom_text' => 'Мы не передаем Вашу персональную информацию третьим лицам',
@@ -132,14 +133,12 @@ class FormOrder extends Block {
                                             <?=$field['desc']?>
                                         </div>
                                     <? endif ?>
-                                    <div class='form_field_select_wrap'>
-                                        <select class='form_field_select'>
-                                            <? foreach (explode("\n",$field['options']) as $key=>$option): ?>
-                                                <option><?=$option?></option>
-                                            <? endforeach ?>
-                                        </select>
-                                     </div>
-                                     <div class="error"></div>
+                                    <select class='form_field_select'>
+                                        <? foreach (explode("\n",$field['options']) as $key=>$option): ?>
+                                            <option><?=$option?></option>
+                                        <? endforeach ?>
+                                    </select>
+                                    <div class="error"></div>
                                 </label>
                             <? elseif ($field['type']=='textarea'): ?>
                                  <label>

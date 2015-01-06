@@ -1,7 +1,7 @@
 lp.formControls = {};
     
 lp.formControls.text = teacss.ui.composite.extendOptions({
-    selectLabel: "Text",
+    selectLabel: _t("Text"),
     selectIcon: "fa fa-font",
     tpl: function (val) {
         var star_required, show_desc;
@@ -22,12 +22,12 @@ lp.formControls.text = teacss.ui.composite.extendOptions({
         { type: "text", name: "label" },
         _t("Field description"),
         { type: "text", name: "desc" },
-        { type: "check", name: "required", label: _t("Is required?") }
+        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
     ]
 });
 
 lp.formControls.textarea = lp.formControls.text.extend({
-    selectLabel: "Text area",
+    selectLabel: _t("Text area"),
     selectIcon: "fa fa-bars",
     tpl: function (val) {
         var star_required, show_desc;
@@ -48,12 +48,12 @@ lp.formControls.textarea = lp.formControls.text.extend({
         { type: "text", name: "label" },
         _t("Field description"),
         { type: "text", name: "desc" },
-        { type: "check", name: "required", label: _t("Is required?") }
+        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
     ]
 });
 
 lp.formControls.checkbox = teacss.ui.composite.extendOptions({
-    selectLabel: "Checkbox",
+    selectLabel: _t("Checkbox"),
     selectIcon: "fa fa-check-square-o",
     default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
     tpl: function (val) {
@@ -80,13 +80,13 @@ lp.formControls.checkbox = teacss.ui.composite.extendOptions({
         _t("Field description"),
         { type: "text", name: "desc" },
         _t("Options"),
-        { type: "textarea", name: "options" },
-        { type: "check", name: "required", label: _t("Is required?") }
+        { type: "textarea", name: "options", height: 55, width: 448 },
+        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
     ]
 });
 
 lp.formControls.select = teacss.ui.composite.extendOptions({
-    selectLabel: "Select",
+    selectLabel: _t("Select"),
     selectIcon: "fa fa-toggle-down",
     default: { options: _t("\nВариант 1\nВариант 2\nВариант 3") },
     tpl: function (val) {
@@ -97,7 +97,7 @@ lp.formControls.select = teacss.ui.composite.extendOptions({
             $('<label>').append(
                 $('<div class="field_title">').text(val.label).append(star_required),
                 show_desc,
-                $('<div class="form_field_select_wrap">').append(select = $('<select class="form_field_select">')),
+                $('<select class="form_field_select">'),
                 $('<div class="error">')
             )
         );
@@ -114,13 +114,13 @@ lp.formControls.select = teacss.ui.composite.extendOptions({
         _t("Field description"),
         { type: "text", name: "desc" },
         _t("Options"),
-        { type: "textarea", name: "options" },
-        { type: "check", name: "required", label: _t("Is required?") }
+        { type: "textarea", name: "options", height: 55, width: 448 },
+        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
     ]
 });
 
 lp.formControls.radio = teacss.ui.composite.extendOptions({
-    selectLabel: "Radio",
+    selectLabel: _t("Radio"),
     selectIcon: "fa fa-dot-circle-o",
     default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
     tpl: function (val) {
@@ -147,13 +147,13 @@ lp.formControls.radio = teacss.ui.composite.extendOptions({
         _t("Field description"),
         { type: "text", name: "desc" },
         _t("Options"),
-        { type: "textarea", name: "options" },
-        { type: "check", name: "required", label: _t("Is required?") }
+        { type: "textarea", name: "options", height: 55, width: 448 },
+        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
     ]
 });
 
 lp.formControls.file = teacss.ui.composite.extendOptions({
-    selectLabel: "File",
+    selectLabel: _t("File"),
     selectIcon: "fa fa-paperclip",
     tpl: function (val) {
         var star_required, show_desc;
@@ -174,7 +174,7 @@ lp.formControls.file = teacss.ui.composite.extendOptions({
         { type: "text", name: "label" },
         _t("Field description"),
         { type: "text", name: "desc" },
-        { type: "check", name: "required", label: _t("Is required?") }
+        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
     ]
 });
 

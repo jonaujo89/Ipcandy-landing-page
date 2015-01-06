@@ -181,9 +181,20 @@ $.fn.formValidateSubmit = function (event) {
     var button = event.target;    
     var form = $(button).parents("form");
     
-    form.find(':input').on('focus', function(){        
-        $(this).removeClass("error_input");
-        $(this).next(".error").text("");
+    form.find(':input').on('keydown', function(){
+        $(this).removeClass("error_input").next(".error").text("");
+    });
+    
+    form.find(':checkbox').on('change', function(){        
+        $(this).parents('.form_field_checkbox_values').removeClass("error_input").next(".error").text("");
+    });
+    
+    form.find(':radio').on('change', function(){        
+        $(this).parents('.form_field_radio_values').removeClass("error_input").next(".error").text("");
+    });
+    
+    form.find('select').on('change', function(){        
+        $(this).removeClass("error_input").next(".error").text("");
     });
     
     form.each(function(){
@@ -196,7 +207,7 @@ $.fn.formValidateSubmit = function (event) {
         input.each(function(){            
             var $this = $(this);            
             var $value = $this.val();            
-            var field_title = $this.prev(".field_title");
+            var field_title = $this.siblings(".field_title");
             var required_input = field_title.find("i").text();
             
             if(required_input == '*'){                
@@ -209,8 +220,7 @@ $.fn.formValidateSubmit = function (event) {
             }
             
             var title = field_title.text();
-            var name = title.replace("\*", "").replace("\:", "").trim();
-            if(name == "") name = 'Текстовое поле';
+            var name = title.replace("\*", "").trim() || 'Текстовое поле';
             values[name] = $value;
         });        
         
@@ -219,13 +229,13 @@ $.fn.formValidateSubmit = function (event) {
         checkbox_group_all.each(function(index_check_group, checkbox_group){           
             
             var $checkbox_group = $(checkbox_group);
-            var required_checkbox = $checkbox_group.prev(".field_title").find("i").text();
+            var required_checkbox = $checkbox_group.siblings(".field_title").find("i").text();
             var checkbox_checked = $checkbox_group.find(':checkbox').is(':checked'); 
             if(required_checkbox == '*'){                
                 if(checkbox_checked){
-                    $(this).removeClass("error_input").next(".error").text("");                    
+                    $checkbox_group.removeClass("error_input").next(".error").text("");                    
                 } else {
-                    $(this).addClass("error_input").next(".error").text("Обязательное поле!");
+                    $checkbox_group.addClass("error_input").next(".error").text("Обязательное поле!");
                     errorArray.push("error");
                 }
             }      
@@ -238,9 +248,8 @@ $.fn.formValidateSubmit = function (event) {
                 }                
             });
             
-            var title = $checkbox_group.prevAll(".field_title").text();
-            var name = title.replace("\*", "").replace("\:", "").trim();
-            if(name == "") name = 'Чекбокс(ы)';
+            var title = $checkbox_group.siblings(".field_title").text();
+            var name = title.replace("\*", "").trim() || 'Флажок';
             values[name] = checked;            
         });        
         
@@ -248,7 +257,7 @@ $.fn.formValidateSubmit = function (event) {
         var radio_group_all = form.find('.form_field_radio_values');
         radio_group_all.each(function(index_radio_group, radio_group){
             var $radio_group = $(radio_group);
-            var required_radio = $radio_group.prev(".field_title").find("i").text();
+            var required_radio = $radio_group.siblings(".field_title").find("i").text();
             var radio_checked = $radio_group.find(':radio').is(':checked'); 
             if(required_radio == '*'){                           
                 if(radio_checked){
@@ -267,35 +276,33 @@ $.fn.formValidateSubmit = function (event) {
                 }                
             });
             
-            var title = $radio_group.prevAll(".field_title").text();
-            var name = title.replace("\*", "").replace("\:", "").trim();    
-            if(name == "") name = 'Радио кнопка(и)';
+            var title = $radio_group.siblings(".field_title").text();
+            var name = title.replace("\*", "").trim() || 'Переключатель';
             values[name] = checked; 
         });        
         
         
-        var select_group_all = form.find('.form_field_select_wrap');
+        var select_group_all = form.find('.form_field_select');
         select_group_all.each(function(index_select_group, select_group){
             var $select_group = $(select_group);
-            var required_select = $select_group.prev(".field_title").find("i").text();
+            var required_select = $select_group.siblings(".field_title").find("i").text();
             var selected = $select_group.find('option').filter(':selected');
-            if(required_select == '*'){                                
+            if(required_select == '*'){
+                var $this = $(this);
                 if(selected.val() != ""){
-                    $(this).removeClass("error_input").next(".error").text("");
+                    $this.removeClass("error_input").next(".error").text("");
                 } else {
-                    $(this).addClass("error_input").next(".error").text("Обязательное поле!");
+                    $this.addClass("error_input").next(".error").text("Обязательное поле!");
                     errorArray.push("error");
                 }
             }
             
-            var title = $select_group.prevAll(".field_title").text();
-            var name = title.replace("\*", "").replace("\:", "").trim();
-            if(name == "") name = 'Селектор';
+            var title = $select_group.siblings(".field_title").text();
+            var name = title.replace("\*", "").trim() || 'Селектор';
             values[name] = selected.val();          
         });        
         
         if (errorArray.indexOf("error") == -1) {
-
             $.getJSON("http://jsonip.com?callback=?", function(callbackData) {
                
                 var baseUrl = window.parent.base_url; 
@@ -314,16 +321,10 @@ $.fn.formValidateSubmit = function (event) {
                     url: baseUrl + "/track/" + pageId,
                     type: "POST",
                     data: "form="+dataStringify,
-                    dataType: 'json',
-                    success: function(data) {
-                        alertify.dialog('minimalDialog',function(){
-                            return {
-                                main:function(data){
-                                    this.setContent(data); 
-                                }
-                            };
-                        });
-                        alertify.minimalDialog(form_done);
+                    success: function() {
+                        window.alertify.genericDialog(form_done);
+                        form.find(':input').val("");
+                        form.find(':radio, :checkbox').prop('checked', false);
                     }
                 });
                 
@@ -361,9 +362,8 @@ $(function() {
     $(".slider [data-name=items]").lpBxSlider();
     $(".map").mapYandex();
     
-    $('form:visible .form_field_submit').click( function(event){  
-        var $form = $('form:visible');
-        $form.formValidateSubmit(event);
+    $('form .form_field_submit').click( function(event){  
+        $('form').formValidateSubmit(event);
         event.preventDefault();
     }); 
     
