@@ -4,6 +4,7 @@ lp.timer = lp.block.extendOptions({
         var jq = Component.previewFrame.window.$;
         if (jq) {
             jq(countdown).lpCounty();
+            jq('form').formValidateSubmit(event);        
         }
     },	
 	change: function(){         

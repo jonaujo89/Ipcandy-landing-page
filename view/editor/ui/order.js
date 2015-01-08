@@ -1,14 +1,9 @@
 lp.order = lp.block.extendOptions({
-    init: function () {
-        /*
+    init: function () {        
         var jq = Component.previewFrame.window.$;
         if(jq){
-            jq('form .form_field_submit').click( function(event){  
-                jq('form').formValidateSubmit(event);
-                event.preventDefault();
-            });            
-        }
-        */
+            jq('form').formValidateSubmit(event);        
+        }        
     },    
     change: function () {
         //if для того, чтобы выполнять изменения фона только при выбранной картинке

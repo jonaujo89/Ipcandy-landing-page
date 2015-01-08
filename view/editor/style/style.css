@@ -232,17 +232,15 @@
 
 
 /* form done */
-.form_done {
+.form_done_title {
   text-align: center;
-}
-
-.form_done .form_done_title {
   color: #020202;
   font-family: Arial;
   font-size: 21px;
 }
 
-.form_done .form_done_text {
+.form_done_text {
+  text-align: center;
   color: #5e5e5e;
   font-family: Arial;
   font-size: 14px;
@@ -578,12 +576,12 @@
   text-transform: uppercase;
 }
 
-.order_1 a.form_field_submit div span {
-  display: block !important;
-  width: auto !important;
-  padding: 18px 10px 16px 10px !important;
-  text-align: center !important;
-  border-radius: 3px !important;
+.order_1 .form .form_submit a.form_field_submit div span {
+  display: block ;
+  width: auto ;
+  padding: 18px 10px 16px 10px ;
+  text-align: center ;
+  border-radius: 3px ;
 }
 
 @media (max-width: 1199px){

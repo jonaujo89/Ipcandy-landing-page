@@ -1,5 +1,9 @@
 lp.header = lp.block.extendOptions({
     init: function () {
+        var jq = Component.previewFrame.window.$;
+        if(jq){
+            jq('form').formValidateSubmit(event);        
+        } 
     },    
     change: function () {
         this.cmp.element.find(".header").css({

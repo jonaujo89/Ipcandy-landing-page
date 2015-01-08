@@ -19,22 +19,17 @@ class Track extends Base {
         
         $this->data['field_filters']['data'] = function ($val) {
             
-            $data;            
-            $data.= "<div>Идентификатор  $val[pageId]</div>";
-            $data.= "<div>IP адресс клиента  $val[ipClient]</div><br>";            
+            $data.= "<div>Идентификатор  ".$val['pageId']."</div>";
+            $data.= "<div>IP адресс клиента  ".$val['ipClient']."</div><br>";            
             $data.= "<div><u>Данные заявки</u></div>";            
             if(!$val['values']) return "Данных нет";
-            foreach($val['values'] as $key => $value){
-                if(empty($value)) $value = '<i>не заполнено</i>';
-                if(is_array($value)){ 
-                    $data.= "<div><b>".$key."</b>  ";
-                    foreach($value as $v){
-                        $data.= "<p style='text-indent: 1.5em; margin :0'>".$v."</p>";
-                    }
-                    $data.= "</div>";
-                } else {
-                    $data.= "<div><b>".$key."</b>  ".$value."</div>";
-                }
+            foreach($val['values'] as $field_name => $values){                
+                $data.= "<p style='text-indent: 0.5em; margin :0'> <b>".$field_name."</b> (".$values['type'].")</p>";
+                    foreach($values['value'] as $value){
+                        if(empty($value)) $value = '<i>- пусто -</i>';
+                        $data.= "<p style='text-indent: 1.0em; margin :0'><span class='".$values['symbol']."'></span> ".$value."</p>";
+                    }                    
+                $data.= "</div>";
             }
             
             return $data;
