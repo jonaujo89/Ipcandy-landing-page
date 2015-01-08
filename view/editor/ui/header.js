@@ -1,22 +1,7 @@
 lp.header = lp.block.extendOptions({
     init: function () {
-        var jq = Component.previewFrame.window.$;
-        if(jq){
-            jq('form .form_field_submit').click( function(event){  
-                jq('form').formValidateSubmit(event);
-                event.preventDefault();
-            });
-        }
     },    
     change: function () {
-		var jq = Component.previewFrame.window.$;
-        if(jq){
-            jq('form .form_field_submit').click( function(event){  
-                jq('form').formValidateSubmit(event);
-                event.preventDefault();
-            });
-        }  
-        
         this.cmp.element.find(".header").css({
             background: this.value.background || '',
         });  

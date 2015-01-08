@@ -4,21 +4,10 @@ lp.timer = lp.block.extendOptions({
         var jq = Component.previewFrame.window.$;
         if (jq) {
             jq(countdown).lpCounty();
-            jq('form .form_field_submit').click( function(event){  
-                jq('form').formValidateSubmit(event);
-                event.preventDefault();
-            });
         }
     },	
 	change: function(){         
-        var jq = Component.previewFrame.window.$;
-        if(jq){
-            jq('form .form_field_submit').click( function(event){  
-                jq('form').formValidateSubmit(event);
-                event.preventDefault();
-            });
-        }         
-        
+        var jq = Component.previewFrame.window.$;        
         this.variant.find(".title_2").toggle(this.value.show_title_2);
 		
 		if (this.value.variant == 1) { 

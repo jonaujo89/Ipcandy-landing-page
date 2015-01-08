@@ -45,7 +45,7 @@ class Front extends Base {
         $track = new \LPCandy\Models\Track;
 
         $track->user = $page->user;        
-        //$track->data = $data;        
+        $track->data = $data;        
         $track->save();
     }
 }

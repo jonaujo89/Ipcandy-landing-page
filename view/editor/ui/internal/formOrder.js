@@ -97,7 +97,7 @@ lp.formControls.select = teacss.ui.composite.extendOptions({
             $('<label>').append(
                 $('<div class="field_title">').text(val.label).append(star_required),
                 show_desc,
-                $('<select class="form_field_select">'),
+                select =  $('<select class="form_field_select">'),
                 $('<div class="error">')
             )
         );
