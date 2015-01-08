@@ -360,7 +360,8 @@ $.fn.formValidateSubmit = function () {
                         url: baseUrl + "/track/" + pageId,
                         type: "POST",
                         data: "form="+dataStringify,
-                        success: function() {
+                        success: function(data) {
+                            console.log(data);
                             window.alertify.genericDialog(form_done);
                             form.find(':input').val("");
                             form.find(':radio, :checkbox').prop('checked', false);

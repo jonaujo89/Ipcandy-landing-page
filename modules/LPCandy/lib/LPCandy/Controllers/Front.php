@@ -43,9 +43,9 @@ class Front extends Base {
         $data =  json_decode($_POST['form'], true);       
          
         $track = new \LPCandy\Models\Track;
-
         $track->user = $page->user;        
-        $track->data = $data;        
-        $track->save();
+        $track->data = $data;  
+        $track->status = 0;
+        $track->save();        
     }
 }

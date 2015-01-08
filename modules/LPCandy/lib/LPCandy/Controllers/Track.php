@@ -20,7 +20,8 @@ class Track extends Base {
         $this->data['field_filters']['data'] = function ($val) {
             
             $data.= "<div>Идентификатор  ".$val['pageId']."</div>";
-            $data.= "<div>IP адресс клиента  ".$val['ipClient']."</div><br>";            
+            $data.= "<div>IP адресс клиента  ".$val['ipClient']."</div><br>";
+
             $data.= "<div><u>Данные заявки</u></div>";            
             if(!$val['values']) return "Данных нет";
             foreach($val['values'] as $field_name => $values){                
@@ -29,7 +30,6 @@ class Track extends Base {
                         if(empty($value)) $value = '<i>- пусто -</i>';
                         $data.= "<p style='text-indent: 1.0em; margin :0'><span class='".$values['symbol']."'></span> ".$value."</p>";
                     }                    
-                $data.= "</div>";
             }
             
             return $data;
