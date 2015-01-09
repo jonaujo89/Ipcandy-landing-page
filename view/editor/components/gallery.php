@@ -186,7 +186,7 @@ class Gallery extends Block {
                     <div class="item_list clear">
                          <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <div class="item">								
-								<? $self->sub('ImageFancyboxWithoutTitle','imageFancybox_1') ?>
+								<? $self->sub('ImageFancyboxWithoutSignature','image_1') ?>
 								<? if ($val['show_image_overlay'] || $self->edit): ?>
 									<div class="overlay" <?= !$val['show_image_overlay'] ? "style='display:none'" : "" ?>>
 										<div class="img_title">
@@ -201,7 +201,7 @@ class Gallery extends Block {
 								<? endif ?>
 							</div>
 							<div class="item">
-								<? $self->sub('ImageFancyboxWithoutTitle','imageFancybox_2') ?>
+								<? $self->sub('ImageFancyboxWithoutSignature','image_2') ?>
 								<? if ($val['show_image_overlay'] || $self->edit): ?>
 									<div class="overlay" <?= !$val['show_image_overlay'] ? "style='display:none'" : "" ?>>
 										<div class="img_title">
@@ -216,7 +216,7 @@ class Gallery extends Block {
 								<? endif ?>
 							</div>
                             <div class="item">
-								<? $self->sub('ImageFancyboxWithoutTitle','imageFancybox_3') ?>
+								<? $self->sub('ImageFancyboxWithoutSignature','image_3') ?>
 								<? if ($val['show_image_overlay'] || $self->edit): ?>
 									<div class="overlay" <?= !$val['show_image_overlay'] ? "style='display:none'" : "" ?>>
 										<div class="img_title">
@@ -250,24 +250,24 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_3')),                   
+                    'image_1' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта, интересные факты",
-                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_3')),                   
+                    'image_2' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта, интересные факты",
-                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_3')),                   
+                    'image_3' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта, интересные факты",
                 ),
                 array(
-                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_3')),                   
+                    'image_1' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта, интересные факты",
-                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_3')),                   
+                    'image_2' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта, интересные факты",
-                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/6.jpg','url_image'=> 'view/editor/assets/gallery/6.jpg','fancybox_group' => 'group_3')),                   
+                    'image_3' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/6.jpg','url_image'=> 'view/editor/assets/gallery/6.jpg','fancybox_group' => 'group_3')),                   
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта, интересные факты",
                 )
@@ -292,7 +292,7 @@ class Gallery extends Block {
                     <div class="item_list clear">
                          <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <div class="item">								
-								<? $self->sub('ImageFancyboxWithoutTitle','imageFancybox_1') ?>
+								<? $self->sub('ImageFancyboxWithoutSignature','image_1') ?>
 								<? if ($val['show_image_overlay'] || $self->edit): ?>
 									<div class="overlay" <?= !$val['show_image_overlay'] ? "style='display:none'" : "" ?>>
 										<div class="img_title">
@@ -307,7 +307,7 @@ class Gallery extends Block {
 								<? endif ?>
 							</div>
 							<div class="item">
-								<? $self->sub('ImageFancyboxWithoutTitle','imageFancybox_2') ?>
+								<? $self->sub('ImageFancyboxWithoutSignature','image_2') ?>
 								<? if ($val['show_image_overlay'] || $self->edit): ?>
 									<div class="overlay" <?= !$val['show_image_overlay'] ? "style='display:none'" : "" ?>>
 										<div class="img_title">
@@ -322,7 +322,7 @@ class Gallery extends Block {
 								<? endif ?>
 							</div>
                             <div class="item">
-								<? $self->sub('ImageFancyboxWithoutTitle','imageFancybox_3') ?>
+								<? $self->sub('ImageFancyboxWithoutSignature','image_3') ?>
 								<? if ($val['show_image_overlay'] || $self->edit): ?>
 									<div class="overlay" <?= !$val['show_image_overlay'] ? "style='display:none'" : "" ?>>
 										<div class="img_title">
@@ -337,7 +337,7 @@ class Gallery extends Block {
 								<? endif ?>
 							</div>
 							<div class="item">
-								<? $self->sub('ImageFancyboxWithoutTitle','imageFancybox_4') ?>
+								<? $self->sub('ImageFancyboxWithoutSignature','image_4') ?>
 								<? if ($val['show_image_overlay'] || $self->edit): ?>
 									<div class="overlay" <?= !$val['show_image_overlay'] ? "style='display:none'" : "" ?>>
 										<div class="img_title">
@@ -371,30 +371,30 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_4')),                   
+                    'image_1' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта",
-                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_4')),                   
+                    'image_2' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта",
-                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_4')),                   
+                    'image_3' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта",
-					'imageFancybox_4' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/6.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_4')),                   
+					'image_4' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/6.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
                 ),
                 array(
-                    'imageFancybox_1' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_4')),                   
+                    'image_1' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_1' => "Дорога в облака",
                     'img_desc_1' => "Подробное описание проекта",
-                    'imageFancybox_2' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_4')),                   
+                    'image_2' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_2' => "Дорога в облака",
                     'img_desc_2' => "Подробное описание проекта",
-                    'imageFancybox_3' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/6.jpg','url_image'=> 'view/editor/assets/gallery/6.jpg','fancybox_group' => 'group_4')),                   
+                    'image_3' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/6.jpg','url_image'=> 'view/editor/assets/gallery/6.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_3' => "Дорога в облака",
                     'img_desc_3' => "Подробное описание проекта",
-					'imageFancybox_4' => array_merge(ImageFancyboxWithoutTitle::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_4')),                   
+					'image_4' => array_merge(ImageFancyboxWithoutSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_4')),                   
                     'img_title_4' => "Дорога в облака",
                     'img_desc_4' => "Подробное описание проекта",
                 )
@@ -561,7 +561,7 @@ class Gallery extends Block {
     }
 	
     
-    function tpl_7($val) {?>
+function tpl_7($val) {?>
         <div class="container-fluid gallery gallery_7" style="background: <?=$val['background']?>;">           
             <div class="container">
                 <div class="span16">
@@ -579,21 +579,21 @@ class Gallery extends Block {
 						<? $this->repeat('items',function($item_val,$self) use ($val) { ?>
 							<div class="img_double"> 
 								<div class="img img_w2 img_h2">
-									<? $self->sub('ImageWithSiganture','ImageWithSiganture_1') ?>	
+									<? $self->sub('ImageFancyboxWithSignature','image_1') ?>	
 								</div>
 							</div>
 							<div class="img_side">
 								<div class="img img_w1 img_h1">
-									<? $self->sub('ImageWithSiganture','ImageWithSiganture_2') ?>
+									<? $self->sub('ImageFancyboxWithSignature','image_2') ?>
 								</div>	
 								<div class="img img_w1 img_h1">
-									<? $self->sub('ImageWithSiganture','ImageWithSiganture_3') ?>
+									<? $self->sub('ImageFancyboxWithSignature','image_3') ?>
 								</div>		
 								<div class="img img_w1 img_h1">
-									<? $self->sub('ImageWithSiganture','ImageWithSiganture_4') ?>
+									<? $self->sub('ImageFancyboxWithSignature','image_4') ?>
 								</div>			
 								<div class="img img_w1 img_h1">
-									<? $self->sub('ImageWithSiganture','ImageWithSiganture_5') ?>	
+									<? $self->sub('ImageFancyboxWithSignature','image_5') ?>	
 								</div>
 							</div>
 							<div style="clear: both"></div>
@@ -616,11 +616,11 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-					'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_7')),
-                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_7')),
-                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_7')),
-                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_7')),
-                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_7')),
+					'image_1' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_7')),
+                    'image_2' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_7')),
+                    'image_3' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_7')),
+                    'image_4' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_7')),
+                    'image_5' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_7')),
                 )
             )
         );    
@@ -645,24 +645,24 @@ class Gallery extends Block {
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <div class="img_side">
                                 <div class="img img_w1 img_h2">
-                                    <? $self->sub('ImageWithSiganture','ImageWithSiganture_1') ?> 
+                                    <? $self->sub('ImageFancyboxWithSignature','image_1') ?> 
                                 </div>
                                 <div class="img img_w1 img_h1">
-                                    <? $self->sub('ImageWithSiganture','ImageWithSiganture_2') ?> 
+                                    <? $self->sub('ImageFancyboxWithSignature','image_2') ?> 
                                 </div>
                             </div>
                             <div class="img_double">
                                 <div class="img img_w2 img_h1">
-                                    <? $self->sub('ImageWithSiganture','ImageWithSiganture_3') ?> 
+                                    <? $self->sub('ImageFancyboxWithSignature','image_3') ?> 
                                 </div>
                                 <div class="img img_w1 img_h1">
-                                    <? $self->sub('ImageWithSiganture','ImageWithSiganture_4') ?> 
+                                    <? $self->sub('ImageFancyboxWithSignature','image_4') ?> 
                                 </div>
                                 <div class="img img_w1 img_h1">
-                                    <? $self->sub('ImageWithSiganture','ImageWithSiganture_5') ?>
+                                    <? $self->sub('ImageFancyboxWithSignature','image_5') ?>
                                 </div>
                                 <div class="img img_w2 img_h1">
-                                    <? $self->sub('ImageWithSiganture','ImageWithSiganture_6') ?>
+                                    <? $self->sub('ImageFancyboxWithSignature','image_6') ?>
                                 </div>                                
                             </div>                            
                             <div style="clear: both"></div>
@@ -685,12 +685,12 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_8')),
-                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_8')),
-                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_8')),
-                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_8')),
-                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_8')),
-					'ImageWithSiganture_6' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/6.jpg','fancybox_group' => 'group_8')),
+                    'image_1' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_8')),
+                    'image_2' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_8')),
+                    'image_3' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_8')),
+                    'image_4' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_8')),
+                    'image_5' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_8')),
+					'image_6' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/6.jpg','fancybox_group' => 'group_8')),
 				)              
             )
         );    
@@ -715,25 +715,25 @@ class Gallery extends Block {
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
                                 <div class="img_double">
                                     <div class="img img_w3 img_h2">
-                                        <? $self->sub('ImageWithSiganture','ImageWithSiganture_1') ?>
+                                        <? $self->sub('ImageFancyboxWithSignature','image_1') ?>
                                     </div>
                                 </div>
                                 <div class="img_side">
                                     <div class="img img_w2 img_h1">
-                                        <? $self->sub('ImageWithSiganture','ImageWithSiganture_2') ?>
+                                        <? $self->sub('ImageFancyboxWithSignature','image_2') ?>
                                     </div>
                                     <div class="img img_w1 img_h1">
-                                        <? $self->sub('ImageWithSiganture','ImageWithSiganture_3') ?>
+                                        <? $self->sub('ImageFancyboxWithSignature','image_3') ?>
                                     </div>
                                     <div class="img img_w1 img_h1">
-                                        <? $self->sub('ImageWithSiganture','ImageWithSiganture_4') ?>
+                                        <? $self->sub('ImageFancyboxWithSignature','image_4') ?>
                                     </div>                                    
                                 </div>
                                 <div class="img img_w2 img_h1">
-                                    <? $self->sub('ImageWithSiganture','ImageWithSiganture_5') ?>
+                                    <? $self->sub('ImageFancyboxWithSignature','image_5') ?>
                                 </div>
                                 <div class="img img_w3 img_h1">
-                                    <? $self->sub('ImageWithSiganture','ImageWithSiganture_6') ?>
+                                    <? $self->sub('ImageFancyboxWithSignature','image_6') ?>
                                 </div>
                                 <div style="clear: both"></div>
                             <? }) ?>
@@ -756,12 +756,12 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_9')),
-                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_9')),
-                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_9')),
-                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_9')),
-                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_9')),
-					'ImageWithSiganture_6' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/6.jpg','fancybox_group' => 'group_9')),
+                    'image_1' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_9')),
+                    'image_2' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_9')),
+                    'image_3' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_9')),
+                    'image_4' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_9')),
+                    'image_5' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_9')),
+					'image_6' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/6.jpg','fancybox_group' => 'group_9')),
 				)
             )
         );    
@@ -786,21 +786,21 @@ class Gallery extends Block {
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
                                 <div class="img_side">
                                     <div class="img img_w1 img_h2">
-                                        <? $self->sub('ImageWithSiganture','ImageWithSiganture_1') ?>
+                                        <? $self->sub('ImageFancyboxWithSignature','image_1') ?>
                                     </div>
                                 </div>
                                 <div class="img_double">
                                     <div class="img img_w2 img_h1">
-                                       <? $self->sub('ImageWithSiganture','ImageWithSiganture_2') ?>
+                                       <? $self->sub('ImageFancyboxWithSignature','image_2') ?>
                                     </div>
                                     <div class="img img_w1 img_h1">
-                                        <? $self->sub('ImageWithSiganture','ImageWithSiganture_3') ?>
+                                        <? $self->sub('ImageFancyboxWithSignature','image_3') ?>
                                     </div>
                                     <div class="img img_w1 img_h1">
-                                        <? $self->sub('ImageWithSiganture','ImageWithSiganture_4') ?>
+                                        <? $self->sub('ImageFancyboxWithSignature','image_4') ?>
                                     </div>
                                     <div class="img img_w2 img_h1">
-                                        <? $self->sub('ImageWithSiganture','ImageWithSiganture_5') ?>
+                                        <? $self->sub('ImageFancyboxWithSignature','image_5') ?>
                                     </div>
                                 </div>
                                 <div style="clear: both"></div>
@@ -824,17 +824,16 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'ImageWithSiganture_1' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_10')),
-                    'ImageWithSiganture_2' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_10')),
-                    'ImageWithSiganture_3' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_10')),
-                    'ImageWithSiganture_4' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_10')),
-                    'ImageWithSiganture_5' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_10')),
-					'ImageWithSiganture_6' => array_merge(ImageWithSiganture::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/6.jpg','fancybox_group' => 'group_10')),
+                    'image_1' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/1.jpg','url_image'=> 'view/editor/assets/gallery/1.jpg','fancybox_group' => 'group_10')),
+                    'image_2' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/2.jpg','url_image'=> 'view/editor/assets/gallery/2.jpg','fancybox_group' => 'group_10')),
+                    'image_3' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/3.jpg','url_image'=> 'view/editor/assets/gallery/3.jpg','fancybox_group' => 'group_10')),
+                    'image_4' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/4.jpg','url_image'=> 'view/editor/assets/gallery/4.jpg','fancybox_group' => 'group_10')),
+                    'image_5' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/5.jpg','fancybox_group' => 'group_10')),
+					'image_6' => array_merge(ImageFancyboxWithSignature::tpl_default(),array('url_image_preview'=> 'view/editor/assets/gallery/preview_image/5.jpg','url_image'=> 'view/editor/assets/gallery/6.jpg','fancybox_group' => 'group_10')),
 				)
             )
         );    
     }
-
 }
 
 Gallery::register();

@@ -379,12 +379,12 @@ $.fn.textBlockHeight = function () {
         
         var $this = $(this);
         var overlay = $this.find('.overlay');
-        var paddingBottomPx = overlay.css("paddingBottom");
-        var paddingBottom = parseInt(paddingBottomPx.slice(0,-2), 10);
         
 		$this.hover(
-            function(){
-                overlay.height(overlay.find(".img_text").height() + overlay.height() + paddingBottom);
+            function(){                
+                overlay.innerHeight(overlay.find(".img_text").height() + overlay.innerHeight() + (overlay.outerHeight() - overlay.height() - (overlay.outerHeight() - overlay.innerHeight()))/2);
+                console.log();
+                //console.log(overlay.innerHeight());
             },
             function(){
                 overlay.css("height","");

@@ -253,8 +253,8 @@ class Image extends Block {
     }
 }
 
-class ImageFancyboxWithoutTitle extends Block {
-    public $editor = "lp.imageWithSignature";
+class ImageFancyboxWithoutSignature extends Block {
+    public $editor = "lp.imageFancyboxWithoutSignature";
     public $internal = true;   
 	
 	function tpl_default() {
@@ -283,8 +283,8 @@ class ImageSrc extends Block {
     }
 }
 
-class ImageWithSiganture extends Block {
-    public $editor = "lp.imageWithSignature";
+class ImageFancyboxWithSignature extends Block {
+    public $editor = "lp.imageFancyboxWithSignature";
     public $internal = true;	
 	
 	function tpl_default() {
@@ -445,8 +445,8 @@ FormOrder::register();
 Icon::register();
 Image::register();
 ImageSrc::register();
-ImageFancyboxWithoutTitle::register();
-ImageWithSiganture::register();
+ImageFancyboxWithoutSignature::register();
+ImageFancyboxWithSignature::register();
 VideoStream::register();
 Countdown::register();
 Media::register();

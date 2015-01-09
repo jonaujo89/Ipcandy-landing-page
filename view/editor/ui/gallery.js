@@ -17,6 +17,17 @@ lp.gallery = lp.block.extendOptions({
 			this.variant.find(".img_desc").toggle(this.value.show_image_desc);
 		}    
 		if (this.value.variant == 2) {
+            this.variant.find(".img_text").unbind('keyup').on('keyup', function(){
+                
+                var overlay = jq(this).parent('.overlay');               
+                var overlayChildren = overlay.children();                
+                var heightsChildren = 0;
+                overlayChildren.each(function(indx, element){  
+                    heightsChildren = jq(element).outerHeight(true) + heightsChildren;
+                });
+                overlay.height(heightsChildren - (overlay.outerHeight() - overlay.innerHeight()));
+                
+            });
 			this.variant.find(".img_desc").toggle(this.value.show_image_desc);
 			this.variant.find(".item_list").toggleClass("hide_desc",!this.value.show_image_desc);
 			this.variant.find(".item_list").toggleClass("hide_overlay",!this.value.show_image_overlay);

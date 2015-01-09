@@ -1,4 +1,4 @@
-lp.imageWithSignature = lp.cover.extendOptions({
+lp.imageFancyboxWithSignature = lp.cover.extendOptions({
     init: function () {
         this.cover.addClass("lp-button");
     },

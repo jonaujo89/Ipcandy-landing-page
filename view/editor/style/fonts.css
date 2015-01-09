@@ -25,3 +25,44 @@
     src: url('fonts/texgyreadventor_regular.eot?#iefix') format('embedded-opentype'),
          url('fonts/texgyreadventor_regular.otf') format('opentype');
 }
+
+/* for Timer */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat_regular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/montserrat_regular.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BOLDfinger';
+    src: url('fonts/boldfinger.eot?#iefix') format('embedded-opentype'),
+         url('fonts/boldfinger.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Langdon';
+    src: url('fonts/langdon.eot?#iefix') format('embedded-opentype'),
+         url('fonts/langdon.otf') format('opentype');
+
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Mytupi';
+    src: url('fonts/mytupi_impact.eot?#iefix') format('embedded-opentype'),
+         url('fonts/mytupi_impact.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+
+}
