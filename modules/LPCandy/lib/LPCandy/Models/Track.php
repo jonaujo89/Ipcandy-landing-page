@@ -13,10 +13,16 @@ class Track extends \DoctrineExtensions\ActiveEntity\ActiveEntity
      * @GeneratedValue
      */
     public $id;
+    
     /** @Column(type="array") */
     public $data;
+    
     /** @Column(type="datetime") */
     public $date;
+    
+    /** @Column(length=128) */ 
+    public $ip;
+    
     /** @Column(type="integer") */ 
     public $status;
         /*
@@ -27,7 +33,16 @@ class Track extends \DoctrineExtensions\ActiveEntity\ActiveEntity
         */
     
     /**
-     * @ManyToOne(targetEntity="LPCandy\Models\User", inversedBy="identities")
+     * @ManyToOne(targetEntity="Page")
+     * @JoinColumn(name="page_id", referencedColumnName="id",onDelete="SET NULL")
+     */
+    public $page;
+    
+    /** @Column(length=1024) */ 
+    public $page_title;
+    
+    /**
+     * @ManyToOne(targetEntity="User", inversedBy="identities")
      * @JoinColumn(name="user_id", referencedColumnName="id")
      */
     public $user;    

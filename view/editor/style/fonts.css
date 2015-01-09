@@ -56,13 +56,3 @@
     font-style: normal;
 
 }
-
-@font-face {
-    font-family: 'Mytupi';
-    src: url('fonts/mytupi_impact.eot?#iefix') format('embedded-opentype'),
-         url('fonts/mytupi_impact.ttf') format('truetype');
-
-    font-weight: normal;
-    font-style: normal;
-
-}

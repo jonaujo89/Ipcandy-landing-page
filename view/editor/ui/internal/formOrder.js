@@ -55,47 +55,34 @@ lp.formControls.textarea = lp.formControls.text.extend({
 lp.formControls.checkbox = teacss.ui.composite.extendOptions({
     selectLabel: _t("Checkbox"),
     selectIcon: "fa fa-check-square-o",
-    default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
     tpl: function (val) {
-        var star_required, show_desc, checkbox;
-        if (val.required) {star_required = " <i>*</i>"};
+        var show_desc;
         if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
-        var ret = $('<div class="form_field">').append(
+        return $('<div class="form_field">').append(
             $('<label>').append(
-                $('<div class="field_title">').text(val.label).append(star_required),
                 show_desc,
-                checkbox = $('<div class="form_field_checkbox_values">'),
+                $('<div class="form_field_checkbox_value"><label><input class="form_field_checkbox" value="'+val.label+'" type="checkbox"/> '+val.label+'</label>'),
                 $('<div class="error">')
             )
         );
-        $.each(val.options.split("\n"),function(){     
-            checkbox.append($('<div class="form_field_checkbox_value"><label><input class="form_field_checkbox" value="'+this+'" type="checkbox"/> '+this+'</label>'));
-        });
-        return ret;
     }
 },{
     items: [
         _t("Field label"),
-        { type: "text", name: "label" },
-        _t("Field description"),
-        { type: "text", name: "desc" },
-        _t("Options"),
-        { type: "textarea", name: "options", height: 55, width: 448 },
-        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
+        { type: "text", name: "label" }
     ]
 });
 
 lp.formControls.select = teacss.ui.composite.extendOptions({
     selectLabel: _t("Select"),
     selectIcon: "fa fa-toggle-down",
-    default: { options: _t("\nВариант 1\nВариант 2\nВариант 3") },
+    default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
     tpl: function (val) {
-        var star_required, show_desc, select;
-        if (val.required) {star_required = " <i>*</i>"};
+        var show_desc, select;
         if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
         var ret = $('<div class="form_field">').append(
             $('<label>').append(
-                $('<div class="field_title">').text(val.label).append(star_required),
+                $('<div class="field_title">').text(val.label),
                 show_desc,
                 select =  $('<select class="form_field_select">'),
                 $('<div class="error">')
@@ -114,8 +101,7 @@ lp.formControls.select = teacss.ui.composite.extendOptions({
         _t("Field description"),
         { type: "text", name: "desc" },
         _t("Options"),
-        { type: "textarea", name: "options", height: 55, width: 448 },
-        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
+        { type: "textarea", name: "options", height: 55, width: 448 }
     ]
 });
 
@@ -124,19 +110,21 @@ lp.formControls.radio = teacss.ui.composite.extendOptions({
     selectIcon: "fa fa-dot-circle-o",
     default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
     tpl: function (val) {
-        var star_required, show_desc, radio;
-        if (val.required) {star_required = " <i>*</i>"};
+        var show_desc, radio, checked;
         if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
         var ret = $('<div class="form_field">').append(
             $('<label>').append(
-                $('<div class="field_title">').text(val.label).append(star_required),
+                $('<div class="field_title">').text(val.label),
                 show_desc,
                 radio = $('<div class="form_field_radio_values">'),
                 $('<div class="error">')
             )
         );
-        $.each(val.options.split("\n"),function(){     
-            radio.append($('<div class="form_field_radio_value"><label><input class="form_field_radio" value="'+this+'" type="radio"/> '+this+'</label>'));
+        $.each(val.options.split("\n"),function(index, element){
+            var form_field = radio.parents('div.form_field');
+            console.log($(form_field)[0]);
+            index == 0 ? checked = "checked" : "";
+            radio.append($('<div class="form_field_radio_value"><label><input name="radio_'+val.label+'" class="form_field_radio" value="'+this+'" type="radio" '+ checked +'/> '+this+'</label>'));
         });
         return ret;
     }

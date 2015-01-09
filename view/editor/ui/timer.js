@@ -3,8 +3,7 @@ lp.timer = lp.block.extendOptions({
         var countdown = this.element.find(".countdown");
         var jq = Component.previewFrame.window.$;
         if (jq) {
-            jq(countdown).lpCounty();
-            jq('form').formValidateSubmit(event);        
+            jq(countdown).lpCounty();      
         }
     },	
 	change: function(){         

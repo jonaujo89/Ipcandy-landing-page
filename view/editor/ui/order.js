@@ -1,10 +1,4 @@
 lp.order = lp.block.extendOptions({
-    init: function () {        
-        var jq = Component.previewFrame.window.$;
-        if(jq){
-            jq('form').formValidateSubmit(event);        
-        }        
-    },    
     change: function () {
         //if для того, чтобы выполнять изменения фона только при выбранной картинке
         if(this.value.background){

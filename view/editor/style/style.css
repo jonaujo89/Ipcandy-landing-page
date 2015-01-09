@@ -137,8 +137,9 @@
   margin: 30px 0 0 0;
 }
 
-.form .form_submit a.form_field_submit {
+.form .form_submit button.form_field_submit {
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
+  border: 0;
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
   user-select: none;
@@ -153,14 +154,14 @@
   width: 100%;
 }
 
-.form .form_submit a.form_field_submit div {
+.form .form_submit button.form_field_submit div {
   display: block;
   width: 100%;
 }
 
-.form .form_submit a.form_field_submit div span {
+.form .form_submit button.form_field_submit div span {
   display: inline-block;
-  padding: 12px 10px;
+  padding: 14px 10px 12px;
   text-align: center;
   width: 100%;
   border-radius: 3px;
@@ -174,21 +175,6 @@
   text-align: center;
 }
 
-/*.form .form_fields .form_field_select_wrap {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-}
-/*.form .form_data .form_fields .form_field_select_wrap:after {
-    color: #5B5B5B;
-    content: "▼";
-    font-size: 16px;
-    right: 0px;
-    top: 10px;
-    padding: 0px 0px 2px;
-    position: absolute;
-    pointer-events: none;
-}*/
 .form .form_fields select.form_field_select {
   display: inline-block;
   width: 100%;
@@ -204,8 +190,13 @@
   outline: 0px none;
 }
 
-.form .form_fields .form_field_radio_value label, .form .form_fields .form_field_checkbox_value label {
+.form .form_fields .form_field_radio_value label {
   padding-top: 0px;
+}
+
+.form .form_fields .form_field_checkbox_value label {
+  padding-top: 0px;
+  padding-bottom: 0;
 }
 
 .form .form_fields label .desc {
@@ -571,12 +562,12 @@
   font-family: Arial;
 }
 
-.order_1 a.form_field_submit {
+.order_1 button.form_field_submit {
   font-size: 16px;
   text-transform: uppercase;
 }
 
-.order_1 .form .form_submit a.form_field_submit div span {
+.order_1 .form .form_submit button.form_field_submit div span {
   display: block ;
   width: auto ;
   padding: 18px 10px 16px 10px ;
@@ -928,7 +919,7 @@
   text-align: left;
 }
 
-.order_4 .form .form_data .form_submit a.form_field_submit span {
+.order_4 .form .form_data .form_submit button.form_field_submit span {
   display: inline-block;
   width: auto;
   padding: 18px 10px 16px;
@@ -1098,7 +1089,7 @@
   font-size: 16px;
 }
 
-.order_5 .form .form_data .form_submit a.form_field_submit {
+.order_5 .form .form_data .form_submit button.form_field_submit {
   display: inline-block;
   width: 100%;
   padding: 1px 1px;
@@ -1116,7 +1107,7 @@
   -moz-user-select: none;
 }
 
-.order_5 .form .form_data .form_submit a.form_field_submit span {
+.order_5 .form .form_data .form_submit button.form_field_submit span {
   display: inline-block;
   width: auto;
   padding: 14px 20px 12px 20px;
@@ -1266,18 +1257,18 @@
   width: auto;
 }
 
-.order_ .form .form_submit a.form_field_submit div {
+.order_ .form .form_submit button.form_field_submit div {
   display: inline-block;
   width: auto;
 }
 
-.order_6 .form .form_data .form_submit a.form_field_submit {
+.order_6 .form .form_data .form_submit button.form_field_submit {
   text-transform: uppercase;
   width: auto;
   padding: 0px 20px;
 }
 
-.order_6 .form .form_submit a.form_field_submit div span {
+.order_6 .form .form_submit button.form_field_submit div span {
     padding: 18px 10px 16px;
 }
 
@@ -5632,7 +5623,7 @@
 }
 
 .timer_1 .container {
-  padding: 50px 0 60px 0;
+  padding: 50px 0;
   font-family: Arial;
 }
 
@@ -5666,7 +5657,7 @@
 }
 
 .timer_1 .countdown_wrap {
-  margin: 35px 18%;
+  margin: 35px 24%;
   position: relative;
 }
 
@@ -5698,11 +5689,12 @@
   font-size: 90px;
   font-weight: 400;
   border-left: 1px solid #E9E9E9;
+  line-height: 75%;
 }
 
 .timer_1 .countdown div span {
   font-size: 16px;
-  padding: 10px 0 5px;
+  padding: 15px 0 5px;
   display: inline-block;
   color: #B4B4B4;
   font-family: "Open Sans", Arial;
@@ -5744,7 +5736,7 @@
 }
 
 .timer_2 .countdown_wrap {
-  margin: 35px 10%;
+  margin: 35px 18%;
   position: relative;
   color: #FFFFFF;
 }
@@ -5770,7 +5762,7 @@
 .timer_2 .countdown .county-hours div, 
 .timer_2 .countdown .county-minutes div, 
 .timer_2 .countdown .county-seconds div {
-  font-size: 75px;
+  font-size: 65px;
   line-height: 110%;
   padding: 10px 0 0;
 }
@@ -5795,7 +5787,7 @@
   position: absolute;
   display: block;
   content: "";
-  top: 125px;
+  top: 115px;
   left: 50%;
   margin-left: -14px;
   width: 28px;
@@ -5899,14 +5891,14 @@
 }
 
 .timer_3 .title_2 {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin: 25px 0;
   text-align: center;
   color: #757575;
-  font-size: 24px;
-  font-family: "Open Sans Light", Arial;
+  font-size: 22px;
+  font-family: "Open Sans", Arial;
   font-weight: 600;
   text-transform: uppercase;
+  line-height: 140%;
 }
 
 .timer_3 .form {
@@ -5921,6 +5913,10 @@
   margin-top: 20px;
 }
 
+.timer_3 .form .form_data div.form_submit .form_field_submit{
+  text-transform: uppercase;
+}
+
 .timer_3 .form .form_bottom {
   margin-top: 15px;
   text-align: center;
@@ -5930,7 +5926,7 @@
 }
 
 .timer_3 .countdown_wrap {
-  margin: 35px 0px;
+  margin: 20px 0px;
   position: relative;
   color: #B5B5B5;
 }
@@ -5956,9 +5952,9 @@
 .timer_3 .countdown .county-hours div, 
 .timer_3 .countdown .county-minutes div, 
 .timer_3 .countdown .county-seconds div {
-  font-size: 100px;
-  line-height: 100%;
-  padding: 0 0 10px;
+  font-size: 80px;
+  line-height: 80%;
+  padding: 0 0 12px;
 }
 
 .timer_3 .countdown .county-days div, 
@@ -5970,11 +5966,11 @@
 .timer_3 .countdown div span {
   padding: 10px 0 5px;
   display: inline-block;
-  color: #757575;
-  font-size: 14px;
-  font-family: "Sans serif", Arial;
+  color: #A0A0A0;
+  font-size: 16px;
+  font-family: "Open Sans", Arial;
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: uppercase;  
 }
 
 .timer_4 .container {
@@ -6010,14 +6006,14 @@
 }
 
 .timer_4 .title_2 {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin: 25px 0;
   text-align: center;
   color: #FFFFFF;
-  font-size: 24px;
-  font-family: "Open Sans Light", Arial;
+  font-size: 20px;
+  font-family: "Open Sans", Arial;
   font-weight: 600;
   text-transform: uppercase;
+  line-height: 130%;
 }
 
 .timer_4 .form {
@@ -6032,6 +6028,10 @@
   margin-top: 20px;
 }
 
+.timer_4 .form .form_data div.form_submit .form_field_submit{
+  text-transform: uppercase;
+}
+
 .timer_4 .form .form_bottom {
   margin-top: 15px;
   text-align: center;
@@ -6041,7 +6041,7 @@
 }
 
 .timer_4 .countdown_wrap {
-  margin: 35px 0%;
+  margin: 25px auto;
   position: relative;
   color: #FFFFFF;
 }
@@ -6060,7 +6060,7 @@
   width: 25%;
   text-align: center;
   position: relative;
-  font-family: "Mytupi";
+  font-family: "Langdon";
 }
 
 .timer_4 .countdown .county-seconds div {
@@ -6071,9 +6071,10 @@
 .timer_4 .countdown .county-hours div, 
 .timer_4 .countdown .county-minutes div, 
 .timer_4 .countdown .county-seconds div {
-  font-size: 110px;
-  padding: 0px 0 10px;
+  font-size: 80px;
+  padding: 0px 0 12px;
   border-left: 1px solid #E9E9E9;
+  line-height: 80%;
 }
 
 .timer_4 .countdown div span {
@@ -6082,6 +6083,5 @@
   display: inline-block;
   color: #A0A0A0;
   font-family: "Open Sans", Arial;
-  font-weight: 800;
   text-transform: uppercase;
 }

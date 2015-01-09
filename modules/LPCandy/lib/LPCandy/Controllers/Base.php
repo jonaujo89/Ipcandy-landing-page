@@ -17,4 +17,9 @@ class Base extends \Bingo\Controller {
     function needUser() {
         if ($needUser && !$this->user) redirect('login');
     }
+    
+    function getPage() {
+        if (isset($_GET['p'])) $page = (int)$_GET['p']; else $page = 1;if ($page<=1) $page = 1;
+        return $page;
+    }    
 }

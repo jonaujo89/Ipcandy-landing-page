@@ -175,202 +175,67 @@ $.fn.lpBxSlider = function () {
     });
 };
 
-$.fn.formValidateSubmit = function () {
+function initForms() {
     
-    $(this).find('.form_field_submit').unbind("click").on('click', function(event){ 
+    $(document).on("click",".form_field_submit",function(e){
+        e.preventDefault();
+        $(this).parents("form").submit();
+    });
+    
+    $(document).on('submit','form',function(event){ 
         
         event.preventDefault();     
     
         var data = {}; 
-        var form = $(event.target).parents("form");
+        var $form = $(this);
+        var validated = true;
+        
+        $form.find(".error_input").removeClass("error_input");
+        $form.find(".error").text("");
 
-        form.find(':input').on('keydown', function(){
-            $(this).removeClass("error_input").next(".error").text("");
-        });
-
-        form.find(':checkbox').on('change', function(){        
-            $(this).parents('.form_field_checkbox_values').removeClass("error_input").next(".error").text("");
-        });
-
-        form.find(':radio').on('change', function(){        
-            $(this).parents('.form_field_radio_values').removeClass("error_input").next(".error").text("");
-        });
-
-        form.find('select').on('change', function(){        
-            $(this).removeClass("error_input").next(".error").text("");
-        });
-
-        form.each(function(){
-
-            var errorArray = [];   
-            var values = {}; 
-            
-            var input = form.find('.form_field_text, .form_field_textarea, .form_field_file');
-            input.each(function(){            
-                var $this = $(this);            
-                var $value = $this.val();            
-                var field_title = $this.siblings(".field_title");
-                var required_input = field_title.find("i").text();
-
-                if(required_input == '*'){                
-                    if (!$value){
-                        $this.addClass("error_input").next(".error").text("Обязательное поле!");
-                        errorArray.push("error");
-                    } else {
-                        $this.removeClass("error_input").next(".error").text("");                    
-                    }
+        // перебираем поля формы
+        $form.find(".form_field").each(function(){
+            var $field = $(this);
+            var required = $field.find(".field_title i").length;
+            // если поле обязательное и нет значения, то показать ошибку и валидация не прошла
+            if (required) {
+                if (!$field.find("input[type=text],textarea").val()) {
+                    // показать ошибку
+                    $field.addClass("error_input");
+                    $field.find(".error").text("Обязательное поле");
+                    validated = false;
                 }
-
-                var title = field_title.text();
-                var name = title.replace("\*", "").trim() || 'Текстовое поле';
-                
-                var val = {};                
-               
-                var symbol;
-                if($this[0].type == 'text'){
-                    symbol = 'fa fa-font';
-                    val.type ='текст';
-                }
-                if($this[0].type == 'textarea'){
-                    symbol = 'fa fa-bars';
-                    val.type ='текстовое поле';
-                }
-                if($this[0].type == 'file'){
-                    symbol = 'fa fa-paperclip';
-                    val.type ='файл';
-                }
-
-                val.symbol = symbol;
-                val.value = [$value];
-                values[name] = val;                
-            });        
-
-
-            var checkbox_group_all = form.find('.form_field_checkbox_values');
-            checkbox_group_all.each(function(index_check_group, checkbox_group){           
-
-                var $checkbox_group = $(checkbox_group);
-                var required_checkbox = $checkbox_group.siblings(".field_title").find("i").text();
-                var checkbox_checked = $checkbox_group.find(':checkbox').is(':checked'); 
-                if(required_checkbox == '*'){                
-                    if(checkbox_checked){
-                        $checkbox_group.removeClass("error_input").next(".error").text("");                    
-                    } else {
-                        $checkbox_group.addClass("error_input").next(".error").text("Обязательное поле!");
-                        errorArray.push("error");
-                    }
-                }      
-                
-                
-                var checked = [];
-                var check = $checkbox_group.find(':checkbox');
-                check.each(function(index_check, checkbox){
-                    if($(checkbox).is(':checked')){
-                        checked.push($(checkbox).val());
-                    }                
-                });
-
-                var title = $checkbox_group.siblings(".field_title").text();
-                var name = title.replace("\*", "").trim() || 'Флажки';
-                
-                var val = {};
-                val.type ='флажки';
-                val.symbol ='fa fa-check-square-o';
-                val.value = checked;                
-                values[name] = val; 
-                
-            });        
-
-
-            var radio_group_all = form.find('.form_field_radio_values');
-            radio_group_all.each(function(index_radio_group, radio_group){
-                var $radio_group = $(radio_group);
-                var required_radio = $radio_group.siblings(".field_title").find("i").text();
-                var radio_checked = $radio_group.find(':radio').is(':checked'); 
-                if(required_radio == '*'){                           
-                    if(radio_checked){
-                        $(this).removeClass("error_input").next(".error").text("");
-                    } else {
-                        $(this).addClass("error_input").next(".error").text("Обязательное поле!");
-                        errorArray.push("error");
-                    }
-                }
-                
-                var checked = [];
-                var radio_all = $radio_group.find(':radio');
-                radio_all.each(function(index_radio, radio){
-                    if($(radio).is(':checked')){
-                        checked.push($(radio).val());
-                    }                
-                });
-
-                var title = $radio_group.siblings(".field_title").text();
-                var name = title.replace("\*", "").trim() || 'Переключатель';
-                
-                var val = {};
-                val.type ='переключатель';
-                val.symbol ='fa fa-dot-circle-o';
-                val.value = checked;                
-                values[name] = val;
-            });        
-
-
-            var select_group_all = form.find('.form_field_select');
-            select_group_all.each(function(index_select_group, select_group){
-                var $select_group = $(select_group);
-                var required_select = $select_group.siblings(".field_title").find("i").text();
-                var selected = $select_group.find('option').filter(':selected');
-                if(required_select == '*'){
-                    var $this = $(this);
-                    if(selected.val() != ""){
-                        $this.removeClass("error_input").next(".error").text("");
-                    } else {
-                        $this.addClass("error_input").next(".error").text("Обязательное поле!");
-                        errorArray.push("error");
-                    }
-                }
-
-                var title = $select_group.siblings(".field_title").text();
-                var name = title.replace("\*", "").trim() || 'Селектор';
-                
-                var val = {};
-                val.type ='селектор';
-                val.symbol ='fa fa-toggle-down';
-                val.value = [selected.val()];
-                values[name] = val;          
-            });        
-
-            
-            if (errorArray.indexOf("error") == -1) {
-                $.getJSON("http://jsonip.com?callback=?", function(callbackData) {
-
-                    var baseUrl = window.parent.base_url; 
-                    var pageId = window.parent.page_id;
-
-                    var form_done = form.find('.form_done').html();
-
-                    data.pageId = pageId;
-                    data.ipClient = callbackData.ip;
-                    data.eventTimeStamp = event.timeStamp;
-                    data.values = values;                
-
-                    var dataStringify = JSON.stringify(data);
-
-                    $.ajax({
-                        url: baseUrl + "/track/" + pageId,
-                        type: "POST",
-                        data: "form="+dataStringify,
-                        success: function(data) {
-                            console.log(data);
-                            window.alertify.genericDialog(form_done);
-                            form.find(':input').val("");
-                            form.find(':radio, :checkbox').prop('checked', false);
-                        }
-                    });
-
-                });
             }
-        });        
+        });
+        
+        // проверяем общую валидацию 
+        if (!validated) return false;
+        
+        var values = [];
+        
+        // собираем данные
+        $form.find(".form_field").each(function(){
+            var $field = $(this);
+            values.push({
+                label: $field.find(".field_title").clone().children().remove().end().text(),
+                value: $field.find("input[type=text],input[type=checkbox],input[type=radio]:checked,textarea,select").val()
+            });
+        });
+        
+        // отправляем данные
+        $.ajax({
+            url: base_url + "/track/" + page_id,
+            type: "POST",
+            data: {form:JSON.stringify(values)},
+            success: function(data) {
+                alertify.genericDialog($form.find(".form_done")[0]);
+                $form.find(':input').val("");
+                $form.find(':checkbox,:radio').prop('checked', false);
+                $form.find(".form_field_radio_value:first-child input").prop("checked",true);
+            }
+        });
+        
+        return false;
     });
 };
 
@@ -394,7 +259,6 @@ $.fn.textBlockHeight = function () {
 };
 
 $(function() {    
-    
     $(".gallery_2 .item_list .item_block .item").textBlockHeight();
     $(".countdown").lpCounty();	
 	$(".fancybox").lpFancybox();
@@ -402,7 +266,6 @@ $(function() {
     $(".masonry:visible").lpMasonry();
     $(".slider [data-name=items]").lpBxSlider();
     $(".map").mapYandex();
-        
-    $('form').formValidateSubmit();
-   
+    
+    initForms();
 });

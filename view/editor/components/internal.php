@@ -45,7 +45,7 @@ class Logo extends Block {
     <?}
 }
 
-Class FormButton extends Block {
+class FormButton extends Block {
     public $editor = "lp.formButton";
     public $internal = true;    
     
@@ -108,10 +108,7 @@ class FormOrder extends Block {
                         <div class="form_field">                            
                             <? if ($field['type']=='text'): ?>
                                 <label>
-                                    <div class="field_title">
-                                        <?= $field['label']?>
-                                        <?= ($field['required']) ? "<i>*</i>" : "" ?>
-                                    </div>                                    
+                                    <div class="field_title"><?= $field['label']?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>                                    
                                     <? If ($field['desc']): ?>
                                         <div class="desc">
                                             <?=$field['desc']?>
@@ -120,14 +117,31 @@ class FormOrder extends Block {
                                     <input type="text" class="form_field_text">
                                     <div class="error"></div>
                                 </label>
+                            <? elseif ($field['type']=='file'): ?>
+                                 <label>
+                                    <div class="field_title"><?= $field['label']?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
+                                    <? If ($field['desc']): ?>
+                                        <div class="desc">
+                                            <?=$field['desc']?>
+                                        </div>
+                                    <? endif ?>
+                                    <input class="form_field_file" multiple="" type="file">
+                                    <div class="error"></div>
+                                </label>
+                            <? elseif ($field['type']=='textarea'): ?>
+                                 <label>
+                                    <div class="field_title"><?= $field['label']?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
+                                    <? If ($field['desc']): ?>
+                                        <div class="desc">
+                                            <?=$field['desc']?>
+                                        </div>
+                                    <? endif ?>
+                                    <textarea class="form_field_textarea" rows="3"></textarea>
+                                    <div class="error"></div>
+                                </label>
                             <? elseif ($field['type']=='select'): ?>
                                  <label>
-                                    <div class="field_title">
-                                        <?=$field['label']?>
-                                        <? if ($field['required']): ?>
-                                            <i>*</i>
-                                        <? endif ?>
-                                    </div>
+                                    <div class="field_title"><?= $field['label']?></div>
                                     <? If ($field['desc']): ?>
                                         <div class="desc">
                                             <?=$field['desc']?>
@@ -139,38 +153,13 @@ class FormOrder extends Block {
                                         <? endforeach ?>
                                     </select>
                                     <div class="error"></div>
-                                </label>
-                            <? elseif ($field['type']=='textarea'): ?>
-                                 <label>
-                                    <div class="field_title">
-                                        <?=$field['label']?>
-                                        <?= ($field['required']) ? "<i>*</i>" : "" ?>
-                                    </div>
-                                    <? If ($field['desc']): ?>
-                                        <div class="desc">
-                                            <?=$field['desc']?>
-                                        </div>
-                                    <? endif ?>
-                                    <textarea class="form_field_textarea" rows="3"></textarea>
-                                    <div class="error"></div>
-                                </label>
+                                </label>                            
                             <? elseif ($field['type']=='checkbox'): ?>
                                 <label>
-                                    <div class="field_title">
-                                        <?=$field['label']?>
-                                        <?= ($field['required']) ? "<i>*</i>" : "" ?>
-                                    </div>
-                                    <div class="desc" <?= !$field['desc'] ? "style='display:none'": ""?>>
-                                        <?=$field['desc']?>
-                                    </div>
-                                    <div class="form_field_checkbox_values">
-                                        <? foreach (explode("\n",$field['options']) as $key=>$option): ?>
-                                            <div class="form_field_checkbox_value">
-                                                <label>
-                                                    <input class="form_field_checkbox" value="<?=$option?>" type="checkbox" /> <?=$option?>
-                                                </label>
-                                            </div>
-                                        <? endforeach ?>
+                                    <div class="form_field_checkbox_value">
+                                        <label>
+                                            <input class="form_field_checkbox" value="<?=$field['label']?>" type="checkbox" /> <?=$field['label']?>
+                                        </label>
                                     </div>
                                     <div class="error"></div>
                                 </label>
@@ -178,7 +167,6 @@ class FormOrder extends Block {
                                 <label>
                                     <div class="field_title">
                                         <?=$field['label']?>
-                                        <?= ($field['required']) ? "<i>*</i>" : "" ?>
                                     </div>
                                     <? If ($field['desc']): ?>
                                         <div class="desc">
@@ -189,37 +177,23 @@ class FormOrder extends Block {
                                         <? foreach (explode("\n",$field['options']) as $key=>$option): ?>
                                             <div class="form_field_radio_value">
                                                 <label>
-                                                    <input class="form_field_radio" value="<?=$option?>" type="radio" /> <?=$option?>
+                                                    <input class="form_field_radio" name="radio_<?=$field['label']?>" value="<?=$option?>" type="radio" /> <?=$option?>
                                                 </label>
                                             </div>
                                         <? endforeach ?>
                                     </div>
                                     <div class="error"></div>
-                                </label>
-                            <? elseif ($field['type']=='file'): ?>
-                                 <label>
-                                    <div class="field_title">
-                                        <?=$field['label']?>
-                                        <?= ($field['required']) ? "<i>*</i>" : "" ?>
-                                    </div>
-                                    <? If ($field['desc']): ?>
-                                        <div class="desc">
-                                            <?=$field['desc']?>
-                                        </div>
-                                    <? endif ?>
-                                    <input class="form_field_file" multiple="" type="file">
-                                    <div class="error"></div>
-                                </label>
+                                </label>                            
                             <? endif ?>                            
                         </div>
                     <? endforeach ?>
                 </div>
                 <div class="form_submit">
-                    <a class="form_field_submit <?=$val['button']['color']?>">
+                    <button type="submit" class="form_field_submit <?=$val['button']['color']?>">
                         <div>
                             <span><?=$val['button']['label']?></span>
                         </div>
-                    </a>
+                    </button>
                 </div>
                 <div style="display:none">
                     <div class="form_done">

@@ -33,7 +33,7 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
             }
         }
         
-        $ru_path = $dir."/lpcandy_ru.js";
+        $ru_path = $dir."/editor_ru.js";
         $translated = @file_get_contents($ru_path);
         $translated = $translated ? json_decode(str_replace("exports = ","",$translated),true) : array();
         

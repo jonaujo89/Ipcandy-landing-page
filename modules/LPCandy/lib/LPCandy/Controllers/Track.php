@@ -9,33 +9,36 @@ class Track extends Base {
     
     function track_list() {
         $top = array();
-        $list = \LPCandy\Models\Track::findBy(array('user'=>$this->user));
+        
+        $filter_form = new \CMS\FilterForm;
+        $filter_form->text('ip',false);
+        
+        $this->data['filter_form'] = $filter_form;
+        
+        $query = \LPCandy\Models\Track::findByQuery(array('user'=>$this->user),'id DESC');
         
         $this->data['fields'] = array(
             'id' => _t('№'),
+            'status' => _t('status'),
             'date' => _t('date'),
+            'ip' => _t('ip'),
             'data' => _t('data')
         );
         
         $this->data['field_filters']['data'] = function ($val) {
-            
-            $data.= "<div>Идентификатор  ".$val['pageId']."</div>";
-            $data.= "<div>IP адресс клиента  ".$val['ipClient']."</div><br>";
-
-            $data.= "<div><u>Данные заявки</u></div>";            
             if(!$val['values']) return "Данных нет";
-            foreach($val['values'] as $field_name => $values){                
-                $data.= "<p style='text-indent: 0.5em; margin :0'> <b>".$field_name."</b> (".$values['type'].")</p>";
-                    foreach($values['value'] as $value){
-                        if(empty($value)) $value = '<i>- пусто -</i>';
-                        $data.= "<p style='text-indent: 1.0em; margin :0'><span class='".$values['symbol']."'></span> ".$value."</p>";
-                    }                    
+            foreach($val['values'] as $one) {            
+                $sub = $one['value'];
+                if (is_bool($sub)) $sub = $sub ? 'true' : 'false';
+                $data.="<b>".$one['label'].":</b> ".$sub."<br>";
             }
-            
             return $data;
         };
         
-        $this->data['list'] = $list;
+        $pagination = new \Bingo\Pagination(5,$this->getPage(),false,false,$query);
+        
+        $this->data['list'] = $pagination->result();
+        $this->data['pagination'] = $pagination->get();
         $this->data['title'] = _t("Tracking");
         $this->view('lpcandy/base-list');
     }
