@@ -4,6 +4,9 @@ class LPCandy extends \Bingo\Module {
     function __construct() {
         $this->addModelPath(dirname(__FILE__).'/LPCandy/Models');
         
+        bingo_domain_register('lpcandy',dirname(__FILE__)."/../locale");
+        bingo_domain('lpcandy');
+        
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\User','id'=>false),
             array('action'=>'(login|logout|profile)'));
         $this->connect('files/browse.php',array('controller'=>'\LPCandy\Controllers\User','action'=>'files'));
@@ -13,7 +16,7 @@ class LPCandy extends \Bingo\Module {
             array('action'=>'(page-list|page-delete|page-edit|page-create|page-design|page-ajax|page-child-edit)'));
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Track','id'=>false),
-            array('action'=>'(track-list)'));
+            array('action'=>'(track-list|track-delete)'));
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Front','id'=>false),
             array('action'=>'(page-view|track)'));

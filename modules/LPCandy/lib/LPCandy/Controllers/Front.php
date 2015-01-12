@@ -46,7 +46,7 @@ class Front extends Base {
         $track->page_title = $page->title;
         $track->data = array('values'=>json_decode($_POST['form'],true));
         $track->ip = $_SERVER['REMOTE_ADDR'];
-        $track->status = 0;
+        $track->status = "новая";
         $track->save();    
         echo 'ok';
     }

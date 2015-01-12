@@ -1,4 +1,4 @@
-<? include partial('layout') ?>
+<? include partial('lpcandy/layout') ?>
 <? startblock('content') ?>
 
     <link href="/~boomyjee/teacss-ui/lib/teacss-ui.css" rel="stylesheet" type="text/css">

@@ -60,15 +60,15 @@ class FormButton extends Block {
             'form' => array(
                 'fields' => array(
                     array(
-                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
+                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
                         'name' => 'name', 'type' => 'text', 
                     ),
                     array(
-                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
+                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
                         'name' => 'phone', 'type' => 'text', 
                     ),
                     array(
-                        'label' => 'Электронная почта:', 'sub_label' => '', 'required' => false,
+                        'label' => 'Электронная почта', 'sub_label' => '', 'required' => false,
                         'name' => 'email', 'type' => 'text', 
                     ),
                 ),
@@ -108,10 +108,10 @@ class FormOrder extends Block {
                         <div class="form_field">                            
                             <? if ($field['type']=='text'): ?>
                                 <label>
-                                    <div class="field_title"><?= $field['label']?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>                                    
+                                    <div class="field_title"><?= htmlspecialchars($field['label'])?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>                                    
                                     <? If ($field['desc']): ?>
                                         <div class="desc">
-                                            <?=$field['desc']?>
+                                            <?= htmlspecialchars($field['desc'])?>
                                         </div>
                                     <? endif ?>
                                     <input type="text" class="form_field_text">
@@ -119,10 +119,10 @@ class FormOrder extends Block {
                                 </label>
                             <? elseif ($field['type']=='file'): ?>
                                  <label>
-                                    <div class="field_title"><?= $field['label']?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
+                                    <div class="field_title"><?= htmlspecialchars($field['label'])?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
                                     <? If ($field['desc']): ?>
                                         <div class="desc">
-                                            <?=$field['desc']?>
+                                            <?= htmlspecialchars($field['desc'])?>
                                         </div>
                                     <? endif ?>
                                     <input class="form_field_file" multiple="" type="file">
@@ -130,10 +130,10 @@ class FormOrder extends Block {
                                 </label>
                             <? elseif ($field['type']=='textarea'): ?>
                                  <label>
-                                    <div class="field_title"><?= $field['label']?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
+                                    <div class="field_title"><?= htmlspecialchars($field['label'])?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
                                     <? If ($field['desc']): ?>
                                         <div class="desc">
-                                            <?=$field['desc']?>
+                                            <?= htmlspecialchars($field['desc'])?>
                                         </div>
                                     <? endif ?>
                                     <textarea class="form_field_textarea" rows="3"></textarea>
@@ -141,48 +141,41 @@ class FormOrder extends Block {
                                 </label>
                             <? elseif ($field['type']=='select'): ?>
                                  <label>
-                                    <div class="field_title"><?= $field['label']?></div>
-                                    <? If ($field['desc']): ?>
+                                    <div class="field_title"><?= htmlspecialchars($field['label'])?></div>
+                                    <? if ($field['desc']): ?>
                                         <div class="desc">
-                                            <?=$field['desc']?>
+                                            <?= htmlspecialchars($field['desc'])?>
                                         </div>
                                     <? endif ?>
                                     <select class='form_field_select'>
                                         <? foreach (explode("\n",$field['options']) as $key=>$option): ?>
-                                            <option><?=$option?></option>
+                                            <option><?=htmlspecialchars($option)?></option>
                                         <? endforeach ?>
                                     </select>
-                                    <div class="error"></div>
                                 </label>                            
                             <? elseif ($field['type']=='checkbox'): ?>
                                 <label>
-                                    <div class="form_field_checkbox_value">
-                                        <label>
-                                            <input class="form_field_checkbox" value="<?=$field['label']?>" type="checkbox" /> <?=$field['label']?>
-                                        </label>
-                                    </div>
-                                    <div class="error"></div>
+                                    <input class="form_field_checkbox" value="<?= htmlspecialchars($field['label'])?>" type="checkbox" /><?= htmlspecialchars($field['label'])?>
                                 </label>
                             <? elseif ($field['type']=='radio'): ?>
                                 <label>
                                     <div class="field_title">
-                                        <?=$field['label']?>
+                                        <?= htmlspecialchars($field['label'])?>
                                     </div>
-                                    <? If ($field['desc']): ?>
+                                    <? if ($field['desc']): ?>
                                         <div class="desc">
-                                            <?=$field['desc']?>
+                                            <?= htmlspecialchars($field['desc'])?>
                                         </div>
                                     <? endif ?>
                                     <div class="form_field_radio_values">
-                                        <? foreach (explode("\n",$field['options']) as $key=>$option): ?>
+                                        <? foreach (explode("\n",$field['options']) as $key=>$option): ?>                                            
                                             <div class="form_field_radio_value">
                                                 <label>
-                                                    <input class="form_field_radio" name="radio_<?=$field['label']?>" value="<?=$option?>" type="radio" /> <?=$option?>
+                                                    <input class="form_field_radio" name="<?= $field['field']?>" value="<?= htmlspecialchars($option)?>" type="radio" <?= $key==0? "checked" : "" ?>/><?= htmlspecialchars($option)?>
                                                 </label>
                                             </div>
                                         <? endforeach ?>
                                     </div>
-                                    <div class="error"></div>
                                 </label>                            
                             <? endif ?>                            
                         </div>

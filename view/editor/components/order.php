@@ -55,11 +55,11 @@ class Order extends Block {
             'form' => array(
                 'fields' => array(
                     array(
-                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
+                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
                         'name' => 'name', 'type' => 'text', 
                     ),
                     array(
-                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
+                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
                         'name' => 'phone', 'type' => 'text', 
                     )
                 ),
@@ -206,11 +206,11 @@ class Order extends Block {
             'form' => array(
                 'fields' => array(
                     array(
-                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
+                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
                         'name' => 'name', 'type' => 'text', 
                     ),
                     array(
-                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
+                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
                         'name' => 'phone', 'type' => 'text', 
                     )
                 ),
@@ -294,11 +294,11 @@ class Order extends Block {
             'form' => array(
                 'fields' => array(
                     array(
-                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
+                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
                         'name' => 'name', 'type' => 'text', 
                     ),
                     array(
-                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
+                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
                         'name' => 'phone', 'type' => 'text', 
                     )
                 ),
@@ -363,15 +363,15 @@ class Order extends Block {
             'form' => array(
                 'fields' => array(
                     array(
-                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
+                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
                         'name' => 'name', 'type' => 'text', 
                     ),
                     array(
-                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
+                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
                         'name' => 'phone', 'type' => 'text', 
                     ),
                     array(
-                        'label' => 'Электронная почта:', 'sub_label' => '', 'required' => false,
+                        'label' => 'Электронная почта', 'sub_label' => '', 'required' => false,
                         'name' => 'email', 'type' => 'text', 
                     )
                 ),

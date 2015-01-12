@@ -1,4 +1,4 @@
-<? include partial('layout') ?>
+<? include partial('lpcandy/layout') ?>
 <? startblock('content') ?>
     <? if (!isset($heading) || $heading): ?>
     <h3 class='page-title'>

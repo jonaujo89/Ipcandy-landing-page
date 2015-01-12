@@ -1,11 +1,15 @@
 lp.formControls = {};
-    
+  
+function htmlSpec( elem ) {
+    return elem.value.replace( /\r?\n/g, "\r\n" );
+}
+
 lp.formControls.text = teacss.ui.composite.extendOptions({
     selectLabel: _t("Text"),
     selectIcon: "fa fa-font",
     tpl: function (val) {
         var star_required, show_desc;
-        if (val.required) {star_required = " <i>*</i>"};
+        if (val.required) {star_required = "<i>*</i>"};
         if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
         return $('<div class="form_field">').append(
             $('<label>').append(
@@ -31,7 +35,7 @@ lp.formControls.textarea = lp.formControls.text.extend({
     selectIcon: "fa fa-bars",
     tpl: function (val) {
         var star_required, show_desc;
-        if (val.required) {star_required = " <i>*</i>"};
+        if (val.required) {star_required = "<i>*</i>"};
         if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
         return $('<div class="form_field">').append(
             $('<label>').append(
@@ -56,15 +60,9 @@ lp.formControls.checkbox = teacss.ui.composite.extendOptions({
     selectLabel: _t("Checkbox"),
     selectIcon: "fa fa-check-square-o",
     tpl: function (val) {
-        var show_desc;
-        if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
-        return $('<div class="form_field">').append(
-            $('<label>').append(
-                show_desc,
-                $('<div class="form_field_checkbox_value"><label><input class="form_field_checkbox" value="'+val.label+'" type="checkbox"/> '+val.label+'</label>'),
-                $('<div class="error">')
-            )
-        );
+        return $("<div class='form_field'>").append(
+            $('<label>').text(val.label).prepend('<input class="form_field_checkbox" type="checkbox" value="'+val.label+'">')
+        )
     }
 },{
     items: [
@@ -84,8 +82,7 @@ lp.formControls.select = teacss.ui.composite.extendOptions({
             $('<label>').append(
                 $('<div class="field_title">').text(val.label),
                 show_desc,
-                select =  $('<select class="form_field_select">'),
-                $('<div class="error">')
+                select =  $('<select class="form_field_select">')
             )
         );
         $.each(val.options.split("\n"),function(){
@@ -109,23 +106,26 @@ lp.formControls.radio = teacss.ui.composite.extendOptions({
     selectLabel: _t("Radio"),
     selectIcon: "fa fa-dot-circle-o",
     default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
-    tpl: function (val) {
-        var show_desc, radio, checked;
+    tpl: function (val, field) {
+        var show_desc, radio;
         if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
         var ret = $('<div class="form_field">').append(
             $('<label>').append(
                 $('<div class="field_title">').text(val.label),
                 show_desc,
-                radio = $('<div class="form_field_radio_values">'),
-                $('<div class="error">')
+                radio = $('<div class="form_field_radio_values">')
             )
         );
-        $.each(val.options.split("\n"),function(index, element){
-            var form_field = radio.parents('div.form_field');
-            console.log($(form_field)[0]);
-            index == 0 ? checked = "checked" : "";
-            radio.append($('<div class="form_field_radio_value"><label><input name="radio_'+val.label+'" class="form_field_radio" value="'+this+'" type="radio" '+ checked +'/> '+this+'</label>'));
+    
+        $.each(val.options.split("\n"),function(){            
+            radio.append(
+                $('<div class="form_field_radio_value">').append(
+                    $('<label>').text(this).prepend('<input name="'+field+'" class="form_field_radio" type="radio" value="'+this+'"/>')
+                )
+            )            
         });
+        $(radio.find("input")[0]).prop("checked",true);
+        val.field = field;
         return ret;
     }
 },{
@@ -135,8 +135,7 @@ lp.formControls.radio = teacss.ui.composite.extendOptions({
         _t("Field description"),
         { type: "text", name: "desc" },
         _t("Options"),
-        { type: "textarea", name: "options", height: 55, width: 448 },
-        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
+        { type: "textarea", name: "options", height: 55, width: 448 }
     ]
 });
 
@@ -145,7 +144,7 @@ lp.formControls.file = teacss.ui.composite.extendOptions({
     selectIcon: "fa fa-paperclip",
     tpl: function (val) {
         var star_required, show_desc;
-        if (val.required) {star_required = " <i>*</i>"};
+        if (val.required) {star_required = "<i>*</i>"};
         if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
         return $('<div class="form_field">').append(
             $('<label>').append(
@@ -173,7 +172,7 @@ lp.formOrder = lp.cover.extendOptions({
         var fields_div = this.element.find(".form_fields").empty();
         $.each(val.fields,function(f,field){
             var sub = lp.formControls[field.type];
-            fields_div.append(sub.tpl(field));
+            fields_div.append(sub.tpl(field,'field_'+f));
         });
         
         this.element.find(".form_submit .form_field_submit")

@@ -1,4 +1,5 @@
-<? include partial('layout') ?>
+<? bingo_domain('lpcandy') ?>
+<? include partial('lpcandy/layout') ?>
 
 <? startblock('content') ?>
 

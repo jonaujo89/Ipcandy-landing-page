@@ -1,4 +1,4 @@
-<? include partial('layout') ?>
+<? include partial('lpcandy/layout') ?>
 <? startblock('content') ?>
     <? if (!isset($heading) || $heading): ?>
     <h3 class='page-title'>
@@ -16,5 +16,6 @@
         <? endif ?>
     </h3>
     <? endif ?>
+    <? bingo_domain('cms') ?>
     <? include(BINGO_PATH.'/template/admin/cms/list.php') ?>
 <? endblock() ?>

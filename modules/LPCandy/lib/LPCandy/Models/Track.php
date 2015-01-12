@@ -23,15 +23,8 @@ class Track extends \DoctrineExtensions\ActiveEntity\ActiveEntity
     /** @Column(length=128) */ 
     public $ip;
     
-    /** @Column(type="integer") */ 
-    public $status;
-        /*
-        0 - new order
-        1 - order to work
-        2 - order is complete
-        3 - order is canceled
-        */
-    
+    /** @Column(length=1024) */ 
+    public $status;   
     /**
      * @ManyToOne(targetEntity="Page")
      * @JoinColumn(name="page_id", referencedColumnName="id",onDelete="SET NULL")

@@ -175,6 +175,18 @@ $.fn.lpBxSlider = function () {
     });
 };
 
+function htmlentities(s){	
+    // Convert all applicable characters to HTML entities
+	// 
+	// +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+
+	var div = document.createElement('div');
+	var text = document.createTextNode(s);
+	div.appendChild(text);
+	return div.innerHTML;
+}
+
+
 function initForms() {
     
     $(document).on("click",".form_field_submit",function(e){
@@ -199,9 +211,9 @@ function initForms() {
             var required = $field.find(".field_title i").length;
             // если поле обязательное и нет значения, то показать ошибку и валидация не прошла
             if (required) {
-                if (!$field.find("input[type=text],textarea").val()) {
+                if (!$field.find("input[type=text], input[type=file], textarea").val()) {
                     // показать ошибку
-                    $field.addClass("error_input");
+                    $field.find("input, textarea").addClass("error_input");
                     $field.find(".error").text("Обязательное поле");
                     validated = false;
                 }
@@ -215,11 +227,21 @@ function initForms() {
         
         // собираем данные
         $form.find(".form_field").each(function(){
-            var $field = $(this);
+            $field = $(this);
+            
+            if($field.find("input").is(":checkbox")){               
+                values.push({
+                    label: $field.find("input:checkbox").val(),
+                    value: $field.find("input:checkbox").is(":checked") ? "<span style='font-size: 150%;'>&#x2611</span> (да)" : "<span style='font-size: 150%;'>&#x2610</span> (нет)"
+                });
+                return;
+            }
+
             values.push({
                 label: $field.find(".field_title").clone().children().remove().end().text(),
-                value: $field.find("input[type=text],input[type=checkbox],input[type=radio]:checked,textarea,select").val()
+                value: $field.find("input[type=text], input[type=file], input[type=radio]:checked, textarea, select").val()
             });
+
         });
         
         // отправляем данные
@@ -229,9 +251,10 @@ function initForms() {
             data: {form:JSON.stringify(values)},
             success: function(data) {
                 alertify.genericDialog($form.find(".form_done")[0]);
-                $form.find(':input').val("");
-                $form.find(':checkbox,:radio').prop('checked', false);
+                $form.find(':input').not("input:checkbox, input:radio").val("");
+                $form.find('input:checkbox, input:radio').prop('checked', false);
                 $form.find(".form_field_radio_value:first-child input").prop("checked",true);
+                $form.find(".form_field_select option:first-child").prop("selected",true);
             }
         });
         
@@ -248,8 +271,6 @@ $.fn.textBlockHeight = function () {
 		$this.hover(
             function(){                
                 overlay.innerHeight(overlay.find(".img_text").height() + overlay.innerHeight() + (overlay.outerHeight() - overlay.height() - (overlay.outerHeight() - overlay.innerHeight()))/2);
-                console.log();
-                //console.log(overlay.innerHeight());
             },
             function(){
                 overlay.css("height","");

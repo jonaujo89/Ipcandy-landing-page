@@ -4,6 +4,7 @@ define('BINGO_PATH',realpath(__DIR__.'/../../../../uxcandy_boomyjee/data/public_
 require_once BINGO_PATH . "/loader.php";
 
 \Bingo\Configuration::$applicationMode = 'development';
+\Bingo\Configuration::$locale = 'ru_RU';
 
 \Bingo\Configuration::addModulePath(INDEX_DIR."/modules");
 \Bingo\Configuration::addModules('Auth','CMS','Layout','Blog','Meta','FileManager');
