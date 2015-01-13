@@ -13,10 +13,10 @@ class LPCandy extends \Bingo\Module {
         $this->connect('files/browse.php/*url',array('controller'=>'\LPCandy\Controllers\User','action'=>'files'));
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Page','id'=>false),
-            array('action'=>'(page-list|page-delete|page-edit|page-create|page-design|page-ajax|page-child-edit)'));
+            array('action'=>'(page-list|page-delete|page-edit|page-create|page-design|page-ajax|page-child-edit|page-statistic)'));
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Track','id'=>false),
-            array('action'=>'(track-list|track-delete)'));
+            array('action'=>'(track-list|track-delete|track-update-status)'));
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Front','id'=>false),
             array('action'=>'(page-view|track)'));

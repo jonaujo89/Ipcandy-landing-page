@@ -29,7 +29,7 @@ class Front extends Base {
                     var page_id = <?=$page->id?>;
                 </script>
                 <link rel="stylesheet" type="text/css" href="<?=$assets.'/default.css'?>">
-                <script src="<?=$assets.'/default.js'?>"> </script>
+                <script src="<?=$assets.'/default.js'?>"> </script>                
             </head>           
                 <?= $body_html ?>
             </html>

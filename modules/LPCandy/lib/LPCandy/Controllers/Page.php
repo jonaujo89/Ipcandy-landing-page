@@ -152,7 +152,32 @@ class Page extends Base {
         if (!$page || $page->user!=$this->user) redirect('/');
         $api = new \LPCandy\TemplaterApi($page);
         $api->run();
-    }    
+    } 
+    
+    function page_statistic($id) {
+        $top = array();
+        
+        $filter_form = new \CMS\FilterForm;
+        $filter_form->text('ip',false);
+        $this->data['filter_form'] = $filter_form;
+        
+        $this->data['fields'] = array(
+            'date' => _t('date'),
+            'visitors' => _t('visitors'),
+            'new_visitors' => _t('new visitors'),
+            'order' => _t('order'),
+            'conversion' => _t('conversion'),
+        );
+        
+        $this->data['sort_fields'] = array('date','conversion','order');
+        
+        $pagination = new \Bingo\Pagination(5,$this->getPage(),false,false,$query);
+        
+        $this->data['list'] = $pagination->result();
+        $this->data['pagination'] = $pagination->get();
+        $this->data['title'] = _t("Statistic");
+        $this->view('lpcandy/base-list');
+    }
 }
 
 

@@ -16,18 +16,22 @@ msgid "#"
 msgstr "№"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:36
+msgid "page title"
+msgstr "имя страницы"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:37
 msgid "status"
 msgstr "статус"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:37
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:38
 msgid "date"
 msgstr "дата"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:38
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:39
 msgid "ip"
 msgstr "ip"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:39
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:40
 msgid "data"
 msgstr "данные"
 
@@ -89,6 +93,22 @@ msgstr "Изменить страницу"
 msgid "Design page"
 msgstr "Дизайнер страницы"
 
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:166
+msgid "visitors"
+msgstr "посетители"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:167
+msgid "new visitors"
+msgstr "новые"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:168
+msgid "order"
+msgstr "заявки"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:169
+msgid "conversion"
+msgstr "конверсия"
+
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:4
 msgid "Templater editor"
 msgstr "Редактор страниц"
@@ -108,6 +128,14 @@ msgid "Track"
 msgstr "Заявка"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:39
+msgid "Statistic"
+msgstr "Статистика"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:40
+msgid "Advertising"
+msgstr "Реклама"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:41
 msgid "Profile"
 msgstr "Профиль"
 

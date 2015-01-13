@@ -1,3 +1,22 @@
+.update_status_ok{
+    border-color: green;
+    background: rgba(198, 242, 219, 0.75) !important;
+    background: 0px 0px 3px 0px rgba(50, 185, 114, 0.75) !important;
+    -moz-box-shadow:    0px 0px 3px 0px rgba(50, 185, 114, 0.75) !important;
+    box-shadow:         0px 0px 3px 0px rgba(50, 185, 114, 0.75) !important;
+}
+
+.update_status_error{
+    border-color: rgba(239, 24, 24, 0.75);
+    background: rgba(242, 198, 198, 0.75) !important;
+    background: 0px 0px 3px 0px rgba(239, 24, 24, 0.75) !important;
+    -moz-box-shadow:    0px 0px 3px 0px rgba(239, 24, 24, 0.75) !important;
+    box-shadow:         0px 0px 3px 0px rgba(239, 24, 24, 0.75) !important;
+}
+.update_status_error:after{
+    content: "!";
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,

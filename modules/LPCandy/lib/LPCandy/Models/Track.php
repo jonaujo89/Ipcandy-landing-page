@@ -24,7 +24,8 @@ class Track extends \DoctrineExtensions\ActiveEntity\ActiveEntity
     public $ip;
     
     /** @Column(length=1024) */ 
-    public $status;   
+    public $status;  
+    
     /**
      * @ManyToOne(targetEntity="Page")
      * @JoinColumn(name="page_id", referencedColumnName="id",onDelete="SET NULL")

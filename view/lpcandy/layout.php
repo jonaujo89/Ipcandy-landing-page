@@ -4,18 +4,21 @@
     <title><?= $title ?></title>
     <meta charset="utf-8" />
 
-    <script>var base_url = "<?=url('')?>"</script>
+    <script>var base_url = "<?=url('')?>"</script>   
+    
     <?
         include BINGO_PATH."/../teacss/lib/teacss.php";
         teacss(
             $makefile = t_url('assets/tea/makefile.tea'),
             $css = t_url('assets/style.css'),
-            $js = t_url('assets/script.js'),
+            $js = false,
             $dir = __DIR__."/assets",
             $dev = (isset($_GET['dev']) && \CMS\Models\User::checkLoggedIn()),
             $teacss = "/~boomyjee/teacss/lib/teacss.js"
         );
     ?>
+    <script src="<?=t_url('assets/script/jquery.js')?>"></script>
+    <script src="<?=t_url('assets/script/lpcandy.js')?>"></script>
 </head>
 <body>
     <div id="logged_info">
@@ -36,6 +39,8 @@
             $menu = array(
                 array('url'=>'page-list','label'=>_t('Pages')),
                 array('url'=>'track-list','label'=>_t('Tracking')),
+                array('url'=>'page-statistic','label'=>_t('Statistic')),
+                array('url'=>'advertising','label'=>_t('Advertising')),
                 array('url'=>'profile','label'=>_t('Profile'))
             );
         }

@@ -8,7 +8,7 @@
         <script src="/~boomyjee/teacss-ui/lib/teacss-ui.js"></script>
         <link  href="/~boomyjee/teacss-ui/lib/teacss-ui.css" rel="stylesheet" type="text/css">
         <script src="/~boomyjee/dayside/client/lib/require.js"></script>
-        <script src="/~boomyjee/dayside/client/lib/require.proxy.php"></script>
+        <script src="/~boomyjee/dayside/client/lib/require.proxy.php"></script>        
         <link  href="<?=t_url('editor/editor.css')?>" rel="stylesheet" type="text/css">
         
         <script>
