@@ -52,6 +52,7 @@ class FormButton extends Block {
     function tpl_default() {
         return array( 
             'type' => 'form',
+            'a_href' => '',
             'class' => '',
             'form_title' => 'Оставить заявку ',
             'form_bottom_text' => 'Мы не передаем Вашу персональную информацию третьим лицам',
@@ -80,7 +81,7 @@ class FormButton extends Block {
     }
     
     function tpl($val,$name) { ?>
-        <a class='btn_form <?=$val['color']?> <?=$val['class']?>'><?=$val['text']?></a>
+        <a class='btn_form <?=$val['color']?> <?=$val['class']?>' href='<?= $val['type']=="link" ? $val['a_href'] : "" ?>'> <?=$val['text']?></a>
         <div style='display:none'>
                 <div class="form">
                     <div class="form_title">

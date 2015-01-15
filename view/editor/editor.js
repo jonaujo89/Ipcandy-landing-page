@@ -1,5 +1,5 @@
 var ru = $.extend(require("./editor_ru.js"),{
-    "Preview" : "Предпосмотр",
+    "Preview" : "Предпросмотр",
     "Publish" : "Публиковать",
     "Editor" : "Редактор",
     "Add Section" : "Добавить блок",

@@ -78,6 +78,42 @@ class Page extends Base {
         $this->view('lpcandy/page-create');
     }
     
+    function page_form($page) {
+        $form = new \Bingo\Form;
+        $form->fieldset();
+        $form->text('title',_t('Title'),'required',$page->title);
+        
+        if ($page->parent) {
+            $form->text('pathname',_t('Pathname(link)'),'required',$page->pathname);
+        } else {
+            $form->text('domain',_t('Domain'),'',$page->domain);
+        }
+        
+        $form->text('meta_robots',_t('Meta-tag “robots” content'),'',$page->meta_robots);
+        $form->text('meta_keywords',_t('Meta-tag “keywords” content'),'',$page->meta_keywords);
+        $form->text('meta_description',_t('Meta-tag “description” content'),'',$page->meta_description);
+        $form->textarea('extra_html',_t('Extra html(<b>JavaScript</b>) code'),'',$page->extra_html,array('rows'=>15));
+        $form->fieldset();
+        
+        if ($page->parent) {
+            $form->submit(_t('Save child page'));
+            $this->data['title'] = _t('Edit child page');
+        } else {
+            $form->submit(_t('Save page'));
+            $this->data['title'] = _t('Edit page');
+        }
+        
+        if ($form->validate()) {
+            $form->fill($page);
+            $page->user = $this->user;
+            $page->save();
+            redirect('page-list');
+        }
+        
+        $this->data['form'] = $form->get();
+        $this->view('lpcandy/page-edit');
+    }
+    
     function page_child_edit($id) {
         $page = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect("/");
@@ -87,48 +123,15 @@ class Page extends Base {
         } else {
             $parent = $page;
             $page = new \LPCandy\Models\Page;
-        }
-        
-        $form = new \Bingo\Form;
-        $form->fieldset();
-        $form->text('title',_t('Title'),'required',$page->title);
-        $form->fieldset();
-        $form->submit(_t('Save child page'));
-        
-        if ($form->validate()) {
-            $form->fill($page);
-            $page->user = $this->user;
             $page->parent = $parent;
-            $page->save();
-            redirect('page-list');
         }
-        
-        $this->data['form'] = $form->get();
-        $this->data['title'] = _t('Edit child page');
-        $this->view('lpcandy/page-edit');
+        $this->page_form($page);
     }
     
     function page_edit($id) {
         $page = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect("/");
-        
-        $form = new \Bingo\Form;
-        $form->fieldset();
-        $form->text('title',_t('Title'),'required',$page->title);
-        $form->text('domain',_t('Domain'),'',$page->domain);
-        $form->fieldset();
-        $form->submit(_t('Save page'));
-        
-        if ($form->validate()) {
-            $form->fill($page);
-            $page->user = $this->user;
-            $page->save();
-            redirect('page-list');
-        }
-        
-        $this->data['form'] = $form->get();
-        $this->data['title'] = _t('Edit page');
-        $this->view('lpcandy/page-edit');
+        $this->page_form($page);
     }
     
     function page_design($id) {

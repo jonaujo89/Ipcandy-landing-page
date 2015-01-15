@@ -6,6 +6,20 @@ class Front extends Base {
     function __construct() {
         parent::__construct(false);
     }    
+    
+    function home() {
+        $this->data['title'] = _t('LPCandy');
+        
+        $id = 25;
+        $page = \LPCandy\Models\Page::find($id);
+        $api = new \LPCandy\TemplaterApi($page);
+        $assets = url('upload/LPCandy/pages/'.$id."/publish");
+        $body_html = $api->view($page->getTemplate(),false,true);
+
+        $this->data['assets'] = $assets;
+        $this->data['body_html'] = $body_html;
+        $this->view('lpcandy/home');
+    }
 
     function page_view($id) {
         $page = \LPCandy\Models\Page::find($id);
@@ -23,15 +37,21 @@ class Front extends Base {
             <html>
             <head>
                 <meta charset="utf-8" />
+                <meta name="robots" content="<?= htmlspecialchars($page->meta_robots, ENT_QUOTES)?>">
+                <meta name="keywords" content="<?= htmlspecialchars($page->meta_keywords, ENT_QUOTES)?>">
+                <meta name="description" content="<?= htmlspecialchars($page->meta_description, ENT_QUOTES)?>">
                 <title><?= $page->title ?></title>
                 <script>
                     var base_url = "<?=INDEX_URL?>";
-                    var page_id = <?=$page->id?>;
+                    var page_id = <?=$page->id?>; 
                 </script>
                 <link rel="stylesheet" type="text/css" href="<?=$assets.'/default.css'?>">
-                <script src="<?=$assets.'/default.js'?>"> </script>                
-            </head>           
-                <?= $body_html ?>
+                <script src="<?=$assets.'/default.js'?>"> </script>
+            </head>  
+                <body>
+                    <?= $body_html ?>
+                    <?= $page->extra_html?>
+                </body>
             </html>
         <?
     }
@@ -46,7 +66,6 @@ class Front extends Base {
         $track->page_title = $page->title;
         $track->data = array('values'=>json_decode($_POST['form'],true));
         $track->ip = $_SERVER['REMOTE_ADDR'];
-        $track->status = "новая";
         $track->save();    
         echo 'ok';
     }

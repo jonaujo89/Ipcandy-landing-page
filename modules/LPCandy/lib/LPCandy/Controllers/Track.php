@@ -9,7 +9,7 @@ class Track extends Base {
     }    
     
     function track_list() {
-       
+        
         $filter_form = new \CMS\FilterForm;
         $filter_form->text('ip',false);
         $this->data['filter_form'] = $filter_form;
@@ -29,7 +29,6 @@ class Track extends Base {
         $this->data['pagination'] = $pagination->get();
         $this->data['title'] = _t("Tracking");
 
-       
         $this->data['item_actions']['track-delete'] = _t('delete');
         $this->data['list_actions']['delete'] = array(
             'title' => _t('Delete selected'),
@@ -38,7 +37,7 @@ class Track extends Base {
         
         $this->data['fields'] = array(
             'id' => _t('#'),
-            'page_title' => _t('page title'),
+            'page' => _t('page'),
             'status' => _t('status'),
             'date' => _t('date'),
             'ip' => _t('ip'),
@@ -47,21 +46,25 @@ class Track extends Base {
         
         $this->data['sort_fields'] = array('id','page_title','status','date','ip');
         
-        $this->data['field_filters']['page_title'] = function ($val) {            
-            if(!$val) return "Данных нет";
-            $page_title ="<a href>".$val."</a>";
-            return $page_title;
+        $this->data['field_filters']['page'] = function ($page,$obj) {
+            if (!$page) return $obj->page_title;
+            return anchor('page-design/'.$page->getField('id'),$page->title);
         };
         
-        $this->data['field_filters']['status'] = function ($val) {            
-            $allStatus = array('новая', 'в работе', 'выполнена', 'отменена');
-            $status .= "<select>";
-            foreach ($allStatus as $key=>$value){
-                $value == $val ? $selected = 'selected' : $selected = '';
-                $status .= "<option ".$selected.">".$value."</option>";
+        $this->data['field_filters']['status'] = function ($val,$obj) {
+            $status_options = array(
+                'new' => 'новая', 
+                'processing' => 'в работе', 
+                'done' => 'выполнена', 
+                'cancelled' => 'отменена'
+            );
+            $ret = "<select data-id='{$obj->id}'>";
+            foreach ($status_options as $status=>$label) {
+                $selected = $status==$val ? 'selected':'';
+                $ret .= "<option $selected value='$status'>$label</option>";
             }
-            $status .= "</select>";
-            return $status;
+            $ret .= "</select>";
+            return $ret;
         };
         
         $this->data['field_filters']['data'] = function ($val) {            
@@ -81,10 +84,10 @@ class Track extends Base {
         $track = \LPCandy\Models\Track::find($id);
 
         if ($track->user!=$this->user) return;
-        if(isset($_POST['value']) && !empty($_POST['value'])){
-            $track->status = $_POST['value'];
+        if(isset($_POST['status']) && !empty($_POST['status'])){
+            $track->status = $_POST['status'];
             $track->save();
-            echo json_encode('update_status_ok');            
+            echo 'ok';
         }
     }
     

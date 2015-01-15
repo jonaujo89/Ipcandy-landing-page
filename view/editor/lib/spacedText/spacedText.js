@@ -1537,7 +1537,9 @@
                                 }
                                 if (v === false) {
                                     e.attr("align", "")
+                                    //e.css("text-align","");
                                 } else {
+                                    //e.css("text-align",v);
                                     e.attr("align", v)
                                 }
                             }, this))

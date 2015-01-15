@@ -8,29 +8,40 @@
         <script src="/~boomyjee/teacss-ui/lib/teacss-ui.js"></script>
         <link  href="/~boomyjee/teacss-ui/lib/teacss-ui.css" rel="stylesheet" type="text/css">
         <script src="/~boomyjee/dayside/client/lib/require.js"></script>
-        <script src="/~boomyjee/dayside/client/lib/require.proxy.php"></script>        
         <link  href="<?=t_url('editor/editor.css')?>" rel="stylesheet" type="text/css">
-        
+
         <script>
             var base_url = "<?=INDEX_URL?>";
             var page_id = <?=$page->id?>;
-            require(
-                "/~boomyjee/templater/lib/client/app.js",
-                "<?=url('view/editor/editor.js')?>",
-                function(exports){
-                    var templater_app = exports[0];
-                    var lpcandy_app = exports[1];
-                    lpcandy_app(templater_app,{
-                        template: "<?=$tpl?>",
-                        publishScreenshot: false,
-                        ajax_url: "<?=url('page-ajax/'.$page->id)?>",
-                        upload_url: "<?=url('upload/LPCandy/files/'.$page->user->id)?>",
-                        browse_url: "<?=url('files/browse.php')?>",
-                        allowSkipType: false
-                    });
-                }
-            );
-        </script>        
+            function run(exports){
+                var templater_app = exports[0];
+                var lpcandy_app = exports[1];
+                lpcandy_app(templater_app,{
+                    template: "<?=$tpl?>",
+                    publishScreenshot: false,
+                    ajax_url: "<?=url('page-ajax/'.$page->id)?>",
+                    upload_url: "<?=url('upload/LPCandy/files/'.$page->user->id)?>",
+                    browse_url: "<?=url('files/browse.php')?>",
+                    allowSkipType: false
+                });
+            }
+        </script>
+        
+        <? if (\Bingo\Configuration::$applicationMode=='development'): ?>
+            <script src="/~boomyjee/dayside/client/lib/require.proxy.php"></script>        
+            <script>
+                require(
+                    "/~boomyjee/templater/lib/client/app.js",
+                    "<?=url('view/editor/editor.js')?>",
+                    run
+                );
+            </script>
+        <? else: ?>
+            <script src="<?=url('view/editor/editor.min.js')?>"></script>
+            <script>
+                editor_min(run);
+            </script>
+        <? endif ?>
     </head>
     <body>
         <div id="logged_info">

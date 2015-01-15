@@ -47,10 +47,12 @@
                                 <?=$obj->title?>
                                 <?=anchor('page-view/'.$obj->id,_t('(page preview)'),'_blank')?>
                             </h3>
+                            <?= $obj->pathname ?: _t("No pathname assigned") ?>
+                            <br>
                             <div class="actions">
-                                <?= anchor('page-design/'.$obj->id,_t('Launch Designer')) ?>
-                                <?= anchor('page-edit/'.$obj->id,_t('edit')) ?>
-                                <?= anchor('page-delete/'.$obj->id,_t('delete')) ?>
+                                <a class="design" href="<?=url('page-design/'.$obj->id)?>"><?=_t('Launch Designer')?></a>
+                                <a class="edit" href="<?=url('page-child-edit/'.$obj->id)?>"><?=_t('Edit')?></a>
+                                <a class="delete" href="<?=url('page-delete/'.$obj->id)?>"><?=_t('Delete')?></a>
                             </div>
                         </td>
                     </tr>                

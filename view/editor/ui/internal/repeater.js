@@ -10,6 +10,7 @@ lp.repeater = teacss.ui.control.extend({
     },
     
     itemIndex: function (item) {
+        item = $(item);
         return item.parent().children('[class=item_block]').index(item);
     },
     

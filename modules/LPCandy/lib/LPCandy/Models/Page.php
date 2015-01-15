@@ -19,6 +19,21 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     /** @Column(length=1024) */
     public $domain; 
     
+    /** @Column(length=1024) */
+    public $pathname;
+    
+    /** @Column(type="string") */
+    public $meta_robots;
+    
+    /** @Column(type="string") */
+    public $meta_keywords;
+    
+    /** @Column(type="string") */
+    public $meta_description;
+    
+    /** @Column(type="text") */
+    public $extra_html;    
+    
     /** @Column(type="object") */
     public $form;    
     
@@ -41,6 +56,11 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     
     function __construct() {
         $this->domain = "";
+        $this->pathname = "";
+        $this->meta_robots = "";        
+        $this->meta_keywords = "";
+        $this->meta_description = "";
+        $this->extra_html = "";
     }
     
     function getPath($sub=false) {

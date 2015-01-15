@@ -1,32 +1,16 @@
 $(function(){
-    
-    $('table#tblist_1').on('change','select', function(eventData){
+    $('td.status select').change(function(eventData){
         var $this = $(this);
         $.ajax({
-            url: base_url + "track-update-status/" + $this.parent().siblings('td.id').text().trim(),
+            url: base_url + "track-update-status/" +  $this.attr("data-id"),
             type: "POST",
-            dataType: "json",
-            data:{
-                value: $this.val()
+            data:{ 
+                status: $this.val(),
+                id: $this.attr("data-id")
             },
             success: function(data){
-                if(data == 'update_status_ok'){
-                    $this.addClass('update_status_ok');
-                    setTimeout(function() { $this.removeAttr('class'); }, 700);                    
-                }
-            },
-            error: function(){
-                $this.addClass('update_status_error');
-                //setTimeout(function() { $this.removeAttr('class'); }, 1000);                    
-            },            
+                if(data != 'ok') alert(data);
+            }
         });        
     }); 
-    
-    $('table#tblist_1').on('click','.page_title', function(event){
-        event.preventDefault();
-        var $this = $(this);
-        console.log(base_url+'page-design/' + $this.siblings('td.id').text().trim());
-        //location.href = base_url+'page-design/' + $this.siblings('td.id').text().trim();
-    });
-    
 });

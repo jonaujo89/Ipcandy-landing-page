@@ -44,5 +44,6 @@ class Track extends \DoctrineExtensions\ActiveEntity\ActiveEntity
     function __construct() {
         $this->date = new \DateTime();
         $this->data = array();
+        $this->status = "new";
     }
 }

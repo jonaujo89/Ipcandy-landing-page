@@ -3,7 +3,7 @@
 <head>
     <title><?= $title ?></title>
     <meta charset="utf-8" />
-
+    <link href="view/assets/images/lpcandy.png" type="image/x-icon" />
     <script>var base_url = "<?=url('')?>"</script>   
     
     <?
@@ -12,7 +12,7 @@
             $makefile = t_url('assets/tea/makefile.tea'),
             $css = t_url('assets/style.css'),
             $js = false,
-            $dir = __DIR__."/assets",
+            $dir = __DIR__."/../assets",
             $dev = (isset($_GET['dev']) && \CMS\Models\User::checkLoggedIn()),
             $teacss = "/~boomyjee/teacss/lib/teacss.js"
         );
@@ -38,10 +38,7 @@
         if ($user) {
             $menu = array(
                 array('url'=>'page-list','label'=>_t('Pages')),
-                array('url'=>'track-list','label'=>_t('Tracking')),
-                array('url'=>'page-statistic','label'=>_t('Statistic')),
-                array('url'=>'advertising','label'=>_t('Advertising')),
-                array('url'=>'profile','label'=>_t('Profile'))
+                array('url'=>'track-list','label'=>_t('Tracking'))
             );
         }
         $menu = \Bingo\Action::filter('admin_menu',array($menu,$user));
@@ -61,8 +58,8 @@
             <? endforeach ?>
         </ul>
     </div>
-    
     <div id="page">
+        <? startblock('page') ?>
         <div id="content">
             <? emptyblock('content') ?>
         </div>
@@ -70,6 +67,7 @@
         <div id="footer">
             Powered by Bingo and TeaCss
         </div>
+        <? endblock() ?>
     </div>
 </body>
 </html>

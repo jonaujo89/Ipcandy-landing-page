@@ -175,16 +175,17 @@ $.fn.lpBxSlider = function () {
     });
 };
 
-function htmlentities(s){	
-    // Convert all applicable characters to HTML entities
-	// 
-	// +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-
-	var div = document.createElement('div');
-	var text = document.createTextNode(s);
-	div.appendChild(text);
-	return div.innerHTML;
-}
+function initOrderButton() {
+    $(document).on("click", "a.btn_form", function(e){ 
+        if($(this).attr("href").length == 0){
+            e.preventDefault();
+            
+            var form = $(this).data("form");
+            if (!form) $(this).data("form",form = $(this).parents('.btn_wrap').find('.form')[0]);
+            alertify.genericDialog(form);
+        }
+    });
+};
 
 
 function initForms() {
@@ -289,4 +290,5 @@ $(function() {
     $(".map").mapYandex();
     
     initForms();
+    initOrderButton();
 });

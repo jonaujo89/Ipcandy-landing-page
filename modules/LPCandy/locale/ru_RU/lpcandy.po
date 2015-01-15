@@ -3,48 +3,53 @@ msgstr ""
 "X-Poedit-SearchPath-0:/var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib"
 "X-Poedit-SearchPath-1:/var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:53
-msgid "delete"
-msgstr "удалить"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:30
-msgid "Delete selected"
-msgstr "Удалить"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:35
-msgid "#"
-msgstr "№"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:36
-msgid "page title"
-msgstr "имя страницы"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:37
-msgid "status"
-msgstr "статус"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:38
-msgid "date"
-msgstr "дата"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:39
-msgid "ip"
-msgstr "ip"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:40
-msgid "data"
-msgstr "данные"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:56
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:41
 msgid "Tracking"
 msgstr "Заявки"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:29
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:32
+msgid "delete"
+msgstr "удалить"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:34
+msgid "Delete selected"
+msgstr "Удалить отмеченные"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:39
+msgid "#"
+msgstr "№"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:40
+msgid "page"
+msgstr "страница"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:41
+msgid "status"
+msgstr "статус"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:42
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:168
+msgid "date"
+msgstr "дата"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:43
+msgid "ip"
+msgstr "ip"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:44
+msgid "data"
+msgstr "данные"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Front.php:11
+msgid "LPCandy"
+msgstr "ЛПкэнди"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:32
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/login.php:7
 msgid "Login"
 msgstr "Логин"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:37
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:40
 msgid "Pages"
 msgstr "Страницы"
 
@@ -56,15 +61,17 @@ msgstr "Создать новую страницу"
 msgid "Start from scratch"
 msgstr "Начать с нуля"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:12
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:56
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:84
 msgid "Title"
 msgstr "Заголовок"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:14
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:57
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:89
 msgid "Domain"
 msgstr "Домен"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:13
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:58
 msgid "Template"
 msgstr "Шаблон"
 
@@ -73,113 +80,79 @@ msgstr "Шаблон"
 msgid "Create page"
 msgstr "Создать страницу"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:96
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:87
+msgid "Pathname(link)"
+msgstr "Путь (относительно доменного имени)"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:92
+msgid "Meta-tag “robots” content"
+msgstr "Содержание мета-тега “robots”"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:93
+msgid "Meta-tag “keywords” content"
+msgstr "Содержание мета-тега “keywords”(ключевые слова)"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:94
+msgid "Meta-tag “description” content"
+msgstr "Содержание мета-тега “description”(описание сайта)"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:95
+msgid "Extra html(<b>JavaScript</b>) code"
+msgstr "Подключаемый html(JavaScript) код"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:99
 msgid "Save child page"
 msgstr "Сохранить дочернюю страницу"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:107
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:100
 msgid "Edit child page"
 msgstr "Редактировать дочернюю страницу"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:120
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:102
 msgid "Save page"
 msgstr "Сохранить страницу"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:130
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:103
 msgid "Edit page"
 msgstr "Изменить страницу"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:144
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:147
 msgid "Design page"
 msgstr "Дизайнер страницы"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:166
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:169
 msgid "visitors"
 msgstr "посетители"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:167
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:170
 msgid "new visitors"
 msgstr "новые"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:168
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:171
 msgid "order"
 msgstr "заявки"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:169
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:172
 msgid "conversion"
 msgstr "конверсия"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:181
+msgid "Statistic"
+msgstr "Статистика"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:4
 msgid "Templater editor"
 msgstr "Редактор страниц"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:39
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:24
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:50
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:27
 msgid "Logged as"
 msgstr "Вы вошли как"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:42
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:27
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:53
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:30
 msgid "Logout"
 msgstr "Выйти"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:38
-msgid "Track"
-msgstr "Заявка"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:39
-msgid "Statistic"
-msgstr "Статистика"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:40
-msgid "Advertising"
-msgstr "Реклама"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:41
-msgid "Profile"
-msgstr "Профиль"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:5
-msgid "Page list"
-msgstr "Список страниц"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:7
-msgid "Create a new page"
-msgstr "Создать новую страницу"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:25
-msgid "No template selected"
-msgstr "Шаблон не выбран"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:30
-msgid "No domain"
-msgstr "Нет домена"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:34
-msgid "design"
-msgstr "дизайн"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:37
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:57
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:52
-msgid "edit"
-msgstr "редактировать"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:43
-msgid "There are no pages"
-msgstr "Страниц нет"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:43
-msgid "Create a new page?"
-msgstr "Создать новую страницу?"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:47
-msgid "Template list"
-msgstr "Список шаблонов"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:50
-msgid "Name"
-msgstr "Название"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:28
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:48
@@ -195,21 +168,130 @@ msgid "+ add child page"
 msgstr "+ добавить дочернюю страницу"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:34
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:51
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:53
 msgid "Launch Designer"
-msgstr "Запустить редактор"
+msgstr "Запустить конструктор"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:35
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:54
 msgid "Edit"
 msgstr "Редактировать"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:36
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:55
 msgid "Delete"
 msgstr "Удалить"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:65
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:50
+msgid "No pathname assigned"
+msgstr "Путь не определён"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:67
 msgid "No pages yet"
 msgstr "Страниц пока нет"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:96
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:124
+#~ msgid "Content META-tag “robots”"
+#~ msgstr "Содержание META-тега “robots”"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:97
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:125
+#~ msgid "Content META-tag “keywords”"
+#~ msgstr "Содержание META-тега “keywords”(ключевые слова)"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:98
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:126
+#~ msgid "Content META-tag “description”"
+#~ msgstr "Содержание META-тега “description”(описание сайта)"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:99
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:127
+#~ msgid "extraHTML(JavaScript) code"
+#~ msgstr "Подключаемый HTML(JavaScript) код"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:99
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:127
+#~ msgid "extraHTML code"
+#~ msgstr "Подключаемый HTML код"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:126
+#~ msgid "Plug JavaScript code"
+#~ msgstr "Подключаемый JavaScript код"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:96
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:122
+#~ msgid "Content META-tag “Robots”"
+#~ msgstr "Содержание атрибута contant мета-тега “Robots”"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:96
+#~ msgid "META-tag “Robots” (for web robots)"
+#~ msgstr ""
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:121
+#~ msgid "Meta-tag “Robots” (for web robots)"
+#~ msgstr "META-тег “Robots” (для поисковых роботов)"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Page.php:121
+#~ msgid "Robots.txt (for web robots)"
+#~ msgstr "Robots.txt (файл для поисковых роботов)"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:5
+#~ msgid "Page list"
+#~ msgstr "Список страниц"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:7
+#~ msgid "Create a new page"
+#~ msgstr "Создать новую страницу"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:25
+#~ msgid "No template selected"
+#~ msgstr "Шаблон не выбран"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:30
+#~ msgid "No domain"
+#~ msgstr "Нет домена"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:34
+#~ msgid "design"
+#~ msgstr "дизайн"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:37
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:57
+#~ msgid "edit"
+#~ msgstr "редактировать"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:43
+#~ msgid "There are no pages"
+#~ msgstr "Страниц нет"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:43
+#~ msgid "Create a new page?"
+#~ msgstr "Создать новую страницу?"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:47
+#~ msgid "Template list"
+#~ msgstr "Список шаблонов"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/profile.php:50
+#~ msgid "Name"
+#~ msgstr "Название"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:36
+#~ msgid "page title"
+#~ msgstr "имя страницы"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:38
+#~ msgid "Track"
+#~ msgstr "Заявка"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:40
+#~ msgid "Advertising"
+#~ msgstr "Реклама"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:41
+#~ msgid "Profile"
+#~ msgstr "Профиль"
 
 #~ msgid "№"
 #~ msgstr ""

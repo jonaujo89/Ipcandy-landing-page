@@ -1,8 +1,4 @@
 lp.formControls = {};
-  
-function htmlSpec( elem ) {
-    return elem.value.replace( /\r?\n/g, "\r\n" );
-}
 
 lp.formControls.text = teacss.ui.composite.extendOptions({
     selectLabel: _t("Text"),

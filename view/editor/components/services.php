@@ -33,7 +33,7 @@ class Services extends Block {
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
                                         <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","alignleft","aligncenter","removeformat"),'oneline'=>false)) ?>
+                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","alignleft","aligncenter","unorderedlist","orderedlist","removeformat"),'oneline'=>false)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>

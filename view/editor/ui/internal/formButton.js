@@ -1,7 +1,9 @@
 lp.formButton = lp.cover.extendOptions({
     change: function(){
+        var jq = Component.previewFrame.window.$;
         var me = this;
-        var button = me.element.find(".btn_form");
+        var button = me.element.find(".btn_form");        
+        button.attr("href", me.value.type == 'link' ? me.value.a_href : ''); 
         button.text(me.value.text).prop("class", "btn_form "+ me.value.color || "btn_form");
     },
     configForm: {
@@ -42,7 +44,7 @@ lp.formButton = lp.cover.extendOptions({
                     lp.formButton.showFormSuccess();
                 }
             },
-            { type: "text", name: "link", width: "100%", margin: "0 3% 10px 0", showWhen: { type: 'link' } },
+            { type: "text", name: "a_href", width: "100%", margin: "0 3% 10px 0", showWhen: { type: 'link' } },
         ]
     }
 })

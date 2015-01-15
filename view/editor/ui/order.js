@@ -68,7 +68,7 @@ lp.order = lp.block.extendOptions({
                     icons: {secondary:'ui-icon-triangle-1-s'},
                     items: function () {
                         var items = [];
-                        for (var i=1;i<=220;i++) {
+                        for (var i=1;i<=221;i++) {
                             items.push({
                                 value:"view/editor/assets/background/"+i+".jpg",
                                 thumb:"view/editor/assets/background/thumbs/"+i+".jpg",
