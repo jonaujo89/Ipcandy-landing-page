@@ -287,8 +287,19 @@ $(function() {
 	$(".fancybox_whithout_title").lpFancyboxWhithoutTitle();
     $(".masonry:visible").lpMasonry();
     $(".slider [data-name=items]").lpBxSlider();
-    $(".map").mapYandex();
-    
+    $(".map").mapYandex();    
     initForms();
-    initOrderButton();
+    initOrderButton();  
+    
+    $(document).on("click","a[href$='login']",function(e){ 
+        e.preventDefault();
+        var $this = $(this);
+        $.ajax({
+            url: base_url + "login",
+            type: "POST",
+            success: function(data){
+                alertify.genericDialog(data);
+            }
+        });        
+    });
 });

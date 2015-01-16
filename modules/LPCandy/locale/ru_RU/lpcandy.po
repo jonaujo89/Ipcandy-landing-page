@@ -7,42 +7,41 @@ msgstr ""
 msgid "Tracking"
 msgstr "Заявки"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:32
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:53
 msgid "delete"
 msgstr "удалить"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:34
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:55
 msgid "Delete selected"
 msgstr "Удалить отмеченные"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:39
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:60
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Admin/Users.php:18
 msgid "#"
 msgstr "№"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:40
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:61
 msgid "page"
 msgstr "страница"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:41
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:62
 msgid "status"
 msgstr "статус"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:42
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:63
 msgid "date"
 msgstr "дата"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:43
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:64
 msgid "ip"
 msgstr "ip"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:44
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:65
 msgid "data"
 msgstr "данные"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:55
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:56
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:32
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/login.php:7
 msgid "Login"
 msgstr "Логин"
 
@@ -145,12 +144,12 @@ msgstr "Клиенты"
 msgid "Templater editor"
 msgstr "Редактор страниц"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:50
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:51
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:27
 msgid "Logged as"
 msgstr "Вы вошли как"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:53
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-design.php:54
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:30
 msgid "Logout"
 msgstr "Выйти"
@@ -158,6 +157,10 @@ msgstr "Выйти"
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:68
 msgid "Powered by Bingo and TeaCss"
 msgstr "Создано с помощью Bingo и TeaCss"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/login.php:3
+msgid "Register"
+msgstr "Регистрация"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:28
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:48

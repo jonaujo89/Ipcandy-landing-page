@@ -5,9 +5,10 @@ namespace LPCandy\Controllers;
 class User extends Base {
     function login() {
         $token = @$_POST['token'];
-        $redirect = @$_GET['redirect']?:'page-list';
+        $redirect = @$_GET['redirect']?:'';
 
         if ($this->user) { redirect($redirect);return; }
+
         if ($token) {
             $user = \LPCandy\Models\User::login_token($token);
             if ($user) {
@@ -21,7 +22,7 @@ class User extends Base {
 
     function logout() {
         if ($this->user) $this->user->logout();
-        redirect('login');
+        redirect('/');
     }    
     
     function profile() {

@@ -31,7 +31,7 @@ class Footer extends Block {
                 </div>
                 <? if ($val['show_copyright'] || $this->edit): ?>
                     <div class="copyright" <?= !$val['show_copyright'] ? "style='display:none'" : "" ?>>
-                        <a href='' target='_blank'><i></i><span>Создано на платформе</span></a>
+                        <a href=<?=base_url('lpcandy')?> target='_blank'><i></i><span>Создано на платформе</span></a>
                     </div>
                 <? endif ?>                
             </div>
@@ -51,6 +51,5 @@ class Footer extends Block {
     }
     
 }
-
 
 Footer::register();
