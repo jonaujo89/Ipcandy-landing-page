@@ -1356,6 +1356,12 @@ ol li {
   font-weight: 600;
 }
 
+@media (max-width:1199px) {
+  .benefits_1 .item_list .item .name {
+     font-size: 18px;
+  }  
+}
+
 .benefits_1 .item_list .item .desc {
   color: #5C5C5C;
   font-size: 14px;
@@ -3761,7 +3767,7 @@ ol li {
 
 @media all and (max-width: 1199px) {
   .workOrder1 .item_list .item .name {
-    font-size: 15px;
+    font-size: 17px;
   };
 }
 
