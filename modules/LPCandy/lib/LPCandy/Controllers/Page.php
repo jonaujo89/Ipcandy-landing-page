@@ -36,6 +36,16 @@ class Page extends Base {
         redirect('page-list');
     }
     
+    function domain_validator($page) {
+        return function ($val) use ($page) {
+            $pages = \LPCandy\Models\Page::findByDomain($val);
+            foreach ($pages as $one) {
+                if ($one->id!=$page->id) throw new \ValidationException(_t("Domain is already in use"));
+            }
+            return $val;
+        };
+    }
+    
     function page_create() {
         $page = new \LPCandy\Models\Page();
         
@@ -54,7 +64,7 @@ class Page extends Base {
         $form = new \Bingo\Form;
         $form->fieldset();
         $form->text('title',_t('Title'),'required');
-        $form->text('domain',_t('Domain'));
+        $form->text('domain',_t('Domain'),$this->domain_validator($page));
         $form->radio('template',_t('Template'),$templates,"")->add_class("template-select");
         $form->fieldset();
         $form->submit(_t('Create page'));
@@ -86,7 +96,7 @@ class Page extends Base {
         if ($page->parent) {
             $form->text('pathname',_t('Pathname(link)'),'required',$page->pathname);
         } else {
-            $form->text('domain',_t('Domain'),'',$page->domain);
+            $form->text('domain',_t('Domain'),$this->domain_validator($page),$page->domain);
         }
         
         $form->text('meta_robots',_t('Meta-tag “robots” content'),'',$page->meta_robots);
@@ -114,72 +124,19 @@ class Page extends Base {
         $this->view('lpcandy/page-edit');
     }
     
-    function page_child_edit($id) {
+    function page_child_create($id) {
         $page = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect("/");
         
-        if ($page->parent) {
-            $parent = $page->parent;
-        } else {
-            $parent = $page;
-            $page = new \LPCandy\Models\Page;
-            $page->parent = $parent;
-        }
-        $this->page_form($page);
+        $child = new \LPCandy\Models\Page;
+        $child->parent = $page;
+        $this->page_form($child);
     }
     
     function page_edit($id) {
         $page = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect("/");
         $this->page_form($page);
-    }
-    
-    function page_design($id) {
-        $page = $this->data['page'] = \LPCandy\Models\Page::find($id);
-        if (!$page || $page->user!=$this->user) redirect('/');
-        
-        $modules = array();
-        $modules[] = INDEX_URL."/view/editor/editor.js";
-        
-        if (file_exists($page->getPath("module.js")))
-            $modules[] = $page->getUrl('module.js');
-        
-        $this->data['title'] = _t('Design page');
-        $this->data['tpl'] = $page->getTemplate();
-        $this->data['modules'] = $modules;
-        $this->view('lpcandy/page-design');
-    }    
-    
-    function page_ajax($id) {
-        $page = $this->data['page'] = \LPCandy\Models\Page::find($id);
-        if (!$page || $page->user!=$this->user) redirect('/');
-        $api = new \LPCandy\TemplaterApi($page);
-        $api->run();
-    } 
-    
-    function page_statistic($id) {
-        $top = array();
-        
-        $filter_form = new \CMS\FilterForm;
-        $filter_form->text('ip',false);
-        $this->data['filter_form'] = $filter_form;
-        
-        $this->data['fields'] = array(
-            'date' => _t('date'),
-            'visitors' => _t('visitors'),
-            'new_visitors' => _t('new visitors'),
-            'order' => _t('order'),
-            'conversion' => _t('conversion'),
-        );
-        
-        $this->data['sort_fields'] = array('date','conversion','order');
-        
-        $pagination = new \Bingo\Pagination(5,$this->getPage(),false,false,$query);
-        
-        $this->data['list'] = $pagination->result();
-        $this->data['pagination'] = $pagination->get();
-        $this->data['title'] = _t("Statistic");
-        $this->view('lpcandy/base-list');
     }
 }
 

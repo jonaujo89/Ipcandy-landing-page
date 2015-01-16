@@ -29,7 +29,7 @@
                         </h3>
                         <?= $obj->domain ?: _t("No domain assigned") ?>
                         <br>
-                        <?= anchor('page-child-edit/'.$obj->id,_t('+ add child page')) ?>
+                        <?= anchor('page-child-create/'.$obj->id,_t('+ add child page')) ?>
                         <div class="actions">
                             <a class="design" href="<?=url('page-design/'.$obj->id)?>"><?=_t('Launch Designer')?></a>
                             <a class="edit" href="<?=url('page-edit/'.$obj->id)?>"><?=_t('Edit')?></a>
@@ -51,7 +51,7 @@
                             <br>
                             <div class="actions">
                                 <a class="design" href="<?=url('page-design/'.$obj->id)?>"><?=_t('Launch Designer')?></a>
-                                <a class="edit" href="<?=url('page-child-edit/'.$obj->id)?>"><?=_t('Edit')?></a>
+                                <a class="edit" href="<?=url('page-edit/'.$obj->id)?>"><?=_t('Edit')?></a>
                                 <a class="delete" href="<?=url('page-delete/'.$obj->id)?>"><?=_t('Delete')?></a>
                             </div>
                         </td>

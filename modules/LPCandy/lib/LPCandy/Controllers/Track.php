@@ -79,7 +79,7 @@ class Track extends Base {
         
         $this->view('lpcandy/base-list');
     }
-            
+    
     function track_update_status($id) {
         $track = \LPCandy\Models\Track::find($id);
 

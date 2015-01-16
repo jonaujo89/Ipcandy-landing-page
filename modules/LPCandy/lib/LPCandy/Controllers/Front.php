@@ -8,14 +8,15 @@ class Front extends Base {
     }    
     
     function home() {
-        $this->data['title'] = _t('LPCandy');
+        $home_domain = \Bingo\Config::get('config','domain');
+        $page = \LPCandy\Models\Page::findOneByDomain($home_domain);
+        if (!$page) return true;
         
-        $id = 25;
-        $page = \LPCandy\Models\Page::find($id);
         $api = new \LPCandy\TemplaterApi($page);
-        $assets = url('upload/LPCandy/pages/'.$id."/publish");
+        $assets = url('upload/LPCandy/pages/'.$page->id."/publish");
         $body_html = $api->view($page->getTemplate(),false,true);
 
+        $this->data['title'] = $page->title;
         $this->data['assets'] = $assets;
         $this->data['body_html'] = $body_html;
         $this->view('lpcandy/home');

@@ -65,7 +65,7 @@
         </div>
     
         <div id="footer">
-            Powered by Bingo and TeaCss
+            <?=_t('Powered by Bingo and TeaCss')?>
         </div>
         <? endblock() ?>
     </div>

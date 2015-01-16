@@ -61,7 +61,7 @@ class Gallery extends Block {
             'show_image_title' => true,
             'show_image_desc' => true,
             'background' =>'#FFFFFF',
-            'title' => "Галерея работ 1",
+            'title' => "Галерея работ",
             'title_2' => "Подзаголовок",
             'items' => array(
                 $this->item_default('1.jpg'),
@@ -142,7 +142,7 @@ class Gallery extends Block {
 			'show_image_desc' => true,
 			'show_image_overlay' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ 2",
+            'title' => "Галерея работ",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
@@ -246,7 +246,7 @@ class Gallery extends Block {
 			'show_image_overlay' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ 3",
+            'title' => "Галерея работ",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
@@ -367,7 +367,7 @@ class Gallery extends Block {
 			'show_image_overlay' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ 4",
+            'title' => "Галерея работ",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
@@ -464,7 +464,7 @@ class Gallery extends Block {
             'show_image_desc' => true,
 			'enable_fancybox' => true,
             'background' => '#F7F7F7',
-            'title' => "Галерея работ 5",
+            'title' => "Галерея работ",
             'title_2' => "Подзаголовок",
             'items' => array(
                 $this->item_default_5('1.jpg'),
@@ -546,7 +546,7 @@ class Gallery extends Block {
             'show_image_desc' => true,
 			'enable_fancybox' => true,
             'background' =>'#FFFFFF',
-            'title' => "Галерея работ 6",
+            'title' => "Галерея работ",
             'title_2' => "Подзаголовок",
             'items' => array(
                 $this->item_default_6('11.jpg'),
@@ -612,7 +612,7 @@ function tpl_7($val) {?>
 			'show_image_title' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ 7",
+            'title' => "Галерея работ",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
@@ -681,7 +681,7 @@ function tpl_7($val) {?>
 			'show_image_title' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ 8",
+            'title' => "Галерея работ",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
@@ -752,7 +752,7 @@ function tpl_7($val) {?>
 			'show_image_title' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ 9",
+            'title' => "Галерея работ",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
@@ -820,7 +820,7 @@ function tpl_7($val) {?>
 			'show_image_title' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ 10",
+            'title' => "Галерея работ",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(

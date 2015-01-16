@@ -12,5 +12,5 @@ $(function(){
                 if(data != 'ok') alert(data);
             }
         });        
-    }); 
+    });     
 });

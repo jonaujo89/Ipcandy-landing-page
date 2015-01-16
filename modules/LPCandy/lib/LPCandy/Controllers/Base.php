@@ -11,10 +11,10 @@ class Base extends \CMS\Controllers\Admin\Base {
         theme_base();
         bingo_domain('lpcandy');
         
-        if ($needUser) $this->needUser;
+        if ($needUser) $this->needUser();
     }    
     
     function needUser() {
-        if ($needUser && !$this->user) redirect('login');
+        if (!$this->user) redirect('login');
     }
 }
