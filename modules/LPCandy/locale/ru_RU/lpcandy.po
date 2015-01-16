@@ -157,7 +157,7 @@ msgstr "Выйти"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/layout.php:68
 msgid "Powered by Bingo and TeaCss"
-msgstr "Создано на Bingo и TeaCss"
+msgstr "Создано с помощью Bingo и TeaCss"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:28
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:48

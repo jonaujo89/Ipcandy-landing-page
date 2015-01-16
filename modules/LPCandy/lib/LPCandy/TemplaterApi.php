@@ -38,12 +38,7 @@ class TemplaterApi extends \TemplaterApi {
     }
     
     function makeScreenshot() {
-        if ($this->page->parent) {
-            $path = "/screenshot-child-".$this->page->id.".png";
-        } else {
-            $path = "/screenshot.png";
-        }
-        
+        $path = "/screenshot.png";
         $screen_file = $this->page->getPublishPath().$path;
         $url = 'http://'.$_SERVER['SERVER_NAME'].url('page-view/'.$this->page->id);
         $rasterize = INDEX_DIR."/modules/LPCandy/rasterize.js";
@@ -62,12 +57,6 @@ class TemplaterApi extends \TemplaterApi {
         if (!file_exists($base."/templates")) mkdir($base."/templates",0777,true);
         
         foreach ($files as $path=>$text) {
-            if ($path=='/screenshot.png') {
-                if ($this->page->parent) {
-                    $path = "/screenshot-child-".$this->page->id.".png";
-                }
-            }
-            
             $path = $base.$path;
             
             $mark = "data:image/png;base64,";

@@ -64,20 +64,17 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     }
     
     function getPath($sub=false) {
-        $id = $this->parent ? $this->parent->getField('id') : $this->id;
+        $id = $this->id;
         return INDEX_DIR.'/upload/LPCandy/pages/'.$id.($sub ? "/".$sub:"");
     }
     
     function getUrl($sub=false) {
-        $id = $this->parent ? $this->parent->getField('id') : $this->id;
+        $id = $this->id;
         return INDEX_URL.'/upload/LPCandy/pages/'.$id.($sub ? "/".$sub:"");
     }
     
     function getScreenshotUrl() {
-        if ($this->parent)
-            $file = $this->getPath("publish/screenshot-child-".$this->id.".png");
-        else
-            $file = $this->getPath("publish/screenshot.png");
+        $file = $this->getPath("publish/screenshot.png");
         if (file_exists($file)) {
             return \Bingo\ImageResizer::get_file_url($file,200,150)."?t=".filemtime($file);
         }
@@ -85,8 +82,7 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     }
     
     function getTemplate() {
-        if (!$this->parent) return 'page';
-        return 'child-'.$this->id;
+        return 'page';
     }
     
     function getTemplatePath($sub=false) {

@@ -47,7 +47,6 @@ class Track extends Base {
         
         $pagination = new \Bingo\Pagination(5,$this->getPage(),false,false,$query);
         $this->data['list'] = $pagination->result();
-        //_D($pagination->result());
         $this->data['pagination'] = $pagination->get();
         $this->data['title'] = _t("Tracking");
 
