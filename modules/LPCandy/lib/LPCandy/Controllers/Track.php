@@ -12,11 +12,32 @@ class Track extends Base {
         
         $filter_form = new \CMS\FilterForm;
         $filter_form->text('ip',false);
+        
+        $status_options_for_filter = array(
+            '' => '',
+            'новая' => 'new', 
+            'в работе' => 'processing', 
+            'выполнена' => 'done', 
+            'отменена' => 'cancelled'
+        );     
+        $filter_form->select('status','',$status_options_for_filter,'');
+        
+        $pages = \LPCandy\Models\Page::findBy(array('user'=>$this->user));
+        $all_title_array = array(""=>"");
+        for($i=0; $i < count($pages); $i++){
+            $val = $pages[$i]->title;
+            $all_title_array[$val] = $val;
+        }
+        $title_options_for_filter = array_unique($all_title_array); 
+        $filter_form->select('page_title','',$title_options_for_filter,'');
+
         $this->data['filter_form'] = $filter_form;
         
         $criteria = array('user'=>$this->user);
         if ($filter_form->validate()) {
             if ($filter_form->values['ip']) $criteria['ip'] = 'LIKE %'.$filter_form->values['ip'].'%';
+            if ($filter_form->values['page_title']) $criteria['page_title'] = $filter_form->values['page_title'];
+            if ($filter_form->values['status']) $criteria['status'] = $filter_form->values['status'];
         }
         
         $_GET['sort_by'] = @$_GET['sort_by']?:'id';
@@ -26,10 +47,11 @@ class Track extends Base {
         
         $pagination = new \Bingo\Pagination(5,$this->getPage(),false,false,$query);
         $this->data['list'] = $pagination->result();
+        //_D($pagination->result());
         $this->data['pagination'] = $pagination->get();
         $this->data['title'] = _t("Tracking");
 
-        $this->data['item_actions']['track-delete'] = _t('delete');
+        $this->data['item_actions']['track-delete'] = _t('delete');        
         $this->data['list_actions']['delete'] = array(
             'title' => _t('Delete selected'),
             'function' => $this->action_delete('\LPCandy\Models\Track')
@@ -37,7 +59,7 @@ class Track extends Base {
         
         $this->data['fields'] = array(
             'id' => _t('#'),
-            'page' => _t('page'),
+            'page_title' => _t('page'),
             'status' => _t('status'),
             'date' => _t('date'),
             'ip' => _t('ip'),
