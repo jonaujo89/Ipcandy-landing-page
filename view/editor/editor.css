@@ -99,6 +99,12 @@ body.view-layout #teacss-layer > .editor-panel > .preview-toolbar > .close-butto
     border: none;
 }
 
+.ui-dialog .ui-dialog-content .ui-composite .ui-button.ui-button-text-only[for^="check"]{
+  background: transparent !important;
+  border: none;
+  text-align: left;
+}
+
 .teacss-ui .lp-icon-panel .combo-item {
     width: 40px;
     height: 40px;
