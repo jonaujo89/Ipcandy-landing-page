@@ -4188,7 +4188,6 @@ ol li {
 }
 
 .footer_1 .copyright a {
-  background: url(../../assets/images/lpcandy_small.png) no-repeat 0 50%;
   display: inline-block;
   height: 40px;
   color: #828282;
@@ -4209,12 +4208,12 @@ ol li {
 
 .footer_1 .copyright a i {
   display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-image: url("../assets/footer/copyright.png");
+  width: 60px;
+  height: 50px;
+  background-image: url("../../assets/images/lpcandy_small.png");
   background-repeat: no-repeat;
   vertical-align: middle;
-  opacity: 0.4;
+  opacity: 0.5;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;

@@ -3,6 +3,11 @@
 namespace LPCandy\Controllers\Admin;
 
 class Users extends \CMS\Controllers\Admin\BasePrivate {
+    function __construct() {
+        parent::__construct();
+        bingo_domain('lpcandy');
+    }
+    
     function user_list() {
         $query = \LPCandy\Models\User::findByQuery(array(),'id ASC');
         
@@ -17,6 +22,7 @@ class Users extends \CMS\Controllers\Admin\BasePrivate {
         $this->data['fields'] = array(
             'id' => _t('#'),
             'name' => _t('name'),
+            'login' => _t('login')
         );
         $this->view('cms/base-list');
     }

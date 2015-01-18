@@ -47,7 +47,7 @@ class LPCandy extends \Bingo\Module {
            array('action'=>'(user-list|user-login)'));
         
         \Bingo\Action::add('admin_pre_header',function(){
-            \Admin::$menu[_t('LPCandy')][_t('Customers')] = 'admin/lpcandy/user-list';
+            \Admin::$menu[_t('LPCandy','lpcandy')][_t('Customers','lpcandy')] = 'admin/lpcandy/user-list';
         });        
     }
 }

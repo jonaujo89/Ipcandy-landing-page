@@ -31,7 +31,7 @@ class Footer extends Block {
                 </div>
                 <? if ($val['show_copyright'] || $this->edit): ?>
                     <div class="copyright" <?= !$val['show_copyright'] ? "style='display:none'" : "" ?>>
-                        <span>Создано на платформе </span><a id="logo" href="/~maxtun/lpcandy/"></a>
+                        <a href="//lpcandy.ru" target='_blank'><i></i><span>Создано на платформе LPCandy</span></a>
                     </div>
                 <? endif ?>                
             </div>

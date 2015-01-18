@@ -3,7 +3,9 @@ var ru = $.extend(require("./editor_ru.js"),{
     "Publish" : "Публиковать",
     "Editor" : "Редактор",
     "Add Section" : "Добавить блок",
-    "Select component type" : "Выбрать тип блока"
+    "Select component type" : "Выбрать тип блока",
+    'Your page was successfully published and now is available to your customers' : 'Ваша страница теперь опубликована и на нее смогут зайти посетители',
+    'Publish success' : 'Успешная публикация'
 });
 window._t.load(ru);
 
