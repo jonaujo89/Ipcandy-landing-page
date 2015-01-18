@@ -54,8 +54,10 @@ class Page extends Base {
         $label = _t('Start from scratch');
         $label .= "<img src='".$page->getScreenshotUrl()."'>";
         $templates = array($label=>0);
-        $tpl_user = \LPCandy\Models\User::findOneByLogin('boomyjee');
-        $tpl_pages = \LPCandy\Models\Page::findBy(array('user'=>$tpl_user,'parent'=>null));
+        //$tpl_user = \LPCandy\Models\User::findOneByLogin('boomyjee');
+        //$tpl_pages = \LPCandy\Models\Page::findBy(array('user'=>$tpl_user,'parent'=>null));
+        $tpl_pages = \LPCandy\Models\Page::findByDomain('default');
+        $tpl = count($tpl_pages) ? $tpl_pages[0]->id : 0;
         
         foreach ($tpl_pages as $key=>$p) {
             $label = "<img src='".$p->getScreenshotUrl()."'>";
@@ -67,7 +69,7 @@ class Page extends Base {
         $form->fieldset();
         $form->text('title',_t('Title'),'required');
         $form->text('domain',_t('Domain'),$this->domain_validator($page));
-        $form->radio('template',_t('Template'),$templates,"")->add_class("template-select");
+        $form->radio('template',_t('Template'),$templates,"",$tpl)->add_class("template-select");
         $form->fieldset();
         $form->submit(_t('Create page'));
         

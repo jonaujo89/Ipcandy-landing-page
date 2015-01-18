@@ -4208,9 +4208,9 @@ ol li {
 
 .footer_1 .copyright a i {
   display: inline-block;
-  width: 60px;
-  height: 50px;
-  background-image: url("../../assets/images/lpcandy_small.png");
+  width: 55px;
+  height: 40px;
+  background-image: url("../assets/footer/copyright.png");
   background-repeat: no-repeat;
   vertical-align: middle;
   opacity: 0.5;
@@ -4224,7 +4224,7 @@ ol li {
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.3dppx) {
   .footer_1 .copyright a i {
     background-image: url("../assets/footer/copyright.retina.png");
-    background-size: 40px 40px;
+    background-size: 55px 40px;
   };
 }
 
