@@ -4,15 +4,13 @@
         <title><?=_t('Templater editor')?></title>
         <meta charset="utf-8">
         
-        <script src="/~boomyjee/teacss/lib/teacss.js"></script>
-        <script src="/~boomyjee/teacss-ui/lib/teacss-ui.js"></script>
-        <link  href="/~boomyjee/teacss-ui/lib/teacss-ui.css" rel="stylesheet" type="text/css">
-        <script src="/~boomyjee/dayside/client/lib/require.js"></script>
-        
-        <script src="<?=t_url('assets/script/lpcandy.js')?>"></script>
+        <script src="<?=url('lib/teacss/teacss.js')?>"></script>
+        <script src="<?=url('/lib/teacss-ui/teacss-ui.js')?>"></script>
+        <link  href="<?=url('/lib/teacss-ui/teacss-ui.css')?>" rel="stylesheet" type="text/css">
+        <script src="<?=url('/lib/require/require.js')?>"></script>
 
         <script>
-            var base_url = "<?=url('')?>"
+            var base_url = "<?=INDEX_URL?>"
             var page_id = <?=json_encode($page_id)?>;
             function run(exports){
                 var templater_app = exports[0];
@@ -29,10 +27,10 @@
         </script>        
         
         <? if (\Bingo\Configuration::$applicationMode=='development'): ?>
-            <script src="/~boomyjee/dayside/client/lib/require.proxy.php"></script>        
+            <script src="<?=url('lib/require/require.proxy.php')?>"></script>        
             <script>
                 require(
-                    "/~boomyjee/templater/lib/client/app.js",
+                    "<?=url('lib/templater/client/app.js')?>",
                     "<?=url('view/editor/editor.js')?>",
                     run
                 );

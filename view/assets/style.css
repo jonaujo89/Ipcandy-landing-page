@@ -544,40 +544,8 @@ body {
     z-index: 50000;
 }
 #logged_info a {
-    color: #FFFFFF;
+    color: #fff;
     text-decoration: none;
-}
-.user .no-user,
-.no-user .user {
-    display: none;
-}
-#login_overlay {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.3);
-    z-index:9999;
-}
-#login_popup {
-    box-sizing: content-box;
-    position: fixed;
-    width: 400px;
-    height: 160px;
-    padding: 40px;
-    background: white;
-    border: 1px solid #eee;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-    z-index: 10000;
-    top: 50%;
-    left: 50%;
-    margin-top: -120px;
-    margin-left: -240px;
-}
-#login_popup iframe {
-    width: 400px;
-    height: 160px;
 }
 #content > h3 {
     background: #333;

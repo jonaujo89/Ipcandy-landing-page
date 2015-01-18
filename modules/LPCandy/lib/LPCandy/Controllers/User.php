@@ -5,28 +5,18 @@ namespace LPCandy\Controllers;
 class User extends Base {
     function login() {
         $token = @$_POST['token'];
-        $redirect = @$_GET['redirect']?:'';
+        $redirect = @$_GET['redirect'];
 
         if ($this->user) { redirect($redirect);return; }
         if ($token) {
             $user = \LPCandy\Models\User::login_token($token);
-            if (!$user) {
-                echo _t('Login error'); 
+            if ($user) {
+                redirect($redirect);
                 return;
             }
-            ?>
-                <script>
-                    var w = window.parent;
-                    w.$(w.document).trigger("login",[<?=json_encode(array(
-                        'id' => $user->id,
-                        'login' => $user->login,
-                        'name' => $user->name
-                    ))?>]);
-                </script>
-            <?
-            return;
         }
-        redirect("/");
+        $this->data['title'] = _t("Login");
+        $this->view('lpcandy/login');
     }
 
     function logout() {

@@ -7,14 +7,14 @@
     <script>var base_url = "<?=url('')?>"</script>   
     
     <?
-        include BINGO_PATH."/../teacss/lib/teacss.php";
+        include INDEX_DIR."/lib/teacss/teacss.php";
         teacss(
             $makefile = t_url('assets/tea/makefile.tea'),
             $css = t_url('assets/style.css'),
             $js = false,
             $dir = __DIR__."/../assets",
             $dev = (isset($_GET['dev']) && \CMS\Models\User::checkLoggedIn()),
-            $teacss = "/~boomyjee/teacss/lib/teacss.js"
+            $teacss = url('lib/teacss/teacss.js')
         );
     ?>
     <script src="<?=t_url('assets/script/jquery.js')?>"></script>

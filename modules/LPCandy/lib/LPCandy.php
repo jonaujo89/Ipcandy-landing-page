@@ -18,7 +18,7 @@ class LPCandy extends \Bingo\Module {
             array('action'=>'(page-list|page-delete|page-edit|page-create|page-child-create)'));
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Editor','id'=>false),
-            array('action'=>'(page-design|page-ajax)'));
+            array('action'=>'(page-design|page-ajax|page-first)'));
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Track','id'=>false),
             array('action'=>'(track-list|track-delete|track-update-status)'));
@@ -29,8 +29,9 @@ class LPCandy extends \Bingo\Module {
         
         $this->connect("*any",array('function'=>function($route){
             if (substr($route['any'],0,5)=='admin') return true;
-            
             $domain = $_SERVER['SERVER_NAME'];
+            if ($domain==\Bingo\Config::get('config','domain')) return true;
+            
             $page = \LPCandy\Models\Page::findOneByDomain($domain);
             if ($page) {
                 $c = new \LPCandy\Controllers\Front;

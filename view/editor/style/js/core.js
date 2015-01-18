@@ -290,16 +290,4 @@ $(function() {
     $(".map").mapYandex();    
     initForms();
     initOrderButton();  
-    
-    $(document).on("click","a[href$='login']",function(e){ 
-        e.preventDefault();
-        var $this = $(this);
-        $.ajax({
-            url: base_url + "login",
-            type: "POST",
-            success: function(data){
-                alertify.genericDialog(data);
-            }
-        });        
-    });
 });

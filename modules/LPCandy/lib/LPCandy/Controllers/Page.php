@@ -78,6 +78,7 @@ class Page extends Base {
                 $tpl_page = \LPCandy\Models\Page::find($form->values['template']);
                 if ($tpl_page) {
                     $page->copyFromTemplate($tpl_page);
+                    $page->save();
                 }
             }
             redirect('page-list');

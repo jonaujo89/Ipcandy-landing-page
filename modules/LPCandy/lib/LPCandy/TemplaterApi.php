@@ -2,7 +2,7 @@
 
 namespace LPCandy;
 
-require BINGO_PATH . "/../templater/lib/server/api.php";
+require INDEX_DIR . "/lib/templater/server/api.php";
 
 class TemplaterApi extends \TemplaterApi {
     

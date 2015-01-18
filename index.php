@@ -1,6 +1,6 @@
 <?php
 
-define('BINGO_PATH',realpath(__DIR__.'/../../../../uxcandy_boomyjee/data/public_html/bingo'));
+define('BINGO_PATH',realpath(__DIR__.'/lib/bingo'));
 require_once BINGO_PATH . "/loader.php";
 
 \Bingo\Configuration::$applicationMode = 'development';
@@ -13,6 +13,6 @@ require_once BINGO_PATH . "/loader.php";
 \Bingo\Configuration::addDbConnection('localhost','boomyjee_lpcandy_new','boomyjee','jeemyboo');
 
 \Bingo\Template::addIncludePath('themes/default',INDEX_DIR."/view",INDEX_URL."/view");
-\Bingo\Template::addIncludePath('',BINGO_PATH."/template",INDEX_URL."/../bingo/template");
+\Bingo\Template::addIncludePath('',BINGO_PATH."/template",INDEX_URL."/lib/bingo/template");
 
 \Bingo\Bingo::getInstance()->run();
