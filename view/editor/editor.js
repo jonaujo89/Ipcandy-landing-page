@@ -7,6 +7,8 @@ var ru = $.extend(require("./editor_ru.js"),{
 });
 window._t.load(ru);
 
+require("./editor.css");
+
 require("./ui/internal/block.js");
 require("./ui/internal/repeater.js");
 

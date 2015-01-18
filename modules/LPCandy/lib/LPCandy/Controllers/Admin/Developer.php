@@ -17,16 +17,21 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
         if (isset($_POST['js'])) {
             
             $js = $_POST['js'];
-            
-            $url = 'http://javascript-minifier.com/raw';
+            $css = $_POST['css'];
             
             $postdata = array('http' => array(
                 'method'  => 'POST',
                 'header'  => 'Content-type: application/x-www-form-urlencoded',
                 'content' => http_build_query( array('input' => $js) ) ) );
-            
-            $minified = file_get_contents($url, false, stream_context_create($postdata));
+            $minified = file_get_contents('http://javascript-minifier.com/raw', false, stream_context_create($postdata));
             file_put_contents(INDEX_DIR."/view/editor/editor.min.js",$minified);
+
+            $postdata = array('http' => array(
+                'method'  => 'POST',
+                'header'  => 'Content-type: application/x-www-form-urlencoded',
+                'content' => http_build_query( array('input' => $css) ) ) );
+            $minified = file_get_contents('http://cssminifier.com/raw', false, stream_context_create($postdata));
+            file_put_contents(INDEX_DIR."/view/editor/editor.min.css",$minified);
             echo 'done';
             die();
         }
@@ -36,31 +41,16 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
         <script src="/~boomyjee/dayside/client/lib/require.js"></script>
         
         <script>
-            require(
+            require.build(
                 "/~boomyjee/templater/lib/client/app.js",
                 "<?=url('view/editor/editor.js')?>",
-                function(exports){
-                    var js = "var editor_min = function(f){\n";
-
-                    var out_path = [];
-                    for (var path in require.cache.js) {
-                        var path_s = "'"+path.replace(/\\?("|')/g,'\\$1')+"'";
-                        if (exports.indexOf(require.cache.modules[path])!=-1) {
-                            out_path.push(path_s);
-                        }
-                        js += 'require.define('+path_s+','+require.cache.js[path]+')\n';
-                    }
-                    out_path.push('f||true');
-                    
-                    js += 'require('+out_path.join(", ")+')\n';
-                    js += "}\n";
-                    
-                    var $ = teacss.jQuery;
+                function (res) {
+                    console.debug(res.js);
                     $("body").text('minifying');
                     $.ajax({
                         url: "",
                         type: "POST",
-                        data: {js:js},
+                        data: {js:res.js,css:res.css},
                         success: function (data) {
                             $("body").text(data);
                         }

@@ -419,11 +419,11 @@ form > .message, form > .alert {
 }
 @font-face {
     font-family: 'FontAwesome';
-    src: url('/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.eot');
-    src: url('/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-url('/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.woff') format('woff'),
-url('/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.ttf') format('truetype'),
-url('/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
+    src: url('http://uxcandy.com/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.eot');
+    src: url('http://uxcandy.com/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+url('http://uxcandy.com/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.woff') format('woff'),
+url('http://uxcandy.com/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.ttf') format('truetype'),
+url('http://uxcandy.com/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -482,42 +482,6 @@ body {
     height: 103px;
     text-indent: -999em;
     float: left;
-}
-#header .in #cloud {
-    border: 3px solid #007;
-    border-radius: 120px 120px 120px 120px;
-    width: 160px;
-    color: #333333;
-    margin: 15px 0 0 210px;
-    padding: 20px;
-    position: relative;
-    text-align: center;
-    font-size: 16px;
-    font-style: italic;
-}
-#header .in #cloud, #header .in #cloud:after, #header .in #cloud:before {
-    border: 3px solid #71a0d0;
-    background: white;
-    box-shadow: 0px 0px 3px rgba(0,0,0,0.7);
-    z-index: 10;
-    content: "";
-    display: block;
-}
-#header .in #cloud:after {
-    position: absolute;
-    left: -100px;
-    bottom: 50px;
-    width: 25px;
-    height: 25px;
-    border-radius: 25px;
-}
-#header .in #cloud:before {
-    position: absolute;
-    left: -63px;
-    bottom: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
 }
 #page {
     padding: 0px 0px 36px 170px;
@@ -582,6 +546,38 @@ body {
 #logged_info a {
     color: #FFFFFF;
     text-decoration: none;
+}
+.user .no-user,
+.no-user .user {
+    display: none;
+}
+#login_overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index:9999;
+}
+#login_popup {
+    box-sizing: content-box;
+    position: fixed;
+    width: 400px;
+    height: 160px;
+    padding: 40px;
+    background: white;
+    border: 1px solid #eee;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    z-index: 10000;
+    top: 50%;
+    left: 50%;
+    margin-top: -120px;
+    margin-left: -240px;
+}
+#login_popup iframe {
+    width: 400px;
+    height: 160px;
 }
 #content > h3 {
     background: #333;

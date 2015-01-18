@@ -8,16 +8,25 @@ class User extends Base {
         $redirect = @$_GET['redirect']?:'';
 
         if ($this->user) { redirect($redirect);return; }
-
         if ($token) {
             $user = \LPCandy\Models\User::login_token($token);
-            if ($user) {
-                redirect($redirect);
+            if (!$user) {
+                echo _t('Login error'); 
                 return;
             }
+            ?>
+                <script>
+                    var w = window.parent;
+                    w.$(w.document).trigger("login",[<?=json_encode(array(
+                        'id' => $user->id,
+                        'login' => $user->login,
+                        'name' => $user->name
+                    ))?>]);
+                </script>
+            <?
+            return;
         }
-        $this->data['title'] = _t("Login");
-        $this->view('lpcandy/login');
+        redirect("/");
     }
 
     function logout() {
