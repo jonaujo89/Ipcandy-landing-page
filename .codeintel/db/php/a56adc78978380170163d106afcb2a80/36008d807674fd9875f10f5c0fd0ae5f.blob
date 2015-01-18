@@ -1,1 +1,0 @@
-<scope ilk="blob" lang="JavaScript" name="maps.php" src="/var/www/uxcandy_maxtun/data/public_html/lpcandy_merged/templater_modules/lpcandy/components/maps.php"><variable citdl="ymaps.Map" line="15" name="myMap" /><variable citdl="ymaps.Placemark" line="15" name="myPlacemark" /><scope ilk="function" line="17" lineend="29" name="init" signature="init()" /></scope>
