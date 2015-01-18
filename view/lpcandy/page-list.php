@@ -13,9 +13,8 @@
     </h3>
     <? endif ?>
 
-    <? if (count($list)): ?>
-
-        <form>
+    <form>
+        <? if (count($list)): ?>
             <? foreach ($list as $obj): ?>
                 <table class="list">
                 <tr>
@@ -59,14 +58,11 @@
                 <? endforeach ?>
                 </table>
             <? endforeach ?>
-        </form>
+        <? else: ?>
+            <div class="message">
+                <?=_t('No pages yet')?>
+            </div>
+        <? endif ?>
+    </form>
 
-    <? else: ?>
-
-        <div class="message">
-            <?=_t('No pages yet')?>
-        </div>
-
-    <? endif ?>
-    
 <? endblock() ?>

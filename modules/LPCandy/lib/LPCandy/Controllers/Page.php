@@ -38,9 +38,11 @@ class Page extends Base {
     
     function domain_validator($page) {
         return function ($val) use ($page) {
-            $pages = \LPCandy\Models\Page::findByDomain($val);
-            foreach ($pages as $one) {
-                if ($one->id!=$page->id) throw new \ValidationException(_t("Domain is already in use"));
+            if ($val) {
+                $pages = \LPCandy\Models\Page::findByDomain($val);
+                foreach ($pages as $one) {
+                    if ($one->id!=$page->id) throw new \ValidationException(_t("Domain is already in use"));
+                }
             }
             return $val;
         };
