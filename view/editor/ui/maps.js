@@ -109,8 +109,7 @@ lp.maps = lp.block.extendOptions({
         }       
         
         var jq = Component.previewFrame.window.$;        
-        jq(this.element.find(".map")).mapYandex(this.value.map);  
-           
+        jq(this.element.find(".map")).mapYandex(this.value.map);          
     },
     configForm: {
         width: 800,

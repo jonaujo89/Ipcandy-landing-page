@@ -30,22 +30,12 @@ class Maps extends Block {
             'show_container_text' => true,                        
             'map' => array(
                 'map_type' => 'yandex',			
-                'map_center' => array(55.75824, 37.622575),
+                'map_center' => array(55.757789, 37.611652),
                 'map_zoom' => 15,
                 'map_places' => array(
                     array(
-                        'center' => '',
                         'type' => 'placemark',
                         'title' => 'Офис №1',
-                        'address' => 'г.Москва, улица Никольская, 17', 
-                        'lat' => '55.75824',
-                        'lng' => '37.622575',
-                        'color' => 'red' 
-                    ),
-                    array(
-                        'center' => '',
-                        'type' => 'placemark',
-                        'title' => 'Офис №2',
                         'address' => 'г.Москва, улица Тверская, 6',
                         'lat' => '55.757789', 
                         'lng' => '37.611652',

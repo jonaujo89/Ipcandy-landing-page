@@ -18,7 +18,7 @@
         );
     ?>
     <script src="<?=t_url('assets/script/jquery.js')?>"></script>
-    <script src="<?=t_url('assets/script/lpcandy.js')?>"></script>
+    <script src="<?=t_url('assets/script/lpcandy.js')?>"></script>    
 </head>
 <body>
     <? include partial('lpcandy/logged-info') ?>

@@ -43,12 +43,64 @@ ol li {
     list-style-type: decimal;
 }
 
+.policy_info_alertify{
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.policy_info_alertify h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+.policy_info_alertify h3 {
+  display: block;
+  font-size: 1.17em;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+}
+
+.policy_info_alertify h4 {
+  display: block;
+  -webkit-margin-before: 1.33em;
+  -webkit-margin-after: 1.33em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+}
+
+.policy_info_alertify ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.policy_info_alertify ul li {
+    padding: 5px 0;
+}
+
+.alertify .ajs-body .ajs-content .policy_info_alertify p {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
 .error{
-  color: #EA493C !important;
-  font-family: Arial;
-  font-size: 12px;
-  padding-top: 2px;
-  text-align: right;
+    color: #EA493C !important;
+    font-family: Arial;
+    font-size: 12px;
+    padding-top: 2px;
+    text-align: right;
 }
 
 .clear {

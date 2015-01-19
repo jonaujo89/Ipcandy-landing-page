@@ -16,7 +16,6 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
     };
 });
 
-
 $.fn.lpCounty = function () {
 	$(this).each(function(){	
 
@@ -187,6 +186,14 @@ function initOrderButton() {
     });
 };
 
+function initPolicyInfo() {
+    $(document).on("click", "a.policy", function(e){ 
+        e.preventDefault();
+        var policy_info = $(this).data("policy_info");
+        if (!policy_info) $(this).data("policy_info",policy_info = $(this).siblings(".policy_info").html());
+        alertify.genericDialog(policy_info);
+    });
+};
 
 function initForms() {
     
@@ -280,6 +287,7 @@ $.fn.textBlockHeight = function () {
     });
 };
 
+
 $(function() {    
     $(".gallery_2 .item_list .item_block .item").textBlockHeight();
     $(".countdown").lpCounty();	
@@ -290,4 +298,5 @@ $(function() {
     $(".map").mapYandex();    
     initForms();
     initOrderButton();  
+    initPolicyInfo();
 });

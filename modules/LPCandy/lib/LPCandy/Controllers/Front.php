@@ -30,6 +30,7 @@ class Front extends Base {
         
         $id = $page->parent ? $page->parent->getField('id') : $page->id;
         $assets = url('upload/LPCandy/pages/'.$id."/publish");
+        $url_ymaps = url('upload/LPCandy/pages/'.$id."/publish");
         
         $body_html = $api->view($page->getTemplate(),false,true);
         
@@ -46,8 +47,9 @@ class Front extends Base {
                     var base_url = "<?=INDEX_URL?>";
                     var page_id = <?=$page->id?>; 
                 </script>
-                <link rel="stylesheet" type="text/css" href="<?=$assets.'/default.css'?>">
+                <link rel="stylesheet" type="text/css" href="<?=$assets.'/default.css'?>">                                
                 <script src="<?=$assets.'/default.js'?>"> </script>
+                <script src='http://api-maps.yandex.ru/2.1/?lang=ru_RU'></script>
             </head>  
                 <body>
                     <?= $body_html ?>

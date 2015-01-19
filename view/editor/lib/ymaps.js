@@ -1,13 +1,21 @@
 $.fn.mapYandex = function (mapSettings,onInit) {
     
     $(this).each(function(){
-        mapSettings = mapSettings || JSON.parse($(this).attr('data-map-settings'));
+        
+        var $this = $(this);
+        
+        console.log($this);
+        
+        if(1==0){
+            mapSettings = JSON.parse($this.attr('data-map-settings'));
+        } else {
+            mapSettings = mapSettings || JSON.parse($this.attr('data-map-settings'));
+        }        
 
         var center = mapSettings.map_center;
         var placesArray = mapSettings.map_places,        
             type = mapSettings.map_type,
             zoom = mapSettings.map_zoom;
-        var $this = $(this);
 
         function init(){ 
             var yandexPlacemark;
@@ -28,9 +36,10 @@ $.fn.mapYandex = function (mapSettings,onInit) {
             myMap.geoObjects.removeAll();        
 
             var coords;
-            for(i = 0; i < placesArray.length; i++){
+            for(i = 0; i < placesArray.length; i++){                
                 var place = placesArray[i];
                 var coords = [place.lat,place.lng];
+                //console.log(place);
                 yandexPlacemark = new ymaps.Placemark( coords ,
                 {
                     hintContent: place.title,
