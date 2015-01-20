@@ -1,16 +1,9 @@
-$.fn.mapYandex = function (mapSettings,onInit) {
+$.fn.mapYandex = function (mapSettings_default,onInit) {
     
     $(this).each(function(){
         
         var $this = $(this);
-        
-        console.log($this);
-        
-        if(1==0){
-            mapSettings = JSON.parse($this.attr('data-map-settings'));
-        } else {
-            mapSettings = mapSettings || JSON.parse($this.attr('data-map-settings'));
-        }        
+        var mapSettings = mapSettings_default || JSON.parse($this.attr('data-map-settings'));  
 
         var center = mapSettings.map_center;
         var placesArray = mapSettings.map_places,        

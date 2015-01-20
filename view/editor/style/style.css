@@ -43,6 +43,32 @@ ol li {
     list-style-type: decimal;
 }
 
+.error{
+    color: #EA493C !important;
+    font-family: Arial;
+    font-size: 12px;
+    padding-top: 2px;
+    text-align: right;
+}
+
+.clear {
+  zoom: 1;
+  min-height: 5px;
+}
+
+.container-fluid {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* policy AlertifyJS dialog */
+.alertify .ajs-body .ajs-content .policy_info_alertify p {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
 .policy_info_alertify{
     font-family: Arial,sans-serif;
     font-size: 14px;
@@ -85,31 +111,6 @@ ol li {
 
 .policy_info_alertify ul li {
     padding: 5px 0;
-}
-
-.alertify .ajs-body .ajs-content .policy_info_alertify p {
-  display: block;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-}
-
-.error{
-    color: #EA493C !important;
-    font-family: Arial;
-    font-size: 12px;
-    padding-top: 2px;
-    text-align: right;
-}
-
-.clear {
-  zoom: 1;
-  min-height: 5px;
-}
-
-.container-fluid {
-    border-bottom: 1px solid #e0e0e0;
 }
 
 /* AlertifyJS dialog */
@@ -1404,14 +1405,9 @@ ol li {
   margin-bottom: 18px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
-}
-
-@media (max-width:1199px) {
-  .benefits_1 .item_list .item .name {
-     font-size: 18px;
-  }  
+  line-height: 130%;
 }
 
 .benefits_1 .item_list .item .desc {
@@ -1484,9 +1480,9 @@ ol li {
   margin-bottom: 15px;
   color: #4C4C4C;
   font-size: 18px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
-  line-height: 140%;
+  line-height: 130%;
 }
 
 .benefits_2 .item_list .item .desc {
@@ -1573,8 +1569,9 @@ ol li {
   margin-bottom: 15px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .benefits_3 .item_list .item .desc {
@@ -1661,9 +1658,10 @@ ol li {
   margin-bottom: 15px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
   margin-left: 125px;
+  line-height: 130%;  
 }
 
 .benefits_4 .item_list .item .desc {
@@ -1736,8 +1734,9 @@ ol li {
   margin-bottom: 15px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;  
 }
 
 .benefits_5 .item_list .item .desc {
@@ -1762,13 +1761,9 @@ ol li {
   cursor: pointer;
   display: inline-block;
   border-radius: 5px;
-  padding: 7px 27px;
+  padding: 7px 45px;
   text-decoration: none;
   text-align: center;
-}
-
-.services_1 .container-fluid {
-  background: #f7f7f7;
 }
 
 .services_1 .container {
@@ -1823,15 +1818,16 @@ ol li {
 }
 
 .services_1 .item_list .item .name {
-  margin: 20px 20px 12px 20px;
+  padding: 20px;
   color: #2b2b2b;
   font-size: 20px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .services_1 .item_list .item .desc {
-  margin: 12px 20px 16px 20px;
+  padding: 0px 20px 16px 20px;
   color: #5c5c5c;
   font-size: 14px;
   line-height: 22px;
@@ -1839,14 +1835,14 @@ ol li {
 }
 
 .services_1 .item_list .item .price {
-  margin: 16px 20px 18px 20px;
+  padding: 0px 20px 18px 20px;
   color: #2b2b2b;
   font-size: 20px;
   font-family: Arial;
 }
 
 .services_1 .item_list .item .btn_wrap {
-  margin: 0px 30px 20px;
+  padding: 0px 30px 20px;
   display: inline-block;
 }
 
@@ -1858,10 +1854,6 @@ ol li {
   .services_1 .item_list .item .img_wrap .img {
     height: 190px;
   };
-}
-
-.services_2 .container-fluid {
-  background: #f7f7f7;
 }
 
 .services_2 .container {
@@ -1956,10 +1948,10 @@ ol li {
   margin: 0 0 20px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
-  font-weight: 600;
   text-transform: uppercase;
-  line-height: 140%;
+  font-family: "Open Sans Semibold", Arial;
+  font-weight: 600;
+  line-height: 130%;
 }
 
 .services_2 .item_list .item .desc {
@@ -1992,10 +1984,6 @@ ol li {
 
 .services_2 .item_list.circle .item .img_data .img {
   border-radius: 85px;
-}
-
-.services_3 .container-fluid {
-  background: #f7f7f7;
 }
 
 .services_3 .container {
@@ -2091,8 +2079,9 @@ ol li {
   margin: 0 0 20px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
   text-transform: uppercase;
 }
 
@@ -2121,10 +2110,6 @@ ol li {
 .services_3 .item_list .item .btn_wrap {
   margin: 3px 0 20px 0;
   display: inline-block;
-}
-
-.services_4 .container-fluid {
-  background: #f7f7f7;
 }
 
 .services_4 .container {
@@ -2166,7 +2151,7 @@ ol li {
 .services_4 .item_list .item .ico {
   width: 90px;
   height: 90px;
-  margin: 20px 20px 20px 20px;
+  margin: 20px 20px 0px 20px;
   background-repeat: no-repeat;
   background-size: 80px;
   background-position: center center;
@@ -2176,16 +2161,16 @@ ol li {
 }
 
 .services_4 .item_list .item .name {
-  margin: 20px 20px 12px 20px;
+  padding: 20px 20px 12px 20px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
-  line-height: 140%;
+  line-height: 130%;
 }
 
 .services_4 .item_list .item .desc {
-  margin: 12px 20px 16px 20px;
+  padding: 0px 20px 16px 20px;
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
@@ -2193,19 +2178,15 @@ ol li {
 }
 
 .services_4 .item_list .item .price {
-  margin: 16px 20px 18px 20px;
+  padding: 0px 20px 18px 20px;
   color: #2B2B2B;
   font-size: 20px;
   font-family: Arial;
 }
 
 .services_4 .item_list .item .btn_wrap {
-  margin: 5px 20px 27px 20px;
+  padding: 0px 20px 27px 20px;
   display: inline-block;
-}
-
-.services_5 .container-fluid {
-  background: #f7f7f7;
 }
 
 .services_5 .container {
@@ -2276,8 +2257,9 @@ ol li {
   margin: 25px 0 12px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .services_5 .item_list .item .desc {
@@ -2312,10 +2294,6 @@ ol li {
     height: 200px;
     border-radius: 125px;
   };
-}
-
-.services_6 .container-fluid {
-  background: #f7f7f7;
 }
 
 .services_6 .container {
@@ -2382,9 +2360,9 @@ ol li {
   margin: 15px 0 25px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
-  text-align: left;
+  line-height: 130%;
 }
 
 @media all and (max-width: 1199px) {
@@ -2411,6 +2389,11 @@ ol li {
   text-align: left;
   display: inline-block;
 }
+
+.services_6 .btn_wrap a.btn_form {   
+  padding: 7px 15px;  
+}
+
 
 .services .btn_wrap a.btn_form {
   width: 100%;
@@ -2479,16 +2462,17 @@ ol li {
 .reasons_1 .item_list .item .name {
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .reasons_1 .item_list .item .desc {
   margin-top: 15px;
   color: #5C5C5C;
   font-size: 14px;
-  line-height: 22px;
-  font-family: Arial;
+  font-family: "Open Sans", Arial;
+  line-height: 160%;
 }
 
 /* gallery */
@@ -2644,7 +2628,7 @@ ol li {
   font-weight: 600;
   text-transform: uppercase;
   white-space: nowrap;
-  line-height: 120%;
+  line-height: 130%;
 }
 
 .gallery_2 .item_list .item .overlay .img_desc {
@@ -2665,6 +2649,7 @@ ol li {
   font-size: 14px;
   font-family: "Open Sans",Arial;
   font-weight: 400;
+  line-height: 130%;
 }
 
 .gallery_2 .item_list.hide_desc .item .overlay {
@@ -2754,6 +2739,7 @@ ol li {
   font-size: 13px;
   font-family: "Open Sans",Arial;
   font-weight: 400;
+  line-height: 130%;  
 }
 
 @media all and (max-width: 1199px) {
@@ -2827,6 +2813,9 @@ ol li {
 @media all and (max-width: 1199px) {
   .gallery_4 .item_list .item {
     width: 210px;
+  }
+  .gallery_4 .item_list .item .overlay {
+      padding: 12px;
   }
 
   .gallery_4 .item_list .item .img {
@@ -3655,7 +3644,7 @@ ol li {
 }
 
 .cases_1 .item_list {
-  margin: 55px 30px 0 30px;
+  margin: 55px 25px 0;
   border-top: 1px solid #e0e0e0;
 }
 
@@ -3714,16 +3703,18 @@ ol li {
   margin: 5px 0 5px 0;
   color: #2b2b2b;
   font-size: 24px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .cases_1 .item_block .info .desc {
   margin: 5px 0 5px 0;
   color: #bd905d;
   font-size: 14px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .cases_1 .item_block .info .text {
@@ -3813,8 +3804,9 @@ ol li {
   margin-bottom: 18px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 @media all and (max-width: 1199px) {
@@ -4005,7 +3997,8 @@ ol li {
   margin-right: 95px;
   color: #2B2B2B;
   font-size: 15px;
-  font-weight: bold;
+  font-family: "Open Sans Bold", Arial;
+  font-weight: 600;
 }
 
 .reviews_1 .item .item_data .desc {
@@ -4185,7 +4178,7 @@ ol li {
 /* footer */
 .footer_1 .container {
   position: relative;
-  padding: 70px 0;
+  padding: 40px 0;
   color: #000000;
   font-size: 14px;
   line-height: 140%;
@@ -4230,62 +4223,6 @@ ol li {
 .footer_1 .span5 {
   position: relative;
 }
-
-.footer_1 .copyright {
-  position: absolute;
-  bottom: 20px;
-  right: 0;
-  width: 31.25%;
-  text-align: center;
-}
-
-.footer_1 .copyright a {
-  display: inline-block;
-  height: 40px;
-  color: #828282;
-  font-family: 'Open Sans';
-  font-weight: 400;
-  text-decoration: none;
-  font-size: 13px;
-  line-height: 40px;
-}
-
-.footer_1 .copyright a:hover {
-  color: #343434;
-}
-
-.footer_1 .copyright a:hover i {
-  opacity: 1;
-}
-
-.footer_1 .copyright a i {
-  display: inline-block;
-  width: 55px;
-  height: 40px;
-  background-image: url("../assets/footer/copyright.png");
-  background-repeat: no-repeat;
-  vertical-align: middle;
-  opacity: 0.5;
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-
-@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.3dppx) {
-  .footer_1 .copyright a i {
-    background-image: url("../assets/footer/copyright.retina.png");
-    background-size: 55px 40px;
-  };
-}
-
-.footer_1 .copyright a span {
-  display: inline-block;
-  height: 40px;
-  vertical-align: middle;
-}
-
 
 /* video */
 .video_block_1 .container {
@@ -4387,17 +4324,18 @@ ol li {
   margin-bottom: 25px;
   color: #2B2B2B;
   font-size: 24px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
-  line-height: 140%;
+  line-height: 130%;
 }
 
 .video_block_2 .text_wrap .text_title_2 {
   margin-bottom: 20px;
   color: #8C8C8C;
   font-size: 20px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .video_block_2 .text_wrap .text {
@@ -4533,8 +4471,9 @@ ol li {
   margin: 25px 0 5px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .video_block_3 .item .info .desc {
@@ -4608,6 +4547,7 @@ ol li {
   font-size: 16px;
   line-height: 145%;
   font-family: "Open Sans", Arial;
+  list-style-type: none;
 }
 
 .text_block_1 .list_wrap .list ul li:before {
@@ -4672,8 +4612,9 @@ ol li {
 .text_block_2 .item_list .item .name {
   color: #2B2B2B;
   font-size: 18px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .text_block_2 .item_list .item .desc {
@@ -4727,8 +4668,9 @@ ol li {
 .text_block_3 .item_list .item .name {
   color: #2B2B2B;
   font-size: 18px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .text_block_3 .item_list .item .desc {
@@ -4778,7 +4720,7 @@ ol li {
   }
 
   .text_block_4 .item_list .img {
-    height: 380px;
+    height: 360px;
   };
 }
 
@@ -4794,16 +4736,18 @@ ol li {
   margin-bottom: 25px;
   color: #2B2B2B;
   font-size: 24px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .text_block_4 .text_wrap .text_title_2 {
   margin-bottom: 20px;
   color: #8C8C8C;
   font-size: 20px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .text_block_4 .text_wrap .text {
@@ -4886,8 +4830,9 @@ ol li {
   margin-bottom: 25px;
   color: #2B2B2B;
   font-size: 24px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .text_block_5 .text_wrap .text {
@@ -4915,15 +4860,16 @@ ol li {
 .text_block_6 .text_data {
   float: left;
   width: 50%;
-  padding: 20px 25px 0 25px;
+  padding: 20px 20px 0 25px;
 }
 
 .text_block_6 .text_data h1.title {
   margin: 0 0 15px 0;
   color: #2B2B2B;
   font-size: 24px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
   text-transform: uppercase;
 }
 
@@ -4931,8 +4877,9 @@ ol li {
   margin: 0 0 20px 0;
   color: #8C8C8C;
   font-size: 20px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .text_block_6 .text_data .text {
@@ -4946,16 +4893,16 @@ ol li {
 .text_block_6 .ico_data {
   float: left;
   width: 50%;
-  padding: 0 25px 0 25px;
+  padding: 0 20px 0 25px;
 }
 
 .text_block_6 .ico_data .item_list .item {
-  padding: 20px 0px 25px 110px;
+  padding: 20px 0px 10px 110px;
 }
 
 .text_block_6 .ico_data .item_list .item .ico {
   position: absolute !important;
-  top: 0px;
+  top: 5px;
   left: -100px;
   width: 80px;
   height: 80px;
@@ -4972,8 +4919,9 @@ ol li {
   margin-bottom: 5px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
 }
 
 .text_block_6 .ico_data .item_list .item .desc {

@@ -1,7 +1,7 @@
 lp.logo = lp.cover.extendOptions({
     change: function(){
         var me = this;
-        var logo_div = me.element.find(".logo");
+        var logo_div = me.element.find(".logo");        
         logo_div.empty(logo_div);
         if (me.value.type=="image") {
             logo_div.append($("<img>").attr({src:base_url+"/"+me.value.url,width:me.value.size+"%"}));
@@ -19,7 +19,7 @@ lp.logo = lp.cover.extendOptions({
         title: _t("Logotype"),
         items: [
             {
-                name: 'type', type: 'radio', margin: "15px 0 20px", items: [
+                name: 'type', type: 'radio', margin: "5px 0 20px", items: [
                     { label: _t("Image logo"), value: 'image' },
                     { label: _t("Text name logo"), value: 'text' }
                 ]
@@ -43,7 +43,7 @@ lp.logo = lp.cover.extendOptions({
                 showWhen: { type: 'text' }
             },
             {
-                name: "font", type: "fontCombo", width: '50%',
+                name: "font", type: "fontCombo", width: '50%', height: 27,
                 showWhen: { type: 'text' }
             },
             {
@@ -52,7 +52,7 @@ lp.logo = lp.cover.extendOptions({
                 showWhen: { type: 'text' }
             },
             {
-                name: "italic", label: "<i>I</i>", type: "check", width: 27, height: 27, 
+                name: "italic", label: "<i>I</i>", type: "check", width: 27, height: 27,
                 margin: "0 0 10px 5px", showCheckbox: false,
                 showWhen: { type: 'text' }
             },
@@ -63,7 +63,7 @@ lp.logo = lp.cover.extendOptions({
             _t("Size:"),
             {
                 margin: "5px 0",
-                name: 'size', type: 'slider', min: 0, max: 100,
+                name: 'size', type: 'slider', min: 10, max: 80,
                 showWhen: { type: 'image' }
             },
             {

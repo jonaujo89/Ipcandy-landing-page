@@ -115,8 +115,8 @@ lp.maps = lp.block.extendOptions({
         width: 800,
         items: [   
             { 
-                name: "show_container_text", label: _t("Show text"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [1] }
+                name: "show_container_text", label: _t("Show text"), type: "check", width: "auto", 
+                margin: "5px 49% 0px 0px", showWhen: { variant: [1] }
             },
             {
                 type: 'composite', skipForm: true, margin: 0,

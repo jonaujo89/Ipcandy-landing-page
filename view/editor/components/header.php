@@ -125,7 +125,7 @@ class Header extends Block {
                 <div class="span6 span_logo"> 
                     <? $this->sub("Logo",'logo') ?>
                     <? if ($val['show_desc'] || $this->edit): ?>
-                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
+                        <div class="desc" <?= $val['logo']['type']=="image"  ? "style='display:none'" : "" ?> >
                                 <? $this->sub('Text','desc') ?>
                         </div>
                     <? endif ?>

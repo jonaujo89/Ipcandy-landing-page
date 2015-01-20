@@ -10,7 +10,7 @@ class LPCandy extends \Bingo\Module {
         \Bingo\Config::loadFile('config',INDEX_DIR.'/config.php');
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\User','id'=>false),
-            array('action'=>'(login|logout|profile)'));
+            array('action'=>'(login|logout|profile|get-invite)'));
         $this->connect('files/browse.php',array('controller'=>'\LPCandy\Controllers\User','action'=>'files'));
         $this->connect('files/browse.php/*url',array('controller'=>'\LPCandy\Controllers\User','action'=>'files'));
         
@@ -45,9 +45,12 @@ class LPCandy extends \Bingo\Module {
         $this->connect('admin/developer/:action',array('controller'=>'\LPCandy\Controllers\Admin\Developer'));
         $this->connect('admin/lpcandy/:action/:id',array('controller'=>'\LPCandy\Controllers\Admin\Users','id'=>false),
            array('action'=>'(user-list|user-login)'));
+        $this->connect('admin/lpcandy/:action/:id',array('controller'=>'\LPCandy\Controllers\Admin\Invites','id'=>false),
+           array('action'=>'(invite-list|invite-add)'));
         
         \Bingo\Action::add('admin_pre_header',function(){
             \Admin::$menu[_t('LPCandy','lpcandy')][_t('Customers','lpcandy')] = 'admin/lpcandy/user-list';
+            \Admin::$menu[_t('LPCandy','lpcandy')][_t('Invites','lpcandy')] = 'admin/lpcandy/invite-list';
         });        
     }
 }

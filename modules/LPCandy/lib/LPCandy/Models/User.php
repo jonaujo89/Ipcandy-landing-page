@@ -23,13 +23,18 @@ class User extends \Auth\Models\User {
     public $address;
     /** @Column(length=1024) */
     public $address_extra;
-
-    static public function login_token($token) {
+    
+    static public function token_data($token) {
         $response = file_get_contents("http://loginza.ru/api/authinfo?token=$token");
         $data = json_decode($response);
-
         if (!isset($data->identity)) return false;
+        return $data;
+    }
+
+    static public function login_token($data,$createUser=true) {
+        if (!$data) return null;
         $identity = Identity::findOneByIdentity($data->identity);
+        if (!$identity && !$createUser) return null;
         if (!$identity) {
             $identity = new Identity();
             $identity->identity = $data->identity;

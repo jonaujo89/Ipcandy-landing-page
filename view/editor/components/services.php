@@ -6,7 +6,7 @@ class Services extends Block {
     public $editor = "lp.services";
     
     function tpl($val) {?>
-        <div class="container-fluid services services_1" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid services services_1" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -119,7 +119,7 @@ class Services extends Block {
             'show_desc' => true,
             'show_price' => true,
             'show_order_button' => true,
-            'background_color' =>'#FFFFFF',
+            'background' =>'#F7F7F7',
             'title' => "Что мы предлагаем",
             'title_2' => "У нас огромный выбор самых различных услуг ",
             'items' => array(
@@ -144,7 +144,7 @@ class Services extends Block {
     
 
     function tpl_2($val) {?>
-        <div class="container-fluid services services_2" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid services services_2" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -225,7 +225,7 @@ class Services extends Block {
             'show_order_button' => true,
             'show_shadow_image' => true,
             'image_format' => 'circle',
-            'background_color' =>'#FFFFFF',
+            'background' =>'#FFFFFF',
             'title' => "Что мы предлагаем",
             'title_2' => "У нас огромный выбор самых различных услуг ",
             'items' => array(
@@ -246,7 +246,7 @@ class Services extends Block {
     
     
     function tpl_3($val) {?>
-        <div class="container-fluid services services_3" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid services services_3" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                    <? if ($val['show_title'] || $this->edit): ?>
@@ -309,7 +309,7 @@ class Services extends Block {
             'show_order_button' => true,
             'show_shadow_image' => true,
             'image_size' => 'image_middle',
-            'background_color' =>'#FFFFFF',
+            'background' =>'#FFFFFF',
             'title' => "Что мы предлагаем",
             'title_2' => "У нас огромный выбор самых различных услуг ",
             'items' => array(
@@ -327,7 +327,7 @@ class Services extends Block {
         
     
     function tpl_4($val) {?>
-        <div class="container-fluid services services_4" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid services services_4" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -439,7 +439,7 @@ class Services extends Block {
             'show_desc' => true,
             'show_price' => true,            
             'show_order_button' => true,
-            'background_color' =>'#FFFFFF',
+            'background' =>'#F7F7F7',
             'title' => "Что мы предлагаем",
             'title_2' => "У нас огромный выбор самых различных услуг ",
             'items' => array(
@@ -464,7 +464,7 @@ class Services extends Block {
     
     
      function tpl_5($val) {?>
-        <div class="container-fluid services services_5" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid services services_5" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -578,7 +578,7 @@ class Services extends Block {
             'show_price' => true,
             'image_format' => 'circle',
             'show_order_button' => true,
-            'background_color' =>'#FFFFFF',
+            'background' =>'#F7F7F7',
             'title' => "Что мы предлагаем",
             'title_2' => "У нас огромный выбор самых различных услуг ",
             'items' => array(
@@ -603,7 +603,7 @@ class Services extends Block {
     
     
     function tpl_6($val) {?>
-        <div class="container-fluid services services_6" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid services services_6" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
@@ -678,7 +678,7 @@ class Services extends Block {
         return  array(
             'show_title' => true,
             'show_title_2' => true,
-            'background_color' =>'#FFFFFF',
+            'background' =>'#F7F7F7',
             'title' => "Что мы предлагаем",
             'title_2' => "У нас огромный выбор самых различных услуг",
             'items' => array(

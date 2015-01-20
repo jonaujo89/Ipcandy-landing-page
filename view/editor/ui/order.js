@@ -91,50 +91,50 @@ lp.order = lp.block.extendOptions({
                 showWhen: { variant: [1,2,6] }
             },  
             { 
-                name: "add_background_noise", label: _t("Add noise"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [2] }
+                name: "add_background_noise", label: _t("Add noise"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "show_text_above_button", label: _t("Show text above the button"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [2] }
+                name: "show_text_above_button", label: _t("Show text above the button"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "add_arrow", label: _t("Add arrow"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [2] }
+                name: "add_arrow", label: _t("Add arrow"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "show_form_title_2", label: _t("Show text under the form title"), type: "check", width: "auto", height: 27, value: 1,
-                margin: "5px 49% 5px 0px", showWhen: { variant: [1] }
+                name: "show_form_title_2", label: _t("Show text under the form title"), type: "check", width: "auto",  value: 1,
+                margin: "5px 49% 0px 0px", showWhen: { variant: [1] }
             },
             { 
-                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [3,4,5,6] }
+                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [3,4,5,6] }
             },
             { 
-                name: "show_title_3", label: _t("Show third title"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [6] }
+                name: "show_title_3", label: _t("Show third title"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [6] }
             },
             { 
-                name: "show_form_bottom_text", label: _t("Show text under the form"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [1,4,5,6] }
+                name: "show_form_bottom_text", label: _t("Show text under the form"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [1,4,5,6] }
             },
             { 
-                name: "show_border_media", label: _t("Show border from media"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [3] }
+                name: "show_border_media", label: _t("Show border from media"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [3] }
             },
             { 
-                name: "show_box_shadow_media", label: _t("Show border from media"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [4] }
+                name: "show_box_shadow_media", label: _t("Show border from media"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [4] }
             },
             { 
-                name: "show_list_box", label: _t("Show list box"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [3] }
+                name: "show_list_box", label: _t("Show list box"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [3] }
             },
             { type: "label", value: _t("Form align:"), margin: "10px 0 0 0", showWhen: { variant: [6] }},
             { 
                 name: "move_form",
                 items: [{ label: _t("Move left<br>"), value:"align_left"},{ label: _t("Move center<br>"), value:"align_center"},{ label: _t("Move right"), value:"align_right"}],
-                type: "radio", width: "auto", height: 27, 
+                type: "radio", width: "auto",  
                 margin: "0px 0px 5px 0px", showWhen: { variant: [6] }
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0", showWhen: { variant: [4,5] }},

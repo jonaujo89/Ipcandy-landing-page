@@ -3,7 +3,7 @@
 <head>
     <title><?= $title ?></title>
     <meta charset="utf-8" />
-    <link href="view/assets/images/lpcandy.png" type="image/x-icon" />
+    <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="view/assets/images/lpcandy.png"/>
     <script>var base_url = "<?=url('')?>"</script>   
     
     <?

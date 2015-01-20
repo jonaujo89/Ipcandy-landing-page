@@ -9,15 +9,48 @@ class User extends Base {
 
         if ($this->user) { redirect($redirect);return; }
         if ($token) {
-            $user = \LPCandy\Models\User::login_token($token);
+            $token_data = \LPCandy\Models\User::token_data($token);
+            $user = \LPCandy\Models\User::login_token($token_data,false);
             if ($user) {
                 redirect($redirect);
                 return;
+            } else {
+                $data = new \Session\SessionNamespace('login');
+                $data->token_data = $token_data;
+                redirect('get-invite?redirect='.urlencode($redirect));
             }
         }
         $this->data['title'] = _t("Login");
         $this->view('lpcandy/login');
     }
+    
+    function get_invite() {
+        $data = new \Session\SessionNamespace('login');
+        $token_data = $data->token_data;
+        if (!$token_data) redirect('login');
+        
+        $invite = false;
+        $form = new \Form;
+        $form->fieldset();
+        $form->text('code',_t('Please, enter your invite code'),function($code) use (&$invite) {
+            $invite = \LPCandy\Models\Invite::findOneByCode(trim($code));
+            if (!$invite || $invite->user) throw new \ValidationException(_t('Wrong invite code'));
+            return $code;
+        });
+        $form->fieldset();
+        $form->submit(_t('Register'));
+        
+        if ($form->validate()) {
+            $user = \LPCandy\Models\User::login_token($token_data);
+            $invite->user = $user;
+            $invite->save();
+            redirect($redirect = @$_GET['redirect']);
+        }
+        
+        $this->data['title'] = _t('Enter your invite');
+        $this->data['form'] = $form->get();
+        $this->view('lpcandy/base-edit');
+    }    
 
     function logout() {
         if ($this->user) $this->user->logout();

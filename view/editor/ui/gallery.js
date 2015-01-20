@@ -65,28 +65,28 @@ lp.gallery = lp.block.extendOptions({
     configForm: {
         items: [   
             { 
-                name: "show_title", label: _t("Show first title"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px",
+                name: "show_title", label: _t("Show first title"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px",
             },
             { 
-                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px",
+                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px",
             },            
             { 
-                name: "show_image_title", label: _t("Show image name"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [1,5,6,7,8,9,10] }
+                name: "show_image_title", label: _t("Show image name"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [1,5,6,7,8,9,10] }
             },
             { 
-                name: "show_image_overlay", label: _t("Show image signature"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [2,3,4] }
+                name: "show_image_overlay", label: _t("Show image signature"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [2,3,4] }
             },
             { 
-                name: "show_image_desc", label: _t("Show image descroption"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [1,2,3,4,5,6,7,8,9,10] }
+                name: "show_image_desc", label: _t("Show image descroption"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [1,2,3,4,5,6,7,8,9,10] }
             },            
 			{ 
-                name: "enable_fancybox", label: _t("Show big image (enable fancybox)"), type: "check", width: "auto", height: 27, 
-                margin: "5px 49% 5px 0px", showWhen: { variant: [3,4,5,6,7,8,9,10] }
+                name: "enable_fancybox", label: _t("Show big image (enable fancybox)"), type: "check", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [3,4,5,6,7,8,9,10] }
             },			
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 

@@ -54,7 +54,7 @@ class Cases extends Block {
             'show_title_2' => false,
             'show_name' => true,
             'show_desc' => true,
-            'background_color' =>'#FFFFFF',
+            'background_color' =>'#F7F7F7',
             'title' => "Результаты наших клиентов",
             'title_2' => "Подзаголовок",
             'items' => array(
