@@ -18,95 +18,104 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
 
 $.fn.lpCounty = function () {
 	$(this).each(function(){	
-
-		var datatimeString = $(this).attr('data-datetime');
-		var dateTime = JSON.parse(datatimeString);
-		var date_end;
-		var now = new Date();
-		var year = now.getFullYear();
-		var month = now.getMonth() + 1;
-		var dayOfWeek = now.getDay();
-		var day = now.getDate();
-		var tomorrow = now.getDate()+1;
+		var get_date = JSON.parse($(this).attr('data-datetime'));
+		var set_date;
+		var current_date = new Date();
+		var current_year = current_date.getFullYear();
+		var curren_month = current_date.getMonth() + 1;
+		var current_day_of_week = current_date.getDay();
+		var current_day = current_date.getDate();
+		var tomorrow = current_date.getDate()+1;
+        var add_days;
 		
-		switch(dateTime.type) {
-		  case 'datetime':
-			date_end = new Date(dateTime.date+' '+dateTime.time);
-			$(this).empty().county({
-				endDateTime: date_end,
-			});
-			break;
+		switch (get_date.type) {
+            case 'datetime':
+                set_date = new Date(get_date.date + ' ' + get_date.time);
+                $(this).empty().county({
+                    endDateTime: set_date,
+                });
+                break;
 
-		  case 'monthly':
-			var dayPlus;
-			var countMonth;
-			dayPlus = dateTime.day - day;
-				
-			if(month == 2){ // если февраль то 29-30 не считать
-				if (year % 4 === 0){ // если високосный год
-					if(dateTime.day == 30 || dateTime.day == 31){	
-						dayPlus = 29 - day;
-					}
-					countMonth = 29;
-				} else {
-					if(dateTime.day == 29 || dateTime.day == 30 || dateTime.day == 31){	
-						dayPlus = 28 - day;
-					}
-					countMonth = 28;
-				}	
-			} else {
-				if (month == 4 || month == 6 || month == 9 || month == 11) { // если в месяце 30 дней то 31 не считать
-					if(dateTime.day == 31){	
-						dayPlus = 30 - day;
-					}
-					countMonth = 30;					
-				}else{
-					countMonth = 31;
-				}
-			}
-				
-			if (dayPlus < 0 ) {
-				dayPlus = countMonth + dayPlus;
-			} else if(dayPlus == 0){
-				var timeX = new Date(year+'/'+month+'/'+day+' '+dateTime.time);
-				if (timeX < now){
-					dayPlus = countMonth;
-				}		
-			}
-				
-			date_end = new Date(year+'/'+month+'/'+(day+dayPlus)+' '+dateTime.time);
-            if(isNaN(date_end)) date_end = 0;
-			$(this).empty().county({
-				endDateTime: date_end,
-			});
-			break;
-			
-		  case 'weekly':			
-			var dayPlus = dateTime.dayOfWeek - dayOfWeek;
-			if(dayPlus == 0) {
-				var timeX = new Date(year+'/'+month+'/'+day+' '+dateTime.time);
-				if (timeX < now){
-					dayPlus = 7;
-				}				
-			} else if(dayPlus < 0){
-				dayPlus = 7 + dayPlus;
-			}
-			date_end = new Date(year+'/'+month+'/'+(day+dayPlus)+' '+dateTime.time);
-			$(this).empty().county({
-				endDateTime: date_end,
-			});
-			break;
-			
-          case 'daily':			
-			date_end = new Date(year+'/'+month+'/'+day+' '+dateTime.time);
-			if(date_end < now){
-				date_end = new Date(year+'/'+month+'/'+tomorrow+' '+dateTime.time);
-			}					
-			$(this).empty().county({
-				endDateTime: date_end,
-			});
-			break;
-		}
+            case 'monthly':                
+                var countDayOfMonth;
+                add_days = get_date.day - day;
+
+                    if (curren_month == 2) { // если февраль то 29-30 не считать
+                        if (current_year % 4 === 0) { // если високосный год, то в феврале 29 дней
+                            if (get_date.day == 30 || get_date.day == 31) {
+                                add_days = 29 - day;
+                            }
+                            countDayOfMonth = 29;
+                        } else {
+                            if (get_date.day == 29 || get_date.day == 30 || get_date.day == 31) {
+                                add_days = 28 - day;
+                            }
+                            countDayOfMonth = 28;
+                        }
+                    } else {
+                        if (curren_month == 4 || curren_month == 6 || curren_month == 9 || curren_month == 11) { // если в месяце 30 дней то 31 не считать
+                            if (get_date.day == 31) {
+                                add_days = 30 - day;
+                            }
+                            countDayOfMonth = 30;
+                        } else {
+                            countDayOfMonth = 31;
+                        }
+                    }
+
+                    if (add_days < 0) {
+                        add_days = countDayOfMonth + add_days;
+                    } else if (add_days == 0) {
+                        var timeX = new Date(current_year + '/' + curren_month + '/' + current_day + ' ' + get_date.time);
+                        if (timeX < now) {
+                            add_days = countDayOfMonth;
+                        }
+                    } 
+                
+                    if(current_day > get_date.day){
+                        if(get_date.day == 1){
+                            current_day = 1;
+                        } else {
+                            current_day = get_date.day;
+                        }
+                        set_date = new Date(current_year + '/' + (curren_month+1) + '/' + current_day + ' ' + get_date.time);
+                    } else {
+                        set_date = new Date(current_year + '/' + curren_month + '/' + (current_day + add_days) + ' ' + get_date.time);
+                    }
+
+                    if (isNaN(set_date)) set_date = 0;
+                    $(this).empty().county({
+                        endDateTime: set_date,
+                    });
+                   
+                break;
+
+            case 'weekly':
+                add_days = get_date.dayOfWeek - current_day_of_week;
+                if (add_days == 0) {
+                    var timeX = new Date(current_year + '/' + curren_month + '/' + current_day + ' ' + get_date.time);
+                    if (timeX < now) {
+                        add_days = 7;
+                    }
+                } else if (add_days < 0) {
+                    add_days = 7 + add_days;
+                }
+                set_date = new Date(current_year + '/' + curren_month + '/' + (current_day + add_days) + ' ' + get_date.time);
+                $(this).empty().county({
+                    endDateTime: set_date,
+                });
+                break;
+
+            case 'daily':
+                set_date = new Date(current_year + '/' + curren_month + '/' + current_day + ' ' + get_date.time);
+                if (set_date < now) {
+                    set_date = new Date(current_year + '/' + curren_month + '/' + tomorrow + ' ' + get_date.time);
+                }
+                $(this).empty().county({
+                    endDateTime: set_date,
+                });
+                break;
+        }
 	});
 };
 

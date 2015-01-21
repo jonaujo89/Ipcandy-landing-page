@@ -520,7 +520,7 @@ ol li {
 
   .header_4 .container .desc {
     font-size: 80% !important;
-  };
+  }
 }
 
 
@@ -1495,7 +1495,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .benefits_2 .item_list .item {
     padding-right: 20px;
-  };
+  }
 }
 
 .benefits_3 .container-fluid {
@@ -1528,11 +1528,12 @@ ol li {
 
 .benefits_3 .item_list {
   margin-top: 50px;
+  display: table;
 }
 
 .benefits_3 .item_list .item {
   position: relative;
-  float: left;
+  display: table-cell;
   width: 50%;
   padding: 40px 60px 40px 160px;
 }
@@ -1551,7 +1552,7 @@ ol li {
 
 .benefits_3 .item_list .item .ico {
   position: absolute;
-  top: 37px;
+  top: 46px;
   left: -100px;
   width: 65px;
   height: 65px;
@@ -1589,7 +1590,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .benefits_3 .item_list .item {
     padding: 40px 40px 40px 140px;
-  };
+  }
 }
 
 .benefits_4 .container-fluid {
@@ -1853,7 +1854,7 @@ ol li {
 
   .services_1 .item_list .item .img_wrap .img {
     height: 190px;
-  };
+  }
 }
 
 .services_2 .container {
@@ -1928,7 +1929,7 @@ ol li {
   .services_2 .item_list .item .img {
     width: 140px;
     height: 140px;
-  };
+  }
 }
 
 .services_2 .item_list .item .item_data {
@@ -1941,7 +1942,7 @@ ol li {
   .services_2 .item_list .item .item_data {
     width: 300px;
     padding: 0 0 0 25px;
-  };
+  }
 }
 
 .services_2 .item_list .item .name {
@@ -2293,7 +2294,7 @@ ol li {
     width: 200px;
     height: 200px;
     border-radius: 125px;
-  };
+  }
 }
 
 .services_6 .container {
@@ -2335,7 +2336,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .services_6 .item_list .item {
     padding: 20px 24px 20px 23px;
-  };
+  }
 }
 
 .services_6 .item_list .item .img {
@@ -2353,7 +2354,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .services_6 .item_list .item .img {
     height: 185px;
-  };
+  }
 }
 
 .services_6 .item_list .item .name {
@@ -2368,7 +2369,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .services_6 .item_list .item .name {
     font-size: 18px;
-  };
+  }
 }
 
 .services_6 .item_list .item .price {
@@ -2680,7 +2681,7 @@ ol li {
 
   .gallery_2 .item_list .item .img {
     height: 240px;
-  };
+  }
 }
 
 
@@ -2749,7 +2750,7 @@ ol li {
 
   .gallery_3 .item_list .item .img {
     height: 200px;
-  };
+  }
 }
 
 
@@ -2828,7 +2829,7 @@ ol li {
 
   .gallery_4 .item_list .item .overlay .img_desc {
     font-size: 12px;
-  };
+  }
 }
 
 
@@ -3158,7 +3159,7 @@ ol li {
   .gallery_7 .item_list .item_block .img_double .preview_img {
     width: 441px;
     height: 440px;
-  };
+  }
 }
 
 .gallery_8 .container {
@@ -3309,7 +3310,7 @@ ol li {
   .gallery_8 .item_list .item_block .img_h2 .preview_img,
   .gallery_8 .item_list .item_block .img_h2 .overlay {
     height: 428px;
-  };
+  }
 }
 
 .gallery_9 .container {
@@ -3468,7 +3469,7 @@ ol li {
   .gallery_9 .item_list .item_block .img_h2 .preview_img,
   .gallery_9 .item_list .item_block .img_h2 .overlay {
     height: 350px;
-  };
+  }
 }
 
 .gallery_10 .container {
@@ -3553,7 +3554,7 @@ ol li {
   .gallery_10 .item_list .item_block .img_h2 .preview_img,
   .gallery_10 .item_list .item_block .img_h2 .overlay {
     height: 400px;
-  };
+  }
 }
 
 .gallery_10 .img_title {
@@ -3785,7 +3786,7 @@ ol li {
   .workOrder1 .item_list .item .arrow {
     background-image: url("../../editor/assets/workOrder/arrow.retina.png");
     background-size: 100px 10px;
-  };
+  }
 }
 
 .workOrder1 .item_list .item .ico {
@@ -3812,7 +3813,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .workOrder1 .item_list .item .name {
     font-size: 17px;
-  };
+  }
 }
 
 .workOrder1 .item_list .item .desc {
@@ -3826,7 +3827,7 @@ ol li {
   .workOrder1 .item_list .item .desc {
     font-size: 12px;
     line-height: 20px;
-  };
+  }
 }
 
 .workOrder2 .container-fluid {
@@ -3888,7 +3889,7 @@ ol li {
   .workOrder2 .item_list .item .line {
     background-image: url("../../editor/assets/workOrder/line.retina.png");
     background-size: 60px 4px;
-  };
+  }
 }
 
 .workOrder2 .item_list .item .number {
@@ -3906,7 +3907,7 @@ ol li {
   .workOrder2 .item_list .item .number {
     background-image: url("../../editor/assets/workOrder/number.retina.png");
     background-size: 300px 60px;
-  };
+  }
 }
 
 .workOrder2 .item_list .item:nth-child(2) .number {
@@ -3934,7 +3935,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .workOrder2 .item_list .item .name {
     font-size: 14px;
-  };
+  }
 }
 
 
@@ -4306,7 +4307,7 @@ ol li {
   .video_block_2 .video {
     width: 460px;
     height: 264px;
-  };
+  }
 }
 
 .video_block_2 .video div {
@@ -4356,7 +4357,7 @@ ol li {
 
   .video_block_2 .text_wrap .text_title_2 {
     margin-bottom: 10px;
-  };
+  }
 }
 
 .video_block_3 .container-fluid {
@@ -4394,7 +4395,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .video_block_3 .item_list {
     margin: 35px 0 0 0;
-  };
+  }
 }
 
 .video_block_3 .item {
@@ -4460,7 +4461,7 @@ ol li {
     margin-top: 5px;
     background: url("../assets/video/shadow.png") no-repeat;
     background-position: top center;
-  };
+  }
 }
 
 .video_block_3 .item .info {
@@ -4566,7 +4567,7 @@ ol li {
   .text_block_1 .list_wrap .list ul li:before {
     background-image: url("../assets/text/bullet_green.retina.png");
     background-size: 15px 15px;
-  };
+  }
 }
 
 .text_block_2 .container-fluid {
@@ -4721,7 +4722,7 @@ ol li {
 
   .text_block_4 .item_list .img {
     height: 360px;
-  };
+  }
 }
 
 .text_block_4 .img {
@@ -4764,7 +4765,7 @@ ol li {
 
   .text_block_4 .text_wrap .text_title_2 {
     margin-bottom: 10px;
-  };
+  }
 }
 
 .text_block_5 .container-fluid {
@@ -4784,7 +4785,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .text_block_5 .item_list {
     width: 940px;
-  };
+  }
 }
 
 .text_block_5 .item_list .img {
@@ -4810,7 +4811,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .text_block_5 .item_list .text_wrap {
     width: 680px;
-  };
+  }
 }
 
 .text_block_5 .item_block {
@@ -4845,7 +4846,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .text_block_5 .text_wrap .text_title {
     margin-bottom: 10px;
-  };
+  }
 }
 
 .text_block_6 .container-fluid {
@@ -4999,7 +5000,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .digits_1 .item_list .item {
     padding: 15px 15px;
-  };
+  }
 }
 
 .digits_2 .container {
@@ -5078,7 +5079,7 @@ ol li {
 
   .digits_2 .item_list .item .name {
     padding: 5px;
-  };
+  }
 }
 
 .digits_3 .container {
@@ -5157,7 +5158,7 @@ ol li {
 
   .digits_3 .item_list .item .name {
     padding: 5px;
-  };
+  }
 }
 
 .digits_4 .container {
@@ -5239,7 +5240,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .digits_4 .item_list .item {
     padding: 15px 15px;
-  };
+  }
 }
 
 .digits_4 .item_list.icon_black .item .ico {
@@ -5330,7 +5331,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .digits_5 .item_list .item {
     padding: 15px 15px;
-  };
+  }
 }
 
 .digits_6 .container {
@@ -5394,7 +5395,7 @@ ol li {
 }
 
 .digits_6 .item_list .item .name {
-  margin-top: 4px;
+  margin-top: 10px;
   color: #DDDDDD;
   font-size: 14px;
   line-height: 20px;
@@ -5406,7 +5407,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .digits_6 .item_list .item {
     padding: 15px 15px;
-  };
+  }
 }
 
 .digits_7 .container {
@@ -5507,7 +5508,7 @@ ol li {
 @media all and (max-width: 1199px) {
   .digits_7 .item_list .item {
     padding: 15px 15px;
-  };
+  }
 }
 
 .digits_7 .item_list.icon_white .item .ico {
@@ -5560,8 +5561,8 @@ ol li {
   margin-right: -20px;
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid #5A5A5A;
-  border-radius: 150px;
+  border: 1.5px solid #5A5A5A;
+  border-radius: 50%;
   background: #FFF;
   text-align: center;
 }
@@ -5571,7 +5572,7 @@ ol li {
   height: 158px;
   overflow: hidden;
   padding: 17px;
-  border-radius: 75px;
+  border-radius: 50%;
   border: 1px dashed #CCC;
 }
 
@@ -5579,7 +5580,7 @@ ol li {
   margin-top: 10px;
   overflow: hidden;
   font-size: 40px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans SemiBold", Arial;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -5591,6 +5592,7 @@ ol li {
   line-height: 22px;
   font-family: "Open Sans", Arial;
   font-weight: 400;
+  margin-top: 5px;
 }
 
 .digits_8 .item_list .item:nth-child(even) {
@@ -5646,7 +5648,7 @@ ol li {
 }
 
 .timer_1 .countdown_wrap {
-  margin: 35px 24%;
+  margin: 35px 25%;
   position: relative;
 }
 
@@ -5664,7 +5666,7 @@ ol li {
   width: 25%;
   text-align: center;
   position: relative;
-  font-family: "Montserrat";
+  font-family: "Catorze27Style1 SemiBold", Arial;
 }
 
 .timer_1 .countdown .county-seconds div {
@@ -5675,10 +5677,10 @@ ol li {
 .timer_1 .countdown .county-hours div, 
 .timer_1 .countdown .county-minutes div, 
 .timer_1 .countdown .county-seconds div {
-  font-size: 90px;
-  font-weight: 400;
+  font-size: 80px;
   border-left: 1px solid #E9E9E9;
-  line-height: 75%;
+  line-height: 90%;
+  margin-top: 5px;
 }
 
 .timer_1 .countdown div span {
@@ -5686,7 +5688,7 @@ ol li {
   padding: 15px 0 5px;
   display: inline-block;
   color: #B4B4B4;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans SemiBold", Arial;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -5725,7 +5727,7 @@ ol li {
 }
 
 .timer_2 .countdown_wrap {
-  margin: 35px 18%;
+  margin: 35px 16%;
   position: relative;
   color: #FFFFFF;
 }
@@ -5858,8 +5860,9 @@ ol li {
   color: #3A3A3A;
   font-size: 32px;
   line-height: 38px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
   text-transform: uppercase;
 }
 
@@ -5884,10 +5887,10 @@ ol li {
   text-align: center;
   color: #757575;
   font-size: 22px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
-  text-transform: uppercase;
   line-height: 140%;
+  text-transform: uppercase;
 }
 
 .timer_3 .form {
@@ -5973,8 +5976,9 @@ ol li {
   color: #FFFFFF;
   font-size: 32px;
   line-height: 38px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
+  line-height: 130%;
   text-transform: uppercase;
 }
 
@@ -5999,10 +6003,10 @@ ol li {
   text-align: center;
   color: #FFFFFF;
   font-size: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans Semibold", Arial;
   font-weight: 600;
-  text-transform: uppercase;
   line-height: 130%;
+  text-transform: uppercase;
 }
 
 .timer_4 .form {
@@ -6049,7 +6053,7 @@ ol li {
   width: 25%;
   text-align: center;
   position: relative;
-  font-family: "Langdon";
+  font-family: "Langdon", Arial;
 }
 
 .timer_4 .countdown .county-seconds div {

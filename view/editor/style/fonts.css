@@ -1,48 +1,47 @@
 @font-face {
-	font-family: 'Open Sans Light';
-    font-weight: normal;
-	font-style: normal;
-	src: local('Open Sans Light'), local('OpenSans-Light'), url(fonts/openSansLigth.woff) format('woff');
-}
-
-@font-face {
-	font-family: 'Open Sans Semibold';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(fonts/openSansSemibold.ttf) format('truetype');
-}
-
-@font-face {
-	font-family: 'Open Sans Bold';
-    font-weight: normal;
-	font-style: normal;
-	src: local('Open Sans Bold'), local('OpenSans-Bold'), url(fonts/openSansBold.woff) format('woff');
-}
-
-@font-face {
-	font-family: 'Open Sans';
-    font-weight: normal;
-	font-style: normal;
-	src: local('Open Sans'), local('OpenSans'), url(fonts/openSans.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: 'TeXGyreAdventor';
-    font-weight: normal;
+    font-family: "Open Sans";
+    src: url("fonts/OpenSansRegular.eot");
+    src: url("fonts/OpenSansRegular.eot?#iefix")format("embedded-opentype"),
+    url("fonts/OpenSansRegular.woff") format("woff"),
+    url("fonts/OpenSansRegular.ttf") format("truetype");
     font-style: normal;
-    src: url('fonts/texgyreadventor_regular.eot?#iefix') format('embedded-opentype'),
-         url('fonts/texgyreadventor_regular.otf') format('opentype');
+    font-weight: normal;
+}
+/* font-family: "OpenSansLight"; */
+@font-face {
+    font-family: "Open Sans Light";
+    src: url("fonts/OpenSansLight.eot");
+    src: url("fonts/OpenSansLight.eot?#iefix")format("embedded-opentype"),
+    url("fonts/OpenSansLight.woff") format("woff"),
+    url("fonts/OpenSansLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansBold"; */
+@font-face {
+    font-family: "Open Sans Bold";
+    src: url("fonts/OpenSansBold.eot");
+    src: url("fonts/OpenSansBold.eot?#iefix")format("embedded-opentype"),
+    url("fonts/OpenSansBold.woff") format("woff"),
+    url("fonts/OpenSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansSemiBold"; */
+@font-face {
+    font-family: "Open Sans SemiBold";
+    src: url("fonts/OpenSansSemiBold.eot");
+    src: url("fonts/OpenSansSemiBold.eot?#iefix")format("embedded-opentype"),
+    url("fonts/OpenSansSemiBold.woff") format("woff"),
+    url("fonts/OpenSansSemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
 }
 
 /* for Timer */
 @font-face {
-    font-family: 'Montserrat';
-    src: url('fonts/montserrat_regular.eot?#iefix') format('embedded-opentype'),
-         url('fonts/montserrat_regular.ttf') format('truetype');
-
-    font-weight: normal;
-    font-style: normal;
-
+	font-family: 'Catorze27Style1 SemiBold';
+	src: local('Catorze27Style1 SemiBold'), local('Catorze27Style1-SemiBold'), url(fonts/catorze27Style1_SemiBold.ttf) format('truetype');
 }
 
 @font-face {

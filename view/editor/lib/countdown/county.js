@@ -148,8 +148,6 @@
                 else {
                     if (strNumber.length == 1)
                         return '0' + strNumber;
-                    else if (strNumber.length == 2)
-                        return '0' + strNumber;
                     else
                         return strNumber;
                 }

@@ -16,11 +16,11 @@ lp.imageFancyboxWithoutSignature = lp.cover.extendOptions({
         title: _t("Image"),
         items: [
             {   
-                type: "label", value:_t('Select image file'), margin: "10px 0 5px", 
+                type: "label", value:_t('Upload image file'), margin: "10px 0 5px", 
                  
             },  
             {
-                name: 'url_image_preview', type: 'uploadButton', label: _t('Upload image file'),
+                name: 'url_image_preview', type: 'uploadButton', label: _t('Select file'),
             },
         ]        
     }

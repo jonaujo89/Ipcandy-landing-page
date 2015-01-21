@@ -3,8 +3,8 @@
 class Timer extends Block {
     public $name = 'Таймер';
     public $description = "Счетчик для акции";
-    public $editor = "lp.timer";
-    
+    public $editor = "lp.timer";    
+  
     function tpl($val) {?>
         <div class="container-fluid timer timer_1" style="background:<?=$val['background_color']?>;">
             <div class="container">
@@ -33,11 +33,11 @@ class Timer extends Block {
             'show_title_2' => true,			
             'background_color' => '#FFFFFF',
             'countdown_color' => '#E76953',
-            'title' => 'Семинар пройдет 1 декабря 2014г. в 12:00',
+            'title' => 'Семинар пройдет 20 декабря 2015г. в 12:00',
             'title_2' => 'Количество мест ограничено, успейте оплатить участие',
             'countdown_desc' => 'До начала мероприятия осталось:',  
             'countdown' => array_merge(Countdown::tpl_default(),
-                   array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => 0 ,'day' => 5,'time' => '23:55')),
+                   array('type' => 'daily','date' => date("Y/m/d"),'dayOfWeek' => 0 ,'day' => 5,'time' => '23:55')),
         );
     }
     
@@ -79,10 +79,10 @@ class Timer extends Block {
             'show_title_2' => true,
             'title_2_color' => 'timer_red',
             'background' => '/view/editor/assets/texture_black/1.jpg',
-            'title' => 'Семинар пройдет 1 декабря 2014г. в 12:00',
+            'title' => 'Семинар пройдет 20 декабря 2015г. в 12:00',
             'title_2' => 'Количество мест ограничено, успейте оплатить участие',
             'countdown_desc' => 'До начала мероприятия осталось:',
-            'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
+            'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => date("Y/m/d"),'dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
         );
     }
     
@@ -130,7 +130,7 @@ class Timer extends Block {
 			'show_title_2' => true,
 			'show_form_bottom_text' => true,
             'background_color' => '#FFFFFF',
-            'title' => '<div>Семинар пройдет</div><div>1 декабря 2014 в 12:00</div>',
+            'title' => '<div>Семинар пройдет</div><div>20 декабря 2015г. в 12:00</div>',
             'title_2' => '<div>Количество мест ограничено,</div><div>успейте оплатить участие</div>',
             'timer_desc' => 'До начала мероприятия осталось:',
             'form_title_1' => "Заявка на участие",
@@ -150,7 +150,7 @@ class Timer extends Block {
                 'form_done_title' => 'Спасибо за заявку',
                 'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
             ),
-			'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
+			'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => date("Y/m/d"),'dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
         );
     }
     
@@ -207,7 +207,7 @@ class Timer extends Block {
             'show_title_2' => true,
 			'show_form_bottom_text' => true,
 			'background' => '/view/editor/assets/texture_black/1.jpg',
-            'title' => '<div>Семинар пройдет</div><div>1 декабря 2014 в 12:00</div>',
+            'title' => '<div>Семинар пройдет</div><div>20 декабря 2015г. в 12:00</div>',
             'title_2' => '<div>Количество мест ограничено,</div><div>успейте оплатить участие</div>',
             'timer_desc' => 'До начала мероприятия осталось:',
             'form_title_1' => "Заявка на участие",
@@ -227,7 +227,7 @@ class Timer extends Block {
                 'form_done_title' => 'Спасибо за заявку',
                 'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
             ),
-			'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => '2014/12/10','dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
+			'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => date("Y/m/d"),'dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
         );
     }        
 }

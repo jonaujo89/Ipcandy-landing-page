@@ -17,7 +17,7 @@ lp.galleryRepeater = lp.repeater.extendOptions({
                  
             },  
             {
-                name: 'image', type: 'uploadButton', label: _t('Select image file'),
+                name: 'image', type: 'uploadButton', label: _t('Select file'),
             },
             {
                 type: 'label',

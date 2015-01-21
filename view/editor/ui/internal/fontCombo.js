@@ -26,7 +26,6 @@ ui.fontCombo = ui.combo.extendOptions({
             {value: 'Comic Sans MS'},
             {value: 'Century Gothic'},
             {value: 'Open Sans'},
-            {value: 'TeXGyreAdventor'},
         ]);
         return ret;
     }

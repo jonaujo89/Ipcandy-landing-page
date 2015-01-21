@@ -2,7 +2,7 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
     iconWidth: 64,
     iconHeight: 52
 },{
-    init: function (o) {
+    init: function (o) {        
         var me = this;
         this._super($.extend({
             label: _t("Upload file"),
@@ -28,7 +28,7 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
                 processData: false,
                 type: 'POST',
                 success: function(data){
-                    data = $.parseJSON(data);
+                    data = $.parseJSON(data);                   
                     var sub_url = data[0].url.substring(base_url.length);
                     if (sub_url[0]=="/") sub_url = sub_url.substring(1);
                     me.value = sub_url;
@@ -39,7 +39,7 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
         
         this.element.click(function(e){
             e.preventDefault();
-            uploader.show();
+            uploader.val("").show();
             uploader.click();
             uploader.hide();
         });

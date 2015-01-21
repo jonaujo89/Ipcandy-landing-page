@@ -45,7 +45,7 @@ function Items_day(){
 
 function DayOfWeek(){
 	var items = [];
-	var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+	var days = [_t('Monday'),_t('Tuesday'),_t('Wednesday'),_t('Thursday'),_t('Friday'),_t('Saturday'),_t('Sunday')];
 	for (i=0; i<7; ++i){
 		items.push({
 			label: days[i],
@@ -63,52 +63,53 @@ lp.countdown = lp.cover.extendOptions({
         Component.previewFrame.window.$(countdown).lpCounty();
     },
     configForm: {
-		title: "Countdown settings",
+		title: _t("Countdown settings"),
+        width: "200px",
         items: [            
 			{
                 name: 'type', type: 'radio', margin: "5px 0 5px", items: [
-                    { label: _t("Exact date"), value: 'datetime' },
-					{ label: _t("Every month"), value: 'monthly' },
-					{ label: _t("Every week"), value: 'weekly' },
-					{ label: _t("Every day"), value: 'daily' },
+                    { label: _t("Exact date<br>"), value: 'datetime' },
+					{ label: _t("Every month<br>"), value: 'monthly' },
+					{ label: _t("Every week<br>"), value: 'weekly' },
+					{ label: _t("Every day<br>"), value: 'daily' },
                 ]
             },
               
             "<hr>",       
                     
-            {   type: "label", value: _t("Date:"), width: "14%", margin: "5px 36% 5px 0", 
+            {   type: "label", value: _t("Date:"), width: "65%", margin: "5px 5% 5px 0", 
 				showWhen: { type: 'datetime' }
             },
-            {   type: "label", value: _t("Day:"), width: "12%", margin: "5px 38% 5px 0" ,
+            {   type: "label", value: _t("Day:"), width: "65%", margin: "5px 5% 5px 0" ,
 				showWhen: { type: 'monthly' }
             },
-            {   type: "label", value: _t("Day of week:"), width: "15%", margin: "5px 35% 5px 0" ,
+            {   type: "label", value: _t("Day of week:"), width: "65%", margin: "5px 5% 5px 0" ,
 				showWhen: { type: 'weekly' }
             },        
-            {   type: "label", value: _t("Time:"), width: "8%", margin: "5px 42% 5px 0", showWhen: { type: ['datetime','monthly','weekly'] } }, 
-            {   type: "label", value: _t("Time:"), width: "50%", margin: "5px 42% 5px 0", showWhen: { type: 'daily' }},
+            {   type: "label", value: _t("Time:"), width: "25%", margin: "5px 5% 5px 0", showWhen: { type: ['datetime','monthly','weekly'] } }, 
+            {   type: "label", value: _t("Time:"), width: "100%", margin: "11px 70% 5px 0", showWhen: { type: 'daily' }},
            
                     
                     
 			{
-                name: "date", type: lp.dateText, width: "14%", margin: "5px 36% 5px 0",
+                name: "date", type: lp.dateText, width: "65%", margin: "5px 5% 5px 0",
 				showWhen: { type: 'datetime' }	
             },
 			{
                 name: "day", type: teacss.ui.select,
 				items: Items_day(),
-				width: "12%", margin: "5px 38% 5px 0",
+				width: "65%", margin: "5px 5% 5px 0",
 				showWhen: { type: 'monthly' }	
             },            
 			{
                 name: "dayOfWeek", 
 				type: teacss.ui.select,
 				items: DayOfWeek(),
-				width: "20%", margin: "5px 30% 5px 0", 
+				width: "65%", margin: "5px 5% 5px 0", 
 				showWhen: { type: 'weekly' }	
             },
 			{
-                name: "time", type: lp.timeText, width: "8%", margin: "5px 42% 5px 0"
+                name: "time", type: lp.timeText, width: "25%", margin: "5px 5% 5px 0"
             },
         ]
     }
