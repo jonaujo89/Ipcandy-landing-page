@@ -1,3 +1,10 @@
+/* font-family: "Arial"; */
+@font-face {
+    font-family: "Arial";
+    src: url("fonts/Arial.ttf") format("truetype");
+    font-weight: normal;
+}
+/* font-family: "OpenSansRegular"; */
 @font-face {
     font-family: "Open Sans";
     src: url("fonts/OpenSansRegular.eot");
@@ -41,7 +48,12 @@
 /* for Timer */
 @font-face {
 	font-family: 'Catorze27Style1 SemiBold';
-	src: local('Catorze27Style1 SemiBold'), local('Catorze27Style1-SemiBold'), url(fonts/catorze27Style1_SemiBold.ttf) format('truetype');
+    src: url("fonts/catorze27Style1_SemiBold.eot");
+    src: url("fonts/catorze27Style1_SemiBold.eot?#iefix")format("embedded-opentype"),
+    url("fonts/catorze27Style1_SemiBold.woff") format("woff"),
+    url(fonts/catorze27Style1_SemiBold.ttf) format('truetype');
+    font-style: normal;
+    font-weight: normal;
 }
 
 @font-face {

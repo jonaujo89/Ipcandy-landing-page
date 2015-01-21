@@ -108,7 +108,7 @@ $.fn.lpCounty = function () {
 
             case 'daily':
                 set_date = new Date(current_year + '/' + curren_month + '/' + current_day + ' ' + get_date.time);
-                if (set_date < now) {
+                if (set_date < current_date) {
                     set_date = new Date(current_year + '/' + curren_month + '/' + tomorrow + ' ' + get_date.time);
                 }
                 $(this).empty().county({

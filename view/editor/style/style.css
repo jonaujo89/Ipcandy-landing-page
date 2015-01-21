@@ -45,7 +45,7 @@ ol li {
 
 .error{
     color: #EA493C !important;
-    font-family: Arial;
+    font-family: "Arial";
     font-size: 12px;
     padding-top: 2px;
     text-align: right;
@@ -70,7 +70,7 @@ ol li {
 }
 
 .policy_info_alertify{
-    font-family: Arial,sans-serif;
+    font-family: "Arial",sans-serif;
     font-size: 14px;
     color: #333;
 }
@@ -147,7 +147,7 @@ ol li {
 .form .form_fields label {
   color: #383838;
   display: block;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 14px;
   padding: 7px 0 6px;
   text-align: left;
@@ -167,7 +167,7 @@ ol li {
 
 .form .form_title {
   color: #020202;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 21px;
   text-align: center;
 }
@@ -178,7 +178,7 @@ ol li {
   background-color: #fff;
   border: 1px solid #e8e8e8;
   color: #5b5b5b;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 16px;
   width: 100%;
 }
@@ -189,7 +189,7 @@ ol li {
   background-color: #fff;
   border: 1px solid #e8e8e8;
   color: #5b5b5b;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 16px;
   width: 100%;
 }
@@ -208,7 +208,7 @@ ol li {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 16px;
   font-weight: bold;
   text-align: center;
@@ -235,7 +235,7 @@ ol li {
 
 .form .form_bottom {
   color: #a3a3a3;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 12px;
   margin-top: 15px;
   text-align: center;
@@ -249,7 +249,7 @@ ol li {
   border: 1px solid #E8E8E8;
   background-color: #FFF;
   color: #5B5B5B;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 16px;
   -moz-appearance: none;
   cursor: pointer;
@@ -264,7 +264,7 @@ ol li {
   padding-bottom: 3px;
   font-size: 12px;
   line-height: 13px;
-  font-family: Arial;
+  font-family: "Arial";
   opacity: 0.7;
 }
 
@@ -272,14 +272,14 @@ ol li {
   padding-bottom: 2px;
   font-size: 14px;
   line-height: 15px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .form .form_fields input[type="file"] {
   width: 100%;
   color: #5B5B5B;
   font-size: 16px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 
@@ -287,14 +287,14 @@ ol li {
 .form_done_title {
   text-align: center;
   color: #020202;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 21px;
 }
 
 .form_done_text {
   text-align: center;
   color: #5e5e5e;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 14px;
   line-height: 22px;
   margin-top: 15px;
@@ -332,7 +332,7 @@ ol li {
 .header_1 .container {
   padding: 48px 0;
   color: #000000;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .header_1 .container .desc {
@@ -354,7 +354,7 @@ ol li {
 
 .header_2 .container {
   color: #000000;
-  font-family: Arial;
+  font-family: "Arial";
   padding: 20px 0;
 }
 
@@ -388,7 +388,7 @@ ol li {
 .header_3 .container {
   padding: 20px 0;
   color: #000000;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .header_3 .container .desc_1 {
@@ -438,7 +438,7 @@ ol li {
 
 .header_4 .container {
   color: #000000;
-  font-family: Arial;
+  font-family: "Arial";
   padding: 25px 0 25px;
 }
 
@@ -544,7 +544,7 @@ ol li {
 .order_1 .container {
   padding: 48px 0;
   color: #FFFFFF;
-  font-family: Arial;
+  font-family: "Arial";
   min-height: 450px;
 }
 
@@ -568,7 +568,7 @@ ol li {
   background: none  scroll 0 0 rgba(0, 0, 0, 0.75);
   clear: both;
   display: inline-block;
-  font-family: "Open Sans Bold", Arial;
+  font-family: "Open Sans Bold", "Arial";
   font-size: 58px;
   font-weight: 700;
   line-height: 100%;
@@ -581,7 +581,7 @@ ol li {
   background: none  scroll 0 0 rgba(0, 0, 0, 0.75);
   clear: both;
   display: inline-block;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
   font-size: 26px;
   line-height: 100%;
@@ -594,10 +594,6 @@ ol li {
 }
 
 .order_1 .form_title {
-  text-align: center;
-  color: #020202;
-  font-size: 21px;
-  font-family: "Open Sans Ligth", Arial;
   line-height: 110%;
 }
 
@@ -606,7 +602,7 @@ ol li {
   text-align: center;
   color: #757575;
   font-size: 12px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   line-height: 1.2em;
   text-transform: uppercase;
 }
@@ -620,7 +616,7 @@ ol li {
   text-align: center;
   color: #A3A3A3;
   font-size: 12px;
-  font-family: Arial;
+  font-family: ""Arial"";
 }
 
 .order_1 button.form_field_submit {
@@ -647,7 +643,7 @@ ol li {
   padding: 80px 0;
   color: #FFFFFF;
   text-shadow: 0 1px 1px #000;
-  font-family: Arial;
+  font-family: "Arial";
   text-align: center;
 }
 
@@ -663,7 +659,7 @@ ol li {
   margin: 0;
   font-size: 60px;
   line-height: 120%;
-  font-family: "Open Sans Bold", Arial;
+  font-family: "Open Sans Bold", "Arial";
   font-weight: bold;
 }
 
@@ -671,7 +667,7 @@ ol li {
   margin-top: 20px;
   font-size: 26px;
   line-height: 120%;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: normal;
 }
 
@@ -682,7 +678,7 @@ ol li {
   margin-top: 100px;
   padding: 5px;
   font-size: 16px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: normal;
 }
 
@@ -709,7 +705,7 @@ ol li {
 }
 
 .order_2 .btn_wrap a.btn_form {
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 500;
   font-size: 24px;
   text-transform: uppercase;
@@ -777,7 +773,7 @@ ol li {
 
 .order_3 .title_1 {
   color: #383838;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-size: 50px;
   font-weight: 600;
   line-height: 128%;
@@ -793,7 +789,7 @@ ol li {
   text-shadow: 0 1px 0 #FFF;
   font-size: 24px;
   line-height: 120%;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: normal;
   text-transform: uppercase;
 }
@@ -805,7 +801,7 @@ ol li {
   text-shadow: 0 1px 0 #FFF;
   font-size: 16px;
   line-height: 145%;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
 }
 
 .order_3 .btn_wrap {
@@ -815,7 +811,7 @@ ol li {
 }
 
 .order_3 .btn_wrap a.btn_form {
-  font-family: "Open Sans Bold", Arial;
+  font-family: "Open Sans Bold", "Arial";
   font-weight: bold;
   font-size: 16px;
   text-transform: uppercase;
@@ -844,7 +840,7 @@ ol li {
 
 .order_3 .list ul p {
   color: #383838;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans","Arial";
   font-size: 16px;
   line-height: 145%;
   margin-bottom: 6px;
@@ -875,7 +871,7 @@ ol li {
 .order_4 .container {
   padding: 40px 0 70px 0;
   color: #FFFFFF;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .order_4 .title_1 {
@@ -884,7 +880,7 @@ ol li {
   color: #FFFFFF;
   font-size: 36px;
   line-height: 128%;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 600;
   text-align: center;
 }
@@ -894,7 +890,7 @@ ol li {
   color: #FFFFFF;
   font-size: 18px;
   line-height: 128%;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: normal;
   text-align: center;
 }
@@ -952,7 +948,7 @@ ol li {
   color: #FFFFFF;
   font-size: 18px;
   line-height: 144%;
-  font-family: "Open Sans Bold", Arial;
+  font-family: "Open Sans Bold", "Arial";
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -974,7 +970,7 @@ ol li {
   display: block;
   padding: 8px 0 7px 0;
   color: #FFFFFF;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 14px;
   line-height: 19px;
   text-align: left;
@@ -994,7 +990,7 @@ ol li {
   text-align: left;
   color: #BABABA;
   font-size: 12px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 @media (max-width: 1199px){
     .order_4 .form {
@@ -1032,7 +1028,7 @@ ol li {
   color: #FFF;
   font-size: 36px;
   line-height: 128%;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 600;
   text-align: center;
 }
@@ -1042,20 +1038,20 @@ ol li {
   color: #FFF;
   font-size: 18px;
   line-height: 128%;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: normal;
   text-align: center;
 }
 
 .order_5 .container {
   color: #ffffff;
-  font-family: Arial;
+  font-family: "Arial";
   padding: 40px 0 70px 0;
 }
 
 .order_5 .item .desc {
   color: rgba(255, 255, 255, 0.7);
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 14px;
   line-height: 20px;
 }
@@ -1086,7 +1082,7 @@ ol li {
 
 .order_5 .ico_list .item .name {
   color: #fff;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 3px;
@@ -1111,7 +1107,7 @@ ol li {
   color: #FFFFFF;
   font-size: 18px;
   line-height: 144%;
-  font-family: "Open Sans Bold", Arial;
+  font-family: "Open Sans Bold", "Arial";
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -1133,7 +1129,7 @@ ol li {
   display: block;
   padding: 8px 0 7px 0;
   color: #FFFFFF;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 14px;
   line-height: 19px;
   text-align: left;
@@ -1146,7 +1142,7 @@ ol li {
   border: 1px solid #E8E8E8;
   background-color: #FFF;
   color: #5B5B5B;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 16px;
 }
 
@@ -1158,7 +1154,7 @@ ol li {
   color: #FFFFFF;
   font-size: 16px;
   font-weight: bold;
-  font-family: Arial;
+  font-family: "Arial";
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
@@ -1181,7 +1177,7 @@ ol li {
   text-align: left;
   color: #BABABA;
   font-size: 12px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 .order_5 .form .form_submit {
   margin: 25px 0 0 0;
@@ -1206,7 +1202,7 @@ ol li {
 
 .order_6 .dark .container {
   color: #ffffff;
-  font-family: Arial;
+  font-family: "Arial";
   min-height: 550px;
   padding: 103px 0 140px;
 }
@@ -1229,7 +1225,7 @@ ol li {
 
 .order_6 .title_1, .order_6 .title_2, .order_6 .title_3 {
   color: #ffffff;
-  font-family: "Open Sans Bold", Arial;
+  font-family: "Open Sans Bold", "Arial";
   font-weight: bold;
   line-height: 128%;
   margin: 0;
@@ -1252,7 +1248,7 @@ ol li {
   font-size: 18px;
   font-weight: normal;
   margin-top: 2px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
 }
 
 .order_6 .form {
@@ -1265,7 +1261,7 @@ ol li {
 
 .order_6 .form .form_title {
   color: #ffffff;
-  font-family: "Open Sans Bold", Arial;
+  font-family: "Open Sans Bold", "Arial";
   font-size: 18px;
   font-weight: bold;
   line-height: 144%;
@@ -1279,7 +1275,7 @@ ol li {
 
 .order_6 .form .form_bottom {
   color: #bababa;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 12px;
   margin-top: 25px;
   text-align: center;
@@ -1305,7 +1301,7 @@ ol li {
 .order_6 .form .form_data .form_fields label {
   color: #e7e7e7;
   display: block;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 14px;
   line-height: 19px;
   padding: 9px 0 8px;
@@ -1353,7 +1349,7 @@ ol li {
 
 .benefits_1 .container {
   padding: 45px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .benefits_1 h1.title {
@@ -1362,7 +1358,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -1371,7 +1367,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -1405,7 +1401,7 @@ ol li {
   margin-bottom: 18px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -1414,7 +1410,7 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .benefits_1 .item_list.hide_ico_border .item .ico {
@@ -1429,7 +1425,7 @@ ol li {
 
 .benefits_2 .container {
   padding: 45px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .benefits_2 h1.title {
@@ -1438,7 +1434,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -1447,7 +1443,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -1480,7 +1476,7 @@ ol li {
   margin-bottom: 15px;
   color: #4C4C4C;
   font-size: 18px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -1489,7 +1485,7 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 @media all and (max-width: 1199px) {
@@ -1504,7 +1500,7 @@ ol li {
 
 .benefits_3 .container {
   padding: 45px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .benefits_3 h1.title {
@@ -1513,7 +1509,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -1522,7 +1518,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -1570,7 +1566,7 @@ ol li {
   margin-bottom: 15px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -1579,7 +1575,7 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
   min-height: 60px;
 }
 
@@ -1599,7 +1595,7 @@ ol li {
 
 .benefits_4 .container {
   padding: 45px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .benefits_4 h1.title {
@@ -1608,7 +1604,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -1617,7 +1613,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -1659,7 +1655,7 @@ ol li {
   margin-bottom: 15px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   margin-left: 125px;
   line-height: 130%;  
@@ -1669,7 +1665,7 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
   margin-left: 125px;
 }
 
@@ -1679,7 +1675,7 @@ ol li {
 
 .benefits_5 .container {
   padding: 45px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .benefits_5 h1.title {
@@ -1688,7 +1684,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -1697,7 +1693,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -1735,7 +1731,7 @@ ol li {
   margin-bottom: 15px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;  
 }
@@ -1744,7 +1740,7 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .benefits_5 .item_list.hide_ico_border .item .ico {
@@ -1769,7 +1765,7 @@ ol li {
 
 .services_1 .container {
   padding: 50px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_1 h1.title {
@@ -1778,7 +1774,7 @@ ol li {
   color: #34383a;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans","Arial";
   font-weight: 400;
 }
 
@@ -1787,7 +1783,7 @@ ol li {
   text-align: center;
   color: #5c5c5c;
   font-size: 25px;
-  font-family: "Open Sans Light",Arial;
+  font-family: "Open Sans Light","Arial";
   font-weight: 300;
 }
 
@@ -1822,7 +1818,7 @@ ol li {
   padding: 20px;
   color: #2b2b2b;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -1832,14 +1828,14 @@ ol li {
   color: #5c5c5c;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_1 .item_list .item .price {
   padding: 0px 20px 18px 20px;
   color: #2b2b2b;
   font-size: 20px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_1 .item_list .item .btn_wrap {
@@ -1859,7 +1855,7 @@ ol li {
 
 .services_2 .container {
   padding: 50px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_2 h1.title {
@@ -1868,7 +1864,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -1877,7 +1873,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -1950,7 +1946,7 @@ ol li {
   color: #2B2B2B;
   font-size: 20px;
   text-transform: uppercase;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -1960,14 +1956,14 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_2 .item_list .item .price {
   margin: 17px 0 22px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_2 .item_list .item .btn_wrap {
@@ -1989,7 +1985,7 @@ ol li {
 
 .services_3 .container {
   padding: 50px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_3 h1.title {
@@ -1998,7 +1994,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -2007,7 +2003,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -2080,7 +2076,7 @@ ol li {
   margin: 0 0 20px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
   text-transform: uppercase;
@@ -2091,21 +2087,21 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_3 .item_list .item .price {
   margin: 17px 0 27px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_3 .item_list .item .btn_note {
   margin: 27px 0 8px 0;
   color: #5C5C5C;
   font-size: 12px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_3 .item_list .item .btn_wrap {
@@ -2115,7 +2111,7 @@ ol li {
 
 .services_4 .container {
   padding: 50px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_4 h1.title {
@@ -2124,7 +2120,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -2133,7 +2129,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -2165,7 +2161,7 @@ ol li {
   padding: 20px 20px 12px 20px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -2175,14 +2171,14 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_4 .item_list .item .price {
   padding: 0px 20px 18px 20px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_4 .item_list .item .btn_wrap {
@@ -2192,7 +2188,7 @@ ol li {
 
 .services_5 .container {
   padding: 50px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_5 h1.title {
@@ -2201,7 +2197,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -2210,7 +2206,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -2258,7 +2254,7 @@ ol li {
   margin: 25px 0 12px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -2268,14 +2264,14 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_5 .item_list .item .price {
   margin: 16px 0 18px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_5 .item_list .item .btn_wrap {
@@ -2299,7 +2295,7 @@ ol li {
 
 .services_6 .container {
   padding: 50px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_6 h1.title {
@@ -2308,7 +2304,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -2317,7 +2313,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -2361,7 +2357,7 @@ ol li {
   margin: 15px 0 25px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -2380,7 +2376,7 @@ ol li {
   color: #2B2B2B;
   font-size: 20px;
   line-height: 28px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .services_6 .item_list .item .btn_wrap {
@@ -2409,7 +2405,7 @@ ol li {
 
 .reasons_1 .container {
   padding: 50px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .reasons_1 h1.title {
@@ -2418,7 +2414,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -2428,7 +2424,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -2463,7 +2459,7 @@ ol li {
 .reasons_1 .item_list .item .name {
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -2472,7 +2468,7 @@ ol li {
   margin-top: 15px;
   color: #5C5C5C;
   font-size: 14px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   line-height: 160%;
 }
 
@@ -2484,7 +2480,7 @@ ol li {
   margin-right: auto !important;
   padding: 0px;
   padding: 25px 0px 15px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .gallery h1.title {
@@ -2492,7 +2488,7 @@ ol li {
   text-align: center;
   color: #34383A;
   font-size: 48px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans","Arial";
   font-weight: 400;
 }
 
@@ -2501,7 +2497,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light",Arial;
+  font-family: "Open Sans Light","Arial";
   font-weight: 300;
 }
 
@@ -2509,7 +2505,7 @@ ol li {
   color: #FFF;
   font-size: 18px !important;
   line-height: 150%;
-  font-family: "Open Sans Semibold",Arial;
+  font-family: "Open Sans Semibold","Arial";
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -2518,7 +2514,7 @@ ol li {
   margin-top: 10px;
   color: #FFF;
   font-size: 13px !important;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 300;
 }
 
@@ -2625,7 +2621,7 @@ ol li {
   overflow: hidden;
   color: #2B2B2B;
   font-size: 16px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   text-transform: uppercase;
   white-space: nowrap;
@@ -2638,7 +2634,7 @@ ol li {
   margin-top: 9px;
   color: #BD905D;
   font-size: 12px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans","Arial";
   font-weight: 400;
   text-transform: uppercase;
   white-space: nowrap;
@@ -2648,7 +2644,7 @@ ol li {
   margin-top: 12px;
   color: #8C8C8C;
   font-size: 14px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans","Arial";
   font-weight: 400;
   line-height: 130%;
 }
@@ -2728,7 +2724,7 @@ ol li {
 .gallery_3 .item_list .item .overlay .img_title {
   color: #2B2B2B;
   font-size: 15px;
-  font-family: "Open Sans Semibold",Arial;
+  font-family: "Open Sans Semibold","Arial";
   font-weight: 600;
   text-transform: uppercase;
   line-height: 120%;
@@ -2738,7 +2734,7 @@ ol li {
   margin-top: 7px;
   color: #8C8C8C;
   font-size: 13px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans","Arial";
   font-weight: 400;
   line-height: 130%;  
 }
@@ -2756,7 +2752,7 @@ ol li {
 
 .gallery_4 .container {
   padding: 25px 0 15px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .gallery_4 .item_list {
@@ -2797,7 +2793,7 @@ ol li {
 .gallery_4 .item_list .item .overlay .img_title {
   color: #2B2B2B;
   font-size: 15px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   text-transform: uppercase;
   line-height: 120%;
@@ -2807,7 +2803,7 @@ ol li {
   margin-top: 4px;
   color: #8C8C8C;
   font-size: 13px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -2834,7 +2830,7 @@ ol li {
 
 
 .gallery_5 .container {
-    font-family: Arial;
+    font-family: "Arial";
     padding: 25px 0 15px;
 }
 .gallery_5 .item_list {
@@ -2897,7 +2893,7 @@ ol li {
 }
 .gallery_5 .item_list .slider .overlay .img_title {
     color: #fff;
-    font-family: "Open Sans Semibold",Arial;
+    font-family: "Open Sans Semibold","Arial";
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
@@ -2905,7 +2901,7 @@ ol li {
 }
 .gallery_5 .item_list .slider .overlay .img_desc {
     color: #fff;
-    font-family: "Open Sans",Arial;
+    font-family: "Open Sans","Arial";
     font-size: 13px;
     font-weight: 300;
     margin-top: 5px;
@@ -2922,7 +2918,7 @@ ol li {
 
 
 .gallery_6 .container {
-  font-family: Arial;
+  font-family: "Arial";
   padding: 25px 0 15px;
 }
 .gallery_6 .masonry {
@@ -2981,7 +2977,7 @@ ol li {
 }
 .gallery_6 .item_list .item_block .overlay .img_title {
     color: #fff;
-    font-family: "Open Sans Semibold",Arial;
+    font-family: "Open Sans Semibold","Arial";
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
@@ -2989,7 +2985,7 @@ ol li {
 }
 .gallery_6 .item_list .item_block .overlay .img_desc {
     color: #fff;
-    font-family: "Open Sans",Arial;
+    font-family: "Open Sans","Arial";
     font-size: 13px;
     font-weight: 300;
     margin-top: 5px;
@@ -3002,7 +2998,7 @@ ol li {
 
 .gallery_7 .container {
   padding: 25px 0 15px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .gallery_7 .item_list {
@@ -3082,7 +3078,7 @@ ol li {
 .gallery_7 .img_title {
   color: #FFF;
   font-size: 18px !important;
-  font-family: "Open Sans Semibold",Arial;
+  font-family: "Open Sans Semibold","Arial";
   font-weight: 600;
   text-transform: uppercase;
   line-height: 150%;
@@ -3092,7 +3088,7 @@ ol li {
   margin-top: 10px;
   color: #FFF;
   font-size: 13px !important;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 300;
 }
 
@@ -3164,7 +3160,7 @@ ol li {
 
 .gallery_8 .container {
   padding: 25px 0px 15px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .gallery_8 .item_list {
@@ -3234,7 +3230,7 @@ ol li {
 .gallery_8 .img_title {
   color: #FFF;
   font-size: 18px !important;
-  font-family: "Open Sans Semibold",Arial;
+  font-family: "Open Sans Semibold","Arial";
   font-weight: 600;
   text-transform: uppercase;
   line-height: 150%;
@@ -3244,7 +3240,7 @@ ol li {
   margin-top: 10px;
   color: #FFF;
   font-size: 13px !important;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 300;
 }
 
@@ -3315,7 +3311,7 @@ ol li {
 
 .gallery_9 .container {
   padding: 25px 0 15px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .gallery_9 .item_list {
@@ -3385,7 +3381,7 @@ ol li {
 .gallery_9 .img_title {
   color: #FFF;
   font-size: 18px !important;
-  font-family: "Open Sans Semibold",Arial;
+  font-family: "Open Sans Semibold","Arial";
   font-weight: 600;
   text-transform: uppercase;
   line-height: 150%;
@@ -3395,7 +3391,7 @@ ol li {
   margin-top: 10px;
   color: #FFF;
   font-size: 13px !important;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 300;
 }
 
@@ -3474,7 +3470,7 @@ ol li {
 
 .gallery_10 .container {
   padding: 25px 0 15px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .gallery_10 .item_list {
@@ -3560,7 +3556,7 @@ ol li {
 .gallery_10 .img_title {
   color: #FFF;
   font-size: 18px !important;
-  font-family: "Open Sans Semibold",Arial;
+  font-family: "Open Sans Semibold","Arial";
   font-weight: 600;
   text-transform: uppercase;
   line-height: 150%;
@@ -3570,7 +3566,7 @@ ol li {
   margin-top: 10px;
   color: #FFF;
   font-size: 13px !important;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 300;
 }
 
@@ -3622,7 +3618,7 @@ ol li {
 
 .cases_1 .container {
   padding: 25px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .cases_1 h1.title {
@@ -3631,7 +3627,7 @@ ol li {
   color: #34383a;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans","Arial";
   font-weight: 400;
 }
 
@@ -3640,7 +3636,7 @@ ol li {
   text-align: center;
   color: #5c5c5c;
   font-size: 25px;
-  font-family: "Open Sans Light",Arial;
+  font-family: "Open Sans Light","Arial";
   font-weight: 300;
 }
 
@@ -3704,7 +3700,7 @@ ol li {
   margin: 5px 0 5px 0;
   color: #2b2b2b;
   font-size: 24px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -3713,7 +3709,7 @@ ol li {
   margin: 5px 0 5px 0;
   color: #bd905d;
   font-size: 14px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -3723,7 +3719,7 @@ ol li {
   color: #5c5c5c;
   font-size: 15px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 /* workOrder */
@@ -3733,7 +3729,7 @@ ol li {
 
 .workOrder1 .container {
   padding: 45px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .workOrder1 h1.title {
@@ -3742,7 +3738,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -3751,7 +3747,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -3805,7 +3801,7 @@ ol li {
   margin-bottom: 18px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -3820,7 +3816,7 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 @media all and (max-width: 1199px) {
@@ -3836,7 +3832,7 @@ ol li {
 
 .workOrder2 .container {
   padding: 45px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .workOrder2 h1.title {
@@ -3845,7 +3841,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -3854,7 +3850,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -3929,7 +3925,7 @@ ol li {
 .workOrder2 .item_list .item .name {
   color: #2B2B2B;
   font-size: 15px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 @media all and (max-width: 1199px) {
@@ -3946,7 +3942,7 @@ ol li {
 
 .reviews_1 .container {
   padding: 20px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .reviews_1 h1.title {
@@ -3955,7 +3951,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -3964,7 +3960,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -3984,7 +3980,7 @@ ol li {
   border: 1px solid #E0E0E0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   background-color: #FFF;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .reviews_1 .item .item_data .text {
@@ -3998,7 +3994,7 @@ ol li {
   margin-right: 95px;
   color: #2B2B2B;
   font-size: 15px;
-  font-family: "Open Sans Bold", Arial;
+  font-family: "Open Sans Bold", "Arial";
   font-weight: 600;
 }
 
@@ -4094,7 +4090,7 @@ ol li {
 }
 
 .map_block_1 .container_text .item_block .title {  
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 20px;
   color: #2B2B2B;
   font-weight: normal;
@@ -4102,7 +4098,7 @@ ol li {
 }
 
 .map_block_1 .container_text .item_block .desc {
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 15px;
   line-height: 21px;
   color: #444;
@@ -4112,7 +4108,7 @@ ol li {
 /* logos */
 .clientsLogos_1 .container {
   padding: 20px 0 15px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .clientsLogos_1 h1.title {
@@ -4120,7 +4116,7 @@ ol li {
   text-align: center;
   color: #34383a;
   font-size: 48px;
-  font-family: "Open Sans",Arial;
+  font-family: "Open Sans","Arial";
   font-weight: 400;
 }
 
@@ -4129,7 +4125,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light",Arial;
+  font-family: "Open Sans Light","Arial";
   font-weight: 300;
 }
 
@@ -4154,20 +4150,9 @@ ol li {
 .clientsLogos_1 .item_list.gray .item_block img {
   max-height: 85px;
   vertical-align: top;
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: grayscale(100%);
-  filter: url('../../editor/assets/logos/gray.svg#desaturate');
-  /* Firefox 4+ */
-  filter: gray;
-  /* IE 6-9 */
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  filter: url("data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\'&gt;&lt;filter id=\'grayscale\'&gt;&lt;feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 }
 
 .clientsLogos_1 .item_list .item_block img {
@@ -4183,7 +4168,7 @@ ol li {
   color: #000000;
   font-size: 14px;
   line-height: 140%;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .footer_1 .logo .company_name {
@@ -4228,7 +4213,7 @@ ol li {
 /* video */
 .video_block_1 .container {
   padding: 50px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .video_block_1 h1.title {
@@ -4237,7 +4222,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -4247,7 +4232,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -4283,7 +4268,7 @@ ol li {
 
 .video_block_2 .container {
   padding: 30px 0 20px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .video_block_2 .item {
@@ -4325,7 +4310,7 @@ ol li {
   margin-bottom: 25px;
   color: #2B2B2B;
   font-size: 24px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -4334,7 +4319,7 @@ ol li {
   margin-bottom: 20px;
   color: #8C8C8C;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -4343,7 +4328,7 @@ ol li {
   color: #5C5C5C;
   font-size: 15px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 @media all and (max-width: 1199px) {
@@ -4366,7 +4351,7 @@ ol li {
 
 .video_block_3 .container {
   padding: 25px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .video_block_3 h1.title {
@@ -4375,7 +4360,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -4384,7 +4369,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -4472,7 +4457,7 @@ ol li {
   margin: 25px 0 5px 0;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -4481,7 +4466,7 @@ ol li {
   color: #8C8C8C;
   font-size: 15px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 /* text */
@@ -4491,7 +4476,7 @@ ol li {
 
 .text_block_1 .container {
   padding: 50px 0 70px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .text_block_1 h1.title {
@@ -4500,7 +4485,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -4510,14 +4495,14 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
 .text_block_1 .text {
   margin-top: 35px;
   color: #5C5C5C;
-  font-family: Arial;
+  font-family: "Arial";
   font-size: 15px;
   line-height: 22px;
   text-align: center;
@@ -4547,7 +4532,7 @@ ol li {
   text-shadow: 0 1px 0 #FFF;
   font-size: 16px;
   line-height: 145%;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   list-style-type: none;
 }
 
@@ -4576,7 +4561,7 @@ ol li {
 
 .text_block_2 .container {
   padding: 50px 0 70px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .text_block_2 h1.title {
@@ -4585,7 +4570,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -4595,7 +4580,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -4613,7 +4598,7 @@ ol li {
 .text_block_2 .item_list .item .name {
   color: #2B2B2B;
   font-size: 18px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -4623,7 +4608,7 @@ ol li {
   color: #5C5C5C;
   font-size: 15px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .text_block_3 .container-fluid {
@@ -4632,7 +4617,7 @@ ol li {
 
 .text_block_3 .container {
   padding: 50px 0 70px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .text_block_3 h1.title {
@@ -4641,7 +4626,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -4651,7 +4636,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -4669,7 +4654,7 @@ ol li {
 .text_block_3 .item_list .item .name {
   color: #2B2B2B;
   font-size: 18px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -4679,7 +4664,7 @@ ol li {
   color: #5C5C5C;
   font-size: 15px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .text_block_4 .container-fluid {
@@ -4688,7 +4673,7 @@ ol li {
 
 .text_block_4 .container {
   padding: 30px 0 20px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .text_block_4 .item_list {
@@ -4737,7 +4722,7 @@ ol li {
   margin-bottom: 25px;
   color: #2B2B2B;
   font-size: 24px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -4746,7 +4731,7 @@ ol li {
   margin-bottom: 20px;
   color: #8C8C8C;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -4755,7 +4740,7 @@ ol li {
   color: #5C5C5C;
   font-size: 15px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 @media all and (max-width: 1199px) {
@@ -4774,7 +4759,7 @@ ol li {
 
 .text_block_5 .container {
   padding: 30px 0 20px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .text_block_5 .item_list {
@@ -4831,7 +4816,7 @@ ol li {
   margin-bottom: 25px;
   color: #2B2B2B;
   font-size: 24px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -4840,7 +4825,7 @@ ol li {
   color: #5C5C5C;
   font-size: 15px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 @media all and (max-width: 1199px) {
@@ -4855,7 +4840,7 @@ ol li {
 
 .text_block_6 .container {
   padding: 55px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .text_block_6 .text_data {
@@ -4868,7 +4853,7 @@ ol li {
   margin: 0 0 15px 0;
   color: #2B2B2B;
   font-size: 24px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
   text-transform: uppercase;
@@ -4878,7 +4863,7 @@ ol li {
   margin: 0 0 20px 0;
   color: #8C8C8C;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -4888,7 +4873,7 @@ ol li {
   color: #5C5C5C;
   font-size: 15px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .text_block_6 .ico_data {
@@ -4920,7 +4905,7 @@ ol li {
   margin-bottom: 5px;
   color: #2B2B2B;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
 }
@@ -4929,7 +4914,7 @@ ol li {
   color: #5C5C5C;
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .text_block_6 .ico_data .item_list.hide_border .item .ico {
@@ -4944,7 +4929,7 @@ ol li {
 /* digits */
 .digits_1 .container {
   padding: 0 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .digits_1 .margin {
@@ -4957,7 +4942,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -4966,7 +4951,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -4984,7 +4969,7 @@ ol li {
 .digits_1 .item_list .item .value {
   color: #2B2B2B;
   font-size: 60px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   white-space: nowrap;
 }
@@ -4993,7 +4978,7 @@ ol li {
   color: #5C5C5C;
   font-size: 16px;
   line-height: 22px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5005,7 +4990,7 @@ ol li {
 
 .digits_2 .container {
   padding: 0 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .digits_2 .margin {
@@ -5018,7 +5003,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5027,7 +5012,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -5047,7 +5032,7 @@ ol li {
   width: 149px;
   color: #2B2B2B;
   font-size: 60px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   white-space: nowrap;
   text-align: right;
@@ -5060,7 +5045,7 @@ ol li {
   color: #5C5C5C;
   font-size: 16px;
   line-height: 22px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   text-align: left;
 }
@@ -5084,7 +5069,7 @@ ol li {
 
 .digits_3 .container {
   padding: 0 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .digits_3 .margin {
@@ -5097,7 +5082,7 @@ ol li {
   color: #FFF;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5106,7 +5091,7 @@ ol li {
   text-align: center;
   color: #C2C2C2;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -5126,7 +5111,7 @@ ol li {
   width: 149px;
   color: #FFF;
   font-size: 60px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   white-space: nowrap;
   text-align: right;
@@ -5139,7 +5124,7 @@ ol li {
   color: #DDDDDD;
   font-size: 16px;
   line-height: 22px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   text-align: left;
 }
@@ -5163,7 +5148,7 @@ ol li {
 
 .digits_4 .container {
   padding: 0 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .digits_4 .margin {
@@ -5176,7 +5161,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5185,7 +5170,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -5215,7 +5200,7 @@ ol li {
 .digits_4 .item_list .item .value {
   color: #2B2B2B;
   font-size: 42px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   white-space: nowrap;
 }
@@ -5233,7 +5218,7 @@ ol li {
   color: #5C5C5C;
   font-size: 16px;
   line-height: 22px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5253,7 +5238,7 @@ ol li {
 
 .digits_5 .container {
   padding: 0 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .digits_5 .margin {
@@ -5266,7 +5251,7 @@ ol li {
   color: #FFF;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5275,7 +5260,7 @@ ol li {
   text-align: center;
   color: #C2C2C2;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -5306,7 +5291,7 @@ ol li {
 .digits_5 .item_list .item .value {
   color: #FFF;
   font-size: 42px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   white-space: nowrap;
 }
@@ -5324,7 +5309,7 @@ ol li {
   color: #DDDDDD;
   font-size: 16px;
   line-height: 22px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5336,7 +5321,7 @@ ol li {
 
 .digits_6 .container {
   padding: 0 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .digits_6 .margin {
@@ -5349,7 +5334,7 @@ ol li {
   color: #FFF;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5358,7 +5343,7 @@ ol li {
   text-align: center;
   color: #C2C2C2;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -5389,7 +5374,7 @@ ol li {
 .digits_6 .item_list .item .value {
   color: #FFF;
   font-size: 38px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   white-space: nowrap;
 }
@@ -5399,7 +5384,7 @@ ol li {
   color: #DDDDDD;
   font-size: 14px;
   line-height: 20px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -5412,7 +5397,7 @@ ol li {
 
 .digits_7 .container {
   padding: 0 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .digits_7 .margin {
@@ -5425,7 +5410,7 @@ ol li {
   color: #FFF;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5434,7 +5419,7 @@ ol li {
   text-align: center;
   color: #C2C2C2;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -5460,7 +5445,7 @@ ol li {
   color: #FFF;
   font-size: 72px;
   line-height: 150px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 600;
   white-space: nowrap;
 }
@@ -5521,7 +5506,7 @@ ol li {
 
 .digits_8 .container {
   padding: 0 0 70px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .digits_8 .margin {
@@ -5534,7 +5519,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5543,7 +5528,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -5580,7 +5565,7 @@ ol li {
   margin-top: 10px;
   overflow: hidden;
   font-size: 40px;
-  font-family: "Open Sans SemiBold", Arial;
+  font-family: "Open Sans SemiBold", "Arial";
   font-weight: 600;
   white-space: nowrap;
 }
@@ -5590,7 +5575,7 @@ ol li {
   color: #5C5C5C;
   font-size: 16px;
   line-height: 22px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   margin-top: 5px;
 }
@@ -5615,7 +5600,7 @@ ol li {
 
 .timer_1 .container {
   padding: 50px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .timer_1 h1.title {
@@ -5624,7 +5609,7 @@ ol li {
   color: #34383A;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5634,7 +5619,7 @@ ol li {
   text-align: center;
   color: #5C5C5C;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -5643,7 +5628,7 @@ ol li {
   text-align: center;
   color: #2B2B2B;
   font-size: 18px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5666,7 +5651,7 @@ ol li {
   width: 25%;
   text-align: center;
   position: relative;
-  font-family: "Catorze27Style1 SemiBold", Arial;
+  font-family: "Catorze27Style1 SemiBold", "Arial";
 }
 
 .timer_1 .countdown .county-seconds div {
@@ -5688,14 +5673,14 @@ ol li {
   padding: 15px 0 5px;
   display: inline-block;
   color: #B4B4B4;
-  font-family: "Open Sans SemiBold", Arial;
+  font-family: "Open Sans SemiBold", "Arial";
   font-weight: 800;
   text-transform: uppercase;
 }
 
 .timer_2 .container {
   padding: 50px 0 70px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .timer_2 h1.title {
@@ -5704,7 +5689,7 @@ ol li {
   color: #FFF;
   font-size: 48px;
   line-height: 56px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5713,7 +5698,7 @@ ol li {
   margin-bottom: 25px;
   text-align: center;
   font-size: 25px;
-  font-family: "Open Sans Light", Arial;
+  font-family: "Open Sans Light", "Arial";
   font-weight: 300;
 }
 
@@ -5722,7 +5707,7 @@ ol li {
   text-align: center;
   color: #DDDDDD;
   font-size: 18px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
 }
 
@@ -5746,7 +5731,7 @@ ol li {
   width: 25%;
   text-align: center;
   position: relative;
-  font-family: "BOLDfinger", Arial;
+  font-family: "BOLDfinger", "Arial";
 }
 
 .timer_2 .countdown .county-days div, 
@@ -5769,7 +5754,7 @@ ol li {
   display: inline-block;
   color: #FFFFFF;
   font-size: 14px;
-  font-family: "Sans serif", Arial;
+  font-family: "Sans serif", "Arial";
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -5851,7 +5836,7 @@ ol li {
 
 .timer_3 .container {
   padding: 50px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .timer_3 h1.title {
@@ -5860,7 +5845,7 @@ ol li {
   color: #3A3A3A;
   font-size: 32px;
   line-height: 38px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
   text-transform: uppercase;
@@ -5871,7 +5856,7 @@ ol li {
   text-align: center;
   color: #C4C4C4;
   font-size: 18px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -5887,7 +5872,7 @@ ol li {
   text-align: center;
   color: #757575;
   font-size: 22px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 140%;
   text-transform: uppercase;
@@ -5914,7 +5899,7 @@ ol li {
   text-align: center;
   color: #A3A3A3;
   font-size: 12px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .timer_3 .countdown_wrap {
@@ -5937,7 +5922,7 @@ ol li {
   width: 25%;
   text-align: center;
   position: relative;
-  font-family: "Langdon", Arial;
+  font-family: "Langdon", "Arial";
 }
 
 .timer_3 .countdown .county-days div, 
@@ -5960,14 +5945,14 @@ ol li {
   display: inline-block;
   color: #A0A0A0;
   font-size: 16px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   text-transform: uppercase;  
 }
 
 .timer_4 .container {
   padding: 50px 0 60px 0;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .timer_4 h1.title {
@@ -5976,7 +5961,7 @@ ol li {
   color: #FFFFFF;
   font-size: 32px;
   line-height: 38px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
   text-transform: uppercase;
@@ -5987,7 +5972,7 @@ ol li {
   text-align: center;
   color: #12ABE7;
   font-size: 18px;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -6003,7 +5988,7 @@ ol li {
   text-align: center;
   color: #FFFFFF;
   font-size: 20px;
-  font-family: "Open Sans Semibold", Arial;
+  font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
   line-height: 130%;
   text-transform: uppercase;
@@ -6030,7 +6015,7 @@ ol li {
   text-align: center;
   color: #A3A3A3;
   font-size: 12px;
-  font-family: Arial;
+  font-family: "Arial";
 }
 
 .timer_4 .countdown_wrap {
@@ -6053,7 +6038,7 @@ ol li {
   width: 25%;
   text-align: center;
   position: relative;
-  font-family: "Langdon", Arial;
+  font-family: "Langdon", "Arial";
 }
 
 .timer_4 .countdown .county-seconds div {
@@ -6075,6 +6060,6 @@ ol li {
   padding: 5px 0;
   display: inline-block;
   color: #A0A0A0;
-  font-family: "Open Sans", Arial;
+  font-family: "Open Sans", "Arial";
   text-transform: uppercase;
 }

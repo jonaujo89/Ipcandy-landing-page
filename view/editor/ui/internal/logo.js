@@ -1,7 +1,4 @@
 lp.logo = lp.cover.extendOptions({
-    init: function(){
-        console.log(this);
-    },
     change: function(){
         var me = this;
         var logo_div = me.element.find(".logo");        
