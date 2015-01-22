@@ -7,11 +7,39 @@ lp.repeater = teacss.ui.control.extend({
         this.element = this.options.element;
         this.options.name = this.element.data("name");
         this.addCovers();
+        
+        var me = this;
+        this.element.on("click",".lp-config-button",function(){
+            var item = $(this).parents(".item_block:not([data-dummy])").eq(0);
+            me.config({my:"left top",at:"right top",of:$(this)},item)
+        });
     },
     
+    // get index inside this.value for item
     itemIndex: function (item) {
         item = $(item);
-        return item.parent().children('[class=item_block]').index(item);
+        var idx = this.items.index(item);
+        if (idx==-1) {
+            // cloned item
+            var idx = item.index();
+            var last_idx = this.items.last().index();
+            
+            if (idx > last_idx)
+                return idx - last_idx - 1 - 1 // second -1 for dummy;
+            else
+                return last_idx - idx + 1;
+        } else {
+            return idx;
+        }
+    },
+    
+    // get all items for index (cloned ones too)
+    indexItems: function (idx) {
+        var last_idx = this.items.last().index();
+        var all = this.element.children(); 
+        return this.items.eq(idx)
+            .add(all.eq(last_idx+idx+1+1)) // second +1 for dummy
+            .filter(".item_block:not([data-dummy])");
     },
     
     config: function (pos,item) {
@@ -26,7 +54,12 @@ lp.repeater = teacss.ui.control.extend({
             trigger: function(type) {
                 if (type!="change") return;
                 me.value[idx] = this.value;
-                if (me.options.itemChange) me.options.itemChange.call(me,this.value,item);
+                if (me.options.itemChange) {
+                    var val = this.value;
+                    me.indexItems(idx).each(function(){
+                        me.options.itemChange.call(me,val,$(this));
+                    });
+                }
                 me.trigger("change");
             },
         },pos);
@@ -51,18 +84,20 @@ lp.repeater = teacss.ui.control.extend({
         else 
             new_item.insertBefore(dummy); 
         
+        this.trigger("change");
+        
         this.addCovers();
         this.bindEditors();
-        this.trigger("change");
     },
     
     remove: function (item) {
         var idx = this.itemIndex(item);
-        item.remove();
+        this.indexItems(idx).remove();
         
         this.value.splice(idx, 1);
-        this.bindEditors();
         this.trigger("change");
+        
+        this.bindEditors();
     },
     
     addCovers: function () {
@@ -80,10 +115,7 @@ lp.repeater = teacss.ui.control.extend({
                 
                 if (me.options.configForm) {
                     item.cover.append(
-                        $("<div class='fa fa-gear lp-button'>")
-                        .click(function(){
-                            me.config({my:"left top",at:"right top",of:$(this)},item)
-                        })
+                        $("<div class='fa fa-gear lp-button lp-config-button'>")
                     );
                 }
                 if (!me.options.inline) {
@@ -179,6 +211,8 @@ lp.repeater = teacss.ui.control.extend({
         me.items.each(function(idx){
             $(this).find("[data-editor]").each(function(){
                 var name_old = $(this).data("name");
+                if (name_old.indexOf(me.options.name)!==0) return;
+                
                 var sub = name_old.substring((me.options.name+".").length);
                 var parts = sub.split(".");
                 parts[0] = idx;

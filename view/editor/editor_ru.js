@@ -80,7 +80,7 @@ exports = {
     "Show description":"Описание",
     "Show price":"Цена",
     "Show text above order button":"Текст над кнопкой заказа",
-    "Show shadow":"Тень",
+    "Show shadow":"Затемнить края изображения",
     "Image size:":"Размер изображения:",
     "middle<br>":"средний",
     "large":"большой",

@@ -28,11 +28,11 @@ lp.header = lp.block.extendOptions({
     configForm: {
         items: [                                   
             { 
-                name: "show_desc_and_order_button", label: _t('Show description and order button'), type: "check", width: "auto",  
+                name: "show_desc_and_order_button", label: _t('Show description and order button'), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [3] }
             },
             { 
-                name: "show_order_button", label: _t("Show order button"), type: "check", width: "auto",  
+                name: "show_order_button", label: _t("Show order button"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2,4] }
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},

@@ -67,39 +67,39 @@ lp.services = lp.block.extendOptions({
     configForm: {
         items: [   
             { 
-                name: "show_title", label: _t("Show first title"), type: "check", width: "auto",  
+                name: "show_title", label: _t("Show first title"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px",
             },
             { 
-                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto",  
+                name: "show_title_2", label: _t("Show second title"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px",
             },
             { 
-                name: "show_image", label: _t("Show image"), type: "check", width: "auto",  
+                name: "show_image", label: _t("Show image"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1,4,5] }
             },
             { 
-                name: "show_name", label: _t("Show name"), type: "check", width: "auto",  
+                name: "show_name", label: _t("Show name"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [] }
             },
             { 
-                name: "show_desc", label: _t("Show description"), type: "check", width: "auto",  
+                name: "show_desc", label: _t("Show description"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1,2,3,4,5] }
             }, 
             { 
-                name: "show_price", label: _t("Show price"), type: "check", width: "auto",  
+                name: "show_price", label: _t("Show price"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1,2,3,4,5] }
             }, 
             { 
-                name: "show_text_above_button", label: _t("Show text above order button"), type: "check", width: "auto",  
+                name: "show_text_above_button", label: _t("Show text above order button"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [3] }
             },
             { 
-                name: "show_order_button", label: _t("Show order button"), type: "check", width: "auto",  
+                name: "show_order_button", label: _t("Show order button"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1,2,3,4,5] }
             },
             { 
-                name: "show_shadow_image", label: _t("Show shadow"), type: "check", width: "auto",  
+                name: "show_shadow_image", label: _t("Show shadow"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2,3] }
             },
             { type: "label", value: _t("Image size:"), margin: "5px 49% 0px 0px", showWhen: { variant: [3] }},

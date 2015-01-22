@@ -11,6 +11,8 @@ window._t.load(ru);
 
 require("./editor.css");
 
+require("./ui/internal/checkbox.js");
+
 require("./ui/internal/block.js");
 require("./ui/internal/repeater.js");
 
@@ -128,7 +130,7 @@ exports = function(templater_app,options) {
             if (root.children.length) {
                 root.children[0].addTop(e);
             } else {
-                root.addInside();
+                root.addInside(e);
             }
         }
     });

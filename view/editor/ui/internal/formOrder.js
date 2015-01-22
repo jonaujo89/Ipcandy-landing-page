@@ -22,7 +22,7 @@ lp.formControls.text = teacss.ui.composite.extendOptions({
         { type: "text", name: "label" },
         _t("Field description"),
         { type: "text", name: "desc" },
-        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
+        { type: "checkbox", name: "required", label: _t("Is required?"), margin:"0" }
     ]
 });
 
@@ -48,7 +48,7 @@ lp.formControls.textarea = lp.formControls.text.extend({
         { type: "text", name: "label" },
         _t("Field description"),
         { type: "text", name: "desc" },
-        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
+        { type: "checkbox", name: "required", label: _t("Is required?"), margin:"0" }
     ]
 });
 

@@ -22,7 +22,7 @@ class Cases extends Block {
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
                             <div class="media_wrap">
-                                <? $self->sub('Media','media_file') ?>
+                                <? $self->sub('Media','media') ?>
                             </div>
                             <div class="info">
                                 <div class="top"></div>
@@ -59,13 +59,13 @@ class Cases extends Block {
             'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'media_file' =>  array_merge(Media::tpl_default(),array('type'=>'image_background','image_url'=>'view/editor/assets/services/1.jpg')),
+                    'media' =>  array_merge(Media::tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/services/1.jpg')),
                     'name' => "TRADENORDSERVCICES",
                     'desc' => "ИНФОРМАЦИОННЫЕ ТЕХНОЛОГИИ",
                     'text' => "Задача: Доставить груз в течение 6 дней.<br><br> Результат: Перевезли из офиса в Москве во Владивосток больше двух тонн орг техники и комплектующих. По времени составило 6 дней. В этом блоке опишите свои достигнутые результаты, что сделано по факту. Предельно ясно и коротко. Приложите фотографию процесса или результата.",
                 ),
                 array(
-                    'media_file' =>  array_merge(Media::tpl_default(),array('type'=>'image_background','image_url'=>'view/editor/assets/services/2.jpg')),
+                    'media' =>  array_merge(Media::tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/services/2.jpg')),
                     'name' => "TRADENORDSERVCICES",
                     'desc' => "ИНФОРМАЦИОННЫЕ ТЕХНОЛОГИИ",
                     'text' => "Задача: Доставить груз в течение 6 дней.<br><br> Результат: Перевезли из офиса в Москве во Владивосток больше двух тонн орг техники и комплектующих. По времени составило 6 дней. В этом блоке опишите свои достигнутые результаты, что сделано по факту. Предельно ясно и коротко. Приложите фотографию процесса или результата.",

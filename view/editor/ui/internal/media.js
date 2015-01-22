@@ -3,7 +3,7 @@ lp.media = lp.cover.extendOptions({
              
         var div_media = this.element.find(".media");
 
-        if (this.value.type == "image_background") {
+        if (this.value.type == "image") {
             div_media.empty(div_media);
             div_media.append($('<div class="img">').css({
                 backgroundImage: "url('"+base_url+'/'+this.value.image_url+"')",
@@ -37,13 +37,13 @@ lp.media = lp.cover.extendOptions({
         items: [
             {
                 name: 'type', type: 'radio', margin: "15px 0 20px", items: [
-                    { label: _t("Image"), value: 'image_background' },
+                    { label: _t("Image"), value: 'image' },
                     { label: _t("Video"), value: 'video' }
                 ]
             },
             {
                 name: 'image_url', type: 'uploadButton', label: _t('Upload file'),
-                showWhen: { type: 'image_background' }
+                showWhen: { type: 'image' }
             },
             {
                 type: 'label',

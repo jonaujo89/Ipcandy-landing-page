@@ -32,7 +32,7 @@ lp.order = lp.block.extendOptions({
         
         if (this.value.variant == 3) {
             this.variant.find(".title_2").toggle(this.value.show_title_2);
-            this.variant.find(".img_wrap").toggleClass("hide_border",!this.value.show_border_media);
+            this.variant.find(".img_wrap").toggleClass("hide_border",!this.value.show_media_border);
             this.variant.find(".list").toggle(this.value.show_list_box);
         }
         
@@ -91,43 +91,43 @@ lp.order = lp.block.extendOptions({
                 showWhen: { variant: [1,2,6] }
             },  
             { 
-                name: "add_background_noise", label: _t("Add noise"), type: "check", width: "auto",  
+                name: "add_background_noise", label: _t("Add noise"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "show_text_above_button", label: _t("Show text above the button"), type: "check", width: "auto",  
+                name: "show_text_above_button", label: _t("Show text above the button"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "add_arrow", label: _t("Add arrow"), type: "check", width: "auto",  
+                name: "add_arrow", label: _t("Add arrow"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "show_form_title_2", label: _t("Show text under the form title"), type: "check", width: "auto",  value: 1,
+                name: "show_form_title_2", label: _t("Show text under the form title"), type: "checkbox", width: "auto",  value: 1,
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1] }
             },
             { 
-                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto",  
+                name: "show_title_2", label: _t("Show second title"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [3,4,5,6] }
             },
             { 
-                name: "show_title_3", label: _t("Show third title"), type: "check", width: "auto",  
+                name: "show_title_3", label: _t("Show third title"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [6] }
             },
             { 
-                name: "show_form_bottom_text", label: _t("Show text under the form"), type: "check", width: "auto",  
+                name: "show_form_bottom_text", label: _t("Show text under the form"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1,4,5,6] }
             },
             { 
-                name: "show_border_media", label: _t("Show border from media"), type: "check", width: "auto",  
+                name: "show_media_border", label: _t("Show border from media"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [3] }
             },
             { 
-                name: "show_box_shadow_media", label: _t("Show border from media"), type: "check", width: "auto",  
+                name: "show_box_shadow_media", label: _t("Show border from media"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [4] }
             },
             { 
-                name: "show_list_box", label: _t("Show list box"), type: "check", width: "auto",  
+                name: "show_list_box", label: _t("Show list box"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [3] }
             },
             { type: "label", value: _t("Form align:"), margin: "10px 0 0 0", showWhen: { variant: [6] }},

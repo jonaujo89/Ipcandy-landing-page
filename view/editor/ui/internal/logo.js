@@ -63,7 +63,7 @@ lp.logo = lp.cover.extendOptions({
             _t("Size:"),
             {
                 margin: "5px 0",
-                name: 'size', type: 'slider', min: 10, max: 80,
+                name: 'size', type: 'slider', min: 10, max: 100,
                 showWhen: { type: 'image' }
             },
             {

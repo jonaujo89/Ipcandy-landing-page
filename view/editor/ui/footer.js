@@ -12,7 +12,7 @@ lp.footer = lp.block.extendOptions({
     configForm: {
         items: [   
             { 
-                name: "show_policy", label: _t("Show policy"), type: "check", width: "auto", 
+                name: "show_policy", label: _t("Show policy"), type: "checkbox", width: "auto", 
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1] }
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},

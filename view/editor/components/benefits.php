@@ -20,46 +20,23 @@ class Benefits extends Block {
                         </div>
                     <? endif ?>
                     <div class="item_list <?= $val['show_icon_border'] ? "" : "hide_ico_border" ?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_1')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                                <? if ($val['show_benefits_desc'] || $self->edit): ?>
-                                    <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','desc_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                            </div>   
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_2')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                                <? if ($val['show_benefits_desc'] || $self->edit): ?>
-                                    <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','desc_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                            </div>
-                            <div class='item'>
-                                <?=$self->sub('Icon','icon_3')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                                <? if ($val['show_benefits_desc'] || $self->edit): ?>
-                                    <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','desc_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                            </div>
+                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                            
+                            <? foreach ($item_val as $key=>$arrayValues ): ?>
+                                <? //_D($self) ?>
+                                <div class="item">
+                                    <?=$self->sub('Icon','icon')?>
+                                    <? if ($val['show_benefits_name'] || $self->edit): ?>
+                                        <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Text','name',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($val['show_benefits_desc'] || $self->edit): ?>
+                                        <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
+                                            <? $self->sub('Text','desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        </div>
+                                    <? endif ?>
+                                </div>
+                            <? endforeach ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>
@@ -80,15 +57,21 @@ class Benefits extends Block {
             'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'icon_1' => "view/editor/assets/ico/77.png",
-                    'icon_2' => "view/editor/assets/ico/89.png",
-                    'icon_3' => "view/editor/assets/ico/127.png",
-                    'name_1' => "Бесплатная доставка",
-                    'name_2' => "Индивидуальное обучение",
-                    'name_3' => "Круглосуточная поддержка",
-                    'desc_1' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
-                    'desc_2' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
-                    'desc_3' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
+                    array(
+                        'icon' => "view/editor/assets/ico/77.png",
+                        'name' => "Бесплатная доставка",
+                        'desc' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
+                    ),
+                    array(
+                        'icon' => "view/editor/assets/ico/89.png",
+                        'name' => "Индивидуальное обучение",
+                        'desc' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
+                    ),
+                    array(
+                        'icon' => "view/editor/assets/ico/127.png",
+                        'name' => "Круглосуточная поддержка",
+                        'desc' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
+                    )
                 )
             )
         );

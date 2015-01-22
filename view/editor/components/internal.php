@@ -21,7 +21,7 @@ class Logo extends Block {
             'bold' => true,
             'italic' => false,
             'color' => '#000',
-            'size' => 80,
+            'size' => 70,
             'fontSize' => 24
         );        
     }
@@ -52,49 +52,31 @@ class FormButton extends Block {
     function tpl_default() {
         return array( 
             'type' => 'form',
-            'a_href' => '',
-            'class' => '',
+            'link' => '',
             'form_title' => 'Оставить заявку ',
             'form_bottom_text' => 'Мы не передаем Вашу персональную информацию третьим лицам',
             'color' => 'red',
             'text' => 'Оставить заявку',
-            'form' => array(
-                'fields' => array(
-                    array(
-                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
-                        'name' => 'name', 'type' => 'text', 
-                    ),
-                    array(
-                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
-                        'name' => 'phone', 'type' => 'text', 
-                    ),
-                    array(
-                        'label' => 'Электронная почта', 'sub_label' => '', 'required' => false,
-                        'name' => 'email', 'type' => 'text', 
-                    ),
-                ),
-                'button' => array('color'=>'blue','label'=>'Получить консультацию'),                
-                'form_done_title' => 'Спасибо за заявку',
-                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',                
-            )
         );
     }
     
     function tpl($val,$name) { ?>
-        <a class='btn_form <?=$val['color']?> <?=$val['class']?>' href='<?= $val['type']=="link" ? $val['a_href'] : "" ?>'> <?=$val['text']?></a>
-        <div style='display:none'>
+        <a class='btn_form <?=$val['color']?>' href='<?= $val['type']=="link" ? $val['link'] : "" ?>'> <?=$val['text']?> </a>
+        <? if ($val['type']=="form" || $this->edit): ?>
+            <div style='display:none'>
                 <div class="form">
                     <div class="form_title">
                         <? $this->sub('Text','form_title') ?>    
                     </div>
                     <div class="form_data">
-                        <?= FormOrder::get()->getHtml($val['form'],$this->edit,$name.'.form') ?>
+                        <?= FormOrder::get()->getHtml(FormOrder::tpl_default_with_email(),$this->edit,$name.'.form') ?>
                     </div>
                     <div class="form_bottom" >
                         <? $this->sub('Text','form_bottom_text') ?>
                     </div>
                 </div>
-         </div>
+             </div>
+        <? endif ?> 
     <? }
 }
 
@@ -102,63 +84,54 @@ class FormOrder extends Block {
     public $editor = "lp.formOrder";
     public $internal = true;
     
+    function tpl_default() {
+        return array(
+            'fields' => array(
+                array(
+                    'label' => 'Имя', 'sub_label' => '', 'required' => true,
+                    'name' => 'name', 'type' => 'text', 
+                ),
+                array(
+                    'label' => 'Телефон', 'sub_label' => '', 'required' => true,
+                    'name' => 'phone', 'type' => 'text', 
+                ),
+            ),
+            'button' => array('color'=>'blue','label'=>'Получить консультацию'),                
+            'form_done_title' => 'Спасибо за заявку',
+            'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время.',
+        );
+    }
+    
+    function tpl_default_with_email() {
+        return array_merge_recursive(
+            self::tpl_default(),
+            array(
+                'fields' => array(
+                    array(
+                        'label' => 'Электронная почта', 'sub_label' => '', 'required' => false,
+                        'name' => 'email', 'type' => 'text', 
+                    )
+                )
+            )
+        );
+    }
+    
+    function tpl_fields() {
+        return "<div class='field_title'><?= htmlspecialchars($field[label])?><?= ($field[required]) ? '<i>*</i>' : '' ?></div>";
+    }
+    
     function tpl($val) {?>
-            <form action="" method="post" >
-                <div class="form_fields">
-                    <? if (is_array(@$val['fields'])) foreach ($val['fields'] as $field): ?>
-                        <div class="form_field">                            
-                            <? if ($field['type']=='text'): ?>
-                                <label>
-                                    <div class="field_title"><?= htmlspecialchars($field['label'])?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>                                    
-                                    <? If ($field['desc']): ?>
-                                        <div class="desc">
-                                            <?= htmlspecialchars($field['desc'])?>
-                                        </div>
-                                    <? endif ?>
-                                    <input type="text" class="form_field_text">
-                                    <div class="error"></div>
-                                </label>
-                            <? elseif ($field['type']=='file'): ?>
-                                 <label>
-                                    <div class="field_title"><?= htmlspecialchars($field['label'])?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
-                                    <? If ($field['desc']): ?>
-                                        <div class="desc">
-                                            <?= htmlspecialchars($field['desc'])?>
-                                        </div>
-                                    <? endif ?>
-                                    <input class="form_field_file" multiple="" type="file">
-                                    <div class="error"></div>
-                                </label>
-                            <? elseif ($field['type']=='textarea'): ?>
-                                 <label>
-                                    <div class="field_title"><?= htmlspecialchars($field['label'])?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
-                                    <? If ($field['desc']): ?>
-                                        <div class="desc">
-                                            <?= htmlspecialchars($field['desc'])?>
-                                        </div>
-                                    <? endif ?>
-                                    <textarea class="form_field_textarea" rows="3"></textarea>
-                                    <div class="error"></div>
-                                </label>
-                            <? elseif ($field['type']=='select'): ?>
-                                 <label>
-                                    <div class="field_title"><?= htmlspecialchars($field['label'])?></div>
-                                    <? if ($field['desc']): ?>
-                                        <div class="desc">
-                                            <?= htmlspecialchars($field['desc'])?>
-                                        </div>
-                                    <? endif ?>
-                                    <select class='form_field_select'>
-                                        <? foreach (explode("\n",$field['options']) as $key=>$option): ?>
-                                            <option><?=htmlspecialchars($option)?></option>
-                                        <? endforeach ?>
-                                    </select>
-                                </label>                            
-                            <? elseif ($field['type']=='checkbox'): ?>
+        <form action="" method="post" >
+            <div class="form_fields">
+                <? if (is_array(@$val['fields'])) foreach ($val['fields'] as $field): ?>
+                    <div class="form_field">   
+                        <? switch ($field['type']): 
+                               case 'checkbox': ?>
                                 <label>
                                     <input class="form_field_checkbox" value="<?= htmlspecialchars($field['label'])?>" type="checkbox" /><?= htmlspecialchars($field['label'])?>
                                 </label>
-                            <? elseif ($field['type']=='radio'): ?>
+                                <? break ?>
+                            <? case 'radio': ?>
                                 <label>
                                     <div class="field_title">
                                         <?= htmlspecialchars($field['label'])?>
@@ -177,29 +150,82 @@ class FormOrder extends Block {
                                             </div>
                                         <? endforeach ?>
                                     </div>
-                                </label>                            
-                            <? endif ?>                            
-                        </div>
-                    <? endforeach ?>
-                </div>
-                <div class="form_submit">
-                    <button type="submit" class="form_field_submit <?=$val['button']['color']?>">
-                        <div>
-                            <span><?=$val['button']['label']?></span>
-                        </div>
-                    </button>
-                </div>
-                <div style="display:none">
-                    <div class="form_done">
-                        <div class="form_done_title">
-                            <? $this->sub('Text','form_done_title') ?>
-                        </div>
-                        <div class="form_done_text">
-                            <? $this->sub('Text','form_done_text') ?>
-                        </div>
-                     </div>
+                                </label>
+                                <? break ?>
+                            <? case 'selsect': ?>
+                                <label>
+                                    <div class="field_title"><?= htmlspecialchars($field['label'])?></div>
+                                    <? if ($field['desc']): ?>
+                                        <div class="desc">
+                                            <?= htmlspecialchars($field['desc'])?>
+                                        </div>
+                                    <? endif ?>
+                                    <select class='form_field_select'>
+                                        <? foreach (explode("\n",$field['options']) as $key=>$option): ?>
+                                            <option><?=htmlspecialchars($option)?></option>
+                                        <? endforeach ?>
+                                    </select>
+                                </label>
+                                <? break ?>
+                            <? case 'text': ?>
+                                <label>
+                                    <? _D(self::tpl_fields()) ?> 
+                                    <? self::tpl_fields() ?>
+                                    <? if ($field['desc']): ?>
+                                        <div class="desc">
+                                            <?= htmlspecialchars($field['desc'])?>
+                                        </div>
+                                    <? endif ?>
+                                    <input type="text" class="form_field_text">
+                                    <div class="error"></div>
+                                </label>
+                                <? break ?>
+                            <? case 'file': ?>
+                                <label>
+                                    <div class="field_title"><?= htmlspecialchars($field['label'])?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
+                                    <? if ($field['desc']): ?>
+                                        <div class="desc">
+                                            <?= htmlspecialchars($field['desc'])?>
+                                        </div>
+                                    <? endif ?>
+                                    <input class="form_field_file" multiple="" type="file">
+                                    <div class="error"></div>
+                                </label>
+                                <? break ?>
+                            <? case 'textarea': ?>
+                                <label>
+                                    <div class="field_title"><?= htmlspecialchars($field['label'])?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
+                                    <? if ($field['desc']): ?>
+                                        <div class="desc">
+                                            <?= htmlspecialchars($field['desc'])?>
+                                        </div>
+                                    <? endif ?>
+                                    <textarea class="form_field_textarea" rows="3"></textarea>
+                                    <div class="error"></div>
+                                </label>
+                                <? break ?>                            
+                        <? endswitch ?>
+                    </div>
+                <? endforeach ?>
+            </div>
+            <div class="form_submit">
+                <button type="submit" class="form_field_submit <?=$val['button']['color']?>">
+                    <div>
+                        <span><?=$val['button']['label']?></span>
+                    </div>
+                </button>
+            </div>
+            <div style="display:none">
+                <div class="form_done">
+                    <div class="form_done_title">
+                        <? $this->sub('Text','form_done_title') ?>
+                    </div>
+                    <div class="form_done_text">
+                        <? $this->sub('Text','form_done_text') ?>
+                    </div>
                  </div>
-            </form>        
+             </div>
+        </form>        
     <?}
 }
 
@@ -298,7 +324,7 @@ class Media extends Block {
     
     function tpl_default() {
         return array(
-            'type' => '',
+            'type' => 'image',
             'image_url' => '',
             'video_url' => 'http://youtu.be/z1SXw6nlTr0',
         );        
@@ -306,7 +332,7 @@ class Media extends Block {
     
     function tpl($val) {?>
         <div class="media">
-            <? if ($val['type']=='image_background'): ?>
+            <? if ($val['type']=='image'): ?>
                 <div class='img' style='background-image: url("<?= INDEX_URL."/".$val['image_url']?>")'></div>
             <? elseif($val['type']=='video'): 
                     preg_match("/(vimeo)|(youtu)/", $val['video_url'], $video_source);

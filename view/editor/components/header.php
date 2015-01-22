@@ -32,7 +32,7 @@ class Header extends Block {
     function tpl_default() { 
         return  array(
             'background' =>'#FFFFFF',
-            'logo' => Logo::tpl_default(),
+            'logo' => array_merge(Logo::tpl_default(),array('size'=>100)),
             'desc' => "Производство чего либо компанией<br>Доставка по всей России",
             'phone' => '8 <span style="color: #C1103A;">(800)</span> 123 45 67',
             'phone_desc' => 'г.Москва, ул. Тверская, д.6, офис 207'
@@ -65,7 +65,7 @@ class Header extends Block {
     function tpl_default_2() { 
         return  array(
             'background' =>'#FFFFFF',
-            'logo' => Logo::tpl_default(),
+            'logo' => array_merge(Logo::tpl_default(),array('size'=>50)),
             'order_button' => FormButton::tpl_default(),
             'phone' => '8 <span style="color: #C1103A;">(800)</span> 123 45 67',
             'show_order_button' => true,
@@ -108,7 +108,7 @@ class Header extends Block {
     function tpl_default_3() { 
         return  array(
             'background' =>'#FFFFFF',
-            'logo' => Logo::tpl_default(),
+            'logo' => array_merge(Logo::tpl_default(),array('size'=>80)),
             'desc_1' => "Организация праздников",
             'desc_2' => "<div>Организация детских праздников</div><div>под ключ</div>",
             'phone' => "8 (800) 123 45 67",
@@ -174,7 +174,7 @@ class Header extends Block {
             'text_2' => "БЕСПЛАТНАЯ<br>ДОСТАВКА",
             'text_3' => "ГАРАНТИЯ<br>1 ГОД",
             'phone' => "8 (800) 123 45 67",
-            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Оставить заявку')),
+            'order_button' => FormButton::tpl_default(),
             'show_order_button' => true,
         );
     }

@@ -30,9 +30,12 @@
   background-color: #ffc415;
 }
 
+.hidden {
+  display: none;
+}
+
 .error_input{
   border: 1px solid #EA493C !important;
-  /*background-color: #FFE2E0 !important;*/
 }
 
 ul li {
@@ -359,7 +362,7 @@ ol li {
 }
 
 .header_2 .logo {
-  line-height: 360%;
+  line-height: 320%;
 }
 
 .header_2 .container .span_btn {
@@ -1067,6 +1070,10 @@ ol li {
   position: relative;
 }
 
+.order_5 .ico_list .item div {
+  position: relative;
+}
+
 .order_5 .ico_list .item .ico {
   background-position: center center;
   background-repeat: no-repeat;
@@ -1459,6 +1466,10 @@ ol li {
   margin: 25px 0;
 }
 
+.benefits_2 .item_list .item div {
+  position: relative;
+}
+
 .benefits_2 .item_list .item .ico {
   position: absolute !important;
   top: -12px;
@@ -1532,6 +1543,10 @@ ol li {
   display: table-cell;
   width: 50%;
   padding: 40px 60px 40px 160px;
+}
+
+.benefits_3 .item_list .item div {
+  position: relative;
 }
 
 .benefits_3 .item_list .item:nth-child(even) {
@@ -4065,6 +4080,9 @@ ol li {
     width: 100%;
     z-index: 2;
 }
+.map_block_1{
+    position: relative;
+}
 .map_block_1 .container_text{
   position: absolute;
   z-index: 3;
@@ -4884,6 +4902,10 @@ ol li {
 
 .text_block_6 .ico_data .item_list .item {
   padding: 20px 0px 10px 110px;
+}
+
+.text_block_6 .ico_data .item_list .item div{
+  position: relative;  
 }
 
 .text_block_6 .ico_data .item_list .item .ico {

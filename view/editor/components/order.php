@@ -52,21 +52,7 @@ class Order extends Block {
             'form_title_1' => "Оставьте заявку на бесплатный образец или расчет стоимости",
             'form_title_2' => "И получите выгодное предложение<br> в течение дня",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",
-            'form' => array(
-                'fields' => array(
-                    array(
-                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
-                        'name' => 'name', 'type' => 'text', 
-                    ),
-                    array(
-                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
-                        'name' => 'phone', 'type' => 'text', 
-                    )
-                ),
-                'button' => array('color'=>'blue','label'=>'Получить консультацию'),
-                'form_done_title' => 'Спасибо за заявку',
-                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
-            )
+            'form' => FormOrder::tpl_default(),
         );
     }
     
@@ -112,8 +98,8 @@ class Order extends Block {
     function tpl_3($val) {?>
         <div class="container-fluid order order_3" style="background: url('<?=INDEX_URL."/".$val['background']?>');">
             <div class="container">                
-                <div class="img_wrap <?= $val['show_border_media'] ? "" : "hide_border" ?>">
-                    <? $this->sub('Media','media_file') ?>
+                <div class="img_wrap <?= $val['show_media_border'] ? "" : "hide_border" ?>">
+                    <? $this->sub('Media','media') ?>
                 </div>
                 <div class="data_wrap">
                     <div class="title_1">
@@ -147,13 +133,13 @@ class Order extends Block {
     function tpl_default_3() { 
         return  array(            
             'background' =>'view/editor/assets/texture/1.png',
-            'media_file' =>  array_merge(Media::tpl_default(),array('type'=>'image_background','image_url'=> 'view/editor/assets/order/order_3.jpg')),
+            'media' =>  array_merge(Media::tpl_default(),array('type'=>'image','image_url'=> 'view/editor/assets/order/order_3.jpg')),
             'title_1' => "КУПИТЕ КОНЯ ВАШЕЙ МЕЧТЫ ЗА <span style='color:#C1103A'>2 ЧАСА</span>",
             'title_2' => "СЭКОНОМЬТЕ ВРЕМЯ ПРИ ПОКУПКЕ МОТО",
             'desc' => "Бесплатно подберем варианты и проконсультируем перед покупкой. Подбор займет не больше 20 минут.",
             'list' => "<p>С нами вы экономите до 50%</p><p>Гарантированная сохранность груза</p><p>Своевременная доставка</p>",
             'button_order' =>  array_merge(FormButton::tpl_default(),array('text'=>'Получить консультацию', 'color'=>'red')), 
-            'show_border_media' => true,
+            'show_media_border' => true,
             'show_title_2' => true,
             'show_list_box' => false,
         );
@@ -172,7 +158,7 @@ class Order extends Block {
                     </div>
                 <? endif ?>
                 <div class="img_wrap <?= $val['show_box_shadow_media'] ? "" : "hide_box_shadow" ?>">
-                    <? $this->sub('Media','media_file') ?>
+                    <? $this->sub('Media','media') ?>
                 </div>
                 <div class="form">
                     <div class="form_title">                        
@@ -198,26 +184,12 @@ class Order extends Block {
             'show_box_shadow_media' => true,
             'show_title_2' => true,
             'background_color' =>'#313138',
-            'media_file' =>  array_merge(Media::tpl_default(),array('type'=>'image_background','image_url'=>'view/editor/assets/order/order_4.jpg')),
+            'media' =>  array_merge(Media::tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/order/order_4.jpg')),
             'title_1' => "Эксклюзивная садовая мебель от мировых производителей",
             'title_2' => "Мы работаем только с продукцией премиум класса из экологически чистых и высокачественных материалов.",
             'form_title' => "Оставьте заявку на бесплатный каталог или расчет стоимости",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",  
-            'form' => array(
-                'fields' => array(
-                    array(
-                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
-                        'name' => 'name', 'type' => 'text', 
-                    ),
-                    array(
-                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
-                        'name' => 'phone', 'type' => 'text', 
-                    )
-                ),
-                'button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно'),
-                'form_done_title' => 'Спасибо за заявку',
-                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
-            )
+            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно')))
         );
     }
     
@@ -291,26 +263,13 @@ class Order extends Block {
                 
             ),            
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам", 
-            'form' => array(
-                'fields' => array(
-                    array(
-                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
-                        'name' => 'name', 'type' => 'text', 
-                    ),
-                    array(
-                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
-                        'name' => 'phone', 'type' => 'text', 
-                    )
-                ),
-                'button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно'),
-                'form_done_title' => 'Спасибо за заявку',
-                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
-            )
+            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно')))
         );
     }
     
     
     function tpl_6($val) {?>
+        <? //_D($val['form']) ?>
         <div class="container-fluid order order_6" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat center top;background-size:cover;">
             <div class="dark">
                 <div class="container">
@@ -360,25 +319,7 @@ class Order extends Block {
             'title_3' => "Создайте эффективный лендинг за несколько минут",
             'form_title' => "Оставьте заявку на создание лендинга ",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",  
-            'form' => array(
-                'fields' => array(
-                    array(
-                        'label' => 'Имя', 'sub_label' => '', 'required' => true,
-                        'name' => 'name', 'type' => 'text', 
-                    ),
-                    array(
-                        'label' => 'Телефон', 'sub_label' => '', 'required' => true,
-                        'name' => 'phone', 'type' => 'text', 
-                    ),
-                    array(
-                        'label' => 'Электронная почта', 'sub_label' => '', 'required' => false,
-                        'name' => 'email', 'type' => 'text', 
-                    )
-                ),
-                'button' => array('color'=>'blue','label'=>'Получить каталог бесплатно'),
-                'form_done_title' => 'Спасибо за заявку',
-                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
-            )
+            'form' => array_merge(FormOrder::tpl_default_with_email(),array('button' => array('color'=>'blue','label'=>'Заказать лендинг')))
         );
     }
     

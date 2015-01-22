@@ -57,10 +57,10 @@ lp.timer = lp.block.extendOptions({
     configForm: {
         items: [   
             { 
-                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto", margin: "0px 49% 0px 0px", 
+                name: "show_title_2", label: _t("Show second title"), type: "checkbox", width: "auto", margin: "5px 49% 0px 0px", 
             },
 			{ 
-                name: "show_form_bottom_text", label: _t("Show text under the form"), type: "check", width: "auto", margin: "0px 49% 0px 0px", 
+                name: "show_form_bottom_text", label: _t("Show text under the form"), type: "checkbox", width: "auto", margin: "5px 49% 0px 0px", 
                 showWhen: { variant: [3,4] }
             },
             {   type: "label", value: _t("Countdown color:"), margin: "5px 0 0", showWhen: { variant: [1] } },

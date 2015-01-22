@@ -115,7 +115,7 @@ lp.maps = lp.block.extendOptions({
         width: 800,
         items: [   
             { 
-                name: "show_container_text", label: _t("Show text"), type: "check", width: "auto", 
+                name: "show_container_text", label: _t("Show text"), type: "checkbox", width: "auto", 
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1] }
             },
             {

@@ -12,15 +12,15 @@ lp.logos = lp.block.extendOptions({
     configForm: {
         items: [   
             { 
-                name: "show_title", label: _t("Show first title"), type: "check", width: "auto", 
+                name: "show_title", label: _t("Show first title"), type: "checkbox", width: "auto", 
                 margin: "5px 49% 0px 0px",
             },
             { 
-                name: "show_title_2", label: _t("Show second title"), type: "check", width: "auto", 
+                name: "show_title_2", label: _t("Show second title"), type: "checkbox", width: "auto", 
                 margin: "5px 49% 0px 0px",
             },
             { 
-                name: "grayscale_logo", label: _t("Grayscale logo"), type: "check", width: "auto", 
+                name: "grayscale_logo", label: _t("Grayscale logo"), type: "checkbox", width: "auto", 
                 margin: "5px 49% 0px 0px",
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},

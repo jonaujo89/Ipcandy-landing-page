@@ -98,30 +98,15 @@ body.view-layout #teacss-layer > .editor-panel > .preview-toolbar > .close-butto
 .teacss-ui .ui-dialog-titlebar .ui-button {
     border: none;
 }
-/*
-.ui-dialog #ui-id-2.ui-dialog-content .ui-composite .ui-button.ui-button-text-only[for^="check"]{
-  background: #e6e6e6 50% 50% repeat-x !important;
-  border: 1px solid #d3d3d3;
+
+.ui-checkbox.ui-button.ui-button-text-only{
+    background: transparent !important;
+    border: none;
 }
 
-.ui-dialog #ui-id-2.ui-dialog-content .ui-composite .ui-button.ui-button-text-only.ui-state-active[for^="check"] {
-  background: #f80 !important;
+.ui-checkbox.ui-button.ui-button-text-only span{
+    padding: 0;
 }
-
-.ui-dialog #ui-id-2.ui-dialog-content .ui-composite .ui-button.ui-button-text-only[for^="check"] .ui-button-text {
-  padding: 0.25em 0.5em;
-  line-height: 1.8;
-}
-*/
-.ui-dialog .ui-dialog-content .ui-composite .ui-button.ui-button-text-only[for^="check"]{
-  background: transparent !important;
-  border: none;
-}
-
-.ui-dialog .ui-dialog-content .ui-composite .ui-button.ui-button-text-only[for^="check"] span{
-  padding: 0;
-}
-
 
 .teacss-ui .lp-icon-panel .combo-item {
     width: 40px;
