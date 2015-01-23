@@ -9,14 +9,14 @@ class Reasons extends Block {
         <div class="container-fluid reasons reasons_1">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?> 
                     <div class="item_list clear">
@@ -27,10 +27,10 @@ class Reasons extends Block {
                                         <? $self->sub('Icon','icon_'.$i) ?>
                                     </div>                    
                                     <div class="name">
-                                        <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                                        <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
                                     </div>
                                     <div class="desc">
-                                        <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
+                                        <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
                                     </div>
                                 </div>
                             <? endfor ?>

@@ -10,29 +10,29 @@ class WorkOrder extends Block {
         <div class="container-fluid workOrder workOrder1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
                         <? for ($i=1; $i <= 4; $i++): ?>
                             <div class="item">
                                 <div class="arrow"></div>
-                                <?=$this->sub('Icon','icon_'.$i)?>
-                                <? if ($val['show_name'] || $this->edit): ?>
-                                    <div class="name <?= !$val['show_name'] ? "hidden" : "" ?>" >
-                                        <?=$this->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
+                                <?= $this->sub('Icon','icon_'.$i) ?>
+                                <? if ($cls = $this->vis($val['show_name'])): ?>
+                                    <div class="name <?=$cls?>" >
+                                        <?=$this->sub('Text','name_'.$i,Text::$plain_text)?>
                                     </div>
                                 <? endif ?>
-                                <? if ($val['show_desc'] || $this->edit): ?>
-                                    <div class="desc <?= !$val['show_desc'] ? "hidden" : "" ?>" >
-                                        <?=$this->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false))?>
+                                <? if ($cls = $this->vis($val['show_desc'])): ?>
+                                    <div class="desc <?=$cls?>" >
+                                        <?=$this->sub('Text','desc_'.$i,Text::$plain_text)?>
                                     </div>
                                 <? endif ?>
                             </div>
@@ -72,14 +72,14 @@ class WorkOrder extends Block {
         <div class="container-fluid workOrder workOrder2" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -88,7 +88,7 @@ class WorkOrder extends Block {
                                 <div class="line"></div>
                                 <div class="number"></div>
                                 <div class="name">
-                                    <? $this->sub('Text','name_'.$i)?>
+                                    <? $this->sub('Text','name_'.$i,Text::$default_text)?>
                                 </div>
                             </div>
                         <? endfor ?>

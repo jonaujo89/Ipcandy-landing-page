@@ -14,9 +14,9 @@ class Text extends Block {
     static $color_heading = array('buttons'=>array("bold","italic","deleted","size","fontcolor","removeformat"),'oneline'=>true);
         
     static $plain_text = array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false));
-    static $default_text = array('buttons'=>array("bold","italic","deleted","removeformat"),'oneline'=>true);    
-    static $size_text = array('buttons'=>array("bold","italic","deleted","size","removeformat"),'oneline'=>true);
-    static $color_text = array('buttons'=>array("bold","italic","deleted","size","fontcolor","removeformat"),'oneline'=>true);
+    static $default_text = array('buttons'=>array("bold","italic","deleted","removeformat"),'oneline'=>false);    
+    static $size_text = array('buttons'=>array("bold","italic","deleted","size","removeformat"),'oneline'=>false);
+    static $color_text = array('buttons'=>array("bold","italic","deleted","size","fontcolor","removeformat"),'oneline'=>false);
     
 }
 
