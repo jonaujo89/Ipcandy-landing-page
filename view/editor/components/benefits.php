@@ -11,12 +11,12 @@ class Benefits extends Block {
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
                         <h1 class="title <?=$cls?>">
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
                     <? if ($cls = $this->vis($val['show_title_2'])): ?>
                         <div class="title_2 <?=$cls?>" >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list <?= $val['show_icon_border'] ? "" : "hide_ico_border" ?>">
@@ -26,12 +26,12 @@ class Benefits extends Block {
                                     <?=$self->sub('Icon','icon_'.$i)?>
                                     <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
                                         <div class="name <?= $cls ?>" >
-                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                            <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($cls = $self->vis($val['show_benefits_desc'])): ?>
                                         <div class="desc <?= $cls ?>" >
-                                            <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                            <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
                                         </div>
                                     <? endif ?>
                                 </div>
@@ -76,12 +76,12 @@ class Benefits extends Block {
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
                         <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
                     <? if ($cls = $this->vis($val['show_title_2'])): ?>
                         <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
@@ -91,12 +91,12 @@ class Benefits extends Block {
                                     <?=$self->sub('Icon','icon_'.$i)?>
                                     <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
                                         <div class="name <?=$cls?>" >
-                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                            <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($cls = $self->vis($val['show_benefits_desc'])): ?>
                                         <div class="desc <?=$cls?>" >
-                                            <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                            <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
                                         </div>
                                     <? endif ?>
                                 </div>   
@@ -141,12 +141,12 @@ class Benefits extends Block {
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
                         <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
                     <? if ($cls = $this->vis($val['show_title_2'])): ?>
                         <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list <?= !$val['show_benefits_name'] ? "hide_name" : "" ?>">
@@ -156,11 +156,11 @@ class Benefits extends Block {
                                     <?=$self->sub('Icon','icon_'.$i)?>
                                     <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
                                         <div class="name <?=$cls?>" >
-                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                                            <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
                                         </div>
                                     <? endif ?>
                                     <div class="desc">
-                                        <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
                                     </div>
                                 </div>  
                             <? endfor ?>
@@ -208,12 +208,12 @@ class Benefits extends Block {
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
                         <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
                     <? if ($cls = $this->vis($val['show_title_2'])): ?>
                         <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear <?= !$val['show_border_image'] ? "hide_border" : "" ?>">
@@ -224,10 +224,10 @@ class Benefits extends Block {
                                         <?=$self->sub('Image','image_'.$i)?>
                                     </div>
                                     <div class="name">
-                                        <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
                                     </div>
                                     <div class="desc">
-                                        <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
                                     </div>
                                 </div>   
                             <? endfor ?>
@@ -274,12 +274,12 @@ class Benefits extends Block {
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
                         <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
                     <? if ($cls = $this->vis($val['show_title_2'])): ?>
                         <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -290,12 +290,12 @@ class Benefits extends Block {
                                     <?=$self->sub('Image','image_'.$i)?>
                                     <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
                                         <div class="name <?=$cls?>" >
-                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                            <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($cls = $self->vis($val['show_benefits_desc'])): ?>
                                         <div class="desc <?=$cls?>" >
-                                            <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                            <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
                                         </div>
                                     <? endif ?>
                                 </div>  
@@ -332,8 +332,7 @@ class Benefits extends Block {
                 )
             )
         );
-    }
-        
+    }        
 }
 
 Benefits::register();

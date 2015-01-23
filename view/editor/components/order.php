@@ -317,8 +317,7 @@ class Order extends Block {
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",  
             'form' => array_merge(FormOrder::tpl_default_with_email(),array('button' => array('color'=>'blue','label'=>'Заказать лендинг')))
         );
-    }
-    
+    }    
 }
 
 Order::register();

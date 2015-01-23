@@ -9,14 +9,14 @@ class Cases extends Block {
         <div class="container-fluid cases cases_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -26,18 +26,18 @@ class Cases extends Block {
                             </div>
                             <div class="info">
                                 <div class="top"></div>
-                                <? if ($val['show_name'] || $self->edit): ?>
-                                    <div class="name <?= !$val['show_name'] ? "hidden" : "" ?>" >
-                                        <? $self->sub('Text','name',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                                <? if ($cls = $self->vis($val['show_name'])): ?>
+                                    <div class="name <?=$cls?>" >
+                                        <? $self->sub('Text','name',Text::$plain_heading) ?>
                                     </div>
                                 <? endif ?>
-                                <? if ($val['show_desc'] || $self->edit): ?>
-                                    <div class="desc <?= !$val['show_desc'] ? "hidden" : "" ?>" >
-                                        <? $self->sub('Text','desc',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>true)) ?>
+                                <? if ($cls = $self->vis($val['show_desc'])): ?>
+                                    <div class="desc <?=$cls?>" >
+                                        <? $self->sub('Text','desc',Text::$color_heading) ?>
                                     </div>
                                 <? endif ?>
                                 <div class="text">
-                                    <? $self->sub('Text','text',array('buttons'=>array("bold","italic","fontcolor","removeformat"))) ?>
+                                    <? $self->sub('Text','text',Text::$color_text) ?>
                                 </div>
                             </div>
                             <div style="clear: both"></div>
