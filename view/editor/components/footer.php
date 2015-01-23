@@ -13,10 +13,10 @@ class Footer extends Block {
                 </div>
                 <div class="span7">
                     <div class="desc">
-                        <? $this->sub('Text','desc',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"),'oneline'=>false)) ?>                            
+                        <? $this->sub('Text','desc',Text::$default_text) ?>                            
                     </div>
-                    <? if ($val['show_policy'] || $this->edit): ?>
-                        <div class="policy_wrap <?= !$val['show_policy'] ? "hidden" : "" ?>">
+                    <? if ($cls = $this->vis($val['show_policy'])): ?>
+                        <div class="policy_wrap <?=$cls?>">
                             <a class="policy">Политика конфиденциальности</a>
                             <div class= "policy_info" style='display:none'><?= $val['policy_info'] ?></div>
                         </div>
@@ -24,10 +24,10 @@ class Footer extends Block {
                 </div>
                 <div class="span5">
                     <div class="phone">
-                        <? $this->sub('Text','phone',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"),'oneline'=>true)) ?>
+                        <? $this->sub('Text','phone',Text::$default_heading) ?>
                     </div>
                     <div class="phone_desc">
-                        <? $this->sub('Text','phone_desc',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"),'oneline'=>false)) ?>
+                        <? $this->sub('Text','phone_desc',Text::$default_text) ?>
                     </div>
                 </div>              
             </div>
