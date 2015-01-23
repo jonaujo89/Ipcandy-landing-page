@@ -9,14 +9,14 @@ class Reviews extends Block {
         <div class="container-fluid reviews reviews_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -25,16 +25,16 @@ class Reviews extends Block {
                                 <div class="item">
                                     <div class="item_data">
                                         <div class="text">
-                                            <?=$self->sub('Text','text_'.$i,array('buttons'=>array("bold","italic","removeformat")))?>
+                                            <?=$self->sub('Text','text_'.$i,Text::$default_text)?>
                                         </div>
                                         <div class="name">
-                                            <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic","fontcolor"=>false,"removeformat")))?>
+                                            <?=$self->sub('Text','name_'.$i,Text::$default_text)?>
                                         </div>
                                         <div class="desc">
-                                            <?=$self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic","fontcolor","removeformat")))?>                            
+                                            <?=$self->sub('Text','desc_'.$i,Text::$color_text)?>                            
                                         </div>
-                                        <? if ($val['show_image'] || $self->edit): ?>
-                                            <div class="img_wrap <?= !$val['show_image'] ? "hidden" : "" ?>" >
+                                        <? if ($cls = $self->vis($val['show_image'])): ?>
+                                            <div class="img_wrap <?=$cls?>" >
                                                 <? $self->sub('Image','image_'.$i) ?>
                                             </div>
                                         <? endif ?>

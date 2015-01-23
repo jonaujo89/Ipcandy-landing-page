@@ -6,16 +6,16 @@ class Maps extends Block {
     public $editor = "lp.maps";
     
     function tpl($val) {?>
-        <div class="map_block_1">            
-            <? if ($val['show_container_text'] || $this->edit): ?>                
-                   <div class="container_text <?= !$val['show_container_text'] ? "hidden" : "" ?>" >  
+        <div class="map_block_1">
+            <? if ($cls = $this->vis($val['show_container_text'])): ?>
+                   <div class="container_text <?=$cls?>" >  
                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <div class="map_overlay">
                                 <div class="title">
-                                    <?= $self->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true))?>
+                                    <?= $self->sub('Text','title_1',Text::$plain_heading)?>
                                 </div>
                                 <div class="desc">
-                                    <?= $self->sub('Text','desc_1')?>
+                                    <?= $self->sub('Text','desc_1',Text::$default_text)?>
                                 </div> 
                             </div>
                         <? }) ?>

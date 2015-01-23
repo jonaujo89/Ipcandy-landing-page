@@ -5,7 +5,7 @@ class Order extends Block {
     public $description = "Блок с картинкой и формой";
     public $editor = "lp.order";
     
-        function tpl($val) {?>
+    function tpl($val) {?>
         <div class="container-fluid order order_1" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat center top;background-size:cover;">
             <div class="dark">
                 <div class="container">
@@ -22,7 +22,7 @@ class Order extends Block {
                             <div class="form_title">
                                 <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
                             </div>
-                            <? if ($val['show_form_title_2'] || $this->edit): ?>
+                            <? if ($cls = $this->vis($val['show_form_title_2'])): ?>
                                 <div class="form_title_2 <?=$cls?>" >
                                     <? $this->sub('Text','form_title_2',Text::$default_text) ?>
                                 </div>
@@ -30,7 +30,7 @@ class Order extends Block {
                             <div class="form_data">
                                 <? $this->sub('FormOrder','form') ?>
                             </div>
-                            <? if ($val['show_form_bottom_text'] || $this->edit): ?>
+                            <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
                                 <div class="form_bottom <?=$cls?>" >
                                     <? $this->sub('Text','form_bottom_text',Text::$default_text) ?>
                                 </div>
@@ -67,7 +67,7 @@ class Order extends Block {
                     <div class="title_2">
                         <? $this->sub('Text','title_2',Text::$plain_text) ?>
                     </div>
-                    <? if ($val['show_text_above_button'] || $this->edit): ?>
+                    <? if ($cls = $this->vis($val['show_text_above_button'])): ?>
                         <div class="btn_note <?=$cls?>" >
                             <? $this->sub('Text','button_note',Text::$plain_text) ?>
                         </div>
@@ -113,7 +113,7 @@ class Order extends Block {
                     <div class="desc">
                         <? $this->sub('Text','desc',Text::$default_text) ?>
                     </div>
-                    <? if ($val['show_list_box'] || $this->edit): ?>
+                    <? if ($cls = $this->vis($val['show_list_box'])): ?>
                         <div class="list <?=$cls?>" >
                             <ul>
                                 <? $this->sub('Text','list',Text::$plain_text) ?>
@@ -167,7 +167,7 @@ class Order extends Block {
                     <div class="form_data">
                         <? $this->sub('FormOrder','form') ?>
                     </div>
-                    <? if ($val['show_form_bottom_text'] || $this->edit): ?>
+                    <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
                         <div class="form_bottom <?=$cls?>" >
                             <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
                         </div>
@@ -224,7 +224,7 @@ class Order extends Block {
                     <div class="form_data">
                         <? $this->sub('FormOrder','form') ?>
                     </div>
-                    <? if ($val['show_form_bottom_text'] || $this->edit): ?>
+                    <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
                         <div class="form_bottom <?=$cls?>" >
                             <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
                         </div>
@@ -279,7 +279,7 @@ class Order extends Block {
                                 <? $this->sub('Text','title_2',Text::$plain_text) ?>
                             </div>
                         <? endif ?>
-                        <? if ($val['show_title_3'] || $this->edit): ?>
+                        <? if ($cls = $this->vis($val['show_title_3'])): ?>
                             <div class="title_3 <?=$cls?>" >
                                 <? $this->sub('Text','title_3',Text::$plain_text) ?>
                             </div>
@@ -291,7 +291,7 @@ class Order extends Block {
                             <div class="form_data">
                                 <? $this->sub('FormOrder','form') ?>
                             </div>
-                            <? if ($val['show_form_bottom_text'] || $this->edit): ?>
+                            <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
                                 <div class="form_bottom <?=$cls?>" >
                                     <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
                                 </div>
