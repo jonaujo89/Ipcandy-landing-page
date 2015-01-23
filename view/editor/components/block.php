@@ -131,6 +131,15 @@ class Block {
         return '';
     }
     
+    static function text() {
+        $id = get_called_class();
+        if (!isset(self::$list[$id])) {
+            $obj = new $id;
+            self::$list[$id] = $obj;
+        }
+        return self::$list[$id];
+    }
+    
     function sub($type,$name,$options=false) {
         $obj = @self::$list[$type];
         if ($obj) {

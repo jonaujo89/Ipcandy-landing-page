@@ -13,15 +13,15 @@ class Header extends Block {
                 </div>
                 <div class="span7">  
                     <div class="desc">
-                        <? $this->sub('Text','desc',array('buttons'=>array("bold","italic","size","removeformat")) ) ?>
+                        <? $this->sub('Text','desc',Text::$size_text) ?>
                     </div>
                 </div>
                 <div class="span5">        
                     <div class="phone">
-                        <? $this->sub("Text",'phone',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>true) ) ?>
+                        <? $this->sub("Text",'phone',Text::$color_heading) ?>
                     </div>
                     <div class="phone_desc">
-                        <? $this->sub("Text",'phone_desc',array('oneline'=>true)) ?>
+                        <? $this->sub("Text",'phone_desc',Text::$default_heading) ?>
                     </div>                          
                 </div>
             </div>
@@ -48,14 +48,14 @@ class Header extends Block {
                 </div>
                 <div class="span10">
                     <? if ($cls = $this->vis($val['show_order_button'])): ?>
-                        <div class="span_btn <?=$cls?>">
-                            <div class='btn_wrap'>
-                                <? $this->sub("FormButton",'order_button') ;?>
+                        <div class="span_btn <?=$cls?>" >
+                            <div class="btn_wrap">
+                                <? $this->sub("FormButton",'order_button') ?>
                             </div>
                         </div>
                     <? endif ?>                    
                     <div class="phone <? if($val['show_order_button'] == 0){?>no_btn<?}?>">
-                        <? $this->sub("Text",'phone',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>true) ) ?>
+                        <? $this->sub("Text",'phone',Text::$default_heading) ?>
                     </div>                                          
                 </div>
             </div>
@@ -64,11 +64,11 @@ class Header extends Block {
     
     function tpl_default_2() { 
         return  array(
+            'show_order_button' => true,
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::tpl_default(),array('size'=>62)),
             'order_button' => FormButton::tpl_default(),
-            'phone' => '8 <span style="color: #C1103A;">(800)</span> 123 45 67',
-            'show_order_button' => true,
+            'phone' => '8 (800) 123 45 67',            
         );
     }
     
@@ -78,11 +78,11 @@ class Header extends Block {
             <div class="container">
                 <div class="span6">
                     <div class="desc_1 <?= !$val['show_desc_and_order_button'] ? "no_btn" : ""?>" >
-                        <? $this->sub('Text','desc_1',array('oneline'=>true)) ?>
+                        <? $this->sub('Text','desc_1',Text::$default_heading) ?>
                     </div>                    
                     <? if ($cls = $this->vis($val['show_desc_and_order_button'])): ?>
                         <div class="desc_2 <?=$cls?>" >
-                                <? $this->sub('Text','desc_2',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>true)) ?>
+                                <? $this->sub('Text','desc_2',Text::$color_heading) ?>
                         </div>
                     <? endif ?>                    
                 </div>
@@ -91,7 +91,7 @@ class Header extends Block {
                 </div>
                 <div class="span5">
                     <div class="phone <?= !$val['show_desc_and_order_button'] ? "no_btn" : ""?>">
-                        <? $this->sub("Text",'phone',array('oneline'=>true)) ?>
+                        <? $this->sub("Text",'phone',Text::$default_heading) ?>
                     </div> 
                     <? if ($cls = $this->vis($val['show_desc_and_order_button'])): ?>
                         <div class="span_btn <?=$cls?>">
@@ -124,29 +124,29 @@ class Header extends Block {
             <div class="container">
                 <div class="span6 span_logo"> 
                     <? $this->sub("Logo",'logo') ?>
-                    <? if ($val['show_desc'] || $this->edit): ?>
+                    <? if ($val['show_desc'] || $self->edit): ?>
                         <div class="desc <?= $val['logo']['type']=="image"  ? "hidden" : "" ?>" >
-                                <? $this->sub('Text','desc') ?>
+                            <? $this->sub('Text','desc') ?>
                         </div>
                     <? endif ?>
                 </div>
                 <div class="span6 span_ico">
                     <div class="ico_wrap ico_1">
                         <? $this->sub('Icon','ico_1') ?>
-                        <div class="ico_name"><? $this->sub('Text','text_1') ?></div>
+                        <div class="ico_name"><? $this->sub('Text','text_1',Text::$plain_text) ?></div>
                     </div>
                     <div class="ico_wrap ico_2">
                         <? $this->sub('Icon','ico_2') ?>
-                        <div class="ico_name"><? $this->sub('Text','text_2') ?></div>
+                        <div class="ico_name"><? $this->sub('Text','text_2',Text::$plain_text) ?></div>
                     </div>
                     <div class="ico_wrap ico_3">
                         <? $this->sub('Icon','ico_3') ?>
-                        <div class="ico_name"><? $this->sub('Text','text_3') ?></div>
+                        <div class="ico_name"><? $this->sub('Text','text_3',Text::$plain_text) ?></div>
                     </div>
                 </div>           
                 <div class="span4">
                     <div class="phone <?= !$val['show_order_button'] ? "no_btn" : ""?>">
-                        <? $this->sub("Text",'phone',array('oneline'=>true)) ?>
+                        <? $this->sub("Text",'phone',Text::$default_heading) ?>
                     </div> 
                     <? if ($cls = $this->vis($val['show_order_button'])): ?>
                         <div class="span_btn <?=$cls?>" >
@@ -163,9 +163,10 @@ class Header extends Block {
     
     function tpl_default_4() { 
         return  array(
+            'show_desc'=> true,
+            'show_order_button' => true,
             'background' =>'#FFFFFF',
-            'logo' => array_merge(Logo::tpl_default(),array('type'=>'text', 'fontSize' =>28, 'color' => '#C1103A')),
-            'show_desc' => true,
+            'logo' => array_merge(Logo::tpl_default(),array('type'=>'text', 'fontSize' =>28, 'color' => '#C1103A')),            
             'desc' => "ТРУБЫ С ДОСТАВКОЙ ПО ЦЕНАМ ПРОИЗВОДИТЕЛЯ",
             "ico_1" => 'view/editor/assets/ico/14.png',
             "ico_2" => 'view/editor/assets/ico/47.png',
@@ -174,12 +175,9 @@ class Header extends Block {
             'text_2' => "БЕСПЛАТНАЯ<br>ДОСТАВКА",
             'text_3' => "ГАРАНТИЯ<br>1 ГОД",
             'phone' => "8 (800) 123 45 67",
-            'order_button' => FormButton::tpl_default(),
-            'show_order_button' => true,
+            'order_button' => FormButton::tpl_default(),            
         );
-    }
-    
-    
+    }    
 }
 
 Header::register();

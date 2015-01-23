@@ -22,7 +22,7 @@ lp.header = lp.block.extendOptions({
             var flag = this.value.show_order_button;
             this.variant.find(".span_btn").toggle(flag);
             this.variant.find(".phone").toggleClass("no_btn",!flag);
-            this.variant.find(".desc").toggle(this.value.logo.type!="image");
+            this.variant.find(".desc").toggleClass("hidden",this.value.logo.type=="image");
         }
     },
     configForm: {

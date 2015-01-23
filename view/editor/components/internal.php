@@ -7,6 +7,17 @@ class Text extends Block {
     function tpl($val) {
         echo $val ?:'';
     }
+    
+    static $plain_heading = array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true);
+    static $default_heading = array('buttons'=>array("bold","italic","deleted","removeformat"),'oneline'=>true);    
+    static $size_heading = array('buttons'=>array("bold","italic","deleted","size","removeformat"),'oneline'=>true);
+    static $color_heading = array('buttons'=>array("bold","italic","deleted","fontcolor","size","removeformat"),'oneline'=>true);
+        
+    static $plain_text = array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false));
+    static $default_text = array('buttons'=>array("bold","italic","deleted","removeformat"),'oneline'=>true);    
+    static $size_text = array('buttons'=>array("bold","italic","deleted","size","removeformat"),'oneline'=>true);
+    static $color_text = array('buttons'=>array("bold","italic","deleted","fontcolor","size","removeformat"),'oneline'=>true);
+    
 }
 
 class Logo extends Block {
