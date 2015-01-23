@@ -6,7 +6,7 @@ lp.footer = lp.block.extendOptions({
 		});        
 		
 		if (this.value.variant == 1){
-			this.variant.find(".policy_wrap").toggle(this.value.show_policy);
+			this.variant.find(".policy_wrap").toggleClass('hidden',!this.value.show_policy);
 		}
     },
     configForm: {

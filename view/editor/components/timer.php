@@ -13,7 +13,7 @@ class Timer extends Block {
                         <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </h1>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
@@ -59,7 +59,7 @@ class Timer extends Block {
                         <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                     </h1>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= $val['title_2_color'] ? $val['title_2_color'] : "" ?>" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= $val['title_2_color'] ? $val['title_2_color'] : "" ?> <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
@@ -101,7 +101,7 @@ class Timer extends Block {
 						<? $this->sub('Countdown','countdown') ?>
 					</div>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
@@ -115,7 +115,7 @@ class Timer extends Block {
                             <? $this->sub('FormOrder','form') ?>
                         </div>
                         <? if ($val['show_form_bottom_text'] || $this->edit): ?>
-							<div class="form_bottom" <?= !$val['show_form_bottom_text'] ? "style='display:none'" : "" ?> >
+							<div class="form_bottom <?= !$val['show_form_bottom_text'] ? "hidden" : "" ?>" >
 								<? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
 							</div>
 						<? endif ?>                
@@ -178,7 +178,7 @@ class Timer extends Block {
 						<? $this->sub('Countdown','countdown') ?>
 					</div>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
@@ -192,7 +192,7 @@ class Timer extends Block {
                             <? $this->sub('FormOrder','form') ?>
                         </div>
                         <? if ($val['show_form_bottom_text'] || $this->edit): ?>
-							<div class="form_bottom" <?= !$val['show_form_bottom_text'] ? "style='display:none'" : "" ?> >
+							<div class="form_bottom <?= !$val['show_form_bottom_text'] ? "hidden" : "" ?>" >
 								<? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
 							</div>
 						<? endif ?>                

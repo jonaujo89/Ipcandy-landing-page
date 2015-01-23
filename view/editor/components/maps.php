@@ -8,7 +8,7 @@ class Maps extends Block {
     function tpl($val) {?>
         <div class="map_block_1">            
             <? if ($val['show_container_text'] || $this->edit): ?>                
-                   <div class="container_text" <?= !$val['show_container_text'] ? "style='display:none'" : "" ?> >  
+                   <div class="container_text <?= !$val['show_container_text'] ? "hidden" : "" ?>" >  
                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <div class="map_overlay">
                                 <div class="title">

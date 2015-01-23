@@ -10,71 +10,37 @@ class Reviews extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
                         <? $this->repeat('items',function($val,$self) use ($val) { ?>
-                            <div class="item">
-                                <div class="item_data">
-                                    <div class="text">
-                                        <?=$self->sub('Text','text_1',array('buttons'=>array("bold","italic","removeformat")))?>
-                                    </div>
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic","fontcolor"=>false,"removeformat")))?>
-                                    </div>
-                                    <div class="desc">
-                                        <?=$self->sub('Text','desc_1',array('buttons'=>array("bold"=>false,"italic","fontcolor","removeformat")))?>                            
-                                    </div>
-                                    <? if ($val['show_image'] || $self->edit): ?>
-                                        <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Image','image_1') ?>
+                            <? for ($i=1; $i <= 3; $i++): ?>                            
+                                <div class="item">
+                                    <div class="item_data">
+                                        <div class="text">
+                                            <?=$self->sub('Text','text_'.$i,array('buttons'=>array("bold","italic","removeformat")))?>
                                         </div>
-                                    <? endif ?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="item_data">
-                                    <div class="text">
-                                        <?=$self->sub('Text','text_2',array('buttons'=>array("bold","italic","removeformat")))?>
-                                    </div>
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic","fontcolor"=>false,"removeformat")))?>
-                                    </div>
-                                    <div class="desc">
-                                        <?=$self->sub('Text','desc_2',array('buttons'=>array("bold"=>false,"italic","fontcolor","removeformat")))?>                            
-                                    </div>
-                                    <? if ($val['show_image'] || $self->edit): ?>
-                                        <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Image','image_2') ?>
+                                        <div class="name">
+                                            <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic","fontcolor"=>false,"removeformat")))?>
                                         </div>
-                                    <? endif ?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="item_data">
-                                    <div class="text">
-                                        <?=$self->sub('Text','text_3',array('buttons'=>array("bold","italic","removeformat")))?>
-                                    </div>
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic","fontcolor"=>false,"removeformat")))?>
-                                    </div>
-                                    <div class="desc">
-                                        <?=$self->sub('Text','desc_3',array('buttons'=>array("bold"=>false,"italic","fontcolor","removeformat")))?>                            
-                                    </div>
-                                    <? if ($val['show_image'] || $self->edit): ?>
-                                        <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Image','image_3') ?>
+                                        <div class="desc">
+                                            <?=$self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic","fontcolor","removeformat")))?>                            
                                         </div>
-                                    <? endif ?>
+                                        <? if ($val['show_image'] || $self->edit): ?>
+                                            <div class="img_wrap <?= !$val['show_image'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Image','image_'.$i) ?>
+                                            </div>
+                                        <? endif ?>
+                                    </div>
                                 </div>
-                            </div>
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>

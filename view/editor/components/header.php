@@ -33,7 +33,7 @@ class Header extends Block {
         return  array(
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::tpl_default(),array('size'=>100)),
-            'desc' => "Производство чего либо компанией<br>Доставка по всей России",
+            'desc' => "Производство чего либо компанией<br><span style='font-size: 17px;'>Доставка по всей России</span>",
             'phone' => '8 <span style="color: #C1103A;">(800)</span> 123 45 67',
             'phone_desc' => 'г.Москва, ул. Тверская, д.6, офис 207'
         );
@@ -47,8 +47,8 @@ class Header extends Block {
                     <? $this->sub("Logo",'logo') ?>
                 </div>
                 <div class="span10">
-                    <? if ($val['show_order_button'] || $this->edit): ?>
-                        <div class="span_btn" <?= $val['show_order_button'] ? "" : "style='display:none'" ?>>
+                    <? if ($cls = $this->vis($val['show_order_button'])): ?>
+                        <div class="span_btn <?=$cls?>">
                             <div class='btn_wrap'>
                                 <? $this->sub("FormButton",'order_button') ;?>
                             </div>
@@ -65,7 +65,7 @@ class Header extends Block {
     function tpl_default_2() { 
         return  array(
             'background' =>'#FFFFFF',
-            'logo' => array_merge(Logo::tpl_default(),array('size'=>50)),
+            'logo' => array_merge(Logo::tpl_default(),array('size'=>62)),
             'order_button' => FormButton::tpl_default(),
             'phone' => '8 <span style="color: #C1103A;">(800)</span> 123 45 67',
             'show_order_button' => true,
@@ -80,8 +80,8 @@ class Header extends Block {
                     <div class="desc_1 <?= !$val['show_desc_and_order_button'] ? "no_btn" : ""?>" >
                         <? $this->sub('Text','desc_1',array('oneline'=>true)) ?>
                     </div>                    
-                    <? if ($val['show_desc_and_order_button'] || $this->edit): ?>
-                        <div class="desc_2" <?= !$val['show_desc_and_order_button'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_desc_and_order_button'])): ?>
+                        <div class="desc_2 <?=$cls?>" >
                                 <? $this->sub('Text','desc_2',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>true)) ?>
                         </div>
                     <? endif ?>                    
@@ -93,8 +93,8 @@ class Header extends Block {
                     <div class="phone <?= !$val['show_desc_and_order_button'] ? "no_btn" : ""?>">
                         <? $this->sub("Text",'phone',array('oneline'=>true)) ?>
                     </div> 
-                    <? if ($val['show_desc_and_order_button'] || $this->edit): ?>
-                        <div class="span_btn" <?= !$val['show_desc_and_order_button'] ? "style='display:none'" : "" ?>>
+                    <? if ($cls = $this->vis($val['show_desc_and_order_button'])): ?>
+                        <div class="span_btn <?=$cls?>">
                             <div class='btn_wrap'>
                                 <? $this->sub("FormButton",'order_button') ;?>
                             </div>
@@ -125,7 +125,7 @@ class Header extends Block {
                 <div class="span6 span_logo"> 
                     <? $this->sub("Logo",'logo') ?>
                     <? if ($val['show_desc'] || $this->edit): ?>
-                        <div class="desc" <?= $val['logo']['type']=="image"  ? "style='display:none'" : "" ?> >
+                        <div class="desc <?= $val['logo']['type']=="image"  ? "hidden" : "" ?>" >
                                 <? $this->sub('Text','desc') ?>
                         </div>
                     <? endif ?>
@@ -148,8 +148,8 @@ class Header extends Block {
                     <div class="phone <?= !$val['show_order_button'] ? "no_btn" : ""?>">
                         <? $this->sub("Text",'phone',array('oneline'=>true)) ?>
                     </div> 
-                    <? if ($val['show_order_button'] || $this->edit): ?>
-                        <div class="span_btn" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_order_button'])): ?>
+                        <div class="span_btn <?=$cls?>" >
                             <div class="btn_wrap">
                                 <? $this->sub("FormButton",'order_button') ?>
                             </div>

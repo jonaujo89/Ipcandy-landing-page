@@ -10,41 +10,31 @@ class Reasons extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?> 
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">
-                                <div class="ico_wrap">
-                                    <? $self->sub('Icon','icon_1') ?>
-                                </div>                    
-                                <div class="name">
-                                    <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                            <? for ($i=1; $i <= 2; $i++): ?>
+                                <div class="item">
+                                    <div class="ico_wrap">
+                                        <? $self->sub('Icon','icon_'.$i) ?>
+                                    </div>                    
+                                    <div class="name">
+                                        <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                                    </div>
+                                    <div class="desc">
+                                        <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
+                                    </div>
                                 </div>
-                                <div class="desc">
-                                    <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="ico_wrap">
-                                    <? $self->sub('Icon','icon_2') ?>
-                                </div>                    
-                                <div class="name">
-                                    <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                </div>
-                                <div class="desc">
-                                    <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
-                                </div>
-                            </div>
-                            <div style="clear: both"></div>
-                        
+                            <? endfor ?>
+                            <div style="clear: both"></div>                        
                         <? }) ?>
                     </div>
                 </div>

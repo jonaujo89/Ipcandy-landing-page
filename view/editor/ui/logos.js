@@ -4,8 +4,8 @@ lp.logos = lp.block.extendOptions({
             background: this.value.background || '',
         }); 
         if (this.value.variant == 1) {
-			this.variant.find(".title").toggle(this.value.show_title);
-			this.variant.find(".title_2").toggle(this.value.show_title_2);   
+			this.variant.find(".title").toggleClass('hidden',!this.value.show_title);
+			this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);   
 			this.variant.find(".item_list").toggleClass("gray",this.value.grayscale_logo);
 		}
     },

@@ -11,49 +11,27 @@ class Digits extends Block {
                 <div class="span16">
                     <div class="margin"></div>
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <div class="item">
-                                <div class="value">
-                                    <?=$self->sub('Text','value_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                            <? for ($i=1; $i <= 4; $i++): ?>
+                                <div class="item">
+                                    <div class="value">
+                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                    </div>
+                                    <div class="name">
+                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                    </div>
                                 </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="value">
-                                    <?=$self->sub('Text','value_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="value">
-                                    <?=$self->sub('Text','value_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="value">
-                                    <?=$self->sub('Text','value_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>                    
                     </div>
@@ -92,42 +70,28 @@ class Digits extends Block {
                 <div class="span16">
                     <div class="margin"></div>
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <div class="item clear">
-                                <div class="value">
-                                    <?=$self->sub('Text','value_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item clear">
+                                    <div class="value">
+                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                    </div>
+                                    <div class="name">
+                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                    </div>
                                 </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item clear">
-                                <div class="value">
-                                    <?=$self->sub('Text','value_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item clear">
-                                <div class="value">
-                                    <?=$self->sub('Text','value_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                             </div>
-                             <div style="clear: both"></div>
+                            <? endfor ?>
+                            <div style="clear: both"></div>
                         <? }) ?>
                     </div>                
                 </div>
@@ -171,41 +135,27 @@ class Digits extends Block {
                 <div class="span16">
                     <div class="margin"></div>
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <div class="item clear">
-                                <div class="value">
-                                    <?=$self->sub('Text','value_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item clear">
+                                    <div class="value">
+                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                    </div>
+                                    <div class="name">
+                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                    </div>
                                 </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item clear">
-                                <div class="value">
-                                    <?=$self->sub('Text','value_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item clear">
-                                <div class="value">
-                                    <?=$self->sub('Text','value_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>                
@@ -241,62 +191,31 @@ class Digits extends Block {
                 <div class="span16">
                     <div class="margin"></div>
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list <?= $val['icon_color'] ? $val['icon_color'] : "icon_grey" ?>">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_1')?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                            <? for ($i=1; $i <= 4; $i++): ?>
+                                <div class="item">
+                                    <?=$self->sub('Icon','icon_'.$i)?>
+                                    <div class="value">
+                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                    </div>
+                                    <hr>
+                                    <div class="name">
+                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                    </div>
                                 </div>
-                                <hr>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_2')?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <hr>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_3')?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <hr>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_4')?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <hr>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            
+                            <? endfor ?>                    
                             <div style="clear: both"></div>
-
-                        <? }) ?>                     
-
+                        <? }) ?> 
                     </div>                
                 </div>
             </div>
@@ -337,9 +256,9 @@ class Digits extends Block {
             <?
                 preg_match("/#\w{3,6}/", $val['background'], $background);
                 if($background){
-                  print('background:'.$background[0]);
+                    print('background:'.$background[0]);
                 } else {
-                  print('background:repeat scroll 0% 0% transparent url('.INDEX_URL.$val['background'].')');
+                    print('background:repeat scroll 0% 0% transparent url('.INDEX_URL.$val['background'].')');
                 }
             ?> 
          ;">
@@ -347,57 +266,29 @@ class Digits extends Block {
                 <div class="span16">
                     <div class="margin"></div>
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_1',array('iconType'=>'white'))?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                            <? for ($i=1; $i <= 4; $i++): ?>
+                                <div class="item">
+                                    <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
+                                    <div class="value">
+                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                    </div>
+                                    <hr>
+                                    <div class="name">
+                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                    </div>
                                 </div>
-                                <hr>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_2',array('iconType'=>'white'))?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <hr>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_3',array('iconType'=>'white'))?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <hr>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_4',array('iconType'=>'white'))?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <hr>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>                            
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>                
@@ -449,53 +340,28 @@ class Digits extends Block {
                 <div class="span16">
                     <div class="margin"></div>
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_1',array('iconType'=>'white'))?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                            <? for ($i=1; $i <= 4; $i++): ?>
+                                <div class="item">
+                                    <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
+                                    <div class="value">
+                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                    </div>
+                                    <div class="name">
+                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                    </div>
                                 </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_2',array('iconType'=>'white'))?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_3',array('iconType'=>'white'))?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_4',array('iconType'=>'white'))?>
-                                <div class="value">
-                                    <?=$self->sub('Text','value_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>                            
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>                
@@ -547,53 +413,28 @@ class Digits extends Block {
                 <div class="span16">
                     <div class="margin"></div>
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list <?= $val['icon_color'] ? $val['icon_color'] : "icon_grey" ?>">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <div class="item">                                
-                                <div class="value">
-                                    <?=$self->sub('Text','value_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                            <? for ($i=1; $i <= 4; $i++): ?>
+                                <div class="item">                                
+                                    <div class="value">
+                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                    </div>
+                                    <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
+                                    <div class="name">
+                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                    </div>
                                 </div>
-                                <?=$self->sub('Icon','icon_1',array('iconType'=>'white'))?>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">                                
-                                <div class="value">
-                                    <?=$self->sub('Text','value_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <?=$self->sub('Icon','icon_2',array('iconType'=>'white'))?>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">                                
-                                <div class="value">
-                                    <?=$self->sub('Text','value_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <?=$self->sub('Icon','icon_3',array('iconType'=>'white'))?>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                            <div class="item">                                
-                                <div class="value">
-                                    <?=$self->sub('Text','value_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <?=$self->sub('Icon','icon_4',array('iconType'=>'white'))?>
-                                <div class="name">
-                                    <?=$self->sub('Text','name_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>                            
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>                
@@ -637,66 +478,28 @@ class Digits extends Block {
                 <div class="span16">
                     <div class="margin"></div>
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
-                        <div class="item">
-                            <div class="value_wrap">
-                                <div class="value" style="color: <?=$val['digits_color']?>;">
-                                    <?=$this->sub('Text','value_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$this->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="value_wrap">
-                                <div class="value" style="color: <?=$val['digits_color']?>;">
-                                    <?=$this->sub('Text','value_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name name2">
-                                    <?=$this->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                        <? for ($i=1; $i <= 5; $i++): ?>
+                            <div class="item">
+                                <div class="value_wrap">
+                                    <div class="value" style="color: <?=$val['digits_color']?>;">
+                                        <?=$this->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                    </div>
+                                    <div class="name">
+                                        <?=$this->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="value_wrap">
-                                <div class="value" style="color: <?=$val['digits_color']?>;">
-                                    <?=$this->sub('Text','value_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$this->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="value_wrap">
-                                <div class="value" style="color: <?=$val['digits_color']?>;">
-                                    <?=$this->sub('Text','value_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name name4">
-                                    <?=$this->sub('Text','name_4',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="value_wrap">
-                                <div class="value" style="color: <?=$val['digits_color']?>;">
-                                    <?=$this->sub('Text','value_5',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
-                                </div>
-                                <div class="name">
-                                    <?=$this->sub('Text','name_5',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
-                                </div>
-                            </div>
-                        </div>
+                        <? endfor ?>
                     </div>                
                 </div>
             </div>

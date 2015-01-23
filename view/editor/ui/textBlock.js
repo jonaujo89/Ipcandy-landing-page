@@ -6,27 +6,27 @@ lp.textBlock = lp.block.extendOptions({
         }); 
         
         if (this.value.variant == 1) {  
-            this.variant.find(".title").toggle(this.value.show_title);
-            this.variant.find(".title_2").toggle(this.value.show_title_2);  
-            this.variant.find(".list_wrap").toggle(this.value.show_list);
+            this.variant.find(".title").toggleClass('hidden',!this.value.show_title);
+            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);  
+            this.variant.find(".list_wrap").toggleClass('hidden',!this.value.show_list);
         }
         if (this.value.variant == 2) { 
-            this.variant.find(".title").toggle(this.value.show_title);
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
-            this.variant.find(".name").toggle(this.value.show_name);
+            this.variant.find(".title").toggleClass('hidden',!this.value.show_title);
+            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
+            this.variant.find(".name").toggleClass('hidden',!this.value.show_name);
         }
         if (this.value.variant == 3) { 
-            this.variant.find(".title").toggle(this.value.show_title);
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
+            this.variant.find(".title").toggleClass('hidden',!this.value.show_title);
+            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
         }
         if (this.value.variant == 4) { 
-            this.variant.find(".text_title_2").toggle(this.value.show_text_title_2);
+            this.variant.find(".text_title_2").toggleClass('hidden',!this.value.show_text_title_2);
         }
         if (this.value.variant == 5) { 
             this.variant.find(".item_list").toggleClass("hide_border",!this.value.show_border);
         }
         if (this.value.variant == 6) { 
-            this.variant.find(".title_2").toggle(this.value.show_text_title_2);
+            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_text_title_2);
             this.variant.find(".item_list").toggleClass("hide_border",!this.value.show_border);
         }
     },

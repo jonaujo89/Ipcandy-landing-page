@@ -10,12 +10,12 @@ class TextBlock extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
@@ -23,7 +23,7 @@ class TextBlock extends Block {
                         <? $this->sub('Text','text',array('buttons'=>array("bold","italic","fontcolor","removeformat"))) ?>
                     </div>
                     <? if ($val['show_list'] || $this->edit): ?>
-                        <div class="list_wrap clear" <?= !$val['show_list'] ? "style='display:none'" : "" ?>>
+                        <div class="list_wrap clear <?= !$val['show_list'] ? "hidden" : "" ?>">
                             <div class="list list_1">
                                 <? $this->sub('Text','list_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> false)) ?>
                             </div>
@@ -67,37 +67,29 @@ class TextBlock extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
                         <? $this->repeat('items',function($val,$self) use ($val){ ?>
-                            <div class="item">
-                                <? if ($val['show_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true)) ?>
+                            <? for ($i=1; $i <= 2; $i++): ?>
+                                <div class="item">
+                                    <? if ($val['show_name'] || $self->edit): ?>
+                                        <div class="name <?= !$val['show_name'] ? "hidden" : "" ?>" >
+                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true)) ?>
+                                        </div>
+                                    <? endif ?>
+                                    <div class="desc">
+                                        <?=$self->sub('Text','desc_'.$i)?>
                                     </div>
-                                <? endif ?>
-                                <div class="desc">
-                                    <?=$self->sub('Text','desc_1')?>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <? if ($val['show_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true)) ?>
-                                    </div>
-                                <? endif ?>
-                                <div class="desc">
-                                    <?=$self->sub('Text','desc_2')?>
-                                </div>
-                            </div>
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>
@@ -137,41 +129,27 @@ class TextBlock extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">                        
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <div class="item">
-                                <div class="name">
-                                    <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true))?>
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item">
+                                    <div class="name">
+                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true))?>
+                                    </div>
+                                    <div class="desc">
+                                        <?=$self->sub('Text','desc_'.$i)?>
+                                    </div>
                                 </div>
-                                <div class="desc">
-                                    <?=$self->sub('Text','desc_1')?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="name">
-                                    <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true))?>
-                                </div>
-                                <div class="desc">
-                                    <?=$self->sub('Text','desc_2')?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="name">
-                                    <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true))?>
-                                </div>
-                                <div class="desc">
-                                    <?=$self->sub('Text','desc_3')?>
-                                </div>
-                            </div>
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>
@@ -213,7 +191,7 @@ class TextBlock extends Block {
                                     <?=$self->sub('Text','text_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => false))?>
                                 </div> 
                                 <? if ($val['show_text_title_2'] || $self->edit): ?>
-                                    <div class="text_title_2" <?= !$val['show_text_title_2'] ? "style='display:none'" : "" ?> >
+                                    <div class="text_title_2 <?= !$val['show_text_title_2'] ? "hidden" : "" ?>" >
                                         <? $self->sub('Text','text_title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"),'oneline' => false)) ?>
                                     </div>
                                 <? endif ?>
@@ -315,7 +293,7 @@ class TextBlock extends Block {
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true)) ?>
                         </h1>
                         <? if ($val['show_text_title_2'] || $this->edit): ?>
-                            <div class="title_2" <?= !$val['show_text_title_2'] ? "style='display:none'" : "" ?> >
+                            <div class="title_2 <?= !$val['show_text_title_2'] ? "hidden" : "" ?>" >
                                 <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"),'oneline' => true)) ?>
                             </div>
                         <? endif ?> 

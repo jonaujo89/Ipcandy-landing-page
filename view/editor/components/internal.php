@@ -169,8 +169,9 @@ class FormOrder extends Block {
                                 <? break ?>
                             <? case 'text': ?>
                                 <label>
-                                    <? _D(self::tpl_fields()) ?> 
-                                    <? self::tpl_fields() ?>
+                                    <? //_D(self::tpl_fields()) ?> 
+                                    <? //self::tpl_fields() ?>
+                                    <div class="field_title"><?= htmlspecialchars($field['label'])?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
                                     <? if ($field['desc']): ?>
                                         <div class="desc">
                                             <?= htmlspecialchars($field['desc'])?>
@@ -262,7 +263,7 @@ class ImageFancyboxWithoutSignature extends Block {
     function tpl($val) {?>
 		<div class='img preview_img' style='background-image: url("<?=INDEX_URL."/".$val['url_image_preview']?>")'>
 			<? if ($this->parent->val_prefix['enable_fancybox'] || $this->edit): ?>
-				<a <?= !$this->parent->val_prefix['enable_fancybox'] ? "style='display:none'" : "" ?> class="fancybox_whithout_title big_img" rel="<?=$val['fancybox_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>"></a>
+				<a class="fancybox_whithout_title big_img <?= !$this->parent->val_prefix['enable_fancybox'] ? "hidden" : "" ?>" rel="<?=$val['fancybox_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>"></a>
 			<? endif ?>			
 		</div>
     <?}
@@ -300,12 +301,12 @@ class ImageFancyboxWithSignature extends Block {
                     <div class="outer">
                         <div class="wrap_title_desc">					
                             <? if ($this->parent->val_prefix['show_image_title'] || $this->edit): ?>
-                                <div class="img_title" <?= !$this->parent->val_prefix['show_image_title'] ? "style='display:none'" : "" ?> >
+                                <div class="img_title <?= !$this->parent->val_prefix['show_image_title'] ? "hidden" : "" ?>" >
                                     <?= $val['title'] ?>
                                 </div>
                             <? endif ?>
                             <? if ($this->parent->val_prefix['show_image_desc'] || $this->edit): ?>
-                                <div class="img_desc" <?= !$this->parent->val_prefix['show_image_desc'] ? "style='display:none'" : "" ?> >
+                                <div class="img_desc <?= !$this->parent->val_prefix['show_image_desc'] ? "hidden" : "" ?>" >
                                     <?= $val['desc'] ?>
                                 </div>
                             <? endif ?>

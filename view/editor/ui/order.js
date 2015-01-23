@@ -14,12 +14,12 @@ lp.order = lp.block.extendOptions({
         }
 
         if (this.value.variant == 1) {
-            this.variant.find(".form_title_2").toggle(this.value.show_form_title_2);
-            this.variant.find(".form_bottom").toggle(this.value.show_form_bottom_text);
+            this.variant.find(".form_title_2").toggleClass('hidden',!this.value.show_form_title_2);
+            this.variant.find(".form_bottom").toggleClass('hidden',!this.value.show_form_bottom_text);
         }
         
         if (this.value.variant == 2) {
-            this.variant.find(".btn_note").toggle(this.value.show_text_above_button); 
+            this.variant.find(".btn_note").toggleClass('hidden',!this.value.show_text_above_button);
             this.variant.find(".btn_wrap").toggleClass('no_btn_note',!this.value.show_text_above_button);
             this.variant.find(".btn_wrap").toggleClass("no_arrow",!this.value.add_arrow);
             
@@ -31,27 +31,27 @@ lp.order = lp.block.extendOptions({
         }
         
         if (this.value.variant == 3) {
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
+            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
             this.variant.find(".img_wrap").toggleClass("hide_border",!this.value.show_media_border);
             this.variant.find(".list").toggle(this.value.show_list_box);
         }
         
         if (this.value.variant == 4) {
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
+            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
             this.variant.find(".img_wrap").toggleClass("hide_box_shadow",!this.value.show_box_shadow_media);
-            this.variant.find(".form_bottom").toggle(this.value.show_form_bottom_text);
+            this.variant.find(".form_bottom").toggleClass('hidden',!this.value.show_form_bottom_text);
         }
         
         if (this.value.variant == 5) {
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
-            this.variant.find(".form_bottom").toggle(this.value.show_form_bottom_text);
+            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
+            this.variant.find(".form_bottom").toggleClass('hidden',!this.value.show_form_bottom_text);
         }
         
         if (this.value.variant == 6) {
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
-            this.variant.find(".title_3").toggle(this.value.show_title_3);
+            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
+            this.variant.find(".title_3").toggleClass('hidden',!this.value.show_title_3);
             this.variant.find(".content_wrap").prop("class","content_wrap "+this.value.move_form);
-            this.variant.find(".form_bottom").toggle(this.value.show_form_bottom_text);
+            this.variant.find(".form_bottom").toggleClass('hidden',!this.value.show_form_bottom_text);
         }      
         
     },

@@ -10,12 +10,12 @@ class Video extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
@@ -55,7 +55,7 @@ class Video extends Block {
                                         <?=$self->sub('Text','text_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
                                     </div>
                                     <? if ($val['show_text_title_2'] || $self->edit): ?>
-                                        <div class="text_title_2" <?= !$val['show_text_title_2'] ? "style='display:none'" : "" ?> >
+                                        <div class="text_title_2 <?= !$val['show_text_title_2'] ? "hidden" : "" ?>" >
                                             <? $self->sub('Text','text_title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"))) ?>
                                         </div>
                                     <? endif ?>
@@ -99,62 +99,34 @@ class Video extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>                    
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
-                            <div class="item">
-                                <div class="video <?= $val['show_border'] ? "" : "hide_border" ?>" >
-                                    <?=$self->sub('VideoStream','video_1')?>
-                                </div>
-                                <div class="info">
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> true))?>
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item">
+                                    <div class="video <?= $val['show_border'] ? "" : "hide_border" ?>" >
+                                        <?=$self->sub('VideoStream','video_'.$i)?>
                                     </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","fontcolor","removeformat"))) ?>
+                                    <div class="info">
+                                        <div class="name">
+                                            <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=>true))?>
                                         </div>
-                                    <? endif ?> 
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="video <?= $val['show_border'] ? "" : "hide_border" ?>">
-                                    <?=$self->sub('VideoStream','video_2')?>
-                                </div>
-                                <div class="info">
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> true))?>
+                                        <? if ($val['show_desc'] || $self->edit): ?>
+                                            <div class="desc <?= !$val['show_desc'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold","italic","fontcolor","removeformat"))) ?>
+                                            </div>
+                                        <? endif ?> 
                                     </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","fontcolor","removeformat"))) ?>
-                                        </div>
-                                    <? endif ?>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="video <?= $val['show_border'] ? "" : "hide_border" ?>">
-                                    <?=$self->sub('VideoStream','video_3')?>
-                                </div>
-                                <div class="info">
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> true))?>
-                                    </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_3',array('buttons'=>array("bold","italic","fontcolor","removeformat"))) ?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
-                            </div>
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>                       
                     </div>

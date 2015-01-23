@@ -8,7 +8,7 @@ lp.timer = lp.block.extendOptions({
     },	
 	change: function(){         
         var jq = Component.previewFrame.window.$;        
-        this.variant.find(".title_2").toggle(this.value.show_title_2);
+        this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
 		
 		if (this.value.variant == 1) { 
             this.cmp.element.find(".timer_1").css({
@@ -37,7 +37,7 @@ lp.timer = lp.block.extendOptions({
             this.cmp.element.find(".timer_3").css({
                 background: this.value.background_color || '',
             });
-			this.variant.find(".form_bottom").toggle(this.value.show_form_bottom_text);
+			this.variant.find(".form_bottom").toggleClass('hidden',!this.value.show_form_bottom_text);
         }
 		if (this.value.variant == 4) { 
             var pattern_background = /#\w{3,6}/;
@@ -50,7 +50,7 @@ lp.timer = lp.block.extendOptions({
                     background: "url("+base_url+(this.value.background)+")",
                 });
             }
-			this.variant.find(".form_bottom").toggle(this.value.show_form_bottom_text);
+			this.variant.find(".form_bottom").toggleClass('hidden',!this.value.show_form_bottom_text);
         }
        
     },

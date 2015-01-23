@@ -16,7 +16,7 @@ class Footer extends Block {
                         <? $this->sub('Text','desc',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"),'oneline'=>false)) ?>                            
                     </div>
                     <? if ($val['show_policy'] || $this->edit): ?>
-                        <div class="policy_wrap" <?= !$val['show_policy'] ? "style='display:none'" : "" ?>>
+                        <div class="policy_wrap <?= !$val['show_policy'] ? "hidden" : "" ?>">
                             <a class="policy">Политика конфиденциальности</a>
                             <div class= "policy_info" style='display:none'><?= $val['policy_info'] ?></div>
                         </div>

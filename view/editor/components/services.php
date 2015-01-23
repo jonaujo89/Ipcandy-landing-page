@@ -10,99 +10,46 @@ class Services extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>    
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">
-                                <div class="item_data">
-                                    <? if ($val['show_image'] || $self->edit): ?>
-                                        <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Image','image_1') ?>
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item">
+                                    <div class="item_data">
+                                        <? if ($val['show_image'] || $self->edit): ?>
+                                            <div class="img_wrap <?= !$val['show_image'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Image','image_'.$i) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <div class="name">
+                                            <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                         </div>
-                                    <? endif ?>
-                                    <div class="name">
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                                        <? if ($val['show_desc'] || $self->edit): ?>
+                                            <div class="desc <?= !$val['show_desc'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold","italic","alignleft","aligncenter","unorderedlist","orderedlist","removeformat"),'oneline'=>false)) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($val['show_price'] || $self->edit): ?>
+                                            <div class="price <?= !$val['show_price'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Text','price_'.$i,array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($val['show_order_button'] || $self->edit): ?>
+                                            <div class="btn_wrap <?= !$val['show_order_button'] ? "hidden" : "" ?>" >
+                                                <? $self->sub("FormButton",'@order_button') ;?>
+                                            </div>
+                                        <? endif ?>
                                     </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","alignleft","aligncenter","unorderedlist","orderedlist","removeformat"),'oneline'=>false)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_1',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="item_data">
-                                    <? if ($val['show_image'] || $self->edit): ?>
-                                        <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Image','image_2') ?>
-                                        </div>
-                                    <? endif ?>
-                                    <div class="name">
-                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","alignleft","aligncenter","removeformat"),'oneline'=>false)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_2',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="item_data">
-                                    <? if ($val['show_image'] || $self->edit): ?>
-                                        <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Image','image_3') ?>
-                                        </div>
-                                    <? endif ?>
-                                    <div class="name">
-                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_3',array('buttons'=>array("bold","italic","alignleft","aligncenter","removeformat"),'oneline'=>false)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_3',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
-                            </div>
-                        
+                            <? endfor ?>                        
                             <div style="clear: both"></div>
                         <? }) ?>                        
                     </div> 
@@ -148,67 +95,44 @@ class Services extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>    
                     <div class="item_list clear <?= $val['image_format'] ? $val['image_format'] : "circle" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item <?= $val['show_shadow_image'] ? '' : "hide_shadow" ?>">
-                                <div class="img_data">
-                                    <? $self->sub('Image','image_1') ?>
-                                </div>
-                                <div class="item_data">
-                                    <div class="name">
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                            <? for ($i=1; $i <= 2; $i++): ?>
+                                <div class="item <?= $val['show_shadow_image'] ? '' : "hide_shadow" ?>">
+                                    <div class="img_data">
+                                        <? $self->sub('Image','image_'.$i) ?>
                                     </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
+                                    <div class="item_data">
+                                        <div class="name">
+                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                         </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_1',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
-                            </div>
-                            <div class="item <?= $val['show_shadow_image'] ? '' : "hide_shadow" ?>">
-                                <div class="img_data">
-                                    <? $self->sub('Image','image_2') ?>
-                                </div>
-                                <div class="item_data">
-                                    <div class="name">
-                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        <? if ($val['show_desc'] || $self->edit): ?>
+                                            <div class="desc <?= !$val['show_desc'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($val['show_price'] || $self->edit): ?>
+                                            <div class="price <?= !$val['show_price'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Text','price_'.$i,array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($val['show_order_button'] || $self->edit): ?>
+                                            <div class="btn_wrap <?= !$val['show_order_button'] ? "hidden" : "" ?>" >
+                                                <? $self->sub("FormButton",'@order_button') ;?>
+                                            </div>
+                                        <? endif ?>
                                     </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_2',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
                                 </div>
-                            </div>
+                            <? endfor ?>
                         <? }) ?>
                     </div> 
                 </div>
@@ -250,12 +174,12 @@ class Services extends Block {
             <div class="container">
                 <div class="span16">
                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>    
@@ -270,22 +194,22 @@ class Services extends Block {
                                         <? $self->sub('Text','name',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                     <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
+                                        <div class="desc <?= !$val['show_desc'] ? "hidden" : "" ?>" >
                                             <? $self->sub('Text','desc',array('buttons'=>array("bold","italic","removeformat"),'oneline'=>false)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
+                                        <div class="price <?= !$val['show_price'] ? "hidden" : "" ?>" >
                                             <? $self->sub('Text','price',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_text_above_button'] || $self->edit): ?>
-                                        <div class="btn_note" <?= !$val['show_text_above_button'] ? "style='display:none'" : "" ?> >
+                                        <div class="btn_note <?= !$val['show_text_above_button'] ? "hidden" : "" ?>" >
                                             <? $self->sub('Text','btn_note',array('buttons'=>array("italic","removeformat"),'oneline'=>true)) ?>
                                         </div>
                                     <? endif ?>
                                     <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
+                                        <div class="btn_wrap <?= !$val['show_order_button'] ? "hidden" : "" ?>" >
                                             <? $self->sub("FormButton",'@order_button') ;?>
                                         </div>
                                     <? endif ?>
@@ -331,98 +255,46 @@ class Services extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>    
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">
-                                <? if ($val['show_image'] || $self->edit): ?>
-                                    <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                        <?=$self->sub('Icon','image_1')?>
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item">
+                                    <? if ($val['show_image'] || $self->edit): ?>
+                                        <div class="img_wrap <?= !$val['show_image'] ? "hidden" : "" ?>" >
+                                            <?=$self->sub('Icon','image_'.$i)?>
+                                        </div>
+                                    <? endif ?>                                
+                                    <div class="item_data">
+                                        <div class="name">
+                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                                        </div>
+                                        <? if ($val['show_desc'] || $self->edit): ?>
+                                            <div class="desc <?= !$val['show_desc'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold","italic","removeformat"))) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($val['show_price'] || $self->edit): ?>
+                                            <div class="price <?= !$val['show_price'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Text','price_'.$i,array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($val['show_order_button'] || $self->edit): ?>
+                                            <div class="btn_wrap <?= !$val['show_order_button'] ? "hidden" : "" ?>" >
+                                                <? $self->sub("FormButton",'@order_button') ;?>
+                                            </div>
+                                        <? endif ?>
                                     </div>
-                                <? endif ?>                                
-                                <div class="item_data">
-                                    <div class="name">
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","removeformat"))) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_1',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <? if ($val['show_image'] || $self->edit): ?>
-                                    <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                        <?=$self->sub('Icon','image_2')?>
-                                    </div>
-                                <? endif ?>                                
-                                <div class="item_data">
-                                    <div class="name">
-                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","removeformat"))) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_2',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <? if ($val['show_image'] || $self->edit): ?>
-                                    <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                        <?=$self->sub('Icon','image_3')?>
-                                    </div>
-                                <? endif ?>                          
-                                <div class="item_data">
-                                    <div class="name">
-                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_3',array('buttons'=>array("bold","italic","removeformat"))) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_3',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
-                            </div>
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div> 
@@ -468,98 +340,46 @@ class Services extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>   
                     <div class="item_list clear <?= $val['image_format'] ? $val['image_format'] : "circle" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">
-                                <div class="item_data">
-                                    <? if ($val['show_image'] || $self->edit): ?>
-                                        <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Image','image_1') ?>
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item">
+                                    <div class="item_data">
+                                        <? if ($val['show_image'] || $self->edit): ?>
+                                            <div class="img_wrap <?= !$val['show_image'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Image','image_'.$i) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <div class="name">
+                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                         </div>
-                                    <? endif ?>
-                                    <div class="name">
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                                        <? if ($val['show_desc'] || $self->edit): ?>
+                                            <div class="desc <?= !$val['show_desc'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold","italic","removeformat"))) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($val['show_price'] || $self->edit): ?>
+                                            <div class="price <?= !$val['show_price'] ? "hidden" : "" ?>" >
+                                                <? $self->sub('Text','price_'.$i,array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($val['show_order_button'] || $self->edit): ?>
+                                            <div class="btn_wrap <?= !$val['show_order_button'] ? "hidden" : "" ?>" >
+                                                <? $self->sub("FormButton",'@order_button') ;?>
+                                            </div>
+                                        <? endif ?>
                                     </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_1',array('buttons'=>array("bold","italic","removeformat"))) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_1',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="item_data">
-                                    <? if ($val['show_image'] || $self->edit): ?>
-                                        <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Image','image_2') ?>
-                                        </div>
-                                    <? endif ?>
-                                    <div class="name">
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_2',array('buttons'=>array("bold","italic","removeformat"))) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_2',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="item_data">
-                                    <? if ($val['show_image'] || $self->edit): ?>
-                                        <div class="img_wrap" <?= !$val['show_image'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Image','image_3') ?>
-                                        </div>
-                                    <? endif ?>
-                                    <div class="name">
-                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                    <? if ($val['show_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc_3',array('buttons'=>array("bold","italic","removeformat"))) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_price'] || $self->edit): ?>
-                                        <div class="price" <?= !$val['show_price'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','price_3',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($val['show_order_button'] || $self->edit): ?>
-                                        <div class="btn_wrap" <?= !$val['show_order_button'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
-                            </div>
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>                        
                     </div> 
@@ -607,65 +427,35 @@ class Services extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>   
                     <div class="item_list clear <?= $val['image_format'] ? $val['image_format'] : "circle" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">
-                                <div class="item_data">
-                                    <div class="name">
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                    <div class="img_wrap">
-                                        <? $self->sub('Image','image_1') ?>
-                                    </div> 
-                                    <div class="btn_wrap">
-                                        <? $self->sub("FormButton",'@order_button') ;?>
-                                    </div>
-                                    <div class="price">
-                                        <? $self->sub('Text','price_1',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="item_data">
-                                    <div class="name">
-                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                    <div class="img_wrap">
-                                        <? $self->sub('Image','image_2') ?>
-                                    </div> 
-                                    <div class="btn_wrap">
-                                        <? $self->sub("FormButton",'@order_button') ;?>
-                                    </div>
-                                    <div class="price">
-                                        <? $self->sub('Text','price_2',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item">
+                                    <div class="item_data">
+                                        <div class="name">
+                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                                        </div>
+                                        <div class="img_wrap">
+                                            <? $self->sub('Image','image_'.$i) ?>
+                                        </div> 
+                                        <div class="btn_wrap">
+                                            <? $self->sub("FormButton",'@order_button') ;?>
+                                        </div>
+                                        <div class="price">
+                                            <? $self->sub('Text','price_'.$i,array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="item_data">
-                                    <div class="name">
-                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                    <div class="img_wrap">
-                                        <? $self->sub('Image','image_3') ?>
-                                    </div> 
-                                    <div class="btn_wrap">
-                                        <? $self->sub("FormButton",'@order_button') ;?>
-                                    </div>
-                                    <div class="price">
-                                        <? $self->sub('Text','price_3',array('buttons'=>array("fontcolor","deleted","removeformat"),'oneline'=>true)) ?>
-                                    </div>
-                                </div>
-                            </div>                            
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?> 
                     </div>

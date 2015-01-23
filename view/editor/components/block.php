@@ -124,6 +124,13 @@ class Block {
         return $this->tpl_default();
     }
     
+    function vis($sub) {
+        if ($sub || $this->edit) {
+            return $sub ? 'visible' : 'hidden';
+        }
+        return '';
+    }
+    
     function sub($type,$name,$options=false) {
         $obj = @self::$list[$type];
         if ($obj) {

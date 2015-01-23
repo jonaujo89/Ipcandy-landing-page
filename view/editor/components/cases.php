@@ -10,12 +10,12 @@ class Cases extends Block {
             <div class="container">
                 <div class="span16">
                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
                     <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
@@ -27,12 +27,12 @@ class Cases extends Block {
                             <div class="info">
                                 <div class="top"></div>
                                 <? if ($val['show_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_name'] ? "style='display:none'" : "style='display:block'" ?> >
+                                    <div class="name <?= !$val['show_name'] ? "hidden" : "" ?>" >
                                         <? $self->sub('Text','name',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
                                     </div>
                                 <? endif ?>
                                 <? if ($val['show_desc'] || $self->edit): ?>
-                                    <div class="desc" <?= !$val['show_desc'] ? "style='display:none'" : "" ?> >
+                                    <div class="desc <?= !$val['show_desc'] ? "hidden" : "" ?>" >
                                         <? $self->sub('Text','desc',array('buttons'=>array("bold","italic","fontcolor","removeformat"),'oneline'=>true)) ?>
                                     </div>
                                 <? endif ?>

@@ -9,34 +9,33 @@ class Benefits extends Block {
         <div class="container-fluid benefits benefits_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?>">
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?>" >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list <?= $val['show_icon_border'] ? "" : "hide_ico_border" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                            
-                            <? foreach ($item_val as $key=>$arrayValues ): ?>
-                                <? //_D($self) ?>
+                            <? for ($i=1; $i <= 3; $i++): ?>
                                 <div class="item">
-                                    <?=$self->sub('Icon','icon')?>
-                                    <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                        <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','name',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                    <?=$self->sub('Icon','icon_'.$i)?>
+                                    <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
+                                        <div class="name <?= $cls ?>" >
+                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                                         </div>
                                     <? endif ?>
-                                    <? if ($val['show_benefits_desc'] || $self->edit): ?>
-                                        <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
-                                            <? $self->sub('Text','desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                    <? if ($cls = $self->vis($val['show_benefits_desc'])): ?>
+                                        <div class="desc <?= $cls ?>" >
+                                            <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                                         </div>
                                     <? endif ?>
                                 </div>
-                            <? endforeach ?>
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>
@@ -57,21 +56,15 @@ class Benefits extends Block {
             'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    array(
-                        'icon' => "view/editor/assets/ico/77.png",
-                        'name' => "Бесплатная доставка",
-                        'desc' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
-                    ),
-                    array(
-                        'icon' => "view/editor/assets/ico/89.png",
-                        'name' => "Индивидуальное обучение",
-                        'desc' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
-                    ),
-                    array(
-                        'icon' => "view/editor/assets/ico/127.png",
-                        'name' => "Круглосуточная поддержка",
-                        'desc' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
-                    )
+                    'icon_1' => "view/editor/assets/ico/77.png",
+                    'icon_2' => "view/editor/assets/ico/89.png",
+                    'icon_3' => "view/editor/assets/ico/127.png",
+                    'name_1' => "Бесплатная доставка",
+                    'name_2' => "Индивидуальное обучение",
+                    'name_3' => "Круглосуточная поддержка",
+                    'desc_1' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
+                    'desc_2' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
+                    'desc_3' => "Коротко и ясно о преимуществах вашей компании. Например, бесплатная доставка по Москве и области. ",
                 )
             )
         );
@@ -81,57 +74,33 @@ class Benefits extends Block {
         <div class="container-fluid benefits benefits_2" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
                          <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_1')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                                <? if ($val['show_benefits_desc'] || $self->edit): ?>
-                                    <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','desc_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                            </div>   
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_2')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                                <? if ($val['show_benefits_desc'] || $self->edit): ?>
-                                    <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','desc_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_3')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                                <? if ($val['show_benefits_desc'] || $self->edit): ?>
-                                    <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','desc_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                            </div>
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item">
+                                    <?=$self->sub('Icon','icon_'.$i)?>
+                                    <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
+                                        <div class="name <?=$cls?>" >
+                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($cls = $self->vis($val['show_benefits_desc'])): ?>
+                                        <div class="desc <?=$cls?>" >
+                                            <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        </div>
+                                    <? endif ?>
+                                </div>   
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>
@@ -170,40 +139,31 @@ class Benefits extends Block {
         <div class="container-fluid benefits benefits_3" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list <?= !$val['show_benefits_name'] ? "hide_name" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">                                
-                                <?=$self->sub('Icon','icon_1')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                            <? for ($i=1; $i <= 2; $i++): ?>
+                                <div class="item">                                
+                                    <?=$self->sub('Icon','icon_'.$i)?>
+                                    <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
+                                        <div class="name <?=$cls?>" >
+                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                                        </div>
+                                    <? endif ?>
+                                    <div class="desc">
+                                        <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                                     </div>
-                                <? endif ?>
-                                <div class="desc">
-                                    <? $self->sub('Text','desc_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                </div>
-                            </div>   
-                            <div class="item">
-                                <?=$self->sub('Icon','icon_2')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
-                                    </div>
-                                <? endif ?>
-                                <div class="desc">
-                                    <? $self->sub('Text','desc_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                </div>
-                            </div>
+                                </div>  
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>                       
                     </div>
@@ -246,40 +206,31 @@ class Benefits extends Block {
         <div class="container-fluid benefits benefits_4" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear <?= !$val['show_border_image'] ? "hide_border" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">                                
-                                <div class="image_wrap">                                     
-                                    <?=$self->sub('Image','image_1')?>
-                                </div>
-                                <div class="name">
-                                    <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                </div>
-                                <div class="desc">
-                                    <? $self->sub('Text','desc_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                </div>
-                            </div>   
-                            <div class="item">
-                                <div class="image_wrap">
-                                    <?=$self->sub('Image','image_2')?>
-                                </div>
-                                <div class="name">
-                                    <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                </div>
-                                <div class="desc">
-                                    <? $self->sub('Text','desc_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                </div>
-                            </div>
+                            <? for ($i=1; $i <= 2; $i++): ?>
+                                <div class="item">                                
+                                    <div class="image_wrap">                                     
+                                        <?=$self->sub('Image','image_'.$i)?>
+                                    </div>
+                                    <div class="name">
+                                        <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                    </div>
+                                    <div class="desc">
+                                        <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                    </div>
+                                </div>   
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?> 
                     </div>
@@ -321,58 +272,34 @@ class Benefits extends Block {
         <div class="container-fluid benefits benefits_5" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title" <?= !$val['show_title'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
                             <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2" <?= !$val['show_title_2'] ? "style='display:none'" : "" ?> >
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
                             <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
                         <div class="item_list clear <?= !$val['show_border_image'] ? "hide_border" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item">
-                                <?=$self->sub('Image','image_1')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                                <? if ($val['show_benefits_desc'] || $self->edit): ?>
-                                    <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','desc_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                            </div>   
-                            <div class="item">
-                                <?=$self->sub('Image','image_2')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                                <? if ($val['show_benefits_desc'] || $self->edit): ?>
-                                    <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','desc_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                            </div>
-                            <div class="item">
-                                <?=$self->sub('Image','image_3')?>
-                                <? if ($val['show_benefits_name'] || $self->edit): ?>
-                                    <div class="name" <?= !$val['show_benefits_name'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','name_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                                <? if ($val['show_benefits_desc'] || $self->edit): ?>
-                                    <div class="desc" <?= !$val['show_benefits_desc'] ? "style='display:none'" : "" ?> >
-                                        <? $self->sub('Text','desc_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
-                                    </div>
-                                <? endif ?>
-                            </div>
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item">
+                                    <?=$self->sub('Image','image_'.$i)?>
+                                    <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
+                                        <div class="name <?=$cls?>" >
+                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($cls = $self->vis($val['show_benefits_desc'])): ?>
+                                        <div class="desc <?=$cls?>" >
+                                            <? $self->sub('Text','desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                        </div>
+                                    <? endif ?>
+                                </div>  
+                            <? endfor ?>
                             <div style="clear: both"></div>
                         <? }) ?>
                     </div>
