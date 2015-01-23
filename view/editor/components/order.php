@@ -5,34 +5,34 @@ class Order extends Block {
     public $description = "Блок с картинкой и формой";
     public $editor = "lp.order";
     
-    function tpl($val) {?>
+        function tpl($val) {?>
         <div class="container-fluid order order_1" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat center top;background-size:cover;">
             <div class="dark">
                 <div class="container">
                     <div class="span10">
                         <div class="title_1">
-                            <div class="list"><? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?></div>                               
+                            <div class="list"><? $this->sub('Text','title_1',Text::$plain_text) ?></div>                               
                         </div>
                         <div class="title_2">
-                            <div class="list"><? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?></div>
+                            <div class="list"><? $this->sub('Text','title_2',Text::$plain_text) ?></div>
                         </div>
                     </div>
                     <div class="span6">  
                         <div class="form">
                             <div class="form_title">
-                                <? $this->sub('Text','form_title_1') ?>    
+                                <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
                             </div>
                             <? if ($val['show_form_title_2'] || $this->edit): ?>
-                                <div class="form_title_2 <?= !$val['show_form_title_2'] ? "hidden" : "" ?>" >
-                                    <? $this->sub('Text','form_title_2') ?>
+                                <div class="form_title_2 <?=$cls?>" >
+                                    <? $this->sub('Text','form_title_2',Text::$default_text) ?>
                                 </div>
                             <? endif ?>
                             <div class="form_data">
                                 <? $this->sub('FormOrder','form') ?>
                             </div>
                             <? if ($val['show_form_bottom_text'] || $this->edit): ?>
-                                <div class="form_bottom <?= !$val['show_form_bottom_text'] ? "hidden" : "" ?>" >
-                                    <? $this->sub('Text','form_bottom_text') ?>
+                                <div class="form_bottom <?=$cls?>" >
+                                    <? $this->sub('Text','form_bottom_text',Text::$default_text) ?>
                                 </div>
                             <? endif ?>
                         </div>
@@ -62,14 +62,14 @@ class Order extends Block {
             <div class="background_toggle_noise <?= $val['add_background_noise'] ? "with_noise" : "dark"?>">
                 <div class="container">
                     <div class="title_1">
-                        <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','title_1',Text::$plain_text) ?>
                     </div>
                     <div class="title_2">
-                        <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','title_2',Text::$plain_text) ?>
                     </div>
                     <? if ($val['show_text_above_button'] || $this->edit): ?>
-                        <div class="btn_note <?= !$val['show_text_above_button'] ? "hidden" : "" ?>" >
-                            <? $this->sub('Text','button_note',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <div class="btn_note <?=$cls?>" >
+                            <? $this->sub('Text','button_note',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <br>
@@ -103,20 +103,20 @@ class Order extends Block {
                 </div>
                 <div class="data_wrap">
                     <div class="title_1">
-                        <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"))) ?>
+                        <? $this->sub('Text','title_1',Text::$color_text) ?>
                     </div>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$color_text) ?>
                         </div>
                     <? endif ?>
                     <div class="desc">
-                        <? $this->sub('Text','desc',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
+                        <? $this->sub('Text','desc',Text::$default_text) ?>
                     </div>
                     <? if ($val['show_list_box'] || $this->edit): ?>
-                        <div class="list <?= !$val['show_list_box'] ? "hidden" : "" ?>" >
+                        <div class="list <?=$cls?>" >
                             <ul>
-                                <? $this->sub('Text','list',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                <? $this->sub('Text','list',Text::$plain_text) ?>
                             </ul>
                         </div>
                     <? endif ?>
@@ -150,11 +150,11 @@ class Order extends Block {
         <div class="container-fluid order order_4" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="title_1">
-                    <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                    <? $this->sub('Text','title_1',Text::$plain_heading) ?>
                 </div>
-                <? if ($val['show_title_2'] || $this->edit): ?>
-                    <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                        <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                    <div class="title_2 <?=$cls?> " >
+                        <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                     </div>
                 <? endif ?>
                 <div class="img_wrap <?= $val['show_box_shadow_media'] ? "" : "hide_box_shadow" ?>">
@@ -162,20 +162,19 @@ class Order extends Block {
                 </div>
                 <div class="form">
                     <div class="form_title">                        
-                        <? $this->sub('Text','form_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','form_title',Text::$plain_text) ?>
                     </div>
                     <div class="form_data">
                         <? $this->sub('FormOrder','form') ?>
                     </div>
                     <? if ($val['show_form_bottom_text'] || $this->edit): ?>
-                        <div class="form_bottom <?= !$val['show_form_bottom_text'] ? "hidden" : "" ?>" >
-                            <? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <div class="form_bottom <?=$cls?>" >
+                            <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                 </div>           
             </div>
         </div>
-
     <?}
     
     function tpl_default_4() { 
@@ -199,11 +198,11 @@ class Order extends Block {
             <div class="title_wrap">
                 <div class="container">
                     <div class="title_1">
-                        <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                        <? $this->sub('Text','title_1',Text::$plain_heading) ?>
                     </div>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
                 </div>
@@ -213,27 +212,26 @@ class Order extends Block {
                     <? $this->repeat('items',function($val,$self){ ?>
                         <div class="item">
                             <?=$self->sub('Icon','icon',array('iconType'=>'white'))?>
-                            <div class="name"><?=$self->sub('Text','icon_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>true))?></div>
-                            <div class="desc"><?=$self->sub('Text','icon_desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?></div>
+                            <div class="name"><?=$self->sub('Text','icon_title',Text::$plain_heading)?></div>
+                            <div class="desc"><?=$self->sub('Text','icon_desc',Text::$plain_text)?></div>
                         </div> 
                     <? });?> 
                 </div>
                 <div class="form">
                     <div class="form_title">
-                        <? $this->sub('Text','form_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','form_title',Text::$plain_text) ?>
                     </div>
                     <div class="form_data">
                         <? $this->sub('FormOrder','form') ?>
                     </div>
                     <? if ($val['show_form_bottom_text'] || $this->edit): ?>
-                        <div class="form_bottom <?= !$val['show_form_bottom_text'] ? "hidden" : "" ?>" >
-                            <? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <div class="form_bottom <?=$cls?>" >
+                            <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                 </div>    
             </div>              
         </div>
-
     <?}
     
     function tpl_default_5() { 
@@ -269,34 +267,33 @@ class Order extends Block {
     
     
     function tpl_6($val) {?>
-        <? //_D($val['form']) ?>
         <div class="container-fluid order order_6" style="background: url('<?=INDEX_URL."/".$val['background']?>') no-repeat center top;background-size:cover;">
             <div class="dark">
                 <div class="container">
                     <div class="content_wrap <?= $val['move_form'] ? $val['move_form'] : "align_right" ?>">
                         <div class="title_1">
-                            <? $this->sub('Text','title_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <? $this->sub('Text','title_1',Text::$plain_text) ?>
                         </div>
-                        <? if ($val['show_title_2'] || $this->edit): ?>
-                            <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                                <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
                             </div>
                         <? endif ?>
                         <? if ($val['show_title_3'] || $this->edit): ?>
-                            <div class="title_3 <?= !$val['show_title_3'] ? "hidden" : "" ?>" >
-                                <? $this->sub('Text','title_3',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                            <div class="title_3 <?=$cls?>" >
+                                <? $this->sub('Text','title_3',Text::$plain_text) ?>
                             </div>
                         <? endif ?>
                         <div class="form">
                             <div class="form_title">
-                                <? $this->sub('Text','form_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                <? $this->sub('Text','form_title',Text::$plain_text) ?>
                             </div>
                             <div class="form_data">
                                 <? $this->sub('FormOrder','form') ?>
                             </div>
                             <? if ($val['show_form_bottom_text'] || $this->edit): ?>
-                                <div class="form_bottom <?= !$val['show_form_bottom_text'] ? "hidden" : "" ?>" >
-                                    <? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                                <div class="form_bottom <?=$cls?>" >
+                                    <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
                                 </div>
                             <? endif ?>
                         </div>
@@ -304,7 +301,6 @@ class Order extends Block {
                 </div>
             </div>
         </div>
-
     <?}
     
     function tpl_default_6() { 

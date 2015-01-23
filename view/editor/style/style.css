@@ -683,6 +683,7 @@ ol li {
   font-size: 16px;
   font-family: "Open Sans", "Arial";
   font-weight: normal;
+  line-height: 130%;
 }
 
 .order_2 .btn_wrap {

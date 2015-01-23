@@ -12,7 +12,7 @@ lp.logo = lp.cover.extendOptions({
                 fontFamily: me.value.font || '',
                 color: me.value.color || '',
                 fontSize: me.value.fontSize ? me.value.fontSize + 'px' : ''
-            }));
+            }));            
         }
     },
     configForm: {
