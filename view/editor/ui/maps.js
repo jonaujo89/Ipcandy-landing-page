@@ -105,7 +105,7 @@ lp.maps = lp.block.extendOptions({
     change: function(){  
         
         if (this.value.variant == 1) {  
-            this.variant.find(".container_text").toggleClass('hidden',!this.value.show_container_text);         
+            this.variant.find(".container_text").toggleVis(this.value.show_container_text);         
         }       
         
         var jq = Component.previewFrame.window.$;        

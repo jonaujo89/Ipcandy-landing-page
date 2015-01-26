@@ -10,15 +10,15 @@ class Timer extends Block {
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
-                        <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','title',Text::$plain_text) ?>
                     </h1>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="countdown_desc">
-                        <? $this->sub('Text','countdown_desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','countdown_desc',Text::$plain_text) ?>
                     </div>
 					<div class="countdown_wrap" style="color:<?=$val['countdown_color']?>;">
 						<? $this->sub('Countdown', 'countdown') ?>
@@ -56,15 +56,15 @@ class Timer extends Block {
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
-                        <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','title',Text::$plain_text) ?>
                     </h1>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= $val['title_2_color'] ? $val['title_2_color'] : "" ?> <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?= $val['title_2_color'] ? $val['title_2_color'] : "" ?> <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="countdown_desc">
-                        <? $this->sub('Text','countdown_desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','countdown_desc',Text::$plain_text) ?>
                     </div>
                     <div class="countdown_wrap <?= $val['title_2_color'] ? $val['title_2_color'] : "" ?>">
 						<? $this->sub('Countdown','countdown') ?>
@@ -92,31 +92,31 @@ class Timer extends Block {
             <div class="container">
                 <div class="span8">
                     <h1 class="title">
-                        <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','title',Text::$plain_text) ?>
                     </h1>
                     <div class="timer_desc">
-                        <? $this->sub('Text','timer_desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','timer_desc',Text::$plain_text) ?>
                     </div>
                     <div class="countdown_wrap">
 						<? $this->sub('Countdown','countdown') ?>
 					</div>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                 </div>
                 <div class="span8">
                     <div class="form">
                         <div class="form_title">
-                            <? $this->sub('Text','form_title_1') ?>    
+                            <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
                         </div>
                         <div class="form_data">
                             <? $this->sub('FormOrder','form') ?>
                         </div>
-                        <? if ($val['show_form_bottom_text'] || $this->edit): ?>
-							<div class="form_bottom <?= !$val['show_form_bottom_text'] ? "hidden" : "" ?>" >
-								<? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
+                        <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
+							<div class="form_bottom <?=$cls?>" >
+								<? $this->sub('Text','form_bottom_text',Text::$default_text) ?>
 							</div>
 						<? endif ?>                
                     </div>
@@ -169,31 +169,31 @@ class Timer extends Block {
             <div class="container">
                 <div class="span8">
                     <h1 class="title">
-                        <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','title',Text::$plain_text) ?>
                     </h1>
                     <div class="timer_desc">
-                        <? $this->sub('Text','timer_desc',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                        <? $this->sub('Text','timer_desc',Text::$plain_text) ?>
                     </div>
                     <div class="countdown_wrap">
 						<? $this->sub('Countdown','countdown') ?>
 					</div>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                 </div>
                 <div class="span8">
                     <div class="form">
                         <div class="form_title">
-                            <? $this->sub('Text','form_title_1') ?>    
+                            <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
                         </div>
                         <div class="form_data">
                             <? $this->sub('FormOrder','form') ?>
                         </div>
-                        <? if ($val['show_form_bottom_text'] || $this->edit): ?>
-							<div class="form_bottom <?= !$val['show_form_bottom_text'] ? "hidden" : "" ?>" >
-								<? $this->sub('Text','form_bottom_text',array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
+                        <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
+							<div class="form_bottom <?=$cls?>" >
+								<? $this->sub('Text','form_bottom_text',Text::$default_text) ?>
 							</div>
 						<? endif ?>                
                     </div>

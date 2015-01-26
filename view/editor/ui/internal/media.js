@@ -15,14 +15,14 @@ lp.media = lp.cover.extendOptions({
             if (pattern_youtube.test(url)) {                
                 var pattern_url_youtube = /^.*((youtu.*be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
                 var match = url.match(pattern_url_youtube);
-                if (match&&match[7]){
+                if (match){
                     div_media.empty(div_media);
                     div_media.append($('<iframe frameborder="0"></iframe>').attr({src:'//www.youtube.com/embed/'+match[7]}));
                 }
             } else if (pattern_vimeo.test(url)){
                 var pattern_url_vimeo = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
                 var match = url.match(pattern_url_vimeo);
-                if (match&&match[5]){
+                if (match){
                     div_media.empty(div_media);
                     div_media.append($('<iframe frameborder="0"></iframe>').attr({src:'//player.vimeo.com/video/'+match[5]}));
                 }
@@ -56,7 +56,7 @@ lp.media = lp.cover.extendOptions({
             },
             {
                 type: 'label',
-                value: _t("example: www.youtube.com/embed/xbK8rl9wH4Q"), margin: "0 0 5px 2px",
+                value: _t("example: www.youtube.com/embed/xbK8rl9wH4Q"), margin: "0 0 5px 0",
                 showWhen: { type: 'video' }
             },
         ]

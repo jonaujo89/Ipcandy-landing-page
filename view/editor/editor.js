@@ -54,8 +54,12 @@ require("./ui/textBlock.js");
 require("./ui/digits.js");
 require("./ui/timer.js");
 
-
 var dir = require.dir;
+
+$.fn.toggleVis = function(flag) {
+    $(this).toggleClass("hidden",!flag);
+    $(this).toggleClass("visible",flag);
+}
 
 exports = function(templater_app,options) {
     var app = templater_app.extend({

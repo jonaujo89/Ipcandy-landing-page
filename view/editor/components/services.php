@@ -30,7 +30,7 @@ class Services extends Block {
                                             </div>
                                         <? endif ?>
                                         <div class="name">
-                                            <? $self->sub('Text','name_1',Text::$plain_heading) ?>
+                                            <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
                                         </div>
                                         <? if ($cls = $self->vis($val['show_desc'])): ?>
                                             <div class="desc <?=$cls?>" >
@@ -104,10 +104,10 @@ class Services extends Block {
                             <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>    
-                    <div class="item_list clear <?= $val['image_format'] ? $val['image_format'] : "circle" ?>">
+                    <div class="item_list clear <?= $val['image_shape'] ? $val['image_shape'] : "circle" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <? for ($i=1; $i <= 2; $i++): ?>
-                                <div class="item <?= $val['show_shadow_image'] ? '' : "hide_shadow" ?>">
+                                <div class="item <?= $val['show_image_shadow'] ? '' : "hide_shadow" ?>">
                                     <div class="img_data">
                                         <? $self->sub('Image','image_'.$i) ?>
                                     </div>
@@ -147,8 +147,8 @@ class Services extends Block {
             'show_desc' => true,
             'show_price' => true,
             'show_order_button' => true,
-            'show_shadow_image' => true,
-            'image_format' => 'circle',
+            'show_image_shadow' => true,
+            'image_shape' => 'circle',
             'background' =>'#FFFFFF',
             'title' => "Что мы предлагаем",
             'title_2' => "У нас огромный выбор самых различных услуг ",
@@ -185,8 +185,8 @@ class Services extends Block {
                     <? endif ?>    
                     <div class="item_list clear">
                          <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item <?= $val['show_shadow_image'] ? "" : "hide_shadow" ?>">
-                                <div class="img_data <?= $val['image_size'] ? $val['image_size'] : "image_middle" ?>">
+                            <div class="item <?= $val['show_image_shadow'] ? "" : "hide_shadow" ?>">
+                                <div class="img_data <?= $val['image_size'] ? "image_".$val['image_size'] : "image_middle" ?>">
                                     <? $self->sub('Image','image') ?>
                                 </div>
                                 <div class="item_data">
@@ -231,8 +231,8 @@ class Services extends Block {
             'show_price' => true,
             'show_text_above_button' => true,
             'show_order_button' => true,
-            'show_shadow_image' => true,
-            'image_size' => 'image_middle',
+            'show_image_shadow' => true,
+            'image_size' => 'middle',
             'background' =>'#FFFFFF',
             'title' => "Что мы предлагаем",
             'title_2' => "У нас огромный выбор самых различных услуг ",
@@ -349,7 +349,7 @@ class Services extends Block {
                             <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>   
-                    <div class="item_list clear <?= $val['image_format'] ? $val['image_format'] : "circle" ?>">
+                    <div class="item_list clear <?= $val['image_shape'] ? $val['image_shape'] : "circle" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <? for ($i=1; $i <= 3; $i++): ?>
                                 <div class="item">
@@ -396,7 +396,7 @@ class Services extends Block {
             'show_desc' => true,
             'show_price' => true,
             'show_price' => true,
-            'image_format' => 'circle',
+            'image_shape' => 'circle',
             'show_order_button' => true,
             'background' =>'#F7F7F7',
             'title' => "Что мы предлагаем",
@@ -436,7 +436,7 @@ class Services extends Block {
                             <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>   
-                    <div class="item_list clear <?= $val['image_format'] ? $val['image_format'] : "circle" ?>">
+                    <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <? for ($i=1; $i <= 3; $i++): ?>
                                 <div class="item">

@@ -1,20 +1,17 @@
 lp.gallery = lp.block.extendOptions({
-	init: function () {
-
-    },
     change: function(){		
         var jq = Component.previewFrame.window.$;      
 
-        this.element.find(".gallery").css({
+        this.variant.find(".gallery").css({
             background: this.value.background || '',
         }); 
 		
-		this.element.find(".title").toggle(this.value.show_title);
-		this.element.find(".title_2").toggle(this.value.show_title_2);
+		this.variant.find(".title").toggleVis(this.value.show_title);
+		this.variant.find(".title_2").toggleVis(this.value.show_title_2);
 		
         if (this.value.variant == 1 || this.value.variant == 5 || this.value.variant == 6 || this.value.variant == 7 || this.value.variant == 8 || this.value.variant == 9 || this.value.variant == 10) {  
-			this.variant.find(".img_title").toggle(this.value.show_image_title);
-			this.variant.find(".img_desc").toggle(this.value.show_image_desc);
+			this.variant.find(".img_title").toggleVis(this.value.show_image_title);
+			this.variant.find(".img_desc").toggleVis(this.value.show_image_desc);
 		}    
 		if (this.value.variant == 2) {
             this.variant.find(".img_text").unbind('keyup').on('keyup', function(){
@@ -22,26 +19,26 @@ lp.gallery = lp.block.extendOptions({
                 var overlay = jq(this).parent('.overlay');               
                 var overlayChildren = overlay.children();                
                 var heightsChildren = 0;
-                overlayChildren.each(function(indx, element){  
-                    heightsChildren = jq(element).outerHeight(true) + heightsChildren;
+                overlayChildren.each(function(indx, variant){  
+                    heightsChildren = jq(variant).outerHeight(true) + heightsChildren;
                 });
                 overlay.height(heightsChildren - (overlay.outerHeight() - overlay.innerHeight()));
                 
             });
-			this.variant.find(".img_desc").toggle(this.value.show_image_desc);
+			this.variant.find(".img_desc").toggleVis(this.value.show_image_desc);
 			this.variant.find(".item_list").toggleClass("hide_desc",!this.value.show_image_desc);
 			this.variant.find(".item_list").toggleClass("hide_overlay",!this.value.show_image_overlay);
             
-            var textBlockHeight = this.element.find('.gallery_2 .item_list .item_block .item');
+            var textBlockHeight = this.variant.find('.gallery_2 .item_list .item_block .item');
             jq(textBlockHeight).textBlockHeight();
 		}
 		if (this.value.variant == 3 || this.value.variant == 4) {			
-			this.variant.find(".img_desc").toggle(this.value.show_image_desc);
-			this.variant.find(".overlay").toggle(this.value.show_image_overlay);	
+			this.variant.find(".img_desc").toggleVis(this.value.show_image_desc);
+			this.variant.find(".overlay").toggleVis(this.value.show_image_overlay);	
 			
 		}
 		if (this.value.variant == 3 || this.value.variant == 4) {
-			this.variant.find(".fancybox_whithout_title").toggle(this.value.enable_fancybox);
+			this.variant.find(".fancybox_whithout_title").toggleVis(this.value.enable_fancybox);
 			if (jq && this.value.enable_fancybox) {
 				jq(".fancybox_whithout_title").lpFancyboxWhithoutTitle();				
 			}			
@@ -53,11 +50,11 @@ lp.gallery = lp.block.extendOptions({
             } 
 		}        
         if (this.value.variant == 5){ 
-            var bxslider = this.element.find('.slider [data-name=items]');
+            var bxslider = this.variant.find('.slider [data-name=items]');
             jq(bxslider).lpBxSlider();
         }        
         if (this.value.variant == 6) {
-            var masonry = this.element.find(".masonry");
+            var masonry = this.variant.find(".masonry");
             jq(masonry).lpMasonry();
         }
 
@@ -90,9 +87,8 @@ lp.gallery = lp.block.extendOptions({
             },			
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
-                type: lp.color, name: "background",  
-                items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]
-            },
+                type: lp.blockColor, name: "background",  
+            }
         ]
     }
 });

@@ -12,3 +12,24 @@ lp.color = teacss.ui.select.extendOptions({
         );
     }
 });
+
+lp.buttonColor = lp.color.extendOptions({
+    iconSize: 15, 
+    items: [
+        { value: 'blue', color: '#0187BC' },
+        { value: 'green', color: '#3E9802' },
+        { value: 'orange', color: '#FD6F00' },
+        { value: 'purple', color: '#8C33D2' },
+        { value: 'purple_light', color: '#9581BF' },
+        { value: 'rose', color: '#F372A4' },
+        { value: 'red', color: '#CE0707' },
+        { value: 'yellow', color: '#FFC415' }
+    ]    
+});
+
+lp.blockColor = lp.color.extendOptions({
+    items: [
+        { value: "#FFFFFF" },
+        { value: "#F7F7F7" }
+    ]    
+});

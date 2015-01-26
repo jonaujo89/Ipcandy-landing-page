@@ -19,17 +19,17 @@ class Benefits extends Block {
                             <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
-                    <div class="item_list <?= $val['show_icon_border'] ? "" : "hide_ico_border" ?>">
+                    <div class="item_list <?= $val['show_icon_arounds'] ? "" : "hide_ico_border" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                            
                             <? for ($i=1; $i <= 3; $i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Icon','icon_'.$i)?>
-                                    <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
+                                    <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
                                         <div class="name <?= $cls ?>" >
                                             <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
                                         </div>
                                     <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_benefits_desc'])): ?>
+                                    <? if ($cls = $self->vis($val['show_desc_benefit'])): ?>
                                         <div class="desc <?= $cls ?>" >
                                             <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
                                         </div>
@@ -48,9 +48,9 @@ class Benefits extends Block {
         return  array(
             'show_title' => true,
             'show_title_2' => false,
-            'show_icon_border' => true,
-            'show_benefits_name' => true,
-            'show_benefits_desc' => true,
+            'show_icon_arounds' => true,
+            'show_name_benefit' => true,
+            'show_desc_benefit' => true,
             'background_color' =>'#FFFFFF',
             'title' => "Преимущества нашей компании",
             'title_2' => "Подзаголовок",
@@ -89,12 +89,12 @@ class Benefits extends Block {
                             <? for ($i=1; $i <= 3; $i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Icon','icon_'.$i)?>
-                                    <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
+                                    <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
                                         <div class="name <?=$cls?>" >
                                             <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
                                         </div>
                                     <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_benefits_desc'])): ?>
+                                    <? if ($cls = $self->vis($val['show_desc_benefit'])): ?>
                                         <div class="desc <?=$cls?>" >
                                             <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
                                         </div>
@@ -113,8 +113,8 @@ class Benefits extends Block {
         return  array(
             'show_title' => true,
             'show_title_2' => false,
-            'show_benefits_name' => true,
-            'show_benefits_desc' => true,
+            'show_name_benefit' => true,
+            'show_desc_benefit' => true,
             'background_color' =>'#FFFFFF',
             'title' => "Преимущества нашей компании",
             'title_2' => "Подзаголовок",
@@ -149,12 +149,12 @@ class Benefits extends Block {
                             <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
-                    <div class="item_list <?= !$val['show_benefits_name'] ? "hide_name" : "" ?>">
+                    <div class="item_list <?= !$val['show_name_benefit'] ? "hide_name" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <? for ($i=1; $i <= 2; $i++): ?>
                                 <div class="item">                                
                                     <?=$self->sub('Icon','icon_'.$i)?>
-                                    <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
+                                    <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
                                         <div class="name <?=$cls?>" >
                                             <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
                                         </div>
@@ -176,8 +176,8 @@ class Benefits extends Block {
         return  array(
             'show_title' => true,
             'show_title_2' => false,
-            'show_icon_border' => true,
-            'show_benefits_name' => true,
+            'show_icon_arounds' => true,
+            'show_name_benefit' => true,
             'background_color' =>'#F7F7F7',
             'title' => "Преимущества нашей компании",
             'title_2' => "Подзаголовок",           
@@ -216,7 +216,7 @@ class Benefits extends Block {
                             <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
-                    <div class="item_list clear <?= !$val['show_border_image'] ? "hide_border" : "" ?>">
+                    <div class="item_list clear <?= !$val['show_image_border'] ? "hide_border" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <? for ($i=1; $i <= 2; $i++): ?>
                                 <div class="item">                                
@@ -243,7 +243,7 @@ class Benefits extends Block {
         return  array(
            'show_title' => true,
            'show_title_2' => false,
-           'show_border_image' => true,
+           'show_image_border' => true,
            'background_color' =>'#FFFFFF',
            'title' => "Преимущества нашей компании",
            'title_2' => "Подзаголовок",
@@ -283,17 +283,17 @@ class Benefits extends Block {
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
-                        <div class="item_list clear <?= !$val['show_border_image'] ? "hide_border" : "" ?>">
+                        <div class="item_list clear <?= !$val['show_image_border'] ? "hide_border" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <? for ($i=1; $i <= 3; $i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Image','image_'.$i)?>
-                                    <? if ($cls = $self->vis($val['show_benefits_name'])): ?>
+                                    <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
                                         <div class="name <?=$cls?>" >
                                             <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
                                         </div>
                                     <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_benefits_desc'])): ?>
+                                    <? if ($cls = $self->vis($val['show_desc_benefit'])): ?>
                                         <div class="desc <?=$cls?>" >
                                             <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
                                         </div>
@@ -312,9 +312,9 @@ class Benefits extends Block {
         return  array(
             'show_title' => true,
             'show_title_2' => false,
-            'show_benefits_name' => true,
-            'show_benefits_desc' => true,
-            'show_border_image' => true,
+            'show_name_benefit' => true,
+            'show_desc_benefit' => true,
+            'show_image_border' => true,
             'background_color' =>'#FFFFFF',
             'title' => "Преимущества нашей компании",
             'title_2' => "Подзаголовок",

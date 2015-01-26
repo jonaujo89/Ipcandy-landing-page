@@ -3,8 +3,11 @@ lp.formButton = lp.cover.extendOptions({
         var jq = Component.previewFrame.window.$;
         var me = this;
         var button = me.element.find(".btn_form");        
-        button.attr("href", me.value.type == 'link' ? me.value.link : ''); 
-        button.text(me.value.text).prop("class", "btn_form "+ me.value.color || "btn_form");
+        if (me.value.type=="link")
+            button.attr("href",me.value.link);
+        else
+            button.removeAttr("href");
+        button.text(me.value.text).prop("class", "btn_form "+ me.value.color);
     },
     configForm: {
         title: _t("Order button"),        
@@ -19,19 +22,7 @@ lp.formButton = lp.cover.extendOptions({
             { type: "label", value: _t("Button text:"), width: "53%", margin: "5px 0 2px 0" },
             { type: "label", value: _t("Button color:"), width: "47%", margin: "5px 0 2px 0" },
             { type: "text", name: "text", width: "50%", margin: "0 3% 10px 0" },
-            { 
-                type: lp.color, name: "color", width: "47%", iconSize: 15, margin: "0 0 8px",
-                items: [
-                    { value: 'blue', color: '#0187BC' },
-                    { value: 'green', color: '#3E9802' },
-                    { value: 'orange', color: '#FD6F00' },
-                    { value: 'purple', color: '#8C33D2' },
-                    { value: 'purple_light', color: '#9581BF' },
-                    { value: 'rose', color: '#F372A4' },
-                    { value: 'red', color: '#CE0707' },
-                    { value: 'yellow', color: '#FFC415' }
-                ]
-            },
+            { type: lp.buttonColor, name: "color", width: "47%", margin: "0 0 8px" },
             { type: "label", value: _t("Form"), width: "100%", margin: "5px 0", showWhen: { type: 'form' } },
             { type: "label", value: _t("Link"), width: "100%", margin: "5px 0", showWhen: { type: 'link' } },
             { 

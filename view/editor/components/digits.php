@@ -10,14 +10,14 @@ class Digits extends Block {
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -25,10 +25,10 @@ class Digits extends Block {
                             <? for ($i=1; $i <= 4; $i++): ?>
                                 <div class="item">
                                     <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
                                     </div>
                                     <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
                                     </div>
                                 </div>
                             <? endfor ?>
@@ -69,14 +69,14 @@ class Digits extends Block {
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
@@ -84,10 +84,10 @@ class Digits extends Block {
                             <? for ($i=1; $i <= 3; $i++): ?>
                                 <div class="item clear">
                                     <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
                                     </div>
                                     <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
                                     </div>
                                 </div>
                             <? endfor ?>
@@ -134,14 +134,14 @@ class Digits extends Block {
             <div class="container">                
                 <div class="span16">
                     <div class="margin"></div>
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
@@ -149,10 +149,10 @@ class Digits extends Block {
                             <? for ($i=1; $i <= 3; $i++): ?>
                                 <div class="item clear">
                                     <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
                                     </div>
                                     <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
                                     </div>
                                 </div>
                             <? endfor ?>
@@ -190,27 +190,27 @@ class Digits extends Block {
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
-                    <div class="item_list <?= $val['icon_color'] ? $val['icon_color'] : "icon_grey" ?>">
+                    <div class="item_list <?= $val['icon_color'] ? "icon_".$val['icon_color'] : "icon_grey" ?>">
                         <? $this->repeat('items',function($val,$self){ ?>
                             <? for ($i=1; $i <= 4; $i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Icon','icon_'.$i)?>
                                     <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
                                     </div>
                                     <hr>
                                     <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
                                     </div>
                                 </div>
                             <? endfor ?>                    
@@ -226,7 +226,7 @@ class Digits extends Block {
         return  array(
             'show_title' => false,
             'show_title_2' => false,
-            'icon_color' => 'icon_grey',
+            'icon_color' => 'grey',
             'background_color' => '#FFFFFF',
             'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
@@ -265,14 +265,14 @@ class Digits extends Block {
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
@@ -281,11 +281,11 @@ class Digits extends Block {
                                 <div class="item">
                                     <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
                                     <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
                                     </div>
                                     <hr>
                                     <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
                                     </div>
                                 </div>
                             <? endfor ?>
@@ -339,14 +339,14 @@ class Digits extends Block {
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -355,10 +355,10 @@ class Digits extends Block {
                                 <div class="item">
                                     <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
                                     <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
                                     </div>
                                     <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
                                     </div>
                                 </div>
                             <? endfor ?>
@@ -412,26 +412,26 @@ class Digits extends Block {
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
-                    <div class="item_list <?= $val['icon_color'] ? $val['icon_color'] : "icon_grey" ?>">
+                    <div class="item_list <?= $val['icon_color'] ? "icon_".$val['icon_color'] : "icon_grey" ?>">
                         <? $this->repeat('items',function($val,$self){ ?>
                             <? for ($i=1; $i <= 4; $i++): ?>
                                 <div class="item">                                
                                     <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
                                     </div>
                                     <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
                                     <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
                                     </div>
                                 </div>
                             <? endfor ?>
@@ -447,7 +447,7 @@ class Digits extends Block {
         return  array(
             'show_title' => false,
             'show_title_2' => false,
-            'icon_color' => 'icon_grey',
+            'icon_color' => 'grey',
             'background' => '/view/editor/assets/texture_black/1.jpg',
             'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
@@ -477,14 +477,14 @@ class Digits extends Block {
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
@@ -492,10 +492,10 @@ class Digits extends Block {
                             <div class="item">
                                 <div class="value_wrap">
                                     <div class="value" style="color: <?=$val['digits_color']?>;">
-                                        <?=$this->sub('Text','value_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),"oneline"=>true))?>
+                                        <?=$this->sub('Text','value_'.$i,Text::$plain_heading)?>
                                     </div>
                                     <div class="name">
-                                        <?=$this->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false)))?>
+                                        <?=$this->sub('Text','name_'.$i,Text::$plain_text)?>
                                     </div>
                                 </div>
                             </div>

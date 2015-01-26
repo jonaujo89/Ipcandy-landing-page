@@ -9,26 +9,26 @@ class TextBlock extends Block {
         <div class="container-fluid text_block text_block_1" style="background:<?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="text">
-                        <? $this->sub('Text','text',array('buttons'=>array("bold","italic","fontcolor","removeformat"))) ?>
+                        <? $this->sub('Text','text',Text::$color_text) ?>
                     </div>
-                    <? if ($val['show_list'] || $this->edit): ?>
-                        <div class="list_wrap clear <?= !$val['show_list'] ? "hidden" : "" ?>">
+                    <? if ($cls = $this->vis($val['show_list'])): ?>
+                        <div class="list_wrap clear <?=$cls?>">
                             <div class="list list_1">
-                                <? $this->sub('Text','list_1',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> false)) ?>
+                                <? $this->sub('Text','list_1',Text::$plain_text) ?>
                             </div>
                             <div class="list list_2">
-                                <? $this->sub('Text','list_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false), "oneline"=> false)) ?>
+                                <? $this->sub('Text','list_2',Text::$plain_text) ?>
                             </div>
                         </div>
                     <? endif ?>
@@ -66,27 +66,27 @@ class TextBlock extends Block {
         <div class="container-fluid text_block text_block_2" style="background:<?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
                         <? $this->repeat('items',function($val,$self) use ($val){ ?>
                             <? for ($i=1; $i <= 2; $i++): ?>
                                 <div class="item">
-                                    <? if ($val['show_name'] || $self->edit): ?>
-                                        <div class="name <?= !$val['show_name'] ? "hidden" : "" ?>" >
-                                            <? $self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true)) ?>
+                                    <? if ($cls = $self->vis($val['show_name'])): ?>
+                                        <div class="name <?=$cls?>" >
+                                            <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
                                         </div>
                                     <? endif ?>
                                     <div class="desc">
-                                        <?=$self->sub('Text','desc_'.$i)?>
+                                        <?=$self->sub('Text','desc_'.$i,Text::$default_text)?>
                                     </div>
                                 </div>
                             <? endfor ?>
@@ -128,14 +128,14 @@ class TextBlock extends Block {
         <div class="container-fluid text_block text_block_3" style="background:<?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false))) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">                        
@@ -143,10 +143,10 @@ class TextBlock extends Block {
                             <? for ($i=1; $i <= 3; $i++): ?>
                                 <div class="item">
                                     <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true))?>
+                                        <?=$self->sub('Text','name_'.$i,Text::$plain_heading)?>
                                     </div>
                                     <div class="desc">
-                                        <?=$self->sub('Text','desc_'.$i)?>
+                                        <?=$self->sub('Text','desc_'.$i,Text::$default_text)?>
                                     </div>
                                 </div>
                             <? endfor ?>
@@ -188,15 +188,15 @@ class TextBlock extends Block {
                             <?=$self->sub('Image','image')?>
                             <div class="text_wrap">
                                 <div class="text_title">
-                                    <?=$self->sub('Text','text_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => false))?>
+                                    <?=$self->sub('Text','text_title',Text::$plain_heading)?>
                                 </div> 
-                                <? if ($val['show_text_title_2'] || $self->edit): ?>
-                                    <div class="text_title_2 <?= !$val['show_text_title_2'] ? "hidden" : "" ?>" >
-                                        <? $self->sub('Text','text_title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"),'oneline' => false)) ?>
+                                <? if ($cls = $self->vis($val['show_text_title_2'])): ?>
+                                    <div class="text_title_2 <?=$cls?>" >
+                                        <? $self->sub('Text','text_title_2',Text::$color_text) ?>
                                     </div>
                                 <? endif ?>
                                 <div class="text">
-                                    <?=$self->sub('Text','text')?>
+                                    <?=$self->sub('Text','text',Text::$default_text)?>
                                 </div>                            
                             </div>
                             <div style="clear: both"></div>
@@ -238,10 +238,10 @@ class TextBlock extends Block {
                             <?=$self->sub('Image','image')?>
                             <div class="text_wrap">
                                 <div class="text_title">
-                                    <?=$self->sub('Text','text_title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => false))?>
+                                    <?=$self->sub('Text','text_title',Text::$plain_heading)?>
                                 </div>
                                 <div class="text">
-                                    <?=$self->sub('Text','text')?>
+                                    <?=$self->sub('Text','text',Text::$default_text)?>
                                 </div>
                             </div>               
                             <div style="clear: both"></div>
@@ -290,15 +290,15 @@ class TextBlock extends Block {
                 <div class="span16 clear">
                     <div class="text_data">
                         <h1 class="title">
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true)) ?>
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
-                        <? if ($val['show_text_title_2'] || $this->edit): ?>
-                            <div class="title_2 <?= !$val['show_text_title_2'] ? "hidden" : "" ?>" >
-                                <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"),'oneline' => true)) ?>
+                        <? if ($cls = $this->vis($val['show_text_title_2'])): ?>
+                            <div class="title_2 <?=$cls?>" >
+                                <? $this->sub('Text','title_2',Text::$color_text) ?>
                             </div>
                         <? endif ?> 
                         <div class="text">
-                            <? $this->sub('Text','text') ?>
+                            <? $this->sub('Text','text',Text::$default_text) ?>
                         </div>
                     </div>
                     <div class="ico_data">
@@ -307,10 +307,10 @@ class TextBlock extends Block {
                                 <div class="item">
                                     <?=$self->sub('Icon','icon')?>
                                     <div class="name">
-                                        <?=$self->sub('Text','name',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline' => true))?>
+                                        <?=$self->sub('Text','name',Text::$plain_heading)?>
                                     </div>
                                     <div class="desc">
-                                        <?=$self->sub('Text','desc')?>                            
+                                        <?=$self->sub('Text','desc',Text::$default_text)?>                            
                                     </div>                        
                                 </div>
                             <? }) ?>

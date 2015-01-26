@@ -1,12 +1,12 @@
 lp.footer = lp.block.extendOptions({
     change: function(){
 		
-		this.cmp.element.find(".footer").css({
+		this.variant.find(".footer").css({
 			background: this.value.background_color || '',
 		});        
 		
 		if (this.value.variant == 1){
-			this.variant.find(".policy_wrap").toggleClass('hidden',!this.value.show_policy);
+			this.variant.find(".policy_wrap").toggleVis(this.value.show_policy);
 		}
     },
     configForm: {
@@ -17,8 +17,7 @@ lp.footer = lp.block.extendOptions({
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
-                type: lp.color, name: "background_color",  
-                items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]
+                type: lp.blockColor, name: "background_color" 
             },
         ]
     }

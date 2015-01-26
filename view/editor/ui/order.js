@@ -1,57 +1,56 @@
 lp.order = lp.block.extendOptions({
     change: function () {
-        //if для того, чтобы выполнять изменения фона только при выбранной картинке
         if(this.value.background){
-            this.element.find(".order_"+this.value.variant).css({
+            this.variant.find(".order_"+this.value.variant).css({
                 backgroundImage: "url("+base_url+"/"+(this.value.background)+")",
             });
         }
         
         if(this.value.background_color){
-            this.element.find(".order_"+this.value.variant).css({
+            this.variant.find(".order_"+this.value.variant).css({
                 background: this.value.background_color || '',
             });
         }
 
         if (this.value.variant == 1) {
-            this.variant.find(".form_title_2").toggleClass('hidden',!this.value.show_form_title_2);
-            this.variant.find(".form_bottom").toggleClass('hidden',!this.value.show_form_bottom_text);
+            this.variant.find(".form_title_2").toggleVis(this.value.show_form_title_2);
+            this.variant.find(".form_bottom").toggleVis(this.value.show_form_bottom_text);
         }
         
         if (this.value.variant == 2) {
-            this.variant.find(".btn_note").toggleClass('hidden',!this.value.show_text_above_button);
+            this.variant.find(".btn_note").toggleVis(this.value.show_text_above_button);
             this.variant.find(".btn_wrap").toggleClass('no_btn_note',!this.value.show_text_above_button);
-            this.variant.find(".btn_wrap").toggleClass("no_arrow",!this.value.add_arrow);
+            this.variant.find(".btn_wrap").toggleClass("no_arrow",!this.value.show_arrow);
             
-            if (this.value.add_background_noise) {
-                this.element.find(".background_toggle_noise").addClass("with_noise").removeClass("dark");            
+            if (this.value.show_background_noise) {
+                this.variant.find(".background_toggle_noise").addClass("with_noise").removeClass("dark");            
             } else {
-                this.element.find(".background_toggle_noise").removeClass("with_noise").addClass("dark");
+                this.variant.find(".background_toggle_noise").removeClass("with_noise").addClass("dark");
             }
         }
         
         if (this.value.variant == 3) {
-            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
-            this.variant.find(".img_wrap").toggleClass("hide_border",!this.value.show_media_border);
-            this.variant.find(".list").toggle(this.value.show_list_box);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);
+            this.variant.find(".img_wrap").toggleClass("hide_border",!this.value.show_border);
+            this.variant.find(".list").toggleVis(this.value.show_list_box);
         }
         
         if (this.value.variant == 4) {
-            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
-            this.variant.find(".img_wrap").toggleClass("hide_box_shadow",!this.value.show_box_shadow_media);
-            this.variant.find(".form_bottom").toggleClass('hidden',!this.value.show_form_bottom_text);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);
+            this.variant.find(".img_wrap").toggleClass("hide_box_shadow",!this.value.show_box_shadow);
+            this.variant.find(".form_bottom").toggleVis(this.value.show_form_bottom_text);
         }
         
         if (this.value.variant == 5) {
-            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
-            this.variant.find(".form_bottom").toggleClass('hidden',!this.value.show_form_bottom_text);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);
+            this.variant.find(".form_bottom").toggleVis(this.value.show_form_bottom_text);
         }
         
         if (this.value.variant == 6) {
-            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
-            this.variant.find(".title_3").toggleClass('hidden',!this.value.show_title_3);
-            this.variant.find(".content_wrap").prop("class","content_wrap "+this.value.move_form);
-            this.variant.find(".form_bottom").toggleClass('hidden',!this.value.show_form_bottom_text);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);
+            this.variant.find(".title_3").toggleVis(this.value.show_title_3);
+            this.variant.find(".content_wrap").prop("class","content_wrap align_"+this.value.form_align);
+            this.variant.find(".form_bottom").toggleVis(this.value.show_form_bottom_text);
         }      
         
     },
@@ -91,7 +90,7 @@ lp.order = lp.block.extendOptions({
                 showWhen: { variant: [1,2,6] }
             },  
             { 
-                name: "add_background_noise", label: _t("Add noise"), type: "checkbox", width: "auto",  
+                name: "show_background_noise", label: _t("Show noise"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2] }
             },
             { 
@@ -99,7 +98,7 @@ lp.order = lp.block.extendOptions({
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "add_arrow", label: _t("Add arrow"), type: "checkbox", width: "auto",  
+                name: "show_arrow", label: _t("Show arrow"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2] }
             },
             { 
@@ -119,11 +118,11 @@ lp.order = lp.block.extendOptions({
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1,4,5,6] }
             },
             { 
-                name: "show_media_border", label: _t("Show border from media"), type: "checkbox", width: "auto",  
+                name: "show_border", label: _t("Show image around"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [3] }
             },
             { 
-                name: "show_box_shadow_media", label: _t("Show border from media"), type: "checkbox", width: "auto",  
+                name: "show_box_shadow", label: _t("Show image around"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [4] }
             },
             { 
@@ -132,8 +131,8 @@ lp.order = lp.block.extendOptions({
             },
             { type: "label", value: _t("Form align:"), margin: "10px 0 0 0", showWhen: { variant: [6] }},
             { 
-                name: "move_form",
-                items: [{ label: _t("Move left<br>"), value:"align_left"},{ label: _t("Move center<br>"), value:"align_center"},{ label: _t("Move right"), value:"align_right"}],
+                name: "form_align",
+                items: [{ label: _t("left<br>"), value:"left"},{ label: _t("center<br>"), value:"center"},{ label: _t("right"), value:"right"}],
                 type: "radio", width: "auto",  
                 margin: "0px 0px 5px 0px", showWhen: { variant: [6] }
             },

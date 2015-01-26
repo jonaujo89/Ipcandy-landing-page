@@ -1,16 +1,21 @@
 lp.formControls = {};
 
-lp.formControls.text = teacss.ui.composite.extendOptions({
-    selectLabel: _t("Text"),
-    selectIcon: "fa fa-font",
-    tpl: function (val) {
+lp.formControls.field = teacss.ui.composite.extend({
+    tpl_label: function (val) {
         var star_required, show_desc;
         if (val.required) {star_required = "<i>*</i>"};
         if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
+        return $('<div class="field_title">').text(val.label).append(star_required).add(show_desc);
+    }
+},{})
+
+lp.formControls.text = lp.formControls.field.extendOptions({
+    selectLabel: _t("Text"),
+    selectIcon: "fa fa-font",
+    tpl: function (val) {
         return $('<div class="form_field">').append(
             $('<label>').append(
-                $('<div class="field_title">').text(val.label).append(star_required),
-                show_desc,
+                this.tpl_label(val),
                 $('<input class="form_field_text" type="text">'),
                 $('<div class="error">')
             )
@@ -30,17 +35,48 @@ lp.formControls.textarea = lp.formControls.text.extend({
     selectLabel: _t("Text area"),
     selectIcon: "fa fa-bars",
     tpl: function (val) {
-        var star_required, show_desc;
-        if (val.required) {star_required = "<i>*</i>"};
-        if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
         return $('<div class="form_field">').append(
             $('<label>').append(
-                $('<div class="field_title">').text(val.label).append(star_required),
-                show_desc,
+                this.tpl_label(val),
                 $('<textarea class="form_field_textarea" rows="3">'),
                 $('<div class="error">')
             )
         );
+    }
+},{});
+
+lp.formControls.file = lp.formControls.text.extend({
+    selectLabel: _t("File"),
+    selectIcon: "fa fa-paperclip",
+    tpl: function (val) {
+        return $('<div class="form_field">').append(
+            $('<label>').append(
+                this.tpl_label(val),
+                $('<input class="form_field_file" multiple="" type="file">'),
+                $('<div class="error">')
+            )
+        );
+    }
+},{});
+
+lp.formControls.select = lp.formControls.field.extendOptions({
+    selectLabel: _t("Select"),
+    selectIcon: "fa fa-toggle-down",
+    default: { options: _t("Option 1\nOption 2\nOption 3") },
+    tpl: function (val) {
+        var select;
+        var ret = $('<div class="form_field">').append(
+            $('<label>').append(
+                this.tpl_label(val),
+                $('<div class="form_field_select_wrap">').append(
+                    select =  $('<select class="form_field_select">')
+                )
+            )
+        );
+        $.each(val.options.split("\n"),function(){
+            select.append($("<option>").text(this));
+        });
+        return ret;
     }
 },{
     items: [
@@ -48,9 +84,34 @@ lp.formControls.textarea = lp.formControls.text.extend({
         { type: "text", name: "label" },
         _t("Field description"),
         { type: "text", name: "desc" },
-        { type: "checkbox", name: "required", label: _t("Is required?"), margin:"0" }
+        _t("Options"),
+        { type: "textarea", name: "options", height: 55, width: 448 }
     ]
 });
+
+lp.formControls.radio = lp.formControls.select.extend({
+    selectLabel: _t("Radio"),
+    selectIcon: "fa fa-dot-circle-o",
+    tpl: function (val, field) {
+        var radio;
+        var ret = $('<div class="form_field">').append(
+            $('<label>').append(
+                this.tpl_label(val),
+                radio = $('<div class="form_field_radio_values">')
+            )
+        );
+    
+        $.each(val.options.split("\n"),function(){            
+            radio.append(
+                $('<div class="form_field_radio_value">').append(
+                    $('<label>').text(this).prepend('<input name="'+field+'" class="form_field_radio" type="radio" value="'+this+'"/>')
+                )
+            )            
+        });
+        $(radio.find("input")[0]).prop("checked",true);
+        return ret;
+    }
+},{});
 
 lp.formControls.checkbox = teacss.ui.composite.extendOptions({
     selectLabel: _t("Checkbox"),
@@ -67,99 +128,6 @@ lp.formControls.checkbox = teacss.ui.composite.extendOptions({
     ]
 });
 
-lp.formControls.select = teacss.ui.composite.extendOptions({
-    selectLabel: _t("Select"),
-    selectIcon: "fa fa-toggle-down",
-    default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
-    tpl: function (val) {
-        var show_desc, select;
-        if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
-        var ret = $('<div class="form_field">').append(
-            $('<label>').append(
-                $('<div class="field_title">').text(val.label),
-                show_desc,
-                select =  $('<select class="form_field_select">')
-            )
-        );
-        $.each(val.options.split("\n"),function(){
-            select.append($("<option>").text(this));
-        });
-        $('.form_field_select>').wrap('<div class="form_field_select_wrap"></div>');
-        return ret;
-    }
-},{
-    items: [
-        _t("Field label"),
-        { type: "text", name: "label" },
-        _t("Field description"),
-        { type: "text", name: "desc" },
-        _t("Options"),
-        { type: "textarea", name: "options", height: 55, width: 448 }
-    ]
-});
-
-lp.formControls.radio = teacss.ui.composite.extendOptions({
-    selectLabel: _t("Radio"),
-    selectIcon: "fa fa-dot-circle-o",
-    default: { options: _t("Вариант 1\nВариант 2\nВариант 3") },
-    tpl: function (val, field) {
-        var show_desc, radio;
-        if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
-        var ret = $('<div class="form_field">').append(
-            $('<label>').append(
-                $('<div class="field_title">').text(val.label),
-                show_desc,
-                radio = $('<div class="form_field_radio_values">')
-            )
-        );
-    
-        $.each(val.options.split("\n"),function(){            
-            radio.append(
-                $('<div class="form_field_radio_value">').append(
-                    $('<label>').text(this).prepend('<input name="'+field+'" class="form_field_radio" type="radio" value="'+this+'"/>')
-                )
-            )            
-        });
-        $(radio.find("input")[0]).prop("checked",true);
-        val.field = field;
-        return ret;
-    }
-},{
-    items: [
-        _t("Field label"),
-        { type: "text", name: "label" },
-        _t("Field description"),
-        { type: "text", name: "desc" },
-        _t("Options"),
-        { type: "textarea", name: "options", height: 55, width: 448 }
-    ]
-});
-
-lp.formControls.file = teacss.ui.composite.extendOptions({
-    selectLabel: _t("File"),
-    selectIcon: "fa fa-paperclip",
-    tpl: function (val) {
-        var star_required, show_desc;
-        if (val.required) {star_required = "<i>*</i>"};
-        if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
-        return $('<div class="form_field">').append(
-            $('<label>').append(
-                $('<div class="field_title">').text(val.label).append(star_required),
-                show_desc,
-                $('<input class="form_field_file" multiple="" type="file">'),
-                $('<div class="error">')
-            )
-        );
-    }
-},{
-    items: [
-        _t("Field label"),
-        { type: "text", name: "label" },
-        _t("Field description"),
-        { type: "text", name: "desc" },
-        { type: "check", name: "required", label: _t("Is required?"), margin:"0" }
-    ]
-});
 
 lp.formOrder = lp.cover.extendOptions({
 },{
@@ -170,7 +138,7 @@ lp.formOrder = lp.cover.extendOptions({
             var sub = lp.formControls[field.type];
             fields_div.append(sub.tpl(field,'field_'+f));
         });
-        
+
         this.element.find(".form_submit .form_field_submit")
             .attr("class","form_field_submit "+val.button.color)
             .find("span").text(val.button.label);
@@ -184,7 +152,6 @@ lp.formOrder = lp.cover.extendOptions({
                 type:  teacss.ui.repeater.extend({
                     init: function (o) {
                         this._super(o);
-                        
                         var me = this;
                         this.addCombo = teacss.ui.combo({
                             label: _t("Add Field"),

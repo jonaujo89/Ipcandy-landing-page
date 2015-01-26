@@ -1,22 +1,22 @@
 lp.video = lp.block.extendOptions({
     change: function(){
 		
-        this.element.find(".video_block").css({
+        this.variant.find(".video_block").css({
             background: this.value.background_color || '',
         }); 
         
         if (this.value.variant == 1) {  
-            this.variant.find(".title").toggle(this.value.show_title);
-            this.variant.find(".title_2").toggle(this.value.show_title_2);  
+            this.variant.find(".title").toggleVis(this.value.show_title);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);  
             this.variant.find(".video").prop("class","video "+this.value.video_size);
         }
         if (this.value.variant == 2) { 
-            this.variant.find(".text_title_2").toggle(this.value.show_text_title_2);
+            this.variant.find(".text_title_2").toggleVis(this.value.show_text_title_2);
         }
         if (this.value.variant == 3) {  
-            this.variant.find(".title").toggle(this.value.show_title);
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
-            this.variant.find(".desc").toggle(this.value.show_desc); 
+            this.variant.find(".title").toggleVis(this.value.show_title);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);
+            this.variant.find(".desc").toggleVis(this.value.show_desc); 
             this.variant.find(".video").toggleClass("hide_border",!this.value.show_border);
         }
     },
@@ -51,8 +51,7 @@ lp.video = lp.block.extendOptions({
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
-                type: lp.color, name: "background_color",  
-                items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]
+                type: lp.blockColor, name: "background_color",  
             },
         ]
     }

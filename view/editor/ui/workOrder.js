@@ -1,19 +1,19 @@
 lp.workOrder = lp.block.extendOptions({
     change: function(){
-        this.cmp.element.find(".workOrder").css({
+        this.variant.find(".workOrder").css({
             background: this.value.background_color || '',
         }); 
         
         if (this.value.variant == 1) {  
-            this.variant.find(".title").toggle(this.value.show_title);
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
-            this.variant.find(".name").toggle(this.value.show_name);            
-            this.variant.find(".desc").toggle(this.value.show_desc); 
+            this.variant.find(".title").toggleVis(this.value.show_title);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);
+            this.variant.find(".name").toggleVis(this.value.show_name);            
+            this.variant.find(".desc").toggleVis(this.value.show_desc); 
         }
         
         if (this.value.variant == 2) {  
-            this.variant.find(".title").toggle(this.value.show_title);
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
+            this.variant.find(".title").toggleVis(this.value.show_title);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);
         }
             
     },
@@ -37,9 +37,8 @@ lp.workOrder = lp.block.extendOptions({
             }, 
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
-                type: lp.color, name: "background_color",  
-                items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]
-            },
+                type: lp.blockColor, name: "background_color" 
+            }
         ]
     }
 });

@@ -2,17 +2,20 @@ lp.logo = lp.cover.extendOptions({
     change: function(){
         var me = this;
         var logo_div = me.element.find(".logo");        
-        logo_div.empty(logo_div);
         if (me.value.type=="image") {
-            logo_div.append($("<img>").attr({src:base_url+"/"+me.value.url,width:me.value.size+"%"}));
+            var img = logo_div.find("img");
+            if (!img.length) logo_div.empty().append(img = $("<img>"));
+            img.attr({src:base_url+"/"+me.value.url,width:me.value.size+"%"});
         } else {
-            logo_div.append($('<div class="company_name">').text(me.value.text).css({
+            var company_name = $(".company_name");
+            if (!company_name.length) logo_div.empty().append(company_name = $('<div class="company_name">'));
+            company_name.text(me.value.text).css({
                 fontStyle: me.value.italic ? 'italic' : '',
                 fontWeight: me.value.bold ? 'bold' : '',
                 fontFamily: me.value.font || '',
                 color: me.value.color || '',
                 fontSize: me.value.fontSize ? me.value.fontSize + 'px' : ''
-            }));            
+            });
         }
     },
     configForm: {

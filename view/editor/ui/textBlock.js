@@ -1,32 +1,32 @@
 lp.textBlock = lp.block.extendOptions({
     change: function(){
 		
-        this.cmp.element.find(".text_block").css({
+        this.variant.find(".text_block").css({
             background: this.value.background_color || '',
         }); 
         
         if (this.value.variant == 1) {  
-            this.variant.find(".title").toggleClass('hidden',!this.value.show_title);
-            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);  
-            this.variant.find(".list_wrap").toggleClass('hidden',!this.value.show_list);
+            this.variant.find(".title").toggleVis(this.value.show_title);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);  
+            this.variant.find(".list_wrap").toggleVis(this.value.show_list);
         }
         if (this.value.variant == 2) { 
-            this.variant.find(".title").toggleClass('hidden',!this.value.show_title);
-            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
-            this.variant.find(".name").toggleClass('hidden',!this.value.show_name);
+            this.variant.find(".title").toggleVis(this.value.show_title);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);
+            this.variant.find(".name").toggleVis(this.value.show_name);
         }
         if (this.value.variant == 3) { 
-            this.variant.find(".title").toggleClass('hidden',!this.value.show_title);
-            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_title_2);
+            this.variant.find(".title").toggleVis(this.value.show_title);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);
         }
         if (this.value.variant == 4) { 
-            this.variant.find(".text_title_2").toggleClass('hidden',!this.value.show_text_title_2);
+            this.variant.find(".text_title_2").toggleVis(this.value.show_text_title_2);
         }
         if (this.value.variant == 5) { 
             this.variant.find(".item_list").toggleClass("hide_border",!this.value.show_border);
         }
         if (this.value.variant == 6) { 
-            this.variant.find(".title_2").toggleClass('hidden',!this.value.show_text_title_2);
+            this.variant.find(".title_2").toggleVis(this.value.show_text_title_2);
             this.variant.find(".item_list").toggleClass("hide_border",!this.value.show_border);
         }
     },
@@ -53,14 +53,13 @@ lp.textBlock = lp.block.extendOptions({
                 margin: "5px 49% 0px 0px", showWhen: { variant: [4,6] }
             },
             { 
-                name: "show_border", label: _t("Show border from image"), type: "checkbox", width: "auto",  
+                name: "show_border", label: _t("Show image border"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [5,6] }
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
-                type: lp.color, name: "background_color",  
-                items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]
-            },
+                type: lp.blockColor, name: "background_color"  
+            }
         ]
     }
 });

@@ -124,8 +124,8 @@ class Header extends Block {
             <div class="container">
                 <div class="span6 span_logo"> 
                     <? $this->sub("Logo",'logo') ?>
-                    <? if ($val['show_desc'] || $self->edit): ?>
-                        <div class="desc <?= $val['logo']['type']=="image"  ? "hidden" : "" ?>" >
+                    <? if ($cls = $this->vis($val['logo']['type']=="text")): ?>
+                        <div class="desc <?=$cls?>" >
                             <? $this->sub('Text','desc') ?>
                         </div>
                     <? endif ?>
@@ -163,7 +163,6 @@ class Header extends Block {
     
     function tpl_default_4() { 
         return  array(
-            'show_desc'=> true,
             'show_order_button' => true,
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::tpl_default(),array('type'=>'text', 'fontSize' =>28, 'color' => '#C1103A')),            

@@ -1,13 +1,13 @@
 lp.reasons = lp.block.extendOptions({
     change: function(){
 		
-        this.cmp.element.find(".reasons").css({
+        this.variant.find(".reasons").css({
             background: this.value.background || '',
         });
 		
 		if (this.value.variant == 1){
-			this.variant.find(".title").toggle(this.value.show_title);
-			this.variant.find(".title_2").toggle(this.value.show_title_2);   
+			this.variant.find(".title").toggleVis(this.value.show_title);
+			this.variant.find(".title_2").toggleVis(this.value.show_title_2);   
 		}
     },
     configForm: {
@@ -22,8 +22,7 @@ lp.reasons = lp.block.extendOptions({
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
-                type: lp.color, name: "background",  
-                items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]
+                type: lp.blockColor, name: "background"
             },
         ]
     }

@@ -9,14 +9,14 @@ class Gallery extends Block {
         <div class="container-fluid gallery gallery_1" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list">
@@ -25,13 +25,13 @@ class Gallery extends Block {
 								<div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$item_val['image']?>');"></div>
 								<div class="overlay">
 									<div class="wrap_title_desc">
-										<? if ($val['show_image_title'] || $self->edit): ?>
-											<div class="img_title <?= !$val['show_image_title'] ? "hidden" : "" ?>" >
+										<? if ($cls = $self->vis($val['show_image_title'])): ?>
+											<div class="img_title <?=$cls?>" >
 												<?= $item_val['title'] ?>
 											</div>
 										<? endif ?>
-										<? if ($val['show_image_desc'] || $self->edit): ?>
-											<div class="img_desc <?= !$val['show_image_desc'] ? "hidden" : "" ?>" >
+										<? if ($cls = $self->vis($val['show_image_desc'])): ?>
+											<div class="img_desc <?=$cls?>" >
 												<?= $item_val['desc'] ?>
 											</div>
 										<? endif ?>
@@ -79,14 +79,14 @@ class Gallery extends Block {
         <div class="container-fluid gallery gallery_2" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
-                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                     <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list <?= !$val['show_image_desc'] ? "hide_desc" : "" ?> <?= !$val['show_image_overlay'] ? "hide_overlay" : "" ?>">
@@ -94,18 +94,18 @@ class Gallery extends Block {
                             <? for ($i=1; $i <= 2; $i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Image','image_'.$i)?>
-                                    <? if ($val['show_image_overlay'] || $self->edit): ?>
+                                    <? if ($cls = $self->vis($val['show_image_desc'])): ?>
                                         <div class="overlay">
                                             <div class="img_title">
-                                                <? $self->sub('Text','image_title_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=> true)) ?>
+                                                <? $self->sub('Text','image_title_'.$i,Text::$plain_heading) ?>
                                             </div>
-                                            <? if ($val['show_image_desc'] || $self->edit): ?>
-                                                <div class="img_desc <?= !$val['show_image_desc'] ? "hidden" : "" ?>" >
-                                                    <? $self->sub('Text','image_desc_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor","removeformat"),'oneline'=>true)) ?>
+                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                <div class="img_desc <?=$cls?>" >
+                                                    <? $self->sub('Text','image_desc_'.$i,Text::$color_heading) ?>
                                                 </div>
                                             <? endif ?>
                                             <div class="img_text">
-                                                <? $self->sub('Text','image_text_'.$i,array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
+                                                <? $self->sub('Text','image_text_'.$i,Text::$default_text) ?>
                                             </div>
                                         </div>
                                     <? endif ?>
@@ -157,14 +157,14 @@ class Gallery extends Block {
         <div class="container-fluid gallery gallery_3" style="background: <?=$val['background']?>;">
            <div class="container">
                 <div class="span16">
-                     <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                     <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -172,14 +172,14 @@ class Gallery extends Block {
                             <? for ($i=1; $i <= 3; $i++): ?>                        
                                 <div class="item">								
                                     <? $self->sub('ImageFancyboxWithoutSignature','image_'.$i) ?>
-                                    <? if ($val['show_image_overlay'] || $self->edit): ?>
-                                        <div class="overlay <?= !$val['show_image_overlay'] ? "hidden" : "" ?>" >
+                                    <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                        <div class="overlay <?=$cls?>" >
                                             <div class="img_title">
-                                                <? $self->sub('Text','img_title_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=> true)) ?>
+                                                <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
                                             </div>
-                                            <? if ($val['show_image_desc'] || $self->edit): ?>
-                                                <div class="img_desc <?= !$val['show_image_desc'] ? "hidden" : "" ?>" >
-                                                    <? $self->sub('Text','img_desc_'.$i,array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
+                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                <div class="img_desc <?=$cls?>" >
+                                                    <? $self->sub('Text','img_desc_'.$i,Text::$default_text) ?>
                                                 </div>
                                             <? endif ?>
                                         </div>
@@ -235,14 +235,14 @@ class Gallery extends Block {
         <div class="container-fluid gallery gallery_4" style="background: <?=$val['background']?>;">
            <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -250,14 +250,14 @@ class Gallery extends Block {
                             <? for ($i=1; $i <= 4; $i++): ?>                            
                                 <div class="item">								
                                     <? $self->sub('ImageFancyboxWithoutSignature','image_'.$i) ?>
-                                    <? if ($val['show_image_overlay'] || $self->edit): ?>
-                                        <div class="overlay <?= !$val['show_image_overlay'] ? "hidden" : "" ?>" >
+                                    <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                        <div class="overlay <?=$cls?>" >
                                             <div class="img_title">
-                                                <? $self->sub('Text','img_title_'.$i,array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=> true)) ?>
+                                                <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
                                             </div>
-                                            <? if ($val['show_image_desc'] || $self->edit): ?>
-                                                <div class="img_desc <?= !$val['show_image_desc'] ? "hidden" : "" ?>" >
-                                                    <? $self->sub('Text','img_desc_'.$i,array('buttons'=>array("bold","italic","fontcolor"=>false,"removeformat"))) ?>
+                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                <div class="img_desc <?=$cls?>" >
+                                                    <? $self->sub('Text','img_desc_'.$i,Text::$default_text) ?>
                                                 </div>
                                             <? endif ?>
                                         </div>
@@ -320,14 +320,14 @@ class Gallery extends Block {
         <div class="container-fluid gallery gallery_5" style="background: <?=$val['background']?>;">           
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
 					<div class="item_list clear">
@@ -339,13 +339,13 @@ class Gallery extends Block {
                                     </div>
                                     <div class="overlay">
                                         <div class="wrap_title_desc">
-                                            <? if ($val['show_image_title'] || $self->edit): ?>
-                                                <div class="img_title <?= !$val['show_image_title'] ? "hidden" : "" ?>" >
+                                            <? if ($cls = $self->vis($val['show_image_title'])): ?>
+                                                <div class="img_title <?=$cls?>" >
                                                     <?= $item_val['title'] ?>
                                                 </div>
                                             <? endif ?>
-                                            <? if ($val['show_image_desc'] || $self->edit): ?>
-                                                <div class="img_desc <?= !$val['show_image_desc'] ? "hidden" : "" ?>" >
+                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                <div class="img_desc <?=$cls?>" >
                                                     <?= $item_val['desc'] ?>
                                                 </div>
                                             <? endif ?>
@@ -398,14 +398,14 @@ class Gallery extends Block {
         <div class="container-fluid gallery gallery_6" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
                      <div class="item_list masonry">
@@ -419,13 +419,13 @@ class Gallery extends Block {
 								<div class="overlay">
 									<div class="outer">
 										<div class="wrap_title_desc">
-											<? if ($val['show_image_title'] || $self->edit): ?>
-                                                <div class="img_title <?= !$val['show_image_title'] ? "hidden" : "" ?>" >
+											<? if ($cls = $self->vis($val['show_image_title'])): ?>
+                                                <div class="img_title <?=$cls?>" >
                                                     <?= $item_val['title'] ?>
                                                 </div>
                                             <? endif ?>
-                                            <? if ($val['show_image_desc'] || $self->edit): ?>
-                                                <div class="img_desc <?= !$val['show_image_desc'] ? "hidden" : "" ?>" >
+                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                <div class="img_desc <?=$cls?>" >
                                                     <?= $item_val['desc'] ?>
                                                 </div>
                                             <? endif ?>
@@ -478,14 +478,14 @@ function tpl_7($val) {?>
         <div class="container-fluid gallery gallery_7" style="background: <?=$val['background']?>;">           
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -537,14 +537,14 @@ function tpl_7($val) {?>
         <div class="container-fluid gallery gallery_8" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -607,14 +607,14 @@ function tpl_7($val) {?>
         <div class="container-fluid gallery gallery_9" style="background: <?=$val['background']?>;">           
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
@@ -678,14 +678,14 @@ function tpl_7($val) {?>
         <div class="container-fluid gallery gallery_10" style="background: <?=$val['background']?>;">           
             <div class="container">
                 <div class="span16">
-                    <? if ($val['show_title'] || $this->edit): ?>
-                        <h1 class="title <?= !$val['show_title'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title'])): ?>
+                        <h1 class="title <?=$cls?> " >
+                            <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
                     <? endif ?>
-                    <? if ($val['show_title_2'] || $this->edit): ?>
-                        <div class="title_2 <?= !$val['show_title_2'] ? "hidden" : "" ?> " >
-                            <? $this->sub('Text','title_2',array('buttons'=>array("bold"=>false,"italic"=>false,"fontcolor"=>false,"removeformat"=>false),'oneline'=>false)) ?>
+                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                        <div class="title_2 <?=$cls?> " >
+                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
                     <div class="item_list clear">

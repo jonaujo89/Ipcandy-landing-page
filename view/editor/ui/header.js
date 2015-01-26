@@ -1,26 +1,26 @@
 lp.header = lp.block.extendOptions({   
     change: function () {
-        this.cmp.element.find(".header").css({
+        this.variant.find(".header").css({
             background: this.value.background || '',
         });  
         
         if (this.value.variant==2) {
             var flag = this.value.show_order_button;
-            this.variant.find(".span_btn").toggle(flag);
+            this.variant.find(".span_btn").toggleVis(flag);
             this.variant.find(".phone").toggleClass("no_btn",!flag);
         }
         
         if (this.value.variant==3) {
             var flag = this.value.show_desc_and_order_button;
-            this.variant.find(".span_btn").toggle(flag); 
-            this.variant.find(".desc_2").toggle(flag);
+            this.variant.find(".span_btn").toggleVis(flag); 
+            this.variant.find(".desc_2").toggleVis(flag);
             this.variant.find(".desc_1").toggleClass('no_btn',!flag);
             this.variant.find(".phone").toggleClass('no_btn',!flag);
         }
         
         if (this.value.variant==4) {
             var flag = this.value.show_order_button;
-            this.variant.find(".span_btn").toggle(flag);
+            this.variant.find(".span_btn").toggleVis(flag);
             this.variant.find(".phone").toggleClass("no_btn",!flag);
             this.variant.find(".desc").toggleClass("hidden",this.value.logo.type=="image");
         }
@@ -37,9 +37,8 @@ lp.header = lp.block.extendOptions({
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
-                type: lp.color, name: "background",  
-                items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]
-            },
+                type: lp.blockColor, name: "background"  
+            }
         ]
     }
 });

@@ -1,13 +1,13 @@
 lp.reviews = lp.block.extendOptions({
     change: function(){
-        this.cmp.element.find(".reviews").css({
+        this.variant.find(".reviews").css({
             background: this.value.background_color || '',
         }); 
         
         if (this.value.variant == 1) {  
-            this.variant.find(".title").toggle(this.value.show_title);
-            this.variant.find(".title_2").toggle(this.value.show_title_2);
-            this.variant.find(".img_wrap").toggle(this.value.show_image);            
+            this.variant.find(".title").toggleVis(this.value.show_title);
+            this.variant.find(".title_2").toggleVis(this.value.show_title_2);
+            this.variant.find(".img_wrap").toggleVis(this.value.show_image);            
         }       
            
     },
@@ -27,9 +27,8 @@ lp.reviews = lp.block.extendOptions({
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
-                type: lp.color, name: "background_color",  
-                items: [{ value: "#FFFFFF" },{ value: "#F7F7F7" }]
-            },
+                type: lp.blockColor, name: "background_color"  
+            }
         ]
     }
 });
