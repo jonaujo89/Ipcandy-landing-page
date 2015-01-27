@@ -120,6 +120,18 @@ $.fn.lpCounty = function () {
 };
 
 $.fn.lpFancybox = function () {
+    $(this).each(function(){
+        var $gallery = $(this).parents(".gallery").eq(0);
+        var rel = $gallery.attr("rel");        
+        if (!rel) {
+            var block_id = $(this).parents("body > *").eq(0).attr("id");
+            var gallery_id = $gallery.attr("class").match(/gallery_(\d+)/)[1];
+            rel = 'rel_'+gallery_id+'_'+block_id;
+            $gallery.attr("rel",rel);
+        }
+        $(this).attr("rel",rel);
+    });
+    
 	$(this).fancybox({
 		openEffect	: 'elastic',
 		closeEffect	: 'elastic',
@@ -129,13 +141,6 @@ $.fn.lpFancybox = function () {
 				type : 'inside'
 			}
 		}
-	}); 
-};
-
-$.fn.lpFancyboxWhithoutTitle = function () {
-	$(this).fancybox({
-		openEffect	: 'elastic',
-		closeEffect	: 'elastic',
 	}); 
 };
 
@@ -245,20 +250,20 @@ function initForms() {
         // собираем данные
         $form.find(".form_field").each(function(){
             $field = $(this);
+            var label = $field.find(".field_title").clone().children().remove().end().text();
             
             if($field.find("input").is(":checkbox")){               
                 values.push({
-                    label: $field.find("input:checkbox").val(),
-                    value: $field.find("input:checkbox").is(":checked") ? "<span style='font-size: 150%;'>&#x2611</span> (да)" : "<span style='font-size: 150%;'>&#x2610</span> (нет)"
+                    label: label,
+                    value: $field.find("input:checkbox").is(":checked") ? true:false
                 });
-                return;
+            } 
+            else {
+                values.push({
+                    label: label,
+                    value: $field.find("input[type=text], input[type=file], input[type=radio]:checked, textarea, select").val()
+                });
             }
-
-            values.push({
-                label: $field.find(".field_title").clone().children().remove().end().text(),
-                value: $field.find("input[type=text], input[type=file], input[type=radio]:checked, textarea, select").val()
-            });
-
         });
         
         // отправляем данные
@@ -300,8 +305,7 @@ $.fn.textBlockHeight = function () {
 $(function() {    
     $(".gallery_2 .item_list .item_block .item").textBlockHeight();
     $(".countdown").lpCounty();	
-	$(".fancybox").lpFancybox();
-	$(".fancybox_whithout_title").lpFancyboxWhithoutTitle();
+	$(".fancybox:visible").lpFancybox();
     $(".masonry:visible").lpMasonry();
     $(".slider [data-name=items]").lpBxSlider();
     $(".map").mapYandex();    

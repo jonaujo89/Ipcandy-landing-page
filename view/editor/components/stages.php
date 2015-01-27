@@ -1,13 +1,13 @@
 <?php
 
-class WorkOrder extends Block {
+class Stages extends Block {
     public $name = 'Порядок работы';
     public $description = "Основные этапы работы";
-    public $editor = "lp.workOrder";
+    public $editor = "lp.stages";
     
     
     function tpl($val) {?>
-        <div class="container-fluid workOrder workOrder1" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid stages stages_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
@@ -69,7 +69,7 @@ class WorkOrder extends Block {
     
     
     function tpl_2($val) {?>
-        <div class="container-fluid workOrder workOrder2" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid stages stages_2" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
@@ -116,4 +116,4 @@ class WorkOrder extends Block {
     }    
 }
 
-WorkOrder::register();
+Stages::register();

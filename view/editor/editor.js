@@ -32,8 +32,8 @@ require("./ui/internal/videoStream.js");
 require("./ui/internal/countdown.js");
 require("./ui/internal/galleryRepeater.js");
 require("./ui/internal/galleryRepeaterImg.js");
-require("./ui/internal/imageFancyboxWithSignature.js");
-require("./ui/internal/imageFancyboxWithoutSignature.js");
+require("./ui/internal/overlayImage.js");
+require("./ui/internal/galleryImage.js");
 
 require("./lib/ymaps.js");
 
@@ -45,9 +45,9 @@ require("./ui/reasons.js");
 require("./ui/gallery.js");
 require("./ui/logos.js");
 require("./ui/cases.js");
-require("./ui/workOrder.js");
-require("./ui/reviews.js");
-require("./ui/maps.js");
+require("./ui/stages.js");
+require("./ui/feedback.js");
+require("./ui/map.js");
 require("./ui/footer.js");
 require("./ui/video.js");
 require("./ui/textBlock.js");

@@ -1,4 +1,10 @@
 lp.gallery = lp.block.extendOptions({
+    init: function () {
+        var jq = Component.previewFrame.window.$;
+        if(jq){
+            jq('.fancybox:visible').lpFancybox();
+        }
+    },
     change: function(){		
         var jq = Component.previewFrame.window.$;      
 
@@ -8,6 +14,12 @@ lp.gallery = lp.block.extendOptions({
 		
 		this.variant.find(".title").toggleVis(this.value.show_title);
 		this.variant.find(".title_2").toggleVis(this.value.show_title_2);
+        this.variant.find(".fancybox").toggleVis(this.value.enable_fancybox);
+        
+        if (jq && this.value.enable_fancybox) {            
+            jq(".fancybox:visible").lpFancybox();
+        }
+        
 		
         if (this.value.variant == 1 || this.value.variant == 5 || this.value.variant == 6 || this.value.variant == 7 || this.value.variant == 8 || this.value.variant == 9 || this.value.variant == 10) {  
 			this.variant.find(".img_title").toggleVis(this.value.show_image_title);
@@ -37,18 +49,6 @@ lp.gallery = lp.block.extendOptions({
 			this.variant.find(".overlay").toggleVis(this.value.show_image_overlay);	
 			
 		}
-		if (this.value.variant == 3 || this.value.variant == 4) {
-			this.variant.find(".fancybox_whithout_title").toggleVis(this.value.enable_fancybox);
-			if (jq && this.value.enable_fancybox) {
-				jq(".fancybox_whithout_title").lpFancyboxWhithoutTitle();				
-			}			
-		}
-		if (this.value.variant == 5 || this.value.variant == 6 || this.value.variant == 7 || this.value.variant == 8 || this.value.variant == 9 || this.value.variant == 10) {
-            this.variant.find(".big_img").toggleClass("fancybox",this.value.enable_fancybox);
-            if (jq && !this.value.enable_fancybox) {
-                jq(".fancybox").lpFancybox();
-            } 
-		}        
         if (this.value.variant == 5){ 
             var bxslider = this.variant.find('.slider [data-name=items]');
             jq(bxslider).lpBxSlider();
@@ -70,15 +70,15 @@ lp.gallery = lp.block.extendOptions({
                 margin: "5px 49% 0px 0px",
             },            
             { 
-                name: "show_image_title", label: _t("Show image name"), type: "checkbox", width: "auto",  
+                name: "show_image_title", label: _t("Show image title"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1,5,6,7,8,9,10] }
             },
             { 
-                name: "show_image_overlay", label: _t("Show image signature"), type: "checkbox", width: "auto",  
+                name: "show_image_overlay", label: _t("Show block description under image"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2,3,4] }
             },
             { 
-                name: "show_image_desc", label: _t("Show image descroption"), type: "checkbox", width: "auto",  
+                name: "show_image_desc", label: _t("Show image description"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1,2,3,4,5,6,7,8,9,10] }
             },            
 			{ 

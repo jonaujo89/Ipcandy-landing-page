@@ -1,12 +1,12 @@
 <?php
 
-class Reviews extends Block {
+class Feedback extends Block {
     public $name = 'Отзывы';
     public $description = "Отзывы наших клиентов";
-    public $editor = "lp.reviews";
+    public $editor = "lp.feedback";
     
     function tpl($val) {?>
-        <div class="container-fluid reviews reviews_1" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid feedback feedback_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
@@ -61,9 +61,9 @@ class Reviews extends Block {
             'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => "view/editor/assets/reviews/r_1.jpg",
-                    'image_2' => "view/editor/assets/reviews/r_2.jpg",
-                    'image_3' => "view/editor/assets/reviews/r_3.jpg",
+                    'image_1' => "view/editor/assets/feedback/r_1.jpg",
+                    'image_2' => "view/editor/assets/feedback/r_2.jpg",
+                    'image_3' => "view/editor/assets/feedback/r_3.jpg",
                     'name_1' => "Петров Петр",
                     'name_2' => "Петрова Ирина",
                     'name_3' => "Петрова Анна",
@@ -79,4 +79,4 @@ class Reviews extends Block {
     }    
 }
 
-Reviews::register();
+feedback::register();

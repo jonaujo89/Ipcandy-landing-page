@@ -28,7 +28,7 @@ lp.media = lp.cover.extendOptions({
                 }
             } else {
                 div_media.empty(div_media);
-                div_media.append($('<iframe frameborder="0"></iframe>').attr({src: base_url+"/view/editor/assets/video_404.html"}));
+                div_media.append($('<iframe frameborder="0"></iframe>').attr({src: base_url+"/view/editor/assets/404.php"}));
             }   
         }
     },

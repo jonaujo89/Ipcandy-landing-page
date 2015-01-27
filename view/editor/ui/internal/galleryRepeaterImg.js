@@ -1,13 +1,11 @@
-lp.galleryRepeaterImg = lp.repeater
-.extendOptions({
+lp.galleryRepeaterImg = lp.repeater.extendOptions({
     inline: true,
     sortable: false,
     itemChange: function (sub,item) {
         item.find(".img_title").text(sub.title);
         item.find(".img_desc").text(sub.desc);
         item.find(".preview_img img").attr({ src: base_url+'/'+sub.image });			
-        item.find(".big_img").attr("href", base_url+'/'+sub.image);
-        item.find(".big_img").attr("title", sub.title);	
+        item.find(".big_img").attr("href", base_url+'/'+sub.image).attr("title", sub.title);	
     },
     configForm: {
         title: _t("Upload image"),

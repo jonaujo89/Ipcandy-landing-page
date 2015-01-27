@@ -1,6 +1,6 @@
-lp.workOrder = lp.block.extendOptions({
+lp.Stages = lp.block.extendOptions({
     change: function(){
-        this.variant.find(".workOrder").css({
+        this.variant.find(".stages").css({
             background: this.value.background_color || '',
         }); 
         

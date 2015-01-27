@@ -95,13 +95,17 @@ lp.services = lp.block.extendOptions({
                 margin: "5px 49% 0px 0px", showWhen: { variant: [3] }
             },
             { 
-                name: "show_order_button", label: _t("Show order button"), type: "checkbox", width: "auto",  
-                margin: "5px 49% 0px 0px", showWhen: { variant: [1,2,3,4,5] }
+                name: "show_order_button", label: _t("Show order button"), type: "checkbox", width: "100%",  
+                margin: "5px 80% 0px 0px", showWhen: { variant: [1,2,3,4,5] }
             },
             { 
                 name: "show_image_shadow", label: _t("Show image shadow"), type: "checkbox", width: "auto",  
-                margin: "5px 49% 0px 0px", showWhen: { variant: [2,3] }
+                margin: "5px 0 0 0", showWhen: { variant: [2] }
             },
+            { 
+                name: "show_image_shadow", label: _t("Show shadow under image"), type: "checkbox", width: "auto",  
+                margin: "5px 0 0 0", showWhen: { variant: [3] }
+            },          
             { type: "label", value: _t("Image size:"), margin: "5px 49% 0px 0px", showWhen: { variant: [3] }},
             { 
                 name: "image_size",

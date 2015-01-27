@@ -1,6 +1,6 @@
-lp.reviews = lp.block.extendOptions({
+lp.feedback = lp.block.extendOptions({
     change: function(){
-        this.variant.find(".reviews").css({
+        this.variant.find(".feedback").css({
             background: this.value.background_color || '',
         }); 
         

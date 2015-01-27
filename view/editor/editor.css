@@ -31,6 +31,10 @@
     width: 133px;
 }
 
+.teacss-ui a.add-button {
+    border-radius: 0;
+}
+
 .preview-toolbar {
     border-top: 5px solid #71a0d0 !important;
     border-bottom: none !important;

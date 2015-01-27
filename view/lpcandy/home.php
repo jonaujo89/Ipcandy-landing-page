@@ -22,7 +22,7 @@
             .span16:first-child {
               margin-left: 0;
             }
-            .workOrder1 .item_list .item .name, .benefits_1 .item_list .item .name {
+            .stages_1 .item_list .item .name, .benefits_1 .item_list .item .name {
               font-size: 18px;
             }
         }

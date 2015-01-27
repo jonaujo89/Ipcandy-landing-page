@@ -130,85 +130,73 @@ class FormOrder extends Block {
     
     function tpl($val) {?>
         <form action="" method="post" >
-            <div class="form_fields">
-                <? if (is_array(@$val['fields'])) foreach ($val['fields'] as $field): ?>
-                    <div class="form_field">   
-                        <? if ($field['type'] == 'text' || $field['type'] == 'textarea' || $field['type'] == 'file'): ?>
-                                <label>
-                                    <div class="field_title"><?= htmlspecialchars($field['label'])?><?= ($field['required']) ? "<i>*</i>" : "" ?></div>
-                                    <? if ($field['desc']): ?>
-                                        <div class="desc">
-                                            <?= htmlspecialchars($field['desc'])?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if($field['type'] == 'text'): ?>
-                                        <input type="text" class="form_field_text">
-                                    <? elseif ($field['type'] == 'textarea'): ?>
-                                        <textarea class="form_field_textarea" rows="3"></textarea>
-                                    <? elseif ($field['type'] == 'file'): ?>
-                                        <input class="form_field_file" multiple="" type="file">
-                                    <? endif ?>
-                                        <div class="error"></div>
-                                </label>
-                        <? else: ?>
-                            <? if ($field['type'] == 'checkbox'): ?>
-                                <label>
-                                    <input class="form_field_checkbox" value="<?= htmlspecialchars($field['label'])?>" type="checkbox" /><?= htmlspecialchars($field['label'])?>
-                                </label>
-                            <? elseif ($field['type'] == 'radio'): ?>
-                                <label>
-                                    <div class="field_title"><?= htmlspecialchars($field['label'])?></div>
-                                    <? if ($field['desc']): ?>
-                                        <div class="desc">
-                                            <?= htmlspecialchars($field['desc'])?>
-                                        </div>
-                                    <? endif ?>
-                                    <div class="form_field_radio_values">
-                                        <? foreach (explode("\n",$field['options']) as $key=>$option): ?>                                            
-                                            <div class="form_field_radio_value">
-                                                <label>
-                                                    <input class="form_field_radio" name="<?= $field['field']?>" value="<?= htmlspecialchars($option)?>" type="radio" <?= $key==0? "checked" : "" ?>/><?= htmlspecialchars($option)?>
-                                                </label>
-                                            </div>
-                                        <? endforeach ?>
-                                    </div>
-                                </label>
-                            <? elseif ($field['type'] == 'select'): ?>
-                                <label>
-                                    <div class="field_title"><?= htmlspecialchars($field['label'])?></div>
-                                    <? if ($field['desc']): ?>
-                                        <div class="desc">
-                                            <?= htmlspecialchars($field['desc'])?>
-                                        </div>
-                                    <? endif ?>
-                                    <select class='form_field_select'>
-                                        <? foreach (explode("\n",$field['options']) as $key=>$option): ?>
-                                            <option><?=htmlspecialchars($option)?></option>
-                                        <? endforeach ?>
-                                    </select>
-                                </label>
-                            <? endif ?>
+        <div class="form_fields">
+            <? if (is_array(@$val['fields'])) foreach ($val['fields'] as $f=>$field): ?>
+                <div class="form_field">
+                    <label>
+                    <? if ($field['type'] == 'checkbox'): ?>
+                        <input class="form_field_checkbox" type="checkbox" />
+                        <span class="field_title"><?= htmlspecialchars($field['label'])?></span>
+                    <? else: ?>
+                        <div class="field_title">
+                            <?= htmlspecialchars($field['label'])?>
+                            <?= (isset($field['required']) && $field['required']) ? "<i>*</i>" : "" ?>
+                        </div>
+                        <? if (isset($field['desc']) && $field['desc']): ?>
+                            <div class="desc">
+                                <?= htmlspecialchars($field['desc'])?>
+                            </div>
                         <? endif ?>
-                    </div>
-                <? endforeach; ?>
-            </div>
-            <div class="form_submit">
-                <button type="submit" class="form_field_submit <?=$val['button']['color']?>">
-                    <div>
-                        <span><?=$val['button']['label']?></span>
-                    </div>
-                </button>
-            </div>
-            <div style="display:none">
-                <div class="form_done">
-                    <div class="form_done_title">
-                        <? $this->sub('Text','form_done_title') ?>
-                    </div>
-                    <div class="form_done_text">
-                        <? $this->sub('Text','form_done_text') ?>
-                    </div>
-                 </div>
+
+                        <? if($field['type'] == 'text'): ?>
+                            <input type="text" class="form_field_text">
+                        <? elseif ($field['type'] == 'textarea'): ?>
+                            <textarea class="form_field_textarea" rows="3"></textarea>
+                        <? elseif ($field['type'] == 'file'): ?>
+                            <input class="form_field_file" multiple="" type="file">
+                        <? elseif ($field['type'] == 'radio'): ?>
+                            <div class="form_field_radio_values">
+                                <? foreach (explode("\n",$field['options']) as $key=>$option): ?>                                            
+                                    <div class="form_field_radio_value">
+                                        <label>
+                                            <? $checked =  $key==0? "checked" : "" ?>
+                                            <input class="form_field_radio" name="radio_<?=$f?>" type="radio" 
+                                               value="<?= htmlspecialchars($option)?>" <?=$checked ?>/>
+                                            <?= htmlspecialchars($option)?>
+                                        </label>
+                                    </div>
+                                <? endforeach ?>
+                            </div>
+                        <? elseif ($field['type'] == 'select'): ?>
+                            <select class='form_field_select'>
+                                <? foreach (explode("\n",$field['options']) as $key=>$option): ?>
+                                    <option><?=htmlspecialchars($option)?></option>
+                                <? endforeach ?>
+                            </select>
+                        <? endif ?>
+                        <div class="error"></div>
+                    <? endif ?>
+                    </label>
+                </div>
+            <? endforeach; ?>
+        </div>
+        <div class="form_submit">
+            <button type="submit" class="form_field_submit <?=$val['button']['color']?>">
+                <div>
+                    <span><?=$val['button']['label']?></span>
+                </div>
+            </button>
+        </div>
+        <div style="display:none">
+            <div class="form_done">
+                <div class="form_done_title">
+                    <? $this->sub('Text','form_done_title') ?>
+                </div>
+                <div class="form_done_text">
+                    <? $this->sub('Text','form_done_text') ?>
+                </div>
              </div>
+         </div>
         </form>        
     <?}
 }
@@ -231,27 +219,6 @@ class Image extends Block {
     }
 }
 
-class ImageFancyboxWithoutSignature extends Block {
-    public $editor = "lp.imageFancyboxWithoutSignature";
-    public $internal = true;   
-	
-	function tpl_default() {
-        return array(
-			'url_image' => '',	
-			'url_image_preview' => '',
-			'fancybox_group' => '',
-        );        
-    }
-   
-    function tpl($val) {?>
-		<div class='img preview_img' style='background-image: url("<?=INDEX_URL."/".$val['url_image_preview']?>")'>
-			<? if ($this->parent->val_prefix['enable_fancybox'] || $this->edit): ?>
-				<a class="fancybox_whithout_title big_img <?= !$this->parent->val_prefix['enable_fancybox'] ? "hidden" : "" ?>" rel="<?=$val['fancybox_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>"></a>
-			<? endif ?>			
-		</div>
-    <?}
-}
-
 class ImageSrc extends Block {
     public $editor = "lp.imageSrc";
     public $internal = true;
@@ -261,44 +228,65 @@ class ImageSrc extends Block {
     }
 }
 
-class ImageFancyboxWithSignature extends Block {
-    public $editor = "lp.imageFancyboxWithSignature";
+class GalleryImage extends Block {
+    public $editor = "lp.galleryImage";
+    public $internal = true;   
+	
+	function tpl_default() {
+        return array(
+			'image' => '',	
+        );        
+    }
+   
+    function tpl($item_val) {?>
+        <? $val = $this->parent->val_prefix; ?>
+        <? $href = INDEX_URL."/".$item_val['image']; ?>
+        
+		<div class='img preview_img' style='background-image: url("<?=$href?>")'>
+			<? if ($cls = $this->vis($val['enable_fancybox'])): ?>
+				<a class="fancybox big_img <?=$cls?>" href="<?=$href?>"></a>
+			<? endif ?>			
+		</div>
+    <?}
+}
+
+class OverlayImage extends Block {
+    public $editor = "lp.overlayImage";
     public $internal = true;	
 	
 	function tpl_default() {
         return array(
-			'url_image' => '',
-			'url_image_preview' => '',			
-            'title' => 'Дорога в облака',
-			'desc' => 'Описание',
-			'fancybox_group' => '',
+			'image' => '',	
+            'title' => 'Заголовок картинки',
+			'desc' => 'Описание картинки',
         );        
     }
    
-    function tpl($val) {?>
-		<? if ($this->parent->val_prefix['enable_fancybox'] || $this->edit): ?>
-            <a class="<?= $this->parent->val_prefix['enable_fancybox'] ? "fancybox" : "" ?>  big_img" rel="<?=$val['fancybox_group']?>" href="<?=INDEX_URL."/".$val['url_image']?>" title="<?=$val['title']?>">
-        <? endif ?>        
-                <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$val['url_image_preview']?>');"></div>
-                <div class="overlay">
-                    <div class="outer">
-                        <div class="wrap_title_desc">					
-                            <? if ($this->parent->val_prefix['show_image_title'] || $this->edit): ?>
-                                <div class="img_title <?= !$this->parent->val_prefix['show_image_title'] ? "hidden" : "" ?>" >
-                                    <?= $val['title'] ?>
-                                </div>
-                            <? endif ?>
-                            <? if ($this->parent->val_prefix['show_image_desc'] || $this->edit): ?>
-                                <div class="img_desc <?= !$this->parent->val_prefix['show_image_desc'] ? "hidden" : "" ?>" >
-                                    <?= $val['desc'] ?>
-                                </div>
-                            <? endif ?>
-                        </div>
+    function tpl($item_val) {?>
+        <? $val = $this->parent->val_prefix; ?>
+        <? $href = INDEX_URL."/".$item_val['image']; ?>
+                
+        <div class="preview_img" style="background-image: url('<?=$href?>');">
+            <? if ($cls = $this->vis($val['enable_fancybox'])): ?>
+                <a class="fancybox big_img <?=$cls?>" href="<?=$href?>"></a>
+            <? endif ?>			
+            <div class="overlay">
+                <div class="outer">
+                    <div class="wrap_title_desc">					
+                        <? if ($cls = $this->vis($val['show_image_title'])): ?>
+                            <div class="img_title <?=$cls?>" >
+                                <?= $item_val['title'] ?>
+                            </div>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_image_desc'])): ?>
+                            <div class="img_desc <?=$cls?>" >
+                                <?= $item_val['desc'] ?>
+                            </div>
+                        <? endif ?>
                     </div>
                 </div>
-		<? if ($this->parent->val_prefix['enable_fancybox'] || $this->edit): ?>
-            </a>
-        <? endif ?> 
+            </div>
+        </div>
     <?}
 }
 
@@ -327,47 +315,10 @@ class Media extends Block {
                         preg_match("/^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/", $val['video_url'], $matches);?>
                         <iframe frameborder="0" allowfullscreen="" src="//player.vimeo.com/video/<?=($matches[5]);?>"></iframe><? 
                     } else {?>
-                        <iframe frameborder="0" allowfullscreen="" src="<?= INDEX_URL."/"?>view/editor/assets/video_404.html"></iframe><?
+                        <iframe frameborder="0" allowfullscreen="" src="<?= INDEX_URL."/"?>view/editor/assets/404.php"></iframe><?
                     }?>             
             <? endif ?>
         </div>
-    <?}
-}
-
-class Map extends Block {
-    public $editor = "";
-    public $internal = true;
-    
-    function tpl_default() {
-        return array(
-            'map_type' => 'yandex',			
-            'map_center' => array(55.75824, 37.622575),
-            'map_zoom' => 15,
-            'map_places' => array(
-                array(
-                    'center' => '',
-                    'type' => 'placemark',
-                    'title' => 'Офис №1',
-                    'address' => 'г.Москва, улица Никольская, 17', 
-                    'lat' => '55.75824',
-                    'lng' => '37.622575',
-                    'color' => 'red' 
-                ),
-                array(
-                    'center' => '',
-                    'type' => 'placemark',
-                    'title' => 'Офис №2',
-                    'address' => 'г.Москва, улица Тверская, 6',
-                    'lat' => '55.757789', 
-                    'lng' => '37.611652',
-                    'color' => 'green' 
-                ), 
-            )
-        );        
-    }
-    
-    function tpl($val) {?>
-        <div class="map" data-map-settings='<?=json_encode($val)?>'></div>
     <?}
 }
 
@@ -423,9 +374,8 @@ FormOrder::register();
 Icon::register();
 Image::register();
 ImageSrc::register();
-ImageFancyboxWithoutSignature::register();
-ImageFancyboxWithSignature::register();
+GalleryImage::register();
+OverlayImage::register();
 VideoStream::register();
 Countdown::register();
 Media::register();
-Map::register();

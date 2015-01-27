@@ -1,18 +1,16 @@
-lp.imageFancyboxWithSignature = lp.cover.extendOptions({
+lp.overlayImage = lp.cover.extendOptions({
     init: function () {
         this.cover.addClass("lp-button");
     },
     change: function(){
 		this.element.find(".img_title").text(this.value.title);
 		this.element.find(".img_desc").text(this.value.desc);
-		if(this.value.url_image_preview){
+		if(this.value.image){
 			this.element.find(".big_img").attr('title',this.value.title);
 			this.element.find(".preview_img").css({
-				backgroundImage: "url('"+base_url+'/'+this.value.url_image_preview+"')",
+				backgroundImage: "url('"+base_url+'/'+this.value.image+"')",
 			});
-			//this.element.find(".preview_img").attr({ src: base_url+'/'+this.url_image_preview });
-			this.value.url_image = this.value.url_image_preview;
-			this.element.find(".big_img").attr("href", base_url+'/'+this.value.url_image);
+			this.element.find(".big_img").attr("href", base_url+'/'+this.value.image);
 		}		         
     },
     configForm: {
@@ -23,7 +21,7 @@ lp.imageFancyboxWithSignature = lp.cover.extendOptions({
                  
             },  
             {
-                name: 'url_image_preview', type: 'uploadButton', label: _t('Select file'),
+                name: 'image', type: 'uploadButton', label: _t('Select file'),
             },
             {
                 type: 'label',

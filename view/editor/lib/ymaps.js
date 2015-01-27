@@ -32,7 +32,6 @@ $.fn.mapYandex = function (mapSettings_default,onInit) {
             for(i = 0; i < placesArray.length; i++){                
                 var place = placesArray[i];
                 var coords = [place.lat,place.lng];
-                //console.log(place);
                 yandexPlacemark = new ymaps.Placemark( coords ,
                 {
                     hintContent: place.title,

@@ -1,9 +1,9 @@
 <?php
 
-class Maps extends Block {
+class Map extends Block {
     public $name = 'Карта';
     public $description = "Местораположение компании";
-    public $editor = "lp.maps";
+    public $editor = "lp.map";
     
     function tpl($val) {?>
         <div class="map_block_1">
@@ -54,4 +54,4 @@ class Maps extends Block {
     }
 }
 
-Maps::register();
+Map::register();

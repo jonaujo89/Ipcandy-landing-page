@@ -21,7 +21,7 @@ lp.placemarkRepeater = teacss.ui.repeater.extend({
                 },
                 { type: 'button', label: _t("center"), width: "7%", margin: "0 1% 0 0", 
                     click: function (val) {
-                        var block = lp.maps.current;                   
+                        var block = lp.map.current;                   
                         block.value.map.map_center = [this.form.value.lat, this.form.value.lng];
                         me.trigger("change");
                     }
@@ -67,7 +67,7 @@ lp.addressText = ui.text.extend({
                     me.value.lat = parts[1];
                     me.value.lng = parts[0];
                     me.input.removeClass("error");
-                    var block = lp.maps.current;
+                    var block = lp.map.current;
                     block.value.map.map_center = [me.value.lat,me.value.lng];
                     me.trigger("change");
                 } else {
@@ -94,7 +94,7 @@ lp.addressText = ui.text.extend({
 })
 
 
-lp.maps = lp.block.extendOptions({
+lp.map = lp.block.extendOptions({
     init: function(){
         var jq = Component.previewFrame.window.$;
         if(jq){
@@ -116,8 +116,9 @@ lp.maps = lp.block.extendOptions({
         items: [   
             { 
                 name: "show_container_text", label: _t("Show text"), type: "checkbox", width: "auto", 
-                margin: "5px 49% 0px 0px", showWhen: { variant: [1] }
+                margin: "0", showWhen: { variant: [1] }
             },
+            "<hr>",
             {
                 type: 'composite', skipForm: true, margin: 0,
                 items: [    
@@ -138,7 +139,7 @@ lp.maps = lp.block.extendOptions({
                         function updateMap() {                             
                             me.element.mapYandex(val,function(myMap){
                                 myMap.events.add('boundschange', function ($this) {
-                                    var block = lp.maps.current; 
+                                    var block = lp.map.current; 
                                     block.value.map.map_center = myMap.getCenter();
                                     block.value.map.map_zoom = myMap.getZoom();
                                     block.trigger('change');

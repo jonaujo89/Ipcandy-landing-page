@@ -70,7 +70,8 @@ lp.formControls.select = lp.formControls.field.extendOptions({
                 this.tpl_label(val),
                 $('<div class="form_field_select_wrap">').append(
                     select =  $('<select class="form_field_select">')
-                )
+                ),
+                $('<div class="error">')
             )
         );
         $.each(val.options.split("\n"),function(){
@@ -97,7 +98,8 @@ lp.formControls.radio = lp.formControls.select.extend({
         var ret = $('<div class="form_field">').append(
             $('<label>').append(
                 this.tpl_label(val),
-                radio = $('<div class="form_field_radio_values">')
+                radio = $('<div class="form_field_radio_values">'),
+                $('<div class="error">')
             )
         );
     
