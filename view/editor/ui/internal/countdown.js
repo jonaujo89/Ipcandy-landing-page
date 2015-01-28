@@ -4,56 +4,14 @@ require('../../lib/datetimePicker/jquery.datetimepicker.js');
 lp.dateText = ui.text.extend({
     init: function (o) {
         this._super(o);
-		var dateTime = $(this).attr('data-datetime');
         this.input.css({lineHeight: 1.8, textAlign: "center"});
-        this.input.datetimepicker({
-			animation: false, 
-			days: true,
-			timepicker: false,
-			format:'Y/m/d',
-			closeOnDateSelect: true,
-			mask:true,
+        this.input.datetimepicker($.extend({
+			animation: false, days: true,mask:true,
+			timepicker: false, format:'Y/m/d', closeOnDateSelect: true,
 			minDate: new Date(),
-		});
+        },o.pickerOptions || {}));
     }
 });
-lp.timeText = ui.text.extend({
-    init: function (o) {
-        this._super(o);
-        this.input.css({lineHeight: 1.8, textAlign: "center"});
-        this.input.datetimepicker({
-			animation: false, 
-			days: true,
-			datepicker: false,
-			format:'H:i',
-			step: 30,
-			mask:true,
-		});
-    }
-});
-
-function Items_day(){
-	var items = [];
-	for (i=1; i<=31; i++){
-		items.push({
-			label: i,
-			value: i
-		});
-	};	
-	return items;
-};
-
-function DayOfWeek(){
-	var items = [];
-	var days = [_t('Monday'),_t('Tuesday'),_t('Wednesday'),_t('Thursday'),_t('Friday'),_t('Saturday'),_t('Sunday')];
-	for (i=0; i<7; ++i){
-		items.push({
-			label: days[i],
-			value: i
-		});
-	};	
-	return items;
-};
 
 lp.countdown = lp.cover.extendOptions({
 	change: function(){ 		
@@ -64,7 +22,7 @@ lp.countdown = lp.cover.extendOptions({
     },
     configForm: {
 		title: _t("Countdown settings"),
-        width: "200px",
+        width: "250px",
         items: [            
 			{
                 name: 'type', type: 'radio', margin: "5px 0 5px", items: [
@@ -74,42 +32,59 @@ lp.countdown = lp.cover.extendOptions({
 					{ label: _t("Every day<br>"), value: 'daily' },
                 ]
             },
-              
             "<hr>",       
-                    
-            {   type: "label", value: _t("Date:"), width: "65%", margin: "5px 5% 5px 0", 
+            {
+                type: "label", value: _t("Date:"), width: "65%", margin: "5px 5% 5px 0", 
 				showWhen: { type: 'datetime' }
             },
-            {   type: "label", value: _t("Day:"), width: "65%", margin: "5px 5% 5px 0" ,
+            {   
+                type: "label", value: _t("Day:"), width: "65%", margin: "5px 5% 5px 0" ,
 				showWhen: { type: 'monthly' }
             },
-            {   type: "label", value: _t("Day of week:"), width: "65%", margin: "5px 5% 5px 0" ,
+            {   
+                type: "label", value: _t("Day of week:"), width: "65%", margin: "5px 5% 5px 0" ,
 				showWhen: { type: 'weekly' }
             },        
-            {   type: "label", value: _t("Time:"), width: "25%", margin: "5px 5% 5px 0", showWhen: { type: ['datetime','monthly','weekly'] } }, 
-            {   type: "label", value: _t("Time:"), width: "100%", margin: "11px 70% 5px 0", showWhen: { type: 'daily' }},
-           
-                    
-                    
+            {   
+                type: "label", value: _t("Time:"), width: "25%", margin: "5px 5% 5px 0", showWhen: { type: ['datetime','monthly','weekly'] } 
+            }, 
+            {   
+                type: "label", value: _t("Time:"), width: "100%", margin: "11px 70% 5px 0", showWhen: { type: 'daily' }
+            },
 			{
                 name: "date", type: lp.dateText, width: "65%", margin: "5px 5% 5px 0",
 				showWhen: { type: 'datetime' }	
             },
 			{
                 name: "day", type: teacss.ui.select,
-				items: Items_day(),
+                items: function () {
+                    var items = [];
+                    for (i=1;i<=31;i++) items.push({label:i,value:i});
+                    return items;
+                },
 				width: "65%", margin: "5px 5% 5px 0",
 				showWhen: { type: 'monthly' }	
             },            
 			{
                 name: "dayOfWeek", 
 				type: teacss.ui.select,
-				items: DayOfWeek(),
+                items: [
+                    { value:1, label:_t('Monday') },
+                    { value:2, label:_t('Tuesday') },
+                    { value:3, label:_t('Wednesday') },
+                    { value:4, label:_t('Thursday') },
+                    { value:5, label:_t('Friday') },
+                    { value:6, label:_t('Saturday') },
+                    { value:7, label:_t('Sunday') }
+                ],
 				width: "65%", margin: "5px 5% 5px 0", 
 				showWhen: { type: 'weekly' }	
             },
 			{
-                name: "time", type: lp.timeText, width: "25%", margin: "5px 5% 5px 0"
+                name: "time", type: lp.dateText, width: "25%", margin: "5px 5% 5px 0",
+                pickerOptions: {
+                    format: "H:i", step: 30, timepicker: true, datepicker: false
+                }
             },
         ]
     }

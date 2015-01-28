@@ -254,6 +254,10 @@ body.dragging .lp-button {
     z-index: 2001;
 }
 
+.services_6 .text_toolbar {
+  width: 194px;
+}
+
 [data-editor="lp.icon"] .ico {
     position: relative;
 }

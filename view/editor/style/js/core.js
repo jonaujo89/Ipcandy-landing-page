@@ -37,7 +37,7 @@ $.fn.lpCounty = function () {
                 break;
 
             case 'monthly':                
-                var countDayOfMonth;
+                var lengthMonth;
                 add_days = get_date.day - day;
 
                     if (curren_month == 2) { // если февраль то 29-30 не считать
@@ -45,30 +45,30 @@ $.fn.lpCounty = function () {
                             if (get_date.day == 30 || get_date.day == 31) {
                                 add_days = 29 - day;
                             }
-                            countDayOfMonth = 29;
+                            lengthMonth = 29;
                         } else {
                             if (get_date.day == 29 || get_date.day == 30 || get_date.day == 31) {
                                 add_days = 28 - day;
                             }
-                            countDayOfMonth = 28;
+                            lengthMonth = 28;
                         }
                     } else {
                         if (curren_month == 4 || curren_month == 6 || curren_month == 9 || curren_month == 11) { // если в месяце 30 дней то 31 не считать
                             if (get_date.day == 31) {
                                 add_days = 30 - day;
                             }
-                            countDayOfMonth = 30;
+                            lengthMonth = 30;
                         } else {
-                            countDayOfMonth = 31;
+                            lengthMonth = 31;
                         }
                     }
 
                     if (add_days < 0) {
-                        add_days = countDayOfMonth + add_days;
+                        add_days = lengthMonth + add_days;
                     } else if (add_days == 0) {
                         var timeX = new Date(current_year + '/' + curren_month + '/' + current_day + ' ' + get_date.time);
                         if (timeX < now) {
-                            add_days = countDayOfMonth;
+                            add_days = lengthMonth;
                         }
                     } 
                 

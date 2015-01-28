@@ -131,6 +131,13 @@ class Block {
         return '';
     }
     
+    function bg_style($bg) {
+        if (isset($bg['url']))
+            return 'background:url('.INDEX_URL.'/'.$bg['url'].')';
+        else
+            return 'background:'.$bg['color'];
+    }
+    
     static function text() {
         $id = get_called_class();
         if (!isset(self::$list[$id])) {

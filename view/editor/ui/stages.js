@@ -1,4 +1,4 @@
-lp.Stages = lp.block.extendOptions({
+lp.stages = lp.block.extendOptions({
     change: function(){
         this.variant.find(".stages").css({
             background: this.value.background_color || '',

@@ -10,14 +10,25 @@ lp.repeater = teacss.ui.control.extend({
         
         var me = this;
         this.element.on("click",".lp-config-button",function(){
-            var item = $(this).parents(".item_block:not([data-dummy])").eq(0);
+            var item = $(this).parents(".item_block").eq(0);
             me.config({my:"left top",at:"right top",of:$(this)},item)
+        });
+        this.element.on("click",".lp-remove-button",function(){
+            var item = $(this).parents(".item_block").eq(0);
+            me.remove(item);
+        });
+        this.element.on("mouseover",".lp-remove-button",function(){
+            $(this).parents(".item_block").eq(0).find(".cmp-remove-cover").show();
+        });
+        this.element.on("mouseout",".lp-remove-button",function(){
+            $(this).parents(".item_block").eq(0).find(".cmp-remove-cover").hide();
         });
     },
     
     // get index inside this.value for item
     itemIndex: function (item) {
         item = $(item);
+        this.refreshItems();
         var idx = this.items.index(item);
         if (idx==-1) {
             // cloned item
@@ -97,18 +108,23 @@ lp.repeater = teacss.ui.control.extend({
         this.value.splice(idx, 1);
         this.trigger("change");
         
+        this.refreshItems();
         this.bindEditors();
+    },
+    
+    refreshItems: function () {
+        this.items = this.element.children("[class=item_block]:not([data-dummy])");
     },
     
     addCovers: function () {
         var me = this;
-        me.items = this.element.children(".item_block:not([data-dummy])");
+        me.refreshItems();
         me.items.each(function(idx){
             var item = $(this);
             if (item.find("> .cmp-repeater-cover").length==0) {
                 item.append(
                     item.cover = $("<div class='cmp-repeater-cover'>"),
-                    item.removeCover = $("<div class='cmp-cover fa fa-trash-o'>").css({opacity:1}).hide(),
+                    item.removeCover = $("<div class='cmp-cover cmp-remove-cover fa fa-trash-o'>").css({opacity:1}).hide(),
                     item.dragCover = $("<div class='cmp-cover cmp-drag-cover fa fa-arrows'>").css({opacity:1}).hide(),
                     item.addCover = $("<div class='cmp-cover cmp-add-cover'>").css({opacity:1}).hide()
                 );
@@ -134,10 +150,7 @@ lp.repeater = teacss.ui.control.extend({
                     );
                 }
                 item.cover.append(
-                    $("<div class='fa fa-trash-o lp-button'>")
-                    .mouseover(function(){ item.removeCover.show() })
-                    .mouseout (function(){ item.removeCover.hide() })
-                    .click(function(){ me.remove(item) })
+                    $("<div class='fa fa-trash-o lp-button lp-remove-button'>")
                 );
             }
         });

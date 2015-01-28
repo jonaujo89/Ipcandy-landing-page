@@ -301,7 +301,7 @@ class Digits extends Block {
         return  array(
             'show_title' => false,
             'show_title_2' => false,
-            'background' => '/view/editor/assets/texture_black/1.jpg',
+            'background' => 'view/editor/assets/texture_black/1.jpg',
             'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
             'items' => array(
@@ -374,7 +374,7 @@ class Digits extends Block {
         return  array(
             'show_title' => false,
             'show_title_2' => false,
-            'background' => '/view/editor/assets/texture_black/1.jpg',
+            'background' => 'view/editor/assets/texture_black/1.jpg',
             'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
             'items' => array(
@@ -448,7 +448,7 @@ class Digits extends Block {
             'show_title' => false,
             'show_title_2' => false,
             'icon_color' => 'grey',
-            'background' => '/view/editor/assets/texture_black/1.jpg',
+            'background' => 'view/editor/assets/texture_black/1.jpg',
             'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
             'items' => array(

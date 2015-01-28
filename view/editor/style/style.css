@@ -2552,11 +2552,13 @@ ol li {
 }
 
 .gallery_1 .item_list .item_block a.big_img {
-  position: relative;
+  position: absolute;
   display: block;
   width: 100%;
-  overflow: hidden;
+  height: 100%;
   cursor: pointer;
+  top: 0;
+  z-index: 1;
 }
 
 .gallery_1 .item_list .item_block .preview_img {
@@ -2586,11 +2588,11 @@ ol li {
     width: 100%;
 }
 
-.gallery_1 div.item_list .item_block .preview_img:hover .overlay{
+.gallery_1 div.item_list .item_block:hover .overlay{
   opacity: 1;
 }
 
-.gallery_1 div.item_list .item_block a:hover div.preview_img {
+.gallery_1 div.item_list .item_block:hover div.preview_img {
   transform: scale(1.1,1.1);
 }
 
@@ -2610,7 +2612,7 @@ ol li {
   padding-bottom: 50px;
 }
 
-.gallery_2 .item_list .item .img {
+.gallery_2 .item_list .item .preview_img {
   width: 100%;
   height: 300px;
   background-repeat: no-repeat;
@@ -2692,7 +2694,7 @@ ol li {
     margin: 5px;
   }
 
-  .gallery_2 .item_list .item .img {
+  .gallery_2 .item_list .item .preview_img {
     height: 240px;
   }
 }
@@ -2712,7 +2714,7 @@ ol li {
   border: 1px solid #DDD;
 }
 
-.gallery_3 .item_list .item .img {
+.gallery_3 .item_list .item .preview_img {
   width: 100%;
   height: 255px;
   background-repeat: no-repeat;
@@ -2720,7 +2722,7 @@ ol li {
   background-position: center center;
 }
 
-.gallery_3 .item_list .item .img a {
+.gallery_3 .item_list .item .preview_img a {
   display: block;
   width: 100%;
   height: 100%;
@@ -2757,7 +2759,7 @@ ol li {
     width: 32.2%;
   }
 
-  .gallery_3 .item_list .item .img {
+  .gallery_3 .item_list .item .preview_img {
     height: 200px;
   }
 }
@@ -2781,7 +2783,7 @@ ol li {
   border: 1px solid #DDD;
 }
 
-.gallery_4 .item_list .item .img {
+.gallery_4 .item_list .item .preview_img {
   width: 100%;
   height: 200px;
   background-repeat: no-repeat;
@@ -2789,7 +2791,7 @@ ol li {
   background-position: center center;
 }
 
-.gallery_4 .item_list .item .img a {
+.gallery_4 .item_list .item .preview_img a {
   display: block;
   width: 100%;
   height: 100%;
@@ -2828,7 +2830,7 @@ ol li {
       padding: 12px;
   }
 
-  .gallery_4 .item_list .item .img {
+  .gallery_4 .item_list .item .preview_img {
     height: 157px;
   }
 
@@ -3706,7 +3708,6 @@ ol li {
   float: left;
   width: 50%;
   height: 100%;
-  overflow: hidden;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0 40px 30px 40px;

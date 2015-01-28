@@ -20,7 +20,7 @@ class Video extends Block {
                         </div>
                     <? endif ?>
                     <div class="video <?= $val['video_size'] ? $val['video_size'] : "small" ?>">
-                        <?=$this->sub('VideoStream','video')?>
+                        <?=$this->sub('Media','video',array('switchType'=>false))?>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@ class Video extends Block {
             'background_color' => '#FFFFFF',
             'title' => 'Посмотрите видео о нашей продукции',
             'title_2' => 'От начала производства до доставки и установки',
-            'video' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q'),
+            'video' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q','type'=>'video'),
         );
     }
     
@@ -48,7 +48,7 @@ class Video extends Block {
                         <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
                             <div class="item">
                                 <div class="video">
-                                    <?=$self->sub('VideoStream','video')?>
+                                    <?=$self->sub('Media','video',array('switchType'=>false))?>
                                 </div>
                                 <div class="text_wrap">
                                     <div class="text_title">
@@ -87,7 +87,7 @@ class Video extends Block {
                                 - Стильный дизайн<br>
                                 - И вообще<br>
                                 </div>',
-                    'video' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q'),
+                    'video' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q','type'=>'video'),
                 )
             )
         );
@@ -113,7 +113,7 @@ class Video extends Block {
                             <? for ($i=1; $i <= 3; $i++): ?>
                                 <div class="item">
                                     <div class="video <?= $val['show_border'] ? "" : "hide_border" ?>" >
-                                        <?=$self->sub('VideoStream','video_'.$i)?>
+                                        <?=$self->sub('Media','video_'.$i,array('switchType'=>false))?>
                                     </div>
                                     <div class="info">
                                         <div class="name">
@@ -148,13 +148,13 @@ class Video extends Block {
                 array(                
                     'name_1' => 'Обслуживание телефонов',
                     'desc_1' => 'Сергей Долгоруков, офис менеджер',
-                    'video_1' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q'),
+                    'video_1' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q','type'=>'video'),
                     'name_2' => 'Переустановка ПО',
                     'desc_2' => 'Алина Полякова, мед работник',
-                    'video_2' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q'),
+                    'video_2' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q','type'=>'video'),
                     'name_3' => 'Замена корпуса',
                     'desc_3' => 'Елена Назарова, владелица магазина',
-                    'video_3' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q'),
+                    'video_3' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q','type'=>'video'),
                     )
                 )
         );

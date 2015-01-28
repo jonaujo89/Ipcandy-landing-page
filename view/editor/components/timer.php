@@ -41,18 +41,8 @@ class Timer extends Block {
         );
     }
     
-    
     function tpl_2($val) {?>
-        <div class="container-fluid timer timer_2" style="
-            <?
-                preg_match("/#\w{3,6}/", $val['background'], $background);
-                if($background){
-                  print('background:'.$background[0]);
-                } else {
-                  print('background:repeat scroll 0% 0% transparent url('.INDEX_URL.$val['background'].')');
-                }
-            ?> 
-         ;">
+        <div class="container-fluid timer timer_2" style="<?=$this->bg_style($val['background'])?>">
             <div class="container">
                 <div class="span16">
                     <h1 class="title">
@@ -78,7 +68,7 @@ class Timer extends Block {
         return  array(
             'show_title_2' => true,
             'title_2_color' => 'timer_red',
-            'background' => '/view/editor/assets/texture_black/1.jpg',
+            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
             'title' => 'Семинар пройдет 20 декабря 2015г. в 12:00',
             'title_2' => 'Количество мест ограничено, успейте оплатить участие',
             'countdown_desc' => 'До начала мероприятия осталось:',
@@ -156,16 +146,7 @@ class Timer extends Block {
     
     
     function tpl_4($val) {?>
-        <div class="container-fluid timer timer_4" style="
-            <?
-                preg_match("/#\w{3,6}/", $val['background'], $background);
-                if($background){
-                  print('background:'.$background[0]);
-                } else {
-                  print('background:repeat scroll 0% 0% transparent url('.INDEX_URL.$val['background'].')');
-                }
-            ?> 
-         ;">
+        <div class="container-fluid timer timer_4" style="<?=$this->bg_style($val['background'])?>">
             <div class="container">
                 <div class="span8">
                     <h1 class="title">
@@ -206,7 +187,7 @@ class Timer extends Block {
         return  array(
             'show_title_2' => true,
 			'show_form_bottom_text' => true,
-			'background' => '/view/editor/assets/texture_black/1.jpg',
+			'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
             'title' => '<div>Семинар пройдет</div><div>20 декабря 2015г. в 12:00</div>',
             'title_2' => '<div>Количество мест ограничено,</div><div>успейте оплатить участие</div>',
             'timer_desc' => 'До начала мероприятия осталось:',

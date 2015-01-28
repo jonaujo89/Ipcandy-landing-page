@@ -20,24 +20,25 @@ class Gallery extends Block {
                         </div>
                     <? endif ?>
                     <div class="item_list">                        
-						<? $this->repeat('items', function($item_val,$self) use ($val) { ?>
-							<a class="fancybox big_img" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>">
-								<div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$item_val['image']?>');"></div>
-								<div class="overlay">
-									<div class="wrap_title_desc">
-										<? if ($cls = $self->vis($val['show_image_title'])): ?>
-											<div class="img_title <?=$cls?>" >
-												<?= $item_val['title'] ?>
-											</div>
-										<? endif ?>
-										<? if ($cls = $self->vis($val['show_image_desc'])): ?>
-											<div class="img_desc <?=$cls?>" >
-												<?= $item_val['desc'] ?>
-											</div>
-										<? endif ?>
-									</div>
-								</div>
-							</a>
+						<? $this->repeat('items', function($item_val,$self) use ($val) { ?>							
+                            <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$item_val['image']?>');"></div>
+                                <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
+                                    <a class="fancybox big_img <?=$cls?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
+                                <? endif ?>
+                            <div class="overlay">
+                                <div class="wrap_title_desc">
+                                    <? if ($cls = $self->vis($val['show_image_title'])): ?>
+                                        <div class="img_title <?=$cls?>" >
+                                            <?= $item_val['title'] ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                        <div class="img_desc <?=$cls?>" >
+                                            <?= $item_val['desc'] ?>
+                                        </div>
+                                    <? endif ?>
+                                </div>
+                            </div>                           	
 						<? },array('editor' => 'lp.galleryRepeater'));?> 
 					</div> 
                 </div>
@@ -59,6 +60,7 @@ class Gallery extends Block {
             'show_title_2' => false,
             'show_image_title' => true,
             'show_image_desc' => true,
+            'enable_fancybox' => true,
             'background' =>'#FFFFFF',
             'title' => "Галерея работ",
             'title_2' => "Подзаголовок",
@@ -92,7 +94,7 @@ class Gallery extends Block {
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <? for ($i=1; $i <= 2; $i++): ?>
                                 <div class="item">
-                                    <?=$self->sub('Image','image_'.$i)?>
+                                    <?=$self->sub('GalleryImage','image_'.$i)?>
                                     <div class="overlay">
                                         <div class="img_title">
                                             <? $self->sub('Text','image_title_'.$i,Text::$plain_heading) ?>
@@ -127,21 +129,21 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-					'image_1' => "view/editor/assets/gallery/preview_image/1.jpg",                   
+					'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/1.jpg')),                   
 					'image_title_1' => "Заголовок картинки",
 					'image_desc_1' => "Описание картинки",
 					'image_text_1' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
-					'image_2' => "view/editor/assets/gallery/preview_image/2.jpg",
+					'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/2.jpg')),
 					'image_title_2' => "Заголовок картинки",
 					'image_desc_2' => "Описание картинки",
 					'image_text_2' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
 				),
 				array(
-					'image_1' => "view/editor/assets/gallery/preview_image/3.jpg",                   
-					'image_title_1' => "Заголовок картинки",
+					'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/3.jpg')),
+                    'image_title_1' => "Заголовок картинки",
 					'image_desc_1' => "Описание картинки",
 					'image_text_1' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
-					'image_2' => "view/editor/assets/gallery/preview_image/4.jpg",
+					'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/4.jpg')),
 					'image_title_2' => "Заголовок картинки",
 					'image_desc_2' => "Описание картинки",
 					'image_text_2' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
@@ -169,7 +171,7 @@ class Gallery extends Block {
                             <? for ($i=1; $i <= 3; $i++): ?>                        
                                 <div class="item">								
                                     <? $self->sub('GalleryImage','image_'.$i) ?>
-                                    <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                    <? if ($cls = $self->vis($val['show_image_overlay'])): ?>
                                         <div class="overlay <?=$cls?>" >
                                             <div class="img_title">
                                                 <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
@@ -247,7 +249,7 @@ class Gallery extends Block {
                             <? for ($i=1; $i <= 4; $i++): ?>                            
                                 <div class="item">								
                                     <? $self->sub('GalleryImage','image_'.$i) ?>
-                                    <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                    <? if ($cls = $self->vis($val['show_image_overlay'])): ?>
                                         <div class="overlay <?=$cls?>" >
                                             <div class="img_title">
                                                 <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
@@ -331,28 +333,27 @@ class Gallery extends Block {
 						<div class="slider">
                             <? $id_group = $val['id']; ?>
 							<? $this->repeat('items', function($item_val,$self) use ($val,$id_group){ ?>                                
-                                    <div class="preview_img">									
-                                        <img src="<?=INDEX_URL."/".$item_val['image']?>">
-                                        <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
-                                            <a class="fancybox big_img <?=$cls?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
-                                        <? endif ?>                                        
-                                    </div>                                    
-                                    <div class="overlay">
-                                        <div class="wrap_title_desc">
-                                            <? if ($cls = $self->vis($val['show_image_title'])): ?>
-                                                <div class="img_title <?=$cls?>" >
-                                                    <?= $item_val['title'] ?>
-                                                </div>
-                                            <? endif ?>
-                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
-                                                <div class="img_desc <?=$cls?>" >
-                                                    <?= $item_val['desc'] ?>
-                                                </div>
-                                            <? endif ?>
-                                        </div>
+                                <div class="preview_img">									
+                                    <img src="<?=INDEX_URL."/".$item_val['image']?>">
+                                    <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
+                                        <a class="fancybox big_img <?=$cls?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
+                                    <? endif ?>                                        
+                                </div>                                    
+                                <div class="overlay">
+                                    <div class="wrap_title_desc">
+                                        <? if ($cls = $self->vis($val['show_image_title'])): ?>
+                                            <div class="img_title <?=$cls?>" >
+                                                <?= $item_val['title'] ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                            <div class="img_desc <?=$cls?>" >
+                                                <?= $item_val['desc'] ?>
+                                            </div>
+                                        <? endif ?>
                                     </div>
-                                
-							<? },array('editor' => 'lp.galleryRepeaterImg'));?>											
+                                </div>                                
+							<? },array('editor'=>'lp.galleryRepeater','sortable'=>false));?>											
 						</div>
 					</div>
                 </div>
@@ -432,7 +433,7 @@ class Gallery extends Block {
                                     </div>
                                 </div>
                             </div>
-						<? },array('editor' => 'lp.galleryRepeaterImg'));?> 
+						<? },array('editor'=>'lp.galleryRepeater','sortable'=>false));?> 
 					</div> 
                 </div>
             </div>

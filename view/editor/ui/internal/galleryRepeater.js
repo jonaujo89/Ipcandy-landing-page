@@ -3,9 +3,15 @@ lp.galleryRepeater = lp.repeater.extendOptions({
     itemChange: function (sub,item) {
 		item.find(".img_title").text(sub.title);
         item.find(".img_desc").text(sub.desc);
-		item.find(".preview_img").css({
-            backgroundImage: "url('"+base_url+'/'+sub.image+"')",
-		});
+        
+        if (!this.options.sortable) {
+            item.find(".preview_img img").attr({ src: base_url+'/'+sub.image });
+        }
+        else {
+            item.find(".preview_img").css({
+                backgroundImage: "url('"+base_url+'/'+sub.image+"')",
+            });
+        }
 		item.find(".big_img").attr("href", base_url+'/'+sub.image).attr("title", sub.title);
     },
     configForm: {
@@ -36,5 +42,13 @@ lp.galleryRepeater = lp.repeater.extendOptions({
             }
         ]
         
+    }
+})
+.extend({
+    init: function (o) {
+        this._super(o);
+        if (this.addButtonWrap && !this.options.sortable) {
+            this.element.parents(".item_list").eq(0).append(this.addButtonWrap.css({marginTop:-90}));
+        }
     }
 })

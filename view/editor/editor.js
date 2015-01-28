@@ -28,10 +28,8 @@ require("./ui/internal/formButton.js");
 require("./ui/internal/uploadButton.js");
 require("./ui/internal/fontCombo.js");
 require("./ui/internal/media.js");
-require("./ui/internal/videoStream.js");
 require("./ui/internal/countdown.js");
 require("./ui/internal/galleryRepeater.js");
-require("./ui/internal/galleryRepeaterImg.js");
 require("./ui/internal/overlayImage.js");
 require("./ui/internal/galleryImage.js");
 

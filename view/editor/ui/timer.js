@@ -96,10 +96,13 @@ lp.timer = lp.block.extendOptions({
                     panelClass: 'only-icons',
                     items: function () {
                         var items = [];
-                        items.push({ value: "#313138" },{ value: "#24242A" });
+                        items.push(
+                            { value: {color:"#313138"} },
+                            { value: {color:"#24242A"} }
+                        );
                         for (var i=1;i<=3;i++) {
                             items.push({
-                                value:"/view/editor/assets/texture_black/"+i+".jpg",
+                                value: {url:"view/editor/assets/texture_black/"+i+".jpg"},
                             });
                         }                        
                         return items;
@@ -109,11 +112,10 @@ lp.timer = lp.block.extendOptions({
                             $("<div>").css({
                                 width: 50,
                                 height: 50,
+                                background: item.value.url ? "url("+base_url+"/"+item.value+")" : item.value.color,
                                 backgroundSize: "cover",
                                 backgroundPosition: "auto 100%",
-                                backgroundImage:"url("+base_url+item.value+")",
-                                background: item.value
-                            })
+                           })
                         );
                     }
                 }), 

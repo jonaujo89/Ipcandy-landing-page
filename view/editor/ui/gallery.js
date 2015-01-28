@@ -83,7 +83,7 @@ lp.gallery = lp.block.extendOptions({
             },            
 			{ 
                 name: "enable_fancybox", label: _t("Show big image (enable fancybox)"), type: "checkbox", width: "auto",  
-                margin: "5px 49% 0px 0px", showWhen: { variant: [3,4,5,6,7,8,9,10] }
+                margin: "5px 49% 0px 0px", showWhen: { variant: [1,3,4,5,6,7,8,9,10] }
             },			
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
