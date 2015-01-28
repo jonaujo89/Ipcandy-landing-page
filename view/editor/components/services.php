@@ -106,7 +106,7 @@ class Services extends Block {
                     <? endif ?>    
                     <div class="item_list clear <?= $val['image_shape'] ? $val['image_shape'] : "circle" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 2; $i++): ?>
+                            <? for ($i=1;$i<=2;$i++): ?>
                                 <div class="item <?= $val['show_image_shadow'] ? '' : "hide_shadow" ?>">
                                     <div class="img_data">
                                         <? $self->sub('Image','image_'.$i) ?>
@@ -266,7 +266,7 @@ class Services extends Block {
                     <? endif ?>    
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 3; $i++): ?>
+                            <? for ($i=1;$i<=3;$i++): ?>
                                 <div class="item">
                                     <? if ($cls = $self->vis($val['show_image'])): ?>
                                         <div class="img_wrap <?=$cls?>" >
@@ -351,7 +351,7 @@ class Services extends Block {
                     <? endif ?>   
                     <div class="item_list clear <?= $val['image_shape'] ? $val['image_shape'] : "circle" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 3; $i++): ?>
+                            <? for ($i=1;$i<=3;$i++): ?>
                                 <div class="item">
                                     <div class="item_data">
                                         <? if ($cls = $self->vis($val['show_image'])): ?>
@@ -438,7 +438,7 @@ class Services extends Block {
                     <? endif ?>   
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 3; $i++): ?>
+                            <? for ($i=1;$i<=3;$i++): ?>
                                 <div class="item">
                                     <div class="item_data">
                                         <div class="name">

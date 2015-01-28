@@ -16,8 +16,14 @@ lp.dateText = ui.text.extend({
 lp.countdown = lp.cover.extendOptions({
 	change: function(){ 		
 		var countdown = this.element.find(".countdown");
-		countdown.removeAttr("data-datetime"); 	
-		countdown.attr("data-datetime" , '{"type":"'+this.value.type+'","date":"'+this.value.date+'","day":"'+this.value.day+'","dayOfWeek":"'+this.value.dayOfWeek+'","time":"'+this.value.time+'"}');
+        var datetime = {
+            type: this.value.type,
+            date: this.value.date,
+            day: this.value.day,
+            dayOfWeek: this.value.dayOfWeek,
+            time: this.value.time
+        };
+		countdown.removeAttr("data-datetime").attr("data-datetime", JSON.stringify(datetime));
         Component.previewFrame.window.$(countdown).lpCounty();
     },
     configForm: {
@@ -56,13 +62,13 @@ lp.countdown = lp.cover.extendOptions({
 				showWhen: { type: 'datetime' }	
             },
 			{
-                name: "day", type: teacss.ui.select,
+                name: "day", type: teacss.ui.select,               
                 items: function () {
                     var items = [];
                     for (i=1;i<=31;i++) items.push({label:i,value:i});
                     return items;
                 },
-				width: "65%", margin: "5px 5% 5px 0",
+                width: "65%", margin: "5px 5% 5px 0",
 				showWhen: { type: 'monthly' }	
             },            
 			{

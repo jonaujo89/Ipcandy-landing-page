@@ -21,7 +21,7 @@ class Stages extends Block {
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
-                        <? for ($i=1; $i <= 4; $i++): ?>
+                        <? for ($i=1;$i<=4;$i++): ?>
                             <div class="item">
                                 <div class="arrow"></div>
                                 <?= $this->sub('Icon','icon_'.$i) ?>
@@ -83,7 +83,7 @@ class Stages extends Block {
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
-                        <? for ($i=1; $i <= 5; $i++): ?>
+                        <? for ($i=1;$i<=5;$i++): ?>
                             <div class="item">
                                 <div class="line"></div>
                                 <div class="number"></div>

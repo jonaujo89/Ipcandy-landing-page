@@ -37,7 +37,7 @@ lp.media = lp.cover.extend({
             if (this.value.type == "image") {
                 div_media.empty(div_media);
                 div_media.append($('<div class="img">').css({
-                    backgroundImage: "url('"+base_url+'/'+this.value.image_url+"')",
+                    backgroundImage: "url('"+base_url+"/"+this.value.image_url+"')",
                 }));
             } else if (this.value.type == "video") {
                 var url = this.value.video_url;

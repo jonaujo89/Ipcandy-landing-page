@@ -4,7 +4,7 @@ lp.image = lp.cover.extendOptions({
     },
     change: function(){
         this.element.find(".img").css({
-            backgroundImage: "url('"+base_url+'/'+this.value+"')",
+            backgroundImage: "url('"+base_url+"/"+this.value+"')",
         }); 
     },
     configForm: {

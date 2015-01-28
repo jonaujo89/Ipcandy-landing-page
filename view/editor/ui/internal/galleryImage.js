@@ -5,9 +5,9 @@ lp.galleryImage = lp.cover.extendOptions({
     change: function(){
 		if(this.value.image){
 			this.element.find(".preview_img").css({
-				backgroundImage: "url('"+base_url+'/'+this.value.image+"')",
+				backgroundImage: "url('"+base_url+"/"+this.value.image+"')",
 			});
-			this.element.find(".big_img").attr("href", base_url+'/'+this.value.image);
+			this.element.find(".big_img").attr("href", base_url+"/"+this.value.image);
 		}		         
     },
     configForm: {

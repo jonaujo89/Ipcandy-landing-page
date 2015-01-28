@@ -5,14 +5,14 @@ lp.galleryRepeater = lp.repeater.extendOptions({
         item.find(".img_desc").text(sub.desc);
         
         if (!this.options.sortable) {
-            item.find(".preview_img img").attr({ src: base_url+'/'+sub.image });
+            item.find(".preview_img img").attr({ src: base_url+"/"+sub.image });
         }
         else {
             item.find(".preview_img").css({
-                backgroundImage: "url('"+base_url+'/'+sub.image+"')",
+                backgroundImage: "url('"+base_url+"/"+sub.image+"')",
             });
         }
-		item.find(".big_img").attr("href", base_url+'/'+sub.image).attr("title", sub.title);
+		item.find(".big_img").attr("href", base_url+"/"+sub.image).attr("title", sub.title);
     },
     configForm: {
         title: _t("Image"),

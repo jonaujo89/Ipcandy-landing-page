@@ -20,4 +20,4 @@ include "components/footer.php";
 include "components/video.php";
 include "components/textBlock.php";
 include "components/timer.php";
-include "components/digits.php";
+include "components/numbers.php";

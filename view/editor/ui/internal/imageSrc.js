@@ -1,6 +1,6 @@
 lp.imageSrc = lp.cover.extendOptions({
     change: function(){
-        this.element.find("img").attr({ src: base_url+'/'+this.value }); 
+        this.element.find("img").attr({ src: base_url+"/"+this.value }); 
     },
     configForm: {
         title: _t("Image"),

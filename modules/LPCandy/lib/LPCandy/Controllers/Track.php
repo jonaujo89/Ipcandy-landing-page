@@ -92,7 +92,7 @@ class Track extends Base {
             if(!$val['values']) return "Данных нет";
             foreach($val['values'] as $one) {            
                 $sub = $one['value'];
-                if (is_bool($sub)) $sub = $sub ? 'да' : 'нет';
+                if (is_bool($sub)) $sub = $sub ? _t('yes') : _t('no');
                 $data.="<b>".$one['label'].": </b>".$sub."<br>";
             }
             return $data;

@@ -21,7 +21,7 @@ class Feedback extends Block {
                     <? endif ?>
                     <div class="item_list clear">
                         <? $this->repeat('items',function($val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 3; $i++): ?>                            
+                            <? for ($i=1;$i<=3;$i++): ?>                            
                                 <div class="item">
                                     <div class="item_data">
                                         <div class="text">

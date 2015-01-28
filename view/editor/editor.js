@@ -32,6 +32,7 @@ require("./ui/internal/countdown.js");
 require("./ui/internal/galleryRepeater.js");
 require("./ui/internal/overlayImage.js");
 require("./ui/internal/galleryImage.js");
+require("./ui/internal/background.js");
 
 require("./lib/ymaps.js");
 
@@ -49,7 +50,7 @@ require("./ui/map.js");
 require("./ui/footer.js");
 require("./ui/video.js");
 require("./ui/textBlock.js");
-require("./ui/digits.js");
+require("./ui/numbers.js");
 require("./ui/timer.js");
 
 var dir = require.dir;

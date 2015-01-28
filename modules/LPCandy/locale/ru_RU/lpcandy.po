@@ -42,6 +42,14 @@ msgstr "ip"
 msgid "data"
 msgstr "данные"
 
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:95
+msgid "yes"
+msgstr "да"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:95
+msgid "no"
+msgstr "нет"
+
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/login.php:6
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/logged-info.php:9
 msgid "Login"
@@ -255,6 +263,14 @@ msgstr "Путь не определён"
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/view/lpcandy/page-list.php:63
 msgid "No pages yet"
 msgstr "Страниц пока нет"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:95
+#~ msgid "checked"
+#~ msgstr "отмечен"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:95
+#~ msgid "unchecked"
+#~ msgstr "не отмечен"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/User.php:21
 #~ msgid "Invite"

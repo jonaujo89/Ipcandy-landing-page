@@ -110,7 +110,7 @@ class Video extends Block {
                     <? endif ?>                    
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
-                            <? for ($i=1; $i <= 3; $i++): ?>
+                            <? for ($i=1;$i<=3;$i++): ?>
                                 <div class="item">
                                     <div class="video <?= $val['show_border'] ? "" : "hide_border" ?>" >
                                         <?=$self->sub('Media','video_'.$i,array('switchType'=>false))?>

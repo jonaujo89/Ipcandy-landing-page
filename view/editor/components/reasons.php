@@ -21,7 +21,7 @@ class Reasons extends Block {
                     <? endif ?> 
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 2; $i++): ?>
+                            <? for ($i=1;$i<=2;$i++): ?>
                                 <div class="item">
                                     <div class="ico_wrap">
                                         <? $self->sub('Icon','icon_'.$i) ?>

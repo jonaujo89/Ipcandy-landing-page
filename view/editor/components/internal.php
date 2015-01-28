@@ -139,8 +139,7 @@ class FormOrder extends Block {
                         <span class="field_title"><?= htmlspecialchars($field['label'])?></span>
                     <? else: ?>
                         <div class="field_title">
-                            <?= htmlspecialchars($field['label'])?>
-                            <?= (isset($field['required']) && $field['required']) ? "<i>*</i>" : "" ?>
+                            <?= htmlspecialchars($field['label'])?><?= (isset($field['required']) && $field['required']) ? "<i>*</i>" : "" ?>
                         </div>
                         <? if (isset($field['desc']) && $field['desc']): ?>
                             <div class="desc">
@@ -319,17 +318,25 @@ class Countdown extends Block {
     
 		function tpl_default() {
         return array(
-            'type' => '',			
-			'date' => '',
-			'dayOfWeek' => '',
-			'day' => '',
-			'time' => '',
+            'type' => 'daily',
+            'date' => date("Y/m/d"),
+            'dayOfWeek' => 1,
+            'day' => 5,
+            'time' => '23:55'
         );        
     }
 
     function tpl($val) {?>
-		<div class="countdown" data-datetime='{"type":"<?= $val['type']?>","date":"<?= $val['date']?>","day":"<?= $val['day']?>","dayOfWeek":"<?= $val['dayOfWeek']?>","time":"<?= $val['time']?>"}'>
-		</div>
+        <? $arr_datetime = array(
+            'type' => $val['type'],
+            'date' => $val['date'],
+            'day' => $val['day'],
+            'dayOfWeek' => $val['dayOfWeek'],
+            'time' => $val['time'],
+           );
+           $datetime = str_replace('\/','/',json_encode($arr_datetime));
+        ?>
+		<div class='countdown' data-datetime='<?=$datetime?>'></div>
     <?}
 }
 

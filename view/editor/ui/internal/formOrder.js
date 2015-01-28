@@ -120,7 +120,10 @@ lp.formControls.checkbox = teacss.ui.composite.extendOptions({
     selectIcon: "fa fa-check-square-o",
     tpl: function (val) {
         return $("<div class='form_field'>").append(
-            $('<label>').text(val.label).prepend('<input class="form_field_checkbox" type="checkbox" value="'+val.label+'">')
+            $('<label>').append(
+                '<input class="form_field_checkbox" type="checkbox">',
+                '<span class="field_title">'+val.label+'</span>'
+            )
         )
     }
 },{

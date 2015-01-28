@@ -4942,17 +4942,17 @@ ol li {
 }
 
 
-/* digits */
-.digits_1 .container {
+/* numbers */
+.numbers_1 .container {
   padding: 0 0 60px 0;
   font-family: "Arial";
 }
 
-.digits_1 .margin {
+.numbers_1 .margin {
   margin-bottom: 45px;
 }
 
-.digits_1 h1.title {
+.numbers_1 h1.title {
   margin: 15px 0 10px 0;
   text-align: center;
   color: #34383A;
@@ -4962,7 +4962,7 @@ ol li {
   font-weight: 400;
 }
 
-.digits_1 .title_2 {
+.numbers_1 .title_2 {
   margin: 10px 0 25px 0;
   text-align: center;
   color: #5C5C5C;
@@ -4971,18 +4971,18 @@ ol li {
   font-weight: 300;
 }
 
-.digits_1 .item_list {
+.numbers_1 .item_list {
   margin-top: 35px;
 }
 
-.digits_1 .item_list .item {
+.numbers_1 .item_list .item {
   float: left;
   width: 25%;
   padding: 15px 30px;
   text-align: center;
 }
 
-.digits_1 .item_list .item .value {
+.numbers_1 .item_list .item .value {
   color: #2B2B2B;
   font-size: 60px;
   font-family: "Open Sans", "Arial";
@@ -4990,7 +4990,7 @@ ol li {
   white-space: nowrap;
 }
 
-.digits_1 .item_list .item .name {
+.numbers_1 .item_list .item .name {
   color: #5C5C5C;
   font-size: 16px;
   line-height: 22px;
@@ -4999,21 +4999,21 @@ ol li {
 }
 
 @media all and (max-width: 1199px) {
-  .digits_1 .item_list .item {
+  .numbers_1 .item_list .item {
     padding: 15px 15px;
   }
 }
 
-.digits_2 .container {
+.numbers_2 .container {
   padding: 0 0 60px 0;
   font-family: "Arial";
 }
 
-.digits_2 .margin {
+.numbers_2 .margin {
   margin-bottom: 45px;
 }
 
-.digits_2 h1.title {
+.numbers_2 h1.title {
   margin: 15px 0 10px 0;
   text-align: center;
   color: #34383A;
@@ -5023,7 +5023,7 @@ ol li {
   font-weight: 400;
 }
 
-.digits_2 .title_2 {
+.numbers_2 .title_2 {
   margin: 10px 0 25px 0;
   text-align: center;
   color: #5C5C5C;
@@ -5032,18 +5032,18 @@ ol li {
   font-weight: 300;
 }
 
-.digits_2 .item_list {
+.numbers_2 .item_list {
   margin-top: 35px;
 }
 
-.digits_2 .item_list .item {
+.numbers_2 .item_list .item {
   float: left;
   width: 33.33%;
   padding: 15px 0;
   text-align: center;
 }
 
-.digits_2 .item_list .item .value {
+.numbers_2 .item_list .item .value {
   float: left;
   width: 149px;
   color: #2B2B2B;
@@ -5054,7 +5054,7 @@ ol li {
   text-align: right;
 }
 
-.digits_2 .item_list .item .name {
+.numbers_2 .item_list .item .name {
   float: left;
   width: 240px;
   padding: 10px 15px 15px 10px;
@@ -5067,32 +5067,32 @@ ol li {
 }
 
 @media all and (max-width: 1199px) {
-  .digits_2 .item_list .item {
+  .numbers_2 .item_list .item {
     padding: 15px;
   }
 
-  .digits_2 .item_list .item .value,
-  .digits_2 .item_list .item .name {
+  .numbers_2 .item_list .item .value,
+  .numbers_2 .item_list .item .name {
     float: none;
     width: 100%;
     text-align: center;
   }
 
-  .digits_2 .item_list .item .name {
+  .numbers_2 .item_list .item .name {
     padding: 5px;
   }
 }
 
-.digits_3 .container {
+.numbers_3 .container {
   padding: 0 0 60px 0;
   font-family: "Arial";
 }
 
-.digits_3 .margin {
+.numbers_3 .margin {
   margin-bottom: 45px;
 }
 
-.digits_3 h1.title {
+.numbers_3 h1.title {
   margin: 15px 0 10px 0;
   text-align: center;
   color: #FFF;
@@ -5102,7 +5102,7 @@ ol li {
   font-weight: 400;
 }
 
-.digits_3 .title_2 {
+.numbers_3 .title_2 {
   margin: 10px 0 25px 0;
   text-align: center;
   color: #C2C2C2;
@@ -5111,18 +5111,18 @@ ol li {
   font-weight: 300;
 }
 
-.digits_3 .item_list {
+.numbers_3 .item_list {
   margin-top: 35px;
 }
 
-.digits_3 .item_list .item {
+.numbers_3 .item_list .item {
   float: left;
   width: 33.33%;
   padding: 15px 0;
   text-align: center;
 }
 
-.digits_3 .item_list .item .value {
+.numbers_3 .item_list .item .value {
   float: left;
   width: 149px;
   color: #FFF;
@@ -5133,7 +5133,7 @@ ol li {
   text-align: right;
 }
 
-.digits_3 .item_list .item .name {
+.numbers_3 .item_list .item .name {
   float: left;
   width: 240px;
   padding: 10px 15px 15px 10px;
@@ -5146,32 +5146,32 @@ ol li {
 }
 
 @media all and (max-width: 1199px) {
-  .digits_3 .item_list .item {
+  .numbers_3 .item_list .item {
     padding: 15px;
   }
 
-  .digits_3 .item_list .item .value,
-  .digits_3 .item_list .item .name {
+  .numbers_3 .item_list .item .value,
+  .numbers_3 .item_list .item .name {
     float: none;
     width: 100%;
     text-align: center;
   }
 
-  .digits_3 .item_list .item .name {
+  .numbers_3 .item_list .item .name {
     padding: 5px;
   }
 }
 
-.digits_4 .container {
+.numbers_4 .container {
   padding: 0 0 60px 0;
   font-family: "Arial";
 }
 
-.digits_4 .margin {
+.numbers_4 .margin {
   margin-bottom: 45px;
 }
 
-.digits_4 h1.title {
+.numbers_4 h1.title {
   margin: 15px 0 10px 0;
   text-align: center;
   color: #34383A;
@@ -5181,7 +5181,7 @@ ol li {
   font-weight: 400;
 }
 
-.digits_4 .title_2 {
+.numbers_4 .title_2 {
   margin: 10px 0 25px 0;
   text-align: center;
   color: #5C5C5C;
@@ -5190,11 +5190,11 @@ ol li {
   font-weight: 300;
 }
 
-.digits_4 .item_list {
+.numbers_4 .item_list {
   margin-top: 35px;
 }
 
-.digits_4 .item_list .item {
+.numbers_4 .item_list .item {
   float: left;
   width: 25%;
   padding: 15px 30px;
@@ -5202,7 +5202,7 @@ ol li {
   text-align: center;
 }
 
-.digits_4 .item_list .item .ico {
+.numbers_4 .item_list .item .ico {
   width: 85px;
   height: 85px;
   margin: 0 auto;
@@ -5213,7 +5213,7 @@ ol li {
   overflow: hidden;
 }
 
-.digits_4 .item_list .item .value {
+.numbers_4 .item_list .item .value {
   color: #2B2B2B;
   font-size: 42px;
   font-family: "Open Sans", "Arial";
@@ -5221,7 +5221,7 @@ ol li {
   white-space: nowrap;
 }
 
-.digits_4 .item_list .item hr {
+.numbers_4 .item_list .item hr {
   width: 180px;
   height: 1px;
   margin: 10px auto 18px auto;
@@ -5230,7 +5230,7 @@ ol li {
   background: #DBDBDB;
 }
 
-.digits_4 .item_list .item .name {
+.numbers_4 .item_list .item .name {
   color: #5C5C5C;
   font-size: 16px;
   line-height: 22px;
@@ -5239,29 +5239,29 @@ ol li {
 }
 
 @media all and (max-width: 1199px) {
-  .digits_4 .item_list .item {
+  .numbers_4 .item_list .item {
     padding: 15px 15px;
   }
 }
 
-.digits_4 .item_list.icon_black .item .ico {
+.numbers_4 .item_list.icon_black .item .ico {
   opacity: 1;
 }
 
-.digits_4 .item_list.icon_grey .item .ico {
+.numbers_4 .item_list.icon_grey .item .ico {
   opacity: 0.45;
 }
 
-.digits_5 .container {
+.numbers_5 .container {
   padding: 0 0 60px 0;
   font-family: "Arial";
 }
 
-.digits_5 .margin {
+.numbers_5 .margin {
   margin-bottom: 45px;
 }
 
-.digits_5 h1.title {
+.numbers_5 h1.title {
   margin: 15px 0 10px 0;
   text-align: center;
   color: #FFF;
@@ -5271,7 +5271,7 @@ ol li {
   font-weight: 400;
 }
 
-.digits_5 .title_2 {
+.numbers_5 .title_2 {
   margin: 10px 0 25px 0;
   text-align: center;
   color: #C2C2C2;
@@ -5280,11 +5280,11 @@ ol li {
   font-weight: 300;
 }
 
-.digits_5 .item_list {
+.numbers_5 .item_list {
   margin-top: 35px;
 }
 
-.digits_5 .item_list .item {
+.numbers_5 .item_list .item {
   float: left;
   width: 25%;
   padding: 15px 30px;
@@ -5292,7 +5292,7 @@ ol li {
   text-align: center;
 }
 
-.digits_5 .item_list .item .ico {
+.numbers_5 .item_list .item .ico {
   width: 85px;
   height: 85px;
   margin: 0 auto;
@@ -5304,7 +5304,7 @@ ol li {
   overflow: hidden;
 }
 
-.digits_5 .item_list .item .value {
+.numbers_5 .item_list .item .value {
   color: #FFF;
   font-size: 42px;
   font-family: "Open Sans", "Arial";
@@ -5312,7 +5312,7 @@ ol li {
   white-space: nowrap;
 }
 
-.digits_5 .item_list .item hr {
+.numbers_5 .item_list .item hr {
   width: 180px;
   height: 1px;
   margin: 10px auto 18px auto;
@@ -5321,7 +5321,7 @@ ol li {
   background: #777;
 }
 
-.digits_5 .item_list .item .name {
+.numbers_5 .item_list .item .name {
   color: #DDDDDD;
   font-size: 16px;
   line-height: 22px;
@@ -5330,21 +5330,21 @@ ol li {
 }
 
 @media all and (max-width: 1199px) {
-  .digits_5 .item_list .item {
+  .numbers_5 .item_list .item {
     padding: 15px 15px;
   }
 }
 
-.digits_6 .container {
+.numbers_6 .container {
   padding: 0 0 60px 0;
   font-family: "Arial";
 }
 
-.digits_6 .margin {
+.numbers_6 .margin {
   margin-bottom: 45px;
 }
 
-.digits_6 h1.title {
+.numbers_6 h1.title {
   margin: 15px 0 10px 0;
   text-align: center;
   color: #FFF;
@@ -5354,7 +5354,7 @@ ol li {
   font-weight: 400;
 }
 
-.digits_6 .title_2 {
+.numbers_6 .title_2 {
   margin: 10px 0 25px 0;
   text-align: center;
   color: #C2C2C2;
@@ -5363,11 +5363,11 @@ ol li {
   font-weight: 300;
 }
 
-.digits_6 .item_list {
+.numbers_6 .item_list {
   margin-top: 35px;
 }
 
-.digits_6 .item_list .item {
+.numbers_6 .item_list .item {
   float: left;
   width: 25%;
   padding: 15px 30px;
@@ -5375,7 +5375,7 @@ ol li {
   text-align: center;
 }
 
-.digits_6 .item_list .item .ico {
+.numbers_6 .item_list .item .ico {
   width: 85px;
   height: 85px;
   margin: 0 auto;
@@ -5387,7 +5387,7 @@ ol li {
   overflow: hidden;
 }
 
-.digits_6 .item_list .item .value {
+.numbers_6 .item_list .item .value {
   color: #FFF;
   font-size: 38px;
   font-family: "Open Sans", "Arial";
@@ -5395,7 +5395,7 @@ ol li {
   white-space: nowrap;
 }
 
-.digits_6 .item_list .item .name {
+.numbers_6 .item_list .item .name {
   margin-top: 10px;
   color: #DDDDDD;
   font-size: 14px;
@@ -5406,21 +5406,21 @@ ol li {
 }
 
 @media all and (max-width: 1199px) {
-  .digits_6 .item_list .item {
+  .numbers_6 .item_list .item {
     padding: 15px 15px;
   }
 }
 
-.digits_7 .container {
+.numbers_7 .container {
   padding: 0 0 60px 0;
   font-family: "Arial";
 }
 
-.digits_7 .margin {
+.numbers_7 .margin {
   margin-bottom: 45px;
 }
 
-.digits_7 h1.title {
+.numbers_7 h1.title {
   margin: 15px 0 10px 0;
   text-align: center;
   color: #FFF;
@@ -5430,7 +5430,7 @@ ol li {
   font-weight: 400;
 }
 
-.digits_7 .title_2 {
+.numbers_7 .title_2 {
   margin: 10px 0 25px 0;
   text-align: center;
   color: #C2C2C2;
@@ -5439,11 +5439,11 @@ ol li {
   font-weight: 300;
 }
 
-.digits_7 .item_list {
+.numbers_7 .item_list {
   margin-top: 35px;
 }
 
-.digits_7 .item_list .item {
+.numbers_7 .item_list .item {
   float: left;
   width: 25%;
   padding: 15px 30px;
@@ -5451,7 +5451,7 @@ ol li {
   text-align: center;
 }
 
-.digits_7 .item_list .item .value {
+.numbers_7 .item_list .item .value {
   position: relative;
   width: 220px;
   height: 150px;
@@ -5466,8 +5466,8 @@ ol li {
   white-space: nowrap;
 }
 
-.digits_7 .item_list .item .value:before,
-.digits_7 .item_list .item .value:after {
+.numbers_7 .item_list .item .value:before,
+.numbers_7 .item_list .item .value:after {
   position: absolute;
   display: block;
   content: "";
@@ -5478,12 +5478,12 @@ ol li {
   background: #8E8E8E;
 }
 
-.digits_7 .item_list .item .value:after {
+.numbers_7 .item_list .item .value:after {
   right: -1px;
   left: auto;
 }
 
-.digits_7 .item_list .item .ico {
+.numbers_7 .item_list .item .ico {
   position: relative;
   width: 85px;
   height: 85px;
@@ -5496,7 +5496,7 @@ ol li {
   overflow: hidden;
 }
 
-.digits_7 .item_list .item .name {
+.numbers_7 .item_list .item .name {
   margin-top: 4px;
   color: #DDDDDD;
   font-size: 16px;
@@ -5507,29 +5507,29 @@ ol li {
 }
 
 @media all and (max-width: 1199px) {
-  .digits_7 .item_list .item {
+  .numbers_7 .item_list .item {
     padding: 15px 15px;
   }
 }
 
-.digits_7 .item_list.icon_white .item .ico {
+.numbers_7 .item_list.icon_white .item .ico {
   opacity: 1;
 }
 
-.digits_7 .item_list.icon_grey .item .ico {
+.numbers_7 .item_list.icon_grey .item .ico {
   opacity: 0.8;
 }
 
-.digits_8 .container {
+.numbers_8 .container {
   padding: 0 0 70px 0;
   font-family: "Arial";
 }
 
-.digits_8 .margin {
+.numbers_8 .margin {
   margin-bottom: 55px;
 }
 
-.digits_8 h1.title {
+.numbers_8 h1.title {
   margin: 15px 0 10px 0;
   text-align: center;
   color: #34383A;
@@ -5539,7 +5539,7 @@ ol li {
   font-weight: 400;
 }
 
-.digits_8 .title_2 {
+.numbers_8 .title_2 {
   margin: 10px 0 25px 0;
   text-align: center;
   color: #5C5C5C;
@@ -5548,12 +5548,12 @@ ol li {
   font-weight: 300;
 }
 
-.digits_8 .item_list {
+.numbers_8 .item_list {
   width: 781px;
   margin: 45px auto 0 auto;
 }
 
-.digits_8 .item_list .item {
+.numbers_8 .item_list .item {
   position: relative;
   z-index: 1;
   float: left;
@@ -5568,7 +5568,7 @@ ol li {
   text-align: center;
 }
 
-.digits_8 .item_list .item .value_wrap {
+.numbers_8 .item_list .item .value_wrap {
   width: 158px;
   height: 158px;
   overflow: hidden;
@@ -5577,7 +5577,7 @@ ol li {
   border: 1px dashed #CCC;
 }
 
-.digits_8 .item_list .item .value_wrap .value {
+.numbers_8 .item_list .item .value_wrap .value {
   margin-top: 10px;
   overflow: hidden;
   font-size: 40px;
@@ -5586,7 +5586,7 @@ ol li {
   white-space: nowrap;
 }
 
-.digits_8 .item_list .item .value_wrap .name {
+.numbers_8 .item_list .item .value_wrap .name {
   overflow: hidden;
   color: #5C5C5C;
   font-size: 16px;
@@ -5596,14 +5596,14 @@ ol li {
   margin-top: 5px;
 }
 
-.digits_8 .item_list .item:nth-child(even) {
+.numbers_8 .item_list .item:nth-child(even) {
   width: 160px;
   height: 160px;
   margin-top: 20px;
   z-index: 0;
 }
 
-.digits_8 .item_list .item:nth-child(even) .value_wrap {
+.numbers_8 .item_list .item:nth-child(even) .value_wrap {
   width: 138px;
   height: 138px;
 }

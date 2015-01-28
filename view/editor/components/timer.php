@@ -36,8 +36,7 @@ class Timer extends Block {
             'title' => 'Семинар пройдет 20 декабря 2015г. в 12:00',
             'title_2' => 'Количество мест ограничено, успейте оплатить участие',
             'countdown_desc' => 'До начала мероприятия осталось:',  
-            'countdown' => array_merge(Countdown::tpl_default(),
-                   array('type' => 'daily','date' => date("Y/m/d"),'dayOfWeek' => 0 ,'day' => 5,'time' => '23:55')),
+            'countdown' => Countdown::tpl_default(),
         );
     }
     
@@ -49,14 +48,14 @@ class Timer extends Block {
                         <? $this->sub('Text','title',Text::$plain_text) ?>
                     </h1>
                     <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?= $val['title_2_color'] ? $val['title_2_color'] : "" ?> <?=$cls?> " >
+                        <div class="title_2 <?= $val['title_2_and_countdown_color'] ? "timer_".$val['title_2_and_countdown_color'] : "" ?> <?=$cls?> " >
                             <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
                     <? endif ?>
                     <div class="countdown_desc">
                         <? $this->sub('Text','countdown_desc',Text::$plain_text) ?>
                     </div>
-                    <div class="countdown_wrap <?= $val['title_2_color'] ? $val['title_2_color'] : "" ?>">
+                    <div class="countdown_wrap <?= $val['title_2_and_countdown_color'] ? "timer_".$val['title_2_and_countdown_color'] : "" ?>">
 						<? $this->sub('Countdown','countdown') ?>
 					</div>
                 </div>
@@ -67,12 +66,12 @@ class Timer extends Block {
     function tpl_default_2() { 
         return  array(
             'show_title_2' => true,
-            'title_2_color' => 'timer_red',
+            'title_2_and_countdown_color' => 'red',
             'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
             'title' => 'Семинар пройдет 20 декабря 2015г. в 12:00',
             'title_2' => 'Количество мест ограничено, успейте оплатить участие',
             'countdown_desc' => 'До начала мероприятия осталось:',
-            'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => date("Y/m/d"),'dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
+            'countdown' => Countdown::tpl_default(),
         );
     }
     
@@ -125,22 +124,8 @@ class Timer extends Block {
             'timer_desc' => 'До начала мероприятия осталось:',
             'form_title_1' => "Заявка на участие",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",
-            'form' => array(
-                'fields' => array(
-                    array(
-                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
-                        'name' => 'name', 'type' => 'text', 
-                    ),
-                    array(
-                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
-                        'name' => 'phone', 'type' => 'text', 
-                    )
-                ),
-                'button' => array('color'=>'blue','label'=>'Отправить заявку'),
-                'form_done_title' => 'Спасибо за заявку',
-                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
-            ),
-			'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => date("Y/m/d"),'dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
+            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'blue','label'=>'Отправить заявку'))),
+			'countdown' => Countdown::tpl_default(),
         );
     }
     
@@ -193,22 +178,8 @@ class Timer extends Block {
             'timer_desc' => 'До начала мероприятия осталось:',
             'form_title_1' => "Заявка на участие",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",
-            'form' => array(
-                'fields' => array(
-                    array(
-                        'label' => 'Имя:', 'sub_label' => '', 'required' => true,
-                        'name' => 'name', 'type' => 'text', 
-                    ),
-                    array(
-                        'label' => 'Телефон:', 'sub_label' => '', 'required' => true,
-                        'name' => 'phone', 'type' => 'text', 
-                    )
-                ),
-                'button' => array('color'=>'blue','label'=>'Отправить заявку'),
-                'form_done_title' => 'Спасибо за заявку',
-                'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время. ',
-            ),
-			'countdown' => array_merge(Countdown::tpl_default(),array('type' => 'daily','date' => date("Y/m/d"),'dayOfWeek' => 0,'day' => 5,'time' => '23:55')),
+            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'blue','label'=>'Отправить заявку'))),
+			'countdown' => Countdown::tpl_default(),
         );
     }        
 }

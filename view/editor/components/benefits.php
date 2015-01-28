@@ -21,7 +21,7 @@ class Benefits extends Block {
                     <? endif ?>
                     <div class="item_list <?= $val['show_icon_arounds'] ? "" : "hide_ico_border" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                            
-                            <? for ($i=1; $i <= 3; $i++): ?>
+                            <? for ($i=1;$i<=3;$i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Icon','icon_'.$i)?>
                                     <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
@@ -86,7 +86,7 @@ class Benefits extends Block {
                     <? endif ?>
                     <div class="item_list">
                          <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 3; $i++): ?>
+                            <? for ($i=1;$i<=3;$i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Icon','icon_'.$i)?>
                                     <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
@@ -151,7 +151,7 @@ class Benefits extends Block {
                     <? endif ?>
                     <div class="item_list <?= !$val['show_name_benefit'] ? "hide_name" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 2; $i++): ?>
+                            <? for ($i=1;$i<=2;$i++): ?>
                                 <div class="item">                                
                                     <?=$self->sub('Icon','icon_'.$i)?>
                                     <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
@@ -218,7 +218,7 @@ class Benefits extends Block {
                     <? endif ?>
                     <div class="item_list clear <?= !$val['show_image_border'] ? "hide_border" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 2; $i++): ?>
+                            <? for ($i=1;$i<=2;$i++): ?>
                                 <div class="item">                                
                                     <div class="image_wrap">                                     
                                         <?=$self->sub('Image','image_'.$i)?>
@@ -285,7 +285,7 @@ class Benefits extends Block {
                     <div class="item_list clear">
                         <div class="item_list clear <?= !$val['show_image_border'] ? "hide_border" : "" ?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 3; $i++): ?>
+                            <? for ($i=1;$i<=3;$i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Image','image_'.$i)?>
                                     <? if ($cls = $self->vis($val['show_name_benefit'])): ?>

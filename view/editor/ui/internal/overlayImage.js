@@ -8,9 +8,9 @@ lp.overlayImage = lp.cover.extendOptions({
 		if(this.value.image){
 			this.element.find(".big_img").attr('title',this.value.title);
 			this.element.find(".preview_img").css({
-				backgroundImage: "url('"+base_url+'/'+this.value.image+"')",
+				backgroundImage: "url('"+base_url+"/"+this.value.image+"')",
 			});
-			this.element.find(".big_img").attr("href", base_url+'/'+this.value.image);
+			this.element.find(".big_img").attr("href", base_url+"/"+this.value.image);
 		}		         
     },
     configForm: {

@@ -1,12 +1,12 @@
 <?php
 
-class Digits extends Block {
+class Numbers extends Block {
     public $name = 'Цифры';
     public $description = "Цифры компании";
-    public $editor = "lp.digits";
+    public $editor = "lp.numbers";
     
     function tpl($val) {?>
-        <div class="container-fluid digits digits_1" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid numbers numbers_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
@@ -22,7 +22,7 @@ class Digits extends Block {
                     <? endif ?>
                     <div class="item_list clear">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1; $i <= 4; $i++): ?>
+                            <? for ($i=1;$i<=4;$i++): ?>
                                 <div class="item">
                                     <div class="value">
                                         <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
@@ -65,7 +65,7 @@ class Digits extends Block {
     
     
     function tpl_2($val) {?>
-        <div class="container-fluid digits digits_2" style="background:<?=$val['background_color']?>;">
+        <div class="container-fluid numbers numbers_2" style="background:<?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
@@ -81,7 +81,7 @@ class Digits extends Block {
                     <? endif ?>
                     <div class="item_list">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1; $i <= 3; $i++): ?>
+                            <? for ($i=1;$i<=3;$i++): ?>
                                 <div class="item clear">
                                     <div class="value">
                                         <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
@@ -121,16 +121,7 @@ class Digits extends Block {
     
     
     function tpl_3($val) {?>
-        <div class="container-fluid digits digits_3" style="
-            <?
-                preg_match("/#\w{3,6}/", $val['background'], $background);
-                if($background){
-                  print('background:'.$background[0]);
-                } else {
-                  print('background:repeat scroll 0% 0% transparent url('.INDEX_URL.$val['background'].')');
-                }
-            ?> 
-         ;">  
+        <div class="container-fluid numbers numbers_3" style="<?=$this->bg_style($val['background'])?>">  
             <div class="container">                
                 <div class="span16">
                     <div class="margin"></div>
@@ -146,7 +137,7 @@ class Digits extends Block {
                     <? endif ?>
                     <div class="item_list">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1; $i <= 3; $i++): ?>
+                            <? for ($i=1;$i<=3;$i++): ?>
                                 <div class="item clear">
                                     <div class="value">
                                         <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
@@ -168,7 +159,7 @@ class Digits extends Block {
         return  array(
             'show_title' => false,
             'show_title_2' => false,
-            'background' => '/view/editor/assets/texture_black/1.jpg',
+            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
             'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
             'items' => array(
@@ -186,7 +177,7 @@ class Digits extends Block {
     
     
     function tpl_4($val) {?>
-        <div class="container-fluid digits digits_4" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid numbers numbers_4" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
@@ -202,7 +193,7 @@ class Digits extends Block {
                     <? endif ?>
                     <div class="item_list <?= $val['icon_color'] ? "icon_".$val['icon_color'] : "icon_grey" ?>">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1; $i <= 4; $i++): ?>
+                            <? for ($i=1;$i<=4;$i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Icon','icon_'.$i)?>
                                     <div class="value">
@@ -252,16 +243,7 @@ class Digits extends Block {
     
     
     function tpl_5($val) {?>
-        <div class="container-fluid digits digits_5" style="
-            <?
-                preg_match("/#\w{3,6}/", $val['background'], $background);
-                if($background){
-                    print('background:'.$background[0]);
-                } else {
-                    print('background:repeat scroll 0% 0% transparent url('.INDEX_URL.$val['background'].')');
-                }
-            ?> 
-         ;">
+        <div class="container-fluid numbers numbers_5" style="<?=$this->bg_style($val['background'])?>">
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
@@ -277,7 +259,7 @@ class Digits extends Block {
                     <? endif ?>
                     <div class="item_list">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1; $i <= 4; $i++): ?>
+                            <? for ($i=1;$i<=4;$i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
                                     <div class="value">
@@ -301,7 +283,7 @@ class Digits extends Block {
         return  array(
             'show_title' => false,
             'show_title_2' => false,
-            'background' => 'view/editor/assets/texture_black/1.jpg',
+            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
             'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
             'items' => array(
@@ -326,16 +308,7 @@ class Digits extends Block {
     
     
     function tpl_6($val) {?>
-        <div class="container-fluid digits digits_6" style="
-            <?
-                preg_match("/#\w{3,6}/", $val['background'], $background);
-                if($background){
-                  print('background:'.$background[0]);
-                } else {
-                  print('background:repeat scroll 0% 0% transparent url('.INDEX_URL.$val['background'].')');
-                }
-            ?> 
-         ;">
+        <div class="container-fluid numbers numbers_6" style="<?=$this->bg_style($val['background'])?>">
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
@@ -351,7 +324,7 @@ class Digits extends Block {
                     <? endif ?>
                     <div class="item_list clear">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1; $i <= 4; $i++): ?>
+                            <? for ($i=1;$i<=4;$i++): ?>
                                 <div class="item">
                                     <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
                                     <div class="value">
@@ -374,7 +347,7 @@ class Digits extends Block {
         return  array(
             'show_title' => false,
             'show_title_2' => false,
-            'background' => 'view/editor/assets/texture_black/1.jpg',
+            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
             'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
             'items' => array(
@@ -399,16 +372,7 @@ class Digits extends Block {
     
     
     function tpl_7($val) {?>
-        <div class="container-fluid digits digits_7" style="
-            <?
-                preg_match("/#\w{3,6}/", $val['background'], $background);
-                if($background){
-                  print('background:'.$background[0]);
-                } else {
-                  print('background:repeat scroll 0% 0% transparent url('.INDEX_URL.$val['background'].')');
-                }
-            ?> 
-         ;">
+        <div class="container-fluid numbers numbers_7" style="<?=$this->bg_style($val['background'])?>">
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
@@ -424,7 +388,7 @@ class Digits extends Block {
                     <? endif ?>
                     <div class="item_list <?= $val['icon_color'] ? "icon_".$val['icon_color'] : "icon_grey" ?>">
                         <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1; $i <= 4; $i++): ?>
+                            <? for ($i=1;$i<=4;$i++): ?>
                                 <div class="item">                                
                                     <div class="value">
                                         <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
@@ -448,7 +412,7 @@ class Digits extends Block {
             'show_title' => false,
             'show_title_2' => false,
             'icon_color' => 'grey',
-            'background' => 'view/editor/assets/texture_black/1.jpg',
+            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
             'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
             'items' => array(
@@ -473,7 +437,7 @@ class Digits extends Block {
     
     
     function tpl_8($val) {?>
-        <div class="container-fluid digits digits_8" style="background: <?=$val['background_color']?>;">
+        <div class="container-fluid numbers numbers_8" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <div class="margin"></div>
@@ -488,10 +452,10 @@ class Digits extends Block {
                         </div>
                     <? endif ?>
                     <div class="item_list">
-                        <? for ($i=1; $i <= 5; $i++): ?>
+                        <? for ($i=1;$i<=5;$i++): ?>
                             <div class="item">
                                 <div class="value_wrap">
-                                    <div class="value" style="color: <?=$val['digits_color']?>;">
+                                    <div class="value" style="color: <?=$val['numbers_color']?>;">
                                         <?=$this->sub('Text','value_'.$i,Text::$plain_heading)?>
                                     </div>
                                     <div class="name">
@@ -511,7 +475,7 @@ class Digits extends Block {
             'show_title' => false,
             'show_title_2' => false,
             'background_color' => "#FFFFFF",
-            'digits_color' => "#E6332A",
+            'numbers_color' => "#E6332A",
             'title' => 'Факты о нашей компании',
             'title_2' => 'Подзаголовок',
             'icon_1' => 'view/editor/assets/ico/969.png',
@@ -533,4 +497,4 @@ class Digits extends Block {
     }     
 }
 
-Digits::register();
+Numbers::register();
