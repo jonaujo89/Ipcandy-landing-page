@@ -16,9 +16,9 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
     };
 });
 
-$.fn.lpCounty = function () {
+$.fn.lpCounty = function (datetime) {
 	$(this).each(function(){	
-		var get_date = JSON.parse($(this).attr('data-datetime'));
+		var get_date = datetime || JSON.parse($(this).attr('data-datetime'));
 		var set_date;
 		var current_date = new Date();
 		var current_year = current_date.getFullYear();
@@ -35,6 +35,7 @@ $.fn.lpCounty = function () {
 		switch (get_date.type) {
             case 'datetime':
                 set_date = new Date(get_date.date + ' ' + get_date.time);
+                if (isNaN(set_date)) set_date = 0;
                 $(this).empty().county({
                     endDateTime: set_date,
                 });
@@ -107,6 +108,7 @@ $.fn.lpCounty = function () {
                 }
                 
                 set_date = new Date(current_year, current_month, current_day + add_days, hours, minutes); 
+                if (isNaN(set_date)) set_date = 0;
                 $(this).empty().county({
                     endDateTime: set_date,
                 });
@@ -117,6 +119,7 @@ $.fn.lpCounty = function () {
                 if (set_date < current_date) {
                     set_date = new Date(current_year, current_month, tomorrow, hours, minutes); 
                 }
+                if (isNaN(set_date)) set_date = 0;
                 $(this).empty().county({
                     endDateTime: set_date,
                 });
@@ -210,7 +213,7 @@ function initPolicyInfo() {
     $(document).on("click", "a.policy", function(e){ 
         e.preventDefault();
         var policy_info = $(this).data("policy_info");
-        if (!policy_info) $(this).data("policy_info",policy_info = $(this).siblings(".policy_info").html());
+        if (!policy_info) $(this).data("policy_info",policy_info = $(this).siblings(".policy_info").show()[0]);
         alertify.genericDialog(policy_info);
     });
 };
@@ -295,10 +298,10 @@ $.fn.textBlockHeight = function () {
         
         var $this = $(this);
         var overlay = $this.find('.overlay');
-        
+        var inner = $this.find('.in');
 		$this.hover(
-            function(){                
-                overlay.innerHeight(overlay.find(".img_text").height() + overlay.innerHeight() + (overlay.outerHeight() - overlay.height() - (overlay.outerHeight() - overlay.innerHeight()))/2);
+            function(){ 
+                overlay.height(inner.outerHeight());
             },
             function(){
                 overlay.css("height","");

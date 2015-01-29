@@ -6,7 +6,7 @@ class Reasons extends Block {
     public $editor = "lp.reasons";
     
     function tpl($val) {?>
-        <div class="container-fluid reasons reasons_1">
+        <div class="container-fluid reasons reasons_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>

@@ -159,7 +159,7 @@ lp.order = lp.block.extendOptions({
             },
             { type: "label", value: _t("Background texture:"), margin: "5px 0", showWhen: { variant: [3] }},
              { 
-                name: "background", width: '95px',
+                name: "background", width: 95,
                 type: ui.combo.extendOptions({
                     panelClass: "only-icons",
                     comboWidth: 480,

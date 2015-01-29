@@ -27,15 +27,9 @@ lp.gallery = lp.block.extendOptions({
 		}    
 		if (this.value.variant == 2) {
             this.variant.find(".img_text").unbind('keyup').on('keyup', function(){
-                
-                var overlay = jq(this).parent('.overlay');               
-                var overlayChildren = overlay.children();                
-                var heightsChildren = 0;
-                overlayChildren.each(function(indx, variant){  
-                    heightsChildren = jq(variant).outerHeight(true) + heightsChildren;
-                });
-                overlay.height(heightsChildren - (overlay.outerHeight() - overlay.innerHeight()));
-                
+                var inner = jq(this).parent('.in');
+                var overlay = jq(this).parents('.overlay');
+                overlay.height(inner.outerHeight());                
             });
 			this.variant.find(".img_desc").toggleVis(this.value.show_image_desc);
 			this.variant.find(".item_list").toggleClass("hide_desc",!this.value.show_image_desc);

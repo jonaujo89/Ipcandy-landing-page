@@ -2,7 +2,7 @@ lp.reasons = lp.block.extendOptions({
     change: function(){
 		
         this.variant.find(".reasons").css({
-            background: this.value.background || '',
+            background: this.value.background_color || '',
         });
 		
 		if (this.value.variant == 1){
@@ -22,7 +22,7 @@ lp.reasons = lp.block.extendOptions({
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0"},
             { 
-                type: lp.blockColor, name: "background"
+                type: lp.blockColor, name: "background_color"
             },
         ]
     }

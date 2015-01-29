@@ -36,7 +36,7 @@ class Timer extends Block {
             'title' => 'Семинар пройдет 20 декабря 2015г. в 12:00',
             'title_2' => 'Количество мест ограничено, успейте оплатить участие',
             'countdown_desc' => 'До начала мероприятия осталось:',  
-            'countdown' => Countdown::tpl_default(),
+            'countdown' => array_merge(Countdown::tpl_default(),array('day'=>10)),
         );
     }
     

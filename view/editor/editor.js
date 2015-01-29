@@ -23,7 +23,7 @@ require("./ui/internal/logo.js");
 require("./ui/internal/icon.js");
 require("./ui/internal/formOrder.js");
 require("./ui/internal/image.js");
-require("./ui/internal/imageSrc.js");
+require("./ui/internal/logoItem.js");
 require("./ui/internal/formButton.js");
 require("./ui/internal/uploadButton.js");
 require("./ui/internal/fontCombo.js");

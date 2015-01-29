@@ -18,7 +18,7 @@ class Footer extends Block {
                     <? if ($cls = $this->vis($val['show_policy'])): ?>
                         <div class="policy_wrap <?=$cls?>">
                             <a class="policy">Политика конфиденциальности</a>
-                            <div class= "policy_info" style='display:none'><?= $val['policy_info'] ?></div>
+                            <div class="policy_info" style='display:none'><? $this->sub('Text','policy_info',Text::$size_text) ?></div>
                         </div>
                     <? endif ?>                    
                 </div>
@@ -38,7 +38,7 @@ class Footer extends Block {
         return  array(
             'show_policy' => true,
             'background_color' => '#FFFFFF',
-            'logo' => Logo::tpl_default(),
+            'logo' => array_merge(Logo::tpl_default(),array('size'=>87)),
             'desc' => "ООО «Компания», 123456, г.Москва, ул. Тверская, д.6<br>ИНН 1234567890 ОГРН 123456789012",            
             'phone' => '8 (800) 123 45 67',
             'phone_desc' => 'Звонок по России бесплатный',

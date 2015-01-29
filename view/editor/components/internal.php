@@ -189,10 +189,10 @@ class FormOrder extends Block {
         <div style="display:none">
             <div class="form_done">
                 <div class="form_done_title">
-                    <? $this->sub('Text','form_done_title') ?>
+                    <? $this->sub('Text','form_done_title',Text::$default_text) ?>
                 </div>
                 <div class="form_done_text">
-                    <? $this->sub('Text','form_done_text') ?>
+                    <? $this->sub('Text','form_done_text',Text::$default_text) ?>
                 </div>
              </div>
          </div>
@@ -340,8 +340,8 @@ class Countdown extends Block {
     <?}
 }
 
-class ImageSrc extends Block {
-    public $editor = "lp.imageSrc";
+class LogoItem extends Block {
+    public $editor = "lp.logoItem";
     public $internal = true;
     
     function tpl($val) {
@@ -357,7 +357,7 @@ FormButton::register();
 FormOrder::register();
 Icon::register();
 Image::register();
-ImageSrc::register();
+LogoItem::register();
 GalleryImage::register();
 OverlayImage::register();
 Countdown::register();

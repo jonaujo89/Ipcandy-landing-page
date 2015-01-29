@@ -96,16 +96,18 @@ class Gallery extends Block {
                                 <div class="item">
                                     <?=$self->sub('GalleryImage','image_'.$i)?>
                                     <div class="overlay">
-                                        <div class="img_title">
-                                            <? $self->sub('Text','image_title_'.$i,Text::$plain_heading) ?>
-                                        </div>
-                                        <? if ($cls = $self->vis($val['show_image_desc'])): ?>
-                                            <div class="img_desc <?=$cls?>" >
-                                                <? $self->sub('Text','image_desc_'.$i,Text::$color_heading) ?>
+                                        <div class="in">                                        
+                                            <div class="img_title">
+                                                <? $self->sub('Text','image_title_'.$i,Text::$plain_heading) ?>
                                             </div>
-                                        <? endif ?>
-                                        <div class="img_text">
-                                            <? $self->sub('Text','image_text_'.$i,Text::$default_text) ?>
+                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                <div class="img_desc <?=$cls?>" >
+                                                    <? $self->sub('Text','image_desc_'.$i,Text::$color_heading) ?>
+                                                </div>
+                                            <? endif ?>
+                                            <div class="img_text">
+                                                <? $self->sub('Text','image_text_'.$i,Text::$default_text) ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

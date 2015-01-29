@@ -6,7 +6,7 @@ class Logos extends Block {
     public $editor = "lp.logos";
     
     function tpl($val) {?>
-        <div class="container-fluid clientsLogos clientsLogos_1" style="background: ;">
+        <div class="container-fluid clientsLogos clientsLogos_1" style="background:<?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
@@ -20,12 +20,13 @@ class Logos extends Block {
                         </div>
                     <? endif ?>
                     <div class="item_list clear <?= $val['grayscale_logo'] ? "gray" : "" ?>">
-                        <? $this->repeat(
-                                    'items', 
-                                     function($sub,$self) { $self->sub('ImageSrc','image'); },
-                                     array('inline' => true)
-                                  ) 
-                        ?>
+                        
+                        <? $this->repeat('items',function($sub,$self) { ?>
+                        
+                            <? $self->sub('LogoItem','image'); ?>
+                        
+                        <? },array('inline' => true)) ?>
+                        
                         <div style="clear: both"></div>
                     </div>
                 </div>
@@ -38,7 +39,7 @@ class Logos extends Block {
             'show_title' => true,
             'show_title_2' => false,
             'grayscale_logo' => true,
-            'background_color' =>'rgb(247, 247, 247)',
+            'background_color' =>'#FFFFFF',
             'title' => "Наши клиенты",
             'title_2' => "Подзаголовок ",
             'items' => array(
