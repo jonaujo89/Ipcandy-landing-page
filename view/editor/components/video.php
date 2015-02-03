@@ -34,9 +34,9 @@ class Video extends Block {
             'show_title' => true,
             'show_title_2' => false,
             'background_color' => '#FFFFFF',
-            'title' => 'Посмотрите видео о нашей продукции',
-            'title_2' => 'От начала производства до доставки и установки',
-            'video' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q','type'=>'video'),
+            'title' => 'Посмотрите видео о нашем цирке',
+            'title_2' => 'Нарезка выступлений',
+            'video' => array('video_url'=> 'www.youtube.com/embed/P55qVX3y134','type'=>'video'),
         );
     }
     
@@ -79,16 +79,16 @@ class Video extends Block {
             'background_color' => '#FFFFFF',         
             'items' => array(
                 array(
-                    'text_title' => 'Несколько моментов с конференции',
-                    'text_title_2' => 'Информационные технологии 2014',
-                    'text' => ' <div>Мы показали все самое новое, красивое и восстребованное. Встреча никого не оставила равнодушным, все были довольны развитием событий. Наше устройство является лучшим в премиальном сегменте и любых других сегментах. Это просто пример текста, не забудьте заменить его на свой.</div>
+                    'text_title' => 'Цирк «НА МАНЕЖЕ ВСЕ ТЕ ЖЕ»',
+                    'text_title_2' => 'Лучшая цирковая программа',
+                    'text' => ' <div>Встреча с клоунскими дуэтами, репризы которых построены в современном духе и не оставляют равнодушными ни детей, ни взрослых. Под куполом цирка воздушная гимнастка на трапеции, отважные трюки которой захватывают дыхание.</div>
                                 <br>
                                 <div>
-                                - Современный процессор<br>
-                                - Стильный дизайн<br>
-                                - И вообще<br>
+                                - Комфортный зал<br>
+                                - Смешные номера<br>
+                                - Захватывающие выступления<br>
                                 </div>',
-                    'video' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q','type'=>'video'),
+                    'video' => array('video_url'=> 'www.youtube.com/embed/i0a1cqKsMG8','type'=>'video'),
                 )
             )
         );
@@ -143,19 +143,19 @@ class Video extends Block {
             'show_border' => true,
             'show_desc' => true,   
             'background_color' => '#FFFFFF',
-            'title' => 'Можно использовать видео для отзывов',
-            'title_2' => 'Почему клиенты выбирают наши услуги',
+            'title' => 'Отзывы о цирковой программе',
+            'title_2' => 'Что понравилось нашим клиентам',
             'items' => array(
                 array(                
                     'name_1' => 'Обслуживание телефонов',
-                    'desc_1' => 'Сергей Долгоруков, офис менеджер',
-                    'video_1' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q','type'=>'video'),
-                    'name_2' => 'Переустановка ПО',
-                    'desc_2' => 'Алина Полякова, мед работник',
-                    'video_2' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q','type'=>'video'),
-                    'name_3' => 'Замена корпуса',
-                    'desc_3' => 'Елена Назарова, владелица магазина',
-                    'video_3' => array('video_url'=> 'www.youtube.com/embed/xbK8rl9wH4Q','type'=>'video'),
+                    'desc_1' => 'Сергей Задуйсвечку, офисный планктон',
+                    'video_1' => array('video_url'=> 'www.youtube.com/embed/Ofm8SQ2pwcI','type'=>'video'),
+                    'name_2' => 'Перекладывание бумаг',
+                    'desc_2' => 'Алина Съешсало, председатель заседаний',
+                    'video_2' => array('video_url'=> 'www.youtube.com/embed/VnTmHm60K10','type'=>'video'),
+                    'name_3' => 'Освоение целины',
+                    'desc_3' => 'Иван Заведитрактор, штурман комбайна',
+                    'video_3' => array('video_url'=> 'www.youtube.com/embed/JhSw7AORNm8','type'=>'video'),
                     )
                 )
         );

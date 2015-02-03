@@ -45,18 +45,18 @@ class Numbers extends Block {
             'show_title' => false,
             'show_title_2' => false,
             'background_color' => '#FFFFFF',
-            'title' => 'Факты о нашей компании',
+            'title' => 'Факты о цирке',
             'title_2' => 'Подзаголовок',
             'items' => array(
                 array(
                     'value_1' => '15',
-                    'name_1' => 'Лет на рынке ювелирных услуг',
-                    'value_2' => '750',
-                    'name_2' => 'Компаний на постоянном обслуживании',
-                    'value_3' => '85',
-                    'name_3' => 'Розничных магазинов по всей России',
-                    'value_4' => '500',
-                    'name_4' => 'Положительных откликов', 
+                    'name_1' => 'Лет старому слону',
+                    'value_2' => '7',
+                    'name_2' => 'Месяцев не пьет клоун',
+                    'value_3' => '3',
+                    'name_3' => 'Кота в молчаливом хоре',
+                    'value_4' => '300',
+                    'name_4' => 'Искренних улыбок', 
                 )
             )                       
         );
@@ -104,16 +104,16 @@ class Numbers extends Block {
             'show_title' => false,
             'show_title_2' => false,
             'background_color' => '#FFFFFF',
-            'title' => 'Факты о нашей компании',
+            'title' => 'Факты о цирке',
             'title_2' => 'Подзаголовок',
             'items' => array(
                 array(
-                    'value_1' => '13',
-                    'name_1' => 'Лет на международном<br> рынке',
+                    'value_1' => '17',
+                    'name_1' => 'Мгновений<br>на рынке',
                     'value_2' => '75',
-                    'name_2' => 'Международных<br> наград',
+                    'name_2' => 'Детских<br>улыбок',
                     'value_3' => '105',
-                    'name_3' => 'Выполненных<br> проектов',
+                    'name_3' => 'Весит<br>бегемот',
                 )
             )                       
         );
@@ -160,16 +160,16 @@ class Numbers extends Block {
             'show_title' => false,
             'show_title_2' => false,
             'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
-            'title' => 'Факты о нашей компании',
+            'title' => 'Факты о цирке',
             'title_2' => 'Подзаголовок',
             'items' => array(
                 array(
-                    'value_1' => '13',
-                    'name_1' => 'Лет на международном<br> рынке',
-                    'value_2' => '75',
-                    'name_2' => 'Международных<br> наград',
-                    'value_3' => '250',
-                    'name_3' => 'Выполненных<br> проектов',
+                    'value_1' => '5',
+                    'name_1' => 'Метров<br>шея жирафа',
+                    'value_2' => '15',
+                    'name_2' => 'Детских<br>улыбок',
+                    'value_3' => '2',
+                    'name_3' => 'Бутылки<br>на троих',
                 )
             )                       
         );
@@ -219,22 +219,22 @@ class Numbers extends Block {
             'show_title_2' => false,
             'icon_color' => 'grey',
             'background_color' => '#FFFFFF',
-            'title' => 'Факты о нашей компании',
+            'title' => 'Факты о цирке',
             'title_2' => 'Подзаголовок',
             'items' => array(
                 array(
-                    'icon_1' => 'view/editor/assets/ico/112.png',
-                    'value_1' => '13',
-                    'name_1' => 'Лет на международном рынке',
+                    'icon_1' => 'view/editor/assets/ico/101.png',
+                    'value_1' => '5000',
+                    'name_1' => 'Почётных грамот',
                     'icon_2' => 'view/editor/assets/ico/99.png',
-                    'value_2' => '750',
-                    'name_2' => 'Компаний на постоянном обслуживании',
-                    'icon_3' => 'view/editor/assets/ico/80.png',
-                    'value_3' => '85',
-                    'name_3' => 'Розничных магазинов по всей России',
-                    'icon_4' => 'view/editor/assets/ico/167.png',
-                    'value_4' => '500',
-                    'name_4' => 'Положительных откликов',
+                    'value_2' => '20',
+                    'name_2' => 'Довольных клиентов',
+                    'icon_3' => 'view/editor/assets/ico/178.png',
+                    'value_3' => '50',
+                    'name_3' => 'Грамм наливают в буфете',
+                    'icon_4' => 'view/editor/assets/ico/739.png',
+                    'value_4' => '350',
+                    'name_4' => 'Улыбающихся детей',
 
                 )
             )                       
@@ -284,25 +284,25 @@ class Numbers extends Block {
             'show_title' => false,
             'show_title_2' => false,
             'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
-            'title' => 'Факты о нашей компании',
+            'title' => 'Факты о цирке',
             'title_2' => 'Подзаголовок',
             'items' => array(
                 array(
-                    'icon_1' => 'view/editor/assets/ico/969.png',
-                    'value_1' => '13',
-                    'name_1' => 'Лет на международном рынке',
-                    'icon_2' => 'view/editor/assets/ico/949.png',
+                    'icon_1' => 'view/editor/assets/ico/491.png',
+                    'value_1' => '1',
+                    'name_1' => 'Дрессированный тигр',
+                    'icon_2' => 'view/editor/assets/ico/447.png',
                     'value_2' => '750',
-                    'name_2' => 'Компаний на постоянном обслуживании',
-                    'icon_3' => 'view/editor/assets/ico/957.png',
-                    'value_3' => '85',
-                    'name_3' => 'Розничных магазинов по всей России',
-                    'icon_4' => 'view/editor/assets/ico/1018.png',
-                    'value_4' => '500',
-                    'name_4' => 'Положительных откликов',
+                    'name_2' => 'Любящих зрителей',
+                    'icon_3' => 'view/editor/assets/ico/379.png',
+                    'value_3' => '80',
+                    'name_3' => 'Цена билета',
+                    'icon_4' => 'view/editor/assets/ico/645.png',
+                    'value_4' => '3',
+                    'name_4' => 'Звезды на картинке',
 
                 )
-            )                       
+            )                        
         );
     }
     
@@ -348,25 +348,25 @@ class Numbers extends Block {
             'show_title' => false,
             'show_title_2' => false,
             'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
-            'title' => 'Факты о нашей компании',
+            'title' => 'Факты о цирке',
             'title_2' => 'Подзаголовок',
             'items' => array(
                 array(
-                    'icon_1' => 'view/editor/assets/ico/969.png',
-                    'value_1' => '13',
-                    'name_1' => 'Лет на международном рынке',
-                    'icon_2' => 'view/editor/assets/ico/949.png',
-                    'value_2' => '750',
-                    'name_2' => 'Компаний на постоянном обслуживании',
-                    'icon_3' => 'view/editor/assets/ico/957.png',
+                    'icon_1' => 'view/editor/assets/ico/648.png',
+                    'value_1' => '50',
+                    'name_1' => 'НЕНУЖНЫХ ГРАФИКОВ',
+                    'icon_2' => 'view/editor/assets/ico/684.png',
+                    'value_2' => '15',
+                    'name_2' => 'ВЕШАЛОК В ГАРДЕРОБНОЙ',
+                    'icon_3' => 'view/editor/assets/ico/501.png',
                     'value_3' => '85',
-                    'name_3' => 'Розничных магазинов по всей России',
-                    'icon_4' => 'view/editor/assets/ico/1018.png',
-                    'value_4' => '500',
-                    'name_4' => 'Положительных откликов',
+                    'name_3' => 'ГОРЯЩИХ ЛАПОЧЕК',
+                    'icon_4' => 'view/editor/assets/ico/624.png',
+                    'value_4' => '20',
+                    'name_4' => 'НЕРАБОТАЮЩИХ РОЗЕТОК',
 
                 )
-            )                       
+            )                        
         );
     }
     
@@ -413,22 +413,22 @@ class Numbers extends Block {
             'show_title_2' => false,
             'icon_color' => 'grey',
             'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
-            'title' => 'Факты о нашей компании',
+            'title' => 'Факты о цирке',
             'title_2' => 'Подзаголовок',
             'items' => array(
                 array(
-                    'icon_1' => 'view/editor/assets/ico/969.png',
-                    'value_1' => '13',
-                    'name_1' => 'Лет на международном рынке',
-                    'icon_2' => 'view/editor/assets/ico/949.png',
-                    'value_2' => '750',
-                    'name_2' => 'Компаний на постоянном обслуживании',
-                    'icon_3' => 'view/editor/assets/ico/957.png',
+                    'icon_1' => 'view/editor/assets/ico/596.png',
+                    'value_1' => '10',
+                    'name_1' => 'Говорящих попугаев',
+                    'icon_2' => 'view/editor/assets/ico/620.png',
+                    'value_2' => '22',
+                    'name_2' => 'Воздушных шарика',
+                    'icon_3' => 'view/editor/assets/ico/396.png',
                     'value_3' => '85',
-                    'name_3' => 'Розничных магазинов по всей России',
-                    'icon_4' => 'view/editor/assets/ico/1018.png',
+                    'name_3' => 'Пархающих бабочек',
+                    'icon_4' => 'view/editor/assets/ico/696.png',
                     'value_4' => '500',
-                    'name_4' => 'Положительных откликов',
+                    'name_4' => 'Усы у директора уирка',
 
                 )
             )                       
@@ -476,23 +476,18 @@ class Numbers extends Block {
             'show_title_2' => false,
             'background_color' => "#FFFFFF",
             'numbers_color' => "#E6332A",
-            'title' => 'Факты о нашей компании',
+            'title' => 'Факты о цирке',
             'title_2' => 'Подзаголовок',
-            'icon_1' => 'view/editor/assets/ico/969.png',
-            'value_1' => '13',
-            'name_1' => 'лет<br> на рынке',
-            'icon_2' => 'view/editor/assets/ico/949.png',
-            'value_2' => '44',
-            'name_2' => 'награды',
-            'icon_3' => 'view/editor/assets/ico/957.png',
-            'value_3' => '85',
-            'name_3' => 'магазинов<br> по РФ',
-            'icon_4' => 'view/editor/assets/ico/1018.png',
-            'value_4' => '56',
-            'name_4' => 'пушистых кота',
-            'icon_5' => 'view/editor/assets/ico/1018.png',
-            'value_5' => '500',
-            'name_5' => 'постоянных клиентов',                      
+            'value_1' => '12',
+            'name_1' => 'Месяцев<br>в году',
+            'value_2' => '32',
+            'name_2' => 'Зуба должно быть',
+            'value_3' => '64',
+            'name_3' => 'Года<br>батуту',
+            'value_4' => '5',
+            'name_4' => 'Гимнастов<br>всмятку',
+            'value_5' => '2',
+            'name_5' => 'Уха<br>у слона',                      
         );
     }     
 }

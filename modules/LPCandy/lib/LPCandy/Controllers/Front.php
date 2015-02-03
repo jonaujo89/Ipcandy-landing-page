@@ -59,7 +59,7 @@ class Front extends Base {
         <?
     }
     
-    function track($id) {
+    /*function track($id) {
         $page = \LPCandy\Models\Page::find($id);
         if (!$page) return;
         
@@ -74,5 +74,19 @@ class Front extends Base {
         $track->ip = $_SERVER['REMOTE_ADDR'];
         $track->save();    
         echo "ok";
+    }*/
+    
+    function track($id) {
+        $page = \LPCandy\Models\Page::find($id);
+        if (!$page) return;
+        
+        $track = new \LPCandy\Models\Track;
+        $track->user = $page->user;        
+        $track->page = $page;
+        $track->page_title = $page->title;
+        $track->data = array('values'=>json_decode($_POST['form'],true));
+        $track->ip = $_SERVER['REMOTE_ADDR'];
+        $track->save();    
+        echo 'ok';
     }
 }

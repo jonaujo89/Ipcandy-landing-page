@@ -62,15 +62,15 @@ class Gallery extends Block {
             'show_image_desc' => true,
             'enable_fancybox' => true,
             'background' =>'#FFFFFF',
-            'title' => "Галерея работ",
+            'title' => "Наша программа в фотографиях",
             'title_2' => "Подзаголовок",
             'items' => array(
-                $this->item_default('1.jpg'),
-                $this->item_default('2.jpg'),
-                $this->item_default('3.jpg'),
-                $this->item_default('4.jpg'),
-                $this->item_default('5.jpg'),
-                $this->item_default('6.jpg'),                
+                $this->item_default('21.jpg'),
+                $this->item_default('24.jpg'),
+                $this->item_default('25.jpg'),
+                $this->item_default('26.jpg'),
+                $this->item_default('27.jpg'),
+                $this->item_default('30.jpg'),                
             )
         );
     }
@@ -127,28 +127,28 @@ class Gallery extends Block {
 			'show_image_desc' => true,
 			'show_image_overlay' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ",
+            'title' => "Наша Прима",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
 					'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/1.jpg')),                   
-					'image_title_1' => "Заголовок картинки",
+                    'image_title_1' => "Заголовок картинки",
 					'image_desc_1' => "Описание картинки",
-					'image_text_1' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
+					'image_text_1' => "Еще одно описание картинки. Краткость - сестра таланта.",
 					'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/2.jpg')),
-					'image_title_2' => "Заголовок картинки",
+                    'image_title_2' => "Заголовок картинки",
 					'image_desc_2' => "Описание картинки",
-					'image_text_2' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
+					'image_text_2' => "Еще одно описание картинки. Краткость - сестра таланта.",
 				),
 				array(
 					'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/3.jpg')),
                     'image_title_1' => "Заголовок картинки",
 					'image_desc_1' => "Описание картинки",
-					'image_text_1' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
+					'image_text_1' => "Еще одно описание картинки. Краткость - сестра таланта.",
 					'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/4.jpg')),
-					'image_title_2' => "Заголовок картинки",
+                    'image_title_2' => "Заголовок картинки",
 					'image_desc_2' => "Описание картинки",
-					'image_text_2' => "Подробное описание проекта, интересные факты, подробное описание проекта, интересные факты",
+					'image_text_2' => "Еще одно описание картинки. Краткость - сестра таланта.",
 				)
             )
         );    
@@ -203,30 +203,30 @@ class Gallery extends Block {
 			'show_image_overlay' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ",
+            'title' => "Просто хорошая девушка",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
                     'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/1.jpg')),                   
                     'img_title_1' => "Заголовок картинки",
-                    'img_desc_1' => "Подробное описание проекта, интересные факты",
+                    'img_desc_1' => "Еще одно описание картинки. Краткость - сестра таланта.",
                     'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/2.jpg')),                   
                     'img_title_2' => "Заголовок картинки",
-                    'img_desc_2' => "Подробное описание проекта, интересные факты",
+                    'img_desc_2' => "Еще одно описание картинки. Краткость - сестра таланта.",
                     'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/3.jpg')),                   
                     'img_title_3' => "Заголовок картинки",
-                    'img_desc_3' => "Подробное описание проекта, интересные факты",
+                    'img_desc_3' => "Еще одно описание картинки. Краткость - сестра таланта.",
                 ),
                 array(
                     'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/4.jpg')),                   
                     'img_title_1' => "Заголовок картинки",
-                    'img_desc_1' => "Подробное описание проекта, интересные факты",
+                    'img_desc_1' => "Еще одно описание картинки. Краткость - сестра таланта.",
                     'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/5.jpg')),                   
                     'img_title_2' => "Заголовок картинки",
-                    'img_desc_2' => "Подробное описание проекта, интересные факты",
+                    'img_desc_2' => "Еще одно описание картинки. Краткость - сестра таланта.",
                     'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/6.jpg')),                   
                     'img_title_3' => "Заголовок картинки",
-                    'img_desc_3' => "Подробное описание проекта, интересные факты",
+                    'img_desc_3' => "Еще одно описание картинки. Краткость - сестра таланта.",
                 )
             )
         );    
@@ -281,36 +281,36 @@ class Gallery extends Block {
 			'show_image_overlay' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ",
+            'title' => "Изящная чертовка",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
                     'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/1.jpg')),                   
                     'img_title_1' => "Заголовок картинки",
-                    'img_desc_1' => "Подробное описание проекта",
+                    'img_desc_1' => "Краткость - сестра таланта.",
                     'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/2.jpg')),                   
                     'img_title_2' => "Заголовок картинки",
-                    'img_desc_2' => "Подробное описание проекта",
+                    'img_desc_2' => "Краткость - сестра таланта.",
                     'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/3.jpg')),                   
                     'img_title_3' => "Заголовок картинки",
-                    'img_desc_3' => "Подробное описание проекта",
+                    'img_desc_3' => "Краткость - сестра таланта.",
 					'image_4' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/4.jpg')),                   
                     'img_title_4' => "Заголовок картинки",
-                    'img_desc_4' => "Подробное описание проекта",
+                    'img_desc_4' => "Краткость - сестра таланта.",
                 ),
                 array(
                     'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/5.jpg')),                   
                     'img_title_1' => "Заголовок картинки",
-                    'img_desc_1' => "Подробное описание проекта",
+                    'img_desc_1' => "Краткость - сестра таланта.",
                     'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/6.jpg')),                   
                     'img_title_2' => "Заголовок картинки",
-                    'img_desc_2' => "Подробное описание проекта",
+                    'img_desc_2' => "Краткость - сестра таланта.",
                     'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/7.jpg')),                   
                     'img_title_3' => "Заголовок картинки",
-                    'img_desc_3' => "Подробное описание проекта",
+                    'img_desc_3' => "Краткость - сестра таланта.",
 					'image_4' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/8.jpg')),                   
                     'img_title_4' => "Заголовок картинки",
-                    'img_desc_4' => "Подробное описание проекта",
+                    'img_desc_4' => "Краткость - сестра таланта.",
                 )
             )
         );    
@@ -379,7 +379,7 @@ class Gallery extends Block {
             'show_image_desc' => true,
 			'enable_fancybox' => true,
             'background' => '#F7F7F7',
-            'title' => "Галерея работ",
+            'title' => "Активистка, комсомолка и просто...",
             'title_2' => "Подзаголовок",
             'items' => array(
                 $this->item_default_5('1.jpg'),
@@ -458,7 +458,7 @@ class Gallery extends Block {
             'show_image_desc' => true,
 			'enable_fancybox' => true,
             'background' =>'#FFFFFF',
-            'title' => "Галерея работ",
+            'title' => "Фото цирковых номеров",
             'title_2' => "Подзаголовок",
             'items' => array(
                 $this->item_default_6('11.jpg'),
@@ -517,15 +517,15 @@ function tpl_7($val) {?>
 			'show_image_title' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ",
+            'title' => "Галерея цирковых номеров",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-					'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/1.jpg')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/2.jpg')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/3.jpg')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/4.jpg')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/5.jpg')),
+					'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg')),
+                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg')),
+                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg')),
+                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg')),
+                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/28.jpg')),
                 )
             )
         );    
@@ -586,16 +586,16 @@ function tpl_7($val) {?>
 			'show_image_title' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ",
+            'title' => "Фото нашей работы",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/1.jpg')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/2.jpg')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/3.jpg')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/4.jpg')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/5.jpg')),
-					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/6.jpg')),
+                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg')),
+                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/26.jpg')),
+                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg')),
+                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/24.jpg')),
+                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg')),
+					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/27.jpg')),
 				)              
             )
         );    
@@ -657,16 +657,16 @@ function tpl_7($val) {?>
 			'show_image_title' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ",
+            'title' => "Галерея цирковых выступлений",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/1.jpg')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/2.jpg')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/3.jpg')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/4.jpg')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/5.jpg')),
-					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/6.jpg')),
+                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/23.jpg')),
+                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/28.jpg')),
+                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/29.jpg')),
+                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg')),
+                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg')),
+					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg')),
 				)
             )
         );    
@@ -725,16 +725,16 @@ function tpl_7($val) {?>
 			'show_image_title' => true,
 			'enable_fancybox' => true,
             'background' => '#FFFFFF',
-            'title' => "Галерея работ",
+            'title' => "Галерея",
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/1.jpg')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/2.jpg')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/3.jpg')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/4.jpg')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/5.jpg')),
-					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/6.jpg')),
+                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg')),
+                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg')),
+                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/23.jpg')),
+                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/24.jpg')),
+                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg')),
+					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/26.jpg')),
 				)
             )
         );    

@@ -217,7 +217,7 @@ function initPolicyInfo() {
         alertify.genericDialog(policy_info);
     });
 };
-
+/*
 function initForms() {
     
     $(document).on("click",".form_field_submit",function(e){
@@ -299,6 +299,85 @@ function initForms() {
                 $form.find(".form_field_select option:first-child").prop("selected",true);
             }
         });       
+        
+        return false;
+    });
+};
+*/
+
+function initForms() {
+    
+    $(document).on("click",".form_field_submit",function(e){
+        e.preventDefault();
+        $(this).parents("form").submit();
+    });
+    
+    $(document).on('submit','form',function(event){ 
+        
+        event.preventDefault();     
+    
+        var data = {}; 
+        var $form = $(this);
+        var validated = true;
+        
+        $form.find(".error_input").removeClass("error_input");
+        $form.find(".error").text("");
+
+        // перебираем поля формы
+        $form.find(".form_field").each(function(){
+            var $field = $(this);
+            var required = $field.find(".field_title i").length;
+            // если поле обязательное и нет значения, то показать ошибку и валидация не прошла
+            if (required) {
+                if (!$field.find("input[type=text], input[type=file], textarea").val()) {
+                    // показать ошибку
+                    $field.find("input, textarea").addClass("error_input");
+                    $field.find(".error").text("Обязательное поле");
+                    validated = false;
+                }
+            }
+        });
+        
+        // проверяем общую валидацию 
+        if (!validated) return false;
+        
+        var values = [];
+        
+        // собираем данные
+        $form.find(".form_field").each(function(){
+            $field = $(this);
+            var label = $field.find(".field_title").clone().children().remove().end().text();
+            
+            if($field.find("input").is(":checkbox")){               
+                values.push({
+                    label: label,
+                    value: $field.find("input:checkbox").is(":checked") ? true:false
+                });
+            } 
+            else {
+                values.push({
+                    label: label,
+                    value: $field.find("input[type=text], input[type=file], input[type=radio]:checked, textarea, select").val()
+                });
+            }
+        });
+        
+        var form_done = $(this).data("form_done");
+        if (!form_done) $(this).data("form_done",form_done = $form.find(".form_done")[0]);
+        
+        // отправляем данные
+        $.ajax({
+            url: base_url + "/track/" + page_id,
+            type: "POST",
+            data: {form:JSON.stringify(values)},
+            success: function(data) {
+                alertify.genericDialog(form_done);
+                $form.find(':input').not("input:checkbox, input:radio").val("");
+                $form.find('input:checkbox, input:radio').prop('checked', false);
+                $form.find(".form_field_radio_value:first-child input").prop("checked",true);
+                $form.find(".form_field_select option:first-child").prop("selected",true);
+            }
+        });
         
         return false;
     });

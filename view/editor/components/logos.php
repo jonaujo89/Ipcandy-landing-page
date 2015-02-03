@@ -40,8 +40,8 @@ class Logos extends Block {
             'show_title_2' => false,
             'grayscale_logo' => true,
             'background_color' =>'#FFFFFF',
-            'title' => "Наши клиенты",
-            'title_2' => "Подзаголовок ",
+            'title' => "Наши партнёры",
+            'title_2' => "Подзаголовок про партнёров",
             'items' => array(
                 array('image'=>"view/editor/assets/logos/1.png"),
                 array('image'=>"view/editor/assets/logos/2.png"),
