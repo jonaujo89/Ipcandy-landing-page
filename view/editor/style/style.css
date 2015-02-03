@@ -5206,6 +5206,7 @@ ol li {
   background-size: 40px;
   background-position: center center;
   overflow: hidden;
+  z-index: 1;
 }
 
 .text_block_6 .ico_data .item_list .item .name {

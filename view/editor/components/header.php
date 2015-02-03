@@ -33,7 +33,7 @@ class Header extends Block {
         return  array(
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::tpl_default(),array('size'=>100)),
-            'desc' => "<span style='font-size: 22px;'>Шоу<b> НА МАНЕЖЕ ВСЕ ТЕ ЖЕ</b></span><br><span style='font-size: 18px;'>Доставка билетов медведем на велосипеде</span>",
+            'desc' => "<span style='font-size: 22px;'>Цирк<b> НА МАНЕЖЕ ВСЕ ТЕ ЖЕ</b></span><br><span style='font-size: 18px;'>Доставка билетов медведем на велосипеде</span>",
             'phone' => '<span style="font-size: 27px;">+7 <span style="color: #C1103A;">(495)</span> 321-46-98</span>',
             'phone_desc' => 'г. Москва, Цветной бульвар, 13'
         );
