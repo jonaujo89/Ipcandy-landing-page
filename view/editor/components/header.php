@@ -33,9 +33,9 @@ class Header extends Block {
         return  array(
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::tpl_default(),array('size'=>100)),
-            'desc' => "Производство чего либо компанией<br><span style='font-size: 17px;'>Доставка по всей России</span>",
-            'phone' => '8 <span style="color: #C1103A;">(800)</span> 123 45 67',
-            'phone_desc' => 'г.Москва, ул. Тверская, д.6, офис 207'
+            'desc' => "<span style='font-size: 22px;'>Шоу<b> НА МАНЕЖЕ ВСЕ ТЕ ЖЕ</b></span><br><span style='font-size: 18px;'>Доставка билетов медведем на велосипеде</span>",
+            'phone' => '<span style="font-size: 27px;">+7 <span style="color: #C1103A;">(495)</span> 321-46-98</span>',
+            'phone_desc' => 'г. Москва, Цветной бульвар, 13'
         );
     }
     
@@ -68,7 +68,7 @@ class Header extends Block {
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::tpl_default(),array('size'=>62)),
             'order_button' => FormButton::tpl_default(),
-            'phone' => '8 (800) 123 45 67',            
+            'phone' => '+7 (495) 321-46-98',            
         );
     }
     
@@ -82,7 +82,7 @@ class Header extends Block {
                     </div>                    
                     <? if ($cls = $this->vis($val['show_desc_and_order_button'])): ?>
                         <div class="desc_2 <?=$cls?>" >
-                                <? $this->sub('Text','desc_2',Text::$color_heading) ?>
+                                <? $this->sub('Text','desc_2',Text::$color_text) ?>
                         </div>
                     <? endif ?>                    
                 </div>
@@ -109,9 +109,9 @@ class Header extends Block {
         return  array(
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::tpl_default(),array('size'=>80)),
-            'desc_1' => "Организация праздников",
-            'desc_2' => "<div>Организация детских праздников</div><div>под ключ</div>",
-            'phone' => "8 (800) 123 45 67",
+            'desc_1' => "Прокат бегемотов",
+            'desc_2' => "<b><span style='color: #C1103A;'>Самые низкие цены<br><span style='font-size: 16px; line-height: 1;'>Самые толстые прогулочные бегемоты</span></span></b>",
+            'phone' => "+7 (495) 321-46-98",
             'order_button' => FormButton::tpl_default(),
             'show_desc_and_order_button' => true,
         );
@@ -165,15 +165,15 @@ class Header extends Block {
         return  array(
             'show_order_button' => true,
             'background' =>'#FFFFFF',
-            'logo' => array_merge(Logo::tpl_default(),array('type'=>'text', 'fontSize' =>28, 'color' => '#C1103A')),            
-            'desc' => "ТРУБЫ С ДОСТАВКОЙ ПО ЦЕНАМ ПРОИЗВОДИТЕЛЯ",
-            "ico_1" => 'view/editor/assets/ico/14.png',
-            "ico_2" => 'view/editor/assets/ico/47.png',
-            "ico_3" => 'view/editor/assets/ico/27.png',
-            'text_1' => "ОПЫТ<br>С 2005 ГОДА",
-            'text_2' => "БЕСПЛАТНАЯ<br>ДОСТАВКА",
-            'text_3' => "ГАРАНТИЯ<br>1 ГОД",
-            'phone' => "8 (800) 123 45 67",
+            'logo' => array_merge(Logo::tpl_default(),array('type'=>'text', 'fontSize' =>28, 'color' => '#C1103A', 'font' => 'Trebuchet MS' )),            
+            'desc' => "ТОЛЬКО У НАС ЕСТЬ ЛЕКАРСТВО ОТ ГРУСТИ",
+            "ico_1" => 'view/editor/assets/ico/209.png',
+            "ico_2" => 'view/editor/assets/ico/204.png',
+            "ico_3" => 'view/editor/assets/ico/795.png',
+            'text_1' => "ЧЕЛОВЕК<br>В МАСКЕ",
+            'text_2' => "КОТ<br>КОТОВЕЙ",
+            'text_3' => "КЛОУН<br>ЖОРА",
+            'phone' => "+7 (495) 321-46-98",
             'order_button' => FormButton::tpl_default(),            
         );
     }    

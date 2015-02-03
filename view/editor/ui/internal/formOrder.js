@@ -52,7 +52,7 @@ lp.formControls.file = lp.formControls.text.extend({
         return $('<div class="form_field">').append(
             $('<label>').append(
                 this.tpl_label(val),
-                $('<input class="form_field_file" multiple="" type="file">'),
+                $('<input class="form_field_file" type="file" multiple="multiple">'),
                 $('<div class="error">')
             )
         );

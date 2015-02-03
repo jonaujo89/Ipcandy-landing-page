@@ -47,7 +47,7 @@ lp.numbers = lp.block.extendOptions({
                 type: "radio", width: "auto",
                 margin: "0px 49% 5px 0px", showWhen: { variant: [7] }
             },
-            {   type: "label", value: _t("numbers color:"), margin: "5px 0 0", showWhen: { variant: [8] } },
+            {   type: "label", value: _t("Numbers color:"), margin: "5px 0 0", showWhen: { variant: [8] } },
             { 
                 type: lp.color, 
                 name: "numbers_color",  

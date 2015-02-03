@@ -5,7 +5,6 @@ namespace LPCandy\Controllers;
 class Track extends Base {
     function __construct() {
         parent::__construct(true);
-        $this->needUser();
     }    
     
     function track_list() {

@@ -48,7 +48,7 @@ lp.media = lp.cover.extend({
                     var match = url.match(pattern_url_youtube);
                     if (match){
                         div_media.empty(div_media);
-                        div_media.append($('<iframe frameborder="0"></iframe>').attr({src:'//www.youtube.com/embed/'+match[7]}));
+                        div_media.append($('<iframe frameborder="0"></iframe>').attr({src:'//www.youtube.com/embed/'+match[7]+"?showinfo=0&controls=2&theme=light"}));
                     }
                 } else if (pattern_vimeo.test(url)){
                     var pattern_url_vimeo = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;

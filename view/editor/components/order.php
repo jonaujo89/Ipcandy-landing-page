@@ -46,12 +46,12 @@ class Order extends Block {
         return  array(
             'show_form_title_2' => true,
             'show_form_bottom_text' => true,
-            'background' =>'view/editor/assets/background/219.jpg',
-            'title_1' => "<p>ЭКОНОМИЧНЫЕ</p><p>ГРУЗОПЕРЕВОЗКИ</p><p>ПО ВСЕЙ РОССИИ</p>",
-            'title_2' => "<p>С нами вы экономите до 50%</p><p>Гарантированная сохранность груза</p><p>Своевременная доставка</p>",
-            'form_title_1' => "Оставьте заявку на бесплатный образец или расчет стоимости",
-            'form_title_2' => "И получите выгодное предложение<br> в течение дня",
-            'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",
+            'background' =>'view/editor/assets/background/91.jpg',
+            'title_1' => "<p>ДОСТАВКА</p><br><p>УЛЫБОЧЕК</p><br><p>ВАМ ДОМОЙ</p>",
+            'title_2' => "<p>Только качественные улыбочки</p><br><p>Гарантированная сохранность груза</p><br><p>Своевременная доставка</p>",
+            'form_title_1' => "Оставьте заявку и получите бесплатную улыбочку",
+            'form_title_2' => "Улыбочку доставят к Вам домой",
+            'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",
             'form' => FormOrder::tpl_default(),
         );
     }
@@ -86,11 +86,11 @@ class Order extends Block {
             'show_background_noise' => true,
             'show_text_above_button' => true,
             'show_arrow' => true,
-            'background' =>'view/editor/assets/background/196.jpg',
-            'title_1' => "Образование за рубежом",
-            'title_2' => "150 языковых школ и 250 высших учебных заведений мира",
-            'button_note' => "Присоединяйтесь к нашим студентам",
-            'button_order' =>  array_merge(FormButton::tpl_default(),array('text'=>'Заявка на обучение', 'color'=>'green'))            
+            'background' =>'view/editor/assets/background/192.jpg',
+            'title_1' => "Бесплатное обучение жонглированию",
+            'title_2' => "Секретная методика жонглирования от клоуна Жоры",
+            'button_note' => "Закажите Жору и его друга Клеву прямо сейчас!",
+            'button_order' =>  array_merge(FormButton::tpl_default(),array('text'=>'Обучить меня жонглировать', 'color'=>'orange'))            
         );
     }
     
@@ -137,11 +137,11 @@ class Order extends Block {
             'show_list_box' => false,
             'background' =>'view/editor/assets/texture/1.png',
             'media' =>  array_merge(Media::tpl_default(),array('type'=>'image','image_url'=> 'view/editor/assets/order/order_3.jpg')),
-            'title_1' => "КУПИТЕ КОНЯ ВАШЕЙ МЕЧТЫ ЗА <span style='color:#C1103A'>2 ЧАСА</span>",
-            'title_2' => "СЭКОНОМЬТЕ ВРЕМЯ ПРИ ПОКУПКЕ МОТО",
-            'desc' => "Бесплатно подберем варианты и проконсультируем перед покупкой. Подбор займет не больше 20 минут.",
-            'list' => "<p>С нами вы экономите до 50%</p><p>Гарантированная сохранность груза</p><p>Своевременная доставка</p>",
-            'button_order' =>  array_merge(FormButton::tpl_default(),array('text'=>'Получить консультацию', 'color'=>'red')),             
+            'title_1' => "ТОЛЬКО <span style='color:#C1103A'>НАСТОЯЩИЕ</span> СЛОНЫ ИЗ АФРИКИ",
+            'title_2' => "НИКАКИХ ПОДДЕЛОК ИЗ КИТАЯ",
+            'desc' => "Бесплатно покажем Вам фиолетового сомалийского слона.<br>Время показа - 10 минут.",
+            'list' => "<p>Гарантия 100500%</p><p>Порядочность</p><p>Чистота</p>",
+            'button_order' =>  array_merge(FormButton::tpl_default(),array('text'=>'Посмотреть слона', 'color'=>'purple_light')),             
         );
     }
     
@@ -184,11 +184,11 @@ class Order extends Block {
             'show_title_2' => true,
             'background_color' =>'#313138',
             'media' =>  array_merge(Media::tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/order/order_4.jpg')),
-            'title_1' => "Эксклюзивная садовая мебель от мировых производителей",
-            'title_2' => "Мы работаем только с продукцией премиум класса из экологически чистых и высокачественных материалов.",
-            'form_title' => "Оставьте заявку на бесплатный каталог или расчет стоимости",
-            'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",  
-            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно')))
+            'title_1' => "Эксклюзивный сеанс заразительного смеха",
+            'title_2' => "Неповторимая улыбочка от малыша Джереми",
+            'form_title' => "ОСТАВЬТЕ ЗАЯВКУ НА БЕСПЛАТНЫЙ СЕАНС УЛЫБКИ",
+            'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",  
+            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'rose','label'=>'Получить улыбочку')))
         );
     }
     
@@ -239,29 +239,29 @@ class Order extends Block {
             'show_form_bottom_text' => true,
             'show_title_2' => true,
             'background_color' =>'#313138',
-            'title_1' => "Эксклюзивная садовая мебель от мировых производителей",
-            'title_2' => "Мы работаем только с продукцией премиум класса из экологически чистых и высокачественных материалов.",
-            'form_title' => "Оставьте заявку на бесплатный каталог или расчет стоимости",
+            'title_1' => "Только смешные и весёлые представления",
+            'title_2' => "Мы работаем только с профессионалами премиум класса",
+            'form_title' => "ЗАКАЖИТЕ БЕСПЛАТНЫЙ СЕАНС",
             'items' => array(
                 array(
-                    'icon' =>'view/editor/assets/ico/388.png',
-                    'icon_title' => "10 лет на рынке",
-                    'icon_desc' => "Компания зарекомендовала себя как надежный поставщик высококачественной садовой мебели."
+                    'icon' =>'view/editor/assets/ico/537.png',
+                    'icon_title' => "Инъекции заразительного смеха",
+                    'icon_desc' => "Протестированы завхозом цирка и разрешены в ряде стран мира, даже на Ямайке."
                 ),
                 array(
-                    'icon' =>'view/editor/assets/ico/523.png',
-                    'icon_title' => "Огромный выбор",
-                    'icon_desc' => "Широкий выбор кресел, диванов, столов. "
+                    'icon' =>'view/editor/assets/ico/464.png',
+                    'icon_title' => "Рассмешим до слез и даже больше",
+                    'icon_desc' => "Продолжительность жизни увеличивается от смеха в несколько раз и даже больше."
                 ),
                 array(
-                    'icon' =>'view/editor/assets/ico/434.png',
-                    'icon_title' => "Более 2 000 моделей в наличии",
-                    'icon_desc' => "Наличие товаров на складе позволяет получить мебель в кратчайшие сроки. "
+                    'icon' =>'view/editor/assets/ico/507.png',
+                    'icon_title' => "Бесплатный леденец каждому",
+                    'icon_desc' => "Каждому пришедшему персонально будет вручена сосательная конфета на палочке."
                 )
                 
             ),            
-            'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам", 
-            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'yellow','label'=>'Получить каталог бесплатно')))
+            'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке", 
+            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'purple','label'=>'Заказать сеанс')))
         );
     }
     
@@ -309,12 +309,12 @@ class Order extends Block {
             'show_title_3' => true,
             'show_form_bottom_text' => true,
             'form_align' => "right",
-            'background' => "view/editor/assets/background/220.jpg",
-            'title_1' => "Используйте наш конструктор",
-            'title_2' => "Для своего лендинга",
-            'title_3' => "Создайте эффективный лендинг за несколько минут",
-            'form_title' => "Оставьте заявку на создание лендинга ",
-            'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",  
+            'background' => "view/editor/assets/background/187.jpg",
+            'title_1' => "ИСПОЛЬЗУЙТЕ ЭТОТ КОНСТРУКТОР",
+            'title_2' => "СОЗДАЙТЕ ЛЕНДИНГ",
+            'title_3' => "ВСЕГО ЗА НЕСКОЛЬКО МИНУТ",
+            'form_title' => "ОСТАВЬТЕ ЗАЯВКУ НА СОЗДАНИЕ ЛЕНДИНГА",
+            'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",  
             'form' => array_merge(FormOrder::tpl_default_email(),array('button' => array('color'=>'blue','label'=>'Заказать лендинг')))
         );
     }    

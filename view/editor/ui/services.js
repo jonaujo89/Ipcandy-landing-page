@@ -96,7 +96,7 @@ lp.services = lp.block.extendOptions({
             },
             { 
                 name: "show_order_button", label: _t("Show order button"), type: "checkbox", width: "100%",  
-                margin: "5px 80% 0px 0px", showWhen: { variant: [1,2,3,4,5] }
+                margin: "5px 79.8% 0px 0px", showWhen: { variant: [1,2,3,4,5] }
             },
             { 
                 name: "show_image_shadow", label: _t("Show image shadow"), type: "checkbox", width: "auto",  

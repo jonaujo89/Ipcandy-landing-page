@@ -786,7 +786,7 @@ ol li {
 
 .header_4 .container .logo .company_name {
   text-transform: uppercase;
-    /*white-space: normal;*/;
+  white-space: normal;
 }
 
 .header_4 .container .ico_wrap {
@@ -809,6 +809,7 @@ ol li {
   width: 55px;
   border-radius: 5px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .header_4 .container .ico_wrap .ico_name {
@@ -841,7 +842,7 @@ ol li {
     font-size: 15px !important;
   }
 
-  .header_4 .container .phone {
+  .header_4 .container .phone, .header_3 .container .phone {
     font-size: 24px !important;
   }
 
@@ -1418,6 +1419,7 @@ ol li {
   width: 60px;
   border-radius: 10px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .order_5 .ico_list .item .name {
@@ -1731,6 +1733,7 @@ ol li {
   background-position: center center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .benefits_1 .item_list .item .name {
@@ -1802,6 +1805,7 @@ ol li {
   background-position: center center;
   border-radius: 10px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .benefits_2 .item_list .item .name {
@@ -1892,6 +1896,7 @@ ol li {
   background-size: 40px;
   background-position: center center;
   overflow: hidden;
+  z-index: 1;
 }
 
 .benefits_3 .item_list .item .name {
@@ -1909,6 +1914,7 @@ ol li {
   line-height: 22px;
   font-family: "Arial";
   min-height: 60px;
+  min-width: 300px;
 }
 
 .benefits_3 .item_list.hide_name .item .ico {
@@ -1968,6 +1974,7 @@ ol li {
   background-position: center center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .benefits_4 .item_list .item .image_wrap {
@@ -1985,7 +1992,7 @@ ol li {
   font-size: 20px;
   font-family: "Open Sans Semibold", "Arial";
   font-weight: 600;
-  margin-left: 125px;
+  margin-left: 130px;
   line-height: 130%;  
 }
 
@@ -1994,7 +2001,7 @@ ol li {
   font-size: 14px;
   line-height: 22px;
   font-family: "Arial";
-  margin-left: 125px;
+  margin-left: 130px;
 }
 
 .benefits_5 .container {
@@ -2045,6 +2052,7 @@ ol li {
   background-position: center center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .benefits_5 .item_list.hide_border .item .img {
@@ -2228,13 +2236,13 @@ ol li {
   height: 170px;
   margin-top: 5px;
   border-radius: 85px;
-  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .services_2 .item_list .item .img.hide_border {
@@ -2303,10 +2311,6 @@ ol li {
   border-radius: 0px;
 }
 
-.services_2 .item_list.circle .item .img_data .img {
-  border-radius: 85px;
-}
-
 .services_3 .container {
   padding: 50px 0 60px 0;
   font-family: "Arial";
@@ -2344,19 +2348,19 @@ ol li {
 
 .services_3 .item_list .item .img_data {
   float: left;
-  width: 49%;
-  margin-right: 1%;
+  width: 50%;
 }
 
 .services_3 .item_list .item .item_data {
   float: left;
-  width: 49%;
-  margin-left: 1%;
+  width: 47%;
+  margin-left: 3%;
   padding: 0 20px 0 0;
   text-align: left;
 }
 
 .services_3 .item_list .item .img {
+  float: right;
   position: relative;
   margin: 0 auto;
   margin-top: 2px;
@@ -2389,6 +2393,7 @@ ol li {
 }
 
 .services_3 .img_data.image_large .img {
+  width: 450px;
   height: 350px;
 }
 
@@ -2479,6 +2484,7 @@ ol li {
   overflow: hidden;
   position: relative;
   border-radius: 5px;
+  z-index: 1;
 }
 
 .services_4 .item_list .item .name {
@@ -2551,7 +2557,6 @@ ol li {
 }
 
 .services_5 .item_list .item .img {
-  overflow: hidden;
   margin: 0 auto;
   border-radius: 125px;
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1) inset;
@@ -2560,6 +2565,7 @@ ol li {
   background-position: center center;
   overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 
 .services_5 .item_list.square .item .img_wrap .img {
@@ -2571,7 +2577,6 @@ ol li {
 .services_5 .item_list.circle .item .img_wrap .img {
   width: 250px;
   height: 250px;
-  border-radius: 125px;
 }
 
 .services_5 .item_list .item .name {
@@ -2613,7 +2618,6 @@ ol li {
   .services_5 .item_list.circle .item .img_wrap .img {
     width: 200px;
     height: 200px;
-    border-radius: 125px;
   }
 }
 
@@ -2774,6 +2778,7 @@ ol li {
   border-radius: 10px;
   overflow: hidden;
   background-size: 40px;
+  z-index: 1;
 }
 
 .reasons_1 .item_list .item .name {
@@ -4121,6 +4126,7 @@ ol li {
   background-size: 40px;
   background-position: center center;
   overflow: hidden;
+  z-index: 1;
 }
 
 .stages_1 .item_list .item .name {
@@ -4348,9 +4354,9 @@ ol li {
   background-size: cover;
   background-position: center center;
   width: 80px;
-  border-radius: 45px;
   height: 80px;
   position: relative;
+  z-index: 1;
 }
 
 
@@ -4473,16 +4479,18 @@ ol li {
 }
 
 .clientsLogos_1 .item_list.gray .item_block img {
+  max-width: 175px;
   max-height: 85px;
-  vertical-align: top;
+  vertical-align: middle;
   filter: url("data:image/svg+xml;utf8,&lt;svg xmlns=\'http://www.w3.org/2000/svg\'&gt;&lt;filter id=\'grayscale\'&gt;&lt;feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 }
 
 .clientsLogos_1 .item_list .item_block img {
+  max-width: 175px;
   max-height: 85px;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 
@@ -4582,12 +4590,13 @@ ol li {
 .video_block_1 .video iframe {
   width: 100%;
   height: 100%;
-  border: 1px solid #EFEFEF;
 }
 
 .video_block_1 .video div {
   height: 100%;
   width: 100%;
+  border: 1px solid rgba(0,0,0,0.5);
+  box-shadow: 0 0px 25px rgba(0,0,0,0.3);
 }
 
 
@@ -4610,7 +4619,6 @@ ol li {
 .video_block_2 .video iframe {
   width: 100%;
   height: 100%;
-  border: 1px solid #EFEFEF;
 }
 
 @media all and (max-width: 1199px) {
@@ -4623,6 +4631,8 @@ ol li {
 .video_block_2 .video div {
   height: 100%;
   width: 100%;
+  border: 1px solid rgba(0,0,0,0.5);
+  box-shadow: 0 0px 25px rgba(0,0,0,0.3);
 }
 
 .video_block_2 .text_wrap {
@@ -4713,10 +4723,10 @@ ol li {
 .video_block_3 .item .video {
   position: relative;
   width: 354px;
-  height: 203px;
+  height: 200px;
   margin: 0 auto;
-  border: 5px solid #FFF;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  border: 5px solid #FFFFFF;
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.5);
 }
 
 .video_block_3 .item .video div {
@@ -5583,6 +5593,7 @@ ol li {
   opacity: 1;
   border-radius: 50px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .numbers_5 .item_list .item .value {
@@ -5666,6 +5677,7 @@ ol li {
   opacity: 1;
   border-radius: 50px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .numbers_6 .item_list .item .value {

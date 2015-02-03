@@ -88,7 +88,11 @@ lp.order = lp.block.extendOptions({
                     }
                 }), 
                 showWhen: { variant: [1,2,6] }
-            },  
+            },
+            {
+                name: 'background', type: 'uploadButton', label: _t('Upload image file'),
+                showWhen: { variant: [1,2,6] }
+            },
             { 
                 name: "show_background_noise", label: _t("Show noise"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2] }

@@ -222,7 +222,7 @@ class TextBlock extends Block {
                                     - Стильный дизайн<br>
                                     - И вообще<br>
                                 </div>',
-                    'image' => 'view/editor/assets/text/case_1.jpg',
+                    'image' => 'view/editor/assets/text/1.jpg',
                 )
             )
         );
@@ -266,7 +266,7 @@ class TextBlock extends Block {
                                     - Стильный дизайн<br>
                                     - И вообще<br>
                                 </div>',
-                    'image' => 'view/editor/assets/text/case_1.jpg',
+                    'image' => 'view/editor/assets/text/1.jpg',
                 ),
                 array(
                     'text_title' => 'Несколько моментов с конференции',
@@ -277,7 +277,7 @@ class TextBlock extends Block {
                                     - Стильный дизайн<br>
                                     - И вообще<br>
                                 </div>',
-                    'image' => 'view/editor/assets/text/case_1.jpg',
+                    'image' => 'view/editor/assets/text/2.jpg',
                 )
             )
         );

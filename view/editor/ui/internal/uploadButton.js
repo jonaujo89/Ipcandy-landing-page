@@ -12,7 +12,7 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
         var uploader = $("<input type='file'>").css({position:'fixed',top:0,left:0,zIndex:10000,width:0}).hide().appendTo("body");
         uploader.change(function(){
             var data = new FormData();
-            $.each(uploader[0].files, function(i, file) {
+            $.each(uploader[0].files, function(i, file) {                
                 data.append('file-'+i, file);
             });
             data.append('_type','upload');

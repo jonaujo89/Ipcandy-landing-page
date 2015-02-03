@@ -43,13 +43,18 @@ class Logos extends Block {
             'title' => "Наши клиенты",
             'title_2' => "Подзаголовок ",
             'items' => array(
-                array('image'=>"view/editor/assets/logos/logo_1.png"),
-                array('image'=>"view/editor/assets/logos/logo_6.png"),
-                array('image'=>"view/editor/assets/logos/logo_3.png"),
-                array('image'=>"view/editor/assets/logos/logo_4.png"),
-                array('image'=>"view/editor/assets/logos/logo_5.png"),
-                array('image'=>"view/editor/assets/logos/logo_6.png"),
-                array('image'=>"view/editor/assets/logos/logo_7.png"),
+                array('image'=>"view/editor/assets/logos/1.png"),
+                array('image'=>"view/editor/assets/logos/2.png"),
+                array('image'=>"view/editor/assets/logos/3.png"),
+                array('image'=>"view/editor/assets/logos/4.png"),
+                array('image'=>"view/editor/assets/logos/5.png"),
+                array('image'=>"view/editor/assets/logos/6.png"),
+                array('image'=>"view/editor/assets/logos/7.png"),
+                array('image'=>"view/editor/assets/logos/8.png"),
+                array('image'=>"view/editor/assets/logos/9.png"),
+                array('image'=>"view/editor/assets/logos/10.png"),
+                array('image'=>"view/editor/assets/logos/11.png"),
+                array('image'=>"view/editor/assets/logos/12.png"),
             )
         );
     }    

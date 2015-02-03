@@ -299,16 +299,16 @@ class Gallery extends Block {
                     'img_desc_4' => "Подробное описание проекта",
                 ),
                 array(
-                    'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/4.jpg')),                   
+                    'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/5.jpg')),                   
                     'img_title_1' => "Заголовок картинки",
                     'img_desc_1' => "Подробное описание проекта",
-                    'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/5.jpg')),                   
+                    'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/6.jpg')),                   
                     'img_title_2' => "Заголовок картинки",
                     'img_desc_2' => "Подробное описание проекта",
-                    'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/6.jpg')),                   
+                    'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/7.jpg')),                   
                     'img_title_3' => "Заголовок картинки",
                     'img_desc_3' => "Подробное описание проекта",
-					'image_4' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/3.jpg')),                   
+					'image_4' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/8.jpg')),                   
                     'img_title_4' => "Заголовок картинки",
                     'img_desc_4' => "Подробное описание проекта",
                 )
@@ -387,10 +387,10 @@ class Gallery extends Block {
                 $this->item_default_5('3.jpg'),
                 $this->item_default_5('4.jpg'),
                 $this->item_default_5('5.jpg'),
-                $this->item_default_5('3.jpg'),
-                $this->item_default_5('5.jpg'),
                 $this->item_default_5('6.jpg'),
-                $this->item_default_5('4.jpg'),
+                $this->item_default_5('7.jpg'),
+                $this->item_default_5('8.jpg'),
+                $this->item_default_5('9.jpg'),
             )
         );
     }

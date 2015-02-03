@@ -199,7 +199,7 @@ $.fn.lpBxSlider = function () {
 
 function initOrderButton() {
     $(document).on("click", "a.btn_form", function(e){ 
-        if($(this).attr("href").length == 0){
+        if(!$(this).is("[href]")){
             e.preventDefault();
             
             var form = $(this).data("form");
@@ -254,40 +254,51 @@ function initForms() {
         // проверяем общую валидацию 
         if (!validated) return false;
         
-        var values = [];
+        var data = new FormData(); 
         
         // собираем данные
         $form.find(".form_field").each(function(){
             $field = $(this);
-            var label = $field.find(".field_title").clone().children().remove().end().text();
-            
+            var label = $field.find(".field_title").clone().children().remove().end().text().trim();
+            var input = $field.find("input")[0];
             if($field.find("input").is(":checkbox")){               
-                values.push({
-                    label: label,
-                    value: $field.find("input:checkbox").is(":checked") ? true:false
+                data.append(
+                    label,
+                    $field.find("input[type=checkbox]").is(":checked") ? true:false
+                );
+            } else if($field.find("input").is(":file")){
+                var files = input.files;                
+                $.each(files, function(i, file) {                
+                    data.append('file-'+i, file);
                 });
-            } 
-            else {
-                values.push({
-                    label: label,
-                    value: $field.find("input[type=text], input[type=file], input[type=radio]:checked, textarea, select").val()
-                });
+            } else {
+                data.append(
+                    label,
+                    $field.find("input[type=text], input[type=radio]:checked, textarea, select").val()
+                );
             }
         });
         
+        var form_done = $(this).data("form_done");
+        if (!form_done) $(this).data("form_done",form_done = $form.find(".form_done")[0]);
+
         // отправляем данные
         $.ajax({
             url: base_url + "/track/" + page_id,
-            type: "POST",
-            data: {form:JSON.stringify(values)},
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'POST',            
             success: function(data) {
-                alertify.genericDialog($form.find(".form_done")[0]);
+                //console.log(data);
+                alertify.genericDialog(form_done);
                 $form.find(':input').not("input:checkbox, input:radio").val("");
                 $form.find('input:checkbox, input:radio').prop('checked', false);
                 $form.find(".form_field_radio_value:first-child input").prop("checked",true);
                 $form.find(".form_field_select option:first-child").prop("selected",true);
             }
-        });
+        });       
         
         return false;
     });

@@ -22,6 +22,7 @@ class Video extends Block {
                     <div class="video <?= $val['video_size'] ? $val['video_size'] : "small" ?>">
                         <?=$this->sub('Media','video',array('switchType'=>false))?>
                     </div>
+                    
                 </div>
             </div>
         </div>
