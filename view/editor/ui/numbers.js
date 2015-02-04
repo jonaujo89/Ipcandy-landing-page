@@ -37,13 +37,13 @@ lp.numbers = lp.block.extendOptions({
             {   type: "label", value: _t("Icons color:"), margin: "5px 0 0", showWhen: { variant: [4,7] } },
             { 
                 name: "icon_color",
-                items: [{ label: _t("black"), value:"black"},{ label: _t("grey"), value:"grey"}],
+                items: [{ label: _t("black<br>"), value:"black"},{ label: _t("grey"), value:"grey"}],
                 type: "radio", width: "auto", 
                 margin: "0px 49% 5px 0px", showWhen: { variant: [4] }
             },
             { 
                 name: "icon_color",
-                items: [{ label: _t("white"), value:"white"},{ label: _t("grey"), value:"grey"}],
+                items: [{ label: _t("white<br>"), value:"white"},{ label: _t("grey"), value:"grey"}],
                 type: "radio", width: "auto",
                 margin: "0px 49% 5px 0px", showWhen: { variant: [7] }
             },

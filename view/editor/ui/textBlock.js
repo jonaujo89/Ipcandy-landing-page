@@ -49,7 +49,7 @@ lp.textBlock = lp.block.extendOptions({
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2] }
             },
             { 
-                name: "show_text_title_2", label: _t("Show description cell"), type: "checkbox", width: "auto",  
+                name: "show_text_title_2", label: _t("Show second name"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [4,6] }
             },
             { 

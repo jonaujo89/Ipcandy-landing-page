@@ -149,7 +149,7 @@ class Video extends Block {
                 array(                
                     'name_1' => 'Обслуживание телефонов',
                     'desc_1' => 'Сергей Задуйсвечку, офисный планктон',
-                    'video_1' => array('video_url'=> 'www.youtube.com/embed/Ofm8SQ2pwcI','type'=>'video'),
+                    'video_1' => array('video_url'=> 'www.youtube.com/embed/oKCa_MDmRxo','type'=>'video'),
                     'name_2' => 'Перекладывание бумаг',
                     'desc_2' => 'Алина Съешсало, председатель заседаний',
                     'video_2' => array('video_url'=> 'www.youtube.com/embed/VnTmHm60K10','type'=>'video'),
