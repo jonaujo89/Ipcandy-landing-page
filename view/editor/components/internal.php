@@ -27,10 +27,10 @@ class Logo extends Block {
         return array(
             'type' => 'image',
             'url' => 'view/editor/assets/default_logo.png',
-            'text' => 'НА МАНЕЖЕ ВСЕ ТЕ ЖЕ',
+            'text' => 'Нет названия',
             'bold' => true,
             'italic' => false,
-            'color' => '#000',
+            'color' => '#C1103A',
             'size' => 70,
             'fontSize' => 24
         );        
@@ -288,7 +288,7 @@ class Media extends Block {
         return array(
             'type' => 'image',
             'image_url' => '',
-            'video_url' => 'http://youtu.be/z1SXw6nlTr0',
+            'video_url' => 'www.youtube.com/embed/P55qVX3y134',
         );        
     }
     
@@ -300,7 +300,7 @@ class Media extends Block {
                 preg_match("/(vimeo)|(youtu)/", $val['video_url'], $video_source);
                 if($video_source[0] == "youtu"){
                     preg_match("/^.*((youtu\.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/", $val['video_url'], $matches);?>                        
-                    <iframe frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/<?=($matches[7]);?>?showinfo=0&controls=2&theme=light"></iframe><?
+                    <iframe frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/<?=($matches[7]);?>?showinfo=0&controls=2&theme=light&rel=0"></iframe><?
                 } else if ($video_source[0] == "vimeo") {
                     preg_match("/^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/", $val['video_url'], $matches);?>
                     <iframe frameborder="0" allowfullscreen="" src="//player.vimeo.com/video/<?=($matches[5]);?>"></iframe><? 

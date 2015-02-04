@@ -165,7 +165,7 @@ class Header extends Block {
         return  array(
             'show_order_button' => true,
             'background' =>'#FFFFFF',
-            'logo' => array_merge(Logo::tpl_default(),array('type'=>'text', 'fontSize' =>28, 'color' => '#C1103A', 'font' => 'Trebuchet MS' )),            
+            'logo' => array_merge(Logo::tpl_default(),array('type'=>'text', 'text'=> 'На манеже все те же', 'fontSize' =>28, 'color' => '#C1103A', 'font' => 'Trebuchet MS' )),            
             'desc' => "ТОЛЬКО У НАС ЕСТЬ ЛЕКАРСТВО ОТ ГРУСТИ",
             "ico_1" => 'view/editor/assets/ico/209.png',
             "ico_2" => 'view/editor/assets/ico/204.png',

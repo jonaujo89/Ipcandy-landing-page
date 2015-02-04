@@ -21,7 +21,7 @@ class LPCandy extends \Bingo\Module {
             array('action'=>'(page-design|page-ajax|page-first)'));
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Track','id'=>false),
-            array('action'=>'(track-list|track-delete|track-update-status)'));
+            array('action'=>'(track-list|track-delete|track-update-status|track-upload-file)'));
         
         $this->connect("/",array('controller'=>'\LPCandy\Controllers\Front','action'=>'home'));
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Front','id'=>false),

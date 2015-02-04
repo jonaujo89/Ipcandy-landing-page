@@ -19,7 +19,8 @@ class Gallery extends Block {
                             <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
-                    <div class="item_list">                        
+                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                    <div class="item_list <?=$opacity?>"> 
 						<? $this->repeat('items', function($item_val,$self) use ($val) { ?>							
                             <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$item_val['image']?>');"></div>
                                 <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
@@ -331,7 +332,8 @@ class Gallery extends Block {
                             <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
-					<div class="item_list clear">
+                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+					<div class="item_list clear <?=$opacity?>">
 						<div class="slider">
                             <? $id_group = $val['id']; ?>
 							<? $this->repeat('items', function($item_val,$self) use ($val,$id_group){ ?>                                
@@ -410,7 +412,8 @@ class Gallery extends Block {
                             <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
-                     <div class="item_list masonry">
+                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                    <div class="item_list masonry <?=$opacity?>">
                         <? $id_group = $val['id']; ?>
 						<? $this->repeat('items', function($item_val,$self) use ($val, $id_group){ ?>                            						
                             <div class="preview_img">									
@@ -487,7 +490,8 @@ function tpl_7($val) {?>
                             <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
-                    <div class="item_list clear">
+                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                    <div class="item_list clear <?=$opacity?>">
 						<? $this->repeat('items',function($item_val,$self) use ($val) { ?>
 							<div class="img_double"> 
 								<div class="img img_w2 img_h2">
@@ -546,7 +550,8 @@ function tpl_7($val) {?>
                             <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
-                    <div class="item_list clear">
+                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                    <div class="item_list clear <?=$opacity?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                             <div class="img_side">
                                 <div class="img img_w1 img_h2">
@@ -616,7 +621,8 @@ function tpl_7($val) {?>
                             <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
-                    <div class="item_list clear">
+                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                    <div class="item_list clear <?=$opacity?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
                                 <div class="img_double">
                                     <div class="img img_w3 img_h2">
@@ -687,7 +693,8 @@ function tpl_7($val) {?>
                             <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                         </div>
                     <? endif ?>
-                    <div class="item_list clear">
+                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                    <div class="item_list clear <?=$opacity?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
                                 <div class="img_side">
                                     <div class="img img_w1 img_h2">

@@ -48,7 +48,7 @@ class Editor extends Base {
     function page_ajax($id) {
         $page = $this->data['page'] = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect('/');
-
+        
         $api = new \LPCandy\TemplaterApi($page);
         $api->run();
     }     

@@ -207,7 +207,20 @@ div:hover > .cmp-controls {
     display: block;
 }
 
+.lp-variant-label {
+    font-size: 14px;
+    font-family: "FontAwesome";
+    vertical-align: bottom;
+    line-height: 30px;
+    height: 30px;
+    padding: 0 5px;
+    display: inline-block;
+    background: rgba(255,255,255,0.7);
+    box-sizing: border-box;
+}
+
 .lp-button {
+    vertical-align: bottom;
     background: #eee;
     border: 1px #ccc solid;
     width: 30px;

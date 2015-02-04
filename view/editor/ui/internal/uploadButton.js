@@ -19,7 +19,7 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
             data.append('name',me.options.uploadDir);
             data.append('iconWidth',me.Class.iconWidth);
             data.append('iconHeight',me.Class.iconHeight);
-            
+
             $.ajax({
                 url: Component.app.options.ajax_url,
                 data: data,
@@ -28,7 +28,7 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
                 processData: false,
                 type: 'POST',
                 success: function(data){
-                    data = $.parseJSON(data);                   
+                    data = $.parseJSON(data);  
                     var sub_url = data[0].url.substring(base_url.length);
                     if (sub_url[0]=="/") sub_url = sub_url.substring(1);
                     me.value = sub_url;

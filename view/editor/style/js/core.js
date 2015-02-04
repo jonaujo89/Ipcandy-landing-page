@@ -342,19 +342,31 @@ function initForms() {
         if (!validated) return false;
         
         var values = [];
+        var data = new FormData();
+        var file_counter = 0;
         
         // собираем данные
         $form.find(".form_field").each(function(){
             $field = $(this);
-            var label = $field.find(".field_title").clone().children().remove().end().text();
+            var label = $field.find(".field_title").clone().children().remove().end().text().trim();
             
             if($field.find("input").is(":checkbox")){               
                 values.push({
                     label: label,
                     value: $field.find("input:checkbox").is(":checked") ? true:false
                 });
-            } 
-            else {
+            } else if($field.find("input").is(":file")) {
+                
+                var files = $field.find("input")[0].files;
+                var value = [];
+                
+                $.each(files, function(i, file) {
+                    var name = 'file-'+file_counter++;
+                    data.append(name, file);
+                    value.push(name);
+                });
+                values.push({label:label,value:value});
+            } else {
                 values.push({
                     label: label,
                     value: $field.find("input[type=text], input[type=file], input[type=radio]:checked, textarea, select").val()
@@ -365,11 +377,16 @@ function initForms() {
         var form_done = $(this).data("form_done");
         if (!form_done) $(this).data("form_done",form_done = $form.find(".form_done")[0]);
         
+        data.append('form',JSON.stringify(values));
+        
         // отправляем данные
         $.ajax({
-            url: base_url + "/track/" + page_id,
+            url: base_url+"/track/"+page_id,
             type: "POST",
-            data: {form:JSON.stringify(values)},
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
             success: function(data) {
                 alertify.genericDialog(form_done);
                 $form.find(':input').not("input:checkbox, input:radio").val("");

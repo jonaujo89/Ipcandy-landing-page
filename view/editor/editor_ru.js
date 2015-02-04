@@ -11,8 +11,8 @@ exports = {
     "Settings":"Настройки",
     "Add Item":"Добавить",
     "Logotype":"Логотип",
-    "Image logo":"Изображение логотипа",
-    "Text name logo":"Название логотипа",
+    "Image logo":"Изображение",
+    "Text name logo":"Текст",
     "Upload file":"Загрузить файл",
     "Company name:":"Название компании:",
     "Font settings:":"Настройки шрифта:",
@@ -153,7 +153,7 @@ exports = {
     "center<br>":"по центру<br>",
     "right":"справа",
     "Show image title":"Название изображения",
-    "Show block description under image":"Текстовый блок под изображением",
+    "Show block with text":"Блок с текстом",
     "Show image description":"Описание изображения",
     "Numbers color:":"Цвет цифр:"
 }

@@ -1,5 +1,6 @@
 <?php
-header("HTTP/1.1 404 Not Found");      
-header("Status: 404 Not Found");
-echo("<h1>404 Not Found</h1>");
+echo '<h1 align="center"><font color="red" face="Arial">';
+echo '<img src="warning.png"><br>';
+echo ('404 Not Found!');
+echo '</h1>';
 ?>

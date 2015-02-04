@@ -317,9 +317,9 @@ class Services extends Block {
             'title_2' => "Проведение детских праздников для самых маленьких",
             'items' => array(
                 array(
-                    'image_1' => "view/editor/assets/ico/741.png",
-                    'image_2' => "view/editor/assets/ico/333.png",
-                    'image_3' => "view/editor/assets/ico/319.png",
+                    'image_1' => "view/editor/assets/ico/772.png",
+                    'image_2' => "view/editor/assets/ico/335.png",
+                    'image_3' => "view/editor/assets/ico/255.png",
                     'name_1' => "ВЕСЁЛОЕ БРЫНЧАНИЕ",
                     'name_2' => "ПОЕДАНИЕ ПЕЧЕНЬЯ",
                     'name_3' => "КАРАОКЕ-БАР",

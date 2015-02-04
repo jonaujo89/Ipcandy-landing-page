@@ -24,6 +24,8 @@ lp.gallery = lp.block.extendOptions({
         if (this.value.variant == 1 || this.value.variant == 5 || this.value.variant == 6 || this.value.variant == 7 || this.value.variant == 8 || this.value.variant == 9 || this.value.variant == 10) {  
 			this.variant.find(".img_title").toggleVis(this.value.show_image_title);
 			this.variant.find(".img_desc").toggleVis(this.value.show_image_desc);
+            this.variant.find(".item_list").toggleClass("no_opacity", (!this.value.show_image_title && !this.value.show_image_desc));
+
 		}    
 		if (this.value.variant == 2) {
             this.variant.find(".img_text").unbind('keyup').on('keyup', function(){
@@ -68,7 +70,7 @@ lp.gallery = lp.block.extendOptions({
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1,5,6,7,8,9,10] }
             },
             { 
-                name: "show_image_overlay", label: _t("Show block description under image"), type: "checkbox", width: "auto",  
+                name: "show_image_overlay", label: _t("Show block with text"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [2,3,4] }
             },
             { 

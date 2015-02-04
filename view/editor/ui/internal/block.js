@@ -22,10 +22,12 @@ lp.block = teacss.ui.control.extend({
         this.prevButton = $("<div class='fa fa-chevron-left lp-button'>");
         this.nextButton = $("<div class='fa fa-chevron-right lp-button'>");
         
+        this.variantLabel = $("<div class='lp-variant-label'>");
+        
         this.dragButton.click(function(){});
         this.removeButton.click(function(){me.remove()});
-        this.prevButton.click(function(){me.prev()});
-        this.nextButton.click(function(){me.next()});
+        this.prevButton.mousedown(function(e){me.prev();e.preventDefault();});
+        this.nextButton.mousedown(function(e){me.next();e.preventDefault();});
         
         if (me.options.init) me.options.init.call(me);
    },
@@ -177,6 +179,8 @@ lp.block = teacss.ui.control.extend({
             var sub_val = teacss.ui.prop(me.value,editor.options.name);
             editor.setValue(sub_val);
         });
+        
+        this.variantLabel.text(this.current + "/" + this.variants.length);
     },
     
     bindEditors: function (setEditorValue) {
@@ -239,7 +243,8 @@ lp.block = teacss.ui.control.extend({
             me.current = this.cmp.element.attr("data-current");
             me.controls.append(
                 this.prevButton,
-                this.nextButton
+                this.nextButton,
+                this.variantLabel
             );
         } else {
             me.current = 1;

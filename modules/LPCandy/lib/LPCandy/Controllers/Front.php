@@ -59,23 +59,6 @@ class Front extends Base {
         <?
     }
     
-    /*function track($id) {
-        $page = \LPCandy\Models\Page::find($id);
-        if (!$page) return;
-        
-        $track = new \LPCandy\Models\Track;
-        $track->user = $page->user;        
-        $track->page = $page;
-        $track->page_title = $page->title;
-        $data = array();
-        foreach ($_POST as $name=>$value)
-            $data[] = array('label' => $name, 'value' => $value);
-        $track->data = array('values' => $data);
-        $track->ip = $_SERVER['REMOTE_ADDR'];
-        $track->save();    
-        echo "ok";
-    }*/
-    
     function track($id) {
         $page = \LPCandy\Models\Page::find($id);
         if (!$page) return;
@@ -83,10 +66,38 @@ class Front extends Base {
         $track = new \LPCandy\Models\Track;
         $track->user = $page->user;        
         $track->page = $page;
-        $track->page_title = $page->title;
-        $track->data = array('values'=>json_decode($_POST['form'],true));
+        $track->page_title = $page->title;        
+              
+        $values = json_decode($_POST['form'],true);
+        foreach ($values as &$one) {
+            $value &= $one['value'];
+            if (is_array($value)) {
+                
+                $uploadDir = INDEX_DIR."/upload/LPCandy/track/".$page->id;
+                if (!file_exists($uploadDir)) mkdir($uploadDir,0777,true);
+                
+                foreach ($value as $idx=>$name) {
+                    $link = false;
+                    $file_data = @$_FILES[$name];
+                    if ($file_data) {
+                        $error = $file_data['error'];
+                        if ($error==UPLOAD_ERR_OK) {
+                            $file_name = $file_data['name'];
+                            $tmp_name = $file_data['tmp_name'];
+                            $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+                            $dest = time()."_".uniqid() . ($ext ? ".".$ext : "");
+                            move_uploaded_file($tmp_name, $dir. "/" .$dest);
+                            $link = $tmp_name;
+                        }
+                    }
+                    $value[$idx] = $link;
+                }
+            }
+        }
+        
+        $track->data = array('values'=>$values,true);
         $track->ip = $_SERVER['REMOTE_ADDR'];
         $track->save();    
-        echo 'ok';
+        echo "ok";
     }
 }

@@ -92,6 +92,9 @@ class Track extends Base {
             foreach($val['values'] as $one) {            
                 $sub = $one['value'];
                 if (is_bool($sub)) $sub = $sub ? _t('yes') : _t('no');
+                if (is_array($sub)) {
+                    $sub = "<a href=".$sub['url'].">".$sub['title']."</a>";
+                }
                 $data.="<b>".$one['label'].": </b>".$sub."<br>";
             }
             return $data;
