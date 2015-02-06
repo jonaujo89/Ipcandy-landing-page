@@ -38,14 +38,14 @@ class LPCandy extends \Bingo\Module {
             if ($page) { 
                 $page_id=false;
                 $c = new \LPCandy\Controllers\Front;
-                if($request_url && $request_url!="/"){
+                if($request_url && realpath($request_url)!="/"){                    
                     if(property_exists($page,'children'))
-                        foreach($page->children as $child_obj){                
-                            if($request_url==$child_obj->pathname){                            
-                                $page_id=$child_obj->id;
+                        foreach($page->children as $child){                
+                            if($request_url==$child->pathname){                            
+                                $page_id=$child->id;
                             }
                         }
-                    if(!$page_id) return true;
+                    if(empty($page_id)) return true;
                 } else {
                     $page_id=$page->id;
                 }
