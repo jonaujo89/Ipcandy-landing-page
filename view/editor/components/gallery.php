@@ -47,14 +47,6 @@ class Gallery extends Block {
         </div>
     <?}
     
-    function item_default($url) {
-        return array(
-            'image' => "view/editor/assets/gallery/".$url,
-            'title' => 'Заголовок картинки',
-            'desc' => 'Описание картинки',
-        );
-    }
-    
     function tpl_default() { 
         return  array(
             'show_title' => true,
@@ -66,12 +58,12 @@ class Gallery extends Block {
             'title' => "Наша программа в фотографиях",
             'title_2' => "Подзаголовок",
             'items' => array(
-                $this->item_default('21.jpg'),
-                $this->item_default('24.jpg'),
-                $this->item_default('25.jpg'),
-                $this->item_default('26.jpg'),
-                $this->item_default('27.jpg'),
-                $this->item_default('30.jpg'),                
+                array( 'image' => "view/editor/assets/gallery/21.jpg", 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах' ),
+                array( 'image' => "view/editor/assets/gallery/24.jpg", 'title' => 'Бивень', 'desc' => 'Дрессированный носорог' ),
+                array( 'image' => "view/editor/assets/gallery/25.jpg", 'title' => 'Прыгун', 'desc' => 'Номер с конём' ),
+                array( 'image' => "view/editor/assets/gallery/26.jpg", 'title' => 'Ламбада', 'desc' => 'Танцующие слоны' ),
+                array( 'image' => "view/editor/assets/gallery/27.jpg", 'title' => 'Тигрица', 'desc' => 'Это та, что слева' ),
+                array( 'image' => "view/editor/assets/gallery/30.jpg", 'title' => 'Грация', 'desc' => 'Девушка на лентах' ),            
             )
         );
     }
@@ -99,15 +91,15 @@ class Gallery extends Block {
                                     <div class="overlay">
                                         <div class="in">                                        
                                             <div class="img_title">
-                                                <? $self->sub('Text','image_title_'.$i,Text::$plain_heading) ?>
+                                                <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
                                             </div>
                                             <? if ($cls = $self->vis($val['show_image_desc'])): ?>
                                                 <div class="img_desc <?=$cls?>" >
-                                                    <? $self->sub('Text','image_desc_'.$i,Text::$color_heading) ?>
+                                                    <? $self->sub('Text','img_desc_'.$i,Text::$color_heading) ?>
                                                 </div>
                                             <? endif ?>
                                             <div class="img_text">
-                                                <? $self->sub('Text','image_text_'.$i,Text::$default_text) ?>
+                                                <? $self->sub('Text','img_text_'.$i,Text::$default_text) ?>
                                             </div>
                                         </div>
                                     </div>
@@ -132,25 +124,25 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-					'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/1.jpg')),                   
-                    'image_title_1' => "Заголовок картинки",
-					'image_desc_1' => "Описание картинки",
-					'image_text_1' => "Еще одно описание картинки. Краткость - сестра таланта.",
-					'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/2.jpg')),
-                    'image_title_2' => "Заголовок картинки",
-					'image_desc_2' => "Описание картинки",
-					'image_text_2' => "Еще одно описание картинки. Краткость - сестра таланта.",
-				),
-				array(
-					'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/3.jpg')),
-                    'image_title_1' => "Заголовок картинки",
-					'image_desc_1' => "Описание картинки",
-					'image_text_1' => "Еще одно описание картинки. Краткость - сестра таланта.",
-					'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/4.jpg')),
-                    'image_title_2' => "Заголовок картинки",
-					'image_desc_2' => "Описание картинки",
-					'image_text_2' => "Еще одно описание картинки. Краткость - сестра таланта.",
-				)
+                    'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/1.jpg')),                   
+                    'img_title_1' => "В кольце",
+                    'img_desc_1' => "Завораживающее зрелище",
+                    'img_text_1' => "Дополнительное описание картинки. Краткость - сестра таланта.",
+                    'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/2.jpg')),                   
+                    'img_title_2' => "У входа",                    
+                    'img_desc_2' => "На входе встречает она",
+                    'img_text_2' => "Дополнительное описание картинки. Краткость - сестра таланта.",
+                ),
+                array(
+                    'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/5.jpg')),                   
+                    'img_title_1' => "Форма №2",
+                    'img_desc_1' => "Голый торс",
+                    'img_text_1' => "Дополнительное описание картинки. Краткость - сестра таланта.",
+                    'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/6.jpg')),                   
+                    'img_title_2' => "Прима и клоун",
+                    'img_desc_2' => "Номер с фокусами",
+                    'img_text_2' => "Дополнительное описание картинки. Краткость - сестра таланта.",
+                )
             )
         );    
     }
@@ -208,26 +200,27 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/1.jpg')),                   
-                    'img_title_1' => "Заголовок картинки",
-                    'img_desc_1' => "Еще одно описание картинки. Краткость - сестра таланта.",
-                    'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/2.jpg')),                   
-                    'img_title_2' => "Заголовок картинки",
-                    'img_desc_2' => "Еще одно описание картинки. Краткость - сестра таланта.",
-                    'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/3.jpg')),                   
-                    'img_title_3' => "Заголовок картинки",
-                    'img_desc_3' => "Еще одно описание картинки. Краткость - сестра таланта.",
+                    'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/1.jpg')),                   
+                    'img_title_1' => "В кольце",
+                    'img_desc_1' => "Завораживающее зрелище",
+                    'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/2.jpg')),                   
+                    'img_title_2' => "У входа",
+                    'img_desc_2' => "На входе встречает она",
+                    'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/3.jpg')),                   
+                    'img_title_3' => "Метание ножей",
+                    'img_desc_3' => "Опасный трюк с ножами",
                 ),
                 array(
-                    'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/4.jpg')),                   
-                    'img_title_1' => "Заголовок картинки",
-                    'img_desc_1' => "Еще одно описание картинки. Краткость - сестра таланта.",
-                    'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/5.jpg')),                   
-                    'img_title_2' => "Заголовок картинки",
-                    'img_desc_2' => "Еще одно описание картинки. Краткость - сестра таланта.",
-                    'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=>'view/editor/assets/gallery/6.jpg')),                   
-                    'img_title_3' => "Заголовок картинки",
-                    'img_desc_3' => "Еще одно описание картинки. Краткость - сестра таланта.",
+                    'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/5.jpg')),                   
+                    'img_title_1' => "Форма №2",
+                    'img_desc_1' => "Голый торс",
+                    'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/6.jpg')),                   
+                    'img_title_2' => "Прима и клоун",
+                    'img_desc_2' => "Номер с фокусами",
+                    'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/7.jpg')),                   
+                    'img_title_3' => "Ноги от ушей",
+                    'img_desc_3' => "От 16 и старше",
+
                 )
             )
         );    
@@ -287,31 +280,31 @@ class Gallery extends Block {
             'items' => array(
                 array(
                     'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/1.jpg')),                   
-                    'img_title_1' => "Заголовок картинки",
-                    'img_desc_1' => "Краткость - сестра таланта.",
+                    'img_title_1' => "В кольце",
+                    'img_desc_1' => "Завораживающее зрелище",
                     'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/2.jpg')),                   
-                    'img_title_2' => "Заголовок картинки",
-                    'img_desc_2' => "Краткость - сестра таланта.",
+                    'img_title_2' => "У входа",
+                    'img_desc_2' => "На входе встречает она",
                     'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/3.jpg')),                   
-                    'img_title_3' => "Заголовок картинки",
-                    'img_desc_3' => "Краткость - сестра таланта.",
+                    'img_title_3' => "Метание ножей",
+                    'img_desc_3' => "Опасный трюк с ножами",
 					'image_4' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/4.jpg')),                   
-                    'img_title_4' => "Заголовок картинки",
-                    'img_desc_4' => "Краткость - сестра таланта.",
+                    'img_title_4' => "Обилечивание",
+                    'img_desc_4' => "У кассы снова прима",
                 ),
                 array(
                     'image_1' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/5.jpg')),                   
-                    'img_title_1' => "Заголовок картинки",
-                    'img_desc_1' => "Краткость - сестра таланта.",
+                    'img_title_1' => "Форма №2",
+                    'img_desc_1' => "Голый торс",
                     'image_2' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/6.jpg')),                   
-                    'img_title_2' => "Заголовок картинки",
-                    'img_desc_2' => "Краткость - сестра таланта.",
+                    'img_title_2' => "Прима и клоун",
+                    'img_desc_2' => "Номер с фокусами",
                     'image_3' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/7.jpg')),                   
-                    'img_title_3' => "Заголовок картинки",
-                    'img_desc_3' => "Краткость - сестра таланта.",
+                    'img_title_3' => "Ноги от ушей",
+                    'img_desc_3' => "От 16 и старше",
 					'image_4' => array_merge(GalleryImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/8.jpg')),                   
-                    'img_title_4' => "Заголовок картинки",
-                    'img_desc_4' => "Краткость - сестра таланта.",
+                    'img_title_4' => "В гримёрке",
+                    'img_desc_4' => "Перед выходом на сцену",
                 )
             )
         );    
@@ -365,14 +358,6 @@ class Gallery extends Block {
         </div>
     <?}
     
-	function item_default_5($url) {
-        return array(
-            'image' => "view/editor/assets/gallery/".$url,
-            'title' => 'Заголовок картинки',
-            'desc' => 'Описание картинки',
-        );
-    }
-    
     function tpl_default_5() { 
         return  array(
             'show_title' => true,
@@ -384,15 +369,15 @@ class Gallery extends Block {
             'title' => "Активистка, комсомолка и просто...",
             'title_2' => "Подзаголовок",
             'items' => array(
-                $this->item_default_5('1.jpg'),
-                $this->item_default_5('2.jpg'),
-                $this->item_default_5('3.jpg'),
-                $this->item_default_5('4.jpg'),
-                $this->item_default_5('5.jpg'),
-                $this->item_default_5('6.jpg'),
-                $this->item_default_5('7.jpg'),
-                $this->item_default_5('8.jpg'),
-                $this->item_default_5('9.jpg'),
+                array( 'image' => "view/editor/assets/gallery/1.jpg", 'title' => 'В кольце', 'desc' => 'Завораживающее зрелище' ),
+                array( 'image' => "view/editor/assets/gallery/2.jpg", 'title' => 'У входа', 'desc' => 'На входе встречает она' ),
+                array( 'image' => "view/editor/assets/gallery/3.jpg", 'title' => 'Метание ножей', 'desc' => 'Опасный трюк с ножами' ),
+                array( 'image' => "view/editor/assets/gallery/4.jpg", 'title' => 'Обилечивание', 'desc' => 'У кассы снова прима' ),
+                array( 'image' => "view/editor/assets/gallery/5.jpg", 'title' => 'Форма №2', 'desc' => 'Голый торс' ),
+                array( 'image' => "view/editor/assets/gallery/6.jpg", 'title' => 'Прима и клоун', 'desc' => 'Номер с фокусами' ),  
+                array( 'image' => "view/editor/assets/gallery/7.jpg", 'title' => 'Ноги от ушей', 'desc' => 'От 16 и старше' ),
+                array( 'image' => "view/editor/assets/gallery/8.jpg", 'title' => 'В гримёрке', 'desc' => 'Перед выходом на сцену' ),
+                array( 'image' => "view/editor/assets/gallery/9.jpg", 'title' => 'Качели', 'desc' => 'Прима под куполом' ), 
             )
         );
     }
@@ -464,13 +449,13 @@ class Gallery extends Block {
             'title' => "Фото цирковых номеров",
             'title_2' => "Подзаголовок",
             'items' => array(
-                $this->item_default_6('11.jpg'),
-                $this->item_default_6('12.jpg'),
-                $this->item_default_6('13.jpg'),
-                $this->item_default_6('14.jpg'),
-				$this->item_default_6('15.jpg'),
-                $this->item_default_6('16.jpg'),
-                $this->item_default_6('17.jpg'),
+                array( 'image' => "view/editor/assets/gallery/11.jpg", 'title' => 'Клоун Жора', 'desc' => 'Смехун цирка №1' ),
+                array( 'image' => "view/editor/assets/gallery/12.jpg", 'title' => 'Жонглёры', 'desc' => 'Высёлые ребята' ),
+                array( 'image' => "view/editor/assets/gallery/13.jpg", 'title' => 'Клоун Клёва', 'desc' => 'Весёлые фокусы-покусы' ),
+                array( 'image' => "view/editor/assets/gallery/14.jpg", 'title' => 'Парящие', 'desc' => 'Пара в воздухе' ),
+                array( 'image' => "view/editor/assets/gallery/15.jpg", 'title' => 'Фигура', 'desc' => 'Девушки под куполом цирка' ),
+                array( 'image' => "view/editor/assets/gallery/16.jpg", 'title' => 'Питон и Жора', 'desc' => 'Опасный номер' ),  
+                array( 'image' => "view/editor/assets/gallery/17.jpg", 'title' => 'Бегемотица с шаром', 'desc' => 'Капибара и женщина с шаром' ), 
             )
         );
     }
@@ -525,11 +510,11 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-					'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/28.jpg')),
+					'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах')),
+                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке')),
+                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах')),
+                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём')),
+                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы')),
                 )
             )
         );    
@@ -595,13 +580,13 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/26.jpg')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/24.jpg')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg')),
-					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/27.jpg')),
-				)              
+                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём')),
+                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны')),
+                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах')),
+                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Бивень', 'desc' => 'Дрессированный носорог')),
+                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах')),
+					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/27.jpg', 'title' => 'Тигрица', 'desc' => 'Это та, что слева')),
+				) 
             )
         );    
     }
@@ -667,13 +652,13 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/23.jpg')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/28.jpg')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/29.jpg')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg')),
-					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg')),
-				)
+                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Чехарда', 'desc' => 'Люди в синих трениках')),
+                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы')),
+                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/29.jpg', 'title' => 'Лунтики', 'desc' => 'Полёт людей на луну')),
+                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах')),
+                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах')),
+					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке')),
+				)                
             )
         );    
     }
@@ -736,12 +721,12 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/23.jpg')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/24.jpg')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg')),
-					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/26.jpg')),
+                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах')),
+                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке')),
+                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Чехарда', 'desc' => 'Люди в синих трениках')),
+                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Бивень', 'desc' => 'Дрессированный носорог')),
+                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём')),
+					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны')),
 				)
             )
         );    

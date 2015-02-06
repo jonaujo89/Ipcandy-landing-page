@@ -87,13 +87,17 @@ class Track extends Base {
             return $ret;
         };
         
-        $this->data['field_filters']['data'] = function ($val) {            
+        $this->data['field_filters']['data'] = function ($val,$track) {            
             if(!$val['values']) return "Данных нет";
             foreach($val['values'] as $one) {            
                 $sub = $one['value'];
                 if (is_bool($sub)) $sub = $sub ? _t('yes') : _t('no');
                 if (is_array($sub)) {
-                    $sub = "<a href=".$sub['url'].">".$sub['title']."</a>";
+                    $files_str = array();
+                    foreach ($sub as $f) {
+                        $files_str[] = anchor('track-file/'.$track->id.'?file='.urlencode($f['dest'])."&name=".urlencode($f['src']),$f['src']);
+                    }
+                    $sub = implode(", ",$files_str);
                 }
                 $data.="<b>".$one['label'].": </b>".$sub."<br>";
             }
@@ -103,10 +107,32 @@ class Track extends Base {
         $this->view('lpcandy/base-list');
     }
     
+    function track_file($id) {
+        $track = \LPCandy\Models\Track::find($id);
+        if ($track->user!=$this->user) return;
+        
+        $uploadDir = realpath(INDEX_DIR."/upload/LPCandy/track/".$track->id);
+        if (!$uploadDir) return true;
+        
+        $file = realpath($uploadDir."/".$_GET['file']);
+
+        if (!$file || !file_exists($file)) return true;
+        if (realpath(dirname($file))!=$uploadDir) return true;
+        
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$_GET['name']);
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file));
+        readfile($file);        
+    }
+    
     function track_update_status($id) {
         $track = \LPCandy\Models\Track::find($id);
-
-        if ($track->user!=$this->user) return;
+        if ($track->user!=$this->user) return true;
+        
         if(isset($_POST['status']) && !empty($_POST['status'])){
             $track->status = $_POST['status'];
             $track->save();
@@ -116,9 +142,25 @@ class Track extends Base {
     
     function track_delete($id) {
         $track = \LPCandy\Models\Track::find($id);
-        if ($track->user!=$this->user) return;
+        if ($track->user!=$this->user) return true;
         
+        $track_id = $track->id;
         $track->delete();
+        
+        $dir = INDEX_DIR."/upload/LPCandy/track/".$track_id;
+        if (is_dir($dir)) {
+            $it = new \RecursiveDirectoryIterator($dir, \RecursiveDirectoryIterator::SKIP_DOTS);
+            $files = new \RecursiveIteratorIterator($it,\RecursiveIteratorIterator::CHILD_FIRST);
+            foreach($files as $file) {
+                if ($file->isDir()){
+                    rmdir($file->getRealPath());
+                } else {
+                    unlink($file->getRealPath());
+                }
+            }
+            rmdir($dir);
+        }
+        
         redirect(@$_SERVER['HTTP_REFERER']?:'track-list');
     }
 }

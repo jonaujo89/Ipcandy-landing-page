@@ -2,7 +2,7 @@
 
 class Numbers extends Block {
     public $name = 'Цифры';
-    public $description = "Цифры компании";
+    public $description = "Показатели компании";
     public $editor = "lp.numbers";
     
     function tpl($val) {?>

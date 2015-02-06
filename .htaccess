@@ -1,5 +1,7 @@
 RewriteEngine on
 
+RewriteRule ^upload/LPCandy/track/(.*)$ - [F,L]
+
 RewriteCond %{REQUEST_FILENAME}  -f
 RewriteRule  ^.*$  -  [L]
 

@@ -208,7 +208,7 @@ lp.block = teacss.ui.control.extend({
                     editor.options.variant = variant;
 
                     editor.bind("change",function(){
-                        me.editorChange(name,editor.getValue(),editor);
+                        me.editorChange(editor.options.name,editor.getValue(),editor);
                     });
                 }
                 if (editor) {

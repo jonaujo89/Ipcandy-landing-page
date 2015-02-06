@@ -75,8 +75,12 @@ lp.gallery = lp.block.extendOptions({
             },
             { 
                 name: "show_image_desc", label: _t("Show image description"), type: "checkbox", width: "auto",  
-                margin: "5px 49% 0px 0px", showWhen: { variant: [1,2,3,4,5,6,7,8,9,10] }
-            },            
+                margin: "5px 49% 0px 0px", showWhen: { variant: [1,5,6,7,8,9,10] }
+            }, 
+            { 
+                name: "show_image_desc", label: _t("Show image description"), type: "checkbox", width: "auto",  
+                margin: "5px 49% 0px 0px", showWhen: { variant: [2,3,4], show_image_overlay: true}
+            },
 			{ 
                 name: "enable_fancybox", label: _t("Show big image (enable fancybox)"), type: "checkbox", width: "auto",  
                 margin: "5px 49% 0px 0px", showWhen: { variant: [1,3,4,5,6,7,8,9,10] }

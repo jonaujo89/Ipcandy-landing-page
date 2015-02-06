@@ -25,7 +25,7 @@ class Block {
             $components[$obj->id] = array(
                 'name' => $obj->name,
                 'description' => $obj->description,
-                'category' => 'Common',
+                'category' => _t('Common'),
                 
                 'area' => false,
                 'update' => function ($val,$dataSource,$api,$edit) use ($obj) {

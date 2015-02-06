@@ -904,27 +904,26 @@ ol li {
   height: 0;
 }
 
-.order_1 .title_1 .list p {
+.order_1 .title_1 .list div div:not([class]):not([data-editor]) {
   background: none  scroll 0 0 rgba(0, 0, 0, 0.75);
-  clear: both;
-  display: inline-block;
+  display: table;
   font-family: "Open Sans Bold", "Arial";
   font-size: 58px;
   font-weight: 700;
-  line-height: 100%;
+  line-height: 120%;
   margin-bottom: 8px;
   padding: 5px 10px;
   text-transform: uppercase;
+  
 }
 
-.order_1 .title_2 .list p {
+.order_1 .title_2 .list div div:not([class]):not([data-editor]) {
   background: none  scroll 0 0 rgba(0, 0, 0, 0.75);
-  clear: both;
-  display: inline-block;
+  display: table;
   font-family: "Open Sans Light", "Arial";
   font-weight: 300;
   font-size: 26px;
-  line-height: 100%;
+  line-height: 120%;
   margin-bottom: 4px;
   padding: 3px 8px;
 }

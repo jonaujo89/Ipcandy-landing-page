@@ -2,7 +2,7 @@
 
 class Timer extends Block {
     public $name = 'Таймер';
-    public $description = "Счетчик для акции";
+    public $description = "Счетчик для акций";
     public $editor = "lp.timer";    
   
     function tpl($val) {?>

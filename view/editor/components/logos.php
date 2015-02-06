@@ -2,7 +2,7 @@
 
 class Logos extends Block {
     public $name = 'Логотипы';
-    public $description = "Логотипы клиентов и партнёров";
+    public $description = "Логотипы партнёров";
     public $editor = "lp.logos";
     
     function tpl($val) {?>
@@ -52,7 +52,6 @@ class Logos extends Block {
                 array('image'=>"view/editor/assets/logos/7.png"),
                 array('image'=>"view/editor/assets/logos/8.png"),
                 array('image'=>"view/editor/assets/logos/9.png"),
-                array('image'=>"view/editor/assets/logos/10.png"),
                 array('image'=>"view/editor/assets/logos/11.png"),
                 array('image'=>"view/editor/assets/logos/12.png"),
             )

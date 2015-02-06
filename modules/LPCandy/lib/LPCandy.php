@@ -21,7 +21,7 @@ class LPCandy extends \Bingo\Module {
             array('action'=>'(page-design|page-ajax|page-first)'));
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Track','id'=>false),
-            array('action'=>'(track-list|track-delete|track-update-status|track-upload-file)'));
+            array('action'=>'(track-list|track-delete|track-update-status|track-file)'));
         
         $this->connect("/",array('controller'=>'\LPCandy\Controllers\Front','action'=>'home'));
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Front','id'=>false),
@@ -33,6 +33,7 @@ class LPCandy extends \Bingo\Module {
             if ($domain==\Bingo\Config::get('config','domain')) return true;
             
             $page = \LPCandy\Models\Page::findOneByDomain($domain);
+            
             if ($page) {
                 $c = new \LPCandy\Controllers\Front;
                 $c->page_view($page->id);

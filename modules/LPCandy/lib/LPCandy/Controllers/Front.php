@@ -66,14 +66,17 @@ class Front extends Base {
         $track = new \LPCandy\Models\Track;
         $track->user = $page->user;        
         $track->page = $page;
-        $track->page_title = $page->title;        
-              
+        $track->page_title = $page->title;
+        $track->ip = $_SERVER['REMOTE_ADDR'];
+        $track->save();
+        
         $values = json_decode($_POST['form'],true);
-        foreach ($values as &$one) {
-            $value &= $one['value'];
+        
+        foreach ($values as $one_idx => $one) {
+            $value = $one['value'];
             if (is_array($value)) {
                 
-                $uploadDir = INDEX_DIR."/upload/LPCandy/track/".$page->id;
+                $uploadDir = INDEX_DIR."/upload/LPCandy/track/".$track->id;
                 if (!file_exists($uploadDir)) mkdir($uploadDir,0777,true);
                 
                 foreach ($value as $idx=>$name) {
@@ -86,17 +89,16 @@ class Front extends Base {
                             $tmp_name = $file_data['tmp_name'];
                             $ext = pathinfo($file_name, PATHINFO_EXTENSION);
                             $dest = time()."_".uniqid() . ($ext ? ".".$ext : "");
-                            move_uploaded_file($tmp_name, $dir. "/" .$dest);
-                            $link = $tmp_name;
+                            move_uploaded_file($tmp_name, $uploadDir. "/" .$dest);
+                            $link = array('src'=>$file_name,'dest'=>$dest);
                         }
                     }
-                    $value[$idx] = $link;
+                    $values[$one_idx]['value'][$idx] = $link;
                 }
             }
         }
         
-        $track->data = array('values'=>$values,true);
-        $track->ip = $_SERVER['REMOTE_ADDR'];
+        $track->data = array('values'=>$values);
         $track->save();    
         echo "ok";
     }
