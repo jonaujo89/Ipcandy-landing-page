@@ -29,14 +29,27 @@ class LPCandy extends \Bingo\Module {
         
         $this->connect("*any",array('function'=>function($route){
             if (substr($route['any'],0,5)=='admin') return true;
-            $domain = $_SERVER['SERVER_NAME'];
-            if ($domain==\Bingo\Config::get('config','domain')) return true;
-            
+            $domain = $_SERVER['SERVER_NAME'];            
+            if ($domain==\Bingo\Config::get('config','domain')) return true;            
+            $request_url = $_SERVER['REQUEST_URI'];     
+
             $page = \LPCandy\Models\Page::findOneByDomain($domain);
-            
-            if ($page) {
+
+            if ($page) { 
+                $page_id=false;
                 $c = new \LPCandy\Controllers\Front;
-                $c->page_view($page->id);
+                if($request_url && $request_url!="/"){
+                    if(property_exists($page,'children'))
+                        foreach($page->children as $child_obj){                
+                            if($request_url==$child_obj->pathname){                            
+                                $page_id=$child_obj->id;
+                            }
+                        }
+                    if(!$page_id) return true;
+                } else {
+                    $page_id=$page->id;
+                }
+                $c->page_view($page_id);
             } else {
                 return true;
             }
@@ -47,7 +60,7 @@ class LPCandy extends \Bingo\Module {
         $this->connect('admin/lpcandy/:action/:id',array('controller'=>'\LPCandy\Controllers\Admin\Users','id'=>false),
            array('action'=>'(user-list|user-login)'));
         $this->connect('admin/lpcandy/:action/:id',array('controller'=>'\LPCandy\Controllers\Admin\Invites','id'=>false),
-           array('action'=>'(invite-list|invite-add)'));
+           array('action'=>'(invite-list|invite-add|invite-add-one)'));
         
         \Bingo\Action::add('admin_pre_header',function(){
             \Admin::$menu[_t('LPCandy','lpcandy')][_t('Customers','lpcandy')] = 'admin/lpcandy/user-list';

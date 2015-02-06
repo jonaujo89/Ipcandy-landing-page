@@ -19,7 +19,9 @@ class Invites extends \CMS\Controllers\Admin\BasePrivate {
         $this->data['list'] = $pagination->result();
         $this->data['pagination'] = $pagination->get();
         $this->data['title'] = _t("Invites list");
-
+        $this->data['page_actions']['admin/lpcandy/invite-add-one'] = _t("Add one invite");
+        
+        
         $this->data['list_actions']['delete'] = array(
             'title' => _t('Delete selected'),
             'function' => $this->action_delete('\LPCandy\Models\Invite')
@@ -58,5 +60,11 @@ class Invites extends \CMS\Controllers\Admin\BasePrivate {
         $this->data['form'] = $form->get();
         $this->data['title'] = _t('Add Invites');
         $this->view('cms/base-edit');
+    }
+    
+    function invite_add_one() {
+        $invite = \LPCandy\Models\Invite::generate();
+        $invite->save();
+        redirect('admin/lpcandy/invite-list?sort_by=id&sort_order=DESC');
     }
 }
