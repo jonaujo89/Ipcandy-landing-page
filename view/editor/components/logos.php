@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Logos extends Block {
     public $name = 'Логотипы';
     public $description = "Логотипы партнёров";
@@ -58,5 +60,3 @@ class Logos extends Block {
         );
     }    
 }
-
-Logos::register();

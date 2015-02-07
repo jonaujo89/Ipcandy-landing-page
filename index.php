@@ -1,5 +1,7 @@
 <?php
 
+// error_reporting(E_ALL);
+
 define('BINGO_PATH',realpath(__DIR__.'/lib/bingo'));
 require_once BINGO_PATH . "/loader.php";
 
@@ -11,6 +13,8 @@ require_once BINGO_PATH . "/loader.php";
 \Bingo\Configuration::addModules('LPCandy');
 
 \Bingo\Configuration::addDbConnection('localhost','boomyjee_lpcandy_new','boomyjee','jeemyboo');
+
+\CMS\Configuration::$log_errors = true;
 
 \Bingo\Template::addIncludePath('themes/default',INDEX_DIR."/view",INDEX_URL."/view");
 \Bingo\Template::addIncludePath('',BINGO_PATH."/template",INDEX_URL."/lib/bingo/template");

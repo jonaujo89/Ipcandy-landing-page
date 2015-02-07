@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Cases extends Block {
     public $name = 'Кейсы';
     public $description = "Результаты наших клиентов";
@@ -75,6 +77,3 @@ class Cases extends Block {
     }
     
 }
-
-
-Cases::register();

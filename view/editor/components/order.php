@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Order extends Block {
     public $name = 'Заявка';
     public $description = "Блок с картинкой и формой";
@@ -318,5 +320,3 @@ class Order extends Block {
         );
     }    
 }
-
-Order::register();

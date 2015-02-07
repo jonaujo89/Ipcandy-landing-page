@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Feedback extends Block {
     public $name = 'Отзывы';
     public $description = "Отзывы наших клиентов";
@@ -78,5 +80,3 @@ class Feedback extends Block {
         );
     }    
 }
-
-feedback::register();

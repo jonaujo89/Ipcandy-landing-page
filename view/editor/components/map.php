@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Map extends Block {
     public $name = 'Карта';
     public $description = "Местораположение компании";
@@ -53,5 +55,3 @@ class Map extends Block {
         );
     }
 }
-
-Map::register();

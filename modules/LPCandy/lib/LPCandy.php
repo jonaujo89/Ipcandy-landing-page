@@ -28,7 +28,8 @@ class LPCandy extends \Bingo\Module {
             array('action'=>'(page-view|track)'));
         
         $this->connect("*any",array('function'=>function($route){
-            if (substr($route['any'],0,5)=='admin') return true;
+            $uri = isset($route['any']) ? $route['any'] : '';
+            if (substr($uri,0,5)=='admin') return true;
             $domain = $_SERVER['SERVER_NAME'];            
             if ($domain==\Bingo\Config::get('config','domain')) return true;            
             $request_url = $_SERVER['REQUEST_URI'];     

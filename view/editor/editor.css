@@ -32,7 +32,6 @@
     height: 100px;
     border: none;
     margin: 3px;
-    background: #EEEEEE;
 }
 
 .teacss-ui .change-type-dialog .combo-item::before  {
@@ -106,8 +105,6 @@
 .teacss-ui .change-type-dialog .combo-item.type-Numbers::before  {
     background: url(../../view/editor/assets/miniatures/numbers.jpg) no-repeat;
 }
-
-
 
 .teacss-ui a.add-button {
     border-radius: 0;

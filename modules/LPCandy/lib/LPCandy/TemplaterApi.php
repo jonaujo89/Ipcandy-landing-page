@@ -51,11 +51,12 @@ class TemplaterApi extends \TemplaterApi {
     }
     
     function publish() {
-        $files = $_REQUEST['files'];
+        
         $base = $this->page->getPublishPath();
         if (!file_exists($base)) mkdir($base,0777,true);
         if (!file_exists($base."/templates")) mkdir($base."/templates",0777,true);
         
+        /*$files = $_REQUEST['files'];
         foreach ($files as $path=>$text) {
             $path = $base.$path;
             
@@ -64,7 +65,7 @@ class TemplaterApi extends \TemplaterApi {
                 $text = base64_decode(substr($text,strlen($mark)));
             
             $res = file_put_contents($path,$text);
-        }
+        }*/
         
         $this->makeScreenshot();
         

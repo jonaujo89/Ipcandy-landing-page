@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Numbers extends Block {
     public $name = 'Цифры';
     public $description = "Показатели компании";
@@ -491,5 +493,3 @@ class Numbers extends Block {
         );
     }     
 }
-
-Numbers::register();

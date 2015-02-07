@@ -21,7 +21,8 @@
                     ajax_url: "<?=url('page-ajax/'.$page_id)?>",
                     upload_url: "<?=url('upload/LPCandy/files/'.$page->user->id)?>",
                     browse_url: "<?=url('files/browse.php')?>",
-                    allowSkipType: false
+                    allowSkipType: false,
+                    minified_style: <?= \Bingo\Configuration::$applicationMode=='development' ? 'false':'true' ?>
                 });
             }
         </script>        

@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Timer extends Block {
     public $name = 'Таймер';
     public $description = "Счетчик для акций";
@@ -183,5 +185,3 @@ class Timer extends Block {
         );
     }        
 }
-
-Timer::register();

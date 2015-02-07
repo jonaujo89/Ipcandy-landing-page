@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Video extends Block {
     public $name = 'Видео';
     public $description = "Вставка видео";
@@ -161,5 +163,3 @@ class Video extends Block {
         );
     }
 }
-
-Video::register();

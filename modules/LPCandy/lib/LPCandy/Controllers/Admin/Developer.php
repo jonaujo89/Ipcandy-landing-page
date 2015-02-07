@@ -18,46 +18,76 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
             
             $js = $_POST['js'];
             $css = $_POST['css'];
+            $path = $_POST['path'];
             
             $postdata = array('http' => array(
                 'method'  => 'POST',
                 'header'  => 'Content-type: application/x-www-form-urlencoded',
                 'content' => http_build_query( array('input' => $js) ) ) );
             $minified = file_get_contents('http://javascript-minifier.com/raw', false, stream_context_create($postdata));
-            file_put_contents(INDEX_DIR."/view/editor/editor.min.js",$minified);
+            file_put_contents(INDEX_DIR."/$path.min.js",$minified);
 
             $postdata = array('http' => array(
                 'method'  => 'POST',
                 'header'  => 'Content-type: application/x-www-form-urlencoded',
                 'content' => http_build_query( array('input' => $css) ) ) );
             $minified = file_get_contents('http://cssminifier.com/raw', false, stream_context_create($postdata));
-            file_put_contents(INDEX_DIR."/view/editor/editor.min.css",$minified);
+            file_put_contents(INDEX_DIR."/$path.min.css",$minified);
             echo 'done';
             die();
         }
 
         ?>
-        <script src="/~boomyjee/teacss-ui/lib/teacss-ui.js"></script>
-        <script src="/~boomyjee/dayside/client/lib/require.js"></script>
-        
-        <script>
-            require.build(
-                "/~boomyjee/templater/lib/client/app.js",
-                "<?=url('view/editor/editor.js')?>",
-                function (res) {
-                    console.debug(res.js);
-                    $("body").text('minifying');
-                    $.ajax({
-                        url: "",
-                        type: "POST",
-                        data: {js:res.js,css:res.css},
-                        success: function (data) {
-                            $("body").text(data);
-                        }
-                    });
-                }
-            );
-        </script>        
+        <!doctype html>
+        <html>
+        <head>
+            <title>build page</title>
+            <script src="<?=url('lib/teacss/teacss.js')?>"></script>
+            <script src="<?=url('lib/teacss-ui/teacss-ui.js')?>"></script>
+            <script src="<?=url('lib/require/require.js')?>"></script>
+            <script>
+                require.build(
+                    "<?=url('lib/templater/client/app.js')?>",
+                    "<?=url('view/editor/editor.js')?>",
+                    function (res) {
+                        console.debug({js:res.js});
+                        $("#editor_status").text('minifying');
+                        $.ajax({
+                            url: "",type: "POST",
+                            data: {js:res.js,css:res.css,path:'view/editor/editor'},
+                            success: function (data) {
+                                $("#editor_status").text(data);
+                            }
+                        });
+                    }
+                );
+                
+                teacss.build("<?=url('view/editor/style/style.tea')?>",{
+                    callback: function (files) {
+                        var css = files['/default.css'];
+                        var rel = teacss.path.absolute("<?=url('view/editor/style')?>")+"/";
+                        css = css.split(rel).join("");
+                        var js = files['/default.js']
+
+                        console.debug({js:js,css:css});
+                        $("#style_status").text('minifying');
+                        $.ajax({
+                            url: "",type: "POST",
+                            data: {js:js,css:css,path:'view/editor/style/style'},
+                            success: function (data) {
+                                $("#style_status").text(data);
+                            }
+                        });
+                        
+                    }
+                })
+                
+            </script>        
+        </head>
+        <body>
+            <div id="editor_status">loading</div>
+            <div id="style_status">loading</div>
+        </body>
 
         
     <?}
@@ -85,7 +115,7 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
         
         $ru_path = $dir."/editor_ru.js";
         $translated = @file_get_contents($ru_path);
-        $translated = $translated ? json_decode(str_replace("exports = ","",$translated),true) : array();
+        $translated = $translated ? json_decode(str_replace(array("window._t.load(",");"),"",$translated),true) : array();
         
         $new_translated = array();
         foreach ($lines as $line) {
@@ -93,9 +123,9 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
         }
         
         $text = json_encode($new_translated);
-        $text = str_replace("{","exports = {\n    ",$text);
+        $text = str_replace("{","window._t.load({\n    ",$text);
         $text = str_replace("\",","\",\n    ",$text);
-        $text = str_replace("}","\n}",$text);
+        $text = str_replace("}","\n});",$text);
         
         $text = preg_replace_callback('/\\\\u(\w{4})/', function ($matches) {
             return html_entity_decode('&#x' . $matches[1] . ';', ENT_COMPAT, 'UTF-8');

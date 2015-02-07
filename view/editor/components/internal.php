@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Text extends Block {
     public $editor = "lp.text";
     public $internal = true; 
@@ -233,7 +235,7 @@ class GalleryImage extends Block {
         <? $href = INDEX_URL."/".$item_val['image']; ?>
         
 		<div class='preview_img' style='background-image: url("<?=$href?>")'>
-			<? if ($cls = $this->vis($val['enable_fancybox'])): ?>
+			<? if ($cls = $this->vis(@$val['enable_fancybox'])): ?>
 				<a class="fancybox big_img <?=$cls?>" href="<?=$href?>"></a>
 			<? endif ?>			
 		</div>
@@ -348,17 +350,3 @@ class LogoItem extends Block {
         echo "<img src=".INDEX_URL."/".$val.">";
     }
 }
-
-
-
-Text::register();
-Logo::register();
-FormButton::register();
-FormOrder::register();
-Icon::register();
-Image::register();
-LogoItem::register();
-GalleryImage::register();
-OverlayImage::register();
-Countdown::register();
-Media::register();

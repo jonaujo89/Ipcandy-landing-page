@@ -1,8 +1,14 @@
+@ if (window.Component && Component.app && Component.app.options.minified_style) {
+    @append "style.min.css";
+    @append "style.min.js";
+    @ return;
+@ }
+
 @import "common/base";
 @import "common/grid";
 @import "common/reset";
 
-@append "style.css";
+@append "page.css";
 @append "fonts.css";
 
 
@@ -32,7 +38,7 @@ Script{
 
 .reset();
 
-/*.grid(16,45,30);
+.grid(16,45,30);
 .grid_spans() {
     @{ 
         for (var i=1;i<=grid.columnCount;i++) {
@@ -58,4 +64,3 @@ Script{
     }
     .grid_spans();
 }
-*/

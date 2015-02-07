@@ -1,4 +1,7 @@
-var ru = $.extend(require("./editor_ru.js"),{
+require("./editor_ru.js");
+window._t.load({
+    "Yes" : "Да",
+    "Cancel" : "Отмена",
     "Preview" : "Предпросмотр",
     "Publish" : "Публиковать",
     "Editor" : "Редактор",
@@ -7,7 +10,6 @@ var ru = $.extend(require("./editor_ru.js"),{
     'Your page was successfully published and now is available to your customers' : 'Ваша страница теперь опубликована и на нее смогут зайти посетители',
     'Publish success' : 'Успешная публикация'
 });
-window._t.load(ru);
 
 require("./editor.css");
 
@@ -15,6 +17,12 @@ require("./ui/internal/checkbox.js");
 
 require("./ui/internal/block.js");
 require("./ui/internal/repeater.js");
+
+require("./lib/spacedText/spacedText.js");
+require("./lib/spacedText/spacedText.css");
+
+require('./lib/datetimePicker/jquery.datetimepicker.css');
+require('./lib/datetimePicker/jquery.datetimepicker.js');
 
 require("./ui/internal/text.js");
 require("./ui/internal/color.js");
@@ -135,6 +143,15 @@ exports = function(templater_app,options) {
             } else {
                 root.addInside(e);
             }
+        },
+        
+        publish: function () {
+            this.request("publish",{},function(){
+                ui.alert({
+                    title:_t('Publish success'),
+                    text:_t('Your page was successfully published and now is available to your customers')
+                });
+            });
         }
     });
     app(options);

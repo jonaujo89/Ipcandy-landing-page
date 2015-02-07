@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Header extends Block {
     public $name = 'Шапка';
     public $description = 'Логотип и контакты компании';
@@ -178,5 +180,3 @@ class Header extends Block {
         );
     }    
 }
-
-Header::register();

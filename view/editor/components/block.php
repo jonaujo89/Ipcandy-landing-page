@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Block {
     
     public $id;
@@ -11,17 +13,30 @@ class Block {
     static $list = array();
     
     static function get() {
-        $id = get_called_class();
+        $cls = get_called_class();
+        $id = end(explode("\\",$cls));
+        
         if (!isset(self::$list[$id])) {
-            $obj = new $id;
+            $obj = new $cls;
+            $obj->id = $id;
             self::$list[$id] = $obj;
         }
         return self::$list[$id];
     }
     
+    static function registerAll() {
+        foreach (get_declared_classes() as $cls) {
+            if (strpos($cls,"LPCandy\\Components")===0) {
+                $cls::register();
+            }
+        }
+    }
+    
     static function register() {
         $obj = self::get();
-        if (!$obj->internal) TemplaterApi::addAction('getComponents',function($api,&$components) use ($obj) {
+        if ($obj->id=='Block') return;
+        
+        if (!$obj->internal) \TemplaterApi::addAction('getComponents',function($api,&$components) use ($obj) {
             $components[$obj->id] = array(
                 'name' => $obj->name,
                 'description' => $obj->description,
@@ -39,7 +54,6 @@ class Block {
     }
     
     function __construct() {
-        $this->id = get_class($this);
         $this->tpl_count = 1;
         for ($i=2;;$i++) {
             $name = 'tpl_'.$i;
@@ -80,7 +94,7 @@ class Block {
 
                 if ($edit && !$this->internal) {
                     $default_json = htmlspecialchars(json_encode((object)$default),ENT_QUOTES);
-                    echo "<div data-variant='$i' data-default='$default_json' $extra>";
+                    echo "<div data-variant='$i' data-default='$default_json'>";
                     $this->{"tpl_$i"}($this->val,$name);
                     echo "</div>";
                 } 

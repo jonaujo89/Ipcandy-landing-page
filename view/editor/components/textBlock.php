@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class TextBlock extends Block {
     public $name = 'Текст';
     public $description = "Текстовые блоки";
@@ -352,5 +354,3 @@ class TextBlock extends Block {
         );
     }   
 }
-
-TextBlock::register();

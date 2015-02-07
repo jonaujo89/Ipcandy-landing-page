@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Reasons extends Block {
     public $name = 'Почему мы';
     public $description = "Отличие от конкурентов";
@@ -81,5 +83,3 @@ class Reasons extends Block {
         );
     }
 }
-
-Reasons::register();

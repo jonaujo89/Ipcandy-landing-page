@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Benefits extends Block {
     public $name = 'Преимущества';
     public $description = "Ваши главные преимущества";
@@ -326,5 +328,3 @@ class Benefits extends Block {
         );
     }        
 }
-
-Benefits::register();

@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Footer extends Block {
     public $name = 'Подвал';
     public $description = "Завершающий блок";
@@ -74,5 +76,3 @@ class Footer extends Block {
     }
     
 }
-
-Footer::register();

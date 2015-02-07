@@ -33,9 +33,10 @@ lp.block = teacss.ui.control.extend({
    },
     
     remove: function () {
-        if (confirm(_t("Sure to remove component?"))) {
-            this.cmp.remove();
-        }
+        var me = this;
+        ui.confirm({title:_t("Remove confirmation"),text:_t("Sure to remove component?")},function(res){
+            if (res) me.cmp.remove();
+        })
     },
     
     prev: function () {
@@ -199,7 +200,7 @@ lp.block = teacss.ui.control.extend({
                     var options = $(this).attr("data-options");
                     options = options ? JSON.parse(options) : {};
                     $(this).removeAttr("data-options");
-
+                    
                     editor = Component.classFromName(editorName)($.extend(options,{element:$(this)}));
                     $(this).data("editor-control",editor);
 

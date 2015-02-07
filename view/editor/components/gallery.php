@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Gallery extends Block {
     public $name = 'Галерея';
     public $description = "Фотографии работ";
@@ -328,8 +330,7 @@ class Gallery extends Block {
                     <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
 					<div class="item_list clear <?=$opacity?>">
 						<div class="slider">
-                            <? $id_group = $val['id']; ?>
-							<? $this->repeat('items', function($item_val,$self) use ($val,$id_group){ ?>                                
+							<? $this->repeat('items', function($item_val,$self) use ($val){ ?>                                
                                 <div class="preview_img">									
                                     <img src="<?=INDEX_URL."/".$item_val['image']?>">
                                     <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
@@ -399,8 +400,7 @@ class Gallery extends Block {
                     <? endif ?>
                     <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
                     <div class="item_list masonry <?=$opacity?>">
-                        <? $id_group = $val['id']; ?>
-						<? $this->repeat('items', function($item_val,$self) use ($val, $id_group){ ?>                            						
+						<? $this->repeat('items', function($item_val,$self) use ($val){ ?>
                             <div class="preview_img">									
                                 <img src="<?=INDEX_URL."/".$item_val['image']?>">
                                 <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
@@ -732,5 +732,3 @@ function tpl_7($val) {?>
         );    
     }
 }
-
-Gallery::register();

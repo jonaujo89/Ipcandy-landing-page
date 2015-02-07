@@ -47,8 +47,8 @@ class Front extends Base {
                     var base_url = "<?=INDEX_URL?>";
                     var page_id = <?=$page->id?>; 
                 </script>
-                <link rel="stylesheet" type="text/css" href="<?=$assets.'/default.css'?>">                                
-                <script src="<?=$assets.'/default.js'?>"> </script>
+                <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/style.min.css')?>">
+                <script src="<?=url('view/editor/style/style.min.js')?>"> </script>
                 <script src='http://api-maps.yandex.ru/2.1/?lang=ru_RU'></script>
             </head>  
                 <body>

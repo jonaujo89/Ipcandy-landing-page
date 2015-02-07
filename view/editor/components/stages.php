@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Stages extends Block {
     public $name = 'Порядок работы';
     public $description = "Основные этапы работы";
@@ -115,5 +117,3 @@ class Stages extends Block {
         );
     }    
 }
-
-Stages::register();

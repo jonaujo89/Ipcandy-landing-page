@@ -1,5 +1,7 @@
 <?php
 
+namespace LPCandy\Components;
+
 class Services extends Block {
     public $name = 'Услуги';
     public $description = "Перечень услуг";
@@ -489,5 +491,3 @@ class Services extends Block {
         );
     }
 }
-
-Services::register();
