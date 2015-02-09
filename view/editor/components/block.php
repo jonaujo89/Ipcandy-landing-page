@@ -40,7 +40,7 @@ class Block {
             $components[$obj->id] = array(
                 'name' => $obj->name,
                 'description' => $obj->description,
-                'category' => _t('Common'),
+                'category' => 'Блоки',
                 
                 'area' => false,
                 'update' => function ($val,$dataSource,$api,$edit) use ($obj) {

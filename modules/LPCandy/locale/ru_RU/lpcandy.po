@@ -2,6 +2,7 @@ msgid ""
 msgstr ""
 "X-Poedit-SearchPath-0:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib"
 "X-Poedit-SearchPath-1:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy"
+"X-Poedit-SearchPath-2:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:30
 msgid "Tracking"
@@ -272,6 +273,10 @@ msgstr "Путь не определён"
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/page-list.php:63
 msgid "No pages yet"
 msgstr "Страниц пока нет"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor/components/block.php:43
+#~ msgid "Common"
+#~ msgstr ""
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy/modules/LPCandy/lib/LPCandy/Controllers/Track.php:95
 #~ msgid "checked"
