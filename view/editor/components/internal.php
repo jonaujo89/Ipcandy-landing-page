@@ -224,12 +224,6 @@ class GalleryImage extends Block {
     public $editor = "lp.galleryImage";
     public $internal = true;   
 	
-	function tpl_default() {
-        return array(
-			'image' => '',	
-        );        
-    }
-   
     function tpl($item_val) {?>
         <? $val = $this->parent->val_prefix; ?>
         <? $href = INDEX_URL."/".$item_val['image']; ?>
