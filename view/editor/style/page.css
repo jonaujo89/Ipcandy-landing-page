@@ -117,7 +117,7 @@ ol li {
 }
 
 /* add position: relative after publishing*/
-.item > div:not([data-editor]) {
+.order_6 .item > div{
     position: relative;
 }
 
@@ -581,7 +581,7 @@ ol li {
   height: 0;
 }
 
-.order_1 .title_1 .list div div:not([class]):not([data-editor]) {
+.order_1 .title_1 .list div div:not([contenteditable]) {
   background: none  scroll 0 0 rgba(0, 0, 0, 0.75);
   display: table;
   font-family: "Open Sans Bold", "Arial";
@@ -594,7 +594,7 @@ ol li {
   
 }
 
-.order_1 .title_2 .list div div:not([class]):not([data-editor]) {
+.order_1 .title_2 .list div div:not([contenteditable]) {
   background: none  scroll 0 0 rgba(0, 0, 0, 0.75);
   display: table;
   font-family: "Open Sans Light", "Arial";
