@@ -46,11 +46,33 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
             <script src="<?=url('lib/teacss-ui/teacss-ui.js')?>"></script>
             <script src="<?=url('lib/require/require.js')?>"></script>
             <script>
+                // HACK: fix require.extensions.css.build here via teacss functions
+                function path_string(path) {
+                    return "'"+path.replace(/\\?("|')/g,'\\$1')+"'";
+                }
+                
+                require.extensions.css.build = function (href,callback) {
+                    var path_s = path_string(href);
+                    var js = 'require.define('+path_s+',true)\n';
+                    var path= teacss.path;
+
+                    window.require.getFile(href,function(text){
+                        text = text.replace(/url\(['"]?([^'"\)]*)['"]?\)/g, function( whole, part ) {
+                            var rep = (!path.isAbsoluteOrData(part)) ? path.dir(path.clean(href)) + part : part;
+                            return 'url('+rep+')';
+                        });
+                        callback({js:js,css:text});
+                    },true);
+                }               
+                // END HACK
+                
                 require.build(
                     "<?=url('lib/templater/client/app.js')?>",
                     "<?=url('view/editor/editor.js')?>",
                     function (res) {
-                        console.debug({js:res.js});
+                        var rel = teacss.path.absolute("<?=url('view/editor')?>")+"/";
+                        res.css = res.css.split(rel).join("");
+                        console.debug({css:res.css,js:res.js});
                         $("#editor_status").text('minifying');
                         $.ajax({
                             url: "",type: "POST",
