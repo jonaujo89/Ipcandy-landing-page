@@ -22,4 +22,7 @@ include "components/textBlock.php";
 include "components/timer.php";
 include "components/numbers.php";
 
+
+// other comment
+
 \LPCandy\Components\Block::registerAll();
