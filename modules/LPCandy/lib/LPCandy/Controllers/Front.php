@@ -49,7 +49,6 @@ class Front extends Base {
                 </script>
                 <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/style.min.css')?>">
                 <script src="<?=url('view/editor/style/style.min.js')?>"> </script>
-                <script src='http://api-maps.yandex.ru/2.1/?lang=ru_RU'></script>
             </head>  
                 <body>
                     <?= $body_html ?>
