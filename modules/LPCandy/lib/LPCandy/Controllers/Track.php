@@ -89,6 +89,7 @@ class Track extends Base {
         
         $this->data['field_filters']['data'] = function ($val,$track) {            
             if(!$val['values']) return "Данных нет";
+            $data = "";
             foreach($val['values'] as $one) {            
                 $sub = $one['value'];
                 if (is_bool($sub)) $sub = $sub ? _t('yes') : _t('no');
