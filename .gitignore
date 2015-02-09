@@ -1,8 +1,8 @@
-/.old
-/upload
-/upload/*
-/.codeintel
-/lib
-/lib/*
-/cache/images
-/cache/images/*
+.old/
+upload/
+.codeintel/
+cache/images
+
+lib/bingo/
+lib/teacss/
+lib/teacss-ui/
