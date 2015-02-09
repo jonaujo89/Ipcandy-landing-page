@@ -397,6 +397,11 @@ class TemplaterApi {
         $templates = $this->getTemplates(true);
         $templates = json_decode($templates);
         
+        if (!isset($templates->$name)) {
+            if ($ret) return "";
+            return;
+        }
+        
         $tpl = $templates->$name;
         
         Component::$api = $this;
