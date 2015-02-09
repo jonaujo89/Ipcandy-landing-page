@@ -5,10 +5,8 @@ error_reporting(E_ALL);
 define('BINGO_PATH',realpath(__DIR__.'/lib/bingo'));
 require_once BINGO_PATH . "/loader.php";
 
-\Bingo\Configuration::$applicationMode = 'development';
+\Bingo\Configuration::$applicationMode = !'development';
 \Bingo\Configuration::$locale = 'ru_RU';
-
-// some comment
 
 \Bingo\Configuration::addModulePath(INDEX_DIR."/modules");
 \Bingo\Configuration::addModules('Auth','CMS');
