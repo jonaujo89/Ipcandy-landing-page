@@ -12,6 +12,7 @@ window._t.load({
 });
 
 require("./editor.css");
+require("./style/font-awesome.css");
 
 require("./ui/internal/checkbox.js");
 

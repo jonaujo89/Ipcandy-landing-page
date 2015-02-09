@@ -51,7 +51,8 @@ class Order extends Block {
             'background' =>'view/editor/assets/background/91.jpg',
             'title_1' => "<div>ДОСТАВКА</div><div>УЛЫБОЧЕК</div><div>ВАМ ДОМОЙ</div>",
             'title_2' => "<div>Только качественные улыбочки</div><div>Гарантированная сохранность груза</div><div>Своевременная доставка</div>",
-            'form_title_2' => "Улыбочку доставят к Вам домой",
+            'form_title_1' => "Оставьте заявку и получите бесплатную улыбочку",
+            'form_title_2' => "Ожидайте курьера",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",
             'form' => FormOrder::tpl_default(),
         );
