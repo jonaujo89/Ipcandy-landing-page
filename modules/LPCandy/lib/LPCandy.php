@@ -28,31 +28,25 @@ class LPCandy extends \Bingo\Module {
             array('action'=>'(page-view|track)'));
         
         $this->connect("*any",array('function'=>function($route){
-            $uri = isset($route['any']) ? $route['any'] : '';
+            $uri = isset($route['any']) ? trim($route['any'],"/") : '';
             if (substr($uri,0,5)=='admin') return true;
+            
             $domain = $_SERVER['SERVER_NAME'];            
             if ($domain==\Bingo\Config::get('config','domain')) return true;            
-            $request_url = $_SERVER['REQUEST_URI'];     
 
             $page = \LPCandy\Models\Page::findOneByDomain($domain);
-
-            if ($page) { 
-                $page_id=false;
+            if (!$page) return true;
+            if (!$uri) {
                 $c = new \LPCandy\Controllers\Front;
-                if($request_url && realpath($request_url)!="/"){                    
-                    if(property_exists($page,'children'))
-                        foreach($page->children as $child){                
-                            if($request_url==$child->pathname){                            
-                                $page_id=$child->id;
-                            }
-                        }
-                    if(empty($page_id)) return true;
-                } else {
-                    $page_id=$page->id;
-                }
-                $c->page_view($page_id);
+                $c->page_view($page->id);
             } else {
-                return true;
+                $sub_page = \LPCandy\Models\Page::findOneBy(array('parent'=>$page,'pathname'=>$uri));
+                if ($sub_page) {
+                    $c = new \LPCandy\Controllers\Front;
+                    $c->page_view($sub_page->id);
+                } else {
+                    return true;
+                }
             }
         }));
         
@@ -64,6 +58,7 @@ class LPCandy extends \Bingo\Module {
            array('action'=>'(invite-list|invite-add|invite-add-one)'));
         
         \Bingo\Action::add('admin_pre_header',function(){
+            \Admin::$menu[_t('LPCandy','lpcandy')][_t('Minify js/css','lpcandy')] = 'admin/developer/build';
             \Admin::$menu[_t('LPCandy','lpcandy')][_t('Customers','lpcandy')] = 'admin/lpcandy/user-list';
             \Admin::$menu[_t('LPCandy','lpcandy')][_t('Invites','lpcandy')] = 'admin/lpcandy/invite-list';
         });        
