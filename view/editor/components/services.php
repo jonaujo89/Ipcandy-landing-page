@@ -87,7 +87,7 @@ class Services extends Block {
                     'price_3' => "7 000 руб.",
                 )
             ),
-            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
     
@@ -166,7 +166,7 @@ class Services extends Block {
                 'price_2' => "<span style='color: #BBBBBB'><strike>5 000 руб.</strike></span> 4 000 руб. ",
                 )
             ),
-            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
     
@@ -248,7 +248,7 @@ class Services extends Block {
                     'btn_note' => "<i>Омоложиваются старухи не старше 30 годков</i>",
                 )
             ),
-            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Омолодить','color' =>'blue'))
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Омолодить','color' =>'blue'))
         );
     }
         
@@ -333,7 +333,7 @@ class Services extends Block {
                     'price_3' => "7 000 руб. ",
                 )
             ),
-            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
     
@@ -420,7 +420,7 @@ class Services extends Block {
                     'price_3' => "5 000 руб.",
                 )
             ),
-            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
     
@@ -487,7 +487,7 @@ class Services extends Block {
                     'price_3' => "6 000 руб.",
                 )
             ),
-            'order_button' => array_merge(FormButton::tpl_default(),array('text'=>'Заказать','color' =>'blue'))
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Заказать','color' =>'blue'))
         );
     }
 }

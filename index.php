@@ -16,7 +16,6 @@ require_once BINGO_PATH . "/loader.php";
 
 \CMS\Configuration::$log_errors = true;
 
-
 \Bingo\Template::addIncludePath('themes/default',INDEX_DIR."/view",INDEX_URL."/view");
 \Bingo\Template::addIncludePath('',BINGO_PATH."/template",INDEX_URL."/lib/bingo/template");
 

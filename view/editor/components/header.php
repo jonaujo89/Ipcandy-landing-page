@@ -34,7 +34,7 @@ class Header extends Block {
     function tpl_default() { 
         return  array(
             'background' =>'#FFFFFF',
-            'logo' => array_merge(Logo::tpl_default(),array('size'=>100)),
+            'logo' => array_merge(Logo::get()->tpl_default(),array('size'=>100)),
             'desc' => "<span style='font-size: 22px;'>Цирк<b> НА МАНЕЖЕ ВСЕ ТЕ ЖЕ</b></span><br><span style='font-size: 18px;'>Доставка билетов медведем на велосипеде</span>",
             'phone' => '<span style="font-size: 27px;">+7 <span style="color: #C1103A;">(495)</span> 321-46-98</span>',
             'phone_desc' => 'г. Москва, Цветной бульвар, 13'
@@ -68,8 +68,8 @@ class Header extends Block {
         return  array(
             'show_order_button' => true,
             'background' =>'#FFFFFF',
-            'logo' => array_merge(Logo::tpl_default(),array('size'=>62)),
-            'order_button' => FormButton::tpl_default(),
+            'logo' => array_merge(Logo::get()->tpl_default(),array('size'=>62)),
+            'order_button' => FormButton::get()->tpl_default(),
             'phone' => '+7 (495) 321-46-98',            
         );
     }
@@ -110,11 +110,11 @@ class Header extends Block {
     function tpl_default_3() { 
         return  array(
             'background' =>'#FFFFFF',
-            'logo' => array_merge(Logo::tpl_default(),array('size'=>80)),
+            'logo' => array_merge(Logo::get()->tpl_default(),array('size'=>80)),
             'desc_1' => "Прокат бегемотов",
             'desc_2' => "<b><span style='color: #C1103A;'>Самые низкие цены<br><span style='font-size: 16px; line-height: 1;'>Самые толстые прогулочные бегемоты</span></span></b>",
             'phone' => "+7 (495) 321-46-98",
-            'order_button' => FormButton::tpl_default(),
+            'order_button' => FormButton::get()->tpl_default(),
             'show_desc_and_order_button' => true,
         );
     }
@@ -167,7 +167,7 @@ class Header extends Block {
         return  array(
             'show_order_button' => true,
             'background' =>'#FFFFFF',
-            'logo' => array_merge(Logo::tpl_default(),array('type'=>'text', 'text'=> 'На манеже все те же', 'fontSize' =>28, 'color' => '#C1103A', 'font' => 'Trebuchet MS' )),            
+            'logo' => array_merge(Logo::get()->tpl_default(),array('type'=>'text', 'text'=> 'На манеже все те же', 'fontSize' =>28, 'color' => '#C1103A', 'font' => 'Trebuchet MS' )),            
             'desc' => "ТОЛЬКО У НАС ЕСТЬ ЛЕКАРСТВО ОТ ГРУСТИ",
             "ico_1" => 'view/editor/assets/ico/209.png',
             "ico_2" => 'view/editor/assets/ico/204.png',
@@ -176,7 +176,7 @@ class Header extends Block {
             'text_2' => "КОТ<br>КОТОВЕЙ",
             'text_3' => "КЛОУН<br>ЖОРА",
             'phone' => "+7 (495) 321-46-98",
-            'order_button' => FormButton::tpl_default(),            
+            'order_button' => FormButton::get()->tpl_default(),            
         );
     }    
 }

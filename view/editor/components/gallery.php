@@ -510,11 +510,11 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-					'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы')),
+					'image_1' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах'),
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке'),
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
+                    'image_4' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём'),
+                    'image_5' => array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы'),
                 )
             )
         );    
@@ -580,12 +580,12 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Бивень', 'desc' => 'Дрессированный носорог')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах')),
-					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/27.jpg', 'title' => 'Тигрица', 'desc' => 'Это та, что слева')),
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём'),
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны'),
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах'),
+                    'image_4' => array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Бивень', 'desc' => 'Дрессированный носорог'),
+                    'image_5' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
+					'image_6' => array('image'=> 'view/editor/assets/gallery/27.jpg', 'title' => 'Тигрица', 'desc' => 'Это та, что слева'),
 				) 
             )
         );    
@@ -652,12 +652,12 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Чехарда', 'desc' => 'Люди в синих трениках')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/29.jpg', 'title' => 'Лунтики', 'desc' => 'Полёт людей на луну')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах')),
-					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке')),
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Чехарда', 'desc' => 'Люди в синих трениках'),
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы'),
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/29.jpg', 'title' => 'Лунтики', 'desc' => 'Полёт людей на луну'),
+                    'image_4' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах'),
+                    'image_5' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
+					'image_6' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке'),
 				)                
             )
         );    
@@ -721,12 +721,12 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах')),
-                    'image_2' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке')),
-                    'image_3' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Чехарда', 'desc' => 'Люди в синих трениках')),
-                    'image_4' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Бивень', 'desc' => 'Дрессированный носорог')),
-                    'image_5' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём')),
-					'image_6' => array_merge(OverlayImage::tpl_default(),array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны')),
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке'),
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Чехарда', 'desc' => 'Люди в синих трениках'),
+                    'image_4' => array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Бивень', 'desc' => 'Дрессированный носорог'),
+                    'image_5' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём'),
+					'image_6' => array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны'),
 				)
             )
         );    

@@ -54,7 +54,7 @@ class Order extends Block {
             'form_title_1' => "Оставьте заявку и получите бесплатную улыбочку",
             'form_title_2' => "Ожидайте курьера",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",
-            'form' => FormOrder::tpl_default(),
+            'form' => FormOrder::get()->tpl_default(),
         );
     }
     
@@ -92,7 +92,7 @@ class Order extends Block {
             'title_1' => "Бесплатное обучение жонглированию",
             'title_2' => "Секретная методика жонглирования от клоуна Жоры",
             'button_note' => "Закажите Жору и его друга Клеву прямо сейчас!",
-            'button_order' =>  array_merge(FormButton::tpl_default(),array('text'=>'Обучить меня жонглировать', 'color'=>'orange'))            
+            'button_order' =>  array_merge(FormButton::get()->tpl_default(),array('text'=>'Обучить меня жонглировать', 'color'=>'orange'))            
         );
     }
     
@@ -138,12 +138,12 @@ class Order extends Block {
             'show_title_2' => true,
             'show_list_box' => false,
             'background' =>'view/editor/assets/texture/1.png',
-            'media' =>  array_merge(Media::tpl_default(),array('type'=>'image','image_url'=> 'view/editor/assets/order/order_3.jpg')),
+            'media' =>  array_merge(Media::get()->tpl_default(),array('type'=>'image','image_url'=> 'view/editor/assets/order/order_3.jpg')),
             'title_1' => "ТОЛЬКО <span style='color:#C1103A'>НАСТОЯЩИЕ</span> СЛОНЫ ИЗ АФРИКИ",
             'title_2' => "НИКАКИХ ПОДДЕЛОК ИЗ КИТАЯ",
             'desc' => "Бесплатно покажем Вам фиолетового сомалийского слона.<br>Время показа - 10 минут.",
             'list' => "<p>Только у нас слон сбрасывает свою шкуру</p><p>Только у нас слон лает</p><p>Только у нас слон выполняет команду СИДЕТЬ</p>",
-            'button_order' =>  array_merge(FormButton::tpl_default(),array('text'=>'Посмотреть слона', 'color'=>'purple_light')),             
+            'button_order' =>  array_merge(FormButton::get()->tpl_default(),array('text'=>'Посмотреть слона', 'color'=>'purple_light')),             
         );
     }
     
@@ -185,12 +185,12 @@ class Order extends Block {
             'show_box_shadow' => true,
             'show_title_2' => true,
             'background_color' =>'#313138',
-            'media' =>  array_merge(Media::tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/order/order_4.jpg')),
+            'media' =>  array_merge(Media::get()->tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/order/order_4.jpg')),
             'title_1' => "Эксклюзивный сеанс заразительного смеха",
             'title_2' => "Неповторимая улыбочка от малыша Джереми",
             'form_title' => "ОСТАВЬТЕ ЗАЯВКУ НА БЕСПЛАТНЫЙ СЕАНС УЛЫБКИ",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",  
-            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'rose','label'=>'Получить улыбочку')))
+            'form' => array_merge(FormOrder::get()->tpl_default(),array('button' => array('color'=>'rose','label'=>'Получить улыбочку')))
         );
     }
     
@@ -263,7 +263,7 @@ class Order extends Block {
                 
             ),            
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке", 
-            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'purple','label'=>'Заказать сеанс')))
+            'form' => array_merge(FormOrder::get()->tpl_default(),array('button' => array('color'=>'purple','label'=>'Заказать сеанс')))
         );
     }
     
@@ -317,7 +317,7 @@ class Order extends Block {
             'title_3' => "ВСЕГО ЗА НЕСКОЛЬКО МИНУТ",
             'form_title' => "ОСТАВЬТЕ ЗАЯВКУ НА СОЗДАНИЕ ЛЕНДИНГА",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",  
-            'form' => array_merge(FormOrder::tpl_default_email(),array('button' => array('color'=>'blue','label'=>'Заказать лендинг')))
+            'form' => array_merge(FormOrder::get()->tpl_default_email(),array('button' => array('color'=>'blue','label'=>'Заказать лендинг')))
         );
     }    
 }

@@ -69,11 +69,12 @@ class FormButton extends Block {
             'form_bottom_text' => 'Мы не передаем Вашу персональную информацию третьим лицам',
             'color' => 'red',
             'text' => 'Оставить заявку',
-            'form' => FormOrder::tpl_default()
+            'form' => FormOrder::get()->tpl_default()
         );
     }
     
-    function tpl($val,$name) { ?>
+    function tpl($val) { ?>
+        <? $name = $this->name ?>
         <? $href = ($val['type']=='link') ? "href='".htmlspecialchars($val['link'])."'" : '' ?>
         <a class='btn_form <?=$val['color']?>' <?=$href?>> <?=$val['text']?> </a>
         <? if ($val['type']=="form" || $this->edit): ?>
@@ -118,7 +119,7 @@ class FormOrder extends Block {
     
     function tpl_default_email() {
         return array_merge_recursive(
-            self::tpl_default(),
+            $this->tpl_default(),
             array(
                 'fields' => array(
                     array(
@@ -312,7 +313,7 @@ class Countdown extends Block {
     public $editor = "lp.countdown";
     public $internal = true;
     
-		function tpl_default() {
+    function tpl_default() {
         return array(
             'type' => 'daily',
             'date' => date("Y/m/d"),

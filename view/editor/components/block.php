@@ -17,7 +17,8 @@ class Block {
     
     static function get() {
         $cls = get_called_class();
-        $id = end(explode("\\",$cls));
+        $parts = explode("\\",$cls);
+        $id = end($parts);
         
         if (!isset(self::$list[$id])) {
             $obj = new $cls;
@@ -77,9 +78,11 @@ class Block {
         $current = min($current,$this->tpl_count);
         $current = max($current,1);
         
+        $this->name = $name;
+        
         if ($this->internal) {
             $this->val = $val;
-            $this->tpl($this->val,$name);
+            $this->tpl($this->val);
         } else {
             for ($i=1;$i<=$this->tpl_count;$i++) {
                 if (method_exists($this,"tpl_default_$i")) {

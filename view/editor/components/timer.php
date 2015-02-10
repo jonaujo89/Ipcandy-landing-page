@@ -38,7 +38,7 @@ class Timer extends Block {
             'title' => 'Сейчас на сцене телепат Василий',
             'title_2' => 'Успейте зайти в зал до окончания выступления',
             'countdown_desc' => 'Осталось до окончания выступления:',  
-            'countdown' => Countdown::tpl_default(),
+            'countdown' => Countdown::get()->tpl_default(),
         );
     }
     
@@ -73,7 +73,7 @@ class Timer extends Block {
             'title' => 'Выступление иллюзиониста<br>Гоши Либерман-Алмазова',
             'title_2' => 'Успейте попасть на представление',
             'countdown_desc' => 'До начала осталось:',
-            'countdown' => Countdown::tpl_default(),
+            'countdown' => Countdown::get()->tpl_default(),
         );
     }
     
@@ -126,8 +126,8 @@ class Timer extends Block {
             'timer_desc' => 'ДО ОКОНЧАНИЯ АКЦИИ ОСТАЛОСЬ:',
             'form_title_1' => "Заказать билеты",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",
-            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'blue','label'=>'Отправить заявку'))),
-			'countdown' => Countdown::tpl_default(),
+            'form' => array_merge(FormOrder::get()->tpl_default(),array('button' => array('color'=>'blue','label'=>'Отправить заявку'))),
+			'countdown' => Countdown::get()->tpl_default(),
         );
     }
     
@@ -180,8 +180,8 @@ class Timer extends Block {
             'timer_desc' => 'ДО ОКОНЧАНИЯ АКЦИИ ОСТАЛОСЬ:',
             'form_title_1' => "Заказать билеты",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",
-            'form' => array_merge(FormOrder::tpl_default(),array('button' => array('color'=>'blue','label'=>'Отправить заявку'))),
-			'countdown' => Countdown::tpl_default(),
+            'form' => array_merge(FormOrder::get()->tpl_default(),array('button' => array('color'=>'blue','label'=>'Отправить заявку'))),
+			'countdown' => Countdown::get()->tpl_default(),
         );
     }        
 }

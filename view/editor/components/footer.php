@@ -40,7 +40,7 @@ class Footer extends Block {
         return  array(
             'show_policy' => true,
             'background_color' => '#FFFFFF',
-            'logo' => array_merge(Logo::tpl_default(),array('size'=>87)),
+            'logo' => array_merge(Logo::get()->tpl_default(),array('size'=>87)),
             'desc' => "Лучший цирк «НА МАНЕЖЕ ВСЕ ТЕ ЖЕ»,<br>г.Москва, Цветной бульвар, 13",            
             'phone' => '+7 (495) 321-46-98',
             'phone_desc' => 'Звонок с Венеры бесплатный',

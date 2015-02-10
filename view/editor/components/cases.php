@@ -61,13 +61,13 @@ class Cases extends Block {
             'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'media' =>  array_merge(Media::tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/cases/1.jpg')),
+                    'media' =>  array_merge(Media::get()->tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/cases/1.jpg')),
                     'name' => "Радостные лица детей",
                     'desc' => "СМЕШНЫЕ ТЕХНОЛОГИИ",
                     'text' => "Задание: Вызвать улыбку у детей<br><br> В шоу включены номера на любой вкус: мистические выступления с магическими номерами, выступления диких животных, акробатов, эквилибристов, иллюзионистов и, конечно же, цирковая клоунада.",
                 ),
                 array(
-                    'media' =>  array_merge(Media::tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/cases/2.jpg')),
+                    'media' =>  array_merge(Media::get()->tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/cases/2.jpg')),
                     'name' => "Радостные лица взрослых",
                     'desc' => "СМЕШНЫЕ ТЕХНОЛОГИИ",
                     'text' => "Задание: Вызвать улыбку у родителей<br><br>Только подарочный бокал пенного холодного пива способен подарить отцам радость, дети которых с восторгом будут смотреть нашу цирковую программу.",
