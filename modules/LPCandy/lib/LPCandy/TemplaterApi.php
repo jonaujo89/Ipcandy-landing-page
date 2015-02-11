@@ -50,8 +50,7 @@ class TemplaterApi extends \TemplaterApi {
         exec($cmd);
     }
     
-    function publish() {
-        
+    function publish() {       
         $base = $this->page->getPublishPath();
         if (!file_exists($base)) mkdir($base,0777,true);
         if (!file_exists($base."/templates")) mkdir($base."/templates",0777,true);

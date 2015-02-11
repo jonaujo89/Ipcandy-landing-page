@@ -261,7 +261,7 @@ class TemplaterApi {
                         $path = $sub->getPathname();
                         $rel = str_replace($project_dir."/","",$path);
                         $name = str_replace(".yaml","",$rel);
-
+                        
                         if ($name==$rel) continue;
 
                         //$data = yaml_parse(file_get_contents($path));
