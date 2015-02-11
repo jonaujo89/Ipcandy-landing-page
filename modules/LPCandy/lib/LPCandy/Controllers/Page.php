@@ -33,7 +33,7 @@ class Page extends Base {
         if (!$page || $page->user!=$this->user) redirect('/');
         foreach ($page->children as $ch) $ch->delete(false);
         $page->delete();
-        redirect('page-list');
+        redirect('page-list/');
     }
     
     function domain_validator($page) {
@@ -94,12 +94,13 @@ class Page extends Base {
     }
     
     function page_form($page) {
+       
         $form = new \Bingo\Form;
         $form->fieldset();
         $form->text('title',_t('Title'),'required',$page->title);
         
         if ($page->parent) {
-            $form->text('pathname',_t('Pathname(link)'),'required',$page->pathname);
+            $form->text('pathname',_t('Path (Example: /link)'),'required',$page->pathname);            
         } else {
             $form->text('domain',_t('Domain'),$this->domain_validator($page),$page->domain);
         }

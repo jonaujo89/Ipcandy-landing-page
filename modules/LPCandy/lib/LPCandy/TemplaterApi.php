@@ -55,16 +55,14 @@ class TemplaterApi extends \TemplaterApi {
         $base = $this->page->getPublishPath();
         if (!file_exists($base)) mkdir($base,0777,true);
         if (!file_exists($base."/templates")) mkdir($base."/templates",0777,true);
-        
         $this->makeScreenshot();
-        
         $tpl = $this->page->getTemplate().".yaml";
-        $tpl_path = $this->page->getTemplatePath($tpl);
-        
+        $tpl_path = $this->page->getTemplatePath($tpl);        
         // file not exists for empty new pages, SEE: https://trello.com/c/hQFzDIjg
         if (file_exists($tpl_path)) {
             copy($tpl_path,$base."/templates/".$tpl);
         }
+        
     }
     
     function liquid($template,$dataSource) {

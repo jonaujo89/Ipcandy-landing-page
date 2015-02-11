@@ -14,7 +14,7 @@
     <? endif ?>
 
     <form>
-        <? if (count($list)): ?>
+        <? if (count($list)): ?>        
             <? foreach ($list as $obj): ?>
                 <table class="list">
                 <tr>

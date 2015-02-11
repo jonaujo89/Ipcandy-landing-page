@@ -96,7 +96,9 @@ class Track extends Base {
                 if (is_array($sub)) {
                     $files_str = array();
                     foreach ($sub as $f) {
-                        $files_str[] = anchor('track-file/'.$track->id.'?file='.urlencode($f['dest'])."&name=".urlencode($f['src']),$f['src']);
+                        if(isset($f['src']) && !empty($f['src']) && isset($f['dest']) && !empty($f['dest']) ){
+                            $files_str[] = anchor('track-file/'.$track->id.'?file='.urlencode($f['dest'])."&name=".urlencode($f['src']),$f['src']);
+                        }
                     }
                     $sub = implode(", ",$files_str);
                 }

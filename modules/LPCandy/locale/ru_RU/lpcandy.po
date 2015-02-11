@@ -43,11 +43,11 @@ msgstr "ip"
 msgid "data"
 msgstr "данные"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Track.php:94
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Track.php:95
 msgid "yes"
 msgstr "да"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Track.php:94
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Track.php:95
 msgid "no"
 msgstr "нет"
 
@@ -161,8 +161,8 @@ msgid "Create page"
 msgstr "Создать страницу"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:102
-msgid "Pathname(link)"
-msgstr "Путь (относительно доменного имени)"
+msgid "Path (Example: /link)"
+msgstr "Путь (Пример: /link)"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:107
 msgid "Meta-tag “robots” content"

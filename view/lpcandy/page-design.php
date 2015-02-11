@@ -2,8 +2,7 @@
 <html>
     <head>
         <title><?=_t('Templater editor')?></title>
-        <meta charset="utf-8">
-        
+        <meta charset="utf-8" alt>
         <script src="<?=url('lib/teacss/teacss.js')?>"></script>
         <script src="<?=url('/lib/teacss-ui/teacss-ui.js')?>"></script>
         <link  href="<?=url('/lib/teacss-ui/teacss-ui.css')?>" rel="stylesheet" type="text/css">

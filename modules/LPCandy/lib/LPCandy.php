@@ -30,7 +30,6 @@ class LPCandy extends \Bingo\Module {
         $this->connect("*any",array('function'=>function($route){
             $uri = isset($route['any']) ? trim($route['any'],"/") : '';
             if (substr($uri,0,5)=='admin') return true;
-            
             $domain = $_SERVER['SERVER_NAME'];            
             if ($domain==\Bingo\Config::get('config','domain')) return true;            
 
@@ -40,7 +39,7 @@ class LPCandy extends \Bingo\Module {
                 $c = new \LPCandy\Controllers\Front;
                 $c->page_view($page->id);
             } else {
-                $sub_page = \LPCandy\Models\Page::findOneBy(array('parent'=>$page,'pathname'=>$uri));
+                $sub_page = \LPCandy\Models\Page::findOneBy(array('parent'=>$page,'pathname'=>"/".$uri));
                 if ($sub_page) {
                     $c = new \LPCandy\Controllers\Front;
                     $c->page_view($sub_page->id);

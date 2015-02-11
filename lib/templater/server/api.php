@@ -264,7 +264,8 @@ class TemplaterApi {
 
                         if ($name==$rel) continue;
 
-                        $data = yaml_parse(file_get_contents($path));
+                        //$data = yaml_parse(file_get_contents($path));
+                        $data = yaml_parse_file($path);
                         $data = $restoreCmp($data);                           
 
                         $templates->$name = $data;
