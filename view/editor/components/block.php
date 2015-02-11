@@ -2,9 +2,6 @@
 
 namespace LPCandy\Components;
 
-
-// other comment
-
 class Block {
     
     public $id;
