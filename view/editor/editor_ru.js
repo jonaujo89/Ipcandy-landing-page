@@ -131,7 +131,7 @@ window._t.load({
     "Media file":"Медиа файл",
     "example: www.youtube.com\/embed\/P55qVX3y134":"",
     "Select file":"Выбрать файл",
-    "Countdown settings":"",
+    "Countdown settings":"Настройки таймера",
     "Exact date<br>":"Дата окончания<br>",
     "Every month<br>":"Ежемесячно<br>",
     "Every week<br>":"Еженедельно<br>",
