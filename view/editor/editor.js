@@ -99,13 +99,23 @@ exports = function(templater_app,options) {
                 });            
             });
             
-            this.bind("change",function(){
+            
+            this.bind("change",function(data){
                 if (me.skipSave) return;
+                //temporary bug fix. me.settings.templates.page.value Array to Object
+                if ($.isArray(me.settings.templates.page.value)){
+                    var idObject = ($.extend({}, me.settings.templates.page.value));
+                    me.settings.templates.page.value = idObject;
+                    console.log(me.settings.templates.page.value);
+                }
+
+                
                 me.request('save',{
                     templates: JSON.stringify(me.settings.templates),
                     theme: JSON.stringify(me.settings.theme,undefined, 2)
                 });
             });
+            
         },
         
         initUI: function () {
