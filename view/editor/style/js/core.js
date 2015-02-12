@@ -43,9 +43,10 @@ $.fn.lpCounty = function (datetime) {
 
             case 'monthly':                
                 var lengthMonth;
+                var real_current_month = current_month+1;
                 add_days = get_date.day - current_day;
-
-                    if (current_month == 2) { // если февраль то 29-30 не считать
+                    
+                    if (real_current_month == 2) { // если февраль то 29-30 не считать
                         if (current_year % 4 === 0) { // если високосный год, то в феврале 29 дней
                             if (get_date.day == 30 || get_date.day == 31) {
                                 add_days = 29 - current_day;
@@ -58,7 +59,7 @@ $.fn.lpCounty = function (datetime) {
                             lengthMonth = 28;
                         }
                     } else {
-                        if (current_month == 4 || current_month == 6 || current_month == 9 || current_month == 11) { // если в месяце 30 дней то 31 не считать
+                        if (real_current_month == 4 || real_current_month == 6 || real_current_month == 9 || real_current_month == 11) { // если в месяце 30 дней то 31 не считать
                             if (get_date.day == 31) {
                                 add_days = 30 - current_day;
                             }
@@ -76,7 +77,7 @@ $.fn.lpCounty = function (datetime) {
                             add_days = lengthMonth;
                         }
                     } 
-                
+                    
                     if(current_day > get_date.day){
                         if(get_date.day == 1){
                             current_day = 1;
