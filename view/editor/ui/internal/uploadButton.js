@@ -32,10 +32,10 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
                     var sub_url = data[0].url.substring(base_url.length);
                     if (sub_url[0]=="/") sub_url = sub_url.substring(1);
                     
-                    if (me.value) {
+                    /*if (me.value) {
                         var fname = me.value.split("/").pop();
                         $.post(Component.app.options.ajax_url,{_type:'upload_delete',dir:me.options.uploadDir,file:fname});
-                    }
+                    }*/
                     
                     me.value = sub_url;
                     me.trigger("change");
