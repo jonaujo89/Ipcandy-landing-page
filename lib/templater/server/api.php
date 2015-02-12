@@ -229,7 +229,7 @@ class TemplaterApi {
         if (!$templates) {
             $this->templates = $templates = (object)array();
             $restoreCmp = function ($cmp,$key=false) use (&$restoreCmp) {
-                $out = array('value'=>array());
+                $out = array('value'=>array('id'=>false));
 
                 if ($key) {
                     $parts = explode('#',$key,2);
