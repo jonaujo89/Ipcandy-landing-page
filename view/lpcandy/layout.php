@@ -27,7 +27,8 @@
         if ($user) {
             $menu = array(
                 array('url'=>'page-list','label'=>_t('Pages')),
-                array('url'=>'track-list','label'=>_t('Tracking'))
+                array('url'=>'track-list','label'=>_t('Tracking')),
+                array('url'=>'profile','label'=>_t('Profile'))
             );
         }
         $menu = \Bingo\Action::filter('admin_menu',array($menu,$user));

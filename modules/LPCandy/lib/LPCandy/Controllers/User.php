@@ -57,8 +57,27 @@ class User extends Base {
         redirect('/');
     }    
     
-    function profile() {
-        redirect('page-list');
+    function profile() { 
+        $this->needUser();
+        
+        $user = \LPCandy\Models\User::find($this->user);
+
+        $form = new \Bingo\Form;
+        $form->fieldset();
+        $form->text('email',_t('Your email'),"required",$user->email);
+        $form->fieldset();
+        $form->submit(_t('Save'));
+                
+        if($form->validate()){
+            $user->email = $form->values['email'];
+            $user->save();
+        }       
+        
+        $this->data['title'] = _t('Profile');
+        $this->data['form'] = $form->get();
+        
+        $this->view('lpcandy/page-edit');
+        
     }    
     
     function files($url=false) {

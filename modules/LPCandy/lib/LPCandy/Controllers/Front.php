@@ -48,7 +48,12 @@ class Front extends Base {
                     var page_id = <?=$page->id?>; 
                 </script>
                 <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/style.min.css')?>">
-                <script src="<?=url('view/editor/style/style.min.js')?>"> </script>
+                <script src="<?=url('view/editor/style/style.min.js')?>"> </script>    
+                <script>
+                    function SubmitJS(){
+                        <?= strip_tags($page->extra_html_submit) ?>
+                    }
+                </script>
             </head>  
                 <body>
                     <?= $body_html ?>

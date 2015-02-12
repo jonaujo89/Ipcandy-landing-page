@@ -305,7 +305,8 @@ function initForms() {
                 $form.find(':input').not("input:checkbox, input:radio").val("");
                 $form.find('input:checkbox, input:radio').prop('checked', false);
                 $form.find(".form_field_radio_value:first-child input").prop("checked",true);
-                $form.find(".form_field_select option:first-child").prop("selected",true);
+                $form.find(".form_field_select option:first-child").prop("selected",true);                
+                SubmitJS();
             }
         });
         

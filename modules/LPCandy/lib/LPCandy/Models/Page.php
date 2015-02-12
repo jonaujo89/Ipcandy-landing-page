@@ -32,7 +32,10 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     public $meta_description;
     
     /** @Column(type="text") */
-    public $extra_html;    
+    public $extra_html;   
+    
+    /** @Column(type="text") */
+    public $extra_html_submit;    
     
     /** @Column(type="object") */
     public $form;    
