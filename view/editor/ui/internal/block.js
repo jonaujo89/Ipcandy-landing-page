@@ -1,5 +1,12 @@
 window.lp = {};
 
+lp.formComposite = teacss.ui.composite.extend({
+    setValue: function (value) {
+        if (!this.innerForm) return;
+        this.innerForm.setValue(value || {});
+    }
+});
+
 lp.block = teacss.ui.control.extend({
     init: function (o) {
         this._super(o);
@@ -98,7 +105,7 @@ lp.block = teacss.ui.control.extend({
             if (me.options.configForm.item) {
                 form = me.options.configForm.item({});
             } else {
-                form = teacss.ui.composite(me.options.configForm);
+                form = lp.formComposite(me.options.configForm);
             }
             
             dialog = this.Class[dialogId] = teacss.ui.dialog({
