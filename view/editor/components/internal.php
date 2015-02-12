@@ -47,7 +47,7 @@ class Logo extends Block {
                     $style = "";
                     if ($val['italic']) $style .= "font-style:italic;";
                     if ($val['bold']) $style .= "font-weight:bold;";
-                    if ($val['font']) $style .= "font-family:".$val['font'].";";
+                    if (isset($val['font'])) $style .= "font-family:".$val['font'].";";
                     if ($val['color']) $style .= "color:".$val['color'].";";
                     if ($val['fontSize']) $style .= "font-size:".$val['fontSize']."px;";
                 ?>
