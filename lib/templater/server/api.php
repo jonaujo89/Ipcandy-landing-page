@@ -229,7 +229,7 @@ class TemplaterApi {
         if (!$templates) {
             $this->templates = $templates = (object)array();
             $restoreCmp = function ($cmp,$key=false) use (&$restoreCmp) {
-                $out = array('value'=>array());
+                $out = array('value'=>array('id'=>false));
 
                 if ($key) {
                     $parts = explode('#',$key,2);
@@ -261,7 +261,7 @@ class TemplaterApi {
                         $path = $sub->getPathname();
                         $rel = str_replace($project_dir."/","",$path);
                         $name = str_replace(".yaml","",$rel);
-
+                        
                         if ($name==$rel) continue;
 
                         //$data = yaml_parse(file_get_contents($path));
@@ -318,8 +318,8 @@ class TemplaterApi {
         file_put_contents($this->settingsPath,$theme);
     }
     
-    function saveTemplates($templates) {
-        $fixYaml = function ($cmp) use (&$fixYaml) {
+    function saveTemplates($templates) {        
+        $fixYaml = function ($cmp) use (&$fixYaml) { 
             $type = @$cmp['value']['type'];
             $key = $type."#".$cmp['value']['id'];
             $out = array();
@@ -329,17 +329,18 @@ class TemplaterApi {
             unset($out[$key]['type']);
             
             if (isset($cmp['children'])) {
-                foreach ($cmp['children'] as &$child) {
+                foreach ($cmp['children'] as &$child) {                    
                     foreach ($fixYaml($child) as $k=>$v) {
-                        $out[$key][$k] = $v;
+                        $out[$key][$k] = $v;                        
                     }
                 }
             } else {
-                $data = $out[$key];
+                $data = $out[$key];                
                 if (is_array($data) && count($data)==1 && isset($data[$type])) {
                     $out[$key] = $data[$type];
                 }
             }
+            
             return $out;
         };
         
@@ -348,21 +349,23 @@ class TemplaterApi {
         $project_dir = $this->templatePath ? : str_replace(".json","",$this->settingsPath);
         
         if (!file_exists($project_dir)) mkdir($project_dir);
-        
+
         $files = glob($project_dir.'/*');
-        foreach ($files as $file) {
-            if (is_file($file)) unlink($file);
+
+        foreach ($files as $file) {            
+            if (file_exists($file)) unlink($file);            
         }        
         
         ini_set('yaml.output_indent',4);
         foreach ($templates as $name=>$one) {
             $yaml_path = $project_dir."/".$name.".yaml";
+            
             $dir = dirname($yaml_path);
-            if (!file_exists($dir))
+            if (!file_exists($dir))                
                 mkdir($dir,0777,true);
             
             $data = $fixYaml($one);
-            $data = reset($data);
+            $data = reset($data);            
             file_put_contents($yaml_path,yaml_emit($data,YAML_UTF8_ENCODING));
         }
     }

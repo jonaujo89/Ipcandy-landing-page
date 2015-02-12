@@ -99,13 +99,15 @@ exports = function(templater_app,options) {
                 });            
             });
             
-            this.bind("change",function(){
+            
+            this.bind("change",function(data){
                 if (me.skipSave) return;
                 me.request('save',{
                     templates: JSON.stringify(me.settings.templates),
                     theme: JSON.stringify(me.settings.theme,undefined, 2)
                 });
             });
+            
         },
         
         initUI: function () {
