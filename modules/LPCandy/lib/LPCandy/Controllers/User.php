@@ -64,7 +64,7 @@ class User extends Base {
 
         $form = new \Bingo\Form;
         $form->fieldset();
-        $form->text('email',_t('Your email'),"required",$user->email);
+        $form->text('email',_t('Email (for notification of order)'),"required",$user->email);
         $form->fieldset();
         $form->submit(_t('Save'));
                 
@@ -73,7 +73,7 @@ class User extends Base {
             $user->save();
         }       
         
-        $this->data['title'] = _t('Profile');
+        $this->data['title'] = _t('Settings profile');
         $this->data['form'] = $form->get();
         
         $this->view('lpcandy/page-edit');
