@@ -32,11 +32,10 @@
   margin-right: 10px;
 }
 
-
-
-.frame-panel{
-    top: 75px !important;
+.frame-panel {
+  top: 76px !important;
 }
+
 #logged_info {    
     background: #333;
     border-bottom: 2px solid #777777;
