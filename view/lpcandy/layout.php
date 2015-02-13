@@ -20,7 +20,7 @@
     <script src="<?=t_url('assets/script/jquery.js')?>"></script>
     <script src="<?=t_url('assets/script/lpcandy.js')?>"></script>    
 </head>
-<body>
+<body>    
     <? include partial('lpcandy/logged-info') ?>
     <? $menu = array() ?>
     <? 
@@ -50,7 +50,7 @@
     </div>
     <div id="page">
         <? startblock('page') ?>
-        <div id="content">
+        <div id="content">            
             <? emptyblock('content') ?>
         </div>
     

@@ -1,3 +1,39 @@
+#beejee_info {
+  margin: -61px auto 0 234px;
+  width: 450px;
+  position: absolute;
+}
+#beejee_info > div.title {
+  float: left;
+  margin-right: 20px;
+  margin-top: 4px;
+  color: white;
+  font-size: 16px;
+  font-family: "Arial";
+  font-weight: bold;
+}
+#beejee_info > div.title > .company_beejee{
+  color: #FFE900;
+    text-decoration: none;
+}
+
+#beejee_info > a.beejee {
+  background: transparent url('images/logo-beejee.png') no-repeat;
+  border: none;
+  display: block;
+  height: 65px;
+  overflow: hidden;
+  text-indent: -2000px;
+  width: 66px;
+  float: left;
+  margin-right: 10px;
+}
+
+.page-title .page_actions {
+  margin: 1em auto 0 0 !important;
+  display: block;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -549,7 +585,7 @@ body {
 }
 #content > h3 {
     background: #333;
-    color: white;
+    color: #DDDDDD;
     border-top: 5px solid #71a0d0;
     margin: 0px;
     padding: 10px 20px;
@@ -903,6 +939,7 @@ td.title h3 a {
 .actions a.design {
     font-size: 1.4em;
     line-height: 1.2em;
+    margin: 5px auto;
 }
 .child .actions a {
     font-size: 1.0em;

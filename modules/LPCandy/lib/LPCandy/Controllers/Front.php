@@ -54,7 +54,7 @@ class Front extends Base {
                         <?= strip_tags($page->extra_html_submit) ?>
                     }
                 </script>
-            </head>  
+            </head>                
                 <body>
                     <?= $body_html ?>
                     <?= $page->extra_html?>

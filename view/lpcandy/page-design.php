@@ -44,6 +44,7 @@
         <? endif ?>
     </head>
     <body>
+        <? include partial('lpcandy/beejee-info') ?>
         <? include partial('lpcandy/logged-info') ?>
     </body>
 </html>
