@@ -218,6 +218,7 @@ function initPolicyInfo() {
         alertify.genericDialog(policy_info);
     });
 };
+
 function initForms() {
     
     $(document).on("click",".form_field_submit",function(e){

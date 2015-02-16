@@ -74,7 +74,7 @@ msgstr "Введите Ваш код-приглашение"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:67
 msgid "Email (for notification of order)"
-msgstr "Email (для уведомлений о заказе)"
+msgstr "Email"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:69
 msgid "Save"

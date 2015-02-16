@@ -103,7 +103,12 @@ class Front extends Base {
         }
         
         $track->data = array('values'=>$values);
-        $track->save();    
-        echo "ok";
+        $track->save(); 
+        
+        $user = \LPCandy\Models\User::find($this->user);   
+        //$send_mail = Mail::send($user->email); 
+        //mail($user->email, "Lpcandy", "У Вас новая заявка", "From: lpcandy.beejee@gmail.com");
+
+        echo "ok";      
     }
 }

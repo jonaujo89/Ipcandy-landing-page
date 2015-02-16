@@ -23,7 +23,7 @@
                     allowSkipType: false,
                     minified_style: <?= \Bingo\Configuration::$applicationMode=='development' ? 'false':'true' ?>
                 });
-            }
+            }            
         </script>        
         
         <? if (\Bingo\Configuration::$applicationMode=='development'): ?>
