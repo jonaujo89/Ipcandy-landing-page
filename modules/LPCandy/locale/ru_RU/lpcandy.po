@@ -193,8 +193,8 @@ msgid "Extra html(<b>JavaScript</b>) code"
 msgstr "Подключаемый html(JavaScript) код"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:112
-msgid "JavaScript"
-msgstr "Javascript"
+msgid "this JavaScript run with form submit"
+msgstr "этот JavaScript исполняется при отправке формы"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:116
 msgid "Save child page"
@@ -293,6 +293,10 @@ msgstr "Путь не определён"
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/page-list.php:64
 msgid "No pages yet"
 msgstr "Страниц пока нет"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:112
+#~ msgid "JavaScript"
+#~ msgstr "Javascript"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:67
 #~ msgid "Email (for notification)"
