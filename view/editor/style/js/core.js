@@ -307,11 +307,13 @@ function initForms() {
                 $form.find('input:checkbox, input:radio').prop('checked', false);
                 $form.find(".form_field_radio_value:first-child input").prop("checked",true);
                 $form.find(".form_field_select option:first-child").prop("selected",true);                
-                SubmitJS();
+                if(typeof extraHtmlSubmit == 'function'){//если функции нет здесь, то функция у window.parent
+                    extraHtmlSubmit();    
+                } else {
+                    window.parent.extraHtmlSubmit();                    
+                }
             }
         });
-        
-        return false;
     });
 };
 

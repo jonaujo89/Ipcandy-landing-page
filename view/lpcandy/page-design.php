@@ -42,9 +42,16 @@
                 require_min(run);
             </script>
         <? endif ?>
+        <script>
+            window.extraHtmlSubmit = function (){
+                <?= strip_tags($page->extra_html_submit) ?>
+            };
+        </script>
     </head>
     <body>
         <? include partial('lpcandy/beejee-info') ?>
         <? include partial('lpcandy/logged-info') ?>
+        <?= $page->extra_html ?>
     </body>
+    
 </html>

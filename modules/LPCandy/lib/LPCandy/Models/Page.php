@@ -64,6 +64,7 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
         $this->meta_keywords = "";
         $this->meta_description = "";
         $this->extra_html = "";
+        $this->extra_html_submit = "";
     }
     
     function getPath($sub=false) {
