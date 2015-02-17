@@ -190,11 +190,11 @@ msgstr "Содержание мета-тега “description”(описани�
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:111
 msgid "Extra html <b>JavaScript</b> code (example: online consultant)"
-msgstr "JavaScript (пример: онлайн консультант)"
+msgstr "Extra html <b>JavaScript</b> (пример: онлайн консультант)"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:112
 msgid "<b>JavaScript</b> call when form submit (example: google analytics or metrika yandex)"
-msgstr "JavaScript вызываемый при отправке формы (пример: google аналитика или яндекс метрика)"
+msgstr "<b>JavaScript</b> вызываемый при отправке формы (пример: google аналитика или yandex метрика)"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:116
 msgid "Save child page"

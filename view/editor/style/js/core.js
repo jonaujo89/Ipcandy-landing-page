@@ -307,11 +307,8 @@ function initForms() {
                 $form.find('input:checkbox, input:radio').prop('checked', false);
                 $form.find(".form_field_radio_value:first-child input").prop("checked",true);
                 $form.find(".form_field_select option:first-child").prop("selected",true);                
-                if(typeof extraHtmlSubmit == 'function'){//если функции нет здесь, то функция у window.parent
-                    extraHtmlSubmit();    
-                } else {
-                    window.parent.extraHtmlSubmit();                    
-                }
+
+                $(document).trigger("track_sent");
             }
         });
     });
@@ -335,7 +332,16 @@ $.fn.textBlockHeight = function () {
 };
 
 
-$(function() {    
+$(function() {
+    
+    $(document).on("track_sent",function(){
+        if(typeof extraHtmlSubmit == 'function'){
+            extraHtmlSubmit();
+        } else {
+            window.parent.extraHtmlSubmit();
+        }        
+    });
+    
     $(".gallery_2 .item_list .item_block .item").textBlockHeight();
     $(".countdown").lpCounty();	
 	$(".fancybox:visible").lpFancybox();
@@ -344,5 +350,5 @@ $(function() {
     $(".map").mapYandex();    
     initForms();
     initOrderButton();  
-    initPolicyInfo();
+    initPolicyInfo();    
 });

@@ -57,7 +57,7 @@ class Front extends Base {
             </head>                
                 <body>
                     <?= $body_html ?>
-                    <?= $page->extra_html?>
+                    <?= $page->extra_html?>                    
                 </body>
             </html>
         <?
