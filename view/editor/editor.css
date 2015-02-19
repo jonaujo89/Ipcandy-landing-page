@@ -1,16 +1,18 @@
+#teacss-layer {
+  position: absolute;
+}
 .fa-home:before {
   position: relative;
   top: 2px;
   font-size: 22px;
   color: #71a0d0;
 }
-
 #beejee_info {
   margin: 0 auto 0 450px;
   width: 450px;
   display: block;
-  z-index: 10001;
-  position: absolute;
+  z-index: 1000;
+  position: fixed;
 }
 body.view-layout #beejee_info{
   display: none;
@@ -52,7 +54,7 @@ body.view-layout #beejee_info{
     border-radius: 0 0 0 20px;
     margin: 0 !important;
     padding: 0px 10px 5px;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     color: #aaa;
