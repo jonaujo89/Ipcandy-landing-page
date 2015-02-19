@@ -102,7 +102,7 @@ class Page extends Base {
         if ($page->parent) {
             $form->text('pathname',_t('Path (Example: /link)'),'required',$page->pathname);            
         } else {
-            $form->text('domain',_t('Domain'),$this->domain_validator($page),$page->domain);
+            $form->text('domain',_t('Domain (bind your domain to our server IP:').$_SERVER['REMOTE_ADDR'].')',$this->domain_validator($page),$page->domain);
         }
         
         $form->text('meta_robots',_t('Meta-tag “robots” content'),'',$page->meta_robots);

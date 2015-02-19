@@ -159,7 +159,6 @@ msgid "Title"
 msgstr "Заголовок"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:71
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:105
 msgid "Domain"
 msgstr "Домен"
 
@@ -175,6 +174,10 @@ msgstr "Создать страницу"
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:103
 msgid "Path (Example: /link)"
 msgstr "Путь (Пример: /link)"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:105
+msgid "Domain (bind your domain to our server IP:"
+msgstr "Домен (привяжите Ваш домен к нашему IP:"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:108
 msgid "Meta-tag “robots” content"
@@ -293,6 +296,10 @@ msgstr "Путь не определён"
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/page-list.php:64
 msgid "No pages yet"
 msgstr "Страниц пока нет"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:105
+#~ msgid "Domain (our ip:"
+#~ msgstr "Домен (наш ip:"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:112
 #~ msgid "this JavaScript call when form submit (example: google analytics or metrika yandex)"
