@@ -23,11 +23,11 @@ class Mail extends Base {
         $mail->Subject = "Lpcandy";
         $mail->Body = "<b>У Вас появились новые заявки.<br/><br/><a href='lpcandy.ru/track-list'>Посмотреть</a></b>";
         $mail->AddAddress($address);
-         if(!$mail->Send()){
-            echo "Mailer Error: " . $mail->ErrorInfo;
-        }
-        else{
-            echo "Message has been sent";
+        
+        if(!$mail->Send()){
+            return "Mailer Error: " . $mail->ErrorInfo;
+        } else{
+            return "Message has been sent";
         }
     }
     

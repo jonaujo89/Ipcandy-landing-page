@@ -309,6 +309,7 @@ function initForms() {
                 $form.find(".form_field_select option:first-child").prop("selected",true);                
 
                 $(document).trigger("track_sent");
+                
             }
         });
     });

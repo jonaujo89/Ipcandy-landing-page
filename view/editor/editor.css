@@ -1,8 +1,7 @@
 .fa-home:before {
-  position: absolute;
-  top: 3px;
-  right: 275px;
-  font-size: 20px;
+  position: relative;
+  top: 2px;
+  font-size: 22px;
   color: #71a0d0;
 }
 
@@ -10,7 +9,7 @@
   margin: 0 auto 0 450px;
   width: 450px;
   display: block;
-  z-index: 50000;
+  z-index: 10001;
   position: absolute;
 }
 body.view-layout #beejee_info{
@@ -52,7 +51,7 @@ body.view-layout #beejee_info{
     border-left: 2px solid #777777;
     border-radius: 0 0 0 20px;
     margin: 0 !important;
-    padding: 5px 10px 5px 20px;
+    padding: 0px 10px 5px;
     position: absolute;
     right: 0;
     top: 0;
@@ -70,8 +69,7 @@ body.view-layout #beejee_info{
 }
 
 #logged_info a.home {
-    font-size: 16px;
-    margin-right: 10px;
+    margin-right: 3px;
 }
 
 .view-layout #logged_info {
