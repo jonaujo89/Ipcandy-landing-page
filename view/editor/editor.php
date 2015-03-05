@@ -21,8 +21,6 @@ include "components/video.php";
 include "components/textBlock.php";
 include "components/timer.php";
 include "components/numbers.php";
-
-
-// other comment
+include "components/custom.php";
 
 \LPCandy\Components\Block::registerAll();

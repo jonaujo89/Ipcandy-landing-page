@@ -61,6 +61,7 @@ require("./ui/video.js");
 require("./ui/textBlock.js");
 require("./ui/numbers.js");
 require("./ui/timer.js");
+require("./ui/custom.js");
 
 var dir = require.dir;
 
