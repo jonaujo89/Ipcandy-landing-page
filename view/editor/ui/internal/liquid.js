@@ -1,12 +1,13 @@
-lp.custom = lp.block.extendOptions({
+lp.liquid = lp.cover.extendOptions({
     change: function(){
-        this.variant.find(".container").html(this.value.html.replace("{{base_url}}",base_url));
+        this.element.html(this.value.tpl.replace("{{base_url}}",base_url));
     },
     configForm: {
+        width: 800,
         items: [   
-            _t("HTML"),
+            _t("Template"),
             { 
-                name: "html", 
+                name: "tpl",
                 height: 300,
                 type: ui.textarea.extend({
                     init: function (o) {
@@ -22,6 +23,7 @@ lp.custom = lp.block.extendOptions({
                             me.trigger("change");
                         });
                         this.element = $("<div>").append(el).append(button.element);
+                        this.input.css({overflow:'auto',whiteSpace:'nowrap'});
                     }
                 })
             }

@@ -42,6 +42,7 @@ require("./ui/internal/galleryRepeater.js");
 require("./ui/internal/overlayImage.js");
 require("./ui/internal/galleryImage.js");
 require("./ui/internal/background.js");
+require("./ui/internal/liquid.js");
 
 require("./lib/ymaps.js");
 
@@ -61,7 +62,6 @@ require("./ui/video.js");
 require("./ui/textBlock.js");
 require("./ui/numbers.js");
 require("./ui/timer.js");
-require("./ui/custom.js");
 
 var dir = require.dir;
 

@@ -345,3 +345,18 @@ class LogoItem extends Block {
         echo "<img src=".INDEX_URL."/".$val.">";
     }
 }
+
+class Liquid extends Block {
+    public $editor = "lp.liquid";
+    public $internal = true;
+    
+    function tpl_default() { 
+        return  array(
+            'tpl' => "<h1>Пример HTML</h1><p>И немного текста</p>"
+        );
+    }
+    
+    function tpl($val) {
+        echo str_replace("{{base_url}}",INDEX_URL,@$val['tpl']?:"");
+    }
+}
