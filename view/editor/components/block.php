@@ -26,32 +26,31 @@ class Block {
     }
     
     static function registerAll() {
-        foreach (get_declared_classes() as $cls) {
-            if (strpos($cls,"LPCandy\\Components")===0) {
-                $cls::register();
-            }
-        }
-    }
-    
-    static function register() {
-        $obj = self::get();
-        if ($obj->id=='Block') return;
-        
-        if (!$obj->internal) \TemplaterApi::addAction('getComponents',function($api,&$components) use ($obj) {
-            $components[$obj->id] = array(
-                'name' => $obj->name,
-                'description' => $obj->description,
-                'category' => 'Блоки',
+        \TemplaterApi::addAction('getComponents',function($api,&$components) {
+            foreach (get_declared_classes() as $cls) {
+                if (strpos($cls,"LPCandy\\Components")!==0) continue;
                 
-                'area' => false,
-                'update' => function ($val,$dataSource,$api,$edit) use ($obj) {
-                    return array(
-                        'html' => $obj->getHtml($val,$edit)
-                    );
-                },
-                'clientControl' => $obj->editor
-            );
-        });        
+                $obj = $cls::get();
+                $obj->api = $api;
+                
+                if ($obj->id=='Block') continue;
+                if ($obj->internal) continue;
+                
+                $components[$obj->id] = array(
+                    'name' => $obj->name,
+                    'description' => $obj->description,
+                    'category' => 'Блоки',
+
+                    'area' => false,
+                    'update' => function ($val,$dataSource,$api,$edit) use ($obj) {
+                        return array(
+                            'html' => $obj->getHtml($val,$edit)
+                        );
+                    },
+                    'clientControl' => $obj->editor
+                );
+            }
+        });
     }
     
     function __construct() {
