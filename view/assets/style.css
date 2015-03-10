@@ -338,8 +338,9 @@ form button[type="submit"].disabled, form button[type="submit"][disabled] {
 form input[type="text"], form select, form textarea {
     max-width: 600px;
 }
-form .mceLayout {
+form .mceEditor .mceLayout {
     max-width: 1200px;
+    margin-bottom: 0.8em;
 }
 form .browse_wrap {
     max-width: 600px;
