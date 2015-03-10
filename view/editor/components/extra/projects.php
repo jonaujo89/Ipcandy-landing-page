@@ -57,8 +57,7 @@ class Projects extends Block {
                                                 <?=$project->content?>
                                             </div>
                                         </div>
-                                        
-                                    <div>
+                                    </div>
                                 </div>
                                 <div style="clear: both"></div>
                             </div>
