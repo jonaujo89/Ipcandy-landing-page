@@ -28,7 +28,11 @@ class Projects extends Block {
                             foreach ($ids as &$id) {
                                 $id = (int)$id;
                             }
-                            $projects = \LPExtra\Models\Project::findBy(['id'=>$ids]);
+                            $res = \LPExtra\Models\Project::findBy(['id'=>$ids]);
+                            $hash = array();
+                            $projects = array();
+                            foreach ($res as $project) $hash[$project->id] = $project;
+                            foreach ($ids as $id) if (isset($hash[$id])) $projects[] = $hash[$id];
                         ?>
                         
                         <? foreach ($projects as $project): ?>
