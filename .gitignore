@@ -3,6 +3,7 @@ upload
 upload/
 .codeintel/
 cache/images
+cache/images/
 cache/locale
 cache/locale/
 
