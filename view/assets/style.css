@@ -1,39 +1,3 @@
-#beejee_info {
-  margin: -61px auto 0 234px;
-  width: 450px;
-  position: absolute;
-}
-#beejee_info > div.title {
-  float: left;
-  margin-right: 20px;
-  margin-top: 4px;
-  color: white;
-  font-size: 16px;
-  font-family: "Arial";
-  font-weight: bold;
-}
-#beejee_info > div.title > .company_beejee{
-  color: #FFE900;
-    text-decoration: none;
-}
-
-#beejee_info > a.beejee {
-  background: transparent url('images/logo-beejee.png') no-repeat;
-  border: none;
-  display: block;
-  height: 65px;
-  overflow: hidden;
-  text-indent: -2000px;
-  width: 66px;
-  float: left;
-  margin-right: 10px;
-}
-
-.page-title .page_actions {
-  margin: 1em auto 0 0 !important;
-  display: block;
-}
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -308,6 +272,9 @@ form fieldset .legend, form fieldset legend {
     border: 0;
     border-bottom: 1px solid #e5e5e5;
 }
+form {
+    padding: 0;
+}
 form button[type="submit"] {
     display: inline-block;
     padding: 0.3em 0.7em;
@@ -370,6 +337,81 @@ form button[type="submit"].disabled, form button[type="submit"][disabled] {
 }
 form input[type="text"], form select, form textarea {
     max-width: 600px;
+}
+form .mceLayout {
+    max-width: 1200px;
+}
+form .browse_wrap {
+    max-width: 600px;
+    margin: 0 0 0.8em 0;
+    background: none !important;
+}
+form .browse_wrap tr, form .browse_wrap td {
+    background: none !important;
+    border: none;
+    padding: 0;
+}
+form .browse_wrap input {
+    margin: 0;
+}
+form .browse_wrap button {
+    display: inline-block;
+    padding: 0.3em 0.7em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    white-space:nowrap;
+    width: auto;
+    height: auto;
+    line-height: 1em;
+    border: 1px solid #ccc;
+    border-bottom-color: #bbb;
+    border-radius: 0.3em;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    background-color: #6296cb;
+    background-image: -moz-linear-gradient(top, #71a0d0, #4b87c3);
+    background-image: -ms-linear-gradient(top, #71a0d0, #4b87c3);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#71a0d0), to(#4b87c3));
+    background-image: -webkit-linear-gradient(top, #71a0d0, #4b87c3);
+    background-image: -o-linear-gradient(top, #71a0d0, #4b87c3);
+    background-image: linear-gradient(top, #71a0d0, #4b87c3);
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",#71a0d0,#4b87c3));
+    border-color: #4b87c3 #4b87c3 #306191;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0, 0, 0, 0.25);
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+    margin-left: 0.5em;
+}
+form .browse_wrap button.small {
+    font-size: 0.9em;
+}
+form .browse_wrap button.large {
+    padding: 0.7em 1.5em;
+}
+form .browse_wrap button.disabled, form .browse_wrap button[disabled] {
+    cursor: default;
+}
+form .browse_wrap button:hover {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    background: #71a0d0;
+}
+form .browse_wrap button.active, form .browse_wrap button:active {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    background: #71a0d0;
+}
+form .browse_wrap button.disabled, form .browse_wrap button[disabled] {
+    opacity: 0.65;
+    filter: e(%("alpha(opacity=%d)", 65));
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 table {
     max-width: 100%;
@@ -513,7 +555,7 @@ body {
 }
 #header .in #logo {
     display: block;
-    background: url(http://uxcandy.com/~maxtun/lpcandy/view/assets/images/lpcandy.png) no-repeat 0 50%;
+    background: url(http://dev1.lpcandy.ru/view/assets/images/lpcandy.png) no-repeat 0 50%;
     width: 135px;
     height: 103px;
     text-indent: -999em;
@@ -549,7 +591,7 @@ body {
 }
 #menu ul li #logo {
     display: block;
-    background: url(http://uxcandy.com/~maxtun/lpcandy/view/assets/images/lpcandy.png) no-repeat 0 50%;
+    background: url(http://dev1.lpcandy.ru/view/assets/images/lpcandy.png) no-repeat 0 50%;
     width: 135px;
     height: 103px;
     text-indent: -999em;
@@ -585,7 +627,7 @@ body {
 }
 #content > h3 {
     background: #333;
-    color: #DDDDDD;
+    color: white;
     border-top: 5px solid #71a0d0;
     margin: 0px;
     padding: 10px 20px;
@@ -611,9 +653,6 @@ body {
     background: #333;
     color: #aaa;
     text-align: center;
-}
-form {
-    padding: 0;
 }
 .pagination {
     margin-bottom:0.5em;
@@ -939,7 +978,6 @@ td.title h3 a {
 .actions a.design {
     font-size: 1.4em;
     line-height: 1.2em;
-    margin: 5px auto;
 }
 .child .actions a {
     font-size: 1.0em;

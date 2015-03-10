@@ -63,4 +63,12 @@ class User extends \Auth\Models\User {
         User::generateSecret($identity->user);
         return $identity->user;
     }
+    
+    function hasAccess($resource) {
+        $groups = \Bingo\Config::get('config','acl');
+        foreach ($groups as $group) {
+            if (in_array($this->id,$group['users']) && in_array($resource,$group['res'])) return true;
+        }
+        return false;
+    }
 }

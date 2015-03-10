@@ -90,6 +90,9 @@ class User extends Base {
         if ($url) $_REQUEST['url'] = "/".$url;
 
         $api = new \LPCandy\TemplaterApi($page);
-        $api->browse();
+        $config = array();
+        $config['uploadURL'] = url(str_replace(INDEX_DIR,'',$api->uploadDir));
+        $config['_tinyMCEPath'] = url('lib/bingo/template/admin/cms/script/tiny_mce');
+        $api->browse($config);
     }
 }

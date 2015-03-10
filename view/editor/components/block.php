@@ -9,6 +9,7 @@ class Block {
     public $description = "";
     public $editor = "lp.block";
     public $internal = false;
+    public $access_resource = false;
     
     static $list = array();
     
@@ -35,6 +36,10 @@ class Block {
                 
                 if ($obj->id=='Block') continue;
                 if ($obj->internal) continue;
+                
+                if ($obj->access_resource) {
+                    if (!$api->page->user->hasAccess($obj->access_resource)) continue;
+                }
                 
                 $components[$obj->id] = array(
                     'name' => $obj->name,

@@ -65,6 +65,19 @@ ol li {
     border-bottom: 1px solid #e0e0e0;
 }
 
+.btn_wrap a.btn_form {
+  -moz-user-select: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 7px 45px;
+  text-decoration: none;
+  text-align: center;
+}
+
+
 /* policy AlertifyJS dialog */
 .alertify .ajs-body .ajs-content .policy_info_alertify p {
   display: block;
@@ -3748,6 +3761,10 @@ ol li {
   font-family: "Arial";
 }
 
+.cases_1 .btn_wrap {
+    margin-top: 20px;
+}
+
 /* stages */
 .stages_1 .container {
   padding: 45px 0 60px 0;
@@ -6059,4 +6076,24 @@ ol li {
   color: #A0A0A0;
   font-family: "Open Sans", "Arial";
   text-transform: uppercase;
+}
+
+/* projects */
+.alertify .ajs-dialog.wide {
+    min-width: 1170px;
+}
+
+.alertify .ajs-body .ajs-content .project_popup h1 {
+  margin: 10px 0 20px 0;
+  font-size: 48px;
+  line-height: 56px;
+  font-family: "Open Sans", "Arial";
+  font-weight: 400;
+}
+
+.alertify .ajs-body .ajs-content .project_popup p {
+  font-family: "Arial";
+  font-size: 15px;
+  line-height: 22px;
+  margin-bottom: 10px;
 }

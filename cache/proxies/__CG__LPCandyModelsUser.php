@@ -225,6 +225,17 @@ class User extends \LPCandy\Models\User implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
+    public function hasAccess($resource)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasAccess', array($resource));
+
+        return parent::hasAccess($resource);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function logout()
     {
 

@@ -1,4 +1,4 @@
-@import "/~boomyjee/templater/lib/modules/core/style/tea/bake.min.js";
+@import "bake.min.js";
 
 @ color1 = '#123';
 @ color2 = '#f90';
@@ -25,6 +25,8 @@
 .form();
 
 form {
+    padding: 0;
+
     button[type="submit"] {
         .button({color:color(1,11)});
         font-size: 1.4em;
@@ -32,6 +34,28 @@ form {
     }
     input[type="text"],select,textarea {
         max-width: 600px;
+    }
+    .mceLayout {
+        max-width: 1200px;
+    }
+    
+    .browse_wrap {
+        max-width: 600px;
+        margin: 0 0 0.8em 0;
+        
+        background: none !important;
+        tr,td {
+            background: none !important;
+            border: none;
+            padding: 0;
+        }
+        input {
+            margin: 0;
+        }
+        button {
+            .button({color:color(1,11)});
+            margin-left: 0.5em;
+        }
     }
 }
 
@@ -175,10 +199,6 @@ body {
     text-align: center;
 }
 
-
-form {
-    padding: 0;
-}
 
 .pagination {
     margin-bottom:0.5em;

@@ -23,4 +23,6 @@ include "components/timer.php";
 include "components/numbers.php";
 include "components/custom.php";
 
+include "components/extra/projects.php";
+
 \LPCandy\Components\Block::registerAll();

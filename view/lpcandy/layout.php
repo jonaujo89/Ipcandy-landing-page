@@ -4,7 +4,11 @@
     <title><?= $title ?></title>
     <meta charset="utf-8" />
     <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="view/assets/images/lpcandy.png"/> 
-    <script>var base_url = "<?=url('')?>"</script>   
+    <script>
+        var base_url = "<?=rtrim(url(''),"/")?>";
+        var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";
+        var browse_text = "<?=_t('Browse')?>";
+    </script>   
     
     <?
         include INDEX_DIR."/lib/teacss/teacss.php";
@@ -31,7 +35,7 @@
                 array('url'=>'profile','label'=>_t('Profile'))
             );
         }
-        $menu = \Bingo\Action::filter('admin_menu',array($menu,$user));
+        $menu = \Bingo\Action::filter('lpcandy_menu',array($menu,$user));
     ?>
     <div id="menu">
         <ul>

@@ -2,6 +2,8 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
     return {
         main:function(content){
             this.setContent(content);
+            var wide = $(content).hasClass("wide");
+            $(this.elements.dialog).toggleClass("wide",wide);
         },
         setup:function(){
             return {
@@ -351,5 +353,5 @@ $(function() {
     $(".map").mapYandex();    
     initForms();
     initOrderButton();  
-    initPolicyInfo();    
+    initPolicyInfo();
 });

@@ -10,7 +10,7 @@ require_once BINGO_PATH . "/loader.php";
 
 \Bingo\Configuration::addModulePath(INDEX_DIR."/modules");
 \Bingo\Configuration::addModules('Auth','CMS');
-\Bingo\Configuration::addModules('LPCandy');
+\Bingo\Configuration::addModules('LPCandy','LPExtra');
 
 \Bingo\Configuration::addDbConnection('localhost','boomyjee_lpcandy_new','boomyjee','jeemyboo');
 

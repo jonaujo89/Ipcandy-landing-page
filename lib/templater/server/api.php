@@ -113,11 +113,11 @@ class TemplaterApi {
         return $tpl->render($data);        
     }    
     
-    function browse() {
+    function browse($config) {
         $api_url = explode("?",$_SERVER['REQUEST_URI'],2);
         $api_url = $api_url[0];
         
-        define('KC_ROOT',$api_url);
+        if (!defined('KC_ROOT')) define('KC_ROOT',$api_url);
         
         $url = @$_REQUEST['url'];
         
@@ -132,6 +132,8 @@ class TemplaterApi {
                 }
                 if ($ext=='css') header('Content-type: text/css');
                 if ($ext=='js') header('Content-type: application/javascript');
+                if ($ext=='png') header('Content-type: image/png');
+                if ($ext=='gif') header('Content-type: image/gif');
                 readfile($path);
                 die();
             }
@@ -139,14 +141,13 @@ class TemplaterApi {
         }
         
         global $_CONFIG;
-        $config = array();
         $_CONFIG = array();
         $_CONFIG['disabled'] = false;
         $_CONFIG['uploadURL'] = "http://upload.url/dir";
         $_CONFIG['uploadDir'] = $this->uploadDir;
         if (isset($_REQUEST['theme'])) $_CONFIG['theme'] = $_REQUEST['theme'];
         
-        $_CONFIG = array_merge($_CONFIG,$config);
+        $_CONFIG = array_merge($_CONFIG,$config?:array());
         require __DIR__.'/lib/kcFinder/browse.php';        
     }
     
@@ -158,7 +159,7 @@ class TemplaterApi {
         
         $ext = pathinfo($name, PATHINFO_EXTENSION);
         $thumb = basename($name,".".$ext).".png";
-        $thumbPath = $this->uploadDir."/".$dir."/thumbs/".$thumb;
+        $thumbPath = $this->uploadDir."/.thumbs/".$dir."/".$thumb;
         
         if (file_exists($path)) {
             unlink($path);
@@ -176,7 +177,7 @@ class TemplaterApi {
         
         if ($name) {
             $dir = $this->uploadDir."/".$name;
-            $tdir = $this->uploadDir."/".$name."/thumbs";
+            $tdir = $this->uploadDir."/.thumbs/".$name;
             
             if (!file_exists($dir)) mkdir($dir,0777,true);
             if (!file_exists($tdir)) mkdir($tdir,0777,true);

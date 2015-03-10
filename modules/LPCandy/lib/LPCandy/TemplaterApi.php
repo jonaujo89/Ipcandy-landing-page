@@ -57,7 +57,6 @@ class TemplaterApi extends \TemplaterApi {
         $this->makeScreenshot();
         $tpl = $this->page->getTemplate().".yaml";
         $tpl_path = $this->page->getTemplatePath($tpl);        
-        // file not exists for empty new pages, SEE: https://trello.com/c/hQFzDIjg
         if (file_exists($tpl_path)) {
             copy($tpl_path,$base."/templates/".$tpl);
         }

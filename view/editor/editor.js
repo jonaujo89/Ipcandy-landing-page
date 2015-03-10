@@ -63,6 +63,8 @@ require("./ui/textBlock.js");
 require("./ui/numbers.js");
 require("./ui/timer.js");
 
+require("./ui/extra/projects.js");
+
 var dir = require.dir;
 
 $.fn.toggleVis = function(flag) {

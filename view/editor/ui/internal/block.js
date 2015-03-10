@@ -37,7 +37,52 @@ lp.block = teacss.ui.control.extend({
         this.nextButton.mousedown(function(e){me.next();e.preventDefault();});
         
         if (me.options.init) me.options.init.call(me);
-   },
+    },
+    
+    setValue: function (val) {
+        this._super(val);
+        this.id = val.id;
+        this.type = val.type;
+        
+        var me = this;
+        this.cmp.componentHandle.detach();
+        if (this.controls) return;
+        
+        me.element = me.cmp.element;
+        me.controls = $("<div class='cmp-controls'>").appendTo(this.cmp.element);
+        me.variants = this.cmp.element.children("[data-variant]").each(function(){
+            var def = $.parseJSON($(this).attr("data-default"));
+            var idx = $(this).attr("data-variant");
+            me.variantDefault[idx] = $.extend(def||{},{variant:parseInt(idx)});
+            $(this).attr("data-default",null);
+        });
+        if (me.variants.length>1) {
+            me.current = this.cmp.element.attr("data-current");
+            me.controls.append(
+                this.prevButton,
+                this.nextButton,
+                this.variantLabel
+            );
+        } else {
+            me.current = 1;
+        }
+        
+        me.bindEditors();
+        me.showCurrent(val);
+
+        me.controls.append(
+            this.configButton,
+            this.dragButton,
+            this.removeButton                
+        );
+    },    
+    
+    reloadHtml: function () {
+        var me = this;
+        me.controls.detach();
+        me.controls = null;
+        me.cmp.reloadHtml(me.getValue());
+    },
     
     remove: function () {
         var me = this;
@@ -229,43 +274,6 @@ lp.block = teacss.ui.control.extend({
             });        
         });
         
-    },
-    
-    setValue: function (val) {
-        this._super(val);
-        this.id = val.id;
-        this.type = val.type;
-        
-        var me = this;
-        this.cmp.componentHandle.detach();
-        if (this.controls) return;
-        
-        me.controls = $("<div class='cmp-controls'>").appendTo(this.cmp.element);
-        me.variants = this.cmp.element.children("[data-variant]").each(function(){
-            var def = $.parseJSON($(this).attr("data-default"));
-            var idx = $(this).attr("data-variant");
-            me.variantDefault[idx] = $.extend(def||{},{variant:parseInt(idx)});
-            $(this).attr("data-default",null);
-        });
-        if (me.variants.length>1) {
-            me.current = this.cmp.element.attr("data-current");
-            me.controls.append(
-                this.prevButton,
-                this.nextButton,
-                this.variantLabel
-            );
-        } else {
-            me.current = 1;
-        }
-        
-        me.bindEditors();
-        me.showCurrent(val);
-
-        me.controls.append(
-            this.configButton,
-            this.dragButton,
-            this.removeButton                
-        );
     },
     
     editorChange: function (name,val,editor) {
