@@ -9,7 +9,7 @@ class LPExtra extends \Bingo\Module {
         
         \Bingo\Action::add('lpcandy_menu',function($menu,$user){
             if ($user && $user->hasAccess('project_editor')) {
-                $menu[] = array('url'=>'project-list','label'=>_t('Projects','lpextra'));
+                $menu[] = array('url'=>'project-list','label'=>_t('Projects','lpcandy'));
             }
             return $menu;
         },10,2);
