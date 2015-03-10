@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
 "X-Poedit-SearchPath-0:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib"
-"X-Poedit-SearchPath-1:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy"
-"X-Poedit-SearchPath-2:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor"
+"X-Poedit-SearchPath-1:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib"
+"X-Poedit-SearchPath-2:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy"
+"X-Poedit-SearchPath-3:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:30
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:34
 msgid "Tracking"
 msgstr "Заявки"
 
@@ -17,9 +18,7 @@ msgstr "удалить"
 msgid "Delete selected"
 msgstr "Удалить отмеченные"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Track.php:59
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Admin/Users.php:23
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Admin/Invites.php:32
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:15
 msgid "#"
 msgstr "№"
 
@@ -137,7 +136,7 @@ msgstr "Добавить приглашения"
 msgid "Back to invite list"
 msgstr "Вернуться к списку приглашений"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:29
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:33
 msgid "Pages"
 msgstr "Страницы"
 
@@ -153,8 +152,7 @@ msgstr "Извините, но данный домен уже занят"
 msgid "Start from scratch"
 msgstr "Начать с нуля"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:70
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Page.php:100
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:33
 msgid "Title"
 msgstr "Заголовок"
 
@@ -241,15 +239,53 @@ msgstr "Клиенты"
 msgid "Invites"
 msgstr "Приглашения"
 
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra.php:12
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:22
+msgid "Projects"
+msgstr "Проекты"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:16
+msgid "title"
+msgstr "заголовок"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:18
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:41
+msgid "Edit project"
+msgstr "Редактировать проект"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:23
+msgid "Create New Project"
+msgstr "Создать новый проект"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:34
+msgid "Thumbnail"
+msgstr "Миниатюра"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:35
+msgid "Excerpt"
+msgstr "Кратко"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:36
+msgid "Content"
+msgstr "Содержание"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib/LPExtra/Controllers/Projects.php:39
+msgid "Save project"
+msgstr "Сохранить проект"
+
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/page-design.php:4
 msgid "Templater editor"
 msgstr "Редактор страниц"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:31
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:10
+msgid "Browse"
+msgstr "Выбрать"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:35
 msgid "Profile"
 msgstr "Профиль"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:58
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:62
 msgid "Powered by Bingo and TeaCss"
 msgstr "Создано с помощью Bingo и TeaCss"
 
@@ -260,6 +296,10 @@ msgstr "Вы вошли как"
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/logged-info.php:7
 msgid "Logout"
 msgstr "Выйти"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/base-edit-tinymce.php:129
+msgid "en"
+msgstr "ru"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/page-list.php:28
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/page-list.php:48

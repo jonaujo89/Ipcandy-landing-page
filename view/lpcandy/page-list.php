@@ -10,7 +10,7 @@
             <? endforeach ?>
         </span>
         <? endif ?>
-        <? include partial('lpcandy/beejee-info') ?>
+        <? //include partial('lpcandy/beejee-info') ?>
     </h3>
     <? endif ?>
 
