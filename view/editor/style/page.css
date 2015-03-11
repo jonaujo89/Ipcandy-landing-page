@@ -6080,7 +6080,7 @@ ol li {
 
 /* projects */
 .alertify .ajs-dialog.wide {
-    min-width: 1170px;
+    max-width: 1170px;
 }
 
 .alertify .ajs-body .ajs-content .project_popup h1 {

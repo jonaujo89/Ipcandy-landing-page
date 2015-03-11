@@ -9,7 +9,8 @@ class Projects extends Block {
     public $access_resource = "project_editor";
     
     function tpl($val) {?>
-        <div class="container-fluid cases cases_1" style="background: <?=$val['background_color']?>;">
+
+        <div class="container-fluid services services_1" style="background: <?=$val['background']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
@@ -21,7 +22,7 @@ class Projects extends Block {
                         <div class="title_2 <?=$cls?> " >
                             <? $this->sub('Text','title_2',Text::$plain_text) ?>
                         </div>
-                    <? endif ?>
+                    <? endif ?>    
                     <div class="item_list clear">
                         <?
                             $ids = explode(",",$val['ids']);
@@ -33,41 +34,44 @@ class Projects extends Block {
                             $projects = array();
                             foreach ($res as $project) $hash[$project->id] = $project;
                             foreach ($ids as $id) if (isset($hash[$id])) $projects[] = $hash[$id];
-                        ?>
+                        ?>  
                         
-                        <? foreach ($projects as $project): ?>
+                        <? for ($p=0;$p<count($projects);$p+=3): ?>
                             <div class="item_block">
-                                <div class="media_wrap">
-                                    <div class="media">
-                                    <? if (@$project->data['thumb']): ?>
-                                        <div class='img' style='background-image: url("<?= INDEX_URL.$project->data['thumb']?>")'></div>
-                                    <? endif ?>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <div class="top"></div>
-                                    <div class="name">
-                                        <?=$project->title?>
-                                    </div>
-                                    <div class="text">
-                                        <?=$project->excerpt?>
-                                    </div>
-                                    <div class="btn_wrap">
-                                        <a class="btn_form blue">Читать полный кейс</a>
-                                        <div style='display:none'>
-                                            <div class="form wide project_popup">
-                                                <h1><?=$project->title?></h1>
+                                <? for ($pp=0;$pp<3;$pp++): ?>
+                                    <? $project = @$projects[$p+$pp]; ?>
+                                    <? if (!$project) continue; ?>
+                                
+                                    <div class="item">
+                                        <div class="item_data">
+                                            <div class="img_wrap <?=$cls?>" >
+                                                <? if (@$project->data['thumb']): ?>
+                                                    <div class='img' style='background-image: url("<?= INDEX_URL.$project->data['thumb']?>")'></div>
+                                                <? endif ?>
+                                            </div>
+                                            <div class="name">
+                                                <?=$project->title?>
+                                            </div>
+                                            <div class="desc" >
                                                 <?=$project->excerpt?>
-                                                <?=$project->content?>
+                                            </div>
+                                            <div class="btn_wrap <?=$cls?>" >
+                                                <a class="btn_form blue">Читать полный кейс</a>
+                                                <div style='display:none'>
+                                                    <div class="form wide project_popup">
+                                                        <h1><?=$project->title?></h1>
+                                                        <?=$project->excerpt?>
+                                                        <?=$project->content?>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div style="clear: both"></div>
+                                    </div>    
+                                <? endfor ?>
                             </div>
-                        <? endforeach ?>
-                    </div>
-                </div>
+                        <? endfor ?>
+                    </div> 
+                 </div>
             </div>
         </div>
     <?}
