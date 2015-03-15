@@ -154,7 +154,7 @@ class Block {
     
     function bg_style($bg) {
         if (isset($bg['url']))
-            return 'background:url('.INDEX_URL.'/'.$bg['url'].')';
+            return 'background:url('.$this->api->base_url.'/'.$bg['url'].')';
         else
             return 'background:'.$bg['color'];
     }

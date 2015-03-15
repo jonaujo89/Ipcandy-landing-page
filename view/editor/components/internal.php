@@ -41,7 +41,7 @@ class Logo extends Block {
     function tpl($val) {?>
         <div class="logo">
             <? if ($val['type']=='image'): ?>
-                <img src="<?=INDEX_URL."/".$val['url']?>" width="<?=$val['size']?>%">
+                <img src="<?=$this->api->base_url."/".$val['url']?>" width="<?=$val['size']?>%">
             <? else: ?>
                 <?
                     $style = "";
@@ -208,7 +208,7 @@ class Icon extends Block {
     public $internal = true;
     
     function tpl($val) {
-        echo "<div class='ico' style='background-image: url(".INDEX_URL."/".$val.")'></div>";
+        echo "<div class='ico' style='background-image: url(".$this->api->base_url."/".$val.")'></div>";
     }
 }
 
@@ -217,7 +217,7 @@ class Image extends Block {
     public $internal = true;    
    
     function tpl($val) {
-       echo "<div class='img' style='background-image: url(".INDEX_URL."/".$val.")'></div>";                
+       echo "<div class='img' style='background-image: url(".$this->api->base_url."/".$val.")'></div>";                
     }
 }
 
@@ -227,7 +227,7 @@ class GalleryImage extends Block {
 	
     function tpl($item_val) {?>
         <? $val = $this->parent->val_prefix; ?>
-        <? $href = INDEX_URL."/".$item_val['image']; ?>
+        <? $href = $this->api->base_url."/".$item_val['image']; ?>
         
 		<div class='preview_img' style='background-image: url("<?=$href?>")'>
 			<? if ($cls = $this->vis(@$val['enable_fancybox'])): ?>
@@ -251,7 +251,7 @@ class OverlayImage extends Block {
    
     function tpl($item_val) {?>
         <? $val = $this->parent->val_prefix; ?>
-        <? $href = INDEX_URL."/".$item_val['image']; ?>
+        <? $href = $this->api->base_url."/".$item_val['image']; ?>
                 
         <div class="preview_img" style="background-image: url('<?=$href?>');">
             <? if ($cls = $this->vis($val['enable_fancybox'])): ?>
@@ -292,7 +292,7 @@ class Media extends Block {
     function tpl($val) {?>
         <div class="media">
             <? if ($val['type']=='image'): ?>
-                <div class='img' style='background-image: url("<?= INDEX_URL."/".$val['image_url']?>")'></div>
+                <div class='img' style='background-image: url("<?= $this->api->base_url."/".$val['image_url']?>")'></div>
             <? elseif($val['type']=='video'): 
                 preg_match("/(vimeo)|(youtu)/", $val['video_url'], $video_source);
                 if($video_source[0] == "youtu"){
@@ -302,7 +302,7 @@ class Media extends Block {
                     preg_match("/^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/", $val['video_url'], $matches);?>
                     <iframe frameborder="0" allowfullscreen="" src="//player.vimeo.com/video/<?=($matches[5]);?>"></iframe><? 
                 } else {?>
-                    <iframe frameborder="0" allowfullscreen="" src="<?= INDEX_URL."/"?>view/editor/assets/404.php"></iframe><?
+                    <iframe frameborder="0" allowfullscreen="" src="<?= $this->api->base_url."/"?>view/editor/assets/404.php"></iframe><?
                 }?>             
             <? endif ?>
         </div>
@@ -342,7 +342,7 @@ class LogoItem extends Block {
     public $internal = true;
     
     function tpl($val) {
-        echo "<img src=".INDEX_URL."/".$val.">";
+        echo "<img src=".$this->api->base_url."/".$val.">";
     }
 }
 
@@ -357,6 +357,6 @@ class Liquid extends Block {
     }
     
     function tpl($val) {
-        echo str_replace("{{base_url}}",INDEX_URL,@$val['tpl']?:"");
+        echo str_replace("{{base_url}}",$this->api->base_url,@$val['tpl']?:"");
     }
 }

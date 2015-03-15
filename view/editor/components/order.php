@@ -8,7 +8,7 @@ class Order extends Block {
     public $editor = "lp.order";
     
     function tpl($val) {?>
-        <div class="container-fluid order order_1" style="background: url('<?=INDEX_URL."/".$val['background']?>')">
+        <div class="container-fluid order order_1" style="background: url('<?=$this->api->base_url."/".$val['background']?>')">
             <div class="dark">
                 <div class="container">
                     <div class="span10">
@@ -60,7 +60,7 @@ class Order extends Block {
     
     
     function tpl_2($val) {?>
-        <div class="container-fluid order order_2" style="background: url('<?=INDEX_URL."/".$val['background']?>')">
+        <div class="container-fluid order order_2" style="background: url('<?=$this->api->base_url."/".$val['background']?>')">
             <div class="background_toggle_noise <?= $val['show_background_noise'] ? "with_noise" : "dark"?>">
                 <div class="container">
                     <div class="title_1">
@@ -98,7 +98,7 @@ class Order extends Block {
     
     
     function tpl_3($val) {?>
-        <div class="container-fluid order order_3" style="background: url('<?=INDEX_URL."/".$val['background']?>');">
+        <div class="container-fluid order order_3" style="background: url('<?=$this->api->base_url."/".$val['background']?>');">
             <div class="container">                
                 <div class="img_wrap <?= $val['show_border'] ? "" : "hide_border" ?>">
                     <? $this->sub('Media','media') ?>
@@ -269,7 +269,7 @@ class Order extends Block {
     
     
     function tpl_6($val) {?>
-        <div class="container-fluid order order_6" style="background: url('<?=INDEX_URL."/".$val['background']?>')">
+        <div class="container-fluid order order_6" style="background: url('<?=$this->api->base_url."/".$val['background']?>')">
             <div class="dark">
                 <div class="container">
                     <div class="content_wrap <?= $val['form_align'] ? "align_".$val['form_align'] : "align_right" ?>">

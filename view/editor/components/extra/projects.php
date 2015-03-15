@@ -46,7 +46,7 @@ class Projects extends Block {
                                         <div class="item_data">
                                             <div class="img_wrap <?=$cls?>" >
                                                 <? if (@$project->data['thumb']): ?>
-                                                    <div class='img' style='background-image: url("<?= INDEX_URL.$project->data['thumb']?>")'></div>
+                                                    <div class='img' style='background-image: url("<?= $this->api->base_url.$project->data['thumb']?>")'></div>
                                                 <? endif ?>
                                             </div>
                                             <div class="name">

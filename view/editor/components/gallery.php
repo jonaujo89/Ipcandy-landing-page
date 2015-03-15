@@ -24,9 +24,9 @@ class Gallery extends Block {
                     <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
                     <div class="item_list <?=$opacity?>"> 
 						<? $this->repeat('items', function($item_val,$self) use ($val) { ?>							
-                            <div class="preview_img" style="background-image: url('<?=INDEX_URL."/".$item_val['image']?>');"></div>
+                            <div class="preview_img" style="background-image: url('<?=$this->api->base_url."/".$item_val['image']?>');"></div>
                                 <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
-                                    <a class="fancybox big_img <?=$cls?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
+                                    <a class="fancybox big_img <?=$cls?>" href="<?=$this->api->base_url."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
                                 <? endif ?>
                             <div class="overlay">
                                 <div class="wrap_title_desc">
@@ -332,9 +332,9 @@ class Gallery extends Block {
 						<div class="slider">
 							<? $this->repeat('items', function($item_val,$self) use ($val){ ?>                                
                                 <div class="preview_img">									
-                                    <img src="<?=INDEX_URL."/".$item_val['image']?>">
+                                    <img src="<?=$self->api->base_url."/".$item_val['image']?>">
                                     <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
-                                        <a class="fancybox big_img <?=$cls?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
+                                        <a class="fancybox big_img <?=$cls?>" href="<?=$self->api->base_url."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
                                     <? endif ?>                                        
                                 </div>                                    
                                 <div class="overlay">
@@ -402,9 +402,9 @@ class Gallery extends Block {
                     <div class="item_list masonry <?=$opacity?>">
 						<? $this->repeat('items', function($item_val,$self) use ($val){ ?>
                             <div class="preview_img">									
-                                <img src="<?=INDEX_URL."/".$item_val['image']?>">
+                                <img src="<?=$self->api->base_url."/".$item_val['image']?>">
                                 <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
-                                    <a class="fancybox big_img <?=$cls?>" href="<?=INDEX_URL."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
+                                    <a class="fancybox big_img <?=$cls?>" href="<?=$self->api->base_url."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
                                 <? endif ?> 
                             </div>
                             <div class="overlay">
