@@ -65,7 +65,7 @@ class User extends \Auth\Models\User {
     }
     
     function hasAccess($resource) {
-        $groups = \Bingo\Config::get('config','acl');
+        $groups = \Bingo\Config::get('config','acl')?:array();
         foreach ($groups as $group) {
             if (in_array($this->id,$group['users']) && in_array($resource,$group['res'])) return true;
         }

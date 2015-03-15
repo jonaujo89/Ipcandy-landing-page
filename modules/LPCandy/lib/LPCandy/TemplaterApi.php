@@ -2,7 +2,7 @@
 
 namespace LPCandy;
 
-require INDEX_DIR . "/lib/templater/server/api.php";
+require __DIR__ . "/../../../../lib/templater/server/api.php";
 
 class TemplaterApi extends \TemplaterApi {
     
@@ -19,17 +19,17 @@ class TemplaterApi extends \TemplaterApi {
         $this->settingsPath =  $this->page->getSettingsPath();
         $this->templatePath = $page->getTemplatePath();
         
-        $this->base_dir = INDEX_DIR;
-        $this->base_url = INDEX_URL;
+        $this->base_dir = \LPCandy\Configuration::$base_dir;
+        $this->base_url = \LPCandy\Configuration::$base_url;
         
-        $this->uploadDir = INDEX_DIR."/upload/LPCandy/files/".$this->user_id;
-        $this->uploadUrl = INDEX_URL."/upload/LPCandy/files/".$this->user_id;
+        $this->uploadDir = $this->base_dir."/upload/LPCandy/files/".$this->user_id;
+        $this->uploadUrl = $this->base_url."/upload/LPCandy/files/".$this->user_id;
         
         if (!file_exists($this->templatePath)) mkdir($this->templatePath,0777,true);
         if (!file_exists($this->uploadDir)) mkdir($this->uploadDir,0777,true);
         
         $this->modules = array();
-        $this->modules[] = INDEX_DIR."/view/editor";
+        $this->modules[] = __DIR__ . "/../../../../view/editor";
     }
     
     function view($name,$dataSource,$ret) {
@@ -41,7 +41,7 @@ class TemplaterApi extends \TemplaterApi {
         $path = "/screenshot.png";
         $screen_file = $this->page->getPublishPath().$path;
         $url = 'http://'.$_SERVER['SERVER_NAME'].url('page-view/'.$this->page->id);
-        $rasterize = INDEX_DIR."/modules/LPCandy/rasterize.js";
+        $rasterize = $this->base_dir."/modules/LPCandy/rasterize.js";
         
         $pageWidth = 1200;
         

@@ -69,12 +69,12 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     
     function getPath($sub=false) {
         $id = $this->id;
-        return INDEX_DIR.'/upload/LPCandy/pages/'.$id.($sub ? "/".$sub:"");
+        return \LPCandy\Configuration::$base_dir.'/upload/LPCandy/pages/'.$id.($sub ? "/".$sub:"");
     }
     
     function getUrl($sub=false) {
         $id = $this->id;
-        return INDEX_URL.'/upload/LPCandy/pages/'.$id.($sub ? "/".$sub:"");
+        return \LPCandy\Configuration::$base_url.'/upload/LPCandy/pages/'.$id.($sub ? "/".$sub:"");
     }
     
     function getScreenshotUrl() {
