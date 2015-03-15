@@ -62,9 +62,4 @@ class LPCandy extends \Bingo\Module {
             \Admin::$menu[_t('LPCandy','lpcandy')][_t('Invites','lpcandy')] = 'admin/lpcandy/invite-list';
         });        
     }
-    
-    static function log($message, $filename = 'error.log') {
-        $timestamp = new \DateTime("Now");
-        error_log("\n".$timestamp->format("d.m.Y H:i:s").": " . $message,3,INDEX_DIR."/logs/".$filename);
-    }        
 }
