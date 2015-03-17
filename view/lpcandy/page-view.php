@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/style.min.css')?>">
     <script src="<?=url('view/editor/style/style.min.js')?>"> </script>    
     <script>
-        function SubmitJS(){
+        window.extraHtmlSubmit = function() {
             <?= strip_tags($page->extra_html_submit) ?>
         }
     </script>

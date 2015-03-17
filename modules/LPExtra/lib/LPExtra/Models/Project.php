@@ -37,10 +37,9 @@ class Project extends \ActiveEntity {
     
     /** @Column(type="array") */
     protected $data;
-    
-  
+
     /**
-     * @OneToOne(targetEntity="\LPCandy\Models\User")
+     * @ManyToOne(targetEntity="\LPCandy\Models\User")
      * @JoinColumn(name="user_id", referencedColumnName="id")
      */
     public $user;

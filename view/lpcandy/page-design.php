@@ -44,7 +44,7 @@
             </script>
         <? endif ?>
         <script>
-            window.extraHtmlSubmit = function (){
+            window.extraHtmlSubmit = function() {
                 <?= strip_tags($page->extra_html_submit) ?>
             };
         </script>

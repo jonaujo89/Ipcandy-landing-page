@@ -341,7 +341,7 @@ $(function() {
         if(typeof extraHtmlSubmit == 'function'){
             extraHtmlSubmit();
         } else {
-            window.parent.extraHtmlSubmit();
+            if (window.parent && typeof parent.extraHtmlSubmit == 'function') window.parent.extraHtmlSubmit();
         }        
     });
     
