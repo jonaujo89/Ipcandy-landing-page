@@ -30,11 +30,12 @@ class Projects extends Block {
                                 $id = (int)$id;
                             }
                             $res = \LPExtra\Models\Project::findBy(['id'=>$ids]);
+                        
                             $hash = array();
                             $projects = array();
                             foreach ($res as $project) $hash[$project->id] = $project;
-                            foreach ($ids as $id) if (isset($hash[$id])) $projects[] = $hash[$id];
-                        ?>  
+                            foreach ($ids as $oneId) if (isset($hash[$oneId])) $projects[] = $hash[$oneId];
+                        ?>
                         
                         <? for ($p=0;$p<count($projects);$p+=3): ?>
                             <div class="item_block">
