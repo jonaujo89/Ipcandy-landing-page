@@ -123,9 +123,11 @@ exports = function(templater_app,options) {
                 );
             });
 
-            this.frame.element.css({left:0,top:47});
+            this.frame.element.css({left:0});
             $(".editor-sidebar").detach();
             $(".preview-toolbar").width("100%");
+            
+            $(".preview-toolbar").append($("#beejee_info"));
             
             me.templateTabs.element.detach();
             me.view3dButton.element.detach();

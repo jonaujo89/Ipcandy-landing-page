@@ -79,28 +79,8 @@ body {
     .background_striped(4,2,"#ddd");
 }
 
-#header {
-    background: white;
-    .background_striped(20,10,color(1,14));
-    
-    border-top: 10px solid #333;
-    padding: 20px 0;
-    
-    .in {
-        // width: @{sheetWidth+40}px;
-        padding: 0 20px;
-        margin: 0 auto;
-        overflow: hidden;
-    
-        #logo {
-            .logo({type:"image",image:tea.dir+"../images/lpcandy.png"});
-            float: left;
-        }  
-    }
-}
-
 #page {
-    padding: 0px 0px 36px 170px;
+    padding: 0px 0px 50px 170px;
     box-sizing: border-box;
     min-height: 100%;
 }
@@ -191,15 +171,42 @@ body {
     position: absolute;
     bottom: 0px;
     left: 170px; right: 0px;
-    padding: 10px 20px;    
+    padding: 5px 20px;
 
     border-top: 5px solid @color(1,11);
     background: #333;
-    color: #aaa;
     
     text-align: center;
-}
+    height: 40px;
+    line-height: 40px;
+    
+    #beejee_info {
+        color: #aaa;
+        display: inline-block;
+        text-decoration: none;
+        
+        > span {
+            .logo({type:"image",image:tea.dir+'../images/logo-beejee.jpg'});
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 5px;
+        }
 
+        > p {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.2em;
+            font-family: Arial;
+
+            span {
+                color: #FF0;
+                
+            }
+        }
+    }
+}
 
 .pagination {
     margin-bottom:0.5em;
@@ -331,6 +338,7 @@ td.title h3 a {
         &.design {
             font-size: 1.4em;
             line-height: 1.2em;
+            margin: 0.4em auto;
         }
         
         .child & {
@@ -365,3 +373,4 @@ p.actions {
         }
     }
 }
+

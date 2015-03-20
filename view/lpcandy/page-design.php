@@ -50,7 +50,7 @@
         </script>
     </head>
     <body>
-        <? include partial('lpcandy/beejee-info') ?>
+        <? include partial('lpcandy/banner') ?>
         <? include partial('lpcandy/logged-info') ?>
         <?= $page->extra_html ?>
     </body>

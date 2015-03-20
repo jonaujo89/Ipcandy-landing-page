@@ -9,8 +9,7 @@
                 <?=anchor($url,$action)?>
             <? endforeach ?>
         </span>
-        <? endif ?>
-        <? //include partial('lpcandy/beejee-info') ?>
+        <? endif ?>        
     </h3>
     <? endif ?>
 

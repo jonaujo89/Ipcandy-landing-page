@@ -7,44 +7,64 @@
   font-size: 22px;
   color: #71a0d0;
 }
-#beejee_info {
-  margin: 0 auto 0 450px;
-  width: 450px;
-  display: block;
-  z-index: 1000;
-  position: fixed;
-}
 body.view-layout #beejee_info{
   display: none;
 }
-#beejee_info > div.title {
-  float: left;
-  margin-right: 20px;
-  margin-top: 5px;
-  color: white;
-  font-size: 16px;
-  font-family: "Arial";
-  font-weight: bold;
-}
-#beejee_info > div.title > .company_beejee{
-  color: #FFE900;
-  text-decoration: none;
+
+#beejee_info {
+    display: none;
 }
 
-#beejee_info > a.beejee {
-  background: transparent url('../../view/assets/images/logo-beejee.png') no-repeat;
-  border: none;
-  display: block;
-  height: 65px;
-  overflow: hidden;
-  text-indent: -2000px;
-  width: 66px;
-  float: left;
-  margin-right: 10px;
+.preview-toolbar #beejee_info {
+    display: inline-block;
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+#beejee_info > span {
+    display: block;
+    background: url(../../view/assets/images/logo-beejee.jpg) no-repeat 0 50%;
+    width: 30px;
+    height: 30px;
+    text-indent: -999em;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#beejee_info > p {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.2em;
+    font-family: Arial;
+}
+#beejee_info > p span {
+    color: #FF0;
 }
 
 .frame-panel {
-  top: 75px !important;
+    top: 45px !important;
+}
+
+.preview-toolbar {
+    border-top: 5px solid #71a0d0 !important;
+    border-bottom: none !important;
+    background: #333 !important;
+    padding-left: 8px !important;
+    height: 55px !important;
+    line-height: 50px !important;
+}
+
+.preview-toolbar > button {
+    margin: 0px 5px 0 0 !important;
+    vertical-align: middle !important;
+}
+
+body.view-layout #teacss-layer > .editor-panel > .preview-toolbar > .close-button {
+    margin-top: 18px !important;
 }
 
 #logged_info {    
@@ -161,23 +181,12 @@ body.view-layout #beejee_info{
     border-radius: 0;
 }
 
-.preview-toolbar {
-    border-top: 5px solid #71a0d0 !important;
-    border-bottom: none !important;
-    background: #333 !important;
-    padding-left: 8px !important;
-}
-
-body.view-layout #teacss-layer > .editor-panel > .preview-toolbar > .close-button {
-    margin-top: 13px !important;
-}
-
 .preview-toolbar .ui-state-default .ui-icon {
-  background-image: url(../../view/assets/images/ui-icons_grey_256x240.png);
+    background-image: url(../../view/assets/images/ui-icons_grey_256x240.png);
 }
 
 .preview-toolbar .ui-state-hover .ui-icon, .preview-toolbar .ui-state-focus .ui-icon {
-  background-image: url(../../view/assets/images/ui-icons_white_256x240.png);
+    background-image: url(../../view/assets/images/ui-icons_white_256x240.png);
 }
 
 .teacss-ui .preview-toolbar button.ui-button {

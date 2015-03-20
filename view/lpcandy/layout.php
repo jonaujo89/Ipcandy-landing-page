@@ -59,7 +59,7 @@
         </div>
     
         <div id="footer">
-            <?=_t('Powered by Bingo and TeaCss')?>
+            <? include partial('lpcandy/banner') ?>
         </div>
         <? endblock() ?>
     </div>

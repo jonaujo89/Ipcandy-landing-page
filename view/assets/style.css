@@ -498,11 +498,11 @@ form > .message, form > .alert {
 }
 @font-face {
     font-family: 'FontAwesome';
-    src: url('http://uxcandy.com/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.eot');
-    src: url('http://uxcandy.com/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-url('http://uxcandy.com/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.woff') format('woff'),
-url('http://uxcandy.com/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.ttf') format('truetype'),
-url('http://uxcandy.com/~boomyjee/templater/lib/modules/core/style/tea/common/../../fonts/fontawesome-webfont.svg#FontAwesome') format('svg');
+    src: url(tea/common/../../fonts/fontawesome-webfont.eot);
+    src: url(tea/common/../../fonts/fontawesome-webfont.eot?#iefix) format('embedded-opentype'),
+url(tea/common/../../fonts/fontawesome-webfont.woff) format('woff'),
+url(tea/common/../../fonts/fontawesome-webfont.ttf) format('truetype'),
+url(tea/common/../../fonts/fontawesome-webfont.svg#FontAwesome) format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -543,27 +543,8 @@ body {
 body {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAANklEQVQIW2O8e/fufwYGhgtMTEyB//7928B49+7dCwwMDPowQcb79+8rgGRggmAVTExMATBBAOjoHCXWaHqyAAAAAElFTkSuQmCC);
 }
-#header {
-    background: white;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAjklEQVQ4T63UMQ6AIAwFUDs7Ono448nkcrjhhmsNmhgRKC2UteGFhP8L9jhxKB1EM0/j+h/vzhsEWHLXgATDDSFaB4UoDxSgfJCJykAGKgcrKFARKMaJQCHMNNEb1ERfUAuNQA00AXtRsM5v0gVA/f6TQ+ECqIOMBpCZ/Azjpii8NK1eJ5rvcgdaXg6N6AXT19ALu7QtiAAAAABJRU5ErkJggg==);
-    border-top: 10px solid #333;
-    padding: 20px 0;
-}
-#header .in {
-    padding: 0 20px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-#header .in #logo {
-    display: block;
-    background: url(http://dev1.lpcandy.ru/view/assets/images/lpcandy.png) no-repeat 0 50%;
-    width: 135px;
-    height: 103px;
-    text-indent: -999em;
-    float: left;
-}
 #page {
-    padding: 0px 0px 36px 170px;
+    padding: 0px 0px 50px 170px;
     box-sizing: border-box;
     min-height: 100%;
 }
@@ -592,7 +573,7 @@ body {
 }
 #menu ul li #logo {
     display: block;
-    background: url(http://dev1.lpcandy.ru/view/assets/images/lpcandy.png) no-repeat 0 50%;
+    background: url(images/lpcandy.png) no-repeat 0 50%;
     width: 135px;
     height: 103px;
     text-indent: -999em;
@@ -649,11 +630,38 @@ body {
     bottom: 0px;
     left: 170px;
     right: 0px;
-    padding: 10px 20px;
+    padding: 5px 20px;
     border-top: 5px solid #71a0d0;
     background: #333;
-    color: #aaa;
     text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+#footer #beejee_info {
+    color: #aaa;
+    display: inline-block;
+    text-decoration: none;
+}
+#footer #beejee_info > span {
+    display: block;
+    background: url(images/logo-beejee.jpg) no-repeat 0 50%;
+    width: 30px;
+    height: 30px;
+    text-indent: -999em;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+}
+#footer #beejee_info > p {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.2em;
+    font-family: Arial;
+}
+#footer #beejee_info > p span {
+    color: #FF0;
 }
 .pagination {
     margin-bottom:0.5em;
@@ -979,6 +987,7 @@ td.title h3 a {
 .actions a.design {
     font-size: 1.4em;
     line-height: 1.2em;
+    margin: 0.4em auto;
 }
 .child .actions a {
     font-size: 1.0em;
