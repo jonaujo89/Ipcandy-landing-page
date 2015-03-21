@@ -175,7 +175,7 @@ $.fn.lpBxSlider = function () {
     $(this).each(function(){
         var $this = $(this);
 		var bx_wrapper = $this.find("div.item_block.bx-clone").size();
-        if ($this.find(".item_block:visible").not(".bx-clone").size() == 0) return;        
+        if ($this.find(".item_block:visible").not(".bx-clone").size() == 0) return;
         if (bx_wrapper == 0) {  
             var bxSlider = $this.bxSlider({
                 controls: true,
@@ -349,7 +349,7 @@ $(function() {
     $(".countdown").lpCounty();	
 	$(".fancybox:visible").lpFancybox();
     $(".masonry:visible").lpMasonry();
-    $(".slider [data-name=items]").lpBxSlider();
+    $(".slider > div").lpBxSlider();
     $(".map").mapYandex();    
     initForms();
     initOrderButton();  
