@@ -13,26 +13,19 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
     }
     
     function build() {
-        
+        if (isset($_REQUEST['remote'])) {
+            ob_get_clean();
+            echo file_get_contents($_REQUEST['remote']); 
+            die();
+        }        
         if (isset($_POST['js'])) {
             
             $js = $_POST['js'];
             $css = $_POST['css'];
             $path = $_POST['path'];
             
-            $postdata = array('http' => array(
-                'method'  => 'POST',
-                'header'  => 'Content-type: application/x-www-form-urlencoded',
-                'content' => http_build_query( array('input' => $js) ) ) );
-            $minified = file_get_contents('http://javascript-minifier.com/raw', false, stream_context_create($postdata));
-            file_put_contents(INDEX_DIR."/$path.min.js",$minified);
-
-            $postdata = array('http' => array(
-                'method'  => 'POST',
-                'header'  => 'Content-type: application/x-www-form-urlencoded',
-                'content' => http_build_query( array('input' => $css) ) ) );
-            $minified = file_get_contents('http://cssminifier.com/raw', false, stream_context_create($postdata));
-            file_put_contents(INDEX_DIR."/$path.min.css",$minified);
+            file_put_contents(INDEX_DIR."/$path.min.js",$js);
+            file_put_contents(INDEX_DIR."/$path.min.css",$css);
             echo 'done';
             die();
         }
@@ -43,6 +36,10 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
         <head>
             <title>build page</title>
             <script src="<?=url('lib/teacss/lib/teacss.js')?>"></script>
+            <script src="<?=url('lib/teacss/src/teacss/build/lib/clean-css.js')?>"></script>
+            <script src="<?=url('lib/teacss/src/teacss/build/lib/parse-js.js')?>"></script>
+            <script src="<?=url('lib/teacss/src/teacss/build/lib/process.js')?>"></script>
+            <script src="<?=url('lib/teacss/src/teacss/build/lib/uglify-js.js')?>"></script>
             <script src="<?=url('lib/teacss-ui/teacss-ui.js')?>"></script>
             <script src="<?=url('lib/require/require.js')?>"></script>
             <script>
@@ -66,44 +63,48 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
                 }               
                 // END HACK
                 
+                window.$ = teacss.jQuery;
+                function send(css,js,path,$status) {
+                    console.debug(path,{css:css,js:js});
+                    $status.text('minifying - '+path);
+                    
+                    setTimeout(function(){
+                        css = CleanCSS.process(css);
+                        js = uglify(js);
+                        
+                        $status.text('saving - '+path);
+
+                        $.ajax({
+                            url: "",type: "POST",
+                            data: {js:js,css:css,path:path},
+                            success: function (data) {
+                                $status.text(data+' - '+path);
+                            }
+                        });
+                    },1);
+                }
+                
                 require.build(
                     "<?=url('lib/templater/client/app.js')?>",
                     "<?=url('view/editor/editor.js')?>",
                     function (res) {
                         var rel = teacss.path.absolute("<?=url('view/editor')?>")+"/";
                         res.css = res.css.split(rel).join("");
-                        console.debug({css:res.css,js:res.js});
-                        $("#editor_status").text('minifying');
-                        $.ajax({
-                            url: "",type: "POST",
-                            data: {js:res.js,css:res.css,path:'view/editor/editor'},
-                            success: function (data) {
-                                $("#editor_status").text(data);
-                            }
-                        });
+                        send(res.css,res.js,'view/editor/editor',$("#editor_status"));
                     }
                 );
                 
                 teacss.build("<?=url('view/editor/style/style.tea')?>",{
+                    stylePath: "<?=url('view/editor/style')?>",
+                    styleName: "style.css",
                     callback: function (files) {
-                        var css = files['/default.css'];
+                        var css = files["<?=url('view/editor/style/style.css')?>"];
                         var rel = teacss.path.absolute("<?=url('view/editor/style')?>")+"/";
                         css = css.split(rel).join("");
-                        var js = files['/default.js']
-
-                        console.debug({js:js,css:css});
-                        $("#style_status").text('minifying');
-                        $.ajax({
-                            url: "",type: "POST",
-                            data: {js:js,css:css,path:'view/editor/style/style'},
-                            success: function (data) {
-                                $("#style_status").text(data);
-                            }
-                        });
-                        
+                        var js = files['/default.js'];
+                        send(css,js,'view/editor/style/style',$("#style_status"));
                     }
                 })
-                
             </script>        
         </head>
         <body>

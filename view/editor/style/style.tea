@@ -17,7 +17,7 @@ Script{
 }
 
 @{
-    if (window.Component) {
+    if (window.Component && Component.previewFrame) {
         Component.previewFrame.window.base_url = base_url;
         Component.previewFrame.window.page_id = page_id;
     }
