@@ -427,10 +427,10 @@ class Numbers extends Block {
                     'name_2' => 'Воздушных шарика',
                     'icon_3' => 'view/editor/assets/ico/396.png',
                     'value_3' => '85',
-                    'name_3' => 'Пархающих бабочек',
+                    'name_3' => 'Порхающих бабочек',
                     'icon_4' => 'view/editor/assets/ico/696.png',
-                    'value_4' => '500',
-                    'name_4' => 'Усы у директора уирка',
+                    'value_4' => '1',
+                    'name_4' => 'Усы у директора цирка',
 
                 )
             )                       
