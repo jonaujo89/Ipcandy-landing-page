@@ -193,7 +193,7 @@ class uploader {
             $this->config['cookiePath'] = "/";
 
         // UPLOAD FOLDER INIT
-        
+
         // FULL URL
         if (preg_match('/^([a-z]+)\:\/\/([^\/^\:]+)(\:(\d+))?\/(.+)\/?$/',
                 $this->config['uploadURL'], $patt)
@@ -566,7 +566,7 @@ class uploader {
             return false;
 
         // Save thumbnail
-        return $gd->imagepng($thumb); //, $this->config['jpegQuality']);
+        return $gd->imagejpeg($thumb, $this->config['jpegQuality']);
     }
 
     protected function localize($langCode) {

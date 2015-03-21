@@ -55,8 +55,6 @@ class gd {
             list($key, $width) = each($image);
             list($key, $height) = each($image);
             $image = imagecreatetruecolor($width, $height);
-            imagealphablending($image, false);
-            imagesavealpha($image, true);
 
         } elseif (false !== (list($width, $height, $type) = @getimagesize($image))) {
             $image =
@@ -64,7 +62,7 @@ class gd {
                 ($type == IMAGETYPE_WBMP)     ? @imagecreatefromwbmp($image) : (
                 ($type == IMAGETYPE_JPEG)     ? @imagecreatefromjpeg($image) : (
                 ($type == IMAGETYPE_JPEG2000) ? @imagecreatefromjpeg($image) : (
-                ($type == IMAGETYPE_PNG)      ? imagecreatefrompng($image)  : (
+                ($type == IMAGETYPE_PNG)      ? @imagecreatefrompng($image)  : (
                 ($type == IMAGETYPE_XBM)      ? @imagecreatefromxbm($image)  : false
             )))));
 

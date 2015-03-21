@@ -15,6 +15,9 @@ input[type="text"] {
     background: #fff;
     padding: 2px;
     margin: 0;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
     box-shadow: 0 -1px 0 rgba(0,0,0,0.5);
     -moz-box-shadow: 0 -1px 0 rgba(0,0,0,0.5);
     -webkit-box-shadow: 0 -1px 0 rgba(0,0,0,0.5);
@@ -38,6 +41,9 @@ input[type="button"], input[type="submit"], input[type="reset"], button {
     outline-width: 0;
     background: #edeceb;
     border: 1px solid #fff;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.6);
     -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.6);
     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.6);
@@ -60,6 +66,9 @@ fieldset {
     margin: 0 5px 5px 0px;
     padding: 5px;
     border: 1px solid #afadaa;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
     cursor: default;
 }
 
@@ -77,6 +86,9 @@ legend {
     margin: 4px 4px 0 4px;
     background: #f8f7f6;
     border: 1px solid #adaba9;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
 }
 
 #files {
@@ -84,6 +96,9 @@ legend {
     margin: 0 4px 0 0;
     background: #f8f7f6;
     border: 1px solid #adaba9;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
 }
 
 #files.drag {
@@ -113,6 +128,9 @@ span.folder {
     outline: none;
     background: no-repeat 3px center;
     cursor: pointer;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
     border: 1px solid transparent;
 }
 
@@ -156,6 +174,9 @@ div.file {
     padding: 4px;
     margin: 3px;
     border: 1px solid #aaa;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
     background: #fff;
 }
 
@@ -203,6 +224,9 @@ tr.selected:hover > td {
 
 #toolbar {
     padding: 5px 0;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
 }
 
 #toolbar a {
@@ -214,6 +238,9 @@ tr.selected:hover > td {
     outline: none;
     display: block;
     float: left;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }
 
 #toolbar a:hover,
@@ -261,6 +288,9 @@ tr.selected:hover > td {
     padding: 5px;
     border: 1px solid #3687e2;
     background: #e0dfde;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 .box, #alert {
@@ -314,6 +344,9 @@ tr.selected:hover > td {
     background-color: #e4e3e2;
     outline: none;
     border: 1px solid transparent;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }
 
 .menu .delimiter {
@@ -457,6 +490,9 @@ a.denied:hover {
     border: 1px solid transparent;
     padding: 1px;
     cursor: pointer;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }
 
 #clipboard div:hover {
@@ -475,6 +511,9 @@ a.denied:hover {
 #checkver > span {
     padding: 2px;
     border: 1px solid transparent;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 #checkver > span.loading {

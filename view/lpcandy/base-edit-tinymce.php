@@ -57,11 +57,13 @@
         $(document).on("click",".browse_file_button",function(){
             var button = this;
             var type = $(this).attr("data-type");
+            var input = $(button).parent().parent().find('input');            
+            var path = input.val().replace(uploadDir+"/","");
+            
             window.KCFinder = {
                 callBack: function(url) {
                     url = decodeURIComponent(url);
                     window.KCFinder = null;
-                    var input = $(button).parent().parent().find('input');
                     input.val(url);
 
                     if (input.hasClass("image")) {
@@ -78,7 +80,7 @@
                     }
                 }
             };
-            window.open(base_url+"/files/browse.php?type="+type+"&lang="+locale_lang, 'kcfinder_textbox',
+            window.open(base_url+"/files/browse.php?type="+type+"&lang="+locale_lang+"&path="+encodeURIComponent(path), 'kcfinder_textbox',
                 'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
                 'resizable=1, scrollbars=0, width=800, height=600'
             );

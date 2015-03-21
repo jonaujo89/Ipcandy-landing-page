@@ -121,7 +121,6 @@ class browser extends uploader {
             is_readable("{$this->typeDir}/{$this->get['dir']}")
         )
             $this->session['dir'] = path::normalize("{$this->type}/{$this->get['dir']}");
-
         return $this->output();
     }
 
@@ -255,7 +254,7 @@ class browser extends uploader {
             !isset($this->post['dir'])
         )
             $this->errorMsg("Unknown error.");
-
+        
         $dir = $this->postDir();
 
         if (!dir::isWritable($dir))
@@ -671,21 +670,40 @@ class browser extends uploader {
                 @unlink($file['tmp_name']);
             return "{$file['name']}: $message";
         }
+        
+        $raw_name = isset($this->post["name"]) ? $this->post["name"] : $file["name"];
 
-        $filename = $this->normalizeFilename($file['name']);
-        $target = "$dir/" . file::getInexistantFilename($filename, $dir);
+        $filename = $this->normalizeFilename($raw_name);
+        $target = file::getInexistantFilename($dir ."/". $filename);
 
-        if (!@move_uploaded_file($file['tmp_name'], $target) &&
-            !@rename($file['tmp_name'], $target) &&
-            !@copy($file['tmp_name'], $target)
-        ) {
-            @unlink($file['tmp_name']);
-            return "{$file['name']}: " . $this->label("Cannot move uploaded file to target folder.");
-        } elseif (function_exists('chmod'))
-            chmod($target, $this->config['filePerms']);
+        $chunk = isset($this->post["chunk"]) ? intval($this->post["chunk"]) : 0;
+        $chunks = isset($this->post["chunks"]) ? intval($this->post["chunks"]) : 0;
 
-        $this->makeThumb($target);
-        return "/" . basename($target);
+        $out = @fopen("{$target}.part", $chunk == 0 ? "wb" : "ab");
+        $error_msg = "{$raw_name}: " . $this->label("Cannot move uploaded file to target folder.");
+
+        if ($out) {
+            $in = @fopen($file['tmp_name'], "rb");
+            if ($in) {
+                while ($buff = fread($in, 4096))
+                fwrite($out, $buff);
+
+                @fclose($in);
+                @fclose($out);
+                @unlink($file['tmp_name']);
+
+                if (!$chunks || $chunk == $chunks - 1) {
+                    rename("{$target}.part", $target);
+
+                    if (function_exists('chmod'))
+                        @chmod($target, $this->config['filePerms']);
+                    $this->makeThumb($target);
+                }
+                return "/" . basename($target);
+            }
+        }
+        @unlink("{$target}.part");
+        return $error_msg;
     }
 
     protected function sendDefaultThumb($file=null) {
@@ -707,19 +725,23 @@ class browser extends uploader {
         $files = dir::content($dir, array('types' => "file"));
         if ($files === false)
             return $return;
-
+        
         foreach ($files as $file) {
-            $size = @getimagesize($file);
-            if (is_array($size) && count($size)) {
-                $thumb_file = "$thumbDir/" . basename($file);
-                if (!is_file($thumb_file))
-                    $this->makeThumb($file, false);
-                $smallThumb =
-                    ($size[0] <= $this->config['thumbWidth']) &&
-                    ($size[1] <= $this->config['thumbHeight']) &&
-                    in_array($size[2], array(IMAGETYPE_GIF, IMAGETYPE_PNG, IMAGETYPE_JPEG));
-            } else
-                $smallThumb = false;
+            $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+
+            $smallThumb = false;
+            if (in_array($ext,array('jpg','jpeg','png','gif'))) {
+                $size = @getimagesize($file);
+                if (is_array($size) && count($size)) {
+                    $thumb_file = "$thumbDir/" . basename($file);
+                    if (!is_file($thumb_file))
+                        $this->makeThumb($file, false);
+                    $smallThumb =
+                        ($size[0] <= $this->config['thumbWidth']) &&
+                        ($size[1] <= $this->config['thumbHeight']) &&
+                        in_array($size[2], array(IMAGETYPE_GIF, IMAGETYPE_PNG, IMAGETYPE_JPEG));
+                }
+            }
 
             $stat = stat($file);
             if ($stat === false) continue;
@@ -728,8 +750,6 @@ class browser extends uploader {
             $bigIcon = file_exists("themes/{$this->config['theme']}/img/files/big/$ext.png");
             $smallIcon = file_exists("themes/{$this->config['theme']}/img/files/small/$ext.png");
             $thumb = file_exists("$thumbDir/$name");
-            $thumb = true;
-            
             $return[] = array(
                 'name' => stripcslashes($name),
                 'size' => $stat['size'],

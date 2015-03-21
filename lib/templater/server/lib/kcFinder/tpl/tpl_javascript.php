@@ -1,6 +1,7 @@
 <script src="<?=KC_ROOT?>/js/jquery.js" type="text/javascript"></script>
 <script src="<?=KC_ROOT?>/js/jquery.rightClick.js" type="text/javascript"></script>
 <script src="<?=KC_ROOT?>/js/jquery.drag.js" type="text/javascript"></script>
+<script src="<?=KC_ROOT?>/js/plupload.full.min.js" type="text/javascript"></script>
 <script src="<?=KC_ROOT?>/js/helper.js" type="text/javascript"></script>
 <script src="<?=KC_ROOT?>/js/browser/joiner.php" type="text/javascript"></script>
 <script src="<?=KC_ROOT?>/js_localize.php?lng=<?php echo $this->lang ?>" type="text/javascript"></script>
@@ -11,6 +12,7 @@
 <script src="<?=KC_ROOT?>/themes/<?php echo $this->config['theme'] ?>/init.js" type="text/javascript"></script>
 <?php ENDIF ?>
 <script type="text/javascript">
+browser.KC_ROOT = "<?=KC_ROOT?>";
 browser.version = "<?php echo self::VERSION ?>";
 browser.support.chromeFrame = <?php echo (strpos(strtolower($_SERVER['HTTP_USER_AGENT']), " chromeframe") !== false) ? "true" : "false" ?>;
 browser.support.zip = <?php echo (class_exists('ZipArchive') && !$this->config['denyZipDownload']) ? "true" : "false" ?>;
@@ -20,6 +22,7 @@ browser.type = "<?php echo text::jsValue($this->type) ?>";
 browser.theme = "<?php echo text::jsValue($this->config['theme']) ?>";
 browser.access = <?php echo json_encode($this->config['access']) ?>;
 browser.dir = "<?php echo text::jsValue($this->session['dir']) ?>";
+browser.selected_file = "<?php echo text::jsValue($this->config['selected_file']) ?>";
 browser.uploadURL = "<?php echo text::jsValue($this->config['uploadURL']) ?>";
 browser.thumbsURL = browser.uploadURL + "/<?php echo text::jsValue($this->config['thumbsDir']) ?>";
 <?php IF (isset($this->get['opener']) && strlen($this->get['opener'])): ?>

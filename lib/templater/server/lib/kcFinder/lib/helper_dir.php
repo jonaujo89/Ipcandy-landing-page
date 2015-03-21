@@ -29,7 +29,7 @@ class dir {
         } while (file_exists($file));
         if (!@touch($file))
             return false;
-        unlink($file);
+        @unlink($file);
         return true;
     }
 

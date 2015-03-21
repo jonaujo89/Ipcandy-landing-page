@@ -118,6 +118,7 @@ class TemplaterApi {
         $api_url = $api_url[0];
         
         if (!defined('KC_ROOT')) define('KC_ROOT',$api_url);
+        if (session_id() == '') session_start();
         
         $url = @$_REQUEST['url'];
         
@@ -146,6 +147,13 @@ class TemplaterApi {
         $_CONFIG['uploadURL'] = "http://upload.url/dir";
         $_CONFIG['uploadDir'] = $this->uploadDir;
         if (isset($_REQUEST['theme'])) $_CONFIG['theme'] = $_REQUEST['theme'];
+        if (isset($_GET['path'])) {
+            $path = $_GET['path'];
+            $dir = dirname($path);
+            
+            $_CONFIG['dir'] = $_GET['dir'] = $dir;
+            $_CONFIG['selected_file'] = $_GET['selected_file'] = basename($path);
+        }        
         
         $_CONFIG = array_merge($_CONFIG,$config?:array());
         require __DIR__.'/lib/kcFinder/browse.php';        
