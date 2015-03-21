@@ -37,9 +37,8 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
             <title>build page</title>
             <script src="<?=url('lib/teacss/lib/teacss.js')?>"></script>
             <script src="<?=url('lib/teacss/src/teacss/build/lib/clean-css.js')?>"></script>
-            <script src="<?=url('lib/teacss/src/teacss/build/lib/parse-js.js')?>"></script>
-            <script src="<?=url('lib/teacss/src/teacss/build/lib/process.js')?>"></script>
             <script src="<?=url('lib/teacss/src/teacss/build/lib/uglify-js.js')?>"></script>
+            
             <script src="<?=url('lib/teacss-ui/teacss-ui.js')?>"></script>
             <script src="<?=url('lib/require/require.js')?>"></script>
             <script>
