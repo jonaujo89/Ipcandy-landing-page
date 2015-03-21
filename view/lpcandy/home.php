@@ -1,6 +1,6 @@
 <? include partial('lpcandy/layout') ?>
 <? startblock('content') ?>
-    <link rel="stylesheet" type="text/css" href="<?=$assets.'/default.css'?>">
+    <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/style.min.css')?>">
     <style>
         html,body {
             font-size:12px;
@@ -27,6 +27,6 @@
             }
         }
     </style>
-    <script src="<?=$assets.'/default.js'?>"></script>
+    <script src="<?=url('view/editor/style/style.min.js')?>"></script>
     <?= $body_html ?>
 <? endblock() ?>

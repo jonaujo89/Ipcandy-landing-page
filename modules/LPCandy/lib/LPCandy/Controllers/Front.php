@@ -13,11 +13,9 @@ class Front extends Base {
         if (!$page) return true;
         
         $api = new \LPCandy\TemplaterApi($page);
-        $assets = url('upload/LPCandy/pages/'.$page->id."/publish");
         $body_html = $api->view($page->getTemplate(),false,true);
 
         $this->data['title'] = $page->title;
-        $this->data['assets'] = $assets;
         $this->data['body_html'] = $body_html;
         $this->view('lpcandy/home');
     }
