@@ -4,7 +4,7 @@
         <title><?=_t('Templater editor')?></title>
         <meta charset="utf-8" alt>
         <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="../view/assets/images/lpcandy.png"/> 
-        <script src="<?=url('lib/teacss/teacss.js')?>"></script>
+        <script src="<?=url('lib/teacss/lib/teacss.js')?>"></script>
         <script src="<?=url('/lib/teacss-ui/teacss-ui.js')?>"></script>
         <link  href="<?=url('/lib/teacss-ui/teacss-ui.css')?>" rel="stylesheet" type="text/css">
         <script src="<?=url('/lib/require/require.js')?>"></script>

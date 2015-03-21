@@ -11,14 +11,14 @@
     </script>   
     
     <?
-        include INDEX_DIR."/lib/teacss/teacss.php";
+        include INDEX_DIR."/lib/teacss/lib/teacss.php";
         teacss(
             $makefile = t_url('assets/tea/makefile.tea'),
             $css = t_url('assets/style.css'),
             $js = false,
             $dir = __DIR__."/../assets",
             $dev = (isset($_GET['dev']) && \CMS\Models\User::checkLoggedIn()),
-            $teacss = url('lib/teacss/teacss.js')
+            $teacss = url('lib/teacss/lib/teacss.js')
         );
     ?>
     <script src="<?=t_url('assets/script/jquery.js')?>"></script>

@@ -42,7 +42,7 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
         <html>
         <head>
             <title>build page</title>
-            <script src="<?=url('lib/teacss/teacss.js')?>"></script>
+            <script src="<?=url('lib/teacss/lib/teacss.js')?>"></script>
             <script src="<?=url('lib/teacss-ui/teacss-ui.js')?>"></script>
             <script src="<?=url('lib/require/require.js')?>"></script>
             <script>
