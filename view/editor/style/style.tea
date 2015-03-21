@@ -1,3 +1,7 @@
+Script "ymaps.js" {
+    @append "http://api-maps.yandex.ru/2.1/?lang=ru_RU";
+}
+
 @ if (window.Component && Component.app && Component.app.options.minified_style) {
     @append "style.min.css";
     @append "style.min.js";
@@ -10,11 +14,6 @@
 
 @append "page.css";
 @append "fonts.css";
-
-
-Script{
-    @append "http://api-maps.yandex.ru/2.1/?lang=ru_RU";
-}
 
 @{
     if (window.Component && Component.previewFrame) {

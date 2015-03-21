@@ -12,6 +12,7 @@
     </script>
     <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/style.min.css')?>">
     <script src="<?=url('view/editor/style/style.min.js')?>"> </script>    
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
     <script>
         window.extraHtmlSubmit = function() {
             <?= strip_tags($page->extra_html_submit) ?>
