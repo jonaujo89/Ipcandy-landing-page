@@ -42,26 +42,6 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
             <script src="<?=url('lib/teacss-ui/teacss-ui.js')?>"></script>
             <script src="<?=url('lib/require/require.js')?>"></script>
             <script>
-                // HACK: fix require.extensions.css.build here via teacss functions
-                function path_string(path) {
-                    return "'"+path.replace(/\\?("|')/g,'\\$1')+"'";
-                }
-                
-                require.extensions.css.build = function (href,callback) {
-                    var path_s = path_string(href);
-                    var js = 'require.define('+path_s+',true)\n';
-                    var path= teacss.path;
-
-                    window.require.getFile(href,function(text){
-                        text = text.replace(/url\(['"]?([^'"\)]*)['"]?\)/g, function( whole, part ) {
-                            var rep = (!path.isAbsoluteOrData(part)) ? path.dir(path.clean(href)) + part : part;
-                            return 'url('+rep+')';
-                        });
-                        callback({js:js,css:text});
-                    },true);
-                }               
-                // END HACK
-                
                 window.$ = teacss.jQuery;
                 function send(css,js,path,$status) {
                     console.debug(path,{css:css,js:js});
@@ -84,12 +64,11 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
                 }
                 
                 require.build(
-                    "<?=url('lib/templater/client/app.js')?>",
-                    "<?=url('view/editor/editor.js')?>",
-                    function (res) {
-                        var rel = teacss.path.absolute("<?=url('view/editor')?>")+"/";
-                        res.css = res.css.split(rel).join("");
-                        send(res.css,res.js,'view/editor/editor',$("#editor_status"));
+                    "<?=url('lib/templater/client/app.js')?>", "<?=url('view/editor/editor.js')?>", {
+                        stylePath: "<?=url('view/editor')?>",
+                        callback: function (res) {
+                            send(res.css,res.js,'view/editor/editor',$("#editor_status"));
+                        }
                     }
                 );
                 
@@ -98,8 +77,6 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
                     styleName: "style.css",
                     callback: function (files) {
                         var css = files["<?=url('view/editor/style/style.css')?>"];
-                        var rel = teacss.path.absolute("<?=url('view/editor/style')?>")+"/";
-                        css = css.split(rel).join("");
                         var js = files['/default.js'];
                         send(css,js,'view/editor/style/style',$("#style_status"));
                     }
