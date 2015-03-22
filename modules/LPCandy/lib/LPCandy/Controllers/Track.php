@@ -45,6 +45,8 @@ class Track extends Base {
         $query = \LPCandy\Models\Track::findByQuery($criteria,$_GET['sort_by'].' '.$_GET['sort_order']);
 
         $pagination = new \Bingo\Pagination(5,$this->getPage(),false,false,$query);
+        $this->paginationFixOverflow($pagination);
+        
         $this->data['list'] = $pagination->result();
         $this->data['pagination'] = $pagination->get();
         $this->data['title'] = _t("Tracking");

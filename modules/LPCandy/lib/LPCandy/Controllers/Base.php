@@ -17,4 +17,15 @@ class Base extends \CMS\Controllers\Admin\Base {
     function needUser() {
         if (!$this->user) redirect('login');
     }
+    
+    function paginationFixOverflow($pagination) {
+        $page = isset($_GET['p']) ? (int)$_GET['p'] : 1;
+        $page_count = $pagination->getPageCount() ?:1;
+        if ($page<1 || $page > $page_count) {
+            $page = min(max(1,$page),$page_count);
+            $pattern = ($page==1) ? $pagination->pattern[0] : $pagination->pattern[1];
+            $link = str_replace("{page}",$page,$pattern);
+            redirect($link);
+        }
+    }
 }
