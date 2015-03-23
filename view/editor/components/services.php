@@ -23,35 +23,42 @@ class Services extends Block {
                     <? endif ?>    
                     <div class="item_list clear">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                            <div class="item_datas">
                             <? for ($i=1; $i <= 3; $i++): ?>
-                                <div class="item">
-                                    <div class="item_data">
-                                        <? if ($cls = $self->vis($val['show_image'])): ?>
-                                            <div class="img_wrap <?=$cls?>" >
-                                                <? $self->sub('Image','image_'.$i) ?>
-                                            </div>
-                                        <? endif ?>
-                                        <div class="name">
-                                            <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
+                                <div class="item_data">
+                                    <? if ($cls = $self->vis($val['show_image'])): ?>
+                                        <div class="img_wrap <?=$cls?>" >
+                                            <? $self->sub('Image','image_'.$i) ?>
                                         </div>
-                                        <? if ($cls = $self->vis($val['show_desc'])): ?>
-                                            <div class="desc <?=$cls?>" >
-                                                <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
-                                            </div>
-                                        <? endif ?>
-                                        <? if ($cls = $self->vis($val['show_price'])): ?>
-                                            <div class="price <?=$cls?>" >
-                                                <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
-                                            </div>
-                                        <? endif ?>
-                                        <? if ($cls = $self->vis($val['show_order_button'])): ?>
-                                            <div class="btn_wrap <?=$cls?>" >
-                                                <? $self->sub("FormButton",'@order_button') ;?>
-                                            </div>
-                                        <? endif ?>
+                                    <? endif ?>
+                                    <div class="name">
+                                        <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
                                     </div>
+                                    <? if ($cls = $self->vis($val['show_desc'])): ?>
+                                        <div class="desc <?=$cls?>" >
+                                            <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
+                                        </div>
+                                    <? endif ?>
                                 </div>
-                            <? endfor ?>                        
+                            <? endfor ?>
+                            </div>
+                            <div class="item_actions">
+                            <? for ($i=1; $i <= 3; $i++): ?>
+                                <div class="item_action">
+                                    <? if ($cls = $self->vis($val['show_price'])): ?>
+                                        <div class="price <?=$cls?>" >
+                                            <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
+                                        </div>
+                                    <? endif ?>
+                                    <? if ($cls = $self->vis($val['show_order_button'])): ?>
+                                        <div class="btn_wrap <?=$cls?>" >
+                                            <? $self->sub("FormButton",'@order_button') ;?>
+                                        </div>
+                                    <? endif ?>
+                                </div>
+                            <? endfor ?>            
+                            </div>
+                        
                             <div style="clear: both"></div>
                         <? }) ?>                        
                     </div> 

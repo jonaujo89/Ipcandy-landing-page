@@ -39,11 +39,10 @@ class Projects extends Block {
                         
                         <? for ($p=0;$p<count($projects);$p+=3): ?>
                             <div class="item_block">
+                                <div class="item_datas">
                                 <? for ($pp=0;$pp<3;$pp++): ?>
                                     <? $project = @$projects[$p+$pp]; ?>
-                                    <? if (!$project) continue; ?>
-                                
-                                    <div class="item">
+                                    <? if ($project): ?>
                                         <div class="item_data">
                                             <div class="img_wrap <?=$cls?>" >
                                                 <? if (@$project->data['thumb']): ?>
@@ -56,6 +55,17 @@ class Projects extends Block {
                                             <div class="desc" >
                                                 <?=$project->excerpt?>
                                             </div>
+                                        </div>
+                                    <? else: ?>
+                                        <div class="item_data"></div>
+                                    <? endif ?>
+                                <? endfor ?>
+                                </div>
+                                <div class="item_actions">
+                                <? for ($pp=0;$pp<3;$pp++): ?>
+                                    <? $project = @$projects[$p+$pp]; ?>
+                                    <? if ($project): ?>
+                                        <div class="item_action">
                                             <div class="btn_wrap <?=$cls?>" >
                                                 <a class="btn_form blue">Читать полный кейс</a>
                                                 <div style='display:none'>
@@ -67,8 +77,11 @@ class Projects extends Block {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>    
-                                <? endfor ?>
+                                    <? else: ?>
+                                        <div class="item_action"></div>
+                                    <? endif ?>
+                                <? endfor ?>              
+                                </div>
                             </div>
                         <? endfor ?>
                     </div> 
