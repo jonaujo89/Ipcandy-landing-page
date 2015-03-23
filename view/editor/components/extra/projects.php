@@ -84,7 +84,7 @@ class Projects extends Block {
             'show_title_2' => false,
             'show_name' => true,
             'show_desc' => true,
-            'background_color' =>'#F7F7F7',
+            'background' =>'#F7F7F7',
             'title' => "Результат работы",
             'title_2' => "Подзаголовок"
         );
