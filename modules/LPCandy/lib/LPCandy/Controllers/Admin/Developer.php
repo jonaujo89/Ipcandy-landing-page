@@ -66,6 +66,7 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
                 require.build(
                     "<?=url('lib/templater/client/app.js')?>", "<?=url('view/editor/editor.js')?>", {
                         stylePath: "<?=url('view/editor')?>",
+                        scriptPath: "<?=url('view/editor')?>",
                         callback: function (res) {
                             send(res.css,res.js,'view/editor/editor',$("#editor_status"));
                         }
