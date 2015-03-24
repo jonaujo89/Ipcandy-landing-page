@@ -541,7 +541,7 @@ body {
     position: relative;
 }
 body {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAANklEQVQIW2O8e/fufwYGhgtMTEyB//7928B49+7dCwwMDPowQcb79+8rgGRggmAVTExMATBBAOjoHCXWaHqyAAAAAElFTkSuQmCC);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKklEQVQImU3KQQ0AQAgEsdVz/lVggVQL9yLh25lgUN39UEFdzJbF3B3zAfb0NE10RiNiAAAAAElFTkSuQmCC);
 }
 #page {
     padding: 0px 0px 50px 170px;
@@ -636,6 +636,7 @@ body {
     box-sizing: border-box;
     height: 55px;
     line-height: 50px;
+    overflow: hidden;
 }
 #footer #beejee_info {
     color: #aaa;
