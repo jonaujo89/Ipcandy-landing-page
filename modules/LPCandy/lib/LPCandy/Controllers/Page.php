@@ -54,9 +54,14 @@ class Page extends Base {
         $label = _t('Start from scratch');
         $label .= "<img src='".$page->getScreenshotUrl()."'>";
         $templates = array($label=>0);
-        //$tpl_user = \LPCandy\Models\User::findOneByLogin('boomyjee');
-        //$tpl_pages = \LPCandy\Models\Page::findBy(array('user'=>$tpl_user,'parent'=>null));
-        $tpl_pages = \LPCandy\Models\Page::findByDomain('default');
+        
+        $tpl_pages = array();
+        $default_page = \LPCandy\Models\Page::findOneByDomain('default');
+        if ($default_page) $tpl_pages[] = $default_page;
+        foreach (\LPCandy\Models\Page::findBy(array('user'=>$this->user,'parent'=>null)) as $tpl_page) {
+            if ($default_page && $default_page->id==$tpl_page->id) continue;
+            $tpl_pages[] = $tpl_page;
+        }
         $tpl = count($tpl_pages) ? $tpl_pages[0]->id : 0;
         
         foreach ($tpl_pages as $key=>$p) {
