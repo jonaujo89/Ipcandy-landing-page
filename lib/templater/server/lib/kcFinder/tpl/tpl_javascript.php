@@ -22,7 +22,7 @@ browser.type = "<?php echo text::jsValue($this->type) ?>";
 browser.theme = "<?php echo text::jsValue($this->config['theme']) ?>";
 browser.access = <?php echo json_encode($this->config['access']) ?>;
 browser.dir = "<?php echo text::jsValue($this->session['dir']) ?>";
-browser.selected_file = "<?php echo text::jsValue($this->config['selected_file']) ?>";
+browser.selected_file = "<?php echo text::jsValue(@$this->config['selected_file']) ?>";
 browser.uploadURL = "<?php echo text::jsValue($this->config['uploadURL']) ?>";
 browser.thumbsURL = browser.uploadURL + "/<?php echo text::jsValue($this->config['thumbsDir']) ?>";
 <?php IF (isset($this->get['opener']) && strlen($this->get['opener'])): ?>
