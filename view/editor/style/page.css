@@ -66,7 +66,11 @@ ol li {
 }
 
 .btn_wrap a.btn_form {
+  -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;          
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
   color: #ffffff;
   cursor: pointer;
@@ -81,10 +85,7 @@ ol li {
 /* policy AlertifyJS dialog */
 .alertify .ajs-body .ajs-content .policy_info_alertify p {
   display: block;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
+  margin: 1.0em 0;
 }
 
 .policy_info_alertify{
@@ -96,29 +97,20 @@ ol li {
 .policy_info_alertify h2 {
     display: block;
     font-size: 1.5em;
-    -webkit-margin-before: 0.83em;
-    -webkit-margin-after: 0.83em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+    margin: 0.83em 0;
     font-weight: bold;
 }
 
 .policy_info_alertify h3 {
   display: block;
   font-size: 1.17em;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
+  margin: 1.0em 0;
   font-weight: bold;
 }
 
 .policy_info_alertify h4 {
   display: block;
-  -webkit-margin-before: 1.33em;
-  -webkit-margin-after: 1.33em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
+  margin: 1.33em 0;
   font-weight: bold;
 }
 
@@ -219,9 +211,11 @@ ol li {
 .form .form_submit button.form_field_submit {
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
   border: 0;
-  -moz-user-select: -moz-none;
   -webkit-user-select: none;
-  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;          
   border-radius: 3px;
   color: #fff;
   cursor: pointer;
@@ -336,8 +330,11 @@ ol li {
 }
 
 .header .container .span_btn .btn_wrap a {
+  -webkit-user-select: none;
   -moz-user-select: none;
-  border-radius: 3px;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;            border-radius: 3px;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
   color: #ffffff;
   cursor: pointer;
@@ -541,11 +538,9 @@ ol li {
 
 /* order */
 .container-fluid.order_1, .container-fluid.order_2 ,.container-fluid.order_6  {
-  background-position-x: 50% !important;
-  background-position-y: 0% !important;
+  background-position: 50% 0% !important;
   background-size: cover !important;
-  background-repeat-x: no-repeat !important;
-  background-repeat-y: no-repeat !important;
+  background-repeat: no-repeat !important;
   background-attachment: initial !important;
   background-origin: initial !important;
   background-clip: initial !important;
@@ -558,7 +553,11 @@ ol li {
 
 .order .btn_wrap a.btn_form {
   line-height: 200%;
+  -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;          
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
   color: #ffffff;
   cursor: pointer;
@@ -1180,10 +1179,11 @@ ol li {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
-  -moz-user-select: -moz-none;
   -webkit-user-select: none;
-  user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;              
 }
 
 .order_5 .form .form_data .form_submit button.form_field_submit span {
@@ -1763,8 +1763,11 @@ ol li {
 
 /*  services  */
 .services .btn_wrap a.btn_form {
+  -webkit-user-select: none;
   -moz-user-select: none;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
