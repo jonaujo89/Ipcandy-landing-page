@@ -5,6 +5,7 @@ lp.projects = lp.block.extendOptions({
         }); 
         this.variant.find(".title").toggleVis(this.value.show_title);
         this.variant.find(".title_2").toggleVis(this.value.show_title_2);
+        this.variant.find(".btn_form").text(this.value.button_text);
     },
     configForm: {
         items: [   
@@ -34,7 +35,9 @@ lp.projects = lp.block.extendOptions({
                         });
                     }
                 })
-            }
+            },
+            { type: "label", value: _t("Button text:"), margin: "5px 0"},
+            { name: 'button_text', type: 'text' }
         ]
     }
 });

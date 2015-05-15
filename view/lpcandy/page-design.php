@@ -10,7 +10,7 @@
         <script src="<?=url('/lib/require/require.js')?>"></script>
 
         <script>
-            var base_url = "<?=INDEX_URL?>"
+            var base_url = "<?=INDEX_URL?>";
             var page_id = <?=json_encode($page_id)?>;
             function run(exports){
                 var templater_app = exports[0];

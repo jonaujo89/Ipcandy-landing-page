@@ -400,7 +400,7 @@ class Gallery extends Block {
                     <? endif ?>
                     <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
                     <div class="item_list masonry <?=$opacity?>">
-						<? $this->repeat('items', function($item_val,$self) use ($val){ ?>
+						        <? $this->repeat('items', function($item_val,$self) use ($val){ ?>
                             <div class="preview_img">									
                                 <img src="<?=$self->api->base_url."/".$item_val['image']?>">
                                 <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
@@ -423,8 +423,8 @@ class Gallery extends Block {
                                     </div>
                                 </div>
                             </div>
-						<? },array('editor'=>'lp.galleryRepeater','sortable'=>false));?> 
-					</div> 
+						        <? },array('editor'=>'lp.galleryRepeater','sortable'=>false));?> 
+                    </div> 
                 </div>
             </div>
         </div>

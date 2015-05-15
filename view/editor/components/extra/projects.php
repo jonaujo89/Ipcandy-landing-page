@@ -4,7 +4,7 @@ namespace LPCandy\Components;
 
 class Projects extends Block {
     public $name = 'Проекты';
-    public $description = "Проекты из бд";
+    public $description = 'Проекты из бд';
     public $editor = "lp.projects";
     public $access_resource = "project_editor";
     
@@ -67,7 +67,7 @@ class Projects extends Block {
                                     <? if ($project): ?>
                                         <div class="item_action">
                                             <div class="btn_wrap <?=$cls?>" >
-                                                <a class="btn_form blue">Читать полный кейс</a>
+                                                <a class="btn_form blue"><?=@$val['button_text']?></a>
                                                 <div style='display:none'>
                                                     <div class="form wide project_popup">
                                                         <h1><?=$project->title?></h1>
@@ -98,8 +98,9 @@ class Projects extends Block {
             'show_name' => true,
             'show_desc' => true,
             'background' =>'#F7F7F7',
-            'title' => "Результат работы",
-            'title_2' => "Подзаголовок"
+            'title' => 'Самые крутые проекты',
+            'title_2' => 'Круче нас - только яйца',
+            'button_text' => 'Читать кейс'
         );
     }
     
