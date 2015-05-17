@@ -15,7 +15,7 @@ class Base extends \CMS\Controllers\Admin\Base {
     }    
     
     function needUser() {
-        if (!$this->user) redirect('login');
+        if (!$this->user) { redirect('login?redirect='.\Bingo\Bingo::getInstance()->request); die(); }
     }
     
     function paginationFixOverflow($pagination) {
