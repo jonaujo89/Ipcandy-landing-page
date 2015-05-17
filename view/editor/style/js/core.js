@@ -25,6 +25,8 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
                             $(this).parent().find(".ajs-close").click();
                         })
                     );
+                } else {
+                    $(this.elements.root).find(".ajs-close").show();
                 }
             },
             onclose: function(){
