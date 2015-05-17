@@ -42,13 +42,24 @@ msgstr "ip"
 msgid "data"
 msgstr "данные"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Track.php:97
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/emails/track_notification.php:13
 msgid "yes"
 msgstr "да"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Track.php:97
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/emails/track_notification.php:13
 msgid "no"
 msgstr "нет"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Email.php:38
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy.php:58
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy.php:59
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy.php:60
+msgid "LPCandy"
+msgstr "LPCandy"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Email.php:76
+msgid "LPCandy: you have a new form submission {id}"
+msgstr "LPCandy: у вас есть новая заявка №{id}"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/login.php:6
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/logged-info.php:9
@@ -222,12 +233,6 @@ msgid "Design page"
 msgstr "Дизайнер страницы"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy.php:58
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy.php:59
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy.php:60
-msgid "LPCandy"
-msgstr "LPCandy"
-
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy.php:58
 msgid "Minify js/css"
 msgstr "Сжать js/css"
 
@@ -293,6 +298,14 @@ msgstr "Вы вошли как"
 msgid "Logout"
 msgstr "Выйти"
 
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/emails/track_notification.php:4
+msgid "You have a new form track"
+msgstr "У вас есть новая заявка с формы посадочной страницы"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/emails/track_notification.php:5
+msgid "Goto track list"
+msgstr "Перейти к списку заявок"
+
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/base-edit-tinymce.php:131
 msgid "en"
 msgstr "ru"
@@ -334,24 +347,24 @@ msgid "No pages yet"
 msgstr "Страниц пока нет"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor/components/extra/projects.php:13
-msgid "Проекты"
-msgstr "Projects"
+#~ msgid "Проекты"
+#~ msgstr "Projects"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor/components/extra/projects.php:14
-msgid "Проекты из бд"
-msgstr "Projects from DB"
+#~ msgid "Проекты из бд"
+#~ msgstr "Projects from DB"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor/components/extra/projects.php:76
-msgid "Read full case"
-msgstr "Читать полный кейс"
+#~ msgid "Read full case"
+#~ msgstr "Читать полный кейс"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor/components/extra/projects.php:107
-msgid "Work result"
-msgstr "Результат работы"
+#~ msgid "Work result"
+#~ msgstr "Результат работы"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor/components/extra/projects.php:108
-msgid "Subtitle"
-msgstr "Подзаголовок"
+#~ msgid "Subtitle"
+#~ msgstr "Подзаголовок"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor/components/extra/projects.php:101
 #~ msgid "Результат работы"
