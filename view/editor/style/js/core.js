@@ -14,7 +14,23 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
                     padding:false
                 }
             };
-        }
+        },
+         hooks:{
+            onshow: function(){
+                $(".ajs-global-close").remove();
+                if ($(this.elements.dialog).hasClass("wide")) {
+                    $(this.elements.root).find(".ajs-close").hide();
+                    $(this.elements.root).append(
+                        $("<button class='ajs-global-close'></button>").click(function(){
+                            $(this).parent().find(".ajs-close").click();
+                        })
+                    );
+                }
+            },
+            onclose: function(){
+                $(".ajs-global-close").remove();
+            }
+         }        
     };
 });
 
