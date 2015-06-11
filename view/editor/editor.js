@@ -81,7 +81,7 @@ exports = function(templater_app,options) {
             if (this.options.minified_style) {            
                 this.staticStyles = [dir + "/style/style.min.tea"];
             } else {
-                this.staticStyles = [dir + "/style/style.tea"];
+                this.staticStyles = [dir + "/style/style.tea",dir + "/style/responsive.tea"];
             }
             this.styles = [];
             

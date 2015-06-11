@@ -24,8 +24,8 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
             $css = $_POST['css'];
             $path = $_POST['path'];
             
-            file_put_contents(INDEX_DIR."/$path.min.js",$js);
-            file_put_contents(INDEX_DIR."/$path.min.css",$css);
+            if ($js) file_put_contents(INDEX_DIR."/$path.min.js",$js);
+            if ($css) file_put_contents(INDEX_DIR."/$path.min.css",$css);
             echo 'done';
             die();
         }
@@ -48,8 +48,8 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
                     $status.text('minifying - '+path);
                     
                     setTimeout(function(){
-                        css = CleanCSS.process(css);
-                        js = uglify(js);
+                        css = css ? CleanCSS.process(css) : '';
+                        js = js ? uglify(js) : '';
                         
                         $status.text('saving - '+path);
 
@@ -81,12 +81,24 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
                         var js = files['/default.js'];
                         send(css,js,'view/editor/style/style',$("#style_status"));
                     }
-                })
+                });
+                
+                teacss.build("<?=url('view/editor/style/responsive.tea')?>",{
+                    stylePath: "<?=url('view/editor/style')?>",
+                    styleName: "style.css",
+                    callback: function (files) {
+                        var css = files["<?=url('view/editor/style/style.css')?>"];
+                        var js = '';
+                        send(css,js,'view/editor/style/responsive',$("#responsive_status"));
+                    }
+                })                
+                
             </script>        
         </head>
         <body>
             <div id="editor_status">loading</div>
             <div id="style_status">loading</div>
+            <div id="responsive_status">loading</div>
         </body>
 
         
