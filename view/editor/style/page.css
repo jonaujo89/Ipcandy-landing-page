@@ -1744,6 +1744,11 @@ ol li {
 .services_1 .item_list .item_data {
   border-bottom: none;
 }
+
+.services_1 .item_list .item_data .btn_wrap {
+    display: none;
+}
+
 .services_1 .item_list .item_action {
   border-top: none;
 }

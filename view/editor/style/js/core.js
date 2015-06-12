@@ -224,7 +224,17 @@ function initOrderButton() {
             e.preventDefault();
             
             var form = $(this).data("form");
-            if (!form) $(this).data("form",form = $(this).parents('.btn_wrap').find('.form')[0]);
+            if (!form) {
+                form = $(this).parents('.btn_wrap').find('.form')[0];
+                if (!form && $(this).parents(".item_data").length) {
+                    var btn = $(this).parents('.item_block').find(".item_action").eq($(this).parents(".item_data").index()).find(".btn_form");
+                    if (btn.length) {
+                        form = btn.parents('.btn_wrap').find('.form')[0];
+                        btn.data("form",form);
+                    }
+                }
+                $(this).data("form",form);
+            }
             alertify.genericDialog(form);
         }
     });

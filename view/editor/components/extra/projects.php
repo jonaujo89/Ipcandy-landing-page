@@ -44,7 +44,7 @@ class Projects extends Block {
                                     <? $project = @$projects[$p+$pp]; ?>
                                     <? if ($project): ?>
                                         <div class="item_data">
-                                            <div class="img_wrap <?=$cls?>" >
+                                            <div class="img_wrap" >
                                                 <? if (@$project->data['thumb']): ?>
                                                     <div class='img' style='background-image: url("<?= $this->api->base_url.$project->data['thumb']?>")'></div>
                                                 <? endif ?>
@@ -54,6 +54,9 @@ class Projects extends Block {
                                             </div>
                                             <div class="desc" >
                                                 <?=$project->excerpt?>
+                                            </div>
+                                            <div class="btn_wrap">
+                                                <a class="btn_form blue"><?=@$val['button_text']?></a>
                                             </div>
                                         </div>
                                     <? else: ?>
@@ -66,7 +69,7 @@ class Projects extends Block {
                                     <? $project = @$projects[$p+$pp]; ?>
                                     <? if ($project): ?>
                                         <div class="item_action">
-                                            <div class="btn_wrap <?=$cls?>" >
+                                            <div class="btn_wrap">
                                                 <a class="btn_form blue"><?=@$val['button_text']?></a>
                                                 <div style='display:none'>
                                                     <div class="form wide project_popup">
