@@ -10,7 +10,8 @@ class User extends Base {
         if ($this->user) { redirect($redirect);return; }
         if ($token) {
             $token_data = \LPCandy\Models\User::token_data($token);
-            $user = \LPCandy\Models\User::login_token($token_data,false);
+            $createUser = \Bingo\Config::get('config','invites_enabled') ? false : true;
+            $user = \LPCandy\Models\User::login_token($token_data,$createUser);
             if ($user) {
                 redirect($redirect);
                 return;

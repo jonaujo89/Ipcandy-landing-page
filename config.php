@@ -1,6 +1,7 @@
 <?
 
 $config = array(
+    'invites_enabled' => false,
     'domain' => 'lpcandy.ru',
     'acl' => [
         'project_editor_group' => [
