@@ -595,7 +595,7 @@ body {
     border-left: 2px solid #777777;
     border-radius: 0 0 0 20px;
     margin: 0 !important;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 10px 5px 15px;
     position: absolute;
     right: 0;
     top: 0;
@@ -613,6 +613,7 @@ body {
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABLUlEQVR4nM2UvUoDQRRGzwZFI1aCD2BnIVoKBgKCkE58ABEshfgoNmJhK76DIIKFBLGxVTSFoJWd+BOVCMcio5ks65poBD9YZu+duWdmvpndRKWfKvSVBgx0MWYUmAOOgceQKwMjQAM46hit5j2Tat2WztWJkI/VUZMHq6h3oeg0tLfq7E+A6+qb2lSrAVINcSMPmD6UQWAb2AQegCVgBjgBpoFF4DnX8Yg+ph6GWS/UslpLraamltSzKDeeteXY/AN1Qb0xW9fqvLoX4it1KgaWbJu/pa5k+JRWQ11WN0J8HyahADyF3a+Fe7YDFL+5m0VgF2gCq4Af3ia2Pr0h4DV09KoEGAZeYuDnGWUU7EfvlS+A7aALYNJDf/9/Dn8OrPdYf5lOpD38tf6/h+9paMshEIIyawAAAABJRU5ErkJggg==);
     display: inline-block;
     vertical-align: bottom;
+    margin-left: -5px;
 }
 #content > h3 {
     background: #333;
