@@ -8,12 +8,12 @@
     <title><?= $page->title ?></title>
     <script>
         var base_url = "<?=INDEX_URL?>";
-        var page_id = <?=$page->id?>; 
+        var page_id = <?=$page->id?>;
+        var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";
     </script>
     <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/style.min.css')?>">
     <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/responsive.min.css')?>">
     <script src="<?=url('view/editor/style/style.min.js')?>"> </script>    
-    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
     <script>
         window.extraHtmlSubmit = function() {
             <?= strip_tags($page->extra_html_submit) ?>

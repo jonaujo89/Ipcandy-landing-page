@@ -8,7 +8,7 @@ class Front extends Base {
     }    
     
     function home() {
-        $home_domain = \Bingo\Config::get('config','domain');
+        $home_domain = \Bingo\Config::get('config','domain')[bingo_get_locale()];        
         $page = \LPCandy\Models\Page::findOneByDomain($home_domain);
         if (!$page) return true;
         

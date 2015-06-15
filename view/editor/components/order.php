@@ -3,9 +3,19 @@
 namespace LPCandy\Components;
 
 class Order extends Block {
-    public $name = 'Заявка';
-    public $description = "Блок с картинкой и формой";
+    public $name;
+    public $description;
     public $editor = "lp.order";
+    
+    function __construct() { 
+        if (self::$en) {
+            $this->name = 'Order';
+            $this->description = "Block with a picture and form";
+        } else {
+            $this->name = 'Заявка';
+            $this->description = "Блок с картинкой и формой";
+        }        
+    }
     
     function tpl($val) {?>
         <div class="container-fluid order order_1" style="background: url('<?=$this->api->base_url."/".$val['background']?>')">
@@ -45,7 +55,17 @@ class Order extends Block {
     <?}
     
      function tpl_default() { 
-        return  array(
+        return self::$en ? [
+            'show_form_title_2' => true,
+            'show_form_bottom_text' => true,
+            'background' =>'view/editor/assets/background/91.jpg',
+            'title_1' => "<div>SMILES</div><div>HOME</div><div>DELIVERY</div>",
+            'title_2' => "<div>Only quality smiles</div><div>Guaranteed safety of cargo</div><div>Timely delivery</div>",
+            'form_title_1' => "Leave the application and get a free smile",
+            'form_title_2' => "WAITING FOR A COURIER",
+            'form_bottom_text' => "We don't provide Israeli intelligence with your personal information",
+            'form' => FormOrder::get()->tpl_default(),
+        ] : [
             'show_form_title_2' => true,
             'show_form_bottom_text' => true,
             'background' =>'view/editor/assets/background/91.jpg',
@@ -55,7 +75,7 @@ class Order extends Block {
             'form_title_2' => "Ожидайте курьера",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",
             'form' => FormOrder::get()->tpl_default(),
-        );
+        ];
     }
     
     
@@ -84,7 +104,16 @@ class Order extends Block {
     <?}
     
     function tpl_default_2() { 
-        return  array( 
+        return self::$en ? [
+            'show_background_noise' => true,
+            'show_text_above_button' => true,
+            'show_arrow' => true,
+            'background' =>'view/editor/assets/background/192.jpg',
+            'title_1' => "Free training of juggling",
+            'title_2' => "Secret technique of  clown Zhora juggling",
+            'button_note' => "Order Zhora and his friend Kleve right now! ",
+            'button_order' =>  array_merge(FormButton::get()->tpl_default(),array('text'=>'Teach me to juggle', 'color'=>'orange'))            
+        ] : [
             'show_background_noise' => true,
             'show_text_above_button' => true,
             'show_arrow' => true,
@@ -93,7 +122,7 @@ class Order extends Block {
             'title_2' => "Секретная методика жонглирования от клоуна Жоры",
             'button_note' => "Закажите Жору и его друга Клеву прямо сейчас!",
             'button_order' =>  array_merge(FormButton::get()->tpl_default(),array('text'=>'Обучить меня жонглировать', 'color'=>'orange'))            
-        );
+        ];
     }
     
     
@@ -133,7 +162,18 @@ class Order extends Block {
     <?}
     
     function tpl_default_3() { 
-        return  array( 
+        return self::$en ? [
+            'show_border' => true,
+            'show_title_2' => true,
+            'show_list_box' => false,
+            'background' =>'view/editor/assets/texture/1.png',
+            'media' =>  array_merge(Media::get()->tpl_default(),array('type'=>'image','image_url'=> 'view/editor/assets/order/order_3.jpg')),
+            'title_1' => "ONLY <span style='color:#C1103A'>REAL</span> AFRICAN ELEPHANTS",
+            'title_2' => "NO CHINESE FAKES",
+            'desc' => "Free exhibition of the Somali purple elephant.<br>Show time - 10 minutes.",
+            'list' => "<p>Only we have clearing skin elephant</p><p>Only we have baking elephant</p><p>Only we have an elephant witch executes the command SIT</p>",
+            'button_order' =>  array_merge(FormButton::get()->tpl_default(),array('text'=> "Have a look at the elephant", 'color'=>'purple_light')), 
+        ] : [
             'show_border' => true,
             'show_title_2' => true,
             'show_list_box' => false,
@@ -143,8 +183,8 @@ class Order extends Block {
             'title_2' => "НИКАКИХ ПОДДЕЛОК ИЗ КИТАЯ",
             'desc' => "Бесплатно покажем Вам фиолетового сомалийского слона.<br>Время показа - 10 минут.",
             'list' => "<p>Только у нас слон сбрасывает свою шкуру</p><p>Только у нас слон лает</p><p>Только у нас слон выполняет команду СИДЕТЬ</p>",
-            'button_order' =>  array_merge(FormButton::get()->tpl_default(),array('text'=>'Посмотреть слона', 'color'=>'purple_light')),             
-        );
+            'button_order' =>  array_merge(FormButton::get()->tpl_default(),array('text'=> 'Посмотреть слона', 'color'=>'purple_light')), 
+        ];
     }
     
     
@@ -180,7 +220,18 @@ class Order extends Block {
     <?}
     
     function tpl_default_4() { 
-        return  array(
+        return self::$en ? [
+            'show_form_bottom_text' => true,
+            'show_box_shadow' => true,
+            'show_title_2' => true,
+            'background_color' =>'#313138',
+            'media' =>  array_merge(Media::get()->tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/order/order_4.jpg')),
+            'title_1' => "Exclusive Session of infectious laughter",
+            'title_2' => "Inimitable smile from baby Jeremy",
+            'form_title' => "LEAVE THE APPLICATION FOR FREE SMILE",
+            'form_bottom_text' => "We don't provide Israeli intelligence with your personal information",  
+            'form' => array_merge(FormOrder::get()->tpl_default(),array('button' => array('color'=>'rose','label'=> "Get a smile")))
+        ] : [
             'show_form_bottom_text' => true,
             'show_box_shadow' => true,
             'show_title_2' => true,
@@ -190,8 +241,8 @@ class Order extends Block {
             'title_2' => "Неповторимая улыбочка от малыша Джереми",
             'form_title' => "ОСТАВЬТЕ ЗАЯВКУ НА БЕСПЛАТНЫЙ СЕАНС УЛЫБКИ",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",  
-            'form' => array_merge(FormOrder::get()->tpl_default(),array('button' => array('color'=>'rose','label'=>'Получить улыбочку')))
-        );
+            'form' => array_merge(FormOrder::get()->tpl_default(),array('button' => array('color'=>'rose','label'=> 'Получить улыбочку')))
+        ];
     }
     
     
@@ -237,7 +288,34 @@ class Order extends Block {
     <?}
     
     function tpl_default_5() { 
-        return  array(
+        return self::$en ? [
+            'show_form_bottom_text' => true,
+            'show_title_2' => true,
+            'background_color' =>'#313138',
+            'title_1' => "Just ridiculous and funny performance",
+            'title_2' => "We work only with professionals of premium",
+            'form_title' => "ORDER A FREE SEANCE",
+            'items' => array(
+                array(
+                    'icon' =>'view/editor/assets/ico/537.png',
+                    'icon_title' => "Injections of infectious laughter",
+                    'icon_desc' => "Tested by assistant manager of the circus and allowed in a number of countries, even in Jamaica."
+                ),
+                array(
+                    'icon' =>'view/editor/assets/ico/464.png',
+                    'icon_title' => "Laugh to tears  and even more",
+                    'icon_desc' => "Laughing the lifespan increases in several times and even more."
+                ),
+                array(
+                    'icon' =>'view/editor/assets/ico/507.png',
+                    'icon_title' => "Free candy for everybody",
+                    'icon_desc' => "Each visitor will be personally handed a candy on a stick."
+                )
+                
+            ),            
+            'form_bottom_text' => "We don't provide Israeli intelligence with your personal information", 
+            'form' => array_merge(FormOrder::get()->tpl_default(),array('button' => array('color'=>'purple','label'=> "Order a seance")))
+        ] : [
             'show_form_bottom_text' => true,
             'show_title_2' => true,
             'background_color' =>'#313138',
@@ -263,8 +341,8 @@ class Order extends Block {
                 
             ),            
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке", 
-            'form' => array_merge(FormOrder::get()->tpl_default(),array('button' => array('color'=>'purple','label'=>'Заказать сеанс')))
-        );
+            'form' => array_merge(FormOrder::get()->tpl_default(),array('button' => array('color'=>'purple','label'=> 'Заказать сеанс')))
+        ];
     }
     
     
@@ -306,7 +384,19 @@ class Order extends Block {
     <?}
     
     function tpl_default_6() { 
-        return  array(
+        return self::$en ? [
+            'show_title_2' => true,
+            'show_title_3' => true,
+            'show_form_bottom_text' => true,
+            'form_align' => "right",
+            'background' => "view/editor/assets/background/187.jpg",
+            'title_1' => "USE THIS DESIGNER",
+            'title_2' => "CREATE LANDING",
+            'title_3' => "JUST A FEW MINUTES",
+            'form_title' => "LEAVE AN APPLICATION FOR LANDING CREATION",
+            'form_bottom_text' => "We don't provide Israeli intelligence with your personal information",  
+            'form' => array_merge(FormOrder::get()->tpl_default_email(),array('button' => array('color'=>'blue','label'=> "Order a landing")))
+        ] : [
             'show_title_2' => true,
             'show_title_3' => true,
             'show_form_bottom_text' => true,
@@ -317,7 +407,7 @@ class Order extends Block {
             'title_3' => "ВСЕГО ЗА НЕСКОЛЬКО МИНУТ",
             'form_title' => "ОСТАВЬТЕ ЗАЯВКУ НА СОЗДАНИЕ ЛЕНДИНГА",
             'form_bottom_text' => "Мы не передаем Вашу персональную информацию израильской разведке",  
-            'form' => array_merge(FormOrder::get()->tpl_default_email(),array('button' => array('color'=>'blue','label'=>'Заказать лендинг')))
-        );
+            'form' => array_merge(FormOrder::get()->tpl_default_email(),array('button' => array('color'=>'blue','label'=> 'Заказать лендинг')))
+        ];
     }    
 }

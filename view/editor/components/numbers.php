@@ -3,9 +3,19 @@
 namespace LPCandy\Components;
 
 class Numbers extends Block {
-    public $name = 'Цифры';
-    public $description = "Показатели компании";
+    public $name;
+    public $description;
     public $editor = "lp.numbers";
+    
+    function __construct() { 
+        if (self::$en) {
+            $this->name = 'Numbers';
+            $this->description = "Indicators company";
+        } else {
+            $this->name = 'Цифры';
+            $this->description = "Показатели компании";
+        }        
+    }
     
     function tpl($val) {?>
         <div class="container-fluid numbers numbers_1" style="background: <?=$val['background_color']?>;">
@@ -42,8 +52,26 @@ class Numbers extends Block {
         </div>
     <?}
     
-    function tpl_default() { 
-        return  array(
+    function tpl_default_1() { 
+        return self::$en ? [
+            'show_title' => false,
+            'show_title_2' => false,
+            'background_color' => '#FFFFFF',
+            'title' => 'Circus facts',
+            'title_2' => 'Subtitle',
+            'items' => array(
+                array(
+                    'value_1' => '15',
+                    'name_1' => 'Years old elephant',
+                    'value_2' => '7',
+                    'name_2' => 'Months Clown does not drink',
+                    'value_3' => '3',
+                    'name_3' => 'Are in a silent chorus',
+                    'value_4' => '300',
+                    'name_4' => 'Sincere smiles', 
+                )
+            )  
+        ] : [
             'show_title' => false,
             'show_title_2' => false,
             'background_color' => '#FFFFFF',
@@ -60,10 +88,9 @@ class Numbers extends Block {
                     'value_4' => '300',
                     'name_4' => 'Искренних улыбок', 
                 )
-            )                       
-        );
+            )  
+        ];
     }
-    
     
     
     function tpl_2($val) {?>
@@ -102,7 +129,23 @@ class Numbers extends Block {
     <?}
     
     function tpl_default_2() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => false,
+            'show_title_2' => false,
+            'background_color' => '#FFFFFF',
+            'title' => 'Circus facts',
+            'title_2' => 'Subtitle',
+            'items' => array(
+                array(
+                    'value_1' => '17',
+                    'name_1' => 'Moments<br>on the market',
+                    'value_2' => '75',
+                    'name_2' => 'Baby<br>smiles',
+                    'value_3' => '105',
+                    'name_3' => 'Hippo<br>weight',
+                )
+            )   
+        ] : [
             'show_title' => false,
             'show_title_2' => false,
             'background_color' => '#FFFFFF',
@@ -117,10 +160,9 @@ class Numbers extends Block {
                     'value_3' => '105',
                     'name_3' => 'Весит<br>бегемот',
                 )
-            )                       
-        );
+            )  
+        ];
     }
-    
     
     function tpl_3($val) {?>
         <div class="container-fluid numbers numbers_3" style="<?=$this->bg_style($val['background'])?>">  
@@ -158,7 +200,23 @@ class Numbers extends Block {
     <?}
     
     function tpl_default_3() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => false,
+            'show_title_2' => false,
+            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
+            'title' => 'Circus facts',
+            'title_2' => 'Subtitle',
+            'items' => array(
+                array(
+                    'value_1' => '5',
+                    'name_1' => "The length<br>of the giraffe's neck",
+                    'value_2' => '15',
+                    'name_2' => 'Baby<br>smiles',
+                    'value_3' => '2',
+                    'name_3' => 'Bottles<br>for three',
+                )
+            )  
+        ] : [
             'show_title' => false,
             'show_title_2' => false,
             'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
@@ -173,10 +231,9 @@ class Numbers extends Block {
                     'value_3' => '2',
                     'name_3' => 'Бутылки<br>на троих',
                 )
-            )                       
-        );
+            ) 
+        ];
     }
-    
     
     function tpl_4($val) {?>
         <div class="container-fluid numbers numbers_4" style="background: <?=$val['background_color']?>;">
@@ -216,7 +273,31 @@ class Numbers extends Block {
     <?}
     
     function tpl_default_4() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => false,
+            'show_title_2' => false,
+            'icon_color' => 'grey',
+            'background_color' => '#FFFFFF',
+            'title' => 'Circus facts',
+            'title_2' => 'Subtitle',
+            'items' => array(
+                array(
+                    'icon_1' => 'view/editor/assets/ico/101.png',
+                    'value_1' => '5000',
+                    'name_1' => 'Diplomas',
+                    'icon_2' => 'view/editor/assets/ico/99.png',
+                    'value_2' => '20',
+                    'name_2' => 'Satisfied visitors',
+                    'icon_3' => 'view/editor/assets/ico/178.png',
+                    'value_3' => '50',
+                    'name_3' => 'Pour out in the cafeteria',
+                    'icon_4' => 'view/editor/assets/ico/739.png',
+                    'value_4' => '350',
+                    'name_4' => 'Smiling children',
+
+                )
+            ) 
+        ] : [
             'show_title' => false,
             'show_title_2' => false,
             'icon_color' => 'grey',
@@ -239,10 +320,9 @@ class Numbers extends Block {
                     'name_4' => 'Улыбающихся детей',
 
                 )
-            )                       
-        );
+            ) 
+        ];
     }
-    
     
     function tpl_5($val) {?>
         <div class="container-fluid numbers numbers_5" style="<?=$this->bg_style($val['background'])?>">
@@ -282,7 +362,30 @@ class Numbers extends Block {
     <?}
     
     function tpl_default_5() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => false,
+            'show_title_2' => false,
+            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
+            'title' => 'Circus facts',
+            'title_2' => 'Subtitle',
+            'items' => array(
+                array(
+                    'icon_1' => 'view/editor/assets/ico/491.png',
+                    'value_1' => '1',
+                    'name_1' => 'Ttrained tiger',
+                    'icon_2' => 'view/editor/assets/ico/447.png',
+                    'value_2' => '750',
+                    'name_2' => 'Loving audience',
+                    'icon_3' => 'view/editor/assets/ico/379.png',
+                    'value_3' => '80',
+                    'name_3' => 'Ticket price',
+                    'icon_4' => 'view/editor/assets/ico/645.png',
+                    'value_4' => '3',
+                    'name_4' => 'Stars in the picture',
+
+                )
+            ) 
+        ] : [
             'show_title' => false,
             'show_title_2' => false,
             'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
@@ -304,10 +407,9 @@ class Numbers extends Block {
                     'name_4' => 'Звезды на картинке',
 
                 )
-            )                        
-        );
+            ) 
+        ];
     }
-    
     
     function tpl_6($val) {?>
         <div class="container-fluid numbers numbers_6" style="<?=$this->bg_style($val['background'])?>">
@@ -346,7 +448,30 @@ class Numbers extends Block {
     <?}
     
     function tpl_default_6() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => false,
+            'show_title_2' => false,
+            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
+            'title' => 'Circus facts',
+            'title_2' => 'Subtitle',
+            'items' => array(
+                array(
+                    'icon_1' => 'view/editor/assets/ico/648.png',
+                    'value_1' => '50',
+                    'name_1' => 'UNNECESSARY SCHEDULES',
+                    'icon_2' => 'view/editor/assets/ico/684.png',
+                    'value_2' => '15',
+                    'name_2' => 'HANGER IN THE DRESSING ROOM',
+                    'icon_3' => 'view/editor/assets/ico/501.png',
+                    'value_3' => '85',
+                    'name_3' => 'ENERGIZED LAMPS',
+                    'icon_4' => 'view/editor/assets/ico/624.png',
+                    'value_4' => '20',
+                    'name_4' => ' SOCKETS OUT OF GEAR',
+
+                )
+            ) 
+        ] : [
             'show_title' => false,
             'show_title_2' => false,
             'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
@@ -368,10 +493,9 @@ class Numbers extends Block {
                     'name_4' => 'НЕРАБОТАЮЩИХ РОЗЕТОК',
 
                 )
-            )                        
-        );
+            ) 
+        ];
     }
-    
     
     function tpl_7($val) {?>
         <div class="container-fluid numbers numbers_7" style="<?=$this->bg_style($val['background'])?>">
@@ -410,7 +534,31 @@ class Numbers extends Block {
     <?}
     
     function tpl_default_7() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => false,
+            'show_title_2' => false,
+            'icon_color' => 'grey',
+            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
+            'title' => 'Circus facts',
+            'title_2' => 'Subtitle',
+            'items' => array(
+                array(
+                    'icon_1' => 'view/editor/assets/ico/596.png',
+                    'value_1' => '10',
+                    'name_1' => 'Talking parrots',
+                    'icon_2' => 'view/editor/assets/ico/620.png',
+                    'value_2' => '22',
+                    'name_2' => 'Balloon',
+                    'icon_3' => 'view/editor/assets/ico/396.png',
+                    'value_3' => '85',
+                    'name_3' => 'Fluttering butterflies',
+                    'icon_4' => 'view/editor/assets/ico/696.png',
+                    'value_4' => '1',
+                    'name_4' => 'Directors whiskers',
+
+                )
+            )   
+        ] : [
             'show_title' => false,
             'show_title_2' => false,
             'icon_color' => 'grey',
@@ -433,10 +581,9 @@ class Numbers extends Block {
                     'name_4' => 'Усы у директора цирка',
 
                 )
-            )                       
-        );
+            )   
+        ];
     }
-    
     
     function tpl_8($val) {?>
         <div class="container-fluid numbers numbers_8" style="background: <?=$val['background_color']?>;">
@@ -473,7 +620,24 @@ class Numbers extends Block {
     <?}
     
     function tpl_default_8() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => false,
+            'show_title_2' => false,
+            'background_color' => "#FFFFFF",
+            'numbers_color' => "#E6332A",
+            'title' => 'Circus facts',
+            'title_2' => 'Subtitle',
+            'value_1' => '12',
+            'name_1' => 'Months<br>in a year',
+            'value_2' => '32',
+            'name_2' => 'Teeth',
+            'value_3' => '64',
+            'name_3' => 'Trampolines<br>years',
+            'value_4' => '5',
+            'name_4' => 'Gymnasts<br>soft-boiled',
+            'value_5' => '2',
+            'name_5' => 'Elephants<br>ears',    
+        ] : [
             'show_title' => false,
             'show_title_2' => false,
             'background_color' => "#FFFFFF",
@@ -489,7 +653,7 @@ class Numbers extends Block {
             'value_4' => '5',
             'name_4' => 'Гимнастов<br>всмятку',
             'value_5' => '2',
-            'name_5' => 'Уха<br>у слона',                      
-        );
-    }     
+            'name_5' => 'Уха<br>у слона',  
+        ];
+    }
 }

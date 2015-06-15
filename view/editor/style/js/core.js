@@ -56,9 +56,7 @@ $.fn.lpCounty = function (datetime) {
             case 'datetime':
                 set_date = new Date(get_date.date + ' ' + get_date.time);
                 if (isNaN(set_date)) set_date = 0;
-                $(this).empty().county({
-                    endDateTime: set_date,
-                });
+                
                 break;
 
             case 'monthly':                
@@ -66,53 +64,50 @@ $.fn.lpCounty = function (datetime) {
                 var real_current_month = current_month+1;
                 add_days = get_date.day - current_day;
                     
-                    if (real_current_month == 2) { // если февраль то 29-30 не считать
-                        if (current_year % 4 === 0) { // если високосный год, то в феврале 29 дней
-                            if (get_date.day == 30 || get_date.day == 31) {
-                                add_days = 29 - current_day;
-                            }
-                            lengthMonth = 29;
-                        } else {
-                            if (get_date.day == 29 || get_date.day == 30 || get_date.day == 31) {
-                                add_days = 28 - current_day;
-                            }
-                            lengthMonth = 28;
+                if (real_current_month == 2) { // если февраль то 29-30 не считать
+                    if (current_year % 4 === 0) { // если високосный год, то в феврале 29 дней
+                        if (get_date.day == 30 || get_date.day == 31) {
+                            add_days = 29 - current_day;
                         }
+                        lengthMonth = 29;
                     } else {
-                        if (real_current_month == 4 || real_current_month == 6 || real_current_month == 9 || real_current_month == 11) { // если в месяце 30 дней то 31 не считать
-                            if (get_date.day == 31) {
-                                add_days = 30 - current_day;
-                            }
-                            lengthMonth = 30;
-                        } else {
-                            lengthMonth = 31;
+                        if (get_date.day == 29 || get_date.day == 30 || get_date.day == 31) {
+                            add_days = 28 - current_day;
                         }
+                        lengthMonth = 28;
                     }
-
-                    if (add_days < 0) {
-                        add_days = lengthMonth + add_days;
-                    } else if (add_days == 0) {
-                        var timeX = new Date(current_year, current_month, current_day, hours, minutes);
-                        if (timeX < current_date) {
-                            add_days = lengthMonth;
+                } else {
+                    if (real_current_month == 4 || real_current_month == 6 || real_current_month == 9 || real_current_month == 11) { // если в месяце 30 дней то 31 не считать
+                        if (get_date.day == 31) {
+                            add_days = 30 - current_day;
                         }
-                    } 
-                    
-                    if(current_day > get_date.day){
-                        if(get_date.day == 1){
-                            current_day = 1;
-                        } else {
-                            current_day = get_date.day;
-                        }
-                        set_date = new Date(current_year, current_month+1, current_day, hours, minutes);
+                        lengthMonth = 30;
                     } else {
-                        set_date = new Date(current_year, current_month, current_day + add_days, hours, minutes);
+                        lengthMonth = 31;
                     }
+                }
 
-                    if (isNaN(set_date)) set_date = 0;
-                    $(this).empty().county({
-                        endDateTime: set_date,
-                    });
+                if (add_days < 0) {
+                    add_days = lengthMonth + add_days;
+                } else if (add_days == 0) {
+                    var timeX = new Date(current_year, current_month, current_day, hours, minutes);
+                    if (timeX < current_date) {
+                        add_days = lengthMonth;
+                    }
+                } 
+
+                if(current_day > get_date.day){
+                    if(get_date.day == 1){
+                        current_day = 1;
+                    } else {
+                        current_day = get_date.day;
+                    }
+                    set_date = new Date(current_year, current_month+1, current_day, hours, minutes);
+                } else {
+                    set_date = new Date(current_year, current_month, current_day + add_days, hours, minutes);
+                }
+
+                if (isNaN(set_date)) set_date = 0;                    
                    
                 break;
 
@@ -130,9 +125,7 @@ $.fn.lpCounty = function (datetime) {
                 
                 set_date = new Date(current_year, current_month, current_day + add_days, hours, minutes); 
                 if (isNaN(set_date)) set_date = 0;
-                $(this).empty().county({
-                    endDateTime: set_date,
-                });
+
                 break;
 
             case 'daily':
@@ -141,11 +134,14 @@ $.fn.lpCounty = function (datetime) {
                     set_date = new Date(current_year, current_month, tomorrow, hours, minutes); 
                 }
                 if (isNaN(set_date)) set_date = 0;
-                $(this).empty().county({
-                    endDateTime: set_date,
-                });
+
                 break;
         }
+        
+        $(this).empty().county({
+            endDateTime: set_date,
+            labels: (window.locale_lang=="ru") ? { d: "дни", h: "часы", m: "минуты", s: "секунды" } : undefined
+        });
 	});
 };
 

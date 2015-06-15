@@ -3,9 +3,19 @@
 namespace LPCandy\Components;
 
 class Services extends Block {
-    public $name = 'Услуги';
-    public $description = "Перечень услуг";
+    public $name;
+    public $description;
     public $editor = "lp.services";
+    
+    function __construct() { 
+        if (self::$en) {
+            $this->name = 'Services';
+            $this->description = "List of services";
+        } else {
+            $this->name = 'Услуги';
+            $this->description = "Перечень услуг";
+        }        
+    }
     
     function tpl($val) {?>
         <div class="container-fluid services services_1" style="background: <?=$val['background']?>;">
@@ -68,7 +78,34 @@ class Services extends Block {
     <?}
     
      function tpl_default() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => true,
+            'show_image' => true,
+            'show_desc' => true,
+            'show_price' => true,
+            'show_order_button' => true,
+            'background' =>'#F7F7F7',
+            'title' => "The program for corporate events",
+            'title_2' => "We have a plenty of choices",
+            'items' => array(
+                array(
+                    'image_1' => 'view/editor/assets/services/1.jpg',
+                    'image_2' => 'view/editor/assets/services/2.jpg',
+                    'image_3' => 'view/editor/assets/services/3.jpg',
+                    'name_1' => "Smiling dog",
+                    'name_2' => "Flying gymnast",
+                    'name_3' => "Clam cats",
+                    'desc_1' => "Ordering this program you'll enjoy the smiling dog the whole party.",
+                    'desc_2' => "The program includes a dizzying stunts, jumps and movements at the brink.",
+                    'desc_3' => "During this program you will be able to enjoy the silence. The chorus does not say a single sound.",
+                    'price_1' => "3 000 $",
+                    'price_2' => "5 000 $",
+                    'price_3' => "7 000 $",
+                )
+            ),
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Order','color' =>'blue'))
+        ] : [
             'show_title' => true,
             'show_title_2' => true,
             'show_image' => true,
@@ -95,7 +132,7 @@ class Services extends Block {
                 )
             ),
             'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Заказать','color' =>'blue'))
-        );
+        ];
     }
     
 
@@ -150,7 +187,31 @@ class Services extends Block {
     <?}
     
     function tpl_default_2() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => true,
+            'show_desc' => true,
+            'show_price' => true,
+            'show_order_button' => true,
+            'show_image_shadow' => true,
+            'image_shape' => 'circle',
+            'background' =>'#FFFFFF',
+            'title' => "Hot deals",
+            'title_2' => "Hire of deers team",
+            'items' => array(
+                array(
+                'image_1' => 'view/editor/assets/services/4.jpg',
+                'image_2' => 'view/editor/assets/services/5.jpg',
+                'name_1' => "KITTEH-DEER",
+                'name_2' => "DOG-DEER",
+                'desc_1' => "Team of the kitteh-deer will carry you away beyond the horizon from the bad mood.",
+                'desc_2' => "Dog-deers could break right in the snowy dawn.",
+                'price_1' => "6 000 $",
+                'price_2' => "<span style='color: #BBBBBB'><strike>5 000 $</strike></span> 4 000 $",
+                )
+            ),
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Order','color' =>'blue'))
+        ] : [
             'show_title' => true,
             'show_title_2' => true,
             'show_desc' => true,
@@ -174,7 +235,7 @@ class Services extends Block {
                 )
             ),
             'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Заказать','color' =>'blue'))
-        );
+        ];
     }
     
     
@@ -233,7 +294,30 @@ class Services extends Block {
     <?}
     
     function tpl_default_3() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => true,            
+            'show_desc' => true,
+            'show_price' => true,
+            'show_text_above_button' => true,
+            'show_order_button' => true,
+            'show_image_shadow' => true,
+            'image_size' => 'middle',
+            'background' =>'#FFFFFF',
+            'title' => "Old maid rejuvenation  ",
+            'title_2' => "Miracle for human eyes",
+            'items' => array(
+                array(
+                    'image' => 'view/editor/assets/services/12.jpg',
+                    'name' => "CONJURER FEDOR",
+                    'desc' => "Using forbidden magic spell, Sedoborodov Fedor Yakovlevich creats a miracle on your eyes never happened yet. Your  old wife will be transformed into a young maiden. 
+                               <i>Rejuvenating apples are included.</i>.",
+                    'price' => "<span style='color: #BBBBBB'><strike>50 000 $</strike></span> 25 000 $",
+                    'btn_note' => "<i>Rejuvenating the old woman that are not older than 30 years</i>",
+                )
+            ),
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Rejuvenate','color' =>'blue'))
+        ] : [
             'show_title' => true,
             'show_title_2' => true,            
             'show_desc' => true,
@@ -256,7 +340,7 @@ class Services extends Block {
                 )
             ),
             'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Омолодить','color' =>'blue'))
-        );
+        ];
     }
         
     
@@ -314,7 +398,34 @@ class Services extends Block {
      <?}
     
      function tpl_default_4() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => true,
+            'show_image' => true,
+            'show_desc' => true,
+            'show_price' => true,            
+            'show_order_button' => true,
+            'background' =>'#F7F7F7',
+            'title' => "We are offering",
+            'title_2' => "Parties for the littlest",
+            'items' => array(
+                array(
+                    'image_1' => "view/editor/assets/ico/772.png",
+                    'image_2' => "view/editor/assets/ico/335.png",
+                    'image_3' => "view/editor/assets/ico/255.png",
+                    'name_1' => "FUNNY STRUMMING",
+                    'name_2' => "EATING BISCUITS",
+                    'name_3' => "KARAOKE",
+                    'desc_1' => "Our guitarist Vityusha will teach your child to strum.",
+                    'desc_2' => "Competition 'Eating biscuits' is very exciting, dynamic and cool.",
+                    'desc_3' => "Your children will be able to sing such hits as 'Mamani Combat' and 'Killed Negro'",
+                    'price_1' => "5 000 $",
+                    'price_2' => "10 000 $",
+                    'price_3' => "7 000 $",
+                )
+            ),
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Order','color' =>'blue'))
+        ] : [
             'show_title' => true,
             'show_title_2' => true,
             'show_image' => true,
@@ -341,7 +452,7 @@ class Services extends Block {
                 )
             ),
             'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Заказать','color' =>'blue'))
-        );
+        ];
     }
     
     
@@ -399,7 +510,36 @@ class Services extends Block {
     <?}
     
     function tpl_default_5() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => true,
+            'show_image' => true,
+            'show_desc' => true,
+            'show_price' => true,
+            'show_price' => true,
+            'image_shape' => 'circle',
+            'show_order_button' => true,
+            'background' =>'#F7F7F7',
+            'title' => "Top offer",
+            'title_2' => "Circus entertainment program for those who are over 50",
+            'items' => array(
+                array(
+                    'image_1' => 'view/editor/assets/services/6.jpg',
+                    'image_2' => 'view/editor/assets/services/7.jpg',
+                    'image_3' => 'view/editor/assets/services/8.jpg',
+                    'name_1' => "Chess battle",
+                    'name_2' => "Soviet movie",
+                    'name_3' => "Yard gatherings",
+                    'desc_1' => "All expenses we will incur. The horse walks by some consonant of the alphabet.",
+                    'desc_2' => "We offer a wide selection<br> of the Soviet era movies.",
+                    'desc_3' => "On a bench near the entrance the squadron will be created to identify prostitutes.",
+                    'price_1' => "5 000 $",
+                    'price_2' => "5 000 $",
+                    'price_3' => "5 000 $",
+                )
+            ),
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Order','color' =>'blue'))
+        ] : [
             'show_title' => true,
             'show_title_2' => true,
             'show_image' => true,
@@ -428,7 +568,7 @@ class Services extends Block {
                 )
             ),
             'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Заказать','color' =>'blue'))
-        );
+        ];
     }
     
     
@@ -475,7 +615,27 @@ class Services extends Block {
     <?}
     
     function tpl_default_6() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => true,
+            'background' =>'#F7F7F7',
+            'title' => "Fun and play",
+            'title_2' => "The best games for your corporate party",
+            'items' => array(
+                array(
+                    'image_1' => 'view/editor/assets/services/9.jpg',
+                    'image_2' => 'view/editor/assets/services/10.jpg',
+                    'image_3' => 'view/editor/assets/services/11.jpg',
+                    'name_1' => "Chief is in two",
+                    'name_2' => "Prick for accountant",
+                    'name_3' => "Admin is alongside",
+                    'price_1' => "10 000 $",
+                    'price_2' => "8 000 $",
+                    'price_3' => "6 000 $",
+                )
+            ),
+            'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Order','color' =>'blue'))
+        ] : [
             'show_title' => true,
             'show_title_2' => true,
             'background' =>'#F7F7F7',
@@ -495,6 +655,6 @@ class Services extends Block {
                 )
             ),
             'order_button' => array_merge(FormButton::get()->tpl_default(),array('text'=>'Заказать','color' =>'blue'))
-        );
+        ];
     }
 }

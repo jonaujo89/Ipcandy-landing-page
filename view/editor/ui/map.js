@@ -136,7 +136,7 @@ lp.map = lp.block.extendOptions({
                     },
                     setValue: function (val) {
                         var me = this;
-                        function updateMap() {                             
+                        if (val && val.map_type) {
                             me.element.mapYandex(val,function(myMap){
                                 myMap.events.add('boundschange', function ($this) {
                                     var block = lp.map.current; 
@@ -145,13 +145,6 @@ lp.map = lp.block.extendOptions({
                                     block.trigger('change');
                                 });
                             });
-                        }
-                        if (val && val.map_type) {
-                            if (window.ymaps) {
-                                updateMap();
-                            } else {
-                                teacss.LazyLoad_f(document).js("http://api-maps.yandex.ru/2.1/?lang=ru_RU",updateMap);
-                            }
                         }
                     }
                 })

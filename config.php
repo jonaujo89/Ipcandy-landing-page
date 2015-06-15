@@ -2,7 +2,10 @@
 
 $config = array(
     'invites_enabled' => false,
-    'domain' => 'lpcandy.ru',
+    'domain' => [
+        'ru_RU' =>'lpcandy.ru',
+        'en_EN' =>'en.lpcandy.ru',
+    ],
     'acl' => [
         'project_editor_group' => [
             'users' => [1,11],

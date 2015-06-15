@@ -1,15 +1,17 @@
-require("./editor_ru.js");
-window._t.load({
-    "Yes" : "Да",
-    "Cancel" : "Отмена",
-    "Preview" : "Предпросмотр",
-    "Publish" : "Публиковать",
-    "Editor" : "Редактор",
-    "Add Section" : "Добавить блок",
-    "Select component type" : "Выбрать тип блока",
-    'Your page was successfully published and now is available to your customers' : 'Ваша страница теперь опубликована и на нее смогут зайти посетители',
-    'Publish success' : 'Успешная публикация'
-});
+if (window.locale_lang=="ru") {
+    require("./editor_ru.js");
+    window._t.load({
+        "Yes" : "Да",
+        "Cancel" : "Отмена",
+        "Preview" : "Предпросмотр",
+        "Publish" : "Публиковать",
+        "Editor" : "Редактор",
+        "Add Section" : "Добавить блок",
+        "Select component type" : "Выбрать тип блока",
+        'Your page was successfully published and now is available to your customers' : 'Ваша страница теперь опубликована и на нее смогут зайти посетители',
+        'Publish success' : 'Успешная публикация'
+    });
+}
 
 require("./editor.css");
 require("./style/font-awesome.css");

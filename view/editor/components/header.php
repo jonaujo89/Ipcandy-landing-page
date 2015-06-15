@@ -3,9 +3,19 @@
 namespace LPCandy\Components;
 
 class Header extends Block {
-    public $name = 'Шапка';
-    public $description = 'Логотип и контакты компании';
+    public $name;
+    public $description;
     public $editor = "lp.header";
+    
+    function __construct() { 
+        if (self::$en) {
+            $this->name = 'Header';
+            $this->description = "Logo and contacts";
+        } else {
+            $this->name = 'Шапка';
+            $this->description = 'Логотип и контакты компании';
+        }        
+    }
     
     function tpl($val) {?>
         <div class="container-fluid header header_1" style="background: <?=$val['background']?>;">        
@@ -32,13 +42,19 @@ class Header extends Block {
     <?}
     
     function tpl_default() { 
-        return  array(
+        return self::$en ? [
+            'background' =>'#FFFFFF',
+            'logo' => array_merge(Logo::get()->tpl_default(),array('size'=>100)),
+            'desc' => '<span style="font-size: 22px;">Circus<b> One and the same are at the circus ring</b></span><br><span style="font-size: 18px;">Tickets delivery by bear on a bicycle</span>',
+            'phone' => '<span style="font-size: 27px;">+7 <span style="color: #C1103A;">(495)</span> 321-46-98</span>',
+            'phone_desc' => 'Moscow, Color Blvd., 13'
+        ] : [
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::get()->tpl_default(),array('size'=>100)),
             'desc' => "<span style='font-size: 22px;'>Цирк<b> НА МАНЕЖЕ ВСЕ ТЕ ЖЕ</b></span><br><span style='font-size: 18px;'>Доставка билетов медведем на велосипеде</span>",
             'phone' => '<span style="font-size: 27px;">+7 <span style="color: #C1103A;">(495)</span> 321-46-98</span>',
             'phone_desc' => 'г. Москва, Цветной бульвар, 13'
-        );
+        ];
     }
     
     
@@ -65,13 +81,19 @@ class Header extends Block {
     <?}    
     
     function tpl_default_2() { 
-        return  array(
+        return self::$en ? [
             'show_order_button' => true,
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::get()->tpl_default(),array('size'=>62)),
             'order_button' => FormButton::get()->tpl_default(),
-            'phone' => '+7 (495) 321-46-98',            
-        );
+            'phone' => '+7 (495) 321-46-98',
+        ] : [
+            'show_order_button' => true,
+            'background' =>'#FFFFFF',
+            'logo' => array_merge(Logo::get()->tpl_default(),array('size'=>62)),
+            'order_button' => FormButton::get()->tpl_default(),
+            'phone' => '+7 (495) 321-46-98',
+        ];
     }
     
     
@@ -108,7 +130,15 @@ class Header extends Block {
     <?}    
     
     function tpl_default_3() { 
-        return  array(
+        return self::$en ? [
+            'background' =>'#FFFFFF',
+            'logo' => array_merge(Logo::get()->tpl_default(),array('size'=>80)),
+            'desc_1' => "Hippos hire",
+            'desc_2' => "<b><span style='color: #C1103A;'>Lowest Prices<br><span style='font-size: 16px; line-height: 1;'>The thickest hiking hippos</span></span></b>",
+            'phone' => "+7 (495) 321-46-98",
+            'order_button' => FormButton::get()->tpl_default(),
+            'show_desc_and_order_button' => true,
+        ] : [
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::get()->tpl_default(),array('size'=>80)),
             'desc_1' => "Прокат бегемотов",
@@ -116,7 +146,7 @@ class Header extends Block {
             'phone' => "+7 (495) 321-46-98",
             'order_button' => FormButton::get()->tpl_default(),
             'show_desc_and_order_button' => true,
-        );
+        ];
     }
     
     
@@ -164,7 +194,20 @@ class Header extends Block {
     <?}    
     
     function tpl_default_4() { 
-        return  array(
+        return self::$en ? [
+            'show_order_button' => true,
+            'background' =>'#FFFFFF',
+            'logo' => array_merge(Logo::get()->tpl_default(),array('type'=>'text', 'text'=> "One and the same are at the circus ring", 'fontSize' =>19, 'color' => '#C1103A', 'font' => 'Trebuchet MS' )),            
+            'desc' => "WE ONLY HAVE REMEDY FROM BAD MOOD",
+            "ico_1" => 'view/editor/assets/ico/209.png',
+            "ico_2" => 'view/editor/assets/ico/204.png',
+            "ico_3" => 'view/editor/assets/ico/795.png',
+            'text_1' => "MASKED<br>MAN",
+            'text_2' => "PUSSY<br>CAT",
+            'text_3' => "ClOWN<br>JORA",
+            'phone' => "+7 (495) 321-46-98",
+            'order_button' => FormButton::get()->tpl_default(),
+        ] : [
             'show_order_button' => true,
             'background' =>'#FFFFFF',
             'logo' => array_merge(Logo::get()->tpl_default(),array('type'=>'text', 'text'=> 'На манеже все те же', 'fontSize' =>28, 'color' => '#C1103A', 'font' => 'Trebuchet MS' )),            
@@ -176,7 +219,7 @@ class Header extends Block {
             'text_2' => "КОТ<br>КОТОВЕЙ",
             'text_3' => "КЛОУН<br>ЖОРА",
             'phone' => "+7 (495) 321-46-98",
-            'order_button' => FormButton::get()->tpl_default(),            
-        );
+            'order_button' => FormButton::get()->tpl_default(),
+        ];
     }    
 }

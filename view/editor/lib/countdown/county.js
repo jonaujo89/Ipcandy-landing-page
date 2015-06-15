@@ -6,18 +6,25 @@
             endDateTime: new Date((new Date()).getTime()+24*3600*1000), 
             animation: false, 
             speed: 500, 
-            days: true
+            days: true,
+            labels: {
+                d: "days",
+                h: "hours",
+                m: "minutes",
+                s: "seconds"
+            }            
         }, options);
         
         return this.each(function () {
             var timeoutInterval = null;
             var container = $(this);
             container.addClass('county');
+
             container.append(
-                settings.days ? '<div class="county-days"><div>00</div><span>дни</span></div>':'',
-				'<div class="county-hours separator-left"><div>00</div><span>часы</span></div>',
-				'<div class="county-minutes separator-left"><div>00</div><span>минуты</span></div>',
-				'<div class="county-seconds separator-left"><div>00</div><span>секунды</span></div>'
+                settings.days ? '<div class="county-days"><div>00</div><span>'+settings.labels.d+'</span></div>':'',
+				'<div class="county-hours separator-left"><div>00</div><span>'+settings.labels.h+'</span></div>',
+				'<div class="county-minutes separator-left"><div>00</div><span>'+settings.labels.m+'</span></div>',
+				'<div class="county-seconds separator-left"><div>00</div><span>'+settings.labels.s+'</span></div>'
             );
             if (container.attr('id') == undefined || container.attr('id') == null) {
                 $.fn.county.total = ($.fn.county.total || 0)+1;

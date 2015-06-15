@@ -8,7 +8,7 @@ require_once BINGO_PATH . "/loader.php";
 \Bingo\Config::loadFile('config',INDEX_DIR.'/config.php');
 
 \Bingo\Configuration::$applicationMode = $_SERVER['HTTP_HOST']==\Bingo\Config::get('config','domain') ? 'production' : 'development';
-\Bingo\Configuration::$locale = 'ru_RU';
+\Bingo\Configuration::$locale = (explode(".", $_SERVER['HTTP_HOST'])[0]=='en') ? 'en_EN' : 'ru_RU';
 
 \Bingo\Configuration::addModulePath(INDEX_DIR."/modules");
 \Bingo\Configuration::addModules('Auth','CMS');

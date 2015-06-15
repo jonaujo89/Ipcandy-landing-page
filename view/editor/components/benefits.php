@@ -3,9 +3,19 @@
 namespace LPCandy\Components;
 
 class Benefits extends Block {
-    public $name = 'Преимущества';
-    public $description = "Ваши главные преимущества";
+    public $name;
+    public $description;
     public $editor = "lp.benefits";
+    
+    function __construct() { 
+        if (self::$en) {
+            $this->name = 'Benefits';
+            $this->description = "Main advantages";
+        } else {
+            $this->name = 'Преимущества';
+            $this->description = "Ваши главные преимущества";
+        }        
+    }
     
     function tpl($val) {?>
         <div class="container-fluid benefits benefits_1" style="background: <?=$val['background_color']?>;">
@@ -47,7 +57,29 @@ class Benefits extends Block {
     <?}
     
     function tpl_default() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_icon_border' => true,
+            'show_name_benefit' => true,
+            'show_desc_benefit' => true,
+            'background_color' =>'#FFFFFF',
+            'title' => "Our circus is the coolest in the world!",
+            'title_2' => "Subtitle",
+            'items' => array(
+                array(
+                    'icon_1' => "view/editor/assets/ico/740.png",
+                    'icon_2' => "view/editor/assets/ico/274.png",
+                    'icon_3' => "view/editor/assets/ico/218.png",
+                    'name_1' => "You can go on foot",
+                    'name_2' => "It increases the degree of mood",
+                    'name_3' => "It inspires by selective positive ",
+                    'desc_1' => "It's too simple. Come and fill the place.",
+                    'desc_2' => "Only in our lunchroom you have intimate conversations over a beer.",
+                    'desc_3' => "You get an excellent mood for the longest time.",
+                )
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
             'show_icon_border' => true,
@@ -69,7 +101,7 @@ class Benefits extends Block {
                     'desc_3' => "Вы получите заряд превосходного настроения на самое длительное время.",
                 )
             )
-        );
+        ];
     }
     
     function tpl_2($val) {?>
@@ -112,7 +144,28 @@ class Benefits extends Block {
     <?}
     
     function tpl_default_2() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_name_benefit' => true,
+            'show_desc_benefit' => true,
+            'background_color' =>'#FFFFFF',
+            'title' => "The advantages of our circus",
+            'title_2' => "Subtitle",
+            'items' => array(
+                array(
+                    'icon_1' => "view/editor/assets/ico/729.png",
+                    'icon_2' => "view/editor/assets/ico/308.png",
+                    'icon_3' => "view/editor/assets/ico/341.png",
+                    'name_1' => "Free Internet",
+                    'name_2' => "Delicious ice cream",
+                    'name_3' => "Starry cast",
+                    'desc_1' => "Wireless Internet access. You can always change the status in the social network.",
+                    'desc_2' => "White cornet. Very sticky and sweet.",
+                    'desc_3' => "We have such celebrities as Valentine and Valera.",
+                )
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
             'show_name_benefit' => true,
@@ -133,7 +186,7 @@ class Benefits extends Block {
                     'desc_3' => "Только у нас выступают такие знаменитости как Валентин и Валера.",
                 )
             )
-        );
+        ];
     }
     
     
@@ -175,7 +228,33 @@ class Benefits extends Block {
     <?}
     
     function tpl_default_3() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_icon_arounds' => true,
+            'show_name_benefit' => true,
+            'background_color' =>'#F7F7F7',
+            'title' => "The advantages of our circus",
+            'title_2' => "Subtitle",     
+            'items' => array(
+                array(
+                    'icon_1' => "view/editor/assets/ico/3.png",
+                    'name_1' => "Color TV",
+                    'desc_1' => "We have a color TV RUBIN-2M in the lobby.",
+                    'icon_2' => "view/editor/assets/ico/790.png",                    
+                    'name_2' => "Cozy circus tent",
+                    'desc_2' => "Our tent will protect you from snow and wind during a spectacular view.",
+                ),
+                array(
+                    'icon_1' => "view/editor/assets/ico/231.png",
+                    'name_1' => "Discount system",
+                    'desc_1' => "Buy a ticket to the circus for six months and you can live here free of charge for another three months.",
+                    'icon_2' => "view/editor/assets/ico/150.png",                    
+                    'name_2' => "Barbecue at the entrance gate",
+                    'desc_2' => "Uncle Izzy cooks barbecue for visitors and aunt Sarah accompanies him.",
+                ),
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
             'show_icon_arounds' => true,
@@ -201,7 +280,7 @@ class Benefits extends Block {
                     'desc_2' => "Дядя Изя готовит шашлык для посетителей цирка. Аккомпанирует ему тетя Сара.",
                 ),
             )
-        );
+        ];
     }
     
     function tpl_4($val) {?>
@@ -242,7 +321,24 @@ class Benefits extends Block {
     <?}
     
     function tpl_default_4() { 
-        return  array(
+        return self::$en ? [
+           'show_title' => true,
+           'show_title_2' => false,
+           'show_image_border' => true,
+           'background_color' =>'#FFFFFF',
+           'title' => "The advantages of our circus",
+           'title_2' => "Subtitle", 
+           'items' => array(
+                array(
+                    'image_1' => 'view/editor/assets/benefits/1.jpg',
+                    'image_2' => 'view/editor/assets/benefits/2.jpg',
+                    'name_1' => "Serious approach",
+                    'name_2' => "Attention to detail",
+                    'desc_1' => "The seriousness of our approach could not be underestimated. We have the most serious circus. And we are serious!",
+                    'desc_2' => "Only attention to details, such as the color of the door handles and the shape of the chair, makes us better.",
+                ),               
+            )
+        ] : [
            'show_title' => true,
            'show_title_2' => false,
            'show_image_border' => true,
@@ -259,7 +355,7 @@ class Benefits extends Block {
                     'desc_2' => "Только внимание к таким деталям как цвет ручки входной двери и форма стула билетёра делают нас лучшими.",
                 ),               
             )
-        );
+        ];
     }
     
     function tpl_5($val) {?>
@@ -303,7 +399,29 @@ class Benefits extends Block {
     <?}
     
     function tpl_default_5() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_name_benefit' => true,
+            'show_desc_benefit' => true,
+            'show_image_border' => true,
+            'background_color' =>'#FFFFFF',
+            'title' => "The advantages of our circus",
+            'title_2' => "Subtitle", 
+            'items' => array(
+                array(
+                    'image_1' => 'view/editor/assets/benefits/3.jpg',
+                    'image_2' => 'view/editor/assets/benefits/4.jpg',
+                    'image_3' => 'view/editor/assets/benefits/5.jpg',
+                    'name_1' => "Simplicity of passage",
+                    'name_2' => "Seats",
+                    'name_3' => "Support for a laugh",
+                    'desc_1' => "The unique design of the circus will not let you get lost. Entry and exit are here in the one place.",
+                    'desc_2' => "All seats are numbered. There will not any troubles with your place.",
+                    'desc_3' => "Smiling dog is always here! He is always ready to lick you to death.",
+                )
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
             'show_name_benefit' => true,
@@ -325,6 +443,6 @@ class Benefits extends Block {
                     'desc_3' => "В зале всегда находится дежурный пёс-смехун, который всегда готов зализать Вас до смерти.",
                 )
             )
-        );
+        ];
     }        
 }

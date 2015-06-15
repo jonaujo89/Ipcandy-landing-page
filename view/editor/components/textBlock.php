@@ -3,9 +3,19 @@
 namespace LPCandy\Components;
 
 class TextBlock extends Block {
-    public $name = 'Текст';
-    public $description = "Текстовые блоки";
+    public $name;
+    public $description;
     public $editor = "lp.textBlock";
+    
+    function __construct() { 
+        if (self::$en) {
+            $this->name = 'Text';
+            $this->description = "Text blocks";
+        } else {
+            $this->name = 'Текст';
+            $this->description = "Текстовые блоки";
+        }        
+    }
     
     function tpl($val) {?>
         <div class="container-fluid text_block text_block_1" style="background:<?=$val['background_color']?>;">
@@ -40,7 +50,28 @@ class TextBlock extends Block {
     <?}
     
     function tpl_default() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => true,
+            'show_list' => false,
+            'background_color' => '#FFFFFF',
+            'title' => 'Circus program ',
+            'title_2' => 'Created by the best experts over a beer',
+            'text' => 'Famous trained baboons are the stars of program. Baboons are very rare, endangered species of monkeys, which are sacred animals in Africa. However, they are brave predators and hunters, who are not afraid of attacking lions. And their stunning looks, shaggy mane, has become the purpose of  collectors hunting from around the world. The program performs a large number of animals. Such as trained Himalayan and brown bears, who ride motorcycles, bicycles and skateboards. Giant pythons and Nile crocodiles, dancing on the glass will surprise the audience. 
+                       Original performances with horses, performing acrobatic steps, will give the audience mood and smiles. Acrobatic triple flips, somersaults with a sack on the head in the darkness and live music will be remembered forever to the audience. You will be entranced by the work of two charming girls performing in a unique genre of juggling balls in the style of Argentine gauchos. Cheerful Clown are the unique example of a new trend of sparkling humor in the circus arts. Laughter will stand throughout the show!',          
+            'list_1' => '<ul>                    
+                            <li>Crocodiles</li>                    
+                            <li>Hippos</li>                    
+                            <li>Monkeys</li>                    
+                            <li>Whales</li>                    
+                         </ul>',
+            'list_2' => '<ul>                    
+                            <li>Crocodiles</li>                    
+                            <li>Hippos</li>                    
+                            <li>Monkeys</li>                    
+                            <li>Whales</li>                   
+                         </ul>',
+        ] : [
             'show_title' => true,
             'show_title_2' => true,
             'show_list' => false,
@@ -61,7 +92,7 @@ class TextBlock extends Block {
                             <li>Обезьяны</li>                    
                             <li>Кашалоты</li>                   
                          </ul>',
-        );
+        ];
     }
     
     
@@ -102,7 +133,28 @@ class TextBlock extends Block {
     <?}
     
     function tpl_default_2() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_name' => true,
+            'background_color' => '#FFFFFF',
+            'title' => 'Description of the best performances',
+            'title_2' => 'Subtitle',
+            'items' => array(
+                array(
+                    'name_1' => 'Acrobat acrobatic',
+                    'desc_1' => 'It is a miracle of nature only in our circus. Hurry, do not miss it! These include funny stories from Chappy.',
+                    'name_2' => 'Talking bisons',
+                    'desc_2' => 'Unfortunately, out of stock. But dancing heifers, we do provide. This performance is suggested to watch from 3+.',
+                ),
+                array(
+                    'name_1' => 'Coto-moto',
+                    'desc_1' => 'Dancing Cat on a motorcycle is able to enchant any audience with his dance. You will  indeed smile!',
+                    'name_2' => 'Zingaresca',
+                    'desc_2' => 'Bear Baiyun and poodles will dance famous dance "Gipsy". Seeing this once - will remember forever!',
+                )
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
             'show_name' => true,
@@ -122,8 +174,8 @@ class TextBlock extends Block {
                     'name_2' => 'Цыганочка с выходом',
                     'desc_2' => 'Медведь Баюн и отряд пуделей задорно станцуют вам известный танец "цыганочка". Увидев это однажды - запомнишь навсегда!',
                 )
-            )          
-        );
+            )
+        ];
     }
     
     
@@ -162,7 +214,23 @@ class TextBlock extends Block {
     <?}
     
     function tpl_default_3() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => true,
+            'background_color' => '#FFFFFF',
+            'title' => 'The best performance for you',
+            'title_2' => 'Subtitle',
+            'items' => array(
+                array(
+                'name_1' => 'Tomcats',
+                'desc_1' => 'The extraordinary repertoire of this remarkable duet is able to cheer even avid phlegmatic. Their show "howling at the moon" will stop your ears.',
+                'name_2' => 'Thorny needles',
+                'desc_2' => 'You think hedgehogs? Have another think coming! We have African porcupines, and our  favorite tomcats will accompany them.',
+                'name_3' => 'Hocus Pocus',
+                'desc_3' => 'Magician from distant countries Funtik Alibaba Zuckerman will surprise you with his skillful hands and the power of thought. Come and see for yourself!',
+                )
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => true,
             'background_color' => '#FFFFFF',
@@ -177,8 +245,8 @@ class TextBlock extends Block {
                 'name_3' => 'Фокус-покус',
                 'desc_3' => 'Маг и волшебник из далекого зарубежья Фунтик Алибаба Цукерман удивит вас своими умелыми руками и силой мысли. Приходите и убедитесь в этом сами!',
                 )
-            )          
-        );
+            )
+        ];
     }
     
     
@@ -211,7 +279,24 @@ class TextBlock extends Block {
     <?}
     
     function tpl_default_4() { 
-        return  array(
+        return self::$en ? [
+            'show_text_title_2' => true,
+            'background_color' => '#FFFFFF',
+            'items' => array(
+                array(
+                    'text_title' => 'Madagascar quartet',
+                    'text_title_2' => 'Crying with laughter',
+                    'text' => ' <div>Super quartet insludes lion, giraffe, hippo and zebra will become for you a sensation. Pets balance-masters will flutter under the big top, giving you incomparable emotions.</div>
+                                <br>
+                                <div>
+                                    - Great story<br>
+                                    - Super suits<br>
+                                    - And others<br>
+                                </div>',
+                    'image' => 'view/editor/assets/text/3.jpg',
+                )
+            )
+        ] : [
             'show_text_title_2' => true,
             'background_color' => '#FFFFFF',
             'items' => array(
@@ -228,7 +313,7 @@ class TextBlock extends Block {
                     'image' => 'view/editor/assets/text/3.jpg',
                 )
             )
-        );
+        ];
     }
     
         
@@ -256,7 +341,34 @@ class TextBlock extends Block {
     <?}
     
     function tpl_default_5() { 
-        return  array(
+        return self::$en ? [
+            'show_border' => true,
+            'background_color' => '#FFFFFF',
+            'items' => array(
+                array(
+                    'text_title' => 'Hocus Pocus',
+                    'text' => ' <div> Magician from distant countries will surprise you with his skillful hands and the power of thought. Come and see for yourself!</div>
+                                <br>
+                                <div>
+                                    - Mystique<br>
+                                    - Magic<br>
+                                    - And wonder<br>
+                                </div>',
+                    'image' => 'view/editor/assets/text/1.jpg',
+                ),
+                array(
+                    'text_title' => 'the Little Humpbacked Horse',
+                    'text' => ' <div>The Arabian horses, running around the arena, take you into the prairie! You are guaranteed emotional decompensation!</div>
+                                <br>
+                                <div>
+                                    - Dynamics<br>
+                                    - Diversity of colors<br>
+                                    - Entertainment<br>
+                                </div>',
+                    'image' => 'view/editor/assets/text/2.jpg',
+                )
+            )
+        ] : [
             'show_border' => true,
             'background_color' => '#FFFFFF',
             'items' => array(
@@ -283,7 +395,7 @@ class TextBlock extends Block {
                     'image' => 'view/editor/assets/text/2.jpg',
                 )
             )
-        );
+        ];
     }
     
     
@@ -325,8 +437,32 @@ class TextBlock extends Block {
     <?}
     
     function tpl_default_6() { 
-        return  array(
-			'show_text_title_2' => true,
+        return self::$en ? [
+            'show_text_title_2' => true,
+			'show_border' => true,
+			'background_color' => '#FFFFFF',
+			'title' => 'CIRCUS',
+			'title_2' => 'Short summary',
+			'text' => 'Circus is that place where the adults become happy like the kids. Here, serious men and women can not resist laughter, welcoming trained animals in the circus arena. Unaffected joy is also mentioned here ... We present you the opportunity to plunge into the world of smiles, surprise and delight!',
+			'items' => array(
+				array(
+					'name' => 'Amusement',
+					'desc' => 'We have the funny presentation for each taste and age.',
+					'icon' => 'view/editor/assets/ico/77.png',
+				),
+				array(                
+					'name' => 'Gladness',
+					'desc' => "Pants are full of joy for all visitors. Come, you won't regret it.",
+					'icon' => 'view/editor/assets/ico/89.png',
+				),
+				array(
+					'name' => 'Laughter',
+					'desc' => 'You will laugh your head off. You are welcome!',
+					'icon' => 'view/editor/assets/ico/127.png',
+					)
+             ),
+        ] : [
+            'show_text_title_2' => true,
 			'show_border' => true,
 			'background_color' => '#FFFFFF',
 			'title' => 'Цирк',
@@ -349,8 +485,7 @@ class TextBlock extends Block {
 					'desc' => 'Надрывать живот от смеха гарантировано всем. Ждем Вас в гости.',
 					'icon' => 'view/editor/assets/ico/127.png',
 					)
-				),
-
-        );
+             ),
+        ];
     }   
 }

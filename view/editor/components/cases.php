@@ -3,9 +3,19 @@
 namespace LPCandy\Components;
 
 class Cases extends Block {
-    public $name = 'Кейсы';
-    public $description = "Результаты наших клиентов";
+    public $name;
+    public $description;
     public $editor = "lp.cases";
+    
+    function __construct() { 
+        if (self::$en) {
+            $this->name = 'Cases';
+            $this->description = "The results of our customers";
+        } else {
+            $this->name = 'Кейсы';
+            $this->description = "Результаты наших клиентов";
+        }        
+    }
     
     function tpl($val) {?>
         <div class="container-fluid cases cases_1" style="background: <?=$val['background_color']?>;">
@@ -51,7 +61,29 @@ class Cases extends Block {
     <?}
     
     function tpl_default() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_name' => true,
+            'show_desc' => true,
+            'background_color' =>'#F7F7F7',
+            'title' => "The result of work",
+            'title_2' => "Subtitle",
+            'items' => array(
+                array(
+                    'media' =>  array_merge(Media::get()->tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/cases/1.jpg')),
+                    'name' => "Happy faces of the children",
+                    'desc' => "FUNNY TECHNOLOGIES",
+                    'text' => "Task: Evoke a childlike smile<br><br>The show includes events suited to every fancy: mystical performances with magic events, wild animals, acrobats, tightrope walkers, magicians and, of course, a circus clown.",
+                ),
+                array(
+                    'media' =>  array_merge(Media::get()->tpl_default(),array('type'=>'image','image_url'=>'view/editor/assets/cases/2.jpg')),
+                    'name' => "Joyful face",
+                    'desc' => "FUNNY TECHNOLOGIES",
+                    'text' => "Task: Evoke an adult smile<br><br>Only glass of cold beer is able to give a joy to the fathers whose children will be watching our circus program.",
+                )
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
             'show_name' => true,
@@ -73,7 +105,7 @@ class Cases extends Block {
                     'text' => "Задание: Вызвать улыбку у родителей<br><br>Только подарочный бокал пенного холодного пива способен подарить отцам радость, дети которых с восторгом будут смотреть нашу цирковую программу.",
                 )
             )
-        );
+        ];
     }
     
 }

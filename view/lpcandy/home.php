@@ -28,6 +28,5 @@
         }
     </style>
     <script src="<?=url('view/editor/style/style.min.js')?>"></script>
-    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
     <?= $body_html ?>
 <? endblock() ?>

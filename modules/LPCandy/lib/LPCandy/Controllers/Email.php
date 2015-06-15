@@ -34,7 +34,7 @@ class Email extends Base {
     function send($to,$subject,$template,$data,$from=false) {
         
         if (!$from) {
-            $domain = \Bingo\Config::get('config', 'domain');
+            $domain = \Bingo\Config::get('config', 'domain')[bingo_get_locale()];
             $from = ['email'=>'info@'.$domain,'name'=>_t('LPCandy')];
         }
         

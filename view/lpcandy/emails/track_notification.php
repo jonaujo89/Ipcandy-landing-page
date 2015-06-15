@@ -2,11 +2,11 @@
 <? startblock('body') ?>
 
     <?=_t('You have a new form track')?><br>
-    <a href="http://<?=\Bingo\Config::get('config','domain')?>/track-list"><?=_t('Goto track list')?></a><br><br>
+    <a href="http://<?=\Bingo\Config::get('config','domain')[bingo_get_locale()]?>/track-list"><?=_t('Goto track list')?></a><br><br>
 
     <?
         $val = $track->data;
-        if(!$val['values']) return "Данных нет";
+        if(!$val['values']) return _t("No data");
         $data = "";
         foreach($val['values'] as $one) {            
             $sub = $one['value'];

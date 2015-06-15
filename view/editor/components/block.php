@@ -10,8 +10,10 @@ class Block {
     public $editor = "lp.block";
     public $internal = false;
     public $access_resource = false;
+    public $tpl_count;
     
     static $list = array();
+    static public $en = false;
     
     static function get() {
         $cls = get_called_class();
@@ -27,7 +29,8 @@ class Block {
     }
     
     static function registerAll() {
-        \TemplaterApi::addAction('getComponents',function($api,&$components) {
+        self::$en = $en = bingo_get_locale()=='en_EN';
+        \TemplaterApi::addAction('getComponents',function($api,&$components) use ($en) {
             foreach (get_declared_classes() as $cls) {
                 if (strpos($cls,"LPCandy\\Components")!==0) continue;
                 
@@ -44,7 +47,7 @@ class Block {
                 $components[$obj->id] = array(
                     'name' => $obj->name,
                     'description' => $obj->description,
-                    'category' => 'Блоки',
+                    'category' => $en ? 'Category' : "Блоки",
 
                     'area' => false,
                     'update' => function ($val,$dataSource,$api,$edit) use ($obj) {
@@ -58,22 +61,24 @@ class Block {
         });
     }
     
-    function __construct() {
-        $this->tpl_count = 1;
-        for ($i=2;;$i++) {
-            $name = 'tpl_'.$i;
-            if (method_exists($this,$name)) {
-                $this->tpl_count++;
-            } else {
-                break;
+    function getHtml($val,$edit,$name=false,$options=false) {
+        
+        if(!$this->tpl_count){
+            $this->tpl_count = 1;
+            for ($i=2;;$i++) {
+                $name = 'tpl_'.$i;
+                if (method_exists($this,$name)) {
+                    $this->tpl_count++;
+                } else {
+                    break;
+                }
             }
         }
-    }
-    
-    function getHtml($val,$edit,$name=false,$options=false) {
+        
         $this->edit = $edit;
         $this->name_prefix = $name;
-        ob_start();
+        
+        ob_start();                
         
         $current = (int)@$val['variant'];
         $current = min($current,$this->tpl_count);

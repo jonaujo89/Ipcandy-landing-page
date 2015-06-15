@@ -3,8 +3,18 @@
 namespace LPCandy\Components;
 
 class Custom extends Block {
-    public $name = 'HTML';
-    public $description = "Ваш собственный html+css";
+    public $name;
+    public $description;
+    
+    function __construct() { 
+        if (self::$en) {
+            $this->name = 'HTML';
+            $this->description = "Custom html+css";
+        } else {
+            $this->name = 'HTML';
+            $this->description = "Ваш собственный html+css";
+        }        
+    }
     
     function tpl($val) {?>
         <div class="container-fluid custom">

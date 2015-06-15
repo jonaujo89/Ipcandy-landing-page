@@ -29,7 +29,7 @@ class LPCandy extends \Bingo\Module {
             $uri = isset($route['any']) ? trim($route['any'],"/") : '';
             if (substr($uri,0,5)=='admin') return true;
             $domain = $_SERVER['SERVER_NAME'];            
-            if ($domain==\Bingo\Config::get('config','domain')) return true;            
+            if ($domain==\Bingo\Config::get('config','domain')[bingo_get_locale()]) return true;            
 
             $page = \LPCandy\Models\Page::findOneByDomain($domain);
             if (!$page) return true;

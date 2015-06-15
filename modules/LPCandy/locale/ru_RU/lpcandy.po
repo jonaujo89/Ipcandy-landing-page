@@ -4,6 +4,7 @@ msgstr ""
 "X-Poedit-SearchPath-1:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPExtra/lib"
 "X-Poedit-SearchPath-2:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy"
 "X-Poedit-SearchPath-3:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor"
+"X-Poedit-SearchPath-4:/var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/layout.php:34
 msgid "Tracking"
@@ -57,7 +58,7 @@ msgstr "нет"
 msgid "LPCandy"
 msgstr "LPCandy"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Email.php:76
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/Email.php:77
 msgid "LPCandy: you have a new form submission {id}"
 msgstr "LPCandy: у вас есть новая заявка №{id}"
 
@@ -66,31 +67,31 @@ msgstr "LPCandy: у вас есть новая заявка №{id}"
 msgid "Login"
 msgstr "Логин"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:35
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:36
 msgid "Please, enter your invite code"
 msgstr "Пожалуйста введите Ваш код-приглашение"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:37
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:38
 msgid "Wrong invite code"
 msgstr "Неправильный код-приглашение"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:41
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:42
 msgid "Register"
 msgstr "Регистрация"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:50
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:51
 msgid "Enter your invite"
 msgstr "Введите Ваш код-приглашение"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:67
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:68
 msgid "Email (for notification of order)"
 msgstr "Email"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:69
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:70
 msgid "Save"
 msgstr "Сохранить"
 
-#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:76
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/modules/LPCandy/lib/LPCandy/Controllers/User.php:77
 msgid "Settings profile"
 msgstr "Настройки профиля"
 
@@ -290,6 +291,18 @@ msgstr "Выбрать"
 msgid "Profile"
 msgstr "Профиль"
 
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/login.php:11
+msgid "You can get an account on this site, if you have an account in the popular social networks or services. Select the authentication method below. If you already went this way on this site, you already have an account."
+msgstr "Вы можете получить учетную запись на этом сайте, если у вас есть учетная запись в популярных социальных сетях или сервисах. Выберите способ авторизации ниже. Если вы уже заходили подобным образом на этом сайте, то                     у вас уже есть учетная запись."
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/banner.php:4
+msgid "LPCandy is developed by <span>BeeJee</span>"
+msgstr "Конструктор разработан компанией <span>BeeJee</span>"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/banner.php:5
+msgid "<span>BeeJee</span> is looking for mind-blowing project"
+msgstr "<span>BeeJee</span> = IT-фундамент Вашего бизнеса"
+
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/logged-info.php:5
 msgid "Logged as"
 msgstr "Вы вошли как"
@@ -305,6 +318,10 @@ msgstr "У вас есть новая заявка с формы посадоч�
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/emails/track_notification.php:5
 msgid "Goto track list"
 msgstr "Перейти к списку заявок"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/emails/track_notification.php:9
+msgid "No data"
+msgstr "Нет данных"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/base-edit-tinymce.php:131
 msgid "en"
@@ -345,6 +362,10 @@ msgstr "Путь не определён"
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/page-list.php:63
 msgid "No pages yet"
 msgstr "Страниц пока нет"
+
+#: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/lpcandy/banner.php:4
+#~ msgid "Designer developed by <span>BeeJee</span><br><span>BeeJee</span> = IT-the foundation of your business"
+#~ msgstr "Конструктор разработан компанией <span>BeeJee</span><br><span>BeeJee</span> = IT-фундамент Вашего бизнеса"
 
 #: /var/www/uxcandy_maxtun/data/public_html/lpcandy_dev1/view/editor/components/extra/projects.php:13
 #~ msgid "Проекты"

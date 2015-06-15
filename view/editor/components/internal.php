@@ -26,7 +26,16 @@ class Logo extends Block {
     public $internal = true;
     
     function tpl_default() {
-        return array(
+        return self::$en ? [
+            'type' => 'image',
+            'url' => "view/editor/assets/default_logo_en.png",
+            'text' => "No name",
+            'bold' => true,
+            'italic' => false,
+            'color' => '#C1103A',
+            'size' => 70,
+            'fontSize' => 24
+        ] : [
             'type' => 'image',
             'url' => 'view/editor/assets/default_logo.png',
             'text' => 'Нет названия',
@@ -35,7 +44,7 @@ class Logo extends Block {
             'color' => '#C1103A',
             'size' => 70,
             'fontSize' => 24
-        );        
+        ];        
     }
     
     function tpl($val) {?>
@@ -62,15 +71,23 @@ class FormButton extends Block {
     public $internal = true;    
     
     function tpl_default() {
-        return array( 
+        return self::$en ? [
+            'type' => 'form',
+            'link' => '',
+            'form_title' => "Leave an application",
+            'form_bottom_text' => "We don't provide Israeli intelligence with your personal information",
+            'color' => 'red',
+            'text' => "Leave an application",
+            'form' => FormOrder::get()->tpl_default()
+        ] : [
             'type' => 'form',
             'link' => '',
             'form_title' => 'Оставить заявку',
-            'form_bottom_text' => 'Мы не передаем Вашу персональную информацию третьим лицам',
+            'form_bottom_text' => "Мы не передаем Вашу персональную информацию третьим лицам",
             'color' => 'red',
             'text' => 'Оставить заявку',
             'form' => FormOrder::get()->tpl_default()
-        );
+        ];
     }
     
     function tpl($val) { ?>
@@ -100,7 +117,21 @@ class FormOrder extends Block {
     public $internal = true;
     
     function tpl_default() {
-        return array(
+        return self::$en ? [
+            'fields' => array(
+                array(
+                    'label' => "Name", 'sub_label' => '', 'required' => true,
+                    'name' => 'name', 'type' => 'text', 
+                ),
+                array(
+                    'label' => "Phone", 'sub_label' => '', 'required' => true,
+                    'name' => 'phone', 'type' => 'text', 
+                ),
+            ),
+            'button' => array('color'=>'blue','label'=>'Get an advice'),                
+            'form_done_title' => "Thank for application",
+            'form_done_text' => "Application send. Our manager will contact you shortly.",
+        ] : [
             'fields' => array(
                 array(
                     'label' => 'Имя', 'sub_label' => '', 'required' => true,
@@ -114,7 +145,7 @@ class FormOrder extends Block {
             'button' => array('color'=>'blue','label'=>'Получить консультацию'),                
             'form_done_title' => 'Спасибо за заявку',
             'form_done_text' => 'Заявка отправлена. Наш менеджер свяжется с Вами в ближайшее время.',
-        );
+        ];
     }
     
     function tpl_default_email() {
@@ -123,7 +154,7 @@ class FormOrder extends Block {
             array(
                 'fields' => array(
                     array(
-                        'label' => 'Электронная почта', 'sub_label' => '', 'required' => false,
+                        'label' => self::$en ? "Email" : 'Электронная почта', 'sub_label' => '', 'required' => false,
                         'name' => 'email', 'type' => 'text', 
                     )
                 )
@@ -242,11 +273,15 @@ class OverlayImage extends Block {
     public $internal = true;	
 	
 	function tpl_default() {
-        return array(
-			'image' => '',	
+        return self::$en ? [
+            'image' => '',	
+            'title' => "Title",
+			'desc' => "Description",
+        ] : [
+            'image' => '',	
             'title' => 'Заголовок картинки',
 			'desc' => 'Описание картинки',
-        );        
+        ];       
     }
    
     function tpl($item_val) {?>
@@ -352,7 +387,7 @@ class Liquid extends Block {
     
     function tpl_default() { 
         return  array(
-            'tpl' => "<h1>Пример HTML</h1><p>И немного текста</p>"
+            'tpl' => self::$en ? "<h1>Example HTML</h1><p>Little text</p>" : "<h1>Пример HTML</h1><p>И немного текста</p>"
         );
     }
     

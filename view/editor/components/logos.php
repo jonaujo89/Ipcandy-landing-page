@@ -3,9 +3,19 @@
 namespace LPCandy\Components;
 
 class Logos extends Block {
-    public $name = 'Логотипы';
-    public $description = "Логотипы партнёров";
+    public $name;
+    public $description;
     public $editor = "lp.logos";
+    
+    function __construct() { 
+        if (self::$en) {
+            $this->name = 'Logos';
+            $this->description = "Logos of the partners";
+        } else {
+            $this->name = 'Логотипы';
+            $this->description = "Логотипы партнёров";
+        }        
+    }
     
     function tpl($val) {?>
         <div class="container-fluid clientsLogos clientsLogos_1" style="background:<?=$val['background_color']?>;">
@@ -37,7 +47,27 @@ class Logos extends Block {
     <?}
     
     function tpl_default() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+            'grayscale_logo' => true,
+            'background_color' =>'#FFFFFF',
+            'title' => "Our partners",
+            'title_2' => "Subtitle about our partners",
+            'items' => array(
+                array('image'=>"view/editor/assets/logos/1.png"),
+                array('image'=>"view/editor/assets/logos/2.png"),
+                array('image'=>"view/editor/assets/logos/3.png"),
+                array('image'=>"view/editor/assets/logos/4.png"),
+                array('image'=>"view/editor/assets/logos/5.png"),
+                array('image'=>"view/editor/assets/logos/6.png"),
+                array('image'=>"view/editor/assets/logos/7.png"),
+                array('image'=>"view/editor/assets/logos/8.png"),
+                array('image'=>"view/editor/assets/logos/9.png"),
+                array('image'=>"view/editor/assets/logos/11.png"),
+                array('image'=>"view/editor/assets/logos/12.png"),
+            )
+        ] : [            
             'show_title' => true,
             'show_title_2' => false,
             'grayscale_logo' => true,
@@ -57,6 +87,6 @@ class Logos extends Block {
                 array('image'=>"view/editor/assets/logos/11.png"),
                 array('image'=>"view/editor/assets/logos/12.png"),
             )
-        );
+        ];
     }    
 }

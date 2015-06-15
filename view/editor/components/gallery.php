@@ -3,9 +3,19 @@
 namespace LPCandy\Components;
 
 class Gallery extends Block {
-    public $name = 'Галерея';
-    public $description = "Фотографии работ";
+    public $name;
+    public $description;
     public $editor = "lp.gallery";
+    
+    function __construct() { 
+        if (self::$en) {
+            $this->name = 'Gallery';
+            $this->description = "Photos and images";
+        } else {
+            $this->name = 'Галерея';
+            $this->description = "Фотографии работ";
+        }        
+    }
     
     function tpl($val) {?>		
         <div class="container-fluid gallery gallery_1" style="background: <?=$val['background']?>;">
@@ -50,7 +60,24 @@ class Gallery extends Block {
     <?}
     
     function tpl_default() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_image_title' => true,
+            'show_image_desc' => true,
+            'enable_fancybox' => true,
+            'background' =>'#FFFFFF',
+            'title' => "Our program in photos",
+            'title_2' => "Subtitle",
+            'items' => array(
+                array( 'image' => "view/editor/assets/gallery/21.jpg", 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes' ),
+                array( 'image' => "view/editor/assets/gallery/24.jpg", 'title' => 'Tusk', 'desc' => 'Trained rhino' ),
+                array( 'image' => "view/editor/assets/gallery/25.jpg", 'title' => 'Jumper', 'desc' => 'Show with the horse' ),
+                array( 'image' => "view/editor/assets/gallery/26.jpg", 'title' => 'Lambada', 'desc' => 'Dancing elephants' ),
+                array( 'image' => "view/editor/assets/gallery/27.jpg", 'title' => 'Tigress', 'desc' => 'It is the one on the left' ),
+                array( 'image' => "view/editor/assets/gallery/30.jpg", 'title' => 'Grace', 'desc' => 'Girl on the tape' ),            
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
             'show_image_title' => true,
@@ -67,7 +94,7 @@ class Gallery extends Block {
                 array( 'image' => "view/editor/assets/gallery/27.jpg", 'title' => 'Тигрица', 'desc' => 'Это та, что слева' ),
                 array( 'image' => "view/editor/assets/gallery/30.jpg", 'title' => 'Грация', 'desc' => 'Девушка на лентах' ),            
             )
-        );
+        ];
     }
     
     
@@ -116,8 +143,38 @@ class Gallery extends Block {
     <?}
     
     function tpl_default_2() { 
-        return  array(
-			'show_title' => true,
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+			'show_image_desc' => true,
+			'show_image_overlay' => true,
+            'background' => '#FFFFFF',
+            'title' => "Our Prima",
+			'title_2' => "Subtilte",
+            'items' => array(
+                array(
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/1.jpg'),
+                    'img_title_1' => "In ring",
+                    'img_desc_1' => "Fascinating spectacle",
+                    'img_text_1' => "Additional description of the picture. Brevity - the sister of talent.",
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/2.jpg'),
+                    'img_title_2' => "Entrance",                    
+                    'img_desc_2' => "At the entrance she meets",
+                    'img_text_2' => "Additional description of the picture. Brevity - the sister of talent.",
+                ),
+                array(
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/5.jpg'),
+                    'img_title_1' => "Form №2",
+                    'img_desc_1' => "Nude torso",
+                    'img_text_1' => "Additional description of the picture. Brevity - the sister of talent.",
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/6.jpg'),
+                    'img_title_2' => "Prima and clown",
+                    'img_desc_2' => "Foci",
+                    'img_text_2' => "Additional description of the picture. Brevity - the sister of talent.",
+                )
+            )
+        ] : [
+            'show_title' => true,
             'show_title_2' => false,
 			'show_image_desc' => true,
 			'show_image_overlay' => true,
@@ -146,7 +203,7 @@ class Gallery extends Block {
                     'img_text_2' => "Дополнительное описание картинки. Краткость - сестра таланта.",
                 )
             )
-        );    
+        ];
     }
     
     function tpl_3($val) {?>
@@ -191,7 +248,40 @@ class Gallery extends Block {
     <?}
     
     function tpl_default_3() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+			'show_image_desc' => true,
+			'show_image_overlay' => true,
+			'enable_fancybox' => true,
+            'background' => '#FFFFFF',
+            'title' => "Good girl",
+			'title_2' => "Subtitle",
+            'items' => array(
+                array(
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/1.jpg'),
+                    'img_title_1' => "In ring",
+                    'img_desc_1' => "Fascinating spectacle",
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/2.jpg'),
+                    'img_title_2' => "Entrance",                    
+                    'img_desc_2' => "At the entrance she meets",
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/3.jpg'),
+                    'img_title_3' => "Throwing knives",
+                    'img_desc_3' => "Dangerous stunts with knives",
+                ),
+                array(
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/5.jpg'),
+                    'img_title_1' => "Form №2",
+                    'img_desc_1' => "Nude torso",
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/6.jpg'),
+                    'img_title_2' => "Prima and clown",
+                    'img_desc_2' => "Foci",
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/7.jpg'),
+                    'img_title_3' => "Long legs",
+                    'img_desc_3' => "16 and up",
+                )
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
 			'show_image_desc' => true,
@@ -222,10 +312,9 @@ class Gallery extends Block {
                     'image_3' => array('image'=> 'view/editor/assets/gallery/7.jpg'),
                     'img_title_3' => "Ноги от ушей",
                     'img_desc_3' => "От 16 и старше",
-
                 )
             )
-        );    
+        ];
     }
     
     function tpl_4($val) {?>
@@ -270,7 +359,46 @@ class Gallery extends Block {
     <?}
     
     function tpl_default_4() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+			'show_image_desc' => true,
+			'show_image_overlay' => true,
+			'enable_fancybox' => true,
+            'background' => '#FFFFFF',
+            'title' => "Graceful beauty",
+			'title_2' => "Subtitle",
+            'items' => array(
+                array(
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/1.jpg'),
+                    'img_title_1' => "In ring",
+                    'img_desc_1' => "Fascinating spectacle",
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/2.jpg'),
+                    'img_title_2' => "Entrance",                    
+                    'img_desc_2' => "At the entrance she meets",
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/3.jpg'),
+                    'img_title_3' => "Throwing knives",
+                    'img_desc_3' => "Dangerous stunts with knives",
+					'image_4' => array('image'=> 'view/editor/assets/gallery/4.jpg'),                   
+                    'img_title_4' => "Ticketing",
+                    'img_desc_4' => "At the box office again Prima",
+                ),
+                array(
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/5.jpg'),
+                    'img_title_1' => "Form №2",
+                    'img_desc_1' => "Nude torso",
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/6.jpg'),
+                    'img_title_2' => "Prima and clown",
+                    'img_desc_2' => "Foci",
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/7.jpg'),
+                    'img_title_3' => "Long legs",
+                    'img_desc_3' => "16 and up",
+					'image_4' => array('image'=> 'view/editor/assets/gallery/8.jpg'),
+                    'img_title_4' => "In the dressing room",
+                    'img_desc_4' => "Before going on stage",
+                )
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
 			'show_image_desc' => true,
@@ -292,7 +420,7 @@ class Gallery extends Block {
                     'img_desc_3' => "Опасный трюк с ножами",
 					'image_4' => array('image'=> 'view/editor/assets/gallery/4.jpg'),                   
                     'img_title_4' => "Обилечивание",
-                    'img_desc_4' => "У кассы снова прима",
+                    'img_desc_4' => "У кассы снова Прима",
                 ),
                 array(
                     'image_1' => array('image'=> 'view/editor/assets/gallery/5.jpg'),                   
@@ -309,7 +437,7 @@ class Gallery extends Block {
                     'img_desc_4' => "Перед выходом на сцену",
                 )
             )
-        );    
+        ];
     }
     
     
@@ -360,7 +488,27 @@ class Gallery extends Block {
     <?}
     
     function tpl_default_5() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_image_title' => true,
+            'show_image_desc' => true,
+			'enable_fancybox' => true,
+            'background' => '#F7F7F7',
+            'title' => "Lovely",
+            'title_2' => "Subtitle",
+            'items' => array(
+                array( 'image' => "view/editor/assets/gallery/1.jpg", 'title' => 'In ring', 'desc' => 'Fascinating spectacle' ),
+                array( 'image' => "view/editor/assets/gallery/2.jpg", 'title' => 'Entrance', 'desc' => 'At the entrance she meets' ),
+                array( 'image' => "view/editor/assets/gallery/3.jpg", 'title' => 'Throwing knives', 'desc' => 'Dangerous stunts with knives' ),
+                array( 'image' => "view/editor/assets/gallery/4.jpg", 'title' => 'Ticketing', 'desc' => 'At the box office again Prima' ),
+                array( 'image' => "view/editor/assets/gallery/5.jpg", 'title' => 'Form №2', 'desc' => 'Nude torso' ),
+                array( 'image' => "view/editor/assets/gallery/6.jpg", 'title' => 'Prima and clown', 'desc' => 'Foci' ),  
+                array( 'image' => "view/editor/assets/gallery/7.jpg", 'title' => 'Long legs', 'desc' => '16 and up' ),
+                array( 'image' => "view/editor/assets/gallery/8.jpg", 'title' => 'In the dressing room', 'desc' => 'Before going on stage' ),
+                array( 'image' => "view/editor/assets/gallery/9.jpg", 'title' => 'Swing', 'desc' => 'Prima under the dome' ), 
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
             'show_image_title' => true,
@@ -380,7 +528,7 @@ class Gallery extends Block {
                 array( 'image' => "view/editor/assets/gallery/8.jpg", 'title' => 'В гримёрке', 'desc' => 'Перед выходом на сцену' ),
                 array( 'image' => "view/editor/assets/gallery/9.jpg", 'title' => 'Качели', 'desc' => 'Прима под куполом' ), 
             )
-        );
+        ];
     }
     
      
@@ -400,7 +548,7 @@ class Gallery extends Block {
                     <? endif ?>
                     <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
                     <div class="item_list masonry <?=$opacity?>">
-						        <? $this->repeat('items', function($item_val,$self) use ($val){ ?>
+                        <? $this->repeat('items', function($item_val,$self) use ($val){ ?>
                             <div class="preview_img">									
                                 <img src="<?=$self->api->base_url."/".$item_val['image']?>">
                                 <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
@@ -423,7 +571,7 @@ class Gallery extends Block {
                                     </div>
                                 </div>
                             </div>
-						        <? },array('editor'=>'lp.galleryRepeater','sortable'=>false));?> 
+                        <? },array('editor'=>'lp.galleryRepeater','sortable'=>false));?> 
                     </div> 
                 </div>
             </div>
@@ -431,15 +579,37 @@ class Gallery extends Block {
     <?}
     
     function item_default_6($url) {
-        return array(
+        return self::$en ? [
+            'image' => "view/editor/assets/gallery/".$url,
+            'title' => 'Title',
+            'desc' => 'Description',
+        ] : [
             'image' => "view/editor/assets/gallery/".$url,
             'title' => 'Заголовок картинки',
             'desc' => 'Описание картинки',
-        );
+        ];
     }
     
     function tpl_default_6() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+            'show_image_title' => true,
+            'show_image_desc' => true,
+			'enable_fancybox' => true,
+            'background' =>'#FFFFFF',
+            'title' => "Our program in photos",
+            'title_2' => "Subtitle",
+            'items' => array(
+                array( 'image' => "view/editor/assets/gallery/11.jpg", 'title' => 'Clown Zhora', 'desc' => 'Play-actor №1' ),
+                array( 'image' => "view/editor/assets/gallery/12.jpg", 'title' => 'Jugglers', 'desc' => 'Funny boys' ),
+                array( 'image' => "view/editor/assets/gallery/13.jpg", 'title' => 'Clown John', 'desc' => 'Funny hocus-pocus' ),
+                array( 'image' => "view/editor/assets/gallery/14.jpg", 'title' => 'Soaring', 'desc' => 'Two in the air' ),
+                array( 'image' => "view/editor/assets/gallery/15.jpg", 'title' => 'Figure', 'desc' => 'Girls under the big top' ),
+                array( 'image' => "view/editor/assets/gallery/16.jpg", 'title' => 'Python and Zhora', 'desc' => 'Dangerous performance' ),  
+                array( 'image' => "view/editor/assets/gallery/17.jpg", 'title' => 'Hippo with a ball', 'desc' => 'Woman with ball' ), 
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
             'show_image_title' => true,
@@ -450,14 +620,14 @@ class Gallery extends Block {
             'title_2' => "Подзаголовок",
             'items' => array(
                 array( 'image' => "view/editor/assets/gallery/11.jpg", 'title' => 'Клоун Жора', 'desc' => 'Смехун цирка №1' ),
-                array( 'image' => "view/editor/assets/gallery/12.jpg", 'title' => 'Жонглёры', 'desc' => 'Высёлые ребята' ),
+                array( 'image' => "view/editor/assets/gallery/12.jpg", 'title' => 'Жонглёры', 'desc' => 'Весёлые ребята' ),
                 array( 'image' => "view/editor/assets/gallery/13.jpg", 'title' => 'Клоун Клёва', 'desc' => 'Весёлые фокусы-покусы' ),
                 array( 'image' => "view/editor/assets/gallery/14.jpg", 'title' => 'Парящие', 'desc' => 'Пара в воздухе' ),
                 array( 'image' => "view/editor/assets/gallery/15.jpg", 'title' => 'Фигура', 'desc' => 'Девушки под куполом цирка' ),
                 array( 'image' => "view/editor/assets/gallery/16.jpg", 'title' => 'Питон и Жора', 'desc' => 'Опасный номер' ),  
                 array( 'image' => "view/editor/assets/gallery/17.jpg", 'title' => 'Бегемотица с шаром', 'desc' => 'Капибара и женщина с шаром' ), 
             )
-        );
+        ];
     }
 	
     
@@ -499,7 +669,25 @@ function tpl_7($val) {?>
     <?}
     
     function tpl_default_7() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+			'show_image_desc' => true,
+			'show_image_title' => true,
+			'enable_fancybox' => true,
+            'background' => '#FFFFFF',
+            'title' => "Gallery circus",
+            'title_2' => "Subtitle",
+            'items' => array(
+                array(
+					'image_1' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Grace', 'desc' => 'Girl on the tape'),
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Kite Bob', 'desc' => 'Bob is sitting on a barrel'),
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
+                    'image_4' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Jumper', 'desc' => 'Show with the horse'),
+                    'image_5' => array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Live time', 'desc' => 'Girls imitate watches'),
+                )
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
 			'show_image_desc' => true,
@@ -517,7 +705,7 @@ function tpl_7($val) {?>
                     'image_5' => array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы'),
                 )
             )
-        );    
+        ];
     }
     
     
@@ -568,8 +756,27 @@ function tpl_7($val) {?>
         </div>
     <?}
     
-    function tpl_default_8() { 
-        return  array(
+    function tpl_default_8() {  
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+			'show_image_desc' => true,
+			'show_image_title' => true,
+			'enable_fancybox' => true,
+            'background' => '#FFFFFF',
+            'title' => "Photos of our work",
+			'title_2' => "Subtitle",
+            'items' => array(
+                array(
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Jumper', 'desc' => 'Show with the horse'),
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Lambada', 'desc' => 'Dancing elephants'),
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Grace', 'desc' => 'The girl on the tape'),
+                    'image_4' => array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Tusk', 'desc' => 'Trained rhino'),
+                    'image_5' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
+					'image_6' => array('image'=> 'view/editor/assets/gallery/27.jpg', 'title' => 'Tigress', 'desc' => 'It is the one on the left'),
+				) 
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
 			'show_image_desc' => true,
@@ -588,7 +795,7 @@ function tpl_7($val) {?>
 					'image_6' => array('image'=> 'view/editor/assets/gallery/27.jpg', 'title' => 'Тигрица', 'desc' => 'Это та, что слева'),
 				) 
             )
-        );    
+        ];
     }
     
     
@@ -609,39 +816,57 @@ function tpl_7($val) {?>
                     <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
                     <div class="item_list clear <?=$opacity?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
-                                <div class="img_double">
-                                    <div class="img img_w3 img_h2">
-                                        <? $self->sub('OverlayImage','image_1') ?>
-                                    </div>
+                            <div class="img_double">
+                                <div class="img img_w3 img_h2">
+                                    <? $self->sub('OverlayImage','image_1') ?>
                                 </div>
-                                <div class="img_side">
-                                    <div class="img img_w2 img_h1">
-                                        <? $self->sub('OverlayImage','image_2') ?>
-                                    </div>
-                                    <div class="img img_w1 img_h1">
-                                        <? $self->sub('OverlayImage','image_3') ?>
-                                    </div>
-                                    <div class="img img_w1 img_h1">
-                                        <? $self->sub('OverlayImage','image_4') ?>
-                                    </div>                                    
-                                </div>
+                            </div>
+                            <div class="img_side">
                                 <div class="img img_w2 img_h1">
-                                    <? $self->sub('OverlayImage','image_5') ?>
+                                    <? $self->sub('OverlayImage','image_2') ?>
                                 </div>
-                                <div class="img img_w3 img_h1">
-                                    <? $self->sub('OverlayImage','image_6') ?>
+                                <div class="img img_w1 img_h1">
+                                    <? $self->sub('OverlayImage','image_3') ?>
                                 </div>
-                                <div style="clear: both"></div>
-                            <? }) ?>
-                        </div>                    
-                    </div>
+                                <div class="img img_w1 img_h1">
+                                    <? $self->sub('OverlayImage','image_4') ?>
+                                </div>                                    
+                            </div>
+                            <div class="img img_w2 img_h1">
+                                <? $self->sub('OverlayImage','image_5') ?>
+                            </div>
+                            <div class="img img_w3 img_h1">
+                                <? $self->sub('OverlayImage','image_6') ?>
+                            </div>
+                            <div style="clear: both"></div>
+                        <? }) ?>
+                    </div>                    
                 </div>
             </div>
-
+        </div>
     <?}
     
     function tpl_default_9() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+			'show_image_desc' => true,
+			'show_image_title' => true,
+			'enable_fancybox' => true,
+            'background' => '#FFFFFF',
+            'title' => "Gallery circus performances",
+			'title_2' => "Subtitle",
+            'items' => array(
+                array(
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Leapfrog', 'desc' => 'People in blue trousers'),
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Live time', 'desc' => 'Girls imitate watches'),
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/29.jpg', 'title' => 'Moon', 'desc' => 'Flying people on the moon'),
+                    'image_4' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Grace', 'desc' => 'The girl on the tape'),
+                    'image_5' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
+					'image_6' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Kite Bob', 'desc' => 'Bob is sitting on a barrel'),
+				)
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
 			'show_image_desc' => true,
@@ -660,7 +885,7 @@ function tpl_7($val) {?>
 					'image_6' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке'),
 				)                
             )
-        );    
+        ];
     }
     
     
@@ -681,36 +906,54 @@ function tpl_7($val) {?>
                     <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
                     <div class="item_list clear <?=$opacity?>">
                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
-                                <div class="img_side">
-                                    <div class="img img_w1 img_h2">
-                                        <? $self->sub('OverlayImage','image_1') ?>
-                                    </div>
+                            <div class="img_side">
+                                <div class="img img_w1 img_h2">
+                                    <? $self->sub('OverlayImage','image_1') ?>
                                 </div>
-                                <div class="img_double">
-                                    <div class="img img_w2 img_h1">
-                                       <? $self->sub('OverlayImage','image_2') ?>
-                                    </div>
-                                    <div class="img img_w1 img_h1">
-                                        <? $self->sub('OverlayImage','image_3') ?>
-                                    </div>
-                                    <div class="img img_w1 img_h1">
-                                        <? $self->sub('OverlayImage','image_4') ?>
-                                    </div>
-                                    <div class="img img_w2 img_h1">
-                                        <? $self->sub('OverlayImage','image_5') ?>
-                                    </div>
+                            </div>
+                            <div class="img_double">
+                                <div class="img img_w2 img_h1">
+                                   <? $self->sub('OverlayImage','image_2') ?>
                                 </div>
-                                <div style="clear: both"></div>
-                            <? }) ?>
-                        </div>                    
-                    </div>
+                                <div class="img img_w1 img_h1">
+                                    <? $self->sub('OverlayImage','image_3') ?>
+                                </div>
+                                <div class="img img_w1 img_h1">
+                                    <? $self->sub('OverlayImage','image_4') ?>
+                                </div>
+                                <div class="img img_w2 img_h1">
+                                    <? $self->sub('OverlayImage','image_5') ?>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                        <? }) ?>
+                    </div>                    
                 </div>
             </div>
-
+        </div>
     <?}
     
     function tpl_default_10() { 
-        return  array(
+        return self::$en ? [
+            'show_title' => true,
+            'show_title_2' => false,
+			'show_image_desc' => true,
+			'show_image_title' => true,
+			'enable_fancybox' => true,
+            'background' => '#FFFFFF',
+            'title' => "Gallery",
+			'title_2' => "Subtitle",
+            'items' => array(
+                array(
+                    'image_1' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
+                    'image_2' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Kite Bob', 'desc' => 'Bob is sitting on a barrel'),
+                    'image_3' => array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Leapfrog', 'desc' => 'People in blue trousers'),
+                    'image_4' => array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Tusk', 'desc' => 'Trained rhino'),
+                    'image_5' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Jumper', 'desc' => 'Show with the horse'),
+					'image_6' => array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Lambada', 'desc' => 'Dancing elephants'),
+				)
+            )
+        ] : [
             'show_title' => true,
             'show_title_2' => false,
 			'show_image_desc' => true,
@@ -728,7 +971,7 @@ function tpl_7($val) {?>
                     'image_5' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём'),
 					'image_6' => array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны'),
 				)
-            )
-        );    
+            ) 
+        ];
     }
 }

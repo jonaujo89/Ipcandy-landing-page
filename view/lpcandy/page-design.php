@@ -12,6 +12,7 @@
         <script>
             var base_url = "<?=INDEX_URL?>";
             var page_id = <?=json_encode($page_id)?>;
+            var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";
             function run(exports){
                 var templater_app = exports[0];
                 var lpcandy_app = exports[1];
