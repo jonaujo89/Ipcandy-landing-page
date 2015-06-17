@@ -39,11 +39,13 @@ class Map extends Block {
     
     function tpl_default() { 
         return self::$en ? [
-            'show_container_text' => true,                        
+            'show_container_text' => true, 
+            'map_drag' => true,
             'map' => array(
                 'map_type' => 'yandex',			
                 'map_center' => array(55.7706,37.6200),
                 'map_zoom' => 15,
+                'map_drag' => true,
                 'map_places' => array(
                     array(
                         'type' => 'placemark',
@@ -62,11 +64,13 @@ class Map extends Block {
                 )
             )            
         ] : [
-            'show_container_text' => true,                        
+            'show_container_text' => true,  
+            'map_drag' => true,
             'map' => array(
                 'map_type' => 'yandex',			
                 'map_center' => array(55.7706,37.6200),
                 'map_zoom' => 15,
+                'map_drag' => true,
                 'map_places' => array(
                     array(
                         'type' => 'placemark',

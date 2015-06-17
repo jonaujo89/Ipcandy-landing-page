@@ -1,4 +1,5 @@
 window._t.load({
+    "Map is draggable":"Можно перетаскивать карту",
     "Add Section":"Добавить секцию",
     "Select component type":"Выбрать тип",
     "Document alert":"",

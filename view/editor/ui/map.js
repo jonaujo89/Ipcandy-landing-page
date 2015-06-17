@@ -105,18 +105,25 @@ lp.map = lp.block.extendOptions({
     change: function(){  
         
         if (this.value.variant == 1) {  
-            this.variant.find(".container_text").toggleVis(this.value.show_container_text);         
-        }       
-        
-        var jq = Component.previewFrame.window.$;        
-        jq(this.element.find(".map")).mapYandex(this.value.map);          
+            this.variant.find(".container_text").toggleVis(this.value.show_container_text);  
+            this.value.map.map_drag = this.value.map_drag;            
+        } 
+        var jq = Component.previewFrame.window.$; 
+        jq(this.element.find(".map")).mapYandex(this.value.map); 
     },
     configForm: {
         width: 800,
         items: [   
             { 
-                name: "show_container_text", label: _t("Show text"), type: "checkbox", width: "auto", 
-                margin: "0", showWhen: { variant: [1] }
+                name: "show_container_text", label: _t("Show text"), type: "checkbox", width: "auto", margin: "5px 0 0 0",
+                showWhen: { variant: [1] }
+            },
+            {
+                type: 'html', html: '<br>'
+            },
+            { 
+                name: "map_drag", label: _t("Map is draggable"), type: "checkbox", width: "auto", margin: "0 0 0 0",
+                showWhen: { variant: [1] }
             },
             "<hr>",
             {
@@ -135,15 +142,15 @@ lp.map = lp.block.extendOptions({
                         this._super(o);
                     },
                     setValue: function (val) {
-                        var me = this;
+                        var me = this;                    
                         if (val && val.map_type) {
-                            me.element.mapYandex(val,function(myMap){
+                            me.element.mapYandex($.extend(val,{map_drag:true}),function(myMap){                                
                                 myMap.events.add('boundschange', function ($this) {
                                     var block = lp.map.current; 
                                     block.value.map.map_center = myMap.getCenter();
                                     block.value.map.map_zoom = myMap.getZoom();
                                     block.trigger('change');
-                                });
+                                });  
                             });
                         }
                     }

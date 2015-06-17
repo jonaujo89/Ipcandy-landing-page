@@ -6,13 +6,14 @@ $.fn.mapYandex = function (mapSettings_default,onInit) {
         var center = mapSettings.map_center;
         var placesArray = mapSettings.map_places,        
             type = mapSettings.map_type,
-            zoom = mapSettings.map_zoom;
+            zoom = mapSettings.map_zoom,
+            drag = mapSettings.map_drag;
         
         function init(){ 
             ymaps.ready(function() {
                 var yandexPlacemark;
                 var myMap = $this.data("ymap");
-                if (!myMap) {                
+                if (!myMap) {
                     myMap = new ymaps.Map($this[0], {
                         center: center,
                         zoom: zoom,
@@ -23,7 +24,15 @@ $.fn.mapYandex = function (mapSettings_default,onInit) {
                 } else {
                     myMap.setCenter(center, Number(zoom));
                 }
-                myMap.behaviors.disable('scrollZoom');
+                
+                if (drag) {
+                    myMap.behaviors.enable('drag');
+                } else {
+                    myMap.behaviors.disable('drag');
+                }
+                
+                
+                myMap.behaviors.disable('scrollZoom');                
                 myMap.geoObjects.removeAll();        
 
                 var coords;
