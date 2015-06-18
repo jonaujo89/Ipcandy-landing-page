@@ -66,8 +66,8 @@ class Block {
         if(!$this->tpl_count){
             $this->tpl_count = 1;
             for ($i=2;;$i++) {
-                $name = 'tpl_'.$i;
-                if (method_exists($this,$name)) {
+                $method_name = 'tpl_'.$i;
+                if (method_exists($this,$method_name)) {
                     $this->tpl_count++;
                 } else {
                     break;
