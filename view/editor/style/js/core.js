@@ -292,7 +292,8 @@ function initForms() {
                 if (!$field.find("input[type=text], input[type=file], textarea").val()) {
                     // показать ошибку
                     $field.find("input, textarea").addClass("error_input");
-                    $field.find(".error").text("Обязательное поле");
+                    var error_text = window.locale_lang=="ru" ? "Обязательное поле" : "Required field";
+                    $field.find(".error").text(error_text);
                     validated = false;
                 }
             }
