@@ -195,16 +195,27 @@ class TemplaterApi {
                 $error = $val['error'];
                 if ($error==UPLOAD_ERR_OK) {
                     $name = $val['name'];
-                    $tmp_name = $val['tmp_name'];
-                    $ext = pathinfo($name, PATHINFO_EXTENSION);
-                    $dest = time()."_".uniqid() . ($ext ? ".".$ext : "");
-                    move_uploaded_file($tmp_name, $dir. "/" .$dest);
+                    $tmp_name = $val['tmp_name']; 
+                    
+                    $info = pathinfo($name); 
+                    $ext = isset($info['extension']) ? ".".$info['extension'] : "";
+                    $filename = $info['filename'];
+                    $dest = $filename.$ext; 
+                    
+                    if (file_exists("$dir/$dest")) {
+                        $counter = 2;
+                        do {
+                           $dest = $filename."($counter)".$ext;
+                           $counter++;
+                        } while (file_exists("$dir/$dest"));
+                    }
+                    move_uploaded_file($tmp_name,"$dir/$dest");
                     
                     require_once __DIR__."/lib/PhpThumb/Factory.php";
                     $file = \PhpThumb\Factory::create($dir."/".$dest,array('resizeUp'=>false));
                     $file->resize($iconWidth,$iconHeight);
                     
-                    $thumb = basename($dest,".".$ext).".png";
+                    $thumb = basename($dest,$ext).".png";
                     $file->save($tdir."/".$thumb);    
                     
                     $url = str_replace($this->base_dir,$this->base_url,$dir."/".$dest);
