@@ -23,6 +23,7 @@
                     upload_url: "<?=url('upload/LPCandy/files/'.$page->user->id)?>",
                     browse_url: "<?=url('files/browse.php')?>",
                     allowSkipType: false,
+                    is_responsive: <?= $page->is_responsive ? 'true':'false' ?>,
                     minified_style: <?= \Bingo\Configuration::$applicationMode=='development' ? 'false':'true' ?>
                 });
             }            

@@ -31,6 +31,9 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     /** @Column(type="string") */
     public $meta_description;
     
+    /** @Column(type="boolean", options={"default":true}) */
+    public $is_responsive;
+    
     /** @Column(type="text") */
     public $extra_html;   
     
@@ -63,6 +66,7 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
         $this->meta_robots = "";        
         $this->meta_keywords = "";
         $this->meta_description = "";
+        $this->is_responsive = true;
         $this->extra_html = "";
         $this->extra_html_submit = "";
     }

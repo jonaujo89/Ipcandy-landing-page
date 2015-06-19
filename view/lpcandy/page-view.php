@@ -12,7 +12,9 @@
         var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";
     </script>
     <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/style.min.css')?>">
-    <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/responsive.min.css')?>">
+    <? if($page->is_responsive): ?>
+        <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/responsive.min.css')?>">
+    <? endif ?>
     <script src="<?=url('view/editor/style/style.min.js')?>"> </script>    
     <script>
         window.extraHtmlSubmit = function() {

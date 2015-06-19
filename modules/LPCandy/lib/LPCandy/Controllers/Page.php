@@ -115,6 +115,7 @@ class Page extends Base {
         $form->text('meta_description',_t('Meta-tag “description” content'),'',$page->meta_description);
         $form->textarea('extra_html',_t('Extra html <b>JavaScript</b> code (example: online consultant)'),'',$page->extra_html,array('rows'=>15));
         $form->textarea('extra_html_submit',_t('<b>JavaScript</b> call when form submit (example: google analytics or metrika yandex)'),'',$page->extra_html_submit,array('rows'=>15));
+        $form->checkbox('is_responsive',_t('Responsive page design'),'',$page->is_responsive);
         $form->fieldset();
         
         if ($page->parent) {

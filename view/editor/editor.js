@@ -80,10 +80,12 @@ exports = function(templater_app,options) {
             teacss.ui.Control.prototype.init.call(this,o);
             Component.app = this;
             
-            if (this.options.minified_style) {            
+            if (this.options.minified_style) {   
                 this.staticStyles = [dir + "/style/style.min.tea"];
-            } else {
-                this.staticStyles = [dir + "/style/style.tea",dir + "/style/responsive.tea"];
+                if(options.is_responsive) this.staticStyles.push(dir + "/style/responsive.min.tea");
+            } else {                
+                this.staticStyles = [dir + "/style/style.tea"];
+                if(options.is_responsive) this.staticStyles.push(dir + "/style/responsive.tea");
             }
             this.styles = [];
             
