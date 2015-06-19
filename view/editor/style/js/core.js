@@ -4,6 +4,24 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
             this.setContent(content);
             var wide = $(content).hasClass("wide");
             $(this.elements.dialog).toggleClass("wide",wide);
+            
+            // fix scrolling dialog overflowing text for android < 4
+            var av = navigator.userAgent.match(/Android\s+([\d\.]+)/);
+            if (av) {
+                av = av[1];
+                if (av < "4") {
+                    var scrollStartPos = 0;
+                    $(this.elements.modal)
+                    .on("touchstart",function(event){
+                        scrollStartPos=this.scrollTop+event.originalEvent.touches[0].pageY;
+                        event.preventDefault();
+                    })
+                    .on("touchmove",function(event){
+                        this.scrollTop=scrollStartPos-event.originalEvent.touches[0].pageY;
+                        event.preventDefault();
+                    })
+                }
+            }
         },
         setup:function(){
             return {
@@ -17,6 +35,7 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
         },
          hooks:{
             onshow: function(){
+                this.bodyScroll = $("body")[0].scrollTop;
                 $(".ajs-global-close").remove();
                 if ($(this.elements.dialog).hasClass("wide")) {
                     $(this.elements.root).find(".ajs-close").hide();
@@ -30,6 +49,7 @@ alertify.genericDialog || alertify.dialog('genericDialog',function(){
                 }
             },
             onclose: function(){
+                if (this.bodyScroll) $("body")[0].scrollTop = this.bodyScroll;
                 $(".ajs-global-close").remove();
             }
          }        
