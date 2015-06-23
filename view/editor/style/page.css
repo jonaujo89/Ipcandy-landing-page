@@ -4490,16 +4490,14 @@ ol li {
 }
 
 .text_block_6 .ico_data .item_list .item {
-  padding: 20px 0px 10px 110px;
+  padding: 10px 0px 10px 20px;
+  overflow: hidden;
 }
 
 .text_block_6 .ico_data .item_list .item .ico {
-  position: absolute !important;
-  top: 5px;
-  left: -100px;
+  float: left;
   width: 80px;
   height: 80px;
-  margin: 0 auto;
   border: 2px solid #2F2D30;
   border-radius: 43px;
   background-repeat: no-repeat;
@@ -4514,7 +4512,7 @@ ol li {
   color: #2B2B2B;
   font-size: 20px;
   font-family: "Open Sans Semibold", "Arial";
-  
+  margin-left: 100px;
   line-height: 130%;
 }
 
@@ -4523,6 +4521,7 @@ ol li {
   font-size: 14px;
   line-height: 22px;
   font-family: "Arial";
+  margin-left: 100px;
 }
 
 .text_block_6 .ico_data .item_list.hide_border .item .ico {
