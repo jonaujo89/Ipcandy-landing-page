@@ -65,16 +65,18 @@ class Header extends Block {
                     <? $this->sub("Logo",'logo') ?>
                 </div>
                 <div class="span10">
-                    <? if ($cls = $this->vis($val['show_order_button'])): ?>
-                        <div class="span_btn <?=$cls?>" >
-                            <div class="btn_wrap">
-                                <? $this->sub("FormButton",'order_button') ?>
+                    <div class="wrapper_btn_and_phone">
+                        <? if ($cls = $this->vis($val['show_order_button'])): ?>
+                            <div class="span_btn <?=$cls?>" >
+                                <div class="btn_wrap">
+                                    <? $this->sub("FormButton",'order_button') ?>
+                                </div>
                             </div>
-                        </div>
-                    <? endif ?>                    
-                    <div class="phone <? if($val['show_order_button'] == 0){?>no_btn<?}?>">
-                        <? $this->sub("Text",'phone',Text::$default_heading) ?>
-                    </div>                                          
+                        <? endif ?>                    
+                        <div class="phone <? if($val['show_order_button'] == 0){?>no_btn<?}?>">
+                            <? $this->sub("Text",'phone',Text::$default_heading) ?>
+                        </div>  
+                    </div>
                 </div>
             </div>
         </div>

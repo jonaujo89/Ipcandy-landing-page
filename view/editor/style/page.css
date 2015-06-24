@@ -382,6 +382,7 @@ ol li {
   margin-right: 40px;
   text-align: right;
   line-height: 110%;
+  padding-top: 14px;  
 }
 
 .header_2 .container .span_btn .btn_wrap {
@@ -394,10 +395,12 @@ ol li {
   margin-right: 40px;
   min-width: 300px;
   text-align: right;
+  padding: 14px 0;  
 }
 
-.header_2 .span10 {
-  padding: 14px 0;
+.header_2 .wrapper_btn_and_phone {
+  max-width: 570px;
+  float: right;
 }
 
 .header_3 .container {

@@ -74,7 +74,7 @@ class FormButton extends Block {
         return self::$en ? [
             'type' => 'form',
             'link' => '',
-            'form_title' => "Leave an application",
+            'form_title' => "Leave application",
             'form_bottom_text' => "We don't provide Israeli intelligence with your personal information",
             'color' => 'red',
             'text' => "Leave an application",
