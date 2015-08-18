@@ -70,7 +70,7 @@ class Projects extends Block {
                                     <? if ($project): ?>
                                         <div class="item_action">
                                             <div class="btn_wrap">
-                                                <a class="btn_form blue"><?=@$val['button_text']?></a>
+                                                <a class="btn_form <?=@$val['button_color']?>"><?=@$val['button_text']?></a>
                                                 <div style='display:none'>
                                                     <div class="form wide project_popup">
                                                         <h1><?=$project->title?></h1>
@@ -103,7 +103,8 @@ class Projects extends Block {
             'background' =>'#F7F7F7',
             'title' => 'Самые крутые проекты',
             'title_2' => 'Круче нас - только яйца',
-            'button_text' => 'Читать кейс'
+            'button_text' => 'Читать кейс',
+            'button_color' => 'blue'
         );
     }
     

@@ -6,6 +6,7 @@ lp.projects = lp.block.extendOptions({
         this.variant.find(".title").toggleVis(this.value.show_title);
         this.variant.find(".title_2").toggleVis(this.value.show_title_2);
         this.variant.find(".btn_form").text(this.value.button_text);
+        this.variant.find(".btn_form").attr("class","btn_form " + this.value.button_color);
     },
     configForm: {
         items: [   
@@ -37,7 +38,19 @@ lp.projects = lp.block.extendOptions({
                 })
             },
             { type: "label", value: _t("Button text:"), margin: "5px 0"},
-            { name: 'button_text', type: 'text' }
+            { name: 'button_text', type: 'text' },
+            { type: lp.color, name: "button_color", width: "47%", iconSize: 15,
+                items: [
+                    { value: 'blue', color: '#0187BC' },
+                    { value: 'green', color: '#3E9802' },
+                    { value: 'orange', color: '#FD6F00' },
+                    { value: 'purple', color: '#8C33D2' },
+                    { value: 'purple_light', color: '#9581BF' },
+                    { value: 'rose', color: '#F372A4' },
+                    { value: 'red', color: '#CE0707' },
+                    { value: 'yellow', color: '#FFC415' }
+                ]
+            }
         ]
     }
 });
