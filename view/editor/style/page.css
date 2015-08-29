@@ -578,7 +578,11 @@ ol li {
   height: 0;
 }
 
-.order_1 .title_1 .list div div:not(.editor_text) {
+.order_1 .title_1 .list > div > div:not(.editor_text),
+.order_1 .title_1 .list > div > .editor_text > div,
+.order_1 .title_1 .list > div > p,
+.order_1 .title_1 .list > div > .editor_text > p
+{
   background: none  scroll 0 0 rgba(0, 0, 0, 0.75);
   display: table;
   font-family: "Open Sans Bold", "Arial";
@@ -590,7 +594,11 @@ ol li {
   
 }
 
-.order_1 .title_2 .list div div:not(.editor_text) {
+.order_1 .title_2 .list > div > div:not(.editor_text),
+.order_1 .title_2 .list > div > .editor_text > div,
+.order_1 .title_2 .list > div > p,
+.order_1 .title_2 .list > div > .editor_text > p
+{
   background: none  scroll 0 0 rgba(0, 0, 0, 0.75);
   display: table;
   font-family: "Open Sans Light", "Arial";  
