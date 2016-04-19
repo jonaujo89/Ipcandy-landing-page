@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__."/helpers/punycode_to_unicode.php";
+
 class LPCandy extends \Bingo\Module {
     function __construct() {
         $this->addModelPath(dirname(__FILE__).'/LPCandy/Models');
@@ -32,7 +34,10 @@ class LPCandy extends \Bingo\Module {
             if ($domain==\Bingo\Config::get('config','domain')[bingo_get_locale()]) return true;            
 
             $page = \LPCandy\Models\Page::findOneByDomain($domain);
-            if (!$page) return true;
+            if (!$page) {
+                $page = \LPCandy\Models\Page::findOneByDomain(punycode_to_unicode($domain));
+                if (!$page) return true;
+            }
             if (!$uri) {
                 $c = new \LPCandy\Controllers\Front;
                 $c->page_view($page->id);
