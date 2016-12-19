@@ -8,7 +8,7 @@ $config = array(
     ],
     'acl' => [
         'project_editor_group' => [
-            'users' => [1,2,11,80,55],
+            'users' => [1,2,11,80,55, 158],
             'res' => ['project_editor']
         ]
     ],
