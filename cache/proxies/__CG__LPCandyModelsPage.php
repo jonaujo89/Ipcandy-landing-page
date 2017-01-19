@@ -36,7 +36,7 @@ class Page extends \LPCandy\Models\Page implements \Doctrine\ORM\Proxy\Proxy
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array('title' => NULL, 'domain' => NULL, 'pathname' => NULL, 'meta_robots' => NULL, 'meta_keywords' => NULL, 'meta_description' => NULL, 'extra_html' => NULL, 'extra_html_submit' => NULL, 'form' => NULL, 'parent' => NULL, 'children' => NULL, 'user' => NULL);
+    public static $lazyPropertiesDefaults = array('title' => NULL, 'domain' => NULL, 'pathname' => NULL, 'meta_robots' => NULL, 'meta_keywords' => NULL, 'meta_description' => NULL, 'is_responsive' => NULL, 'extra_html' => NULL, 'extra_html_submit' => NULL, 'form' => NULL, 'parent' => NULL, 'children' => NULL, 'user' => NULL);
 
 
 
@@ -46,7 +46,7 @@ class Page extends \LPCandy\Models\Page implements \Doctrine\ORM\Proxy\Proxy
      */
     public function __construct($initializer = null, $cloner = null)
     {
-        unset($this->title, $this->domain, $this->pathname, $this->meta_robots, $this->meta_keywords, $this->meta_description, $this->extra_html, $this->extra_html_submit, $this->form, $this->parent, $this->children, $this->user);
+        unset($this->title, $this->domain, $this->pathname, $this->meta_robots, $this->meta_keywords, $this->meta_description, $this->is_responsive, $this->extra_html, $this->extra_html_submit, $this->form, $this->parent, $this->children, $this->user);
 
         $this->__initializer__ = $initializer;
         $this->__cloner__      = $cloner;
@@ -112,7 +112,7 @@ class Page extends \LPCandy\Models\Page implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'title', 'domain', 'pathname', 'meta_robots', 'meta_keywords', 'meta_description', 'extra_html', 'extra_html_submit', 'form', 'parent', 'children', 'user');
+            return array('__isInitialized__', 'id', 'title', 'domain', 'pathname', 'meta_robots', 'meta_keywords', 'meta_description', 'is_responsive', 'extra_html', 'extra_html_submit', 'form', 'parent', 'children', 'user');
         }
 
         return array('__isInitialized__', 'id');
@@ -137,7 +137,7 @@ class Page extends \LPCandy\Models\Page implements \Doctrine\ORM\Proxy\Proxy
                 }
             };
 
-            unset($this->title, $this->domain, $this->pathname, $this->meta_robots, $this->meta_keywords, $this->meta_description, $this->extra_html, $this->extra_html_submit, $this->form, $this->parent, $this->children, $this->user);
+            unset($this->title, $this->domain, $this->pathname, $this->meta_robots, $this->meta_keywords, $this->meta_description, $this->is_responsive, $this->extra_html, $this->extra_html_submit, $this->form, $this->parent, $this->children, $this->user);
         }
     }
 
