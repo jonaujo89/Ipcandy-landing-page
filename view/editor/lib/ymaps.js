@@ -60,7 +60,7 @@ $.fn.mapYandex = function (mapSettings_default,onInit) {
             if (!window.ymaps_loading) {
                 window.ymaps_loading  = [init];
                 var map_lang = window.locale_lang=="ru" ? "ru_RU" : "en_US";
-                $.getScript('http://api-maps.yandex.ru/2.1/?lang='+map_lang, function() {
+                $.getScript('https://api-maps.yandex.ru/2.1/?lang='+map_lang, function() {
                     $.each(window.ymaps_loading,function(){
                         this();
                     });
