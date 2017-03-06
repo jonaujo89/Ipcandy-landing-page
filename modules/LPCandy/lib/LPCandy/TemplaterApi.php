@@ -25,8 +25,8 @@ class TemplaterApi extends \TemplaterApi {
         $this->uploadDir = $this->base_dir."/upload/LPCandy/files/".$this->user_id;
         $this->uploadUrl = $this->base_url."/upload/LPCandy/files/".$this->user_id;
         
-        if (!file_exists($this->templatePath)) mkdir($this->templatePath,0777,true);
-        if (!file_exists($this->uploadDir)) mkdir($this->uploadDir,0777,true);
+        if (!file_exists($this->templatePath)) @mkdir($this->templatePath,0777,true);
+        if (!file_exists($this->uploadDir)) @mkdir($this->uploadDir,0777,true);
         
         $this->modules = array();
         $this->modules[] = __DIR__ . "/../../../../view/editor";

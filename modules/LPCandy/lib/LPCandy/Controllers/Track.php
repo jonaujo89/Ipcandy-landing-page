@@ -90,7 +90,7 @@ class Track extends Base {
         };
         
         $this->data['field_filters']['data'] = function ($val,$track) {            
-            if(!$val['values']) return "Данных нет";
+            if(!isset($val['values']) || !$val['values']) return "Данных нет";
             $data = "";
             foreach($val['values'] as $one) {            
                 $sub = $one['value'];

@@ -60,7 +60,7 @@ class TemplaterApi {
     }
     
     function run() {
-        $action = $_REQUEST['_type'];
+        $action = @$_REQUEST['_type'];
         $res = self::runAction('run',array($this,$action));
         if ($res!==false) {
             if (method_exists($this,$action)) {
@@ -377,7 +377,7 @@ class TemplaterApi {
         }        
         
         ini_set('yaml.output_indent',4);
-        foreach ($templates as $name=>$one) {
+        if ($templates) foreach ($templates as $name=>$one) {
             $yaml_path = $project_dir."/".$name.".yaml";
             
             $dir = dirname($yaml_path);
