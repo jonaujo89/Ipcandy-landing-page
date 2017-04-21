@@ -73,8 +73,15 @@ class Email extends Base {
     
     function sendTrackNotification($track) {
         if (!$track->user->email) return;
-        $to = ['email'=>$track->user->email,'name'=>$track->user->name];
-        $subject = str_replace("{id}",$track->id,_t('LPCandy: you have a new form submission {id}'));
-        $this->send($to,$subject,$tpl = 'track_notification',$data = ['track'=>$track]);
+
+        $emails = explode(" ",$track->user->email);
+        foreach ($emails as $email) {
+            $email = trim($email);
+            if (!$email) continue;
+
+            $to = ['email'=>$email,'name'=>$track->user->name];
+            $subject = str_replace("{id}",$track->id,_t('LPCandy: you have a new form submission {id}'));
+            $this->send($to,$subject,$tpl = 'track_notification',$data = ['track'=>$track]);
+        }
     }
 }
