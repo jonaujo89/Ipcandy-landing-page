@@ -25,7 +25,7 @@ class User extends \Auth\Models\User {
     public $address_extra;
     
     static public function token_data($token) {
-        $response = file_get_contents("http://loginza.ru/api/authinfo?token=$token");
+        $response = file_get_contents('https://ulogin.ru/token.php?token=' . $token . '&host=' . $_SERVER['HTTP_HOST']);
         $data = json_decode($response);
         if (!isset($data->identity)) return false;
         return $data;
@@ -41,11 +41,9 @@ class User extends \Auth\Models\User {
             $user = new User();
             $user->email = @$data->email ? : "";
             $user->login = $data->identity;
-            $user->name = @$data->nickname ? : "";
+            $user->name = @$data->name ? : "";
             if (!$user->name) {
-                if (isset($data->name)) {
-                    $user->name = @$data->name->first_name." ".@$data->name->last_name;
-                }
+                $user->name = @$data->first_name.' '.@$data->last_name;
                 $user->name = trim($user->name);
             }
             if (!$user->name) $user->name = "Неизвестное имя";

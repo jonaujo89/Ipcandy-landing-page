@@ -11,8 +11,9 @@
                     <?= _t("You can get an account on this site, if you have an account in the popular social networks or services. Select the authentication method below. If you already went this way on this site, you already have an account.") ?>
                 </p>
 
-                <script src="http://loginza.ru/js/widget.js" type="text/javascript"></script>
-                <iframe src="http://loginza.ru/api/widget?overlay=loginza&lang=<?=(bingo_get_locale()=="ru_RU")?"ru":"en"?>&token_url=<?=$full?>" style="display:block;margin:0 auto;width:359px;height:300px;" scrolling="no" frameborder="no"></iframe>
+                <script src="//ulogin.ru/js/ulogin.js"></script>
+                <? $redirect_url = '//'.$_SERVER['HTTP_HOST'].url('login') ?>
+                <div id="uLogin" data-ulogin="redirect_uri=<?=urlencode($redirect_url)?>;display=panel;theme=classic;fields=first_name,last_name;providers=vkontakte,odnoklassniki,mailru,facebook;hidden=other;mobilebuttons=0;"></div>
             </fieldset>            
         </form>
     </section>
