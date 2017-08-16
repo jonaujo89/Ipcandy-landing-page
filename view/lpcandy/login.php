@@ -1,8 +1,6 @@
 <? include partial('lpcandy/layout') ?>
 <? startblock('content') ?>
 
-    <? $full = "http://".$_SERVER['SERVER_NAME'].url('login?redirect='.@$_GET['redirect']) ?>
-
     <h3><?= _t("Login") ?></h3>
     <section>
         <form>
@@ -12,7 +10,7 @@
                 </p>
 
                 <script src="//ulogin.ru/js/ulogin.js"></script>
-                <? $redirect_url = '//'.$_SERVER['HTTP_HOST'].url('login') ?>
+                <? $redirect_url = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on') ? 'https://': 'http://').$_SERVER['SERVER_NAME'].url('login?redirect='.@$_GET['redirect']) ?>
                 <div id="uLogin" data-ulogin="redirect_uri=<?=urlencode($redirect_url)?>;display=panel;theme=classic;fields=first_name,last_name;providers=vkontakte,odnoklassniki,mailru,facebook;hidden=other;mobilebuttons=0;"></div>
             </fieldset>            
         </form>
