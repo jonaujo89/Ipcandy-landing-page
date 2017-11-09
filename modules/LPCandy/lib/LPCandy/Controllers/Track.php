@@ -104,7 +104,7 @@ class Track extends Base {
                     }
                     $sub = implode(", ",$files_str);
                 }
-                $data.="<b>".$one['label'].": </b>".$sub."<br>";
+                $data.="<b>".$one['label'].": </b>".htmlentities($sub)."<br>";
             }
             return $data;
         }; 
