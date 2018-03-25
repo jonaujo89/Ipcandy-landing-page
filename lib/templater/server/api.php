@@ -182,15 +182,16 @@ class TemplaterApi {
         $name = @$_REQUEST['name'];
         $iconWidth = @$_REQUEST['iconWidth'];
         $iconHeight = @$_REQUEST['iconHeight'];
-        
-        if ($name) {
+
+        $res = array();
+        if ($name && strpos($name,"..")===false) {
+
             $dir = $this->uploadDir."/".$name;
             $tdir = $this->uploadDir."/.thumbs/".$name;
             
             if (!file_exists($dir)) mkdir($dir,0777,true);
             if (!file_exists($tdir)) mkdir($tdir,0777,true);
             
-            $res = array();
             foreach ($_FILES as $key=>$val) {
                 $error = $val['error'];
                 if ($error==UPLOAD_ERR_OK) {
@@ -198,7 +199,10 @@ class TemplaterApi {
                     $tmp_name = $val['tmp_name']; 
                     
                     $info = pathinfo($name); 
-                    $ext = isset($info['extension']) ? ".".$info['extension'] : "";
+                    if (!isset($info['extension'])) continue;
+                    if (!in_array(strtolower($info['extension']), ["jpg","jpeg","png","gif"])) continue;
+
+                    $ext = ".".$info['extension'];
                     $filename = $info['filename'];
                     $dest = $filename.$ext; 
                     
@@ -224,8 +228,8 @@ class TemplaterApi {
                     $res[] = array('name'=>$dest,'url'=>$url,'icon'=>$turl);
                 }
             }
-            echo json_encode($res);
         }        
+        echo json_encode($res);
     }
     
     public $settings = false;

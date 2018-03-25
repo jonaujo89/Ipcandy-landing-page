@@ -9,7 +9,7 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
             uploadDir: 'files'
         },o));
         
-        var uploader = $("<input type='file'>").css({position:'fixed',top:0,left:0,zIndex:10000,width:0}).hide().appendTo("body");
+        var uploader = $("<input type='file' accept='.jpg,.jpeg,.png,.gif'>").css({position:'fixed',top:0,left:0,zIndex:10000,width:0}).hide().appendTo("body");
         uploader.change(function(){
             var data = new FormData();
             $.each(uploader[0].files, function(i, file) {                
@@ -23,16 +23,18 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
             $.ajax({
                 url: Component.app.options.ajax_url,
                 data: data,
+                dataType: "json",
                 cache: false,
                 contentType: false,
                 processData: false,
                 type: 'POST',
                 success: function(data){
-                    data = $.parseJSON(data);  
-                    var sub_url = data[0].url.substring(base_url.length);
-                    if (sub_url[0]=="/") sub_url = sub_url.substring(1);
-                    me.value = sub_url;
-                    me.trigger("change");
+                    if (data && data.length) {
+                        var sub_url = data[0].url.substring(base_url.length);
+                        if (sub_url[0]=="/") sub_url = sub_url.substring(1);
+                        me.value = sub_url;
+                        me.trigger("change");
+                    }
                 }
             });            
         });
