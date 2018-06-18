@@ -111,7 +111,7 @@ class TextBlock extends Block {
                         </div>
                     <? endif ?>
                     <div class="item_list clear">
-                        <? $this->repeat('items',function($val,$self) use ($val){ ?>
+                        <? $this->repeat('items',function($val,$self) { ?>
                             <? for ($i=1;$i<=2;$i++): ?>
                                 <div class="item">
                                     <? if ($cls = $self->vis($val['show_name'])): ?>
