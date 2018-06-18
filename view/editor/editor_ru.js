@@ -22,6 +22,7 @@ window._t.load({
     "Text":"Текст",
     "Field label":"Заголовок поля",
     "Field description":"Описание поля",
+    "Field placeholder":"Заполнитель поля",
     "Is required?":"Обязательное для ввода?",
     "Text area":"Текстовое поле",
     "Checkbox":"Галочка",

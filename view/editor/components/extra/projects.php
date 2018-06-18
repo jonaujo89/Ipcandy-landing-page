@@ -10,7 +10,7 @@ class Projects extends Block {
     
     function tpl($val) {?>
 
-        <div class="container-fluid services services_1" style="background: <?=$val['background']?>;">
+        <div class="container-fluid services services_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
                 <div class="span16">
                     <? if ($cls = $this->vis($val['show_title'])): ?>
@@ -100,7 +100,7 @@ class Projects extends Block {
             'show_title_2' => false,
             'show_name' => true,
             'show_desc' => true,
-            'background' =>'#F7F7F7',
+            'background_color' =>'#F7F7F7',
             'title' => 'Самые крутые проекты',
             'title_2' => 'Круче нас - только яйца',
             'button_text' => 'Читать кейс',

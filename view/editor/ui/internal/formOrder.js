@@ -5,7 +5,7 @@ lp.formControls.field = teacss.ui.composite.extend({
         var star_required, show_desc;
         if (val.required) {star_required = "<i>*</i>"};
         if (val.desc) {show_desc = $('<div class="desc">').text(val.desc)} else {show_desc=""};
-        return $('<div class="field_title">').text(val.label).append(star_required).add(show_desc);
+        return $('<div class="field_title">').toggleClass('hidden',val.label.trim() ? false:true).text(val.label).append(star_required).add(show_desc);
     }
 },{})
 
@@ -16,7 +16,7 @@ lp.formControls.text = lp.formControls.field.extendOptions({
         return $('<div class="form_field">').append(
             $('<label>').append(
                 this.tpl_label(val),
-                $('<input class="form_field_text" type="text">'),
+                $('<input class="form_field_text" type="text">').attr("placeholder",val.placeholder || ''),
                 $('<div class="error">')
             )
         );
@@ -27,7 +27,9 @@ lp.formControls.text = lp.formControls.field.extendOptions({
         { type: "text", name: "label" },
         _t("Field description"),
         { type: "text", name: "desc" },
-        { type: "checkbox", name: "required", label: _t("Is required?"), margin:"0" }
+        _t("Field placeholder"),
+        { type: "text", name: "placeholder" },
+        { type: "checkbox", name: "required", label: _t("Is required?"), margin:"0" },
     ]
 });
 
@@ -38,7 +40,7 @@ lp.formControls.textarea = lp.formControls.text.extend({
         return $('<div class="form_field">').append(
             $('<label>').append(
                 this.tpl_label(val),
-                $('<textarea class="form_field_textarea" rows="3">'),
+                $('<textarea class="form_field_textarea" rows="3">').attr("placeholder",val.placeholder || ''),
                 $('<div class="error">')
             )
         );
@@ -200,7 +202,7 @@ lp.formOrder = lp.cover.extendOptions({
                     updateLabel: function (el) {
                         var val = el.getValue();
                         var title = el.itemContainer.find(".ui-repeater-item-title").addClass(lp.formControls[val.type].selectIcon);
-                        title.children("span").eq(0).text(val.label);
+                        title.children("span").eq(0).text(val.label || ('['+val.placeholder+']'));
                     },
                     addElement: function (val) {
                         val = val || {};

@@ -172,8 +172,9 @@ class FormOrder extends Block {
                         <input class="form_field_checkbox" type="checkbox" />
                         <span class="field_title"><?= htmlspecialchars($field['label'])?></span>
                     <? else: ?>
-                        <div class="field_title">
-                            <?= htmlspecialchars($field['label'])?><?= (isset($field['required']) && $field['required']) ? "<i>*</i>" : "" ?>
+                        <? $label = trim($field['label']) ?>
+                        <div class="field_title <?= $label ? '': 'hidden' ?>">
+                            <?= htmlspecialchars($label)?><?= (isset($field['required']) && $field['required']) ? "<i>*</i>" : "" ?>
                         </div>
                         <? if (isset($field['desc']) && $field['desc']): ?>
                             <div class="desc">
@@ -182,9 +183,9 @@ class FormOrder extends Block {
                         <? endif ?>
 
                         <? if($field['type'] == 'text'): ?>
-                            <input type="text" class="form_field_text">
+                            <input type="text" class="form_field_text" placeholder="<?= htmlspecialchars(@$field['placeholder']?:'') ?>">
                         <? elseif ($field['type'] == 'textarea'): ?>
-                            <textarea class="form_field_textarea" rows="3"></textarea>
+                            <textarea class="form_field_textarea" rows="3"  placeholder="<?= htmlspecialchars(@$field['placeholder']?:'') ?>"></textarea>
                         <? elseif ($field['type'] == 'file'): ?>
                             <input class="form_field_file" type="file" multiple="multiple">
                         <? elseif ($field['type'] == 'radio'): ?>
