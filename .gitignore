@@ -6,6 +6,8 @@ cache/images
 cache/images/
 cache/locale
 cache/locale/
+cache/metadata
+cache/metadata/
 
 lib/bingo/
 lib/teacss/
