@@ -74,7 +74,6 @@ class Projects extends Block {
                                                 <div style='display:none'>
                                                     <div class="form wide project_popup">
                                                         <h1><?=$project->title?></h1>
-                                                        <?=$project->excerpt?>
                                                         <?=$project->content?>
                                                     </div>
                                                 </div>
