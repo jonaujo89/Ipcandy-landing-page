@@ -2,6 +2,10 @@
 
 namespace LPCandy\Components;
 
+class Configuration {
+    static public $assets_url = "view/editor/assets";
+}
+
 class Block {
     
     public $id;
@@ -33,6 +37,7 @@ class Block {
         \TemplaterApi::addAction('getComponents',function($api,&$components) use ($en) {
             foreach (get_declared_classes() as $cls) {
                 if (strpos($cls,"LPCandy\\Components")!==0) continue;
+                if (!method_exists($cls,'get')) continue;
                 
                 $obj = $cls::get();
                 $obj->api = $api;

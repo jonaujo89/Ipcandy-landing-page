@@ -90,9 +90,9 @@ class Services extends Block {
             'title_2' => "We have a plenty of choices",
             'items' => array(
                 array(
-                    'image_1' => 'view/editor/assets/services/1.jpg',
-                    'image_2' => 'view/editor/assets/services/2.jpg',
-                    'image_3' => 'view/editor/assets/services/3.jpg',
+                    'image_1' => Configuration::$assets_url.'/services/1.jpg',
+                    'image_2' => Configuration::$assets_url.'/services/2.jpg',
+                    'image_3' => Configuration::$assets_url.'/services/3.jpg',
                     'name_1' => "Smiling dog",
                     'name_2' => "Flying gymnast",
                     'name_3' => "Clam cats",
@@ -117,9 +117,9 @@ class Services extends Block {
             'title_2' => "У нас супер выбор",
             'items' => array(
                 array(
-                    'image_1' => 'view/editor/assets/services/1.jpg',
-                    'image_2' => 'view/editor/assets/services/2.jpg',
-                    'image_3' => 'view/editor/assets/services/3.jpg',
+                    'image_1' => Configuration::$assets_url.'/services/1.jpg',
+                    'image_2' => Configuration::$assets_url.'/services/2.jpg',
+                    'image_3' => Configuration::$assets_url.'/services/3.jpg',
                     'name_1' => "Собака-улыбака",
                     'name_2' => "Летающий гимнаст",
                     'name_3' => "Коты-молчуны",
@@ -200,8 +200,8 @@ class Services extends Block {
             'title_2' => "Hire of deers team",
             'items' => array(
                 array(
-                'image_1' => 'view/editor/assets/services/4.jpg',
-                'image_2' => 'view/editor/assets/services/5.jpg',
+                'image_1' => Configuration::$assets_url.'/services/4.jpg',
+                'image_2' => Configuration::$assets_url.'/services/5.jpg',
                 'name_1' => "KITTEH-DEER",
                 'name_2' => "DOG-DEER",
                 'desc_1' => "Team of the kitteh-deer will carry you away beyond the horizon from the bad mood.",
@@ -224,8 +224,8 @@ class Services extends Block {
             'title_2' => "Упряжка оленей на прокат",
             'items' => array(
                 array(
-                'image_1' => 'view/editor/assets/services/4.jpg',
-                'image_2' => 'view/editor/assets/services/5.jpg',
+                'image_1' => Configuration::$assets_url.'/services/4.jpg',
+                'image_2' => Configuration::$assets_url.'/services/5.jpg',
                 'name_1' => "КОТ-ОЛЕНЬ",
                 'name_2' => "ПЁС-ОЛЕНЬ",
                 'desc_1' => "Упряжка из котов-оленей унесет Вас за горизонт прочь от плохого настроения.",
@@ -308,7 +308,7 @@ class Services extends Block {
             'title_2' => "Miracle for human eyes",
             'items' => array(
                 array(
-                    'image' => 'view/editor/assets/services/12.jpg',
+                    'image' => Configuration::$assets_url.'/services/12.jpg',
                     'name' => "CONJURER FEDOR",
                     'desc' => "Using forbidden magic spell, Sedoborodov Fedor Yakovlevich creats a miracle on your eyes never happened yet. Your  old wife will be transformed into a young maiden. 
                                <i>Rejuvenating apples are included.</i>.",
@@ -331,7 +331,7 @@ class Services extends Block {
             'title_2' => "Чарующее людской взор чудо",
             'items' => array(
                 array(
-                    'image' => 'view/editor/assets/services/12.jpg',
+                    'image' => Configuration::$assets_url.'/services/12.jpg',
                     'name' => "ЗАКЛИНАТЕЛЬ ФЁДОР",
                     'desc' => "Используя запрещённое магическое заклинание, Седобородов Фёдор Яковлевич на Ваших глазах сотворит чудо каких не бывало ещё.
                                Ваша изнеможденная жена-старуха будет превращена в молодую деву. <i>Молодильные яблоки входят в стоимость</i>.",
@@ -410,9 +410,9 @@ class Services extends Block {
             'title_2' => "Parties for the littlest",
             'items' => array(
                 array(
-                    'image_1' => "view/editor/assets/ico/772.png",
-                    'image_2' => "view/editor/assets/ico/335.png",
-                    'image_3' => "view/editor/assets/ico/255.png",
+                    'image_1' => Configuration::$assets_url."/ico/772.png",
+                    'image_2' => Configuration::$assets_url."/ico/335.png",
+                    'image_3' => Configuration::$assets_url."/ico/255.png",
                     'name_1' => "FUNNY STRUMMING",
                     'name_2' => "EATING BISCUITS",
                     'name_3' => "KARAOKE",
@@ -437,9 +437,9 @@ class Services extends Block {
             'title_2' => "Проведение детских праздников для самых маленьких",
             'items' => array(
                 array(
-                    'image_1' => "view/editor/assets/ico/772.png",
-                    'image_2' => "view/editor/assets/ico/335.png",
-                    'image_3' => "view/editor/assets/ico/255.png",
+                    'image_1' => Configuration::$assets_url."/ico/772.png",
+                    'image_2' => Configuration::$assets_url."/ico/335.png",
+                    'image_3' => Configuration::$assets_url."/ico/255.png",
                     'name_1' => "ВЕСЁЛОЕ БРЫНЧАНИЕ",
                     'name_2' => "ПОЕДАНИЕ ПЕЧЕНЬЯ",
                     'name_3' => "КАРАОКЕ-БАР",
@@ -524,9 +524,9 @@ class Services extends Block {
             'title_2' => "Circus entertainment program for those who are over 50",
             'items' => array(
                 array(
-                    'image_1' => 'view/editor/assets/services/6.jpg',
-                    'image_2' => 'view/editor/assets/services/7.jpg',
-                    'image_3' => 'view/editor/assets/services/8.jpg',
+                    'image_1' => Configuration::$assets_url.'/services/6.jpg',
+                    'image_2' => Configuration::$assets_url.'/services/7.jpg',
+                    'image_3' => Configuration::$assets_url.'/services/8.jpg',
                     'name_1' => "Chess battle",
                     'name_2' => "Soviet movie",
                     'name_3' => "Yard gatherings",
@@ -553,9 +553,9 @@ class Services extends Block {
             'title_2' => "Увеселительная цирковая программа для тех, кому за 50",
             'items' => array(
                 array(
-                    'image_1' => 'view/editor/assets/services/6.jpg',
-                    'image_2' => 'view/editor/assets/services/7.jpg',
-                    'image_3' => 'view/editor/assets/services/8.jpg',
+                    'image_1' => Configuration::$assets_url.'/services/6.jpg',
+                    'image_2' => Configuration::$assets_url.'/services/7.jpg',
+                    'image_3' => Configuration::$assets_url.'/services/8.jpg',
                     'name_1' => "Шахматный бой",
                     'name_2' => "Советское кино",
                     'name_3' => "Дворовые посиделки",
@@ -623,9 +623,9 @@ class Services extends Block {
             'title_2' => "The best games for your corporate party",
             'items' => array(
                 array(
-                    'image_1' => 'view/editor/assets/services/9.jpg',
-                    'image_2' => 'view/editor/assets/services/10.jpg',
-                    'image_3' => 'view/editor/assets/services/11.jpg',
+                    'image_1' => Configuration::$assets_url.'/services/9.jpg',
+                    'image_2' => Configuration::$assets_url.'/services/10.jpg',
+                    'image_3' => Configuration::$assets_url.'/services/11.jpg',
                     'name_1' => "Chief is in two",
                     'name_2' => "Prick for accountant",
                     'name_3' => "Admin is alongside",
@@ -643,9 +643,9 @@ class Services extends Block {
             'title_2' => "Лучшие игры для Вашего корпоратива",
             'items' => array(
                 array(
-                    'image_1' => 'view/editor/assets/services/9.jpg',
-                    'image_2' => 'view/editor/assets/services/10.jpg',
-                    'image_3' => 'view/editor/assets/services/11.jpg',
+                    'image_1' => Configuration::$assets_url.'/services/9.jpg',
+                    'image_2' => Configuration::$assets_url.'/services/10.jpg',
+                    'image_3' => Configuration::$assets_url.'/services/11.jpg',
                     'name_1' => "Начальника по полам",
                     'name_2' => "Укол бухгалтеру",
                     'name_3' => "Админ у стенки",

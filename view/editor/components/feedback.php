@@ -73,9 +73,9 @@ class Feedback extends Block {
             'title_2' => "Subtitle",
             'items' => array(
                 array(
-                    'image_1' => "view/editor/assets/feedback/1.jpg",
-                    'image_2' => "view/editor/assets/feedback/2.jpg",
-                    'image_3' => "view/editor/assets/feedback/3.jpg",
+                    'image_1' => Configuration::$assets_url."/feedback/1.jpg",
+                    'image_2' => Configuration::$assets_url."/feedback/2.jpg",
+                    'image_3' => Configuration::$assets_url."/feedback/3.jpg",
                     'name_1' => "Afrosinya Nikonorovna",
                     'name_2' => "Ludwig Aristarkhovich",
                     'name_3' => "Just Kolyan",
@@ -98,9 +98,9 @@ class Feedback extends Block {
             'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => "view/editor/assets/feedback/1.jpg",
-                    'image_2' => "view/editor/assets/feedback/2.jpg",
-                    'image_3' => "view/editor/assets/feedback/3.jpg",
+                    'image_1' => Configuration::$assets_url."/feedback/1.jpg",
+                    'image_2' => Configuration::$assets_url."/feedback/2.jpg",
+                    'image_3' => Configuration::$assets_url."/feedback/3.jpg",
                     'name_1' => "Афросинья Никоноровна",
                     'name_2' => "Людвиг Аристархович",
                     'name_3' => "Прохожий просто Колян",

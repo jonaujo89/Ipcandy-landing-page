@@ -28,7 +28,7 @@ class Logo extends Block {
     function tpl_default() {
         return self::$en ? [
             'type' => 'image',
-            'url' => "view/editor/assets/default_logo_en.png",
+            'url' => Configuration::$assets_url."/default_logo_en.png",
             'text' => "No name",
             'bold' => true,
             'italic' => false,
@@ -37,7 +37,7 @@ class Logo extends Block {
             'fontSize' => 24
         ] : [
             'type' => 'image',
-            'url' => 'view/editor/assets/default_logo.png',
+            'url' => Configuration::$assets_url.'/default_logo.png',
             'text' => 'Нет названия',
             'bold' => true,
             'italic' => false,
@@ -338,7 +338,7 @@ class Media extends Block {
                     preg_match("/^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/", $val['video_url'], $matches);?>
                     <iframe frameborder="0" allowfullscreen="" src="//player.vimeo.com/video/<?=($matches[5]);?>"></iframe><? 
                 } else {?>
-                    <iframe frameborder="0" allowfullscreen="" src="<?= $this->api->base_url."/"?>view/editor/assets/404.php"></iframe><?
+                    <iframe frameborder="0" allowfullscreen="" src="<?= $this->api->base_url."/".Configuration::$assets_url?>/404.php"></iframe><?
                 }?>             
             <? endif ?>
         </div>

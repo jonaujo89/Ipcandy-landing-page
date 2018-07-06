@@ -24,7 +24,7 @@ body.view-layout #beejee_info{
 
 #beejee_info > span {
     display: block;
-    background: url(../../view/assets/images/logo-beejee.jpg) no-repeat 0 50%;
+    background: url(assets/logo-beejee.jpg) no-repeat 0 50%;
     width: 30px;
     height: 30px;
     text-indent: -999em;
@@ -119,67 +119,67 @@ body.view-layout #teacss-layer > .editor-panel > .preview-toolbar > .close-butto
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Header::before  {
-    background: url(../../view/editor/assets/miniatures/header.jpg) no-repeat;
+    background: url(assets/miniatures/header.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Order::before  {
-    background: url(../../view/editor/assets/miniatures/order.jpg) no-repeat;
+    background: url(assets/miniatures/order.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Benefits::before  {
-    background: url(../../view/editor/assets/miniatures/benefits.jpg) no-repeat;
+    background: url(assets/miniatures/benefits.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Services::before  {
-    background: url(../../view/editor/assets/miniatures/services.jpg) no-repeat;
+    background: url(assets/miniatures/services.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Reasons::before  {
-    background: url(../../view/editor/assets/miniatures/reasons.jpg) no-repeat;
+    background: url(assets/miniatures/reasons.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Gallery::before  {
-    background: url(../../view/editor/assets/miniatures/gallery.jpg) no-repeat;
+    background: url(assets/miniatures/gallery.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Cases::before  {
-    background: url(../../view/editor/assets/miniatures/cases.jpg) no-repeat;
+    background: url(assets/miniatures/cases.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Stages::before  {
-    background: url(../../view/editor/assets/miniatures/stages.jpg) no-repeat;
+    background: url(assets/miniatures/stages.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Feedback::before  {
-    background: url(../../view/editor/assets/miniatures/feedback.jpg) no-repeat;
+    background: url(assets/miniatures/feedback.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Map::before  {
-    background: url(../../view/editor/assets/miniatures/map.jpg) no-repeat;
+    background: url(assets/miniatures/map.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Logos::before  {
-    background: url(../../view/editor/assets/miniatures/logos.jpg) no-repeat;
+    background: url(assets/miniatures/logos.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Footer::before  {
-    background: url(../../view/editor/assets/miniatures/footer.jpg) no-repeat;
+    background: url(assets/miniatures/footer.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Video::before  {
-    background: url(../../view/editor/assets/miniatures/video.jpg) no-repeat;
+    background: url(assets/miniatures/video.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-TextBlock::before  {
-    background: url(../../view/editor/assets/miniatures/textBlock.jpg) no-repeat;
+    background: url(assets/miniatures/textBlock.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Timer::before  {
-    background: url(../../view/editor/assets/miniatures/timer.jpg) no-repeat;
+    background: url(assets/miniatures/timer.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Numbers::before  {
-    background: url(../../view/editor/assets/miniatures/numbers.jpg) no-repeat;
+    background: url(assets/miniatures/numbers.jpg) no-repeat;
 }
 
 .teacss-ui a.add-button {
@@ -187,11 +187,11 @@ body.view-layout #teacss-layer > .editor-panel > .preview-toolbar > .close-butto
 }
 
 .preview-toolbar .ui-state-default .ui-icon {
-    background-image: url(../../view/assets/images/ui-icons_grey_256x240.png);
+    background-image: url(assets/ui-icons_grey_256x240.png);
 }
 
 .preview-toolbar .ui-state-hover .ui-icon, .preview-toolbar .ui-state-focus .ui-icon {
-    background-image: url(../../view/assets/images/ui-icons_white_256x240.png);
+    background-image: url(assets/ui-icons_white_256x240.png);
 }
 
 .teacss-ui .preview-toolbar button.ui-button {

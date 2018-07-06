@@ -293,7 +293,7 @@ class TextBlock extends Block {
                                     - Super suits<br>
                                     - And others<br>
                                 </div>',
-                    'image' => 'view/editor/assets/text/3.jpg',
+                    'image' => Configuration::$assets_url.'/text/3.jpg',
                 )
             )
         ] : [
@@ -310,7 +310,7 @@ class TextBlock extends Block {
                                     - Супер костюмы<br>
                                     - Да и всё остальное тоже<br>
                                 </div>',
-                    'image' => 'view/editor/assets/text/3.jpg',
+                    'image' => Configuration::$assets_url.'/text/3.jpg',
                 )
             )
         ];
@@ -354,7 +354,7 @@ class TextBlock extends Block {
                                     - Magic<br>
                                     - And wonder<br>
                                 </div>',
-                    'image' => 'view/editor/assets/text/1.jpg',
+                    'image' => Configuration::$assets_url.'/text/1.jpg',
                 ),
                 array(
                     'text_title' => 'the Little Humpbacked Horse',
@@ -365,7 +365,7 @@ class TextBlock extends Block {
                                     - Diversity of colors<br>
                                     - Entertainment<br>
                                 </div>',
-                    'image' => 'view/editor/assets/text/2.jpg',
+                    'image' => Configuration::$assets_url.'/text/2.jpg',
                 )
             )
         ] : [
@@ -381,7 +381,7 @@ class TextBlock extends Block {
                                     - Магия<br>
                                     - И Удивление<br>
                                 </div>',
-                    'image' => 'view/editor/assets/text/1.jpg',
+                    'image' => Configuration::$assets_url.'/text/1.jpg',
                 ),
                 array(
                     'text_title' => 'Конёк-горбунок',
@@ -392,7 +392,7 @@ class TextBlock extends Block {
                                     - Пестрота<br>
                                     - Зрелищность<br>
                                 </div>',
-                    'image' => 'view/editor/assets/text/2.jpg',
+                    'image' => Configuration::$assets_url.'/text/2.jpg',
                 )
             )
         ];
@@ -448,17 +448,17 @@ class TextBlock extends Block {
 				array(
 					'name' => 'Amusement',
 					'desc' => 'We have the funny presentation for each taste and age.',
-					'icon' => 'view/editor/assets/ico/77.png',
+					'icon' => Configuration::$assets_url.'/ico/77.png',
 				),
 				array(                
 					'name' => 'Gladness',
 					'desc' => "Pants are full of joy for all visitors. Come, you won't regret it.",
-					'icon' => 'view/editor/assets/ico/89.png',
+					'icon' => Configuration::$assets_url.'/ico/89.png',
 				),
 				array(
 					'name' => 'Laughter',
 					'desc' => 'You will laugh your head off. You are welcome!',
-					'icon' => 'view/editor/assets/ico/127.png',
+					'icon' => Configuration::$assets_url.'/ico/127.png',
 					)
              ),
         ] : [
@@ -473,17 +473,17 @@ class TextBlock extends Block {
 				array(
 					'name' => 'Веселье',
 					'desc' => 'Только у нас самые весёлые представления на любой вкус и возраст.',
-					'icon' => 'view/editor/assets/ico/77.png',
+					'icon' => Configuration::$assets_url.'/ico/77.png',
 				),
 				array(                
 					'name' => 'Радость',
 					'desc' => 'Полные штаны радости всем посетителям обеспечено. Приходите, не пожалеете.',
-					'icon' => 'view/editor/assets/ico/89.png',
+					'icon' => Configuration::$assets_url.'/ico/89.png',
 				),
 				array(
 					'name' => 'Смех',
 					'desc' => 'Надрывать живот от смеха гарантировано всем. Ждем Вас в гости.',
-					'icon' => 'view/editor/assets/ico/127.png',
+					'icon' => Configuration::$assets_url.'/ico/127.png',
 					)
              ),
         ];

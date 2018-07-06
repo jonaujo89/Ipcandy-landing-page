@@ -70,12 +70,12 @@ class Gallery extends Block {
             'title' => "Our program in photos",
             'title_2' => "Subtitle",
             'items' => array(
-                array( 'image' => "view/editor/assets/gallery/21.jpg", 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes' ),
-                array( 'image' => "view/editor/assets/gallery/24.jpg", 'title' => 'Tusk', 'desc' => 'Trained rhino' ),
-                array( 'image' => "view/editor/assets/gallery/25.jpg", 'title' => 'Jumper', 'desc' => 'Show with the horse' ),
-                array( 'image' => "view/editor/assets/gallery/26.jpg", 'title' => 'Lambada', 'desc' => 'Dancing elephants' ),
-                array( 'image' => "view/editor/assets/gallery/27.jpg", 'title' => 'Tigress', 'desc' => 'It is the one on the left' ),
-                array( 'image' => "view/editor/assets/gallery/30.jpg", 'title' => 'Grace', 'desc' => 'Girl on the tape' ),            
+                array( 'image' => Configuration::$assets_url."/gallery/21.jpg", 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes' ),
+                array( 'image' => Configuration::$assets_url."/gallery/24.jpg", 'title' => 'Tusk', 'desc' => 'Trained rhino' ),
+                array( 'image' => Configuration::$assets_url."/gallery/25.jpg", 'title' => 'Jumper', 'desc' => 'Show with the horse' ),
+                array( 'image' => Configuration::$assets_url."/gallery/26.jpg", 'title' => 'Lambada', 'desc' => 'Dancing elephants' ),
+                array( 'image' => Configuration::$assets_url."/gallery/27.jpg", 'title' => 'Tigress', 'desc' => 'It is the one on the left' ),
+                array( 'image' => Configuration::$assets_url."/gallery/30.jpg", 'title' => 'Grace', 'desc' => 'Girl on the tape' ),            
             )
         ] : [
             'show_title' => true,
@@ -87,12 +87,12 @@ class Gallery extends Block {
             'title' => "Наша программа в фотографиях",
             'title_2' => "Подзаголовок",
             'items' => array(
-                array( 'image' => "view/editor/assets/gallery/21.jpg", 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах' ),
-                array( 'image' => "view/editor/assets/gallery/24.jpg", 'title' => 'Бивень', 'desc' => 'Дрессированный носорог' ),
-                array( 'image' => "view/editor/assets/gallery/25.jpg", 'title' => 'Прыгун', 'desc' => 'Номер с конём' ),
-                array( 'image' => "view/editor/assets/gallery/26.jpg", 'title' => 'Ламбада', 'desc' => 'Танцующие слоны' ),
-                array( 'image' => "view/editor/assets/gallery/27.jpg", 'title' => 'Тигрица', 'desc' => 'Это та, что слева' ),
-                array( 'image' => "view/editor/assets/gallery/30.jpg", 'title' => 'Грация', 'desc' => 'Девушка на лентах' ),            
+                array( 'image' => Configuration::$assets_url."/gallery/21.jpg", 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах' ),
+                array( 'image' => Configuration::$assets_url."/gallery/24.jpg", 'title' => 'Бивень', 'desc' => 'Дрессированный носорог' ),
+                array( 'image' => Configuration::$assets_url."/gallery/25.jpg", 'title' => 'Прыгун', 'desc' => 'Номер с конём' ),
+                array( 'image' => Configuration::$assets_url."/gallery/26.jpg", 'title' => 'Ламбада', 'desc' => 'Танцующие слоны' ),
+                array( 'image' => Configuration::$assets_url."/gallery/27.jpg", 'title' => 'Тигрица', 'desc' => 'Это та, что слева' ),
+                array( 'image' => Configuration::$assets_url."/gallery/30.jpg", 'title' => 'Грация', 'desc' => 'Девушка на лентах' ),            
             )
         ];
     }
@@ -153,21 +153,21 @@ class Gallery extends Block {
 			'title_2' => "Subtilte",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/1.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/1.jpg'),
                     'img_title_1' => "In ring",
                     'img_desc_1' => "Fascinating spectacle",
                     'img_text_1' => "Additional description of the picture. Brevity - the sister of talent.",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/2.jpg'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/2.jpg'),
                     'img_title_2' => "Entrance",                    
                     'img_desc_2' => "At the entrance she meets",
                     'img_text_2' => "Additional description of the picture. Brevity - the sister of talent.",
                 ),
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/5.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/5.jpg'),
                     'img_title_1' => "Form №2",
                     'img_desc_1' => "Nude torso",
                     'img_text_1' => "Additional description of the picture. Brevity - the sister of talent.",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/6.jpg'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/6.jpg'),
                     'img_title_2' => "Prima and clown",
                     'img_desc_2' => "Foci",
                     'img_text_2' => "Additional description of the picture. Brevity - the sister of talent.",
@@ -183,21 +183,21 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/1.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/1.jpg'),
                     'img_title_1' => "В кольце",
                     'img_desc_1' => "Завораживающее зрелище",
                     'img_text_1' => "Дополнительное описание картинки. Краткость - сестра таланта.",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/2.jpg'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/2.jpg'),
                     'img_title_2' => "У входа",                    
                     'img_desc_2' => "На входе встречает она",
                     'img_text_2' => "Дополнительное описание картинки. Краткость - сестра таланта.",
                 ),
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/5.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/5.jpg'),
                     'img_title_1' => "Форма №2",
                     'img_desc_1' => "Голый торс",
                     'img_text_1' => "Дополнительное описание картинки. Краткость - сестра таланта.",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/6.jpg'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/6.jpg'),
                     'img_title_2' => "Прима и клоун",
                     'img_desc_2' => "Номер с фокусами",
                     'img_text_2' => "Дополнительное описание картинки. Краткость - сестра таланта.",
@@ -259,24 +259,24 @@ class Gallery extends Block {
 			'title_2' => "Subtitle",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/1.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/1.jpg'),
                     'img_title_1' => "In ring",
                     'img_desc_1' => "Fascinating spectacle",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/2.jpg'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/2.jpg'),
                     'img_title_2' => "Entrance",                    
                     'img_desc_2' => "At the entrance she meets",
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/3.jpg'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/3.jpg'),
                     'img_title_3' => "Throwing knives",
                     'img_desc_3' => "Dangerous stunts with knives",
                 ),
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/5.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/5.jpg'),
                     'img_title_1' => "Form №2",
                     'img_desc_1' => "Nude torso",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/6.jpg'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/6.jpg'),
                     'img_title_2' => "Prima and clown",
                     'img_desc_2' => "Foci",
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/7.jpg'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/7.jpg'),
                     'img_title_3' => "Long legs",
                     'img_desc_3' => "16 and up",
                 )
@@ -292,24 +292,24 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/1.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/1.jpg'),
                     'img_title_1' => "В кольце",
                     'img_desc_1' => "Завораживающее зрелище",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/2.jpg'),                   
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/2.jpg'),                   
                     'img_title_2' => "У входа",
                     'img_desc_2' => "На входе встречает она",
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/3.jpg'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/3.jpg'),
                     'img_title_3' => "Метание ножей",
                     'img_desc_3' => "Опасный трюк с ножами",
                 ),
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/5.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/5.jpg'),
                     'img_title_1' => "Форма №2",
                     'img_desc_1' => "Голый торс",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/6.jpg'),                   
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/6.jpg'),                   
                     'img_title_2' => "Прима и клоун",
                     'img_desc_2' => "Номер с фокусами",
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/7.jpg'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/7.jpg'),
                     'img_title_3' => "Ноги от ушей",
                     'img_desc_3' => "От 16 и старше",
                 )
@@ -370,30 +370,30 @@ class Gallery extends Block {
 			'title_2' => "Subtitle",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/1.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/1.jpg'),
                     'img_title_1' => "In ring",
                     'img_desc_1' => "Fascinating spectacle",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/2.jpg'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/2.jpg'),
                     'img_title_2' => "Entrance",                    
                     'img_desc_2' => "At the entrance she meets",
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/3.jpg'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/3.jpg'),
                     'img_title_3' => "Throwing knives",
                     'img_desc_3' => "Dangerous stunts with knives",
-					'image_4' => array('image'=> 'view/editor/assets/gallery/4.jpg'),                   
+					'image_4' => array('image'=> Configuration::$assets_url.'/gallery/4.jpg'),                   
                     'img_title_4' => "Ticketing",
                     'img_desc_4' => "At the box office again Prima",
                 ),
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/5.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/5.jpg'),
                     'img_title_1' => "Form №2",
                     'img_desc_1' => "Nude torso",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/6.jpg'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/6.jpg'),
                     'img_title_2' => "Prima and clown",
                     'img_desc_2' => "Foci",
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/7.jpg'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/7.jpg'),
                     'img_title_3' => "Long legs",
                     'img_desc_3' => "16 and up",
-					'image_4' => array('image'=> 'view/editor/assets/gallery/8.jpg'),
+					'image_4' => array('image'=> Configuration::$assets_url.'/gallery/8.jpg'),
                     'img_title_4' => "In the dressing room",
                     'img_desc_4' => "Before going on stage",
                 )
@@ -409,30 +409,30 @@ class Gallery extends Block {
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/1.jpg'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/1.jpg'),
                     'img_title_1' => "В кольце",
                     'img_desc_1' => "Завораживающее зрелище",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/2.jpg'),                   
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/2.jpg'),                   
                     'img_title_2' => "У входа",
                     'img_desc_2' => "На входе встречает она",
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/3.jpg'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/3.jpg'),
                     'img_title_3' => "Метание ножей",
                     'img_desc_3' => "Опасный трюк с ножами",
-					'image_4' => array('image'=> 'view/editor/assets/gallery/4.jpg'),                   
+					'image_4' => array('image'=> Configuration::$assets_url.'/gallery/4.jpg'),                   
                     'img_title_4' => "Обилечивание",
                     'img_desc_4' => "У кассы снова Прима",
                 ),
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/5.jpg'),                   
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/5.jpg'),                   
                     'img_title_1' => "Форма №2",
                     'img_desc_1' => "Голый торс",
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/6.jpg'),                   
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/6.jpg'),                   
                     'img_title_2' => "Прима и клоун",
                     'img_desc_2' => "Номер с фокусами",
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/7.jpg'),                   
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/7.jpg'),                   
                     'img_title_3' => "Ноги от ушей",
                     'img_desc_3' => "От 16 и старше",
-					'image_4' => array('image'=> 'view/editor/assets/gallery/8.jpg'),
+					'image_4' => array('image'=> Configuration::$assets_url.'/gallery/8.jpg'),
                     'img_title_4' => "В гримёрке",
                     'img_desc_4' => "Перед выходом на сцену",
                 )
@@ -498,15 +498,15 @@ class Gallery extends Block {
             'title' => "Lovely",
             'title_2' => "Subtitle",
             'items' => array(
-                array( 'image' => "view/editor/assets/gallery/1.jpg", 'title' => 'In ring', 'desc' => 'Fascinating spectacle' ),
-                array( 'image' => "view/editor/assets/gallery/2.jpg", 'title' => 'Entrance', 'desc' => 'At the entrance she meets' ),
-                array( 'image' => "view/editor/assets/gallery/3.jpg", 'title' => 'Throwing knives', 'desc' => 'Dangerous stunts with knives' ),
-                array( 'image' => "view/editor/assets/gallery/4.jpg", 'title' => 'Ticketing', 'desc' => 'At the box office again Prima' ),
-                array( 'image' => "view/editor/assets/gallery/5.jpg", 'title' => 'Form №2', 'desc' => 'Nude torso' ),
-                array( 'image' => "view/editor/assets/gallery/6.jpg", 'title' => 'Prima and clown', 'desc' => 'Foci' ),  
-                array( 'image' => "view/editor/assets/gallery/7.jpg", 'title' => 'Long legs', 'desc' => '16 and up' ),
-                array( 'image' => "view/editor/assets/gallery/8.jpg", 'title' => 'In the dressing room', 'desc' => 'Before going on stage' ),
-                array( 'image' => "view/editor/assets/gallery/9.jpg", 'title' => 'Swing', 'desc' => 'Prima under the dome' ), 
+                array( 'image' => Configuration::$assets_url."/gallery/1.jpg", 'title' => 'In ring', 'desc' => 'Fascinating spectacle' ),
+                array( 'image' => Configuration::$assets_url."/gallery/2.jpg", 'title' => 'Entrance', 'desc' => 'At the entrance she meets' ),
+                array( 'image' => Configuration::$assets_url."/gallery/3.jpg", 'title' => 'Throwing knives', 'desc' => 'Dangerous stunts with knives' ),
+                array( 'image' => Configuration::$assets_url."/gallery/4.jpg", 'title' => 'Ticketing', 'desc' => 'At the box office again Prima' ),
+                array( 'image' => Configuration::$assets_url."/gallery/5.jpg", 'title' => 'Form №2', 'desc' => 'Nude torso' ),
+                array( 'image' => Configuration::$assets_url."/gallery/6.jpg", 'title' => 'Prima and clown', 'desc' => 'Foci' ),  
+                array( 'image' => Configuration::$assets_url."/gallery/7.jpg", 'title' => 'Long legs', 'desc' => '16 and up' ),
+                array( 'image' => Configuration::$assets_url."/gallery/8.jpg", 'title' => 'In the dressing room', 'desc' => 'Before going on stage' ),
+                array( 'image' => Configuration::$assets_url."/gallery/9.jpg", 'title' => 'Swing', 'desc' => 'Prima under the dome' ), 
             )
         ] : [
             'show_title' => true,
@@ -518,15 +518,15 @@ class Gallery extends Block {
             'title' => "Активистка, комсомолка и просто...",
             'title_2' => "Подзаголовок",
             'items' => array(
-                array( 'image' => "view/editor/assets/gallery/1.jpg", 'title' => 'В кольце', 'desc' => 'Завораживающее зрелище' ),
-                array( 'image' => "view/editor/assets/gallery/2.jpg", 'title' => 'У входа', 'desc' => 'На входе встречает она' ),
-                array( 'image' => "view/editor/assets/gallery/3.jpg", 'title' => 'Метание ножей', 'desc' => 'Опасный трюк с ножами' ),
-                array( 'image' => "view/editor/assets/gallery/4.jpg", 'title' => 'Обилечивание', 'desc' => 'У кассы снова прима' ),
-                array( 'image' => "view/editor/assets/gallery/5.jpg", 'title' => 'Форма №2', 'desc' => 'Голый торс' ),
-                array( 'image' => "view/editor/assets/gallery/6.jpg", 'title' => 'Прима и клоун', 'desc' => 'Номер с фокусами' ),  
-                array( 'image' => "view/editor/assets/gallery/7.jpg", 'title' => 'Ноги от ушей', 'desc' => 'От 16 и старше' ),
-                array( 'image' => "view/editor/assets/gallery/8.jpg", 'title' => 'В гримёрке', 'desc' => 'Перед выходом на сцену' ),
-                array( 'image' => "view/editor/assets/gallery/9.jpg", 'title' => 'Качели', 'desc' => 'Прима под куполом' ), 
+                array( 'image' => Configuration::$assets_url."/gallery/1.jpg", 'title' => 'В кольце', 'desc' => 'Завораживающее зрелище' ),
+                array( 'image' => Configuration::$assets_url."/gallery/2.jpg", 'title' => 'У входа', 'desc' => 'На входе встречает она' ),
+                array( 'image' => Configuration::$assets_url."/gallery/3.jpg", 'title' => 'Метание ножей', 'desc' => 'Опасный трюк с ножами' ),
+                array( 'image' => Configuration::$assets_url."/gallery/4.jpg", 'title' => 'Обилечивание', 'desc' => 'У кассы снова прима' ),
+                array( 'image' => Configuration::$assets_url."/gallery/5.jpg", 'title' => 'Форма №2', 'desc' => 'Голый торс' ),
+                array( 'image' => Configuration::$assets_url."/gallery/6.jpg", 'title' => 'Прима и клоун', 'desc' => 'Номер с фокусами' ),  
+                array( 'image' => Configuration::$assets_url."/gallery/7.jpg", 'title' => 'Ноги от ушей', 'desc' => 'От 16 и старше' ),
+                array( 'image' => Configuration::$assets_url."/gallery/8.jpg", 'title' => 'В гримёрке', 'desc' => 'Перед выходом на сцену' ),
+                array( 'image' => Configuration::$assets_url."/gallery/9.jpg", 'title' => 'Качели', 'desc' => 'Прима под куполом' ), 
             )
         ];
     }
@@ -580,11 +580,11 @@ class Gallery extends Block {
     
     function item_default_6($url) {
         return self::$en ? [
-            'image' => "view/editor/assets/gallery/".$url,
+            'image' => Configuration::$assets_url."/gallery/".$url,
             'title' => 'Title',
             'desc' => 'Description',
         ] : [
-            'image' => "view/editor/assets/gallery/".$url,
+            'image' => Configuration::$assets_url."/gallery/".$url,
             'title' => 'Заголовок картинки',
             'desc' => 'Описание картинки',
         ];
@@ -601,13 +601,13 @@ class Gallery extends Block {
             'title' => "Our program in photos",
             'title_2' => "Subtitle",
             'items' => array(
-                array( 'image' => "view/editor/assets/gallery/11.jpg", 'title' => 'Clown Zhora', 'desc' => 'Play-actor №1' ),
-                array( 'image' => "view/editor/assets/gallery/12.jpg", 'title' => 'Jugglers', 'desc' => 'Funny boys' ),
-                array( 'image' => "view/editor/assets/gallery/13.jpg", 'title' => 'Clown John', 'desc' => 'Funny hocus-pocus' ),
-                array( 'image' => "view/editor/assets/gallery/14.jpg", 'title' => 'Soaring', 'desc' => 'Two in the air' ),
-                array( 'image' => "view/editor/assets/gallery/15.jpg", 'title' => 'Figure', 'desc' => 'Girls under the big top' ),
-                array( 'image' => "view/editor/assets/gallery/16.jpg", 'title' => 'Python and Zhora', 'desc' => 'Dangerous performance' ),  
-                array( 'image' => "view/editor/assets/gallery/17.jpg", 'title' => 'Hippo with a ball', 'desc' => 'Woman with ball' ), 
+                array( 'image' => Configuration::$assets_url."/gallery/11.jpg", 'title' => 'Clown Zhora', 'desc' => 'Play-actor №1' ),
+                array( 'image' => Configuration::$assets_url."/gallery/12.jpg", 'title' => 'Jugglers', 'desc' => 'Funny boys' ),
+                array( 'image' => Configuration::$assets_url."/gallery/13.jpg", 'title' => 'Clown John', 'desc' => 'Funny hocus-pocus' ),
+                array( 'image' => Configuration::$assets_url."/gallery/14.jpg", 'title' => 'Soaring', 'desc' => 'Two in the air' ),
+                array( 'image' => Configuration::$assets_url."/gallery/15.jpg", 'title' => 'Figure', 'desc' => 'Girls under the big top' ),
+                array( 'image' => Configuration::$assets_url."/gallery/16.jpg", 'title' => 'Python and Zhora', 'desc' => 'Dangerous performance' ),  
+                array( 'image' => Configuration::$assets_url."/gallery/17.jpg", 'title' => 'Hippo with a ball', 'desc' => 'Woman with ball' ), 
             )
         ] : [
             'show_title' => true,
@@ -619,13 +619,13 @@ class Gallery extends Block {
             'title' => "Фото цирковых номеров",
             'title_2' => "Подзаголовок",
             'items' => array(
-                array( 'image' => "view/editor/assets/gallery/11.jpg", 'title' => 'Клоун Жора', 'desc' => 'Смехун цирка №1' ),
-                array( 'image' => "view/editor/assets/gallery/12.jpg", 'title' => 'Жонглёры', 'desc' => 'Весёлые ребята' ),
-                array( 'image' => "view/editor/assets/gallery/13.jpg", 'title' => 'Клоун Клёва', 'desc' => 'Весёлые фокусы-покусы' ),
-                array( 'image' => "view/editor/assets/gallery/14.jpg", 'title' => 'Парящие', 'desc' => 'Пара в воздухе' ),
-                array( 'image' => "view/editor/assets/gallery/15.jpg", 'title' => 'Фигура', 'desc' => 'Девушки под куполом цирка' ),
-                array( 'image' => "view/editor/assets/gallery/16.jpg", 'title' => 'Питон и Жора', 'desc' => 'Опасный номер' ),  
-                array( 'image' => "view/editor/assets/gallery/17.jpg", 'title' => 'Бегемотица с шаром', 'desc' => 'Капибара и женщина с шаром' ), 
+                array( 'image' => Configuration::$assets_url."/gallery/11.jpg", 'title' => 'Клоун Жора', 'desc' => 'Смехун цирка №1' ),
+                array( 'image' => Configuration::$assets_url."/gallery/12.jpg", 'title' => 'Жонглёры', 'desc' => 'Весёлые ребята' ),
+                array( 'image' => Configuration::$assets_url."/gallery/13.jpg", 'title' => 'Клоун Клёва', 'desc' => 'Весёлые фокусы-покусы' ),
+                array( 'image' => Configuration::$assets_url."/gallery/14.jpg", 'title' => 'Парящие', 'desc' => 'Пара в воздухе' ),
+                array( 'image' => Configuration::$assets_url."/gallery/15.jpg", 'title' => 'Фигура', 'desc' => 'Девушки под куполом цирка' ),
+                array( 'image' => Configuration::$assets_url."/gallery/16.jpg", 'title' => 'Питон и Жора', 'desc' => 'Опасный номер' ),  
+                array( 'image' => Configuration::$assets_url."/gallery/17.jpg", 'title' => 'Бегемотица с шаром', 'desc' => 'Капибара и женщина с шаром' ), 
             )
         ];
     }
@@ -680,11 +680,11 @@ function tpl_7($val) {?>
             'title_2' => "Subtitle",
             'items' => array(
                 array(
-					'image_1' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Grace', 'desc' => 'Girl on the tape'),
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Kite Bob', 'desc' => 'Bob is sitting on a barrel'),
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
-                    'image_4' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Jumper', 'desc' => 'Show with the horse'),
-                    'image_5' => array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Live time', 'desc' => 'Girls imitate watches'),
+					'image_1' => array('image'=> Configuration::$assets_url.'/gallery/30.jpg', 'title' => 'Grace', 'desc' => 'Girl on the tape'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/22.jpg', 'title' => 'Kite Bob', 'desc' => 'Bob is sitting on a barrel'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
+                    'image_4' => array('image'=> Configuration::$assets_url.'/gallery/25.jpg', 'title' => 'Jumper', 'desc' => 'Show with the horse'),
+                    'image_5' => array('image'=> Configuration::$assets_url.'/gallery/28.jpg', 'title' => 'Live time', 'desc' => 'Girls imitate watches'),
                 )
             )
         ] : [
@@ -698,11 +698,11 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-					'image_1' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах'),
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке'),
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
-                    'image_4' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём'),
-                    'image_5' => array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы'),
+					'image_1' => array('image'=> Configuration::$assets_url.'/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
+                    'image_4' => array('image'=> Configuration::$assets_url.'/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём'),
+                    'image_5' => array('image'=> Configuration::$assets_url.'/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы'),
                 )
             )
         ];
@@ -768,12 +768,12 @@ function tpl_7($val) {?>
 			'title_2' => "Subtitle",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Jumper', 'desc' => 'Show with the horse'),
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Lambada', 'desc' => 'Dancing elephants'),
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Grace', 'desc' => 'The girl on the tape'),
-                    'image_4' => array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Tusk', 'desc' => 'Trained rhino'),
-                    'image_5' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
-					'image_6' => array('image'=> 'view/editor/assets/gallery/27.jpg', 'title' => 'Tigress', 'desc' => 'It is the one on the left'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/25.jpg', 'title' => 'Jumper', 'desc' => 'Show with the horse'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/26.jpg', 'title' => 'Lambada', 'desc' => 'Dancing elephants'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/30.jpg', 'title' => 'Grace', 'desc' => 'The girl on the tape'),
+                    'image_4' => array('image'=> Configuration::$assets_url.'/gallery/24.jpg', 'title' => 'Tusk', 'desc' => 'Trained rhino'),
+                    'image_5' => array('image'=> Configuration::$assets_url.'/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
+					'image_6' => array('image'=> Configuration::$assets_url.'/gallery/27.jpg', 'title' => 'Tigress', 'desc' => 'It is the one on the left'),
 				) 
             )
         ] : [
@@ -787,12 +787,12 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём'),
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны'),
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах'),
-                    'image_4' => array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Бивень', 'desc' => 'Дрессированный носорог'),
-                    'image_5' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
-					'image_6' => array('image'=> 'view/editor/assets/gallery/27.jpg', 'title' => 'Тигрица', 'desc' => 'Это та, что слева'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах'),
+                    'image_4' => array('image'=> Configuration::$assets_url.'/gallery/24.jpg', 'title' => 'Бивень', 'desc' => 'Дрессированный носорог'),
+                    'image_5' => array('image'=> Configuration::$assets_url.'/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
+					'image_6' => array('image'=> Configuration::$assets_url.'/gallery/27.jpg', 'title' => 'Тигрица', 'desc' => 'Это та, что слева'),
 				) 
             )
         ];
@@ -858,12 +858,12 @@ function tpl_7($val) {?>
 			'title_2' => "Subtitle",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Leapfrog', 'desc' => 'People in blue trousers'),
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Live time', 'desc' => 'Girls imitate watches'),
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/29.jpg', 'title' => 'Moon', 'desc' => 'Flying people on the moon'),
-                    'image_4' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Grace', 'desc' => 'The girl on the tape'),
-                    'image_5' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
-					'image_6' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Kite Bob', 'desc' => 'Bob is sitting on a barrel'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/23.jpg', 'title' => 'Leapfrog', 'desc' => 'People in blue trousers'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/28.jpg', 'title' => 'Live time', 'desc' => 'Girls imitate watches'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/29.jpg', 'title' => 'Moon', 'desc' => 'Flying people on the moon'),
+                    'image_4' => array('image'=> Configuration::$assets_url.'/gallery/30.jpg', 'title' => 'Grace', 'desc' => 'The girl on the tape'),
+                    'image_5' => array('image'=> Configuration::$assets_url.'/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
+					'image_6' => array('image'=> Configuration::$assets_url.'/gallery/22.jpg', 'title' => 'Kite Bob', 'desc' => 'Bob is sitting on a barrel'),
 				)
             )
         ] : [
@@ -877,12 +877,12 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Чехарда', 'desc' => 'Люди в синих трениках'),
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы'),
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/29.jpg', 'title' => 'Лунтики', 'desc' => 'Полёт людей на луну'),
-                    'image_4' => array('image'=> 'view/editor/assets/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах'),
-                    'image_5' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
-					'image_6' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/23.jpg', 'title' => 'Чехарда', 'desc' => 'Люди в синих трениках'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/28.jpg', 'title' => 'Живое время', 'desc' => 'Девушки имитируют часы'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/29.jpg', 'title' => 'Лунтики', 'desc' => 'Полёт людей на луну'),
+                    'image_4' => array('image'=> Configuration::$assets_url.'/gallery/30.jpg', 'title' => 'Грация', 'desc' => 'Девушка на лентах'),
+                    'image_5' => array('image'=> Configuration::$assets_url.'/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
+					'image_6' => array('image'=> Configuration::$assets_url.'/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке'),
 				)                
             )
         ];
@@ -945,12 +945,12 @@ function tpl_7($val) {?>
 			'title_2' => "Subtitle",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Kite Bob', 'desc' => 'Bob is sitting on a barrel'),
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Leapfrog', 'desc' => 'People in blue trousers'),
-                    'image_4' => array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Tusk', 'desc' => 'Trained rhino'),
-                    'image_5' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Jumper', 'desc' => 'Show with the horse'),
-					'image_6' => array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Lambada', 'desc' => 'Dancing elephants'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/21.jpg', 'title' => 'Three people put the hats on', 'desc' => 'Acrobats on the ropes'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/22.jpg', 'title' => 'Kite Bob', 'desc' => 'Bob is sitting on a barrel'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/23.jpg', 'title' => 'Leapfrog', 'desc' => 'People in blue trousers'),
+                    'image_4' => array('image'=> Configuration::$assets_url.'/gallery/24.jpg', 'title' => 'Tusk', 'desc' => 'Trained rhino'),
+                    'image_5' => array('image'=> Configuration::$assets_url.'/gallery/25.jpg', 'title' => 'Jumper', 'desc' => 'Show with the horse'),
+					'image_6' => array('image'=> Configuration::$assets_url.'/gallery/26.jpg', 'title' => 'Lambada', 'desc' => 'Dancing elephants'),
 				)
             )
         ] : [
@@ -964,12 +964,12 @@ function tpl_7($val) {?>
 			'title_2' => "Подзаголовок",
             'items' => array(
                 array(
-                    'image_1' => array('image'=> 'view/editor/assets/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
-                    'image_2' => array('image'=> 'view/editor/assets/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке'),
-                    'image_3' => array('image'=> 'view/editor/assets/gallery/23.jpg', 'title' => 'Чехарда', 'desc' => 'Люди в синих трениках'),
-                    'image_4' => array('image'=> 'view/editor/assets/gallery/24.jpg', 'title' => 'Бивень', 'desc' => 'Дрессированный носорог'),
-                    'image_5' => array('image'=> 'view/editor/assets/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём'),
-					'image_6' => array('image'=> 'view/editor/assets/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны'),
+                    'image_1' => array('image'=> Configuration::$assets_url.'/gallery/21.jpg', 'title' => 'Трое в шляпах', 'desc' => 'Акробаты на канатах'),
+                    'image_2' => array('image'=> Configuration::$assets_url.'/gallery/22.jpg', 'title' => 'Коршун Веня', 'desc' => 'Веня сидит на бочке'),
+                    'image_3' => array('image'=> Configuration::$assets_url.'/gallery/23.jpg', 'title' => 'Чехарда', 'desc' => 'Люди в синих трениках'),
+                    'image_4' => array('image'=> Configuration::$assets_url.'/gallery/24.jpg', 'title' => 'Бивень', 'desc' => 'Дрессированный носорог'),
+                    'image_5' => array('image'=> Configuration::$assets_url.'/gallery/25.jpg', 'title' => 'Прыгун', 'desc' => 'Номер с конём'),
+					'image_6' => array('image'=> Configuration::$assets_url.'/gallery/26.jpg', 'title' => 'Ламбада', 'desc' => 'Танцующие слоны'),
 				)
             ) 
         ];

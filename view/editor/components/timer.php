@@ -88,7 +88,7 @@ class Timer extends Block {
         return self::$en ? [
             'show_title_2' => true,
             'title_2_and_countdown_color' => 'red',
-            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
+            'background' => array('url'=>Configuration::$assets_url.'/texture_black/1.jpg'),
             'title' => 'Illusionist<br>Gosha Lieberman-Almazov',
             'title_2' => 'Have time to come',
             'countdown_desc' => 'Until curtain:',
@@ -96,7 +96,7 @@ class Timer extends Block {
         ] : [
             'show_title_2' => true,
             'title_2_and_countdown_color' => 'red',
-            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
+            'background' => array('url'=>Configuration::$assets_url.'/texture_black/1.jpg'),
             'title' => 'Выступление иллюзиониста<br>Гоши Либерман-Алмазова',
             'title_2' => 'Успейте попасть на представление',
             'countdown_desc' => 'До начала осталось:',
@@ -211,7 +211,7 @@ class Timer extends Block {
         return self::$en ? [
             'show_title_2' => true,
 			'show_form_bottom_text' => true,
-            'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
+            'background' => array('url'=>Configuration::$assets_url.'/texture_black/1.jpg'),
             'title' => 'PROMOTION ACTION!<br>2 FOR  THE PRICE OF 3 - THIRD AS A GIFT',
             'title_2' => 'NUMBER OF TICKETS ARE LIMITED',
             'timer_desc' => 'UNTIL THE END:',
@@ -222,7 +222,7 @@ class Timer extends Block {
         ] : [
             'show_title_2' => true,
 			'show_form_bottom_text' => true,
-			'background' => array('url'=>'view/editor/assets/texture_black/1.jpg'),
+			'background' => array('url'=>Configuration::$assets_url.'/texture_black/1.jpg'),
             'title' => 'АКЦИЯ!<br>ДВА БИЛЕТА ПО ЦЕНЕ ТРЕХ - ТРЕТИЙ В ПОДАРОК',
             'title_2' => 'КОЛИЧЕСТВО БИЛЕТОВ ОГРАНИЧЕНО',
             'timer_desc' => 'ДО ОКОНЧАНИЯ АКЦИИ ОСТАЛОСЬ:',

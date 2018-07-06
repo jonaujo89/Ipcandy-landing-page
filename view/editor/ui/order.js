@@ -69,8 +69,8 @@ lp.order = lp.block.extendOptions({
                         var items = [];
                         for (var i=1;i<=221;i++) {
                             items.push({
-                                value:"view/editor/assets/background/"+i+".jpg",
-                                thumb:"view/editor/assets/background/thumbs/"+i+".jpg",
+                                value:Component.app.options.assets_url+"/background/"+i+".jpg",
+                                thumb:Component.app.options.assets_url+"/background/thumbs/"+i+".jpg",
                             });
                         }
                         return items;
@@ -174,7 +174,7 @@ lp.order = lp.block.extendOptions({
                         var items = [];
                         for (var i=1;i<=24;i++) {
                             items.push({
-                                value:"view/editor/assets/texture/"+i+".png",
+                                value:Component.app.options.assets_url+"/texture/"+i+".png",
                             });
                         }
                         return items;

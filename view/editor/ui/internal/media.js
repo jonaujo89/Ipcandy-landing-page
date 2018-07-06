@@ -59,7 +59,7 @@ lp.media = lp.cover.extend({
                     }
                 } else {
                     div_media.empty(div_media);
-                    div_media.append($('<iframe frameborder="0"></iframe>').attr({src: base_url+"/view/editor/assets/404.php"}));
+                    div_media.append($('<iframe frameborder="0"></iframe>').attr({src: base_url+"/"+Component.app.options.assets_url+"/404.php"}));
                 }   
             }
         };

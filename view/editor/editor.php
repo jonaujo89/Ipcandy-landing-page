@@ -1,28 +1,28 @@
 <?php
 
 
-include "components/block.php";
+include_once "components/block.php";
 
-include "components/internal.php";
+include_once "components/internal.php";
 
-include "components/header.php";
-include "components/order.php";
-include "components/benefits.php";
-include "components/services.php";
-include "components/reasons.php";
-include "components/gallery.php";
-include "components/cases.php";
-include "components/stages.php";
-include "components/feedback.php";
-include "components/map.php";
-include "components/logos.php";
-include "components/footer.php";
-include "components/video.php";
-include "components/textBlock.php";
-include "components/timer.php";
-include "components/numbers.php";
-include "components/custom.php";
+include_once "components/header.php";
+include_once "components/order.php";
+include_once "components/benefits.php";
+include_once "components/services.php";
+include_once "components/reasons.php";
+include_once "components/gallery.php";
+include_once "components/cases.php";
+include_once "components/stages.php";
+include_once "components/feedback.php";
+include_once "components/map.php";
+include_once "components/logos.php";
+include_once "components/footer.php";
+include_once "components/video.php";
+include_once "components/textBlock.php";
+include_once "components/timer.php";
+include_once "components/numbers.php";
+include_once "components/custom.php";
 
-include "components/extra/projects.php";
+include_once "components/extra/projects.php";
 
 \LPCandy\Components\Block::registerAll();

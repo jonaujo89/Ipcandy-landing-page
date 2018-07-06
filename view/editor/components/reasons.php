@@ -63,8 +63,8 @@ class Reasons extends Block {
             'title_2' => "6 reasons",
             'items' => array(
                 array(
-                    'icon_1' => "view/editor/assets/ico/799.png",
-                    'icon_2' => "view/editor/assets/ico/806.png",
+                    'icon_1' => Configuration::$assets_url."/ico/799.png",
+                    'icon_2' => Configuration::$assets_url."/ico/806.png",
                     'name_1' => "Funny clowns",
                     'name_2' => "Comfortable viewing",
                     'desc_1' => "Our circus clown makes you plenty of laugh and take part in the show, and feel like a real artist.",
@@ -72,8 +72,8 @@ class Reasons extends Block {
 
                 ),
                 array(
-                    'icon_1' => "view/editor/assets/ico/341.png",
-                    'icon_2' => "view/editor/assets/ico/359.png",
+                    'icon_1' => Configuration::$assets_url."/ico/341.png",
+                    'icon_2' => Configuration::$assets_url."/ico/359.png",
                     'name_1' => "Acrobatics",
                     'name_2' => "A lively dance",
                     'desc_1' => "Dizzying stunts, jumps and movements on the verge, as well as freewheeling.",
@@ -81,8 +81,8 @@ class Reasons extends Block {
 
                 ),
                 array(
-                    'icon_1' => "view/editor/assets/ico/342.png",
-                    'icon_2' => "view/editor/assets/ico/252.png",
+                    'icon_1' => Configuration::$assets_url."/ico/342.png",
+                    'icon_2' => Configuration::$assets_url."/ico/252.png",
                     'name_1' => "Starry acrobatics",
                     'name_2' => "Magic tricks",
                     'desc_1' => "The best directors, choreographers, geographers, physicists and biologists of our country worked at our show.",
@@ -98,8 +98,8 @@ class Reasons extends Block {
             'title_2' => "шесть причин",
             'items' => array(
                 array(
-                    'icon_1' => "view/editor/assets/ico/799.png",
-                    'icon_2' => "view/editor/assets/ico/806.png",
+                    'icon_1' => Configuration::$assets_url."/ico/799.png",
+                    'icon_2' => Configuration::$assets_url."/ico/806.png",
                     'name_1' => "Весёлые клоуны",
                     'name_2' => "Комфортный просмотр",
                     'desc_1' => "Наша цирковая клоунада заставляет вдоволь насмеяться и принять участие в шоу, ощутив себя настоящим артистом.",
@@ -107,8 +107,8 @@ class Reasons extends Block {
 
                 ),
                 array(
-                    'icon_1' => "view/editor/assets/ico/341.png",
-                    'icon_2' => "view/editor/assets/ico/359.png",
+                    'icon_1' => Configuration::$assets_url."/ico/341.png",
+                    'icon_2' => Configuration::$assets_url."/ico/359.png",
                     'name_1' => "Акробатические номера",
                     'name_2' => "Зажигательные тынцы",
                     'desc_1' => "Головокружительные трюки, ловкие прыжки и движения на грани, а также свободное падение без страховки.",
@@ -116,8 +116,8 @@ class Reasons extends Block {
 
                 ),
                 array(
-                    'icon_1' => "view/editor/assets/ico/342.png",
-                    'icon_2' => "view/editor/assets/ico/252.png",
+                    'icon_1' => Configuration::$assets_url."/ico/342.png",
+                    'icon_2' => Configuration::$assets_url."/ico/252.png",
                     'name_1' => "Звездные номера",
                     'name_2' => "Волшебные фокусы",
                     'desc_1' => "Над шоу-программой работали лучшие режиссеры, хореографы, географы, физики и биологи нашей страны.",

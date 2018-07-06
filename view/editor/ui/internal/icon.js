@@ -10,7 +10,7 @@ lp.iconCombo = ui.combo.extendOptions({
             if (i>=285 && i<=289) continue;
             if (i>=365 && i<=716) continue;
             if (i>=743 && i<=766) continue;
-            items.push({value:"view/editor/assets/ico/"+i+".png"});
+            items.push({value:Component.app.options.assets_url+"/ico/"+i+".png"});
         }
         return items;
     },
@@ -27,7 +27,7 @@ lp.iconComboWhite = lp.iconCombo.extendOptions({
         this.element.css({background:'transparent'});
         this.element.parent().css({background:"#555"});
         for (var i=365;i<=716;i++) {
-            items.push({value:"view/editor/assets/ico/"+i+".png"});
+            items.push({value:Component.app.options.assets_url+"/ico/"+i+".png"});
         }
         return items;
     }
