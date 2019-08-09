@@ -20,36 +20,39 @@ class Benefits extends Block {
     function tpl($val) {?>
         <div class="container-fluid benefits benefits_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?>">
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?>" >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list <?= $val['show_icon_border'] ? "" : "hide_ico_border" ?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                            
-                            <? for ($i=1;$i<=3;$i++): ?>
-                                <div class="item">
-                                    <?=$self->sub('Icon','icon_'.$i)?>
-                                    <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
-                                        <div class="name <?= $cls ?>" >
-                                            <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?>">
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?>" >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list <?= $val['show_icon_border'] ? "" : "hide_ico_border" ?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">                       
+                                    <? for ($i=1;$i<=3;$i++): ?>
+                                        <div class="item col-4">
+                                            <?=$self->sub('Icon','icon_'.$i)?>
+                                            <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
+                                                <div class="name <?= $cls ?>" >
+                                                    <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
+                                                </div>
+                                            <? endif ?>
+                                            <? if ($cls = $self->vis($val['show_desc_benefit'])): ?>
+                                                <div class="desc <?= $cls ?>" >
+                                                    <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
+                                                </div>
+                                            <? endif ?>
                                         </div>
-                                    <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_desc_benefit'])): ?>
-                                        <div class="desc <?= $cls ?>" >
-                                            <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
-                                        </div>
-                                    <? endif ?>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
+                            <? }) ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,36 +110,39 @@ class Benefits extends Block {
     function tpl_2($val) {?>
         <div class="container-fluid benefits benefits_2" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=3;$i++): ?>
+                                        <div class="item col-4">
+                                            <?=$self->sub('Icon','icon_'.$i)?>
+                                            <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
+                                                <div class="name <?=$cls?>" >
+                                                    <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
+                                                </div>
+                                            <? endif ?>
+                                            <? if ($cls = $self->vis($val['show_desc_benefit'])): ?>
+                                                <div class="desc <?=$cls?>" >
+                                                    <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
+                                                </div>
+                                            <? endif ?>
+                                        </div>   
+                                    <? endfor ?>
+                                </div>
+                            <? }) ?>
                         </div>
-                    <? endif ?>
-                    <div class="item_list">
-                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1;$i<=3;$i++): ?>
-                                <div class="item">
-                                    <?=$self->sub('Icon','icon_'.$i)?>
-                                    <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
-                                        <div class="name <?=$cls?>" >
-                                            <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_desc_benefit'])): ?>
-                                        <div class="desc <?=$cls?>" >
-                                            <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
-                                        </div>
-                                    <? endif ?>
-                                </div>   
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
                     </div>
                 </div>
             </div>
@@ -193,34 +199,37 @@ class Benefits extends Block {
     function tpl_3($val) {?>
         <div class="container-fluid benefits benefits_3" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list <?= !$val['show_name_benefit'] ? "hide_name" : "" ?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=2;$i++): ?>
+                                        <div class="item col-6">                                
+                                            <?=$self->sub('Icon','icon_'.$i)?>
+                                            <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
+                                                <div class="name <?=$cls?>" >
+                                                    <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
+                                                </div>
+                                            <? endif ?>
+                                            <div class="desc">
+                                                <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
+                                            </div>
+                                        </div>  
+                                    <? endfor ?>
+                                </div>
+                            <? }) ?>                       
                         </div>
-                    <? endif ?>
-                    <div class="item_list <?= !$val['show_name_benefit'] ? "hide_name" : "" ?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1;$i<=2;$i++): ?>
-                                <div class="item">                                
-                                    <?=$self->sub('Icon','icon_'.$i)?>
-                                    <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
-                                        <div class="name <?=$cls?>" >
-                                            <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <div class="desc">
-                                        <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
-                                    </div>
-                                </div>  
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>                       
                     </div>
                 </div>
             </div>
@@ -286,34 +295,39 @@ class Benefits extends Block {
     function tpl_4($val) {?>
         <div class="container-fluid benefits benefits_4" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list clear <?= !$val['show_image_border'] ? "hide_border" : "" ?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=2;$i++): ?>
+                                        <div class="item col-6">                                
+                                            <div class="image_wrap">                                     
+                                                <?=$self->sub('Image','image_'.$i)?>
+                                            </div>
+                                            <div class="item_info">
+                                                <div class="name">
+                                                    <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
+                                                </div>
+                                                <div class="desc">
+                                                    <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
+                                                </div>
+                                            </div>
+                                        </div>   
+                                    <? endfor ?>
+                                </div>
+                            <? }) ?> 
                         </div>
-                    <? endif ?>
-                    <div class="item_list clear <?= !$val['show_image_border'] ? "hide_border" : "" ?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1;$i<=2;$i++): ?>
-                                <div class="item">                                
-                                    <div class="image_wrap">                                     
-                                        <?=$self->sub('Image','image_'.$i)?>
-                                    </div>
-                                    <div class="name">
-                                        <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
-                                    </div>
-                                    <div class="desc">
-                                        <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
-                                    </div>
-                                </div>   
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?> 
                     </div>
                 </div>
             </div>
@@ -361,37 +375,40 @@ class Benefits extends Block {
     function tpl_5($val) {?>
         <div class="container-fluid benefits benefits_5" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list clear">
+                            <div class="item_list clear <?= !$val['show_image_border'] ? "hide_border" : "" ?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=3;$i++): ?>
+                                        <div class="item col-4">
+                                            <?=$self->sub('Image','image_'.$i)?>
+                                            <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
+                                                <div class="name <?=$cls?>" >
+                                                    <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
+                                                </div>
+                                            <? endif ?>
+                                            <? if ($cls = $self->vis($val['show_desc_benefit'])): ?>
+                                                <div class="desc <?=$cls?>" >
+                                                    <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
+                                                </div>
+                                            <? endif ?>
+                                        </div>  
+                                    <? endfor ?>
+                                </div>
+                            <? }) ?>
                         </div>
-                    <? endif ?>
-                    <div class="item_list clear">
-                        <div class="item_list clear <?= !$val['show_image_border'] ? "hide_border" : "" ?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1;$i<=3;$i++): ?>
-                                <div class="item">
-                                    <?=$self->sub('Image','image_'.$i)?>
-                                    <? if ($cls = $self->vis($val['show_name_benefit'])): ?>
-                                        <div class="name <?=$cls?>" >
-                                            <? $self->sub('Text','name_'.$i,Text::$plain_text) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_desc_benefit'])): ?>
-                                        <div class="desc <?=$cls?>" >
-                                            <? $self->sub('Text','desc_'.$i,Text::$plain_text) ?>
-                                        </div>
-                                    <? endif ?>
-                                </div>  
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
                     </div>
                 </div>
             </div>
