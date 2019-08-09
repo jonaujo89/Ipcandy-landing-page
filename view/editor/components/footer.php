@@ -20,26 +20,28 @@ class Footer extends Block {
     function tpl($val) {?>
         <div class="container-fluid footer footer_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span4">
-                    <? $this->sub("Logo",'logo') ?>
-                </div>
-                <div class="span7">
-                    <div class="desc">
-                        <? $this->sub('Text','desc',Text::$default_text) ?>                            
+                <div class="row">
+                    <div class="col-3">
+                        <? $this->sub("Logo",'logo') ?>
                     </div>
-                    <? if ($cls = $this->vis($val['show_policy'])): ?>
-                        <div class="policy_wrap <?=$cls?>">
-                            <a class="policy"><?= self::$en ? "Information policy" : "Политика конфиденциальности" ?></a>
-                            <div class="policy_info" style='display:none'><? $this->sub('Text','policy_info',Text::$size_text) ?></div>
+                    <div class="col-4">
+                        <div class="desc">
+                            <? $this->sub('Text','desc',Text::$default_text) ?>                            
                         </div>
-                    <? endif ?>                    
-                </div>
-                <div class="span5">
-                    <div class="phone">
-                        <? $this->sub('Text','phone',Text::$default_heading) ?>
+                        <? if ($cls = $this->vis($val['show_policy'])): ?>
+                            <div class="policy_wrap <?=$cls?>">
+                                <a class="policy"><?= self::$en ? "Information policy" : "Политика конфиденциальности" ?></a>
+                                <div class="policy_info" style='display:none'><? $this->sub('Text','policy_info',Text::$size_text) ?></div>
+                            </div>
+                        <? endif ?>                    
                     </div>
-                    <div class="phone_desc">
-                        <? $this->sub('Text','phone_desc',Text::$default_text) ?>
+                    <div class="col-4 before-1">
+                        <div class="phone">
+                            <? $this->sub('Text','phone',Text::$default_heading) ?>
+                        </div>
+                        <div class="phone_desc">
+                            <? $this->sub('Text','phone_desc',Text::$default_text) ?>
+                        </div>
                     </div>
                 </div>              
             </div>
