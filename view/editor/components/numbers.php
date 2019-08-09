@@ -20,32 +20,34 @@ class Numbers extends Block {
     function tpl($val) {?>
         <div class="container-fluid numbers numbers_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <div class="margin"></div>
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1;$i<=4;$i++): ?>
-                                <div class="item">
-                                    <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
-                                    </div>
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
-                                    </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list">
+                            <? $this->repeat('items',function($val,$self){ ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=4;$i++): ?>
+                                        <div class="item col-3">
+                                            <div class="value">
+                                                <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
+                                            </div>
+                                            <div class="name">
+                                                <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
+                                            </div>
+                                        </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>                    
+                            <? }) ?>                    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,34 +98,38 @@ class Numbers extends Block {
     function tpl_2($val) {?>
         <div class="container-fluid numbers numbers_2" style="background:<?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <div class="margin"></div>
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list">
-                        <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1;$i<=3;$i++): ?>
-                                <div class="item clear">
-                                    <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
-                                    </div>
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
-                                    </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list">
+                            <? $this->repeat('items',function($val,$self){ ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=3;$i++): ?>
+                                        <div class="item col-4">
+                                            <div class="row text_wrap">
+                                                <div class="value col-2">
+                                                    <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
+                                                </div>
+                                                <div class="name col-2">
+                                                    <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>                
-                </div>
+                            <? }) ?>
+                        </div>          
+                    </div>          
+                </div>                
             </div>
         </div>
     <?}
@@ -166,34 +172,38 @@ class Numbers extends Block {
     
     function tpl_3($val) {?>
         <div class="container-fluid numbers numbers_3" style="<?=$this->bg_style($val['background'])?>">  
-            <div class="container">                
-                <div class="span16">
-                    <div class="margin"></div>
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list">
-                        <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1;$i<=3;$i++): ?>
-                                <div class="item clear">
-                                    <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
-                                    </div>
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
-                                    </div>
+            <div class="container">   
+                <div class="row">
+                    <div class="col-12">             
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list">
+                            <? $this->repeat('items',function($val,$self){ ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=3;$i++): ?>
+                                        <div class="item col-4">
+                                            <div class="row text_wrap">
+                                                <div class="value col-2">
+                                                    <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
+                                                </div>
+                                                <div class="name col-2">
+                                                    <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>                
+                            <? }) ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -238,36 +248,38 @@ class Numbers extends Block {
     function tpl_4($val) {?>
         <div class="container-fluid numbers numbers_4" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <div class="margin"></div>
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list <?= $val['icon_color'] ? "icon_".$val['icon_color'] : "icon_grey" ?>">
-                        <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1;$i<=4;$i++): ?>
-                                <div class="item">
-                                    <?=$self->sub('Icon','icon_'.$i)?>
-                                    <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
-                                    </div>
-                                    <hr>
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
-                                    </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list <?= $val['icon_color'] ? "icon_".$val['icon_color'] : "icon_grey" ?>">
+                            <? $this->repeat('items',function($val,$self){ ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=4;$i++): ?>
+                                        <div class="item col-3">
+                                            <?=$self->sub('Icon','icon_'.$i)?>
+                                            <div class="value">
+                                                <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
+                                            </div>
+                                            <hr>
+                                            <div class="name">
+                                                <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
+                                            </div>
+                                        </div>
+                                    <? endfor ?>                    
                                 </div>
-                            <? endfor ?>                    
-                            <div style="clear: both"></div>
-                        <? }) ?> 
-                    </div>                
-                </div>
+                            <? }) ?> 
+                        </div>          
+                    </div>
+                </div>      
             </div>
         </div>
     <?}
@@ -327,35 +339,37 @@ class Numbers extends Block {
     function tpl_5($val) {?>
         <div class="container-fluid numbers numbers_5" style="<?=$this->bg_style($val['background'])?>">
             <div class="container">
-                <div class="span16">
-                    <div class="margin"></div>
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list">
-                        <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1;$i<=4;$i++): ?>
-                                <div class="item">
-                                    <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
-                                    <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
-                                    </div>
-                                    <hr>
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
-                                    </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list">
+                            <? $this->repeat('items',function($val,$self){ ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=4;$i++): ?>
+                                        <div class="item col-3">
+                                            <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
+                                            <div class="value">
+                                                <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
+                                            </div>
+                                            <hr>
+                                            <div class="name">
+                                                <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
+                                            </div>
+                                        </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>                
+                            <? }) ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -414,34 +428,36 @@ class Numbers extends Block {
     function tpl_6($val) {?>
         <div class="container-fluid numbers numbers_6" style="<?=$this->bg_style($val['background'])?>">
             <div class="container">
-                <div class="span16">
-                    <div class="margin"></div>
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1;$i<=4;$i++): ?>
-                                <div class="item">
-                                    <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
-                                    <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
-                                    </div>
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
-                                    </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list clear">
+                            <? $this->repeat('items',function($val,$self){ ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=4;$i++): ?>
+                                        <div class="item col-4">
+                                            <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
+                                            <div class="value">
+                                                <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
+                                            </div>
+                                            <div class="name">
+                                                <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
+                                            </div>
+                                        </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>                
+                            <? }) ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -500,35 +516,37 @@ class Numbers extends Block {
     function tpl_7($val) {?>
         <div class="container-fluid numbers numbers_7" style="<?=$this->bg_style($val['background'])?>">
             <div class="container">
-                <div class="span16">
-                    <div class="margin"></div>
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list <?= $val['icon_color'] ? "icon_".$val['icon_color'] : "icon_grey" ?>">
-                        <? $this->repeat('items',function($val,$self){ ?>
-                            <? for ($i=1;$i<=4;$i++): ?>
-                                <div class="item">                                
-                                    <div class="value">
-                                        <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
-                                    </div>
-                                    <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
-                                    <div class="name">
-                                        <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
-                                    </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list <?= $val['icon_color'] ? "icon_".$val['icon_color'] : "icon_grey" ?>">
+                            <? $this->repeat('items',function($val,$self){ ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=4;$i++): ?>
+                                        <div class="item col-3">                                
+                                            <div class="value">
+                                                <?=$self->sub('Text','value_'.$i,Text::$plain_heading)?>
+                                            </div>
+                                            <?=$self->sub('Icon','icon_'.$i,array('iconType'=>'white'))?>
+                                            <div class="name">
+                                                <?=$self->sub('Text','name_'.$i,Text::$plain_text)?>
+                                            </div>
+                                        </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>                
-                </div>
+                            <? }) ?>
+                        </div>
+                    </div>
+                </div>              
             </div>
         </div>
     <?}
@@ -588,32 +606,35 @@ class Numbers extends Block {
     function tpl_8($val) {?>
         <div class="container-fluid numbers numbers_8" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <div class="margin"></div>
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list">
-                        <? for ($i=1;$i<=5;$i++): ?>
-                            <div class="item">
-                                <div class="value_wrap">
-                                    <div class="value" style="color: <?=$val['numbers_color']?>;">
-                                        <?=$this->sub('Text','value_'.$i,Text::$plain_heading)?>
-                                    </div>
-                                    <div class="name">
-                                        <?=$this->sub('Text','name_'.$i,Text::$plain_text)?>
-                                    </div>
-                                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
                             </div>
-                        <? endfor ?>
-                    </div>                
+                        <? endif ?>
+                        <div class="item_list row">
+                            <div class="col-10 after-1 before-1">
+                                <? for ($i=1;$i<=5;$i++): ?>
+                                    <div class="item">
+                                        <div class="value_wrap">
+                                            <div class="value" style="color: <?=$val['numbers_color']?>;">
+                                                <?=$this->sub('Text','value_'.$i,Text::$plain_heading)?>
+                                            </div>
+                                            <div class="name">
+                                                <?=$this->sub('Text','name_'.$i,Text::$plain_text)?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <? endfor ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
