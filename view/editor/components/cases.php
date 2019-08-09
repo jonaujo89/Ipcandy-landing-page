@@ -20,40 +20,44 @@ class Cases extends Block {
     function tpl($val) {?>
         <div class="container-fluid cases cases_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
-                            <div class="media_wrap">
-                                <? $self->sub('Media','media') ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
                             </div>
-                            <div class="info">
-                                <div class="top"></div>
-                                <? if ($cls = $self->vis($val['show_name'])): ?>
-                                    <div class="name <?=$cls?>" >
-                                        <? $self->sub('Text','name',Text::$plain_heading) ?>
+                        <? endif ?>
+                        <div class="item_list clear">
+                            <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
+                                <div class="row">
+                                    <div class="media_wrap col-6">
+                                        <? $self->sub('Media','media') ?>
                                     </div>
-                                <? endif ?>
-                                <? if ($cls = $self->vis($val['show_desc'])): ?>
-                                    <div class="desc <?=$cls?>" >
-                                        <? $self->sub('Text','desc',Text::$color_heading) ?>
+                                    <div class="info col-6">
+                                        <div class="info_wrapper">
+                                            <? if ($cls = $self->vis($val['show_name'])): ?>
+                                                <div class="name <?=$cls?>" >
+                                                    <? $self->sub('Text','name',Text::$plain_heading) ?>
+                                                </div>
+                                            <? endif ?>
+                                            <? if ($cls = $self->vis($val['show_desc'])): ?>
+                                                <div class="desc <?=$cls?>" >
+                                                    <? $self->sub('Text','desc',Text::$color_heading) ?>
+                                                </div>
+                                            <? endif ?>
+                                            <div class="text">
+                                                <? $self->sub('Text','text',Text::$color_text) ?>
+                                            </div>
+                                        </div>
                                     </div>
-                                <? endif ?>
-                                <div class="text">
-                                    <? $self->sub('Text','text',Text::$color_text) ?>
                                 </div>
-                            </div>
-                            <div style="clear: both"></div>
-                        <? }) ?>
+                            <? }) ?>
+                        </div>
                     </div>
                 </div>
             </div>
