@@ -20,34 +20,37 @@ class Reasons extends Block {
     function tpl($val) {?>
         <div class="container-fluid reasons reasons_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?> 
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1;$i<=2;$i++): ?>
-                                <div class="item">
-                                    <div class="ico_wrap">
-                                        <? $self->sub('Icon','icon_'.$i) ?>
-                                    </div>                    
-                                    <div class="name">
-                                        <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
-                                    </div>
-                                    <div class="desc">
-                                        <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
-                                    </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?> 
+                        <div class="item_list clear">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=2;$i++): ?>
+                                        <div class="col-6 item">
+                                            <div class="ico_wrap">
+                                                <? $self->sub('Icon','icon_'.$i) ?>
+                                            </div>                    
+                                            <div class="name">
+                                                <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
+                                            </div>
+                                            <div class="desc">
+                                                <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
+                                            </div>
+                                        </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>                        
-                        <? }) ?>
+                            <? }) ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,7 +113,7 @@ class Reasons extends Block {
                     'icon_1' => Configuration::$assets_url."/ico/341.png",
                     'icon_2' => Configuration::$assets_url."/ico/359.png",
                     'name_1' => "Акробатические номера",
-                    'name_2' => "Зажигательные тынцы",
+                    'name_2' => "Зажигательные танцы",
                     'desc_1' => "Головокружительные трюки, ловкие прыжки и движения на грани, а также свободное падение без страховки.",
                     'desc_2' => "Яркими красками и костюмами впечатляет наш шоу-балет, вместе в которым сложно усидеть на месте от желания танцевать!",
 
