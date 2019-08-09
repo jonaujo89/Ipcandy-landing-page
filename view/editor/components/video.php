@@ -20,21 +20,22 @@ class Video extends Block {
     function tpl($val) {?>
         <div class="container-fluid video_block video_block_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="video <?= $val['video_size'] ? $val['video_size'] : "small" ?>">
+                            <?=$this->sub('Media','video',array('switchType'=>false))?>
                         </div>
-                    <? endif ?>
-                    <div class="video <?= $val['video_size'] ? $val['video_size'] : "small" ?>">
-                        <?=$this->sub('Media','video',array('switchType'=>false))?>
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -64,14 +65,14 @@ class Video extends Block {
     function tpl_2($val) {?>
         <div class="container-fluid video_block video_block_2" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <div class="item_list clear">
+                <div class="row">
+                    <div class="item_list col-12">
                         <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
-                            <div class="item">
-                                <div class="video">
+                            <div class="item row">
+                                <div class="video col-6">
                                     <?=$self->sub('Media','video',array('switchType'=>false))?>
                                 </div>
-                                <div class="text_wrap">
+                                <div class="text_wrap col-6">
                                     <div class="text_title">
                                         <?=$self->sub('Text','text_title',Text::$plain_text)?>
                                     </div>
@@ -85,7 +86,6 @@ class Video extends Block {
                                     </div>
                                 </div>
                             </div>
-                            <div style="clear: both"></div>
                         <? }) ?>
                     </div>
                 </div>                
@@ -135,38 +135,41 @@ class Video extends Block {
     function tpl_3($val) {?>
         <div class="container-fluid video_block video_block_3" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>                    
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
-                            <? for ($i=1;$i<=3;$i++): ?>
-                                <div class="item">
-                                    <div class="video <?= $val['show_border'] ? "" : "hide_border" ?>" >
-                                        <?=$self->sub('Media','video_'.$i,array('switchType'=>false))?>
-                                    </div>
-                                    <div class="info">
-                                        <div class="name">
-                                            <?=$self->sub('Text','name_'.$i,Text::$plain_heading)?>
-                                        </div>
-                                        <? if ($cls = $self->vis($val['show_desc'])): ?>
-                                            <div class="desc <?=$cls?>" >
-                                                <? $self->sub('Text','desc_'.$i,Text::$color_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>                    
+                        <div class="item_list clear">
+                            <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=3;$i++): ?>
+                                        <div class="item col-4">
+                                            <div class="video <?= $val['show_border'] ? "" : "hide_border" ?>" >
+                                                <?=$self->sub('Media','video_'.$i,array('switchType'=>false))?>
                                             </div>
-                                        <? endif ?> 
-                                    </div>
+                                            <div class="info">
+                                                <div class="name">
+                                                    <?=$self->sub('Text','name_'.$i,Text::$plain_heading)?>
+                                                </div>
+                                                <? if ($cls = $self->vis($val['show_desc'])): ?>
+                                                    <div class="desc <?=$cls?>" >
+                                                        <? $self->sub('Text','desc_'.$i,Text::$color_text) ?>
+                                                    </div>
+                                                <? endif ?> 
+                                            </div>
+                                        </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>                       
+                            <? }) ?>                       
+                        </div>
                     </div>
                 </div>                
             </div>
