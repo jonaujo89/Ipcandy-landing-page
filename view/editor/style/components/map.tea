@@ -1,0 +1,88 @@
+#map-canvas, .map {
+  width: 100%;
+  height: 400px;
+}
+
+.map_block_1 {
+    position: relative;
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+
+    .container_text {
+        @ var offset = 50
+        @ var maxWidth = 320
+        
+        position: absolute;
+        z-index: 3;
+        top: 35px;
+        right: @{offset}px;
+        height: auto;
+        width: 100%;
+        max-width: @{maxWidth}px;        
+        font-size: 1.07rem;
+        border-radius: 5px;
+        border: 1px solid #E0E0E0;
+        box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3);
+        background-color: rgba(255, 255, 255, 0.85);
+        text-align: center;
+        padding: 0 25px;
+        
+        @media (max-width: @{maxWidth + offset * 2 + grid.scrollBarWidth}px) {
+            max-width: 290px;
+            padding: 0 10px 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        .item_block {
+            .title {  
+                font-size: 1.33rem;
+                line-height: 1.2;
+            }
+
+            .desc {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+
+            .map_overlay {  
+                border-top: 1px solid #E0E0E0;
+                padding: 25px 0;
+            }
+
+            &:first-child .map_overlay {
+                border-top: none;
+            }
+        }
+    }
+
+    .map {
+        &:before {
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAECAQAAAAO5iayAAAAFElEQVR4nGNh4GJgYGEQARGyUBYAA7gAYNMlmuUAAAAASUVORK5CYII=");
+            bottom: 0;
+        }
+
+        &:after {
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAECAQAAAAO5iayAAAAFElEQVR4nGNh8GdgYGF4AyIeQ1kAHEIDG/bSxzYAAAAASUVORK5CYII=");
+            top: 0;
+        }
+
+        &:before, &:after {
+            background-repeat: repeat-x;
+            content: "";
+            display: block;
+            height: 4px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+        }
+    }
+}

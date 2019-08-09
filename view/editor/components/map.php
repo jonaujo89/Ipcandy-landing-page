@@ -19,21 +19,23 @@ class Map extends Block {
     
     function tpl($val) {?>
         <div class="map_block_1">
-            <? if ($cls = $this->vis($val['show_container_text'])): ?>
-                   <div class="container_text <?=$cls?>" >  
-                       <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="map_overlay">
-                                <div class="title">
-                                    <?= $self->sub('Text','title_1',Text::$plain_heading)?>
+            <div class="container">
+                <? if ($cls = $this->vis($val['show_container_text'])): ?>
+                    <div class="container_text <?=$cls?>" >  
+                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="map_overlay">
+                                    <div class="title">
+                                        <?= $self->sub('Text','title_1',Text::$plain_heading)?>
+                                    </div>
+                                    <div class="desc">
+                                        <?= $self->sub('Text','desc_1',Text::$default_text)?>
+                                    </div> 
                                 </div>
-                                <div class="desc">
-                                    <?= $self->sub('Text','desc_1',Text::$default_text)?>
-                                </div> 
-                            </div>
-                        <? }) ?>
-                    </div>                
-            <? endif ?>
-            <div class="map" data-map-settings='<?=json_encode($val['map'])?>'></div>
+                            <? }) ?>
+                        </div>                
+                <? endif ?>
+                <div class="map" data-map-settings='<?=json_encode($val['map'])?>'></div>
+            </div>
         </div>
     <?}
     
