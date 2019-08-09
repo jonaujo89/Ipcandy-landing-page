@@ -18,35 +18,37 @@ class Order extends Block {
     }
     
     function tpl($val) {?>
-        <div class="container-fluid order order_1" style="background: url('<?=$this->api->base_url."/".$val['background']?>')">
+        <div class="container-fluid order order_1" style="background-image: url('<?=$this->api->base_url."/".$val['background']?>')">
             <div class="dark">
                 <div class="container">
-                    <div class="span10">
-                        <div class="title_1">
-                            <div class="list"><? $this->sub('Text','title_1',Text::$plain_text) ?></div>                               
-                        </div>
-                        <div class="title_2">
-                            <div class="list"><? $this->sub('Text','title_2',Text::$plain_text) ?></div>
-                        </div>
-                    </div>
-                    <div class="span6">  
-                        <div class="form">
-                            <div class="form_title">
-                                <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
+                    <div class="row">
+                        <div class="col-8 text_wrapper">
+                            <div class="title">
+                                <div class="list"><? $this->sub('Text','title_1',Text::$plain_text) ?></div>                               
                             </div>
-                            <? if ($cls = $this->vis($val['show_form_title_2'])): ?>
-                                <div class="form_title_2 <?=$cls?>" >
-                                    <? $this->sub('Text','form_title_2',Text::$default_text) ?>
-                                </div>
-                            <? endif ?>
-                            <div class="form_data">
-                                <? $this->sub('FormOrder','form') ?>
+                            <div class="title_2">
+                                <div class="list"><? $this->sub('Text','title_2',Text::$plain_text) ?></div>
                             </div>
-                            <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
-                                <div class="form_bottom <?=$cls?>" >
-                                    <? $this->sub('Text','form_bottom_text',Text::$default_text) ?>
+                        </div>
+                        <div class="col-4 form_wrapper">  
+                            <div class="form ">
+                                <div class="form_title">
+                                    <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
                                 </div>
-                            <? endif ?>
+                                <? if ($cls = $this->vis($val['show_form_title_2'])): ?>
+                                    <div class="form_title_2 <?=$cls?>" >
+                                        <? $this->sub('Text','form_title_2',Text::$default_text) ?>
+                                    </div>
+                                <? endif ?>
+                                <div class="form_data">
+                                    <? $this->sub('FormOrder','form') ?>
+                                </div>
+                                <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
+                                    <div class="form_bottom <?=$cls?>" >
+                                        <? $this->sub('Text','form_bottom_text',Text::$default_text) ?>
+                                    </div>
+                                <? endif ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,23 +82,27 @@ class Order extends Block {
     
     
     function tpl_2($val) {?>
-        <div class="container-fluid order order_2" style="background: url('<?=$this->api->base_url."/".$val['background']?>')">
+        <div class="container-fluid order order_2" style="background-image: url('<?=$this->api->base_url."/".$val['background']?>')">
             <div class="background_toggle_noise <?= $val['show_background_noise'] ? "with_noise" : "dark"?>">
                 <div class="container">
-                    <div class="title_1">
-                        <? $this->sub('Text','title_1',Text::$plain_text) ?>
-                    </div>
-                    <div class="title_2">
-                        <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                    </div>
-                    <? if ($cls = $this->vis($val['show_text_above_button'])): ?>
-                        <div class="btn_note <?=$cls?>" >
-                            <? $this->sub('Text','button_note',Text::$plain_text) ?>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="title">
+                                <? $this->sub('Text','title_1',Text::$plain_text) ?>
+                            </div>
+                            <div class="title_2">
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                            <? if ($cls = $this->vis($val['show_text_above_button'])): ?>
+                                <div class="btn_note <?=$cls?>" >
+                                    <? $this->sub('Text','button_note',Text::$plain_text) ?>
+                                </div>
+                            <? endif ?>
+                            <br>
+                            <div class="btn_wrap <?= !$val['show_arrow'] ? "no_arrow" : ""?> <?= !$val['show_text_above_button'] ? "no_btn_note" : ""?> " >                        
+                                <? $this->sub("FormButton",'button_order') ?>                        
+                            </div>
                         </div>
-                    <? endif ?>
-                    <br>
-                    <div class="btn_wrap <?= !$val['show_arrow'] ? "no_arrow" : ""?> <?= !$val['show_text_above_button'] ? "no_btn_note" : ""?> " >                        
-                        <? $this->sub("FormButton",'button_order') ?>                        
                     </div>
                 </div>
             </div>
@@ -127,35 +133,38 @@ class Order extends Block {
     
     
     function tpl_3($val) {?>
-        <div class="container-fluid order order_3" style="background: url('<?=$this->api->base_url."/".$val['background']?>');">
-            <div class="container">                
-                <div class="img_wrap <?= $val['show_border'] ? "" : "hide_border" ?>">
-                    <? $this->sub('Media','media') ?>
-                </div>
-                <div class="data_wrap">
-                    <div class="title_1">
-                        <? $this->sub('Text','title_1',Text::$color_text) ?>
-                    </div>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$color_text) ?>
+        <div class="container-fluid order order_3" style="background-image: url('<?=$this->api->base_url."/".$val['background']?>');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-5">       
+                        <div class="img_wrap <?= $val['show_border'] ? "" : "hide_border" ?>">
+                            <? $this->sub('Media','media') ?>
                         </div>
-                    <? endif ?>
-                    <div class="desc">
-                        <? $this->sub('Text','desc',Text::$default_text) ?>
                     </div>
-                    <? if ($cls = $this->vis($val['show_list_box'])): ?>
-                        <div class="list <?=$cls?>" >
-                            <ul>
-                                <? $this->sub('Text','list',Text::$plain_text) ?>
-                            </ul>
+                    <div class="data_wrap col-6 before-1">
+                        <div class="title">
+                            <? $this->sub('Text','title_1',Text::$color_text) ?>
                         </div>
-                    <? endif ?>
-                    <div class="btn_wrap" >                        
-                        <? $this->sub('FormButton','button_order') ?>                        
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$color_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="desc">
+                            <? $this->sub('Text','desc',Text::$default_text) ?>
+                        </div>
+                        <? if ($cls = $this->vis($val['show_list_box'])): ?>
+                            <div class="list <?=$cls?>" >
+                                <ul>
+                                    <? $this->sub('Text','list',Text::$plain_text) ?>
+                                </ul>
+                            </div>
+                        <? endif ?>
+                        <div class="btn_wrap" >                        
+                            <? $this->sub('FormButton','button_order') ?>                        
+                        </div>
                     </div>
                 </div>
-                <div style="clear: both"></div>
             </div>
         </div>
 
@@ -191,30 +200,40 @@ class Order extends Block {
     function tpl_4($val) {?>
         <div class="container-fluid order order_4" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="title_1">
-                    <? $this->sub('Text','title_1',Text::$plain_heading) ?>
-                </div>
-                <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                    <div class="title_2 <?=$cls?> " >
-                        <? $this->sub('Text','title_2',Text::$plain_heading) ?>
-                    </div>
-                <? endif ?>
-                <div class="img_wrap <?= $val['show_box_shadow'] ? "" : "hide_box_shadow" ?>">
-                    <? $this->sub('Media','media') ?>
-                </div>
-                <div class="form">
-                    <div class="form_title">                        
-                        <? $this->sub('Text','form_title',Text::$plain_text) ?>
-                    </div>
-                    <div class="form_data">
-                        <? $this->sub('FormOrder','form') ?>
-                    </div>
-                    <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
-                        <div class="form_bottom <?=$cls?>" >
-                            <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="title">
+                            <? $this->sub('Text','title_1',Text::$plain_heading) ?>
                         </div>
-                    <? endif ?>
-                </div>           
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="row data_wrap">
+                            <div class="col-7">
+                                <div class="img_wrap <?= $val['show_box_shadow'] ? "" : "hide_box_shadow" ?>">
+                                    <? $this->sub('Media','media') ?>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="form">
+                                    <div class="form_title">                        
+                                        <? $this->sub('Text','form_title',Text::$plain_text) ?>
+                                    </div>
+                                    <div class="form_data">
+                                        <? $this->sub('FormOrder','form') ?>
+                                    </div>
+                                    <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
+                                        <div class="form_bottom <?=$cls?>" >
+                                            <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
+                                        </div>
+                                    <? endif ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
             </div>
         </div>
     <?}
@@ -250,40 +269,48 @@ class Order extends Block {
         <div class="container-fluid order order_5" style="background: <?=$val['background_color']?>;">
             <div class="title_wrap">
                 <div class="container">
-                    <div class="title_1">
-                        <? $this->sub('Text','title_1',Text::$plain_heading) ?>
-                    </div>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="title">
+                                <? $this->sub('Text','title_1',Text::$plain_heading) ?>
+                            </div>
+                            <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                                <div class="title_2 <?=$cls?> " >
+                                    <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                                </div>
+                            <? endif ?>
                         </div>
-                    <? endif ?>
+                    </div>
                 </div>
             </div>
             <div class="container">
-                <div class="ico_list">
-                    <? $this->repeat('items',function($val,$self){ ?>
-                        <div class="item">
-                            <?=$self->sub('Icon','icon',array('iconType'=>'white'))?>
-                            <div class="name"><?=$self->sub('Text','icon_title',Text::$plain_heading)?></div>
-                            <div class="desc"><?=$self->sub('Text','icon_desc',Text::$plain_text)?></div>
-                        </div> 
-                    <? });?> 
+                <div class="row">
+                    <div class="ico_list col-7">
+                        <? $this->repeat('items',function($val,$self){ ?>
+                            <div class="item">
+                                <?=$self->sub('Icon','icon',array('iconType'=>'white'))?>
+                                <div class="name"><?=$self->sub('Text','icon_title',Text::$plain_heading)?></div>
+                                <div class="desc"><?=$self->sub('Text','icon_desc',Text::$plain_text)?></div>
+                            </div> 
+                        <? });?> 
+                    </div>
+                    <div class="col-5">
+                        <div class="form">
+                            <div class="form_title">
+                                <? $this->sub('Text','form_title',Text::$plain_text) ?>
+                            </div>
+                            <div class="form_data">
+                                <? $this->sub('FormOrder','form') ?>
+                            </div>
+                            <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
+                                <div class="form_bottom <?=$cls?>" >
+                                    <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
+                                </div>
+                            <? endif ?>
+                        </div>    
+                    </div>
                 </div>
-                <div class="form">
-                    <div class="form_title">
-                        <? $this->sub('Text','form_title',Text::$plain_text) ?>
-                    </div>
-                    <div class="form_data">
-                        <? $this->sub('FormOrder','form') ?>
-                    </div>
-                    <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
-                        <div class="form_bottom <?=$cls?>" >
-                            <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                </div>    
-            </div>              
+            </div>
         </div>
     <?}
     
@@ -347,37 +374,39 @@ class Order extends Block {
     
     
     function tpl_6($val) {?>
-        <div class="container-fluid order order_6" style="background: url('<?=$this->api->base_url."/".$val['background']?>')">
+        <div class="container-fluid order order_6" style="background-image: url('<?=$this->api->base_url."/".$val['background']?>')">
             <div class="dark">
                 <div class="container">
-                    <div class="content_wrap <?= $val['form_align'] ? "align_".$val['form_align'] : "align_right" ?>">
-                        <div class="title_1">
-                            <? $this->sub('Text','title_1',Text::$plain_text) ?>
-                        </div>
-                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                            <div class="title_2 <?=$cls?> " >
-                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                    <div class="row main_wrap <?= $val['form_align'] ? "align_".$val['form_align'] : "align_right" ?>">
+                        <div class="col-8">
+                            <div class="title">
+                                <? $this->sub('Text','title_1',Text::$plain_text) ?>
                             </div>
-                        <? endif ?>
-                        <? if ($cls = $this->vis($val['show_title_3'])): ?>
-                            <div class="title_3 <?=$cls?>" >
-                                <? $this->sub('Text','title_3',Text::$plain_text) ?>
-                            </div>
-                        <? endif ?>
-                        <div class="form">
-                            <div class="form_title">
-                                <? $this->sub('Text','form_title',Text::$plain_text) ?>
-                            </div>
-                            <div class="form_data">
-                                <? $this->sub('FormOrder','form') ?>
-                            </div>
-                            <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
-                                <div class="form_bottom <?=$cls?>" >
-                                    <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
+                            <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                                <div class="title_2 <?=$cls?> " >
+                                    <? $this->sub('Text','title_2',Text::$plain_text) ?>
                                 </div>
                             <? endif ?>
+                            <? if ($cls = $this->vis($val['show_title_3'])): ?>
+                                <div class="title_3 <?=$cls?>" >
+                                    <? $this->sub('Text','title_3',Text::$plain_text) ?>
+                                </div>
+                            <? endif ?>
+                            <div class="form">
+                                <div class="form_title">
+                                    <? $this->sub('Text','form_title',Text::$plain_text) ?>
+                                </div>
+                                <div class="form_data">
+                                    <? $this->sub('FormOrder','form') ?>
+                                </div>
+                                <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
+                                    <div class="form_bottom <?=$cls?>" >
+                                        <? $this->sub('Text','form_bottom_text',Text::$plain_text) ?>
+                                    </div>
+                                <? endif ?>
+                            </div>
                         </div>
-                     </div>
+                    </div>
                 </div>
             </div>
         </div>

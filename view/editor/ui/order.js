@@ -49,7 +49,7 @@ lp.order = lp.block.extendOptions({
         if (this.value.variant == 6) {
             this.variant.find(".title_2").toggleVis(this.value.show_title_2);
             this.variant.find(".title_3").toggleVis(this.value.show_title_3);
-            this.variant.find(".content_wrap").prop("class","content_wrap align_"+this.value.form_align);
+            this.variant.find(".main_wrap").prop("class","row main_wrap align_"+this.value.form_align);
             this.variant.find(".form_bottom").toggleVis(this.value.show_form_bottom_text);
         }      
         
