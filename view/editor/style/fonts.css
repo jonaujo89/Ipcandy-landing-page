@@ -2,7 +2,7 @@
 @font-face {
     font-family: "Open Sans";
     src: url("fonts/OpenSansRegular.eot");
-    src: url("fonts/OpenSansRegular.eot?#iefix")format("embedded-opentype"),
+    src: url("fonts/OpenSansRegular.eot?#iefix") format("embedded-opentype"),
     url("fonts/OpenSansRegular.woff") format("woff"),
     url("fonts/OpenSansRegular.ttf") format("truetype");
     font-style: normal;
@@ -12,7 +12,7 @@
 @font-face {
     font-family: "Open Sans Light";
     src: url("fonts/OpenSansLight.eot");
-    src: url("fonts/OpenSansLight.eot?#iefix")format("embedded-opentype"),
+    src: url("fonts/OpenSansLight.eot?#iefix") format("embedded-opentype"),
     url("fonts/OpenSansLight.woff") format("woff"),
     url("fonts/OpenSansLight.ttf") format("truetype");
     font-style: normal;
@@ -22,28 +22,46 @@
 @font-face {
     font-family: "Open Sans Bold";
     src: url("fonts/OpenSansBold.eot");
-    src: url("fonts/OpenSansBold.eot?#iefix")format("embedded-opentype"),
+    src: url("fonts/OpenSansBold.eot?#iefix") format("embedded-opentype"),
     url("fonts/OpenSansBold.woff") format("woff"),
     url("fonts/OpenSansBold.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
 }
+@font-face {
+    font-family: "Open Sans";
+    src: url("fonts/OpenSansBold.eot");
+    src: url("fonts/OpenSansBold.eot?#iefix") format("embedded-opentype"),
+    url("fonts/OpenSansBold.woff") format("woff"),
+    url("fonts/OpenSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
 /* font-family: "OpenSansSemiBold"; */
 @font-face {
     font-family: "Open Sans SemiBold";
     src: url("fonts/OpenSansSemiBold.eot");
-    src: url("fonts/OpenSansSemiBold.eot?#iefix")format("embedded-opentype"),
+    src: url("fonts/OpenSansSemiBold.eot?#iefix") format("embedded-opentype"),
     url("fonts/OpenSansSemiBold.woff") format("woff"),
     url("fonts/OpenSansSemiBold.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("fonts/OpenSansSemiBold.eot");
+    src: url("fonts/OpenSansSemiBold.eot?#iefix") format("embedded-opentype"),
+    url("fonts/OpenSansSemiBold.woff") format("woff"),
+    url("fonts/OpenSansSemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 600;
 }
 
 /* for Timer */
 @font-face {
 	font-family: 'Catorze27Style1 SemiBold';
     src: url("fonts/catorze27Style1_SemiBold.eot");
-    src: url("fonts/catorze27Style1_SemiBold.eot?#iefix")format("embedded-opentype"),
+    src: url("fonts/catorze27Style1_SemiBold.eot?#iefix") format("embedded-opentype"),
     url("fonts/catorze27Style1_SemiBold.woff") format("woff"),
     url(fonts/catorze27Style1_SemiBold.ttf) format('truetype');
     font-style: normal;

@@ -1,6 +1,23 @@
+@ assetsPath = '../../../view/editor/assets';
+
+@ primaryColor = '#5C5C5C';
+@ headingColor = '#383A3B';
+@ subHeadingColor = '#2B2B2B';
+
+@ primaryColorLight = '#DDD';
+@ headingColorLight = '#FFF';
+@ subHeadingColorLight = '#C2C2C2';
+
+@ primaryFont = 'Arial';
+@ headingFont = 'Open Sans';
+@ subHeadingFont = 'Open Sans Light';
+
 @import "common/base";
 @import "common/grid";
 @import "common/reset";
+
+@import "components/header";
+@import "components/text_block";
 
 @append "page.css";
 @append "fonts.css";
@@ -28,21 +45,72 @@
 
 .reset();
 
-.grid(16,45,30);
-.grid_spans() {
-    @{ 
-        for (var i=1;i<=grid.columnCount;i++) {
-            @{
-                .span@i {
-                    .grid.columns(i);
-                }        
+.row {
+    .grid.row();
+}
+
+@{
+    for (var i=1; i <= grid.columnCount; i++) {
+        @{
+            .col-@i {
+                padding-y: @{grid.columnPaddingDesktop}px;
+                .grid.columns(i);
+            }
+        }
+    }
+    
+    for (var i=1; i<=grid.columnCount; i++) {
+        @{
+            .before-@i {
+                .grid.prepend(i);
+            }
+
+            .after-@i {
+                .grid.append(i);
             }
         }
     }
 }
 
-.container {
-    .grid.container();
-    padding: 50px 0;
+html {
+    font-size: 15px;
 }
-.grid_spans();
+
+.container {
+    padding-y: 35px;
+    font-family: @primaryFont;
+    color: @primaryColor;
+
+    .grid.container();
+
+    .title {
+        margin: 10px auto;
+        text-align: center;
+        color: @headingColor;
+
+        line-height: 1.25;
+        font-family: @{headingFont}, @{primaryFont};
+        font-weight: 400;
+
+        .font_size_flexible(12, 48, 24)
+    }
+
+    .title_2 {
+        margin: 10px auto;
+        line-height: 1.25;
+        text-align: center;
+        color: @subHeadingColor;
+        font-family: @{subHeadingFont}, @{primaryFont};
+
+        .font_size_flexible(12, 24, 20)
+    }
+
+    .img {
+        width: 100%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+    }
+}

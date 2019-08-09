@@ -20,30 +20,32 @@ class TextBlock extends Block {
     function tpl($val) {?>
         <div class="container-fluid text_block text_block_1" style="background:<?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="text">
+                            <? $this->sub('Text','text',Text::$color_text) ?>
                         </div>
-                    <? endif ?>
-                    <div class="text">
-                        <? $this->sub('Text','text',Text::$color_text) ?>
+                        <? if ($cls = $this->vis($val['show_list'])): ?>
+                            <div class="list_wrap row <?=$cls?>">
+                                <div class="list list_1 col-5 before-2">
+                                    <? $this->sub('Text','list_1',Text::$plain_text) ?>
+                                </div>
+                                <div class="list list_2 col-5">
+                                    <? $this->sub('Text','list_2',Text::$plain_text) ?>
+                                </div>
+                            </div>
+                        <? endif ?>
                     </div>
-                    <? if ($cls = $this->vis($val['show_list'])): ?>
-                        <div class="list_wrap clear <?=$cls?>">
-                            <div class="list list_1">
-                                <? $this->sub('Text','list_1',Text::$plain_text) ?>
-                            </div>
-                            <div class="list list_2">
-                                <? $this->sub('Text','list_2',Text::$plain_text) ?>
-                            </div>
-                        </div>
-                    <? endif ?>
                 </div>
             </div>
         </div>
@@ -99,21 +101,21 @@ class TextBlock extends Block {
     function tpl_2($val) {?>
         <div class="container-fluid text_block text_block_2" style="background:<?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($val,$self) { ?>
+                <? if ($cls = $this->vis($val['show_title'])): ?>
+                    <h1 class="title <?=$cls?> " >
+                        <? $this->sub('Text','title',Text::$plain_text) ?>
+                    </h1>
+                <? endif ?>
+                <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                    <div class="title_2 <?=$cls?> " >
+                        <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                    </div>
+                <? endif ?>
+                <div class="item_list">
+                    <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                        <div class="row">
                             <? for ($i=1;$i<=2;$i++): ?>
-                                <div class="item">
+                                <div class="item col-6">
                                     <? if ($cls = $self->vis($val['show_name'])): ?>
                                         <div class="name <?=$cls?>" >
                                             <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
@@ -124,9 +126,8 @@ class TextBlock extends Block {
                                     </div>
                                 </div>
                             <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>
+                        </div>
+                    <? }) ?>
                 </div>
             </div>
         </div>
@@ -182,21 +183,21 @@ class TextBlock extends Block {
     function tpl_3($val) {?>
         <div class="container-fluid text_block text_block_3" style="background:<?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list clear">                        
-                        <? $this->repeat('items',function($val,$self){ ?>
+                <? if ($cls = $this->vis($val['show_title'])): ?>
+                    <h1 class="title <?=$cls?> " >
+                        <? $this->sub('Text','title',Text::$plain_text) ?>
+                    </h1>
+                <? endif ?>
+                <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                    <div class="title_2 <?=$cls?> " >
+                        <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                    </div>
+                <? endif ?>
+                <div class="item_list clear">                        
+                    <? $this->repeat('items',function($val,$self){ ?>
+                        <div class="row">
                             <? for ($i=1;$i<=3;$i++): ?>
-                                <div class="item">
+                                <div class="item col-4">
                                     <div class="name">
                                         <?=$self->sub('Text','name_'.$i,Text::$plain_heading)?>
                                     </div>
@@ -205,9 +206,8 @@ class TextBlock extends Block {
                                     </div>
                                 </div>
                             <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>
+                        </div>
+                    <? }) ?>
                 </div>
             </div>
         </div>
@@ -234,7 +234,7 @@ class TextBlock extends Block {
             'show_title' => true,
             'show_title_2' => true,
             'background_color' => '#FFFFFF',
-            'title' => 'Лучшие предстваления для Вас',
+            'title' => 'Лучшие представления для Вас',
             'title_2' => 'Подзаголовок блока',
             'items' => array(
                 array(
@@ -253,11 +253,13 @@ class TextBlock extends Block {
     function tpl_4($val) {?>
         <div class="container-fluid text_block text_block_4" style="background:<?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
-                            <?=$self->sub('Image','image')?>
-                            <div class="text_wrap">
+                <div class="item_list clear">
+                    <? $this->repeat('items',function($item_val,$self) use ($val){ ?>
+                        <div class="row">
+                            <div class="image_wrap col-6">
+                                <?=$self->sub('Image','image')?>
+                            </div>
+                            <div class="text_wrap col-6">
                                 <div class="text_title">
                                     <?=$self->sub('Text','text_title',Text::$plain_heading)?>
                                 </div> 
@@ -270,9 +272,8 @@ class TextBlock extends Block {
                                     <?=$self->sub('Text','text',Text::$default_text)?>
                                 </div>                            
                             </div>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>
+                        </div>
+                    <? }) ?>
                 </div>
             </div>
         </div>
@@ -320,21 +321,22 @@ class TextBlock extends Block {
     function tpl_5($val) {?>
         <div class="container-fluid text_block text_block_5" style="background:<?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <div class="item_list clear <?= $val['show_border'] ? "" : "hide_border" ?>">                       
-                        <? $this->repeat('items',function($val,$self){ ?>
-                            <?=$self->sub('Image','image')?>
-                            <div class="text_wrap">
+                <div class="item_list clear <?= $val['show_border'] ? "" : "hide_border" ?>">                       
+                    <? $this->repeat('items',function($val,$self){ ?>
+                        <div class="row">
+                            <div class="image_wrap col-3">
+                                <?=$self->sub('Image','image')?>
+                            </div>
+                            <div class="text_wrap col-9">
                                 <div class="text_title">
                                     <?=$self->sub('Text','text_title',Text::$plain_heading)?>
                                 </div>
                                 <div class="text">
                                     <?=$self->sub('Text','text',Text::$default_text)?>
                                 </div>
-                            </div>               
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>
+                            </div>         
+                        </div>
+                    <? }) ?>
                 </div>
             </div>
         </div>
@@ -402,8 +404,8 @@ class TextBlock extends Block {
     function tpl_6($val) {?>
         <div class="container-fluid text_block text_block_6" style="background:<?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16 clear">
-                    <div class="text_data">
+                <div class="row">
+                    <div class="text_data col-6">
                         <h1 class="title">
                             <? $this->sub('Text','title',Text::$plain_heading) ?>
                         </h1>
@@ -416,7 +418,7 @@ class TextBlock extends Block {
                             <? $this->sub('Text','text',Text::$default_text) ?>
                         </div>
                     </div>
-                    <div class="ico_data">
+                    <div class="ico_data col-6">
                         <div class="item_list clear <?= $val['show_border'] ? "" : "hide_border" ?>">
                             <? $this->repeat('items',function($val,$self){ ?>
                                 <div class="item">

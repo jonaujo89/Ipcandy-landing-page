@@ -20,6 +20,16 @@
     background-image: url(@{canvas.toDataURL()});
 }
 
+.logo(url) {
+    @ var img = image(url);
+    display: block;
+    background: url(@img.src) no-repeat 50% 50%;
+    width: @{img.width}px;
+    height: @{img.height}px;
+    text-indent: -999em;
+    @ return img;
+}
+
 .reset();
 .typography();
 .form();
@@ -365,8 +375,6 @@ p.actions {
 }
 
 .template-select {
-    .clearfix();
-    
     label {
         width: 240px;
         display: inline-block;

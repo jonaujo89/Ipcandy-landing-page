@@ -58,7 +58,7 @@ class Logo extends Block {
                     if ($val['bold']) $style .= "font-weight:bold;";
                     if (isset($val['font'])) $style .= "font-family:".$val['font'].";";
                     if ($val['color']) $style .= "color:".$val['color'].";";
-                    if ($val['fontSize']) $style .= "font-size:".$val['fontSize']."px;";
+                    if ($val['fontSize']) $style .= "font-size:".number_format($val['fontSize']/16, 2)."em;";
                 ?>
                 <div class='company_name' style="<?=$style?>"><?=$val['text']?></div>
             <? endif ?>
@@ -249,7 +249,9 @@ class Image extends Block {
     public $internal = true;    
    
     function tpl($val) {
-       echo "<div class='img' style='background-image: url(".$this->api->base_url."/".$val.")'></div>";                
+        echo "<div class='img'>";
+        echo "<img src='".$this->api->base_url."/".$val."'/>";
+        echo "</div>";        
     }
 }
 

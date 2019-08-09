@@ -3,8 +3,8 @@ lp.image = lp.cover.extendOptions({
         this.cover.appendTo(this.element.find(".img"));
     },
     change: function(){
-        this.element.find(".img").css({
-            backgroundImage: "url('"+base_url+"/"+this.value+"')",
+        this.element.find(".img > img").attr({
+            src: base_url+"/"+this.value,
         }); 
     },
     configForm: {
