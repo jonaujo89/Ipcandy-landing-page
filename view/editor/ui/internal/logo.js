@@ -14,7 +14,7 @@ lp.logo = lp.cover.extendOptions({
                 fontWeight: me.value.bold ? 'bold' : '',
                 fontFamily: me.value.font || '',
                 color: me.value.color || '',
-                fontSize: me.value.fontSize ? me.value.fontSize + 'px' : ''
+                fontSize: me.value.fontSize ? (Math.round(me.value.fontSize / 16 * 100) / 100) + 'em' : ''
             });
         }
     },

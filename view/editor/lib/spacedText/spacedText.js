@@ -2004,7 +2004,7 @@
                 } else {
                     var c = a(d.currentTarget)
                 }
-                var f = parseInt(c.attr("data-size")) + parseInt(this.$editor.css("font-size")) + "px";
+                var f = (1 + parseInt(c.attr("data-size")) / parseInt(this.$editor.css("font-size"))) + "em";
                 this.$editor.find('font[size="2"]').replaceWith(function() {
                     var e = a(this);
                     e.find('[style*="font-size"]').each(function(k, l) {

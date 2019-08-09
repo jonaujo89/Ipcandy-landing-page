@@ -82,23 +82,11 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
                         send(css,js,'view/editor/style/style',$("#style_status"));
                     }
                 });
-                
-                teacss.build("<?=url('view/editor/style/responsive.tea')?>",{
-                    stylePath: "<?=url('view/editor/style')?>",
-                    styleName: "style.css",
-                    callback: function (files) {
-                        var css = files["<?=url('view/editor/style/style.css')?>"];
-                        var js = '';
-                        send(css,js,'view/editor/style/responsive',$("#responsive_status"));
-                    }
-                })                
-                
             </script>        
         </head>
         <body>
             <div id="editor_status">loading</div>
             <div id="style_status">loading</div>
-            <div id="responsive_status">loading</div>
         </body>
 
         
