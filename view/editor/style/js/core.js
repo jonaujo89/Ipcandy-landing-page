@@ -190,12 +190,13 @@ $.fn.lpFancybox = function () {
 	}); 
 };
 
-$.fn.lpMasonry = function () {    
+$.fn.lpMasonry = function () {
     var $el = $(this);
     function doit() {
+        const gutter = $el.data('masonry-gutter');
         $el.masonry({
             itemSelector: ".masonry .item_block",
-            gutter: 10,
+            gutter: gutter || 10,
             singleMode: true,
             columnWidth: ".masonry .item_block"
         });        
@@ -208,17 +209,26 @@ $.fn.lpMasonry = function () {
 $.fn.lpBxSlider = function () {
     $(this).each(function(){
         var $this = $(this);
+        var options = {
+            controls: true,
+            slideMargin: 10,
+            slideSelector: 'div.item_block:visible',
+        };
+
+        if ($(window).width() < 968) {
+            options.minSlides = 1;
+            options.maxSlides = 1;
+            options.adaptiveHeight = true;
+        } else {
+            options.slideWidth = 367;
+            options.minSlides = 3;
+            options.maxSlides = 3;
+        }
+        
 		var bx_wrapper = $this.find("div.item_block.bx-clone").size();
         if ($this.find(".item_block:visible").not(".bx-clone").size() == 0) return;
         if (bx_wrapper == 0) {  
-            var bxSlider = $this.bxSlider({
-                controls: true,
-                slideWidth: 367,
-                minSlides: 3,
-                maxSlides: 3,
-                slideMargin: 10,
-                slideSelector: 'div.item_block:visible',
-            });
+            var bxSlider = $this.bxSlider(options);
             var count_photo_init = $this.find(".item_block:visible").not(".bx-clone").size();
             $this.data('counter', count_photo_init); 
             $this.data('slider', bxSlider);

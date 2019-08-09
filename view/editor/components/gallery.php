@@ -20,40 +20,42 @@ class Gallery extends Block {
     function tpl($val) {?>		
         <div class="container-fluid gallery gallery_1" style="background: <?=$val['background']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_heading) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
-                        </div>
-                    <? endif ?>
-                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
-                    <div class="item_list <?=$opacity?>"> 
-						<? $this->repeat('items', function($item_val,$self) use ($val) { ?>							
-                            <div class="preview_img" style="background-image: url('<?=$this->api->base_url."/".$item_val['image']?>');"></div>
-                                <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
-                                    <a class="fancybox big_img <?=$cls?>" href="<?=$this->api->base_url."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
-                                <? endif ?>
-                            <div class="overlay">
-                                <div class="wrap_title_desc">
-                                    <? if ($cls = $self->vis($val['show_image_title'])): ?>
-                                        <div class="img_title <?=$cls?>" >
-                                            <?= $item_val['title'] ?>
-                                        </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_heading) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                            </div>
+                        <? endif ?>
+                        <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                        <div class="item_list <?=$opacity?>"> 
+                            <? $this->repeat('items', function($item_val,$self) use ($val) { ?>							
+                                <div class="preview_img" style="background-image: url('<?=$this->api->base_url."/".$item_val['image']?>');"></div>
+                                    <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
+                                        <a class="fancybox big_img <?=$cls?>" href="<?=$this->api->base_url."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
                                     <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_image_desc'])): ?>
-                                        <div class="img_desc <?=$cls?>" >
-                                            <?= $item_val['desc'] ?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
-                            </div>                           	
-						<? },array('editor' => 'lp.galleryRepeater'));?> 
-					</div> 
+                                <div class="overlay">
+                                    <div class="wrap_title_desc">
+                                        <? if ($cls = $self->vis($val['show_image_title'])): ?>
+                                            <div class="img_title <?=$cls?>" >
+                                                <?= $item_val['title'] ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                            <div class="img_desc <?=$cls?>" >
+                                                <?= $item_val['desc'] ?>
+                                            </div>
+                                        <? endif ?>
+                                    </div>
+                                </div>                           	
+                            <? },array('editor' => 'lp.galleryRepeater'));?> 
+                        </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,41 +103,46 @@ class Gallery extends Block {
     function tpl_2($val) {?>
         <div class="container-fluid gallery gallery_2" style="background: <?=$val['background']?>;">
             <div class="container">
-                <div class="span16">
-                     <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_heading) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list <?= !$val['show_image_desc'] ? "hide_desc" : "" ?> <?= !$val['show_image_overlay'] ? "hide_overlay" : "" ?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 2; $i++): ?>
-                                <div class="item">
-                                    <?=$self->sub('GalleryImage','image_'.$i)?>
-                                    <div class="overlay">
-                                        <div class="in">                                        
-                                            <div class="img_title">
-                                                <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
-                                            </div>
-                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
-                                                <div class="img_desc <?=$cls?>" >
-                                                    <? $self->sub('Text','img_desc_'.$i,Text::$color_heading) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_heading) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list <?= !$val['show_image_desc'] ? "hide_desc" : "" ?> <?= !$val['show_image_overlay'] ? "hide_overlay" : "" ?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1; $i <= 2; $i++): ?>
+                                        <div class="col-6">
+                                            <div class="item">
+                                                <?=$self->sub('GalleryImage','image_'.$i)?>
+                                                <div class="overlay">
+                                                    <div class="in">                                        
+                                                        <div class="img_title">
+                                                            <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
+                                                        </div>
+                                                        <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                            <div class="img_desc <?=$cls?>" >
+                                                                <? $self->sub('Text','img_desc_'.$i,Text::$color_heading) ?>
+                                                            </div>
+                                                        <? endif ?>
+                                                        <div class="img_text">
+                                                            <? $self->sub('Text','img_text_'.$i,Text::$default_text) ?>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            <? endif ?>
-                                            <div class="img_text">
-                                                <? $self->sub('Text','img_text_'.$i,Text::$default_text) ?>
                                             </div>
                                         </div>
-                                    </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-							<div style="clear: both"></div>
-                        <? }) ?>
+                            <? }) ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -209,38 +216,43 @@ class Gallery extends Block {
     function tpl_3($val) {?>
         <div class="container-fluid gallery gallery_3" style="background: <?=$val['background']?>;">
            <div class="container">
-                <div class="span16">
-                     <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_heading) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 3; $i++): ?>                        
-                                <div class="item">								
-                                    <? $self->sub('GalleryImage','image_'.$i) ?>
-                                    <? if ($cls = $self->vis($val['show_image_overlay'])): ?>
-                                        <div class="overlay <?=$cls?>" >
-                                            <div class="img_title">
-                                                <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_heading) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1; $i <= 3; $i++): ?>        
+                                        <div class="col-4">       
+                                            <div class="item">								
+                                                <? $self->sub('GalleryImage','image_'.$i) ?>
+                                                <? if ($cls = $self->vis($val['show_image_overlay'])): ?>
+                                                    <div class="overlay <?=$cls?>" >
+                                                        <div class="img_title">
+                                                            <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
+                                                        </div>
+                                                        <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                            <div class="img_desc <?=$cls?>" >
+                                                                <? $self->sub('Text','img_desc_'.$i,Text::$default_text) ?>
+                                                            </div>
+                                                        <? endif ?>
+                                                    </div>
+                                                <? endif ?>
                                             </div>
-                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
-                                                <div class="img_desc <?=$cls?>" >
-                                                    <? $self->sub('Text','img_desc_'.$i,Text::$default_text) ?>
-                                                </div>
-                                            <? endif ?>
                                         </div>
-                                    <? endif ?>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
+                            <? }) ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -320,38 +332,43 @@ class Gallery extends Block {
     function tpl_4($val) {?>
         <div class="container-fluid gallery gallery_4" style="background: <?=$val['background']?>;">
            <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_heading) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1; $i <= 4; $i++): ?>                            
-                                <div class="item">								
-                                    <? $self->sub('GalleryImage','image_'.$i) ?>
-                                    <? if ($cls = $self->vis($val['show_image_overlay'])): ?>
-                                        <div class="overlay <?=$cls?>" >
-                                            <div class="img_title">
-                                                <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_heading) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list clear">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1; $i <= 4; $i++): ?>
+                                        <div class="col-3">                         
+                                            <div class="item">								
+                                                <? $self->sub('GalleryImage','image_'.$i) ?>
+                                                <? if ($cls = $self->vis($val['show_image_overlay'])): ?>
+                                                    <div class="overlay <?=$cls?>" >
+                                                        <div class="img_title">
+                                                            <? $self->sub('Text','img_title_'.$i,Text::$plain_heading) ?>
+                                                        </div>
+                                                        <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                            <div class="img_desc <?=$cls?>" >
+                                                                <? $self->sub('Text','img_desc_'.$i,Text::$default_text) ?>
+                                                            </div>
+                                                        <? endif ?>
+                                                    </div>
+                                                <? endif ?>
                                             </div>
-                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
-                                                <div class="img_desc <?=$cls?>" >
-                                                    <? $self->sub('Text','img_desc_'.$i,Text::$default_text) ?>
-                                                </div>
-                                            <? endif ?>
                                         </div>
-                                    <? endif ?>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>                       
+                            <? }) ?>                       
+                        </div>
                     </div>
                 </div>
             </div>
@@ -444,44 +461,46 @@ class Gallery extends Block {
     function tpl_5($val) {?>
         <div class="container-fluid gallery gallery_5" style="background: <?=$val['background']?>;">           
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_heading) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_heading) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                            </div>
+                        <? endif ?>
+                        <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                        <div class="item_list <?=$opacity?>">
+                            <div class="slider">
+                                <? $this->repeat('items', function($item_val,$self) use ($val){ ?>                                
+                                    <div class="preview_img">									
+                                        <img src="<?=$self->api->base_url."/".$item_val['image']?>">
+                                        <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
+                                            <a class="fancybox big_img <?=$cls?>" href="<?=$self->api->base_url."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
+                                        <? endif ?>                                        
+                                    </div>                                    
+                                    <div class="overlay">
+                                        <div class="wrap_title_desc">
+                                            <? if ($cls = $self->vis($val['show_image_title'])): ?>
+                                                <div class="img_title <?=$cls?>" >
+                                                    <?= $item_val['title'] ?>
+                                                </div>
+                                            <? endif ?>
+                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                <div class="img_desc <?=$cls?>" >
+                                                    <?= $item_val['desc'] ?>
+                                                </div>
+                                            <? endif ?>
+                                        </div>
+                                    </div>                                
+                                <? },array('editor'=>'lp.galleryRepeater','sortable'=>false));?>											
+                            </div>
                         </div>
-                    <? endif ?>
-                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
-					<div class="item_list clear <?=$opacity?>">
-						<div class="slider">
-							<? $this->repeat('items', function($item_val,$self) use ($val){ ?>                                
-                                <div class="preview_img">									
-                                    <img src="<?=$self->api->base_url."/".$item_val['image']?>">
-                                    <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
-                                        <a class="fancybox big_img <?=$cls?>" href="<?=$self->api->base_url."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
-                                    <? endif ?>                                        
-                                </div>                                    
-                                <div class="overlay">
-                                    <div class="wrap_title_desc">
-                                        <? if ($cls = $self->vis($val['show_image_title'])): ?>
-                                            <div class="img_title <?=$cls?>" >
-                                                <?= $item_val['title'] ?>
-                                            </div>
-                                        <? endif ?>
-                                        <? if ($cls = $self->vis($val['show_image_desc'])): ?>
-                                            <div class="img_desc <?=$cls?>" >
-                                                <?= $item_val['desc'] ?>
-                                            </div>
-                                        <? endif ?>
-                                    </div>
-                                </div>                                
-							<? },array('editor'=>'lp.galleryRepeater','sortable'=>false));?>											
-						</div>
-					</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -535,44 +554,46 @@ class Gallery extends Block {
 	function tpl_6($val) {?>		
         <div class="container-fluid gallery gallery_6" style="background: <?=$val['background']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_heading) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
-                        </div>
-                    <? endif ?>
-                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
-                    <div class="item_list masonry <?=$opacity?>">
-                        <? $this->repeat('items', function($item_val,$self) use ($val){ ?>
-                            <div class="preview_img">									
-                                <img src="<?=$self->api->base_url."/".$item_val['image']?>">
-                                <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
-                                    <a class="fancybox big_img <?=$cls?>" href="<?=$self->api->base_url."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
-                                <? endif ?> 
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_heading) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                             </div>
-                            <div class="overlay">
-                                <div class="outer">
-                                    <div class="wrap_title_desc">
-                                        <? if ($cls = $self->vis($val['show_image_title'])): ?>
-                                            <div class="img_title <?=$cls?>" >
-                                                <?= $item_val['title'] ?>
-                                            </div>
-                                        <? endif ?>
-                                        <? if ($cls = $self->vis($val['show_image_desc'])): ?>
-                                            <div class="img_desc <?=$cls?>" >
-                                                <?= $item_val['desc'] ?>
-                                            </div>
-                                        <? endif ?>
+                        <? endif ?>
+                        <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                        <div class="item_list masonry <?=$opacity?>" data-masonry-gutter="15">
+                            <? $this->repeat('items', function($item_val,$self) use ($val){ ?>
+                                <div class="preview_img">									
+                                    <img src="<?=$self->api->base_url."/".$item_val['image']?>">
+                                    <? if ($cls = $self->vis($val['enable_fancybox'])): ?>
+                                        <a class="fancybox big_img <?=$cls?>" href="<?=$self->api->base_url."/".$item_val['image']?>" title="<?=$item_val['title']?>"></a>
+                                    <? endif ?> 
+                                </div>
+                                <div class="overlay">
+                                    <div class="outer">
+                                        <div class="wrap_title_desc">
+                                            <? if ($cls = $self->vis($val['show_image_title'])): ?>
+                                                <div class="img_title <?=$cls?>" >
+                                                    <?= $item_val['title'] ?>
+                                                </div>
+                                            <? endif ?>
+                                            <? if ($cls = $self->vis($val['show_image_desc'])): ?>
+                                                <div class="img_desc <?=$cls?>" >
+                                                    <?= $item_val['desc'] ?>
+                                                </div>
+                                            <? endif ?>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        <? },array('editor'=>'lp.galleryRepeater','sortable'=>false));?> 
-                    </div> 
+                            <? },array('editor'=>'lp.galleryRepeater','sortable'=>false));?> 
+                        </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -634,34 +655,35 @@ class Gallery extends Block {
 function tpl_7($val) {?>
         <div class="container-fluid gallery gallery_7" style="background: <?=$val['background']?>;">           
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_heading) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_heading) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
+                            </div>
+                        <? endif ?>
+                        <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                        <div class="item_list <?=$opacity?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="img_double"> 
+                                    <div class="img img_w2 img_h2">
+                                        <? $self->sub('OverlayImage','image_1') ?>	
+                                    </div>
+                                </div>
+                                <div class="img_side">
+                                    <? for ($i=2; $i <= 5; $i++): ?>
+                                        <div class="img img_w1 img_h1">
+                                            <? $self->sub('OverlayImage','image_'.$i) ?>
+                                        </div>	
+                                    <? endfor ?>
+                                </div>
+                            <? }) ?>
                         </div>
-                    <? endif ?>
-                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
-                    <div class="item_list clear <?=$opacity?>">
-						<? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-							<div class="img_double"> 
-								<div class="img img_w2 img_h2">
-									<? $self->sub('OverlayImage','image_1') ?>	
-								</div>
-							</div>
-							<div class="img_side">
-                                <? for ($i=2; $i <= 5; $i++): ?>
-                                    <div class="img img_w1 img_h1">
-                                        <? $self->sub('OverlayImage','image_'.$i) ?>
-                                    </div>	
-                                <? endfor ?>
-							</div>
-							<div style="clear: both"></div>
-						<? }) ?>
                     </div>
                 </div>
             </div>
@@ -712,44 +734,46 @@ function tpl_7($val) {?>
     function tpl_8($val) {?>
         <div class="container-fluid gallery gallery_8" style="background: <?=$val['background']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_heading) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
-                        </div>
-                    <? endif ?>
-                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
-                    <div class="item_list clear <?=$opacity?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="img_side">
-                                <div class="img img_w1 img_h2">
-                                    <? $self->sub('OverlayImage','image_1') ?> 
-                                </div>
-                                <div class="img img_w1 img_h1">
-                                    <? $self->sub('OverlayImage','image_2') ?> 
-                                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_heading) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                             </div>
-                            <div class="img_double">
-                                <div class="img img_w2 img_h1">
-                                    <? $self->sub('OverlayImage','image_3') ?> 
+                        <? endif ?>
+                        <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                        <div class="item_list clear <?=$opacity?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="img_side">
+                                    <div class="img img_w1 img_h2">
+                                        <? $self->sub('OverlayImage','image_1') ?> 
+                                    </div>
+                                    <div class="img img_w1 img_h1">
+                                        <? $self->sub('OverlayImage','image_2') ?> 
+                                    </div>
                                 </div>
-                                <div class="img img_w1 img_h1">
-                                    <? $self->sub('OverlayImage','image_4') ?> 
-                                </div>
-                                <div class="img img_w1 img_h1">
-                                    <? $self->sub('OverlayImage','image_5') ?>
-                                </div>
-                                <div class="img img_w2 img_h1">
-                                    <? $self->sub('OverlayImage','image_6') ?>
-                                </div>                                
-                            </div>                            
-                            <div style="clear: both"></div>
-                        <? }) ?>
+                                <div class="img_double">
+                                    <div class="img img_w2 img_h1">
+                                        <? $self->sub('OverlayImage','image_3') ?> 
+                                    </div>
+                                    <div class="img img_w1 img_h1">
+                                        <? $self->sub('OverlayImage','image_4') ?> 
+                                    </div>
+                                    <div class="img img_w1 img_h1">
+                                        <? $self->sub('OverlayImage','image_5') ?>
+                                    </div>
+                                    <div class="img img_w2 img_h1">
+                                        <? $self->sub('OverlayImage','image_6') ?>
+                                    </div>                                
+                                </div>                            
+                                <div style="clear: both"></div>
+                            <? }) ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -802,45 +826,47 @@ function tpl_7($val) {?>
     function tpl_9($val) {?>
         <div class="container-fluid gallery gallery_9" style="background: <?=$val['background']?>;">           
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_heading) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
-                        </div>
-                    <? endif ?>
-                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
-                    <div class="item_list clear <?=$opacity?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
-                            <div class="img_double">
-                                <div class="img img_w3 img_h2">
-                                    <? $self->sub('OverlayImage','image_1') ?>
-                                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_heading) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                             </div>
-                            <div class="img_side">
+                        <? endif ?>
+                        <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                        <div class="item_list clear <?=$opacity?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
+                                <div class="img_double">
+                                    <div class="img img_w3 img_h2">
+                                        <? $self->sub('OverlayImage','image_1') ?>
+                                    </div>
+                                </div>
+                                <div class="img_side">
+                                    <div class="img img_w2 img_h1">
+                                        <? $self->sub('OverlayImage','image_2') ?>
+                                    </div>
+                                    <div class="img img_w1 img_h1">
+                                        <? $self->sub('OverlayImage','image_3') ?>
+                                    </div>
+                                    <div class="img img_w1 img_h1">
+                                        <? $self->sub('OverlayImage','image_4') ?>
+                                    </div>                                    
+                                </div>
                                 <div class="img img_w2 img_h1">
-                                    <? $self->sub('OverlayImage','image_2') ?>
+                                    <? $self->sub('OverlayImage','image_5') ?>
                                 </div>
-                                <div class="img img_w1 img_h1">
-                                    <? $self->sub('OverlayImage','image_3') ?>
+                                <div class="img img_w3 img_h1">
+                                    <? $self->sub('OverlayImage','image_6') ?>
                                 </div>
-                                <div class="img img_w1 img_h1">
-                                    <? $self->sub('OverlayImage','image_4') ?>
-                                </div>                                    
-                            </div>
-                            <div class="img img_w2 img_h1">
-                                <? $self->sub('OverlayImage','image_5') ?>
-                            </div>
-                            <div class="img img_w3 img_h1">
-                                <? $self->sub('OverlayImage','image_6') ?>
-                            </div>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>                    
+                                <div style="clear: both"></div>
+                            <? }) ?>
+                        </div>      
+                    </div>              
                 </div>
             </div>
         </div>
@@ -892,42 +918,44 @@ function tpl_7($val) {?>
     function tpl_10($val) {?>
         <div class="container-fluid gallery gallery_10" style="background: <?=$val['background']?>;">           
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_heading) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_heading) ?>
-                        </div>
-                    <? endif ?>
-                    <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
-                    <div class="item_list clear <?=$opacity?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
-                            <div class="img_side">
-                                <div class="img img_w1 img_h2">
-                                    <? $self->sub('OverlayImage','image_1') ?>
-                                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_heading) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_heading) ?>
                             </div>
-                            <div class="img_double">
-                                <div class="img img_w2 img_h1">
-                                   <? $self->sub('OverlayImage','image_2') ?>
+                        <? endif ?>
+                        <? (!$val['show_image_title'] && !$val['show_image_desc']) ? $opacity ='no_opacity': $opacity ='' ?>
+                        <div class="item_list clear <?=$opacity?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
+                                <div class="img_side">
+                                    <div class="img img_w1 img_h2">
+                                        <? $self->sub('OverlayImage','image_1') ?>
+                                    </div>
                                 </div>
-                                <div class="img img_w1 img_h1">
-                                    <? $self->sub('OverlayImage','image_3') ?>
+                                <div class="img_double">
+                                    <div class="img img_w2 img_h1">
+                                    <? $self->sub('OverlayImage','image_2') ?>
+                                    </div>
+                                    <div class="img img_w1 img_h1">
+                                        <? $self->sub('OverlayImage','image_3') ?>
+                                    </div>
+                                    <div class="img img_w1 img_h1">
+                                        <? $self->sub('OverlayImage','image_4') ?>
+                                    </div>
+                                    <div class="img img_w2 img_h1">
+                                        <? $self->sub('OverlayImage','image_5') ?>
+                                    </div>
                                 </div>
-                                <div class="img img_w1 img_h1">
-                                    <? $self->sub('OverlayImage','image_4') ?>
-                                </div>
-                                <div class="img img_w2 img_h1">
-                                    <? $self->sub('OverlayImage','image_5') ?>
-                                </div>
-                            </div>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div>                    
+                                <div style="clear: both"></div>
+                            <? }) ?>
+                        </div>    
+                    </div>                
                 </div>
             </div>
         </div>
