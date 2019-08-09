@@ -21,7 +21,7 @@ lp.timer = lp.block.extendOptions({
         if (this.value.variant == 2){
             if(this.value.show_title_2)
                 this.variant.find(".title_2").prop("class", jq(".title_2").attr('class') + "timer_"+ this.value.title_2_and_countdown_color);
-            this.variant.find(".countdown_wrap").prop("class","countdown_wrap timer_"+this.value.title_2_and_countdown_color);
+            this.variant.find(".countdown_wrap").prop("class","countdown_wrap col-8 after-2 before-2 timer_"+this.value.title_2_and_countdown_color);
         }
         if (this.value.variant == 2 || this.value.variant == 4) {
             if (this.value.background.color)

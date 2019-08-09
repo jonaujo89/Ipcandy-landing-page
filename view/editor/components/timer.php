@@ -14,27 +14,33 @@ class Timer extends Block {
         } else {
             $this->name = 'Таймер';
             $this->description = "Счетчик для акций";
-        }        
+        }
     }
     
     function tpl($val) {?>
         <div class="container-fluid timer timer_1" style="background:<?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <h1 class="title">
-                        <? $this->sub('Text','title',Text::$plain_text) ?>
-                    </h1>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="title">
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
+                        </h1>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="row">
+                            <div class="countdown_desc col-12">
+                                <? $this->sub('Text','countdown_desc',Text::$plain_text) ?>
+                            </div>
                         </div>
-                    <? endif ?>
-                    <div class="countdown_desc">
-                        <? $this->sub('Text','countdown_desc',Text::$plain_text) ?>
+                        <div class="row">
+                            <div class="countdown_wrap col-6 after-3 before-3" style="color:<?=$val['countdown_color']?>;">
+                                <? $this->sub('Countdown', 'countdown') ?>
+                            </div>
+                        </div>
                     </div>
-					<div class="countdown_wrap" style="color:<?=$val['countdown_color']?>;">
-						<? $this->sub('Countdown', 'countdown') ?>
-					</div>
                 </div>
             </div>
         </div>
@@ -64,21 +70,27 @@ class Timer extends Block {
     function tpl_2($val) {?>
         <div class="container-fluid timer timer_2" style="<?=$this->bg_style($val['background'])?>">
             <div class="container">
-                <div class="span16">
-                    <h1 class="title">
-                        <? $this->sub('Text','title',Text::$plain_text) ?>
-                    </h1>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2  <?= $val['title_2_and_countdown_color'] ? "timer_".$val['title_2_and_countdown_color'] : "" ?> <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="title">
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
+                        </h1>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?= $val['title_2_and_countdown_color'] ? "timer_".$val['title_2_and_countdown_color'] : "" ?> <?= $cls ?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="row">
+                            <div class="countdown_desc col-12">
+                                <? $this->sub('Text','countdown_desc',Text::$plain_text) ?>
+                            </div>
                         </div>
-                    <? endif ?>
-                    <div class="countdown_desc">
-                        <? $this->sub('Text','countdown_desc',Text::$plain_text) ?>
+                        <div class="row">
+                            <div class="countdown_wrap col-8 after-2 before-2 <?= $val['title_2_and_countdown_color'] ? "timer_".$val['title_2_and_countdown_color'] : "" ?>">
+                                <? $this->sub('Countdown','countdown') ?>
+                            </div>
+                        </div>
                     </div>
-                    <div class="countdown_wrap  <?= $val['title_2_and_countdown_color'] ? "timer_".$val['title_2_and_countdown_color'] : "" ?>">
-						<? $this->sub('Countdown','countdown') ?>
-					</div>
                 </div>
             </div>
         </div>
@@ -107,35 +119,39 @@ class Timer extends Block {
     function tpl_3($val) {?>
         <div class="container-fluid timer timer_3" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span8">
-                    <h1 class="title">
-                        <? $this->sub('Text','title',Text::$plain_text) ?>
-                    </h1>
-                    <div class="timer_desc">
-                        <? $this->sub('Text','timer_desc',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-6">
+                        <h1 class="title">
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
+                        </h1>
+                        <div class="timer_desc">
+                            <? $this->sub('Text','timer_desc',Text::$plain_text) ?>
+                        </div>
+                        <div class="row">
+                            <div class="countdown_wrap col-6">
+                                <? $this->sub('Countdown','countdown') ?>
+                            </div>
+                        </div>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
                     </div>
-                    <div class="countdown_wrap">
-						<? $this->sub('Countdown','countdown') ?>
-					</div>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                    <div class="col-6">
+                        <div class="form">
+                            <div class="form_title">
+                                <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
+                            </div>
+                            <div class="form_data">
+                                <? $this->sub('FormOrder','form') ?>
+                            </div>
+                            <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
+                                <div class="form_bottom <?=$cls?>" >
+                                    <? $this->sub('Text','form_bottom_text',Text::$default_text) ?>
+                                </div>
+                            <? endif ?>                
                         </div>
-                    <? endif ?>
-                </div>
-                <div class="span8">
-                    <div class="form">
-                        <div class="form_title">
-                            <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
-                        </div>
-                        <div class="form_data">
-                            <? $this->sub('FormOrder','form') ?>
-                        </div>
-                        <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
-							<div class="form_bottom <?=$cls?>" >
-								<? $this->sub('Text','form_bottom_text',Text::$default_text) ?>
-							</div>
-						<? endif ?>                
                     </div>
                 </div>
             </div>
@@ -172,35 +188,39 @@ class Timer extends Block {
     function tpl_4($val) {?>
         <div class="container-fluid timer timer_4" style="<?=$this->bg_style($val['background'])?>">
             <div class="container">
-                <div class="span8">
-                    <h1 class="title">
-                        <? $this->sub('Text','title',Text::$plain_text) ?>
-                    </h1>
-                    <div class="timer_desc">
-                        <? $this->sub('Text','timer_desc',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-6">
+                        <h1 class="title">
+                            <? $this->sub('Text','title',Text::$plain_text) ?>
+                        </h1>
+                        <div class="timer_desc">
+                            <? $this->sub('Text','timer_desc',Text::$plain_text) ?>
+                        </div>
+                        <div class="row">
+                            <div class="countdown_wrap col-6">
+                                <? $this->sub('Countdown','countdown') ?>
+                            </div>
+                        </div>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
                     </div>
-                    <div class="countdown_wrap">
-						<? $this->sub('Countdown','countdown') ?>
-					</div>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                    <div class="col-6">
+                        <div class="form">
+                            <div class="form_title">
+                                <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
+                            </div>
+                            <div class="form_data">
+                                <? $this->sub('FormOrder','form') ?>
+                            </div>
+                            <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
+                                <div class="form_bottom <?=$cls?>" >
+                                    <? $this->sub('Text','form_bottom_text',Text::$default_text) ?>
+                                </div>
+                            <? endif ?>                
                         </div>
-                    <? endif ?>
-                </div>
-                <div class="span8">
-                    <div class="form">
-                        <div class="form_title">
-                            <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
-                        </div>
-                        <div class="form_data">
-                            <? $this->sub('FormOrder','form') ?>
-                        </div>
-                        <? if ($cls = $this->vis($val['show_form_bottom_text'])): ?>
-							<div class="form_bottom <?=$cls?>" >
-								<? $this->sub('Text','form_bottom_text',Text::$default_text) ?>
-							</div>
-						<? endif ?>                
                     </div>
                 </div>
             </div>
