@@ -45,7 +45,7 @@ lp.services = lp.block.extendOptions({
             this.variant.find(".btn_note").toggleVis(this.value.show_text_above_button);
             this.variant.find(".btn_wrap").toggleVis(this.value.show_order_button);
             this.variant.find(".item").toggleClass("hide_shadow",!this.value.show_image_shadow);  
-            this.variant.find(".img_data").prop("class","img_data image_"+this.value.image_size);
+            this.variant.find(".img_data").prop("class","img_data col-5 before-1 image_"+this.value.image_size);
         }
         
         if (this.value.variant==4) {

@@ -20,58 +20,58 @@ class Services extends Block {
     function tpl($val) {?>
         <div class="container-fluid services services_1" style="background: <?=$val['background']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>    
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item_datas">
-                            <? for ($i=1; $i <= 3; $i++): ?>
-                                <div class="item_data">
-                                    <? if ($cls = $self->vis($val['show_image'])): ?>
-                                        <div class="img_wrap <?=$cls?>" >
-                                            <? $self->sub('Image','image_'.$i) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>    
+                        <div class="item_list clear">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="item_datas row">
+                                <? for ($i=1; $i <= 3; $i++): ?>
+                                    <div class="col-4">
+                                        <div class="item">
+                                            <div class="item_data">
+                                                <? if ($cls = $self->vis($val['show_image'])): ?>
+                                                    <div class="img_wrap <?=$cls?>" >
+                                                        <? $self->sub('Image','image_'.$i) ?>
+                                                    </div>
+                                                <? endif ?>
+                                                <div class="name">
+                                                    <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
+                                                </div>
+                                                <? if ($cls = $self->vis($val['show_desc'])): ?>
+                                                    <div class="desc <?=$cls?>" >
+                                                        <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
+                                                    </div>
+                                                <? endif ?>
+                                            </div>
+                                            <div class="item_action">
+                                                <? if ($cls = $self->vis($val['show_price'])): ?>
+                                                    <div class="price <?=$cls?>" >
+                                                        <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
+                                                    </div>
+                                                <? endif ?>
+                                                <? if ($cls = $self->vis($val['show_order_button'])): ?>
+                                                    <div class="btn_wrap <?=$cls?>" >
+                                                        <? $self->sub("FormButton",'@order_button') ;?>
+                                                    </div>
+                                                <? endif ?>
+                                            </div>
                                         </div>
-                                    <? endif ?>
-                                    <div class="name">
-                                        <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
                                     </div>
-                                    <? if ($cls = $self->vis($val['show_desc'])): ?>
-                                        <div class="desc <?=$cls?>" >
-                                            <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
-                                        </div>
-                                    <? endif ?>
+                                <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            </div>
-                            <div class="item_actions">
-                            <? for ($i=1; $i <= 3; $i++): ?>
-                                <div class="item_action">
-                                    <? if ($cls = $self->vis($val['show_price'])): ?>
-                                        <div class="price <?=$cls?>" >
-                                            <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_order_button'])): ?>
-                                        <div class="btn_wrap <?=$cls?>" >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
-                            <? endfor ?>            
-                            </div>
-                        
-                            <div style="clear: both"></div>
-                        <? }) ?>                        
-                    </div> 
+                            <? }) ?>                        
+                        </div> 
+                    </div>
                  </div>
             </div>
         </div>
@@ -139,48 +139,52 @@ class Services extends Block {
     function tpl_2($val) {?>
         <div class="container-fluid services services_2" style="background: <?=$val['background']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>    
-                    <div class="item_list clear <?= $val['image_shape'] ? $val['image_shape'] : "circle" ?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1;$i<=2;$i++): ?>
-                                <div class="item <?= $val['show_image_shadow'] ? '' : "hide_shadow" ?>">
-                                    <div class="img_data">
-                                        <? $self->sub('Image','image_'.$i) ?>
-                                    </div>
-                                    <div class="item_data">
-                                        <div class="name">
-                                            <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>    
+                        <div class="item_list clear <?= $val['image_shape'] ? $val['image_shape'] : "circle" ?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=2;$i++): ?>
+                                        <div class="item col-6 <?= $val['show_image_shadow'] ? '' : "hide_shadow" ?>">
+                                            <div class="img_data">
+                                                <? $self->sub('Image','image_'.$i) ?>
+                                            </div>
+                                            <div class="item_data">
+                                                <div class="name">
+                                                    <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
+                                                </div>
+                                                <? if ($cls = $self->vis($val['show_desc'])): ?>
+                                                    <div class="desc <?=$cls?>" >
+                                                        <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
+                                                    </div>
+                                                <? endif ?>
+                                                <? if ($cls = $self->vis($val['show_price'])): ?>
+                                                    <div class="price <?=$cls?>" >
+                                                        <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
+                                                    </div>
+                                                <? endif ?>
+                                                <? if ($cls = $self->vis($val['show_order_button'])): ?>
+                                                    <div class="btn_wrap <?=$cls?>" >
+                                                        <? $self->sub("FormButton",'@order_button') ;?>
+                                                    </div>
+                                                <? endif ?>
+                                            </div>
                                         </div>
-                                        <? if ($cls = $self->vis($val['show_desc'])): ?>
-                                            <div class="desc <?=$cls?>" >
-                                                <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
-                                            </div>
-                                        <? endif ?>
-                                        <? if ($cls = $self->vis($val['show_price'])): ?>
-                                            <div class="price <?=$cls?>" >
-                                                <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
-                                            </div>
-                                        <? endif ?>
-                                        <? if ($cls = $self->vis($val['show_order_button'])): ?>
-                                            <div class="btn_wrap <?=$cls?>" >
-                                                <? $self->sub("FormButton",'@order_button') ;?>
-                                            </div>
-                                        <? endif ?>
-                                    </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                        <? }) ?>
-                    </div> 
+                            <? }) ?>
+                        </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -242,52 +246,53 @@ class Services extends Block {
     function tpl_3($val) {?>
         <div class="container-fluid services services_3" style="background: <?=$val['background']?>;">
             <div class="container">
-                <div class="span16">
-                   <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>    
-                    <div class="item_list clear">
-                         <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <div class="item <?= $val['show_image_shadow'] ? "" : "hide_shadow" ?>">
-                                <div class="img_data <?= $val['image_size'] ? "image_".$val['image_size'] : "image_middle" ?>">
-                                    <? $self->sub('Image','image') ?>
-                                </div>
-                                <div class="item_data">
-                                    <div class="name">
-                                        <? $self->sub('Text','name',Text::$plain_heading) ?>
-                                    </div>
-                                    <? if ($cls = $self->vis($val['show_desc'])): ?>
-                                        <div class="desc <?=$cls?>" >
-                                            <? $self->sub('Text','desc',Text::$default_text) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_price'])): ?>
-                                        <div class="price <?=$cls?>" >
-                                            <? $self->sub('Text','price',Text::$color_heading) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_text_above_button'])): ?>
-                                        <div class="btn_note <?=$cls?>" >
-                                            <? $self->sub('Text','btn_note',Text::$default_heading) ?>
-                                        </div>
-                                    <? endif ?>
-                                    <? if ($cls = $self->vis($val['show_order_button'])): ?>
-                                        <div class="btn_wrap <?=$cls?>" >
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                    <? endif ?>
-                                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
                             </div>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div> 
+                        <? endif ?>    
+                        <div class="item_list">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="item row <?= $val['show_image_shadow'] ? "" : "hide_shadow" ?>">
+                                    <div class="img_data col-5 before-1 <?= $val['image_size'] ? "image_".$val['image_size'] : "image_middle" ?>">
+                                        <? $self->sub('Image','image') ?>
+                                    </div>
+                                    <div class="item_data col-6">
+                                        <div class="name">
+                                            <? $self->sub('Text','name',Text::$plain_heading) ?>
+                                        </div>
+                                        <? if ($cls = $self->vis($val['show_desc'])): ?>
+                                            <div class="desc <?=$cls?>" >
+                                                <? $self->sub('Text','desc',Text::$default_text) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($cls = $self->vis($val['show_price'])): ?>
+                                            <div class="price <?=$cls?>" >
+                                                <? $self->sub('Text','price',Text::$color_heading) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($cls = $self->vis($val['show_text_above_button'])): ?>
+                                            <div class="btn_note <?=$cls?>" >
+                                                <? $self->sub('Text','btn_note',Text::$default_heading) ?>
+                                            </div>
+                                        <? endif ?>
+                                        <? if ($cls = $self->vis($val['show_order_button'])): ?>
+                                            <div class="btn_wrap <?=$cls?>" >
+                                                <? $self->sub("FormButton",'@order_button') ;?>
+                                            </div>
+                                        <? endif ?>
+                                    </div>
+                                </div>
+                            <? }) ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -347,51 +352,54 @@ class Services extends Block {
     function tpl_4($val) {?>
         <div class="container-fluid services services_4" style="background: <?=$val['background']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>    
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1;$i<=3;$i++): ?>
-                                <div class="item">
-                                    <? if ($cls = $self->vis($val['show_image'])): ?>
-                                        <div class="img_wrap <?=$cls?>" >
-                                            <?=$self->sub('Icon','image_'.$i)?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>    
+                        <div class="item_list clear">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=3;$i++): ?>
+                                        <div class="item col-4">
+                                            <? if ($cls = $self->vis($val['show_image'])): ?>
+                                                <div class="img_wrap <?=$cls?>" >
+                                                    <?=$self->sub('Icon','image_'.$i)?>
+                                                </div>
+                                            <? endif ?>                                
+                                            <div class="item_data">
+                                                <div class="name">
+                                                    <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
+                                                </div>
+                                                <? if ($cls = $self->vis($val['show_desc'])): ?>
+                                                    <div class="desc <?=$cls?>" >
+                                                        <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
+                                                    </div>
+                                                <? endif ?>
+                                                <? if ($cls = $self->vis($val['show_price'])): ?>
+                                                    <div class="price <?=$cls?>" >
+                                                        <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
+                                                    </div>
+                                                <? endif ?>
+                                                <? if ($cls = $self->vis($val['show_order_button'])): ?>
+                                                    <div class="btn_wrap <?=$cls?>" >
+                                                        <? $self->sub("FormButton",'@order_button') ;?>
+                                                    </div>
+                                                <? endif ?>
+                                            </div>
                                         </div>
-                                    <? endif ?>                                
-                                    <div class="item_data">
-                                        <div class="name">
-                                            <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
-                                        </div>
-                                        <? if ($cls = $self->vis($val['show_desc'])): ?>
-                                            <div class="desc <?=$cls?>" >
-                                                <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
-                                            </div>
-                                        <? endif ?>
-                                        <? if ($cls = $self->vis($val['show_price'])): ?>
-                                            <div class="price <?=$cls?>" >
-                                                <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
-                                            </div>
-                                        <? endif ?>
-                                        <? if ($cls = $self->vis($val['show_order_button'])): ?>
-                                            <div class="btn_wrap <?=$cls?>" >
-                                                <? $self->sub("FormButton",'@order_button') ;?>
-                                            </div>
-                                        <? endif ?>
-                                    </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
-                    </div> 
+                            <? }) ?>
+                        </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -459,51 +467,54 @@ class Services extends Block {
     function tpl_5($val) {?>
         <div class="container-fluid services services_5" style="background: <?=$val['background']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>   
-                    <div class="item_list clear <?= $val['image_shape'] ? $val['image_shape'] : "circle" ?>">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1;$i<=3;$i++): ?>
-                                <div class="item">
-                                    <div class="item_data">
-                                        <? if ($cls = $self->vis($val['show_image'])): ?>
-                                            <div class="img_wrap <?=$cls?>" >
-                                                <? $self->sub('Image','image_'.$i) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>   
+                        <div class="item_list clear <?= $val['image_shape'] ? $val['image_shape'] : "circle" ?>">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=3;$i++): ?>
+                                        <div class="item col-4">
+                                            <div class="item_data">
+                                                <? if ($cls = $self->vis($val['show_image'])): ?>
+                                                    <div class="img_wrap <?=$cls?>" >
+                                                        <? $self->sub('Image','image_'.$i) ?>
+                                                    </div>
+                                                <? endif ?>
+                                                <div class="name">
+                                                    <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
+                                                </div>
+                                                <? if ($cls = $self->vis($val['show_desc'])): ?>
+                                                    <div class="desc <?=$cls?>" >
+                                                        <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
+                                                    </div>
+                                                <? endif ?>
+                                                <? if ($cls = $self->vis($val['show_price'])): ?>
+                                                    <div class="price <?=$cls?>" >
+                                                        <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
+                                                    </div>
+                                                <? endif ?>
+                                                <? if ($cls = $self->vis($val['show_order_button'])): ?>
+                                                    <div class="btn_wrap <?=$cls?>" >
+                                                        <? $self->sub("FormButton",'@order_button') ;?>
+                                                    </div>
+                                                <? endif ?>
                                             </div>
-                                        <? endif ?>
-                                        <div class="name">
-                                            <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
                                         </div>
-                                        <? if ($cls = $self->vis($val['show_desc'])): ?>
-                                            <div class="desc <?=$cls?>" >
-                                                <? $self->sub('Text','desc_'.$i,Text::$default_text) ?>
-                                            </div>
-                                        <? endif ?>
-                                        <? if ($cls = $self->vis($val['show_price'])): ?>
-                                            <div class="price <?=$cls?>" >
-                                                <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
-                                            </div>
-                                        <? endif ?>
-                                        <? if ($cls = $self->vis($val['show_order_button'])): ?>
-                                            <div class="btn_wrap <?=$cls?>" >
-                                                <? $self->sub("FormButton",'@order_button') ;?>
-                                            </div>
-                                        <? endif ?>
-                                    </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>                        
-                    </div> 
+                            <? }) ?>                        
+                        </div> 
+                    </div>
                  </div>
             </div>
         </div>
@@ -575,39 +586,44 @@ class Services extends Block {
     function tpl_6($val) {?>
         <div class="container-fluid services services_6" style="background: <?=$val['background']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>   
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
-                            <? for ($i=1;$i<=3;$i++): ?>
-                                <div class="item">
-                                    <div class="item_data">
-                                        <div class="name">
-                                            <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>   
+                        <div class="item_list">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=3;$i++): ?>
+                                        <div class="item col-4">
+                                            <div class="item_data">
+                                                <div class="name">
+                                                    <? $self->sub('Text','name_'.$i,Text::$plain_heading) ?>
+                                                </div>
+                                                <div class="img_wrap">
+                                                    <? $self->sub('Image','image_'.$i) ?>
+                                                </div> 
+                                                <div class="price_wrap row">
+                                                    <div class="price col-2">
+                                                        <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
+                                                    </div>
+                                                    <div class="btn_wrap col-2">
+                                                        <? $self->sub("FormButton",'@order_button') ;?>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="img_wrap">
-                                            <? $self->sub('Image','image_'.$i) ?>
-                                        </div> 
-                                        <div class="btn_wrap">
-                                            <? $self->sub("FormButton",'@order_button') ;?>
-                                        </div>
-                                        <div class="price">
-                                            <? $self->sub('Text','price_'.$i,Text::$color_heading) ?>
-                                        </div>
-                                    </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?> 
+                            <? }) ?> 
+                        </div>
                     </div>
                 </div>
             </div>
