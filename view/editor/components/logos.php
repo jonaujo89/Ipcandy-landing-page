@@ -18,28 +18,28 @@ class Logos extends Block {
     }
     
     function tpl($val) {?>
-        <div class="container-fluid clientsLogos clientsLogos_1" style="background:<?=$val['background_color']?>;">
+        <div class="container-fluid clients_logos clients_logos_1" style="background:<?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list <?= $val['grayscale_logo'] ? "gray" : "" ?>">
+                            
+                            <? $this->repeat('items',function($sub,$self) { ?>
+                                
+                                <? $self->sub('LogoItem','image'); ?>
+                                
+                            <? },array('inline' => true)) ?>
                         </div>
-                    <? endif ?>
-                    <div class="item_list clear <?= $val['grayscale_logo'] ? "gray" : "" ?>">
-                        
-                        <? $this->repeat('items',function($sub,$self) { ?>
-                        
-                            <? $self->sub('LogoItem','image'); ?>
-                        
-                        <? },array('inline' => true)) ?>
-                        
-                        <div style="clear: both"></div>
                     </div>
                 </div>
             </div>
