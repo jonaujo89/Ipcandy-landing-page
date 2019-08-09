@@ -20,41 +20,44 @@ class Feedback extends Block {
     function tpl($val) {?>
         <div class="container-fluid feedback feedback_1" style="background: <?=$val['background_color']?>;">
             <div class="container">
-                <div class="span16">
-                    <? if ($cls = $this->vis($val['show_title'])): ?>
-                        <h1 class="title <?=$cls?> " >
-                            <? $this->sub('Text','title',Text::$plain_text) ?>
-                        </h1>
-                    <? endif ?>
-                    <? if ($cls = $this->vis($val['show_title_2'])): ?>
-                        <div class="title_2 <?=$cls?> " >
-                            <? $this->sub('Text','title_2',Text::$plain_text) ?>
-                        </div>
-                    <? endif ?>
-                    <div class="item_list clear">
-                        <? $this->repeat('items',function($val,$self) { ?>
-                            <? for ($i=1;$i<=3;$i++): ?>                            
-                                <div class="item">
-                                    <div class="item_data">
-                                        <div class="text">
-                                            <?=$self->sub('Text','text_'.$i,Text::$default_text)?>
-                                        </div>
-                                        <div class="name">
-                                            <?=$self->sub('Text','name_'.$i,Text::$default_text)?>
-                                        </div>
-                                        <div class="desc">
-                                            <?=$self->sub('Text','desc_'.$i,Text::$color_text)?>                            
-                                        </div>
-                                        <? if ($cls = $self->vis($val['show_image'])): ?>
-                                            <div class="img_wrap <?=$cls?>" >
-                                                <? $self->sub('Image','image_'.$i) ?>
+                <div class="row">
+                    <div class="col-12">
+                        <? if ($cls = $this->vis($val['show_title'])): ?>
+                            <h1 class="title <?=$cls?> " >
+                                <? $this->sub('Text','title',Text::$plain_text) ?>
+                            </h1>
+                        <? endif ?>
+                        <? if ($cls = $this->vis($val['show_title_2'])): ?>
+                            <div class="title_2 <?=$cls?> " >
+                                <? $this->sub('Text','title_2',Text::$plain_text) ?>
+                            </div>
+                        <? endif ?>
+                        <div class="item_list clear">
+                            <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
+                                <div class="row">
+                                    <? for ($i=1;$i<=3;$i++): ?>                            
+                                        <div class="item col-4">
+                                            <div class="item_data">
+                                                <div class="text">
+                                                    <?=$self->sub('Text','text_'.$i,Text::$default_text)?>
+                                                </div>
+                                                <div class="name">
+                                                    <?=$self->sub('Text','name_'.$i,Text::$default_text)?>
+                                                </div>
+                                                <div class="desc">
+                                                    <?=$self->sub('Text','desc_'.$i,Text::$color_text)?>                            
+                                                </div>
+                                                <? if ($cls = $self->vis($val['show_image'])): ?>
+                                                    <div class="img_wrap <?=$cls?>" >
+                                                        <? $self->sub('Image','image_'.$i) ?>
+                                                    </div>
+                                                <? endif ?>
                                             </div>
-                                        <? endif ?>
-                                    </div>
+                                        </div>
+                                    <? endfor ?>
                                 </div>
-                            <? endfor ?>
-                            <div style="clear: both"></div>
-                        <? }) ?>
+                            <? }) ?>
+                        </div>
                     </div>
                 </div>
             </div>
