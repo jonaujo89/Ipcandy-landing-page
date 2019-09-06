@@ -1,4 +1,8 @@
 .order {
+    .container {
+        padding-y: 0;
+    }
+
     .form {
         padding: 28px;
     }
@@ -29,11 +33,17 @@
 
     &.order_1 {
         .container {
-            padding-y: 48px;
             min-height: 400px;
+            padding-y: 48px;
+            @media (max-width: @grid.mediaWidth()) {
+                padding-y: 0px;
+            }
         }
 
         .form_wrapper.col-4 {
+            @media (max-width: @grid.mediaWidth()) {
+                .grid.columnMobile(6);
+            }
             .form {
                 width: 100%;
                 height: auto;
@@ -90,7 +100,7 @@
             background: rgba(29, 29, 29, 0.35);
         }
 
-        .text_wrapper.col-8 {
+        .text_wrapper.col-6 {
             .title, .title_2 {
                 text-align: left;
                 .list {
@@ -115,7 +125,8 @@
                 color: @headingColorLight;
                 font-weight: 700;
 
-                .font_size_flexible(8, 58, 28);
+                .font_size_flexible(8, 58, 1);
+                margin-left: 0;
         
                 &:after, .list:after, .list p:after {
                     clear: both;
@@ -131,7 +142,8 @@
                 margin-top: 30px;
                 color: @subHeadingColorLight;
 
-                .font_size_flexible(8, 26, 21);
+                .font_size_flexible(8, 26, 1);
+                margin-left: 0;
     
                 .list {
                     > div {
@@ -253,22 +265,41 @@
     }
 
     &.order_3 {
+        .media_col.col-5 {
+            @media (max-width: @grid.mediaWidth()) {
+                .grid.columnMobile(6);
+            }
+        }
         .img {
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            height: 350px;
+            width: 100%;
+            height: 100%;
             position: relative;
         }
     
         iframe {
-            height: 350px;
             width: 100%;
+            height: 100%;
             vertical-align: top;
         }
     
         .img_wrap {
-            width: 100%;
+            > div {
+                width: 100%;
+                height: 100%;
+                padding-top: 80%;
+
+                .media {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+            }
+
             border: 10px solid #fff;
             box-shadow: 0 0 0 1px #DADADA;
             position: relative;
@@ -308,12 +339,9 @@
             text-transform: uppercase;
             font-weight: 600;
             text-align: left;
-    
-            @media (max-width: @grid.mediaWidth()) {
-                margin-top: 40px;
-            }
 
             .font_size_flexible(6, 50, 32);
+            margin-left: 0;
         }
     
         .title_2 {
@@ -325,6 +353,7 @@
             font-weight: 600;
 
             .font_size_flexible(6, 24, 18);
+            margin-left: 0;
         }
     
         .desc {
@@ -333,6 +362,7 @@
             text-shadow: 0 1px 0 #FFF;
             font-size: 1.07rem;
             line-height: 1.45;
+            margin-left: 0;
         }
     
         .btn_wrap {
@@ -404,7 +434,7 @@
             font-weight: 400;
             text-align: center;
             width: 100%;
-c    
+
             .font_size_flexible(12, 18, 14);
         }
 
@@ -417,6 +447,20 @@ c
         }
     
         .img_wrap {
+            > div {
+                width: 100%;
+                height: 100%;
+                padding-top: 62%;
+
+                .media {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+            }
+
             width: 100%;
             border-radius: 5px;
             box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.25);
@@ -440,17 +484,13 @@ c
                 background-position: center center;
                 border-radius: 5px;
             }
+
+            iframe {
+                height: 100%;
+                width: 100%;
+                border-radius: 5px;
+            } 
         }
-    
-        .media {
-            height: 400px;
-        }
-    
-        iframe {
-            height: 100%;
-            width: 100%;
-            border-radius: 5px;
-        } 
     
         .col-5 .form {
             background: none repeat scroll 0 0 rgba(0, 0, 0, 0.25);
@@ -546,7 +586,7 @@ c
             .container {
                 padding-y: 40px;
                 @media (max-width: @grid.mediaWidth()) {
-                    padding-y: 20px;
+                    padding-y: 0px;
                 }
             }
         }
@@ -575,29 +615,6 @@ c
         }
     
         .ico_list.col-7 {
-            @ icoSpacing = 65;
-
-            @media (max-width: @grid.mediaWidth(7)) {
-                max-width: @{grid.getMobileWidth(7) - icoSpacing}px;
-                .item_block .item {
-                    .ico {
-                        margin-bottom: 10px;
-                        float: none;
-                        margin-x: auto;
-                    }
-                    
-                    .name {
-                        text-align: center;
-                        margin-x: auto;
-                    }
-        
-                    .desc {
-                        text-align: center;
-                        margin-x: auto;
-                    }
-                }
-            }
-    
             .item {
                 padding-y: 25px;
                 position: relative;
@@ -735,6 +752,10 @@ c
             .container {
                 color: @primaryColorLight;
                 padding-y: 100px;
+
+                @media (max-width: @grid.mediaWidth()) {
+                    padding-y: 0px;
+                }
             }
         }
 
@@ -781,12 +802,12 @@ c
         }
     
         .title {
-            .font_size_flexible(8, 36, 24);
+            .font_size_flexible(8, 36, 22);
         }
     
         .title_2 {
             margin: -4px 0 0;
-            .font_size_flexible(8, 50, 32);
+            .font_size_flexible(8, 50, 28);
         }
     
         .title_3 {
@@ -802,6 +823,10 @@ c
             max-width: 485px;
             width: 100%;
             font-size: 1.125rem;
+    
+            @media (max-width: @{485 + grid.scrollBarWidth}px) {
+                padding: 20px 10px;
+            }
     
             .form_title {
                 color: #ffffff;

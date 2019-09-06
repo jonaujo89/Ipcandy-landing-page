@@ -54,6 +54,10 @@
             .span_desc.col-5 {
                 line-height: 1.4;
                 .font_size_flexible(5, 20, 15);
+
+                @media (max-width: @grid.mediaWidth()) {
+                    text-align: center;
+                }
             }
 
             .span_phone.col-4 {

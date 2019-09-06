@@ -22,7 +22,7 @@ class Order extends Block {
             <div class="dark">
                 <div class="container">
                     <div class="row">
-                        <div class="col-8 text_wrapper">
+                        <div class="col-6 text_wrapper">
                             <div class="title">
                                 <div class="list"><? $this->sub('Text','title_1',Text::$plain_text) ?></div>                               
                             </div>
@@ -30,7 +30,7 @@ class Order extends Block {
                                 <div class="list"><? $this->sub('Text','title_2',Text::$plain_text) ?></div>
                             </div>
                         </div>
-                        <div class="col-4 form_wrapper">  
+                        <div class="col-4 before-2 form_wrapper">  
                             <div class="form ">
                                 <div class="form_title">
                                     <? $this->sub('Text','form_title_1',Text::$default_text) ?>    
@@ -136,7 +136,7 @@ class Order extends Block {
         <div class="container-fluid order order_3" style="background-image: url('<?=$this->api->base_url."/".$val['background']?>');">
             <div class="container">
                 <div class="row">
-                    <div class="col-5">       
+                    <div class="media_col col-5">       
                         <div class="img_wrap <?= $val['show_border'] ? "" : "hide_border" ?>">
                             <? $this->sub('Media','media') ?>
                         </div>
