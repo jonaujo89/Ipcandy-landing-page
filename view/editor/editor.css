@@ -56,6 +56,13 @@ body.view-layout #beejee_info{
     padding-left: 8px !important;
     height: 55px !important;
     line-height: 50px !important;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .preview-toolbar {
+        font-size: 0.7em !important;
+    }
 }
 
 .preview-toolbar > button {
