@@ -14,6 +14,7 @@
         }
 
         .countdown {
+            overflow: auto;
             .county-days, .county-hours, .county-minutes, .county-seconds {
                 float: left;
                 width: 25%;
@@ -80,6 +81,7 @@
         }
 
         .countdown {
+            overflow: auto;
             .county-days, .county-hours, .county-minutes, .county-seconds {
                 float: left;
                 width: 25%;
@@ -317,12 +319,6 @@
                 }
             }
         }
-
-        .form {
-            @media (max-width: @grid.mediaWidth(6)) {
-                max-width: 300px;
-            }
-        }
     }
 
     &.timer_4 {
@@ -370,12 +366,6 @@
                 .county-seconds div {
                     border-right: 1px solid #E9E9E9;
                 }
-            }
-        }
-
-        .form {
-            @media (max-width: @grid.mediaWidth(6)) {
-                max-width: 300px;
             }
         }
     }

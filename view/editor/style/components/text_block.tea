@@ -75,22 +75,18 @@
 
                 .text_wrap.col-6 {
                     .text_title {
-                        @media (max-width: @grid.mediaWidth()) {
-                            text-align: center;
-                        }
-
                         .font_size_flexible(6, 24, 20);
+                        margin-left: 0;
                     }
 
                     .text_title_2 {
+                        .font_size_flexible(6, 20, 16);
+                        margin-left: 0;
                         margin-bottom: 20px;
                         line-height: 1.3;
-    
-                        .font_size_flexible(6, 20, 16);
                     
                         @media (max-width: @grid.mediaWidth()) {
                             margin-bottom: 10px;
-                            text-align: center;
                         }
                     }
 
@@ -258,14 +254,14 @@
                     line-height: 1.57;
                     margin-left: @{icoSpacing}px;
                 }
+            }
 
-                &.hide_border .item .ico {
-                    margin-bottom: 15px;
-                    border: none;
-                    background-size: 55px;
-                    width: 78px;
-                    height: 78px;
-                }
+            .item_list.hide_border .item .ico {
+                margin-bottom: 15px;
+                border: none;
+                background-size: 55px;
+                width: 78px;
+                height: 78px;
             }
         }
     }

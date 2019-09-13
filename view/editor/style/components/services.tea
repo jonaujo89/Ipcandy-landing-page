@@ -36,7 +36,7 @@
     .btn_wrap {
         a {
             &.btn_form {
-                .user_select<user-select>('none');
+                user-select: none;
                 box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
                 color: #ffffff;
                 cursor: pointer;
@@ -145,7 +145,7 @@
     &.services_2 {
         .item_list {
             .item_block {
-                .item.col-6 {
+                .item {
                     @ var imageSize = 170;
                     @ var imageMargin = 30;
 
@@ -218,12 +218,8 @@
                         }
                     }
 
-                    &.hide_shadow {
-                        .img_data {
-                            .img {
-                                box-shadow: none;
-                            }
-                        }   
+                    &.hide_shadow .img_data .img:before {
+                        box-shadow: none;   
                     }
 
                     @media (max-width: @grid.mediaWidth(6)) {
@@ -254,13 +250,10 @@
                 }
             }
 
-            &.square {
-                .item {
-                    .img_data {
-                        .img {
-                            border-radius: 0px;
-                        }
-                    }
+            &.square .item .img_data .img {
+                border-radius: 0px;
+                &:before {
+                    border-radius: 0;
                 }
             }
         }
@@ -547,7 +540,6 @@
 
                 .img {
                     width: 100%;
-                    height: 240px;
                     margin: 0 auto;
                     background-repeat: no-repeat;
                     background-size: cover;

@@ -671,13 +671,13 @@ function tpl_7($val) {?>
                         <div class="item_list <?=$opacity?>">
                             <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                                 <div class="img_double"> 
-                                    <div class="img img_w2 img_h2">
+                                    <div class="img">
                                         <? $self->sub('OverlayImage','image_1') ?>	
                                     </div>
                                 </div>
                                 <div class="img_side">
                                     <? for ($i=2; $i <= 5; $i++): ?>
-                                        <div class="img img_w1 img_h1">
+                                        <div class="img">
                                             <? $self->sub('OverlayImage','image_'.$i) ?>
                                         </div>	
                                     <? endfor ?>
@@ -750,24 +750,24 @@ function tpl_7($val) {?>
                         <div class="item_list clear <?=$opacity?>">
                             <? $this->repeat('items',function($item_val,$self) use ($val) { ?>
                                 <div class="img_side">
-                                    <div class="img img_w1 img_h2">
+                                    <div class="img img_h2">
                                         <? $self->sub('OverlayImage','image_1') ?> 
                                     </div>
-                                    <div class="img img_w1 img_h1">
+                                    <div class="img">
                                         <? $self->sub('OverlayImage','image_2') ?> 
                                     </div>
                                 </div>
                                 <div class="img_double">
-                                    <div class="img img_w2 img_h1">
+                                    <div class="img img_w2">
                                         <? $self->sub('OverlayImage','image_3') ?> 
                                     </div>
-                                    <div class="img img_w1 img_h1">
+                                    <div class="img">
                                         <? $self->sub('OverlayImage','image_4') ?> 
                                     </div>
-                                    <div class="img img_w1 img_h1">
+                                    <div class="img">
                                         <? $self->sub('OverlayImage','image_5') ?>
                                     </div>
-                                    <div class="img img_w2 img_h1">
+                                    <div class="img img_w2">
                                         <? $self->sub('OverlayImage','image_6') ?>
                                     </div>                                
                                 </div>                            
@@ -842,28 +842,33 @@ function tpl_7($val) {?>
                         <div class="item_list clear <?=$opacity?>">
                             <? $this->repeat('items',function($item_val,$self) use ($val) { ?>                    
                                 <div class="img_double">
-                                    <div class="img img_w3 img_h2">
+                                    <div class="img">
                                         <? $self->sub('OverlayImage','image_1') ?>
                                     </div>
                                 </div>
                                 <div class="img_side">
-                                    <div class="img img_w2 img_h1">
-                                        <? $self->sub('OverlayImage','image_2') ?>
+                                    <div>
+                                        <div class="img img_w2">
+                                            <? $self->sub('OverlayImage','image_2') ?>
+                                        </div>
+                                        <div class="img">
+                                            <? $self->sub('OverlayImage','image_3') ?>
+                                        </div>
+                                        <div class="img">
+                                            <? $self->sub('OverlayImage','image_4') ?>
+                                        </div>  
+                                    </div>                                  
+                                </div>
+                                <div class="img_left_bottom">
+                                    <div class="img img_w2">
+                                        <? $self->sub('OverlayImage','image_5') ?>
                                     </div>
-                                    <div class="img img_w1 img_h1">
-                                        <? $self->sub('OverlayImage','image_3') ?>
+                                </div>
+                                <div class="img_right_bottom">
+                                    <div class="img img_w3">
+                                        <? $self->sub('OverlayImage','image_6') ?>
                                     </div>
-                                    <div class="img img_w1 img_h1">
-                                        <? $self->sub('OverlayImage','image_4') ?>
-                                    </div>                                    
                                 </div>
-                                <div class="img img_w2 img_h1">
-                                    <? $self->sub('OverlayImage','image_5') ?>
-                                </div>
-                                <div class="img img_w3 img_h1">
-                                    <? $self->sub('OverlayImage','image_6') ?>
-                                </div>
-                                <div style="clear: both"></div>
                             <? }) ?>
                         </div>      
                     </div>              
@@ -939,20 +944,19 @@ function tpl_7($val) {?>
                                     </div>
                                 </div>
                                 <div class="img_double">
-                                    <div class="img img_w2 img_h1">
+                                    <div class="img img_w2">
                                     <? $self->sub('OverlayImage','image_2') ?>
                                     </div>
-                                    <div class="img img_w1 img_h1">
+                                    <div class="img">
                                         <? $self->sub('OverlayImage','image_3') ?>
                                     </div>
-                                    <div class="img img_w1 img_h1">
+                                    <div class="img">
                                         <? $self->sub('OverlayImage','image_4') ?>
                                     </div>
-                                    <div class="img img_w2 img_h1">
+                                    <div class="img img_w2">
                                         <? $self->sub('OverlayImage','image_5') ?>
                                     </div>
                                 </div>
-                                <div style="clear: both"></div>
                             <? }) ?>
                         </div>    
                     </div>                
