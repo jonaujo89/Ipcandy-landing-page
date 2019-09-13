@@ -213,17 +213,33 @@ $.fn.lpBxSlider = function () {
             controls: true,
             slideMargin: 10,
             slideSelector: 'div.item_block:visible',
+            slideWidth: 367
         };
 
-        if ($(window).width() < 968) {
-            options.minSlides = 1;
-            options.maxSlides = 1;
-            options.adaptiveHeight = true;
-        } else {
-            options.slideWidth = 367;
-            options.minSlides = 3;
-            options.maxSlides = 3;
+        var breakWidth = 1200;
+
+        function widthChanged(reload) {
+            var prevMinSlides = $this.data('minSlides');
+            var width = $(window).width();
+
+            if (width < breakWidth) {
+                options.minSlides = 1;
+                options.maxSlides = 1;
+                options.adaptiveHeight = true;
+            } else {
+                options.minSlides = 3;
+                options.maxSlides = 3;
+                options.adaptiveHeight = false;
+            }
+
+            if (prevMinSlides!=options.minSlides) {
+                $this.data('minSlides',options.minSlides);
+                if (reload) {
+                    $this.data('slider').reloadSlider(options);
+                }
+            }
         }
+        widthChanged();
         
 		var bx_wrapper = $this.find("div.item_block.bx-clone").size();
         if ($this.find(".item_block:visible").not(".bx-clone").size() == 0) return;
@@ -232,12 +248,14 @@ $.fn.lpBxSlider = function () {
             var count_photo_init = $this.find(".item_block:visible").not(".bx-clone").size();
             $this.data('counter', count_photo_init); 
             $this.data('slider', bxSlider);
+
+            $(window).resize(function(){ widthChanged(true); });
         } else {  
             var count_photo_in_data_counter = $this.data('counter');
             var bxSlider = $this.data('slider');
             var count_photo = $this.find(".item_block:visible").not(".bx-clone").size();
-            if(count_photo_in_data_counter != count_photo){
-                bxSlider.reloadSlider(); 
+            if(count_photo_in_data_counter != count_photo || true){
+                bxSlider.reloadSlider(options); 
                 $this.data('counter', count_photo);
             }
         }
