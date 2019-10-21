@@ -1,6 +1,6 @@
 lp.liquid = lp.cover.extendOptions({
     change: function(){
-        this.element.html(this.value.tpl.replace("{{base_url}}",base_url));
+        this.element.find('.template').html(this.value.tpl.replace("{{base_url}}",base_url));
     },
     configForm: {
         width: 800,

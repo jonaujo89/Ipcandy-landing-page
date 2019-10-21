@@ -394,7 +394,9 @@ class Liquid extends Block {
         );
     }
     
-    function tpl($val) {
-        echo str_replace("{{base_url}}",$this->api->base_url,@$val['tpl']?:"");
-    }
+    function tpl($val) {?>
+        <div class="template">
+            <?= str_replace("{{base_url}}",$this->api->base_url,@$val['tpl']?:""); ?>
+        </div>
+    <?}
 }

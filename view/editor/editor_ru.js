@@ -162,5 +162,6 @@ window._t.load({
     "Show image description":"Описание изображения",
     "black<br>":"черный<br>",
     "white<br>":"белый<br>",
-    "Numbers color:":"Цвет цифр:"
+    "Numbers color:":"Цвет цифр:",
+    "Template":"Шаблон"
 });
