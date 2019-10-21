@@ -35,7 +35,7 @@ class Invites extends \CMS\Controllers\Admin\BasePrivate {
         );   
         $this->data['field_filters']['user'] = function ($val) {
             if (!$val) return _t('-');
-            return "{$val->name} ({$val->id})";
+            return htmlspecialchars($val->name)." ({$val->id})";
         };
 
         $this->data['sort_fields'] = array('id','code','user');        

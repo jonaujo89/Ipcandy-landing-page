@@ -24,7 +24,7 @@ class Track extends Base {
         $pages = \LPCandy\Models\Page::findBy(array('user'=>$this->user));
         $all_title_array = array(""=>"");
         for($i=0; $i < count($pages); $i++){
-            $val = $pages[$i]->title;
+            $val = htmlspecialchars($pages[$i]->title);
             $all_title_array[$val] = $val;
         }
         $title_options_for_filter = array_unique($all_title_array); 
@@ -48,7 +48,7 @@ class Track extends Base {
         $this->paginationFixOverflow($pagination);
         
         $this->data['list'] = $pagination->result();
-        $this->data['pagination'] = $pagination->get();
+        $this->data['pagination'] = $pagination->get(10);
         $this->data['title'] = _t("Tracking");
 
         $this->data['item_actions']['track-delete'] = _t('delete');        
@@ -69,8 +69,8 @@ class Track extends Base {
         $this->data['sort_fields'] = array('id','page_title','status','date','ip');
         
         $this->data['field_filters']['page'] = function ($page,$obj) {
-            if (!$page) return $obj->page_title;
-            return anchor('page-design/'.$page->getField('id'),$page->title);
+            if (!$page) return htmlspecialchars($obj->page_title);
+            return anchor('page-design/'.$page->getField('id'),htmlspecialchars($page->title));
         };
         
         $this->data['field_filters']['status'] = function ($val,$obj) {
@@ -104,7 +104,7 @@ class Track extends Base {
                     }
                     $sub = implode(", ",$files_str);
                 }
-                $data.="<b>".$one['label'].": </b>".htmlentities($sub)."<br>";
+                $data.="<b>".htmlspecialchars($one['label']).": </b>".htmlentities($sub)."<br>";
             }
             return $data;
         }; 

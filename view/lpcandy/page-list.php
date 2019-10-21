@@ -23,10 +23,10 @@
                     </td>
                     <td class='title'>
                         <h3>
-                            <?=$obj->title?>
+                            <?=_h($obj->title)?>
                             <?=anchor('page-view/'.$obj->id,_t('(page preview)'),'_blank')?>
                         </h3>
-                        <?= $obj->domain ?: _t("No domain assigned") ?>
+                        <?= _h($obj->domain) ?: _t("No domain assigned") ?>
                         <br>
                         <?= anchor('page-child-create/'.$obj->id,_t('+ add child page')) ?>
                         <div class="actions">
@@ -43,10 +43,10 @@
                         </td>
                         <td class='title'>
                             <h3>
-                                <?=$obj->title?>
+                                <?=_h($obj->title)?>
                                 <?=anchor('page-view/'.$obj->id,_t('(page preview)'),'_blank')?>
                             </h3>
-                            <?= $obj->pathname ?: _t("No pathname assigned") ?>
+                            <?= _h($obj->pathname) ?: _t("No pathname assigned") ?>
                             <br>
                             <div class="actions">
                                 <a class="design" href="<?=url('page-design/'.$obj->id)?>"><?=_t('Launch Designer')?></a>

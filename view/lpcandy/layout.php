@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title><?= $title ?></title>
+    <title><?= _h($title) ?></title>
     <meta charset="utf-8" />
     <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="view/assets/images/lpcandy.png"/> 
     <script>

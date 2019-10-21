@@ -6,7 +6,7 @@
     <meta name="keywords" content="<?= htmlspecialchars(str_replace(array("'","\""), "",$page->meta_keywords), ENT_QUOTES)?>">
     <meta name="description" content="<?= htmlspecialchars(str_replace(array("'","\""), "", $page->meta_description), ENT_QUOTES)?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title><?= $page->title ?></title>
+    <title><?= _h($page->title) ?></title>
     <script>
         var base_url = "<?=INDEX_URL?>";
         var page_id = <?=$page->id?>;
