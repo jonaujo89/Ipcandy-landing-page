@@ -30,10 +30,14 @@ teacss.ui.uploadButton = teacss.ui.button.extend({
                 type: 'POST',
                 success: function(data){
                     if (data && data.length) {
-                        var sub_url = data[0].url.substring(base_url.length);
-                        if (sub_url[0]=="/") sub_url = sub_url.substring(1);
-                        me.value = sub_url;
-                        me.trigger("change");
+                        if (data[0].error) {
+                            alert(data[0].error);
+                        } else {
+                            var sub_url = data[0].url.substring(base_url.length);
+                            if (sub_url[0]=="/") sub_url = sub_url.substring(1);
+                            me.value = sub_url;
+                            me.trigger("change");
+                        }
                     }
                 }
             });            

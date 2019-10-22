@@ -199,8 +199,15 @@ class TemplaterApi {
                     $tmp_name = $val['tmp_name']; 
                     
                     $info = pathinfo($name); 
-                    if (!isset($info['extension'])) continue;
-                    if (!in_array(strtolower($info['extension']), ["jpg","jpeg","png","gif"])) continue;
+                    if (!isset($info['extension'])) {
+                        $res[] = array('error'=>_t('File is invalid'));
+                        continue;
+                    }
+
+                    if (!in_array(strtolower($info['extension']), ["jpg","jpeg","png","gif"])) {
+                        $res[] = array('error'=>_t('Wrong image format'));
+                        continue;
+                    }
 
                     $ext = ".".$info['extension'];
                     $filename = $info['filename'];
@@ -226,6 +233,14 @@ class TemplaterApi {
                     $turl = str_replace($this->base_dir,$this->base_url,$tdir."/".$thumb);
                     
                     $res[] = array('name'=>$dest,'url'=>$url,'icon'=>$turl);
+                } else {
+                    if ($error == UPLOAD_ERR_FORM_SIZE || $error == UPLOAD_ERR_INI_SIZE) {
+                        $res[] = array('error'=>str_replace('{max_size}',ini_get("upload_max_filesize"),_t('File is too large. Maximum upload size is {max_size}')));
+                    } else if ($error == UPLOAD_ERR_NO_FILE) {
+                        $res[] = array('error'=>_t("No file was uploaded"));
+                    } else {
+                        $res[] = array('error'=>_t("Upload error. Try again later"));
+                    }
                 }
             }
         }        
