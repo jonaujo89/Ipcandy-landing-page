@@ -193,6 +193,10 @@ body.view-layout #teacss-layer > .editor-panel > .preview-toolbar > .close-butto
     background: url(assets/miniatures/numbers.jpg) no-repeat;
 }
 
+.teacss-ui .change-type-dialog .combo-item.type-StickyMenu::before  {
+    background: url(assets/miniatures/stickyMenu.jpg) no-repeat;
+}
+
 .teacss-ui a.add-button {
     border-radius: 0;
 }

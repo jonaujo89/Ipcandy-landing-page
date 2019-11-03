@@ -53,6 +53,7 @@ require("./ui/internal/liquid.js");
 require("./ui/internal/yandexMap.js");
 
 require("./lib/ymaps.js");
+require("./lib/stickyfill.min.js");
 
 require("./ui/header.js");
 require("./ui/order.js");
@@ -65,6 +66,7 @@ require("./ui/cases.js");
 require("./ui/stages.js");
 require("./ui/feedback.js");
 require("./ui/map.js");
+require("./ui/stickyMenu.js");
 require("./ui/footer.js");
 require("./ui/video.js");
 require("./ui/textBlock.js");

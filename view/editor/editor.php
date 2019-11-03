@@ -8,6 +8,7 @@ include_once "components/internal.php";
 include_once "components/cover.php";
 include_once "components/header.php";
 include_once "components/order.php";
+include_once "components/stickyMenu.php";
 include_once "components/benefits.php";
 include_once "components/services.php";
 include_once "components/reasons.php";

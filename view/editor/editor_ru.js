@@ -165,5 +165,6 @@ window._t.load({
     "black<br>":"черный<br>",
     "white<br>":"белый<br>",
     "Numbers color:":"Цвет цифр:",
-    "Template":"Шаблон"
+    "Template":"Шаблон",
+    "Dark background":"Темный фон"
 });
