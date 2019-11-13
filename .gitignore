@@ -12,3 +12,4 @@ cache/metadata/
 lib/bingo/
 lib/teacss/
 lib/teacss-ui/
+db.php

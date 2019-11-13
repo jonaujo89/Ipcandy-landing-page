@@ -14,7 +14,7 @@ require_once BINGO_PATH . "/loader.php";
 \Bingo\Configuration::addModules('Auth','CMS');
 \Bingo\Configuration::addModules('LPCandy','LPExtra');
 
-\Bingo\Configuration::addDbConnection('localhost','boomyjee_lpcandy_new','boomyjee','uFqsoGlqeizsgf3z');
+require __DIR__."/db.php";
 
 \CMS\Configuration::$log_errors = true;
 Auth\Configuration::$salt = "gg556dfgh_lpcandy_salt";
