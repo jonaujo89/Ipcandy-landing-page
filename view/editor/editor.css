@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 #teacss-layer {
   position: absolute;
 }

@@ -64,6 +64,7 @@ require("./ui/video.js");
 require("./ui/textBlock.js");
 require("./ui/numbers.js");
 require("./ui/timer.js");
+require("./ui/cover.js");
 
 require("./ui/extra/projects.js");
 

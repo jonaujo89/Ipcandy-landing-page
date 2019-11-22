@@ -323,7 +323,7 @@ class Media extends Block {
         return array(
             'type' => 'image',
             'image_url' => '',
-            'video_url' => 'www.youtube.com/embed/P55qVX3y134',
+            'video_url' => 'www.youtube.com/watch?v=EILqvdxdc5c',
         );        
     }
     
