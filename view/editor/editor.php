@@ -23,6 +23,7 @@ include_once "components/video.php";
 include_once "components/textBlock.php";
 include_once "components/timer.php";
 include_once "components/numbers.php";
+include_once "components/faq.php";
 include_once "components/custom.php";
 
 include_once "components/extra/projects.php";

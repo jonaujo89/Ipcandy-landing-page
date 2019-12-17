@@ -412,6 +412,12 @@ function initForms() {
     });
 };
 
+function initFAQ() {
+    $(document).on('click', '.faq-item',function(){
+        $(this).toggleClass('active').find('.answer').slideToggle('fast');
+    });
+}
+
 $.fn.textBlockHeight = function () {
     $(this).each(function(){
         
@@ -428,7 +434,6 @@ $.fn.textBlockHeight = function () {
         );
     });
 };
-
 
 $(function() {
     
@@ -447,7 +452,9 @@ $(function() {
     $(".slider > div").lpBxSlider();
     $(".map").mapYandex(); 
     $(".sticky_menu").lpStickyMenu();  
+    
     initForms();
     initOrderButton();  
     initPolicyInfo();
+    initFAQ();
 });

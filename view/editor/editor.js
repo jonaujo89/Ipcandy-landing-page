@@ -73,6 +73,7 @@ require("./ui/textBlock.js");
 require("./ui/numbers.js");
 require("./ui/timer.js");
 require("./ui/coverBlock.js");
+require("./ui/faq.js");
 
 require("./ui/extra/projects.js");
 
