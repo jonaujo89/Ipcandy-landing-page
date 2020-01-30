@@ -33,3 +33,22 @@ lp.blockColor = lp.color.extendOptions({
         { value: "#F7F7F7" }
     ]    
 });
+
+lp.darkBlockColor = lp.color.extendOptions({
+    items: [
+        { value: "#313138"},
+        { value: "#143A4F"},
+        { value: "#19678B"},
+        { value: "#4E6D8D"},
+        { value: "#607FA4"},
+        { value: "#0E93B3"},
+        { value: "#1E4147"},
+        { value: "#198B82"},
+        { value: "#0C884A"},
+        { value: "#393458"},
+        { value: "#583458"},
+        { value: "#614C8A"},
+        { value: "#8C0C24"},
+        { value: "#593D36"}        
+    ]
+});

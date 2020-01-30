@@ -399,3 +399,50 @@ class Liquid extends Block {
         </div>
     <?}
 }
+
+class YandexMap extends Block {
+    public $editor = "lp.yandexMap";
+    public $internal = true;
+    
+    function tpl_default() { 
+        return self::$en ? [
+            'map' => array(
+                'map_type' => 'yandex',			
+                'map_center' => array(55.7706,37.6200),
+                'map_zoom' => 15,
+                'map_drag' => true,
+                'map_places' => array(
+                    array(
+                        'type' => 'placemark',
+                        'title' => 'One and the same are at the circus ring',
+                        'address' => 'Moscow, Color Blvd., 13',
+                        'lat' => '55.7706', 
+                        'lng' => '37.6200',
+                        'color' => 'red' 
+                    ), 
+                )
+            ),
+        ] : [
+            'map' => array(
+                'map_type' => 'yandex',			
+                'map_center' => array(55.7706,37.6200),
+                'map_zoom' => 15,
+                'map_drag' => true,
+                'map_places' => array(
+                    array(
+                        'type' => 'placemark',
+                        'title' => 'На манеже все те же',
+                        'address' => 'г.Москва, Цветной бульвар, 13',
+                        'lat' => '55.7706', 
+                        'lng' => '37.6200',
+                        'color' => 'red' 
+                    ), 
+                )
+            ),
+        ];
+    }
+    
+    function tpl($val) {?>
+        <div class="map" data-map-settings='<?=json_encode($val['map'])?>'></div>
+    <?}
+}

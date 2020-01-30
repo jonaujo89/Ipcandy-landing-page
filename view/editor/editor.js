@@ -13,6 +13,11 @@ if (window.locale_lang=="ru") {
     });
 }
 
+window.lp = {};
+lp.app = {
+    events: teacss.ui.Control()
+};
+
 require("./editor.css");
 require("./style/font-awesome.css");
 
@@ -45,6 +50,7 @@ require("./ui/internal/overlayImage.js");
 require("./ui/internal/galleryImage.js");
 require("./ui/internal/background.js");
 require("./ui/internal/liquid.js");
+require("./ui/internal/yandexMap.js");
 
 require("./lib/ymaps.js");
 
@@ -76,7 +82,7 @@ $.fn.toggleVis = function(flag) {
 }
 
 exports = function(templater_app,options) {
-    var app = templater_app.extend({
+    lp.app = templater_app.extend(lp.app,{
         init: function (o) {
             teacss.ui.Control.prototype.init.call(this,o);
             Component.app = this;
@@ -117,7 +123,8 @@ exports = function(templater_app,options) {
                     theme: JSON.stringify(me.settings.theme,undefined, 2)
                 });
             });
-            
+
+            lp.app.events.trigger("init");
         },
         
         initUI: function () {
@@ -169,5 +176,5 @@ exports = function(templater_app,options) {
             });
         }
     });
-    app(options);
+    lp.app(options);
 }

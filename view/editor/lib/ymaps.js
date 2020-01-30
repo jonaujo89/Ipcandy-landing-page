@@ -1,3 +1,12 @@
+$.fn.mapYandexRedraw = function () {
+    $(this).each(function(){
+        var myMap = $(this).data("ymap");
+        if (myMap) {
+            myMap.container.fitToViewport();
+        }
+    });
+}
+
 $.fn.mapYandex = function (mapSettings_default,onInit) {
     $(this).each(function(){
         var $this = $(this);

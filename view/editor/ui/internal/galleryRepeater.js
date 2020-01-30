@@ -48,7 +48,7 @@ lp.galleryRepeater = lp.repeater.extendOptions({
     init: function (o) {
         this._super(o);
         if (this.addButtonWrap && !this.options.sortable) {
-            this.element.parents(".item_list").eq(0).append(this.addButtonWrap.css({marginTop:-90}));
+            this.element.parents(".item_list").eq(0).append(this.addButtonWrap.css({marginTop:-40}));
         }
     }
 })

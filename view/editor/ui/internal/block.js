@@ -1,5 +1,3 @@
-window.lp = {};
-
 lp.formComposite = teacss.ui.composite.extend({
     setValue: function (value) {
         if (!this.innerForm) return;

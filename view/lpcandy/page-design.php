@@ -16,6 +16,8 @@
             function run(exports){
                 var templater_app = exports[0];
                 var lpcandy_app = exports[1];
+
+                lp.addressText.geocoder_api_key = "<?= \LPCandy\Configuration::$geocoder_api_key ?>";
                 lpcandy_app(templater_app,{
                     template: "<?=$tpl?>",
                     publishScreenshot: false,

@@ -141,28 +141,12 @@ lp.order = lp.block.extendOptions({
                 margin: "0px 0px 5px 0px", showWhen: { variant: [6] }
             },
             { type: "label", value: _t("Background color:"), margin: "5px 0", showWhen: { variant: [4,5] }},
-             { 
-                type: lp.color, name: "background_color",  
-                items: [
-                    { value: "#313138"},
-                    { value: "#143A4F"},
-                    { value: "#19678B"},
-                    { value: "#4E6D8D"},
-                    { value: "#607FA4"},
-                    { value: "#0E93B3"},
-                    { value: "#1E4147"},
-                    { value: "#198B82"},
-                    { value: "#0C884A"},
-                    { value: "#393458"},
-                    { value: "#583458"},
-                    { value: "#614C8A"},
-                    { value: "#8C0C24"},
-                    { value: "#593D36"}
-                ], 
+            { 
+                type: lp.darkBlockColor, name: "background_color",  
                 showWhen: { variant: [4,5] }
             },
             { type: "label", value: _t("Background texture:"), margin: "5px 0", showWhen: { variant: [3] }},
-             { 
+            { 
                 name: "background", width: 95,
                 type: ui.combo.extendOptions({
                     panelClass: "only-icons",

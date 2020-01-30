@@ -155,14 +155,13 @@ div:hover > .cmp-repeater-cover {
 .lp-button-repeater-add-wrap {
     position: absolute !important;
     top: 100%;
-    padding-top: 15px;
     height: 45px;
     left: 0; right: 0;
     display: none;
     text-align: center;
 }
 .masonry .lp-button-repeater-add-wrap {
-    margin-top: -15px !important;
+    margin-top: 0 !important;
 }
 
 *:hover > .lp-button-repeater-add-wrap {
@@ -250,6 +249,7 @@ body.dragging .lp-button {
 
 *[data-editor] {
     position: relative;
+    z-index: 0;
 }
 
 .masonry > div[data-name] { 

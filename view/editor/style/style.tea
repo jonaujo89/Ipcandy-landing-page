@@ -9,8 +9,8 @@
 @ subHeadingColorLight = '#C2C2C2';
 
 @ primaryFont = 'Arial';
-@ headingFont = 'Open Sans';
-@ subHeadingFont = 'Open Sans Light';
+@ headingFont = 'Open Sans,' + primaryFont;
+@ subHeadingFont = 'Open Sans Light,' + primaryFont;
 
 @import "common/base";
 @import "common/grid";
@@ -104,7 +104,7 @@ html {
         color: @headingColor;
 
         line-height: 1.25;
-        font-family: @{headingFont}, @{primaryFont};
+        font-family: @{headingFont};
         font-weight: 400;
 
         .font_size_flexible(12, 48, 22)
@@ -115,7 +115,7 @@ html {
         line-height: 1.25;
         text-align: center;
         color: @subHeadingColor;
-        font-family: @{subHeadingFont}, @{primaryFont};
+        font-family: @{subHeadingFont};
 
         .font_size_flexible(12, 24, 15)
     }
