@@ -177,15 +177,28 @@ class Block {
         }
         return self::$list[$id];
     }
+
+    function read_sub($container,$name) {
+        $result = $container;
+        foreach (explode(".",$name) as $name_part) {
+            if (is_array($result) && isset($result[$name_part])) {
+                $result = $result[$name_part];
+            } 
+            else {
+                return false;
+            }
+        }
+        return $result;
+    }
     
     function sub($type,$name,$options=false) {
         $obj = @self::$list[$type];
         if ($obj) {
             if ($name && $name[0]=="@" && $this->name_prefix) {
                 $name = substr($name,1);
-                $sub = @$this->val_prefix[$name];
+                $sub = $this->read_sub($this->val_prefix,$name);
             } else {
-                $sub = @$this->val[$name];
+                $sub = $this->read_sub($this->val,$name);
                 $name = $this->name_prefix ? $this->name_prefix.".".$name : $name;
             }
             $obj->val_prefix = $this->val;

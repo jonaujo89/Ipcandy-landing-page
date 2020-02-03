@@ -104,11 +104,11 @@ lp.formControls.radio = lp.formControls.select.extend({
                 $('<div class="error">')
             )
         );
-    
+
         $.each(val.options.split("\n"),function(){            
             radio.append(
                 $('<div class="form_field_radio_value">').append(
-                    $('<label>').text(this).prepend('<input name="'+field+'" class="form_field_radio" type="radio" value="'+this+'"/>')
+                    $('<label>').text(" "+this).prepend('<input name="'+field+'" class="form_field_radio" type="radio" value="'+this+'"/>')
                 )
             )            
         });
@@ -122,9 +122,8 @@ lp.formControls.checkbox = teacss.ui.composite.extendOptions({
     selectIcon: "fa fa-check-square-o",
     tpl: function (val) {
         return $("<div class='form_field'>").append(
-            $('<label>').append(
-                '<input class="form_field_checkbox" type="checkbox">',
-                '<span class="field_title">'+val.label+'</span>'
+            $('<label>').text(' '+val.label).prepend(
+                '<input class="form_field_checkbox" type="checkbox">'
             )
         )
     }

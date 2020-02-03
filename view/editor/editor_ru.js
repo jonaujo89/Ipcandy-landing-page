@@ -1,4 +1,6 @@
 window._t.load({
+    "Show icon": "Иконка",
+    "Show form as popup": "Всплывающая форма",
     "Map is draggable":"Можно перетаскивать карту",
     "Add Section":"Добавить секцию",
     "Select component type":"Выбрать тип",

@@ -91,7 +91,6 @@ class FormButton extends Block {
     }
     
     function tpl($val) { ?>
-        <? $name = $this->name ?>
         <? $href = ($val['type']=='link') ? "href='".htmlspecialchars($val['link'])."'" : '' ?>
         <a class='btn_form <?=$val['color']?>' <?=$href?>> <?=$val['text']?> </a>
         <? if ($val['type']=="form" || $this->edit): ?>
@@ -101,7 +100,7 @@ class FormButton extends Block {
                         <? $this->sub('Text','form_title') ?>    
                     </div>
                     <div class="form_data">
-                        <?= FormOrder::get()->getHtml($val['form'],$this->edit,$name.'.form') ?>
+                        <? $this->sub('FormOrder', 'form'); ?>
                     </div>
                     <div class="form_bottom" >
                         <? $this->sub('Text','form_bottom_text') ?>
@@ -170,7 +169,7 @@ class FormOrder extends Block {
                     <label>
                     <? if ($field['type'] == 'checkbox'): ?>
                         <input class="form_field_checkbox" type="checkbox" />
-                        <span class="field_title"><?= htmlspecialchars($field['label'])?></span>
+                        <?= htmlspecialchars($field['label'])?>
                     <? else: ?>
                         <? $label = trim($field['label']) ?>
                         <div class="field_title <?= $label ? '': 'hidden' ?>">

@@ -65,6 +65,14 @@ ol li {
     border-bottom: 1px solid #e0e0e0;
 }
 
+.btn_wrap {
+    display: inline-block;
+}
+
+a.btn_form {
+    display: block;
+}
+
 .btn_wrap a.btn_form {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -210,13 +218,15 @@ ol li {
   width: 100%;
   resize: vertical;
   min-height: 3em;
+  display: block;
 }
 
 .form .form_submit {
   margin: 25px 0 0 0;
 }
 
-.form .form_submit button.form_field_submit {
+.form .form_submit button.form_field_submit, 
+.form .form_submit a.btn_form {
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
   border: 0;
   -webkit-user-select: none;
@@ -233,6 +243,8 @@ ol li {
   font-weight: bold;
   text-align: center;
   width: 100%;
+  text-transform: uppercase;
+  padding: 14px 10px 12px;
 }
 
 .btn_wrap a.btn_form:hover, .form .form_submit button.form_field_submit:hover {
@@ -246,11 +258,9 @@ ol li {
 
 .form .form_submit button.form_field_submit div span {
   display: inline-block;
-  padding: 14px 10px 12px;
   text-align: center;
   width: 100%;
   border-radius: 3px;
-  text-transform: uppercase;
 }
 
 .form .form_bottom {
@@ -265,7 +275,8 @@ ol li {
   display: inline-block;
   width: 100%;
   margin: 0px;
-  padding: 7px 5px;
+  padding: 0px 6px;
+  height: 32px;
   border: 1px solid #E8E8E8;
   background-color: #FFF;
   color: #5B5B5B;
@@ -276,8 +287,15 @@ ol li {
   outline: 0px none;
 }
 
+.form .form_fields input.form_field_radio,
+.form .form_fields input.form_field_checkbox {
+    margin: 0;
+    vertical-align: middle;
+}
+
 .form .form_fields .form_field_radio_value label {
   padding-top: 0px;
+  line-height: 1.5em;
 }
 
 .form .form_fields label .desc {

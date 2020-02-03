@@ -5,6 +5,7 @@ include_once "components/block.php";
 
 include_once "components/internal.php";
 
+include_once "components/cover.php";
 include_once "components/header.php";
 include_once "components/order.php";
 include_once "components/benefits.php";
@@ -21,7 +22,6 @@ include_once "components/video.php";
 include_once "components/textBlock.php";
 include_once "components/timer.php";
 include_once "components/numbers.php";
-include_once "components/cover.php";
 include_once "components/custom.php";
 
 include_once "components/extra/projects.php";

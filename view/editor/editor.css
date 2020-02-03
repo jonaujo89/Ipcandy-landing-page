@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 #teacss-layer {
   position: absolute;
 }
@@ -127,6 +123,10 @@ body.view-layout #teacss-layer > .editor-panel > .preview-toolbar > .close-butto
     display: block;
     box-shadow: 0 0 5px #B8B8B8;
     margin-bottom: 7px;
+}
+
+.teacss-ui .change-type-dialog .combo-item.type-Cover::before  {
+    background: url(assets/miniatures/cover.jpg) no-repeat;
 }
 
 .teacss-ui .change-type-dialog .combo-item.type-Header::before  {
