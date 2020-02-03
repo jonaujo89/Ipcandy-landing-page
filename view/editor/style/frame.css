@@ -76,13 +76,6 @@ body > div {
     bottom: -10px;
 }
 
-.item_block:nth-child(1) .cmp-repeater-cover .fa.fa-trash-o.lp-button:nth-child(2) {
-    display: none;
-}
-.item_block:nth-child(1) .cmp-repeater-cover .fa.fa-plus.lp-button {
-    margin-top: -16px;
-}
-
 .cmp-repeater-cover,
 .cmp-repeater-cover:before
 {
@@ -98,13 +91,17 @@ body > div {
     top: 0;
     vertical-align: middle;
     width: 40px;
-    display: none;
     padding-left: 10px;
     box-sizing: border-box;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cmp-repeater-cover-inline {
     right: 0px;
+    justify-content: flex-start;
+    z-index: 101;
 }
 
 .cmp-repeater-cover:before {
@@ -122,33 +119,11 @@ body > div {
 }
 
 div:hover > .cmp-repeater-cover {
-    display: block;
+    display: flex;
 }
 
-.cmp-repeater-cover .lp-button {
-    position: absolute;
-    top: 50%;
-    right: 1px;
-    margin-top: -31px;
-}
-
-.cmp-repeater-cover .lp-button:nth-child(2) {
-    margin-top: 0px;
-}
-
-.cmp-repeater-cover-inline .lp-button {
-    top: 1px;
-    right: 1px;
-    margin-top: 0;
-    z-index: 1001;
-}
-
-.cmp-repeater-cover-inline .lp-button:nth-child(2) {
-    top: 32px;
-}
-
-.cmp-repeater-cover-inline .lp-button:nth-child(3) {
-    top: 63px;
+.item_block:nth-child(1) .cmp-repeater-cover .fa.fa-trash-o.lp-button {
+    display: none;
 }
 
 .lp-button-repeater-add-wrap {

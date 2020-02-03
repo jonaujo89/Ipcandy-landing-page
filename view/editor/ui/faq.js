@@ -1,7 +1,3 @@
-lp.faqRepeater = lp.repeater.extendOptions({
-    inline: true,
-});
-
 lp.faq = lp.block.extendOptions({
     init: function() {
         this.element.find('.faq-items').on('click', '[data-editor="lp.text"]', function(e){

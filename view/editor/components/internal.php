@@ -321,7 +321,7 @@ class Media extends Block {
     function tpl_default() {
         return array(
             'type' => 'image',
-            'image_url' => '',
+            'image_url' => Configuration::$assets_url.'/background/218.jpg',
             'video_url' => 'www.youtube.com/watch?v=EILqvdxdc5c',
         );        
     }

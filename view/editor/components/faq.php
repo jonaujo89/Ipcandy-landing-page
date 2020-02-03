@@ -50,7 +50,7 @@ class Faq extends Block {
                                         </div>
                                     </div>
                                 </div>
-                            <? }, ['editor' => 'lp.faqRepeater']) ?>
+                            <? }) ?>
                         </div>
                     </div>
                 </div>

@@ -4,8 +4,10 @@ lp.repeater = teacss.ui.control.extend({
             addItemText: _t("Add Item"),
             sortable: true
         },o));
+
         this.element = this.options.element;
         this.options.name = this.element.data("name");
+
         this.addCovers();
         
         var me = this;
@@ -143,7 +145,9 @@ lp.repeater = teacss.ui.control.extend({
                     );
                 } else {
                     item.cover.addClass("cmp-repeater-cover-inline");
-                    if (me.options.sortable) item.cover.append(
+                }
+                if (me.options.sortable) {
+                    item.cover.append(
                         $("<div class='fa fa-arrows lp-button lp-drag-handle'>")
                         .mouseover(function(){ item.dragCover.show() })
                         .mouseout (function(){ item.dragCover.hide() })
@@ -163,7 +167,7 @@ lp.repeater = teacss.ui.control.extend({
                 )
             );
         }
-        if (me.options.inline) me.initSorting();
+        if (me.options.sortable) me.initSorting();
     },
     
     initSorting: function () {

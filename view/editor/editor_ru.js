@@ -166,5 +166,6 @@ window._t.load({
     "white<br>":"белый<br>",
     "Numbers color:":"Цвет цифр:",
     "Template":"Шаблон",
-    "Dark background":"Темный фон"
+    "Dark background":"Темный фон",
+    "Two column layout":"Шаблон в две колонки"
 });
