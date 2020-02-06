@@ -50,9 +50,8 @@ require("./ui/internal/overlayImage.js");
 require("./ui/internal/galleryImage.js");
 require("./ui/internal/background.js");
 require("./ui/internal/liquid.js");
-require("./ui/internal/yandexMap.js");
-
 require("./lib/ymaps.js");
+require("./ui/internal/yandexMap.js");
 require("./lib/stickyfill.min.js");
 
 require("./ui/header.js");

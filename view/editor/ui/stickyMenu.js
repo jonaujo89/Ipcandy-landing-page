@@ -43,8 +43,9 @@ lp.stickyMenu = lp.block.extend({
                 $("<a>").attr("href","#").attr('data-id', '#'+item.id).text(item.title)
             ));
         });
-
-        this.element.find(".empty-placeholder, .toggler").toggleVis($ul.children().length==0);
+        
+        this.element.find(".empty-placeholder").toggleVis($ul.children().length==0);
+        this.element.find(".toggler").toggleVis($ul.children().length!=0);
         this.element.find('.sticky_menu').toggleClass('dark', this.value.isDark);
     },
     configForm: {
