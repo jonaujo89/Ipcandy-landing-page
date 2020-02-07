@@ -4,54 +4,23 @@
         <title><?=_t('Templater editor')?></title>
         <meta charset="utf-8" alt>
         <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="../view/assets/images/lpcandy.png"/> 
-        <script src="<?=url('lib/teacss/lib/teacss.js')?>"></script>
-        <script src="<?=url('/lib/teacss-ui/teacss-ui.js')?>"></script>
-        <link  href="<?=url('/lib/teacss-ui/teacss-ui.css')?>" rel="stylesheet" type="text/css">
-        <script src="<?=url('/lib/require/require.js')?>"></script>
+
+        <script src="<?=url('view/assets/editor.min.js')?>"></script>
+        <link  href="<?=url('view/assets/editor.min.css')?>" rel="stylesheet" type="text/css">
 
         <script>
             var base_url = "<?=INDEX_URL?>";
             var page_id = <?=json_encode($page_id)?>;
             var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";
-            function run(exports){
-                var templater_app = exports[0];
-                var lpcandy_app = exports[1];
-
-                lp.addressText.geocoder_api_key = "<?= \LPCandy\Configuration::$geocoder_api_key ?>";
-                lpcandy_app(templater_app,{
-                    template: "<?=$tpl?>",
-                    publishScreenshot: false,
-                    ajax_url: "<?=url('page-ajax/'.$page_id)?>",
-                    assets_url: "view/editor/assets",
-                    upload_url: "<?=url('upload/LPCandy/files/'.$page->user->id)?>",
-                    browse_url: "<?=url('files/browse.php')?>",
-                    allowSkipType: false,
-                    is_responsive: <?= $page->is_responsive ? 'true':'false' ?>,
-                    minified_style: <?= \Bingo\Configuration::$applicationMode=='development' ? 'false':'true' ?>
-                });
-            }            
-        </script>        
-        
-        <? if (\Bingo\Configuration::$applicationMode=='development'): ?>
-            <script src="<?=url('lib/require/require.proxy.php')?>"></script>        
-            <script>
-                require(
-                    "<?=url('lib/templater/client/app.js')?>",
-                    "<?=url('view/editor/editor.js')?>",
-                    run
-                );
-            </script>
-        <? else: ?>
-            <link  href="<?=url('view/editor/editor.min.css')?>" rel="stylesheet" type="text/css">
-            <script src="<?=url('view/editor/editor.min.js')?>"></script>
-            <script>
-                require_min(run);
-            </script>
-        <? endif ?>
-        <script>
-            window.extraHtmlSubmit = function() {
-                <?= strip_tags($page->extra_html_submit) ?>
-            };
+            lp.app({
+                template: "<?=$tpl?>",
+                publishScreenshot: false,
+                ajax_url: "<?=url('page-ajax/'.$page_id)?>",
+                assets_url: "view/editor/assets",
+                upload_url: "<?=url('upload/LPCandy/files/'.$page->user->id)?>",
+                browse_url: "<?=url('files/browse.php')?>",
+                allowSkipType: false
+            });
         </script>
     </head>
     <body>
@@ -59,5 +28,4 @@
         <? include partial('lpcandy/logged-info') ?>
         <?= $page->extra_html ?>
     </body>
-    
 </html>

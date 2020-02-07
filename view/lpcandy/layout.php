@@ -9,20 +9,10 @@
         var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";
         var browse_text = "<?=_t('Browse')?>";
     </script>   
-    
-    <?
-        include INDEX_DIR."/lib/teacss/lib/teacss.php";
-        teacss(
-            $makefile = t_url('assets/tea/makefile.tea'),
-            $css = t_url('assets/style.css'),
-            $js = false,
-            $dir = __DIR__."/../assets",
-            $dev = (isset($_GET['dev']) && \CMS\Models\User::checkLoggedIn()),
-            $teacss = url('lib/teacss/lib/teacss.js')
-        );
-    ?>
-    <script src="<?=t_url('assets/script/jquery.js')?>"></script>
-    <script src="<?=t_url('assets/script/lpcandy.js')?>"></script>    
+
+    <script src="<?= url('view/assets/lpcandy.js') ?>"></script>
+    <link  href="<?= url('view/assets/lpcandy.css') ?>" rel="stylesheet" type="text/css" /> 
+    <script src="<?= url('view/assets/babel_test.js') ?>"></script>
 </head>
 <body>    
     <? include partial('lpcandy/logged-info') ?>

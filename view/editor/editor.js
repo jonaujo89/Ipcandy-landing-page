@@ -14,9 +14,12 @@ if (window.locale_lang=="ru") {
 }
 
 window.lp = {};
-lp.app = {
-    events: teacss.ui.Control()
-};
+
+require("./../../lib/teacss/lib/teacss.js");
+require("./../../lib/teacss-ui/teacss-ui.js");
+require("./../../lib/teacss-ui/teacss-ui.css");
+
+var TemplaterApp = require("./../../lib/templater/client/app.js");
 
 require("./editor.css");
 require("./style/font-awesome.css");
@@ -83,100 +86,95 @@ $.fn.toggleVis = function(flag) {
     $(this).toggleClass("visible",flag);
 }
 
-exports = function(templater_app,options) {
-    lp.app = templater_app.extend(lp.app,{
-        init: function (o) {
-            teacss.ui.Control.prototype.init.call(this,o);
-            Component.app = this;
-            
-            if (this.options.minified_style) {   
-                this.staticStyles = [dir + "/style/style.min.tea"];
-            } else {                
-                this.staticStyles = [dir + "/style/style.tea"];
-            }
-            this.styles = [];
-            
-            var me = this;
-            teacss.jQuery(function(){
-                me.request('load',{cache:0},function (data){
-                    try {
-                        data = data || {};
-
-                        me.settings = {};
-                        me.settings.templates = $.parseJSON(data.templates || "{}");
-                        me.settings.theme = $.parseJSON(data.theme || "{}");
-                        teacss.functions.settings = me.settings
-
-                        me.components = data.components;
-                        me.settings.upload = data.upload;
-                    } catch (e) {
-                        alert(data);
-                    }
-                    
-                    me.initUI();
-                });            
-            });
-            
-            
-            this.bind("change",function(data){
-                if (me.skipSave) return;
-                me.request('save',{
-                    templates: JSON.stringify(me.settings.templates),
-                    theme: JSON.stringify(me.settings.theme,undefined, 2)
-                });
-            });
-
-            lp.app.events.trigger("init");
-        },
+exports = lp.app = TemplaterApp.extend({
+    events: teacss.ui.Control()
+},{
+    init: function (o) {
+        teacss.ui.Control.prototype.init.call(this,o);
+        Component.app = this;
         
-        initUI: function () {
-            var me = this;
-            this._super();
-            
-            this.frame.bind("init",function(){
-                me.frame.$f("head").append(
-                    "<link type='text/css' rel='stylesheet' href='"+dir+"/style/frame.css'>"
-                );
-            });
+        this.staticStyles = [dir + "/style/style.tea"];
+        this.styles = [];
+        
+        var me = this;
+        teacss.jQuery(function(){
+            me.request('load',{cache:0},function (data){
+                try {
+                    data = data || {};
 
-            this.frame.element.css({left:0});
-            $(".editor-sidebar").detach();
-            $(".preview-toolbar").width("100%");
-            
-            $(".preview-toolbar").append($("#beejee_info"));
-            
-            me.templateTabs.element.detach();
-            me.view3dButton.element.detach();
-            
-            me.publishButton.element.css({position:'relative'});
-            me.addButton = ui.button({
-                label:_t("Add Section"),
-                icons:{ primary: "ui-icon-plus" },
-                click: function (e) { 
-                    me.addSection(e);
+                    me.settings = {};
+                    me.settings.templates = $.parseJSON(data.templates || "{}");
+                    me.settings.theme = $.parseJSON(data.theme || "{}");
+                    teacss.functions.settings = me.settings
+
+                    me.components = data.components;
+                    me.settings.upload = data.upload;
+                } catch (e) {
+                    alert(data);
                 }
-            });
-            me.addButton.element.insertAfter(me.publishButton.element);
-        },
+                
+                me.initUI();
+            });            
+        });
         
-        addSection: function (e) {
-            var root = Component.previewFrame.root;
-            if (!root) return;
-            if (root.children.length) {
-                root.children[0].addTop(e);
-            } else {
-                root.addInside(e);
+        
+        this.bind("change",function(data){
+            if (me.skipSave) return;
+            me.request('save',{
+                templates: JSON.stringify(me.settings.templates),
+                theme: JSON.stringify(me.settings.theme,undefined, 2)
+            });
+        });
+        
+        lp.app.events.trigger("init");
+    },
+    
+    initUI: function () {
+        var me = this;
+        this._super();
+        
+        this.frame.bind("init",function(){
+            me.frame.$f("head").append(
+                "<link type='text/css' rel='stylesheet' href='"+dir+"/style/frame.css'>"
+            );
+        });
+
+        this.frame.element.css({left:0});
+        $(".editor-sidebar").detach();
+        $(".preview-toolbar").width("100%");
+        
+        $(".preview-toolbar").append($("#beejee_info"));
+        
+        me.templateTabs.element.detach();
+        me.view3dButton.element.detach();
+        
+        me.publishButton.element.css({position:'relative'});
+        me.addButton = ui.button({
+            label:_t("Add Section"),
+            icons:{ primary: "ui-icon-plus" },
+            click: function (e) { 
+                me.addSection(e);
             }
-        },
-        
-        publish: function () {
-            this.request("publish",{},function(){
-                ui.alert({
-                    title:_t('Publish success'),
-                    text:_t('Your page was successfully published and now is available to your customers')
-                });
-            });
+        });
+        me.addButton.element.insertAfter(me.publishButton.element);
+    },
+    
+    addSection: function (e) {
+        var root = Component.previewFrame.root;
+        if (!root) return;
+        if (root.children.length) {
+            root.children[0].addTop(e);
+        } else {
+            root.addInside(e);
         }
-    });
-    lp.app(options);
-}
+    },
+    
+    publish: function () {
+        this.request("publish",{},function(){
+            ui.alert({
+                title:_t('Publish success'),
+                text:_t('Your page was successfully published and now is available to your customers')
+            });
+        });
+    }
+});

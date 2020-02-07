@@ -8,6 +8,11 @@ class LPCandy extends \Bingo\Module {
         
         bingo_domain_register('lpcandy',dirname(__FILE__)."/../locale");
         bingo_domain('lpcandy');
+
+        //Bundler::serve("view/assets/lpcandy.js","view/assets/tea/makefile.tea");
+        //Bundler::serve("view/assets/lpcandy.css","view/assets/tea/makefile.tea");
+        Bundler::serve("view/assets/editor.min.js","view/editor/editor.js");
+        Bundler::serve("view/assets/editor.min.css","view/editor/editor.js");
         
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\User','id'=>false),
             array('action'=>'(login|logout|profile|get-invite)'));

@@ -497,14 +497,16 @@ form > .message, form > .alert {
     text-decoration: inherit;
 }
 @font-face {
-    font-family: 'FontAwesome';
-    src: url(tea/common/../../fonts/fontawesome-webfont.eot);
-    src: url(tea/common/../../fonts/fontawesome-webfont.eot?#iefix) format('embedded-opentype'),
-url(tea/common/../../fonts/fontawesome-webfont.woff) format('woff'),
-url(tea/common/../../fonts/fontawesome-webfont.ttf) format('truetype'),
-url(tea/common/../../fonts/fontawesome-webfont.svg#FontAwesome) format('svg');
-    font-weight: normal;
-    font-style: normal;
+    .message .close, .alert .close {
+        font-family: 'FontAwesome';
+        src: url(../../view/assets/tea/common/../../fonts/fontawesome-webfont.eot);
+        src: url(../../view/assets/tea/common/../../fonts/fontawesome-webfont.eot?#iefix) format('embedded-opentype'),
+url(../../view/assets/tea/common/../../fonts/fontawesome-webfont.woff) format('woff'),
+url(../../view/assets/tea/common/../../fonts/fontawesome-webfont.ttf) format('truetype'),
+url(../../view/assets/tea/common/../../fonts/fontawesome-webfont.svg#FontAwesome) format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
 }
 .message .close:before, .alert .close:before {
     font-family: FontAwesome;
@@ -541,7 +543,7 @@ body {
     position: relative;
 }
 body {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAANklEQVQIW2O8e/fufwYGhgtMTEyB//7928B49+7dCwwMDPowQcb79+8rgGRggmAVTExMATBBAOjoHCXWaHqyAAAAAElFTkSuQmCC);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAANElEQVQYV2O8e/fufwYGhqv//v0LY2JiWsV49+7dKwwMDNowQcbbt29rgWRggmAVMOUgQQAdExwsN+bhGQAAAABJRU5ErkJggg==);
 }
 #page {
     padding: 0px 0px 50px 170px;
@@ -573,7 +575,7 @@ body {
 }
 #menu ul li #logo {
     display: block;
-    background: url(images/lpcandy.png) no-repeat 0 50%;
+    background: url(../../view/assets/images/lpcandy.png) no-repeat 50% 50%;
     width: 135px;
     height: 103px;
     text-indent: -999em;
@@ -653,7 +655,7 @@ body {
 }
 #footer #beejee_info > span {
     display: block;
-    background: url(images/logo-beejee.jpg) no-repeat 0 50%;
+    background: url(../../view/assets/images/logo-beejee.jpg) no-repeat 50% 50%;
     width: 30px;
     height: 30px;
     text-indent: -999em;
@@ -1058,16 +1060,6 @@ p.actions a.disabled, p.actions a[disabled] {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-}
-.template-select {
-    *zoom: 1;
-}
-.template-select:before, .template-select:after {
-    display: table;
-    content: "";
-}
-.template-select:after {
-    clear: both;
 }
 .template-select label {
     width: 240px;

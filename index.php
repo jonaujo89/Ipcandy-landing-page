@@ -12,7 +12,7 @@ require_once BINGO_PATH . "/loader.php";
 
 \Bingo\Configuration::addModulePath(INDEX_DIR."/modules");
 \Bingo\Configuration::addModules('Auth','CMS');
-\Bingo\Configuration::addModules('LPCandy','LPExtra');
+\Bingo\Configuration::addModules('Bundler','LPCandy','LPExtra');
 
 require __DIR__."/db.php";
 
