@@ -10,9 +10,8 @@
         var browse_text = "<?=_t('Browse')?>";
     </script>   
 
-    <script src="<?= url('view/assets/lpcandy.js') ?>"></script>
-    <link  href="<?= url('view/assets/lpcandy.css') ?>" rel="stylesheet" type="text/css" /> 
-    <script src="<?= url('view/assets/babel_test.js') ?>"></script>
+    <script src="<?= url('view/assets/lpcandy.min.js') ?>"></script>
+    <link  href="<?= url('view/assets/lpcandy.min.css') ?>" rel="stylesheet" type="text/css" /> 
 </head>
 <body>    
     <? include partial('lpcandy/logged-info') ?>

@@ -2,44 +2,15 @@
 
 class Bundler extends \Bingo\Module {
 
-    static $entryPoints = [];
-    static $bundlePaths = [];
-
-    static function serve($bundle_path,$entry_point) {
-        
-        $full_path = INDEX_DIR."/".$bundle_path;
-
-        if (\Bundler\Configuration::$applicationMode != 'development') {
-            $cache_path = self::getCachePath($bundle_path);
-            if (file_exists($cache_path)) {
-                if (!file_exists($full_path) || filemtime($full_path) < filemtime($cache_path)) {
-                    copy($cache_path,$full_path);
-                }
-            }
-        } else {
-            if (!isset(self::$entryPoints[$entry_point]) || pathinfo(self::$entryPoints[$entry_point], PATHINFO_EXTENSION)!="js") {
-                self::$entryPoints[$entry_point] = $bundle_path;
-            }
-            self::$bundlePaths[$bundle_path] = $entry_point;
-            if (file_exists($full_path)) unlink($full_path);
-
-            \Bingo\Routing::connect($bundle_path,['function' => function() use ($bundle_path) {
-                return self::serveFile($bundle_path);
-            }]);
-        }
-    }
-
-    static function serveFile($bundle_path) {
-        $entry_point = self::$bundlePaths[$bundle_path] ?? false;
+    static function serveFile($bundle_path,$entry_point) {
         if (!$entry_point) return true;
-
-        $entry_ext = pathinfo($entry_point, PATHINFO_EXTENSION);
         $bundle_ext = pathinfo($bundle_path, PATHINFO_EXTENSION);
-
-        if ($bundle_ext=='css') header("Content-type: text/css");
-        if ($bundle_ext=='js') header("Content-type: text/js");
-
-        if (self::$entryPoints[$entry_point] != $bundle_path) return;
+        if ($bundle_ext=='css') {
+            header("Content-type: text/css");
+            echo " ";return;
+        }
+        
+        header("Content-type: text/js");
 
         $base_url = "//".$_SERVER['HTTP_HOST'].url("");
         $deps = self::loadDependencies($base_url.$entry_point);
@@ -47,6 +18,7 @@ class Bundler extends \Bingo\Module {
         ?>function __bundler_load(key,src) { if (!window[key]) eval(src+"//# sourceURL=file://bundler/"+key+".js") }<? echo PHP_EOL;
         ?>__bundler_load('bundler',<?=json_encode(file_get_contents(__DIR__.'/../assets/bundler.js'))?>)<? echo PHP_EOL;
 
+        $entry_ext = pathinfo($entry_point, PATHINFO_EXTENSION);
         if ($entry_ext == "tea") {
             ?>__bundler_load('teacss',<?=json_encode(file_get_contents(__DIR__.'/../assets/teacss.js'))?>)<? echo PHP_EOL;
             ?>bundler.loadTea(<?=json_encode($entry_point)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>)<? echo PHP_EOL;
@@ -64,18 +36,32 @@ class Bundler extends \Bingo\Module {
     }
 
     static function build() {
-        $entry_point = $_POST['entry_point'];
-        foreach (self::$bundlePaths as $path => $point) {
-            if ($point == $entry_point) {
+        $post_entry_point = $_POST['entry_point'] ?? null;
+        foreach (\Bundler\Configuration::$bundles as ['name'=>$name,'path'=>$path,'entry_point'=>$entry_point]) {
+            if ($post_entry_point == $entry_point) {
                 $ext = pathinfo($path,PATHINFO_EXTENSION);
-                if ($ext=="js" || $ext=="css") {
-                    $cache_path = self::getCachePath($path);
-                    echo "saving ".$path."\n";
-                    file_put_contents($cache_path,$_POST[$ext]);
+                if ($ext!="js") {
+                    echo "path should be js file ".$path;
+                    return;
                 }
+
+                $js_path = $path;
+                $css_path = preg_replace('"\.js$"', '.css', $path);
+
+                foreach (['js' => $js_path,'css' => $css_path] as $ext => $file_path) {
+                    $cache_path = self::getCachePath($file_path);
+                    echo "saving ".$file_path."\n";
+                    if ($ext=='js' || !empty($_POST[$ext])) {
+                        file_put_contents($cache_path,$_POST[$ext]);
+                    }
+                    $full_path = INDEX_DIR."/".$file_path;
+                    copy($cache_path,$full_path);
+                }
+                echo "finished\n";                
+                return;
             }
         }
-        echo "finished\n";
+        return true;
     }
 
     static function loadDependencies($url) {
@@ -149,8 +135,31 @@ class Bundler extends \Bingo\Module {
 
     function __construct() {
         parent::__construct();
-        if (\Bundler\Configuration::$applicationMode == 'development') {
-            $this->connect('bundler/build',['function' => ['Bundler','build']]);
-        }        
+        
+        $this->connect('bundler/build',['function' => ['Bundler','build']]);
+
+        foreach (\Bundler\Configuration::$bundles as ['name'=>$name,'path'=>$path,'entry_point'=>$entry_point]) {
+            $js_path = $path;
+            $css_path = preg_replace('"\.js$"', '.css', $path);
+
+            foreach (['js' => $js_path,'css' => $css_path] as $ext => $file_path) {
+                $full_path = INDEX_DIR."/".$file_path;
+
+                if (!in_array($name,\Bundler\Configuration::$developEnabled)) {
+                    $cache_path = self::getCachePath($file_path);
+                    if (file_exists($cache_path)) {
+                        if (!file_exists($full_path) || filemtime($full_path) < filemtime($cache_path)) {
+                            copy($cache_path,$full_path);
+                        }
+                    }
+                } else {
+                    if (file_exists($full_path)) unlink($full_path);
+
+                    \Bingo\Routing::connect($file_path,['function' => function() use ($file_path,$entry_point) {
+                        return self::serveFile($file_path,$entry_point);
+                    }]);
+                }
+            }
+        }
     }
 }

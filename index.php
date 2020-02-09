@@ -14,6 +14,10 @@ require_once BINGO_PATH . "/loader.php";
 \Bingo\Configuration::addModules('Auth','CMS');
 \Bingo\Configuration::addModules('Bundler','LPCandy','LPExtra');
 
+\Bundler\Configuration::addBundle("lpcandy","view/assets/lpcandy.min.js","view/assets/tea/makefile.tea");
+\Bundler\Configuration::addBundle("editor","view/assets/editor.min.js","view/editor/editor.js");
+\Bundler\Configuration::addBundle("components","view/assets/components.min.js","view/editor/style/style.tea");
+
 require __DIR__."/db.php";
 
 \CMS\Configuration::$log_errors = true;

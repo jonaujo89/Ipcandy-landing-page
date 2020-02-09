@@ -1,3 +1,9 @@
+require("./../../lib/teacss/lib/teacss.js");
+require("./../../lib/teacss-ui/teacss-ui.js");
+require("./../../lib/teacss-ui/teacss-ui.css");
+
+var TemplaterApp = require("./../../lib/templater/client/app.js");
+
 if (window.locale_lang=="ru") {
     require("./editor_ru.js");
     window._t.load({
@@ -14,12 +20,7 @@ if (window.locale_lang=="ru") {
 }
 
 window.lp = {};
-
-require("./../../lib/teacss/lib/teacss.js");
-require("./../../lib/teacss-ui/teacss-ui.js");
-require("./../../lib/teacss-ui/teacss-ui.css");
-
-var TemplaterApp = require("./../../lib/templater/client/app.js");
+lp.app = { events: teacss.ui.Control() };
 
 require("./editor.css");
 require("./style/font-awesome.css");
@@ -86,9 +87,7 @@ $.fn.toggleVis = function(flag) {
     $(this).toggleClass("visible",flag);
 }
 
-exports = lp.app = TemplaterApp.extend({
-    events: teacss.ui.Control()
-},{
+exports = lp.app = TemplaterApp.extend(lp.app,{
     init: function (o) {
         teacss.ui.Control.prototype.init.call(this,o);
         Component.app = this;

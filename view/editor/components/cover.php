@@ -11,10 +11,10 @@ class Cover extends Block {
     function __construct() {
         if (self::$en) {
             $this->name = 'Cover';
-            $this->description = '';
+            $this->description = 'Fullscreen block';
         } else {
             $this->name = 'Обложка';
-            $this->description = '';
+            $this->description = 'На весь экран';
         }
     }
 
