@@ -25,7 +25,7 @@ class Bundler extends \Bingo\Module {
         }
         else if ($entry_ext == "js") {
             ?>__bundler_load('Babel',<?=json_encode(file_get_contents(__DIR__.'/../assets/babel.min.js'))?>)<? echo PHP_EOL;
-            ?>bundler.loadES6(<?=json_encode($entry_point)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>,{})<? echo PHP_EOL;
+            ?>bundler.loadJS(<?=json_encode($entry_point)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>,{})<? echo PHP_EOL;
         }
     }
 
@@ -68,49 +68,31 @@ class Bundler extends \Bingo\Module {
         $cache = [];
         $entry_ext = pathinfo(parse_url($url)['path'],PATHINFO_EXTENSION);
 
-        $rel2abs = function($rel, $base) {
-            if (parse_url($rel, PHP_URL_SCHEME) != '' || substr($rel, 0, 2) == '//') return $rel;
-            if ($rel[0]=='#' || $rel[0]=='?') return $base.$rel;
-            extract(parse_url($base));
-            $path = preg_replace('#/[^/]*$#', '', $path);
-            if ($rel[0] == '/') $path = '';
-            $abs = "$host$path/$rel";
-            $re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
-            for($n=1; $n>0; $abs=preg_replace($re, '/', $abs, -1, $n)) {}
-            return '//'.$abs;
-        };
+        $normalizePath = function($path) {
+            $patterns = array('~/{2,}~', '~/(\./)+~', '~([^/\.]+/(?R)*\.{2,}/)~', '~\.\./~');
+            $replacements = array('/', '/', '', '');
+            return preg_replace($patterns, $replacements, $path);
+        };   
 
-        $process = function ($url) use (&$process,&$cache,&$rel2abs,$entry_ext) {
-            $parsed_url = parse_url($url);
-            $url_path = $parsed_url['path'];
-            $url_host = $parsed_url['host'] ?? false;
-            $url_ext = pathinfo($url_path,PATHINFO_EXTENSION);
-
-            $base_url = url('');
-            $base_path = INDEX_DIR."/";
-
-            if ($url_host && $url_host!=$_SERVER['HTTP_HOST']) return;
-            if (strpos($url_path,$base_url)!==0) return;
-
-            $path = $base_path.substr($url_path,strlen($base_url));
-
-            if (isset($cache[$url])) return;
+        $process = function ($path) use (&$process,&$cache,$entry_ext,&$normalizePath) {
+            if (isset($cache[$path])) return;
             if (!$path || !file_exists($path)) {
-                $cache[$url] = false;
+                $cache[$path] = false;
                 return;
             }
 
             $text = file_get_contents($path);
-            $cache[$url] = $text;
+            $cache[$path] = $text;
 
             $sub_uris = [];
+            $path_ext = pathinfo($path,PATHINFO_EXTENSION);            
 
-            if ($entry_ext=="tea" && $url_ext=="tea") {
+            if ($entry_ext=="tea" && $path_ext=="tea") {
                 $pattern = '/@import\s*(\'|")(.*?)(\'|")/';
                 preg_match_all($pattern,$text,$matches);
                 $sub_uris = $matches[2];
             }
-            if ($entry_ext=="js" && $url_ext=="js") {
+            if ($entry_ext=="js" && $path_ext=="js") {
                 $pattern = '/import(?:["\'\s]*([\w*${}\n\r\t, ]+)from\s*)?["\'\s]["\'\s](.*[@\w_-]+)["\'\s].*;/m';
                 preg_match_all($pattern,$text,$matches);
                 $sub_uris = array_merge($sub_uris,$matches[2]);
@@ -121,16 +103,55 @@ class Bundler extends \Bingo\Module {
             }
             
             foreach ($sub_uris as $rel) {
-                $abs_url = $rel2abs($rel,$url);
                 $ext = pathinfo($rel, PATHINFO_EXTENSION);
-                if (!$ext) {
-                    $abs_url = $abs_url.".".$url_ext;
-                }
-                $process($abs_url);
+                if (!$ext) $rel .= "." . $path_ext;
+
+                $sub_path = $normalizePath(dirname($path)."/".$rel);
+                $process($sub_path);
             }            
         };
-        $process($url);
-        return $cache;
+
+        $parsed_url = parse_url($url);
+        $url_path = $parsed_url['path'];
+        $url_host = $parsed_url['host'] ?? false;
+
+        $base_url = url('');
+        $base_path = INDEX_DIR."/";
+
+        if (!$url_host || $url_host!=$_SERVER['HTTP_HOST']) return [];
+        if (strpos($url_path,$base_url)!==0) return [];
+
+        $path = $base_path.substr($url_path,strlen($base_url));
+
+        $process($path);
+
+        if (count($cache)==1) {
+            foreach ($cache as $path => $text) {
+                return [basename($path) => $text];
+            }
+        }
+
+        // remove common path 
+        if (count($cache)>=2) {
+            $pathes = array_keys($cache);
+            $prefix = "";
+            foreach (explode("/",$pathes[0]) as $path_part) {
+                $new_prefix = $prefix . $path_part . "/";
+                foreach ($pathes as $path) {
+                    if (substr($path,0,strlen($new_prefix))!=$new_prefix) break 2;
+                }
+                $prefix = $new_prefix;
+            }
+            $prefix_len = strlen($prefix);
+
+            $res = [];
+            foreach ($cache as $path => $text) {
+                $res[substr($path,$prefix_len-1)] = $text;
+            }
+
+            return $res;
+        }
+        return [];
     }
 
     function __construct() {
