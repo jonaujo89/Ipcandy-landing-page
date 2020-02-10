@@ -3,7 +3,7 @@
 namespace LPCandy\Components;
 
 class Configuration {
-    static public $assets_url = "view/editor/assets";
+    static public $assets_url = "editor/components/assets";
 }
 
 class Block {

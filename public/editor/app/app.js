@@ -76,6 +76,8 @@ require("./ui/timer.js");
 require("./ui/coverBlock.js");
 require("./ui/faq.js");
 
+var dir = require.dir;
+
 $.fn.toggleVis = function(flag) {
     $(this).toggleClass("hidden",!flag);
     $(this).toggleClass("visible",flag);
@@ -127,13 +129,18 @@ exports = lp.app = TemplaterApp.extend(lp.app,{
     initUI: function () {
         var me = this;
         this._super();
-        
+
         this.frame.bind("init",function(){
             me.frame.$f("head").append(
-                $("<link>",{type:"text/css",rel:"stylesheet",href:base_url+"editor/app/style/frame.css"})
+                $("<link>",{type:'text/css',rel:'stylesheet',href:dir+'/style/frame.css'}),
+                $("<link>",{type:'text/css',rel:'stylesheet',href:dir+'/../components.min.css'})
             );
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = dir+'/../components.min.js';
+            this.document.head.appendChild(script);            
         });
-
+        
         this.frame.element.css({left:0});
         $(".editor-sidebar").detach();
         $(".preview-toolbar").width("100%");

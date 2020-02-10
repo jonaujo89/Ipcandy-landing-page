@@ -24,7 +24,7 @@ body.view-layout #beejee_info{
 
 #beejee_info > span {
     display: block;
-    background: url(assets/logo-beejee.jpg) no-repeat 0 50%;
+    background: url(../../../assets/images/logo-beejee.jpg) no-repeat 0 50%;
     width: 30px;
     height: 30px;
     text-indent: -999em;
@@ -206,11 +206,11 @@ body.view-layout #teacss-layer > .editor-panel > .preview-toolbar > .close-butto
 }
 
 .preview-toolbar .ui-state-default .ui-icon {
-    background-image: url(assets/ui-icons_grey_256x240.png);
+    background-image: url(../../../assets/images/ui-icons_grey_256x240.png);
 }
 
 .preview-toolbar .ui-state-hover .ui-icon, .preview-toolbar .ui-state-focus .ui-icon {
-    background-image: url(assets/ui-icons_white_256x240.png);
+    background-image: url(../../../assets/images/ui-icons_white_256x240.png);
 }
 
 .teacss-ui .preview-toolbar button.ui-button {
