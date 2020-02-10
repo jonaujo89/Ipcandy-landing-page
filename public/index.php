@@ -13,7 +13,7 @@ require_once BINGO_PATH . "/loader.php";
 
 \Bingo\Configuration::addModulePath(APP_DIR."/modules");
 \Bingo\Configuration::addModules('Auth','CMS');
-\Bingo\Configuration::addModules('Bundler','LPCandy','LPExtra');
+\Bingo\Configuration::addModules('Bundler','LPCandy');
 
 \Bundler\Configuration::addBundle("lpcandy","assets/lpcandy.min.js","assets/tea/makefile.tea");
 \Bundler\Configuration::addBundle("editor","editor/app.min.js","editor/app/app.js");
