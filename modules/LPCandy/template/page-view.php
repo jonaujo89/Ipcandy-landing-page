@@ -12,8 +12,8 @@
         var page_id = <?=$page->id?>;
         var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";
     </script>
-    <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/style.min.css')?>">
-    <script src="<?=url('view/editor/style/style.min.js')?>"> </script>    
+    <link rel="stylesheet" type="text/css" href="<?=url('editor/components.min.css')?>">
+    <script src="<?=url('editor/components.min.js')?>"> </script>    
     <script>
         window.extraHtmlSubmit = function() {
             <?= strip_tags($page->extra_html_submit) ?>
