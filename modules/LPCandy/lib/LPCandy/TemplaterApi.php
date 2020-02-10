@@ -2,7 +2,7 @@
 
 namespace LPCandy;
 
-require __DIR__ . "/../../../../lib/templater/server/api.php";
+require INDEX_DIR . "/assets/lib/templater/server/api.php";
 
 class TemplaterApi extends \TemplaterApi {
     
@@ -28,8 +28,8 @@ class TemplaterApi extends \TemplaterApi {
         if (!file_exists($this->templatePath)) @mkdir($this->templatePath,0777,true);
         if (!file_exists($this->uploadDir)) @mkdir($this->uploadDir,0777,true);
         
-        $this->modules = array();
-        $this->modules[] = __DIR__ . "/../../../../view/editor";
+        $this->modules = [];
+        $this->modules[] = INDEX_DIR."/editor/components";
     }
     
     function view($name,$dataSource,$ret) {

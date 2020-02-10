@@ -9,6 +9,8 @@ class LPCandy extends \Bingo\Module {
         bingo_domain_register('lpcandy',dirname(__FILE__)."/../locale");
         bingo_domain('lpcandy');
 
+        \Bingo\Template::addIncludePath('themes/default/lpcandy',__DIR__."/../template",false);
+
         $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\User','id'=>false),
             array('action'=>'(login|logout|profile|get-invite)'));
         $this->connect('files/browse.php',array('controller'=>'\LPCandy\Controllers\User','action'=>'files'));
