@@ -4,10 +4,8 @@ window.bundler = {
     js_sheets: [],
     build: function () {
         var me = this;
-        var savePath = me.base_url;
- 
-        function bundlerRequest(entry_point,css,js) {
 
+        function bundlerRequest(entry_point,css,js) {
             console.debug('minifying css '+entry_point);
             css = css ? CleanCSS.process(css) : '';
             console.debug('minifying js '+entry_point);
@@ -29,6 +27,8 @@ window.bundler = {
         }
 
         this.tea_sheets.forEach(function(sheet) {
+            
+            var savePath = me.dir(me.absUrl(base_url+'/'+sheet.bundle_path));
             console.debug('building tea '+sheet.entry_point);
 
             teacss.build(sheet.src,{
@@ -100,7 +100,7 @@ window.bundler = {
         script.setAttribute("tea",entry_url);
         document.getElementsByTagName('head')[0].appendChild(script);
 
-        this.tea_sheets.push({src:entry_url,entry_point:entry_point});
+        this.tea_sheets.push({src:entry_url,entry_point:entry_point,bundle_path:bundle_path});
 
         setTimeout(function(){
             teacss.update();
