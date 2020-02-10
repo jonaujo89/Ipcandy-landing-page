@@ -79,14 +79,21 @@ window.bundler = {
                 } 
                 else if (what[0]=='/' || /^http/.test(what)) path = what;
                 else path = root + "/" + what;
-                var a = document.createElement('a');a.href = path;
-                return a.href.replace(/http(s):\/\/[^\/]*?\//,'/');
+                var a = document.createElement('a');a.href = path;return a.href;
             }
             var f = function (path) {
                 var res_path = resolve(path);
                 var ext_match = /\.[0-9a-z]+$/.exec(path);
                 var ext = ext_match ? ext_match[0] : null;
-                if (ext==".css") return;
+                if (ext==".css") {
+                    var head = document.getElementsByTagName("head")[0];
+                    var append = document.createElement("link");
+                    append.type = "text/css";
+                    append.rel = "stylesheet";
+                    append.href = res_path;
+                    head.appendChild(append);
+                    return;
+                }
                 if (w.require.cache.modules[res_path]) return w.require.cache.modules[res_path];
                 if (!w.require.cache.defines[res_path]) {
                     console.debug("Can't require on path: "+res_path);
@@ -109,38 +116,20 @@ window.bundler = {
         }        
 
         var build_js = "("+me.loadRequire.toString()+")(window)\n";
-        var build_css = "";
         me.loadRequire(window);
-        
+
         for (var url in deps) {
-            var path = url;
-            var text = deps[url];
-            if (text===false) {
-                console.debug("Dependancy is missing:",url);
-            }
+            var path = me.absUrl(url);
 
             var ext_match = /\.[0-9a-z]+$/.exec(path);
             var ext = ext_match ? ext_match[0] : null;
-
-            if (ext==".css") {
-                var append = document.createElement("style");
-                document.getElementsByTagName("head")[0].appendChild(append);
-
-                var rel_text = text.replace(/url\(['"]?([^'"\)]*)['"]?\)/g, function( whole, part ) {
-                    var rep = (!path_utils.isAbsoluteOrData(part) && href!==undefined) ? path_utils.dir(path_utils.clean(href)) + part : part;
-                    if (rootStylePath) rep = path_utils.relative(rep,rootStylePath);
-                    return 'url('+rep+')';
-                });
-
-
-                append.appendChild(document.createTextNode(text));
-            }
-
             if (ext!='.js') continue;
 
             js = "(function(require){var exports={},module={exports:false};";
 
             var transform = false;
+            var text = deps[url];
+
             if (options.target=="es5") {
                 transform = Babel.transform(text, { 
                     presets: ['es2015'],
@@ -160,19 +149,14 @@ window.bundler = {
                 var mapURI = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(transform.map));
                 js += "\n//# sourceMappingURL="+mapURI;
             } else {
-                js += "\n//# sourceURL=file://bundler"+path;
+                js += "\n//# sourceURL="+path;
             }
+
             define(path,eval(js));     
         }
 
-        var entry_uri = Object.keys(deps)[0];
-        if (entry_uri) {
-            require(entry_uri);
-        } else {
-            console.debug("Entry not found in deps",entry_url,deps);
-        }
-
+        require(entry_url);
         build_js += "require("+path_string(entry_url)+")";
-        this.js_sheets.push({entry_point:entry_point,build_js:build_js});
+        this.js_sheets.push({src:entry_url,entry_point:entry_point,build_js:build_js});
     }
 }
