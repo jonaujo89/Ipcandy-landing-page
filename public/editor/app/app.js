@@ -1,4 +1,4 @@
-require("./../../assets/lib/teacss/lib/teacss.js");
+require("./../../assets/lib/teacss.js");
 require("./../../assets/lib/teacss-ui/teacss-ui.js");
 require("./../../assets/lib/teacss-ui/teacss-ui.css");
 
