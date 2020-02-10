@@ -6,7 +6,7 @@ ui.previewFrame = ui.panel.extend({
     init: function (o) {
         var me = this;
         this._super(o);
-        var blank = dir+"/../blank.htm";
+        var blank = o.blankUrl || (dir+"/../blank.htm");
         this.frameWrapper = $("<div>")
             .css({position:"absolute",left:0,right:0,top:0,bottom:0})
             .appendTo(this.element);
