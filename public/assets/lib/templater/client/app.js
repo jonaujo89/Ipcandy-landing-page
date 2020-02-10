@@ -152,8 +152,7 @@ exports = ui.Control.extend({
     init: function (options) {
         var me = this;
         this._super($.extend({
-            allowSkipType: true,
-            frameBlankUrl: undefined
+            allowSkipType: true
         },options));
         
         this.styles = [];
@@ -314,7 +313,7 @@ exports = ui.Control.extend({
         panel.element.appendTo(teacss.ui.layer);
         panel.push(me.templateTabs,toolbar,sidebar);
         
-        me.frame = ui.previewFrame({blankUrl:me.options.frameBlankUrl});
+        me.frame = ui.previewFrame();
         me.frame.element.css({position:"absolute",left:sidebarWidth,right:0,margin:0,top:57,bottom:0}).addClass("frame-panel");
         me.frame.bind("init",function(){
             me.templateTabs.bind("select",function(e,tab) { if (me.frameReady) me.selectTemplate(tab.template,tab) });
