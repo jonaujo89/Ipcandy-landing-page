@@ -1,7 +1,3 @@
-function bundler_build() {
-    bundler.build();
-}
-
 window.bundler = {
     base_url: "",
     tea_sheets: [],
@@ -11,6 +7,12 @@ window.bundler = {
         var savePath = me.base_url;
  
         function bundlerRequest(entry_point,css,js) {
+
+            console.debug('minifying css '+entry_point);
+            css = css ? CleanCSS.process(css) : '';
+            console.debug('minifying js '+entry_point);
+            js = js ? uglify(js) : '';
+
             var request = new XMLHttpRequest();
             request.open('POST', me.base_url + "bundler/build", true);
             request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
@@ -27,6 +29,8 @@ window.bundler = {
         }
 
         this.tea_sheets.forEach(function(sheet) {
+            console.debug('building tea '+sheet.entry_point);
+
             teacss.build(sheet.src,{
                 callback: function (files) {
                     bundlerRequest(sheet.entry_point,files[savePath+'/default.css'],files[savePath+'/default.js']);
@@ -37,16 +41,56 @@ window.bundler = {
         });
 
         this.js_sheets.forEach(function(sheet) {
-            bundlerRequest(sheet.entry_point,"",sheet.build_js);
+            console.debug('building js '+sheet.entry_point);
+            bundlerRequest(sheet.entry_point,sheet.build_css,sheet.build_js);
         });
+
+        try {
+            [].slice.call(document.getElementsByTagName('iframe')).forEach(function(fr){
+                if (fr.contentWindow.bundler) fr.contentWindow.bundler.build();
+            });
+        } catch {};
     },
+
     absUrl: function (url) {
         var link = document.createElement("a");
         link.href = url;
         return link.href;
     }, 
-    loadTea: function (entry_point,base_url,deps) {
-        this.base_url = base_url;
+    isAbsoluteOrData : function(path) {
+        return /^(.:\/|data:|http:\/\/|https:\/\/|\/)/.test(path)
+    },
+    relativePath : function (path,from) {
+        var pathParts = path.split("/");
+        var fromParts = from.split("/");
+
+        var once = false;
+        while (pathParts.length && fromParts.length && pathParts[0]==fromParts[0]) {
+            pathParts.splice(0,1);
+            fromParts.splice(0,1);
+            once = true;
+        }
+        if (!once || fromParts.length>2) return path;
+        return new Array(fromParts.length+1).join("../") + pathParts.join("/");
+    },
+    dir: function (path) {
+        return path.replace(/\/[^/]*?$/,'');        
+    },
+
+    init: function (base_url) {
+        var me = this;
+        me.base_url = base_url;
+        setTimeout(function(){
+            if (window.parent && window.parent!=window && !window.parent.bundler) {
+                window.parent.bundler = me;
+            }
+        },1000);
+    },
+
+    loadTea: function (entry_point,bundle_path,base_url,deps) {
+        
+        this.init(base_url);
+
         var $ = teacss.jQuery;
         var me = this;
         var entry_url = this.absUrl(base_url+entry_point);
@@ -85,15 +129,7 @@ window.bundler = {
                 var res_path = resolve(path);
                 var ext_match = /\.[0-9a-z]+$/.exec(path);
                 var ext = ext_match ? ext_match[0] : null;
-                if (ext==".css") {
-                    var head = document.getElementsByTagName("head")[0];
-                    var append = document.createElement("link");
-                    append.type = "text/css";
-                    append.rel = "stylesheet";
-                    append.href = res_path;
-                    head.appendChild(append);
-                    return;
-                }
+                if (ext==".css") return;
                 if (w.require.cache.modules[res_path]) return w.require.cache.modules[res_path];
                 if (!w.require.cache.defines[res_path]) {
                     console.debug("Can't require on path: "+res_path);
@@ -106,30 +142,51 @@ window.bundler = {
         }
     },
 
-    loadJS: function (entry_point,base_url,deps,options) {
-        this.base_url = base_url;
+    loadJS: function (entry_point,bundle_path,base_url,deps,options) {
+        
+        this.init(base_url);
+        
         var me = this;
         var entry_url = this.absUrl(base_url+entry_point);
+        var bundle_url = this.absUrl(base_url+bundle_path);
+        var bundle_dir = this.dir(bundle_url);
 
         function path_string(path) {
             return "'"+path.replace(/\\?("|')/g,'\\$1')+"'";
         }        
 
         var build_js = "("+me.loadRequire.toString()+")(window)\n";
+        var build_css = "";
         me.loadRequire(window);
 
         for (var url in deps) {
             var path = me.absUrl(url);
+            var text = deps[url];
 
             var ext_match = /\.[0-9a-z]+$/.exec(path);
             var ext = ext_match ? ext_match[0] : null;
+            
+            if (ext==".css") {
+                var head = document.getElementsByTagName("head")[0];
+                var append = document.createElement("link");
+                append.type = "text/css";
+                append.rel = "stylesheet";
+                append.href = path;
+                head.appendChild(append);
+
+                var css = text.replace(/url\(['"]?([^'"\)]*)['"]?\)/g, function( whole, part ) {
+                    var rep = part;
+                    if (!me.isAbsoluteOrData(part)) rep = me.absUrl(me.dir(path) + "/" + part);
+                    return 'url('+me.relativePath(rep,bundle_dir)+')';
+                });
+                build_css += css + "\n";
+                continue;
+            }
             if (ext!='.js') continue;
 
-            js = "(function(require){var exports={},module={exports:false};";
+            var js = "(function(require){var exports={},module={exports:false};";
 
             var transform = false;
-            var text = deps[url];
-
             if (options.target=="es5") {
                 transform = Babel.transform(text, { 
                     presets: ['es2015'],
@@ -157,6 +214,6 @@ window.bundler = {
 
         require(entry_url);
         build_js += "require("+path_string(entry_url)+")";
-        this.js_sheets.push({src:entry_url,entry_point:entry_point,build_js:build_js});
+        this.js_sheets.push({src:entry_url,entry_point:entry_point,build_js:build_js,build_css:build_css});
     }
 }

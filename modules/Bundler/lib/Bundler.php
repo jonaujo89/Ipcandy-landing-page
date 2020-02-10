@@ -15,17 +15,18 @@ class Bundler extends \Bingo\Module {
         $base_url = "//".$_SERVER['HTTP_HOST'].url("");
         $deps = self::loadDependencies($base_url.$entry_point);
 
-        ?>function __bundler_load(key,src) { if (!window[key]) eval(src+"//# sourceURL=file://bundler/"+key+".js") }<? echo PHP_EOL;
+        ?>function __bundler_load(key,src) { if (!window[key]) eval.call(window,src+"//# sourceURL=file://bundler/"+key+".js") }<? echo PHP_EOL;
         ?>__bundler_load('bundler',<?=json_encode(file_get_contents(__DIR__.'/../assets/bundler.js'))?>)<? echo PHP_EOL;
+        ?>__bundler_load('CleanCSS',<?=json_encode(file_get_contents(__DIR__.'/../assets/clean-css.js'))?>)<? echo PHP_EOL;
+        ?>__bundler_load('uglify',<?=json_encode(file_get_contents(__DIR__.'/../assets/uglify-js.js'))?>)<? echo PHP_EOL;
 
         $entry_ext = pathinfo($entry_point, PATHINFO_EXTENSION);
         if ($entry_ext == "tea") {
             ?>__bundler_load('teacss',<?=json_encode(file_get_contents(__DIR__.'/../assets/teacss.js'))?>)<? echo PHP_EOL;
-            ?>bundler.loadTea(<?=json_encode($entry_point)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>)<? echo PHP_EOL;
+            ?>bundler.loadTea(<?=json_encode($entry_point)?>,<?=json_encode($bundle_path)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>)<? echo PHP_EOL;
         }
         else if ($entry_ext == "js") {
-            ?>__bundler_load('Babel',<?=json_encode(file_get_contents(__DIR__.'/../assets/babel.min.js'))?>)<? echo PHP_EOL;
-            ?>bundler.loadJS(<?=json_encode($entry_point)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>,{})<? echo PHP_EOL;
+            ?>bundler.loadJS(<?=json_encode($entry_point)?>,<?=json_encode($bundle_path)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>,{})<? echo PHP_EOL;
         }
     }
 
@@ -51,9 +52,7 @@ class Bundler extends \Bingo\Module {
                 foreach (['js' => $js_path,'css' => $css_path] as $ext => $file_path) {
                     $cache_path = self::getCachePath($file_path);
                     echo "saving ".$file_path."\n";
-                    if ($ext=='js' || !empty($_POST[$ext])) {
-                        file_put_contents($cache_path,$_POST[$ext]);
-                    }
+                    file_put_contents($cache_path,$_POST[$ext]);
                     $full_path = INDEX_DIR."/".$file_path;
                     copy($cache_path,$full_path);
                 }
