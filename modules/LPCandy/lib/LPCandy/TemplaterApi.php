@@ -41,11 +41,11 @@ class TemplaterApi extends \TemplaterApi {
         $path = "/screenshot.png";
         $screen_file = $this->page->getPublishPath().$path;
         $url = 'http://'.$_SERVER['SERVER_NAME'].url('page-view/'.$this->page->id);
-        $rasterize = $this->base_dir."/modules/LPCandy/rasterize.js";
+        $rasterize = APP_DIR."/modules/LPCandy/rasterize.js";
         
         $pageWidth = 1200;
         
-        $cmd = 'phantomjs '.escapeshellarg($rasterize)." ".escapeshellarg($url)." ".escapeshellarg($screen_file)." ".$pageWidth;
+        $cmd = 'QT_QPA_PLATFORM=offscreen phantomjs '.escapeshellarg($rasterize)." ".escapeshellarg($url)." ".escapeshellarg($screen_file)." ".$pageWidth;
         $cmd .= " > /dev/null 2>/dev/null &";
         exec($cmd);
     }
