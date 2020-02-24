@@ -76,6 +76,8 @@ require("./ui/timer.js");
 require("./ui/coverBlock.js");
 require("./ui/faq.js");
 
+require("./pure_components/div.js");
+
 var dir = require.dir;
 
 $.fn.toggleVis = function(flag) {
@@ -106,6 +108,10 @@ exports = lp.app = TemplaterApp.extend(lp.app,{
 
                     me.components = data.components;
                     me.settings.upload = data.upload;
+
+                    pure.Component.registerAll(me);
+
+
                 } catch (e) {
                     alert(data);
                 }

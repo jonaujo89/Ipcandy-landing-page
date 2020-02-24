@@ -94,7 +94,7 @@ var Component = window.Component = $.Class.extend({
         if (!this.element) {
             this.scripts = [];
             var fragment = $.buildFragment([this.html],document,this.scripts);
-            this.element = $(this.html,Component.previewFrame.document).eq(0);
+            this.element = $(this.html || this.type.new.html,Component.previewFrame.document).eq(0);
             
             if (!this.element.attr("id"))
                 this.element.attr("id",this.value.id);
