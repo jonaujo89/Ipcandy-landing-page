@@ -20,7 +20,7 @@
                 template: "<?=$tpl?>",
                 publishScreenshot: false,
                 ajax_url: "<?=url('page-ajax/'.$page_id)?>",
-                assets_url: "view/editor/assets",
+                assets_url: "editor/components/assets",
                 upload_url: "<?=url('upload/LPCandy/files/'.$page->user->id)?>",
                 browse_url: "<?=url('files/browse.php')?>",
                 allowSkipType: false

@@ -164,7 +164,8 @@ div:hover > .cmp-repeater-cover {
     opacity: 1;
 }
 
-*[data-editor="lp.repeater"] > div {
+*[data-editor="lp.repeater"] > div,
+.item_block {
     position: relative;
 }
 

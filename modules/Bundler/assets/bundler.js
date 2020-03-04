@@ -162,6 +162,7 @@ window.bundler = {
         for (var url in deps) {
             var path = me.absUrl(url);
             var text = deps[url];
+            if (text===false) continue;
 
             var ext_match = /\.[0-9a-z]+$/.exec(path);
             var ext = ext_match ? ext_match[0] : null;

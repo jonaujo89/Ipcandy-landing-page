@@ -94,7 +94,8 @@ var Component = window.Component = $.Class.extend({
         if (!this.element) {
             this.scripts = [];
             var fragment = $.buildFragment([this.html],document,this.scripts);
-            this.element = $(this.html || this.type.new.html,Component.previewFrame.document).eq(0);
+            var new_html = this.type.new && this.type.new.html;
+            this.element = $(this.html || new_html,Component.previewFrame.document).eq(0);
             
             if (!this.element.attr("id"))
                 this.element.attr("id",this.value.id);
@@ -277,7 +278,7 @@ var Component = window.Component = $.Class.extend({
         }
         
         if (this.type.clientControl && !this.clientControl) {
-            me.clientControl = Component.classFromName(this.type.clientControl)({cmp:me});
+            me.clientControl = new (Component.classFromName(this.type.clientControl))({cmp:me});
             me.clientControl.bind("change",function(){
                 me.value = me.clientControl.getValue();
                 

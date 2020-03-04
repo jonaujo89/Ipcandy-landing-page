@@ -76,7 +76,12 @@ require("./ui/timer.js");
 require("./ui/coverBlock.js");
 require("./ui/faq.js");
 
-require("./pure_components/div.js");
+window.preact = require("./lib/preact");
+window.preact.hooks = require("./lib/preact_hooks");
+window.html = require("./lib/htm").bind(preact.h);
+
+const Block = require("./pure_components/internal/block.js");
+require("./pure_components/benefits.js");
 
 var dir = require.dir;
 
@@ -108,14 +113,11 @@ exports = lp.app = TemplaterApp.extend(lp.app,{
 
                     me.components = data.components;
                     me.settings.upload = data.upload;
-
-                    pure.Component.registerAll(me);
-
-
                 } catch (e) {
                     alert(data);
                 }
-                
+
+                Block.registerAll(me);
                 me.initUI();
             });            
         });

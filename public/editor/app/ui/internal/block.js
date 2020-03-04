@@ -13,6 +13,7 @@ lp.block = teacss.ui.control.extend({
         this.element = this.cmp.element;
         this.variantValues = {};
         this.variantDefault = {};
+        this.editors = [];
         
         if (this.options.configForm) {
             this.configButton = $("<div class='fa fa-gear lp-button right'>").click(function(){
@@ -233,6 +234,42 @@ lp.block = teacss.ui.control.extend({
         
         this.variantLabel.text(this.current + "/" + this.variants.length);
     },
+
+    bindEditor: function (el,editorName,name,variant,setEditorValue) {
+        var me = this;
+        var editor = $(this).data("editor-control");
+
+        if (!editor && name) {
+            var options = $(el).attr("data-options");
+            options = options ? JSON.parse(options) : {};
+            $(el).removeAttr("data-options");
+
+            var editorClass;
+            if (typeof editorName === "string") {
+                editorClass = Component.classFromName(editorName)
+            } else {
+                editorClass = editorName;
+            }
+            editor = editorClass($.extend(options,{element:$(el)}));
+            $(el).data("editor-control",editor);
+
+            editor.options.name = name;
+            editor.options.block = me;
+            editor.options.variant = variant;
+
+            editor.bind("change",function(){
+                me.editorChange(editor.options.name,editor.getValue(),editor);
+            });
+        }
+        if (editor) {
+            if (setEditorValue) {
+                var sub_val = teacss.ui.prop(me.value,editor.options.name);
+                editor.setValue(sub_val);
+            }
+            me.editors.push(editor);
+        }
+        return editor;
+    },
     
     bindEditors: function (setEditorValue) {
         var me = this;
@@ -241,39 +278,11 @@ lp.block = teacss.ui.control.extend({
         this.variants.each(function(v,variant_div){
             var variant = $(this).attr("data-variant");
             $(this).find("[data-editor]:not([data-dummy] *)").each(function(){
-                var editorName = $(this).attr("data-editor");
-
-                var name = $(this).attr("data-name");
-                var editor = $(this).data("editor-control");
-
-                if (!editor && name) {
-                    var options = $(this).attr("data-options");
-                    options = options ? JSON.parse(options) : {};
-                    $(this).removeAttr("data-options");
-                    
-                    editor = Component.classFromName(editorName)($.extend(options,{element:$(this)}));
-                    $(this).data("editor-control",editor);
-
-                    editor.options.name = name;
-                    editor.options.block = me;
-                    editor.options.variant = variant;
-
-                    editor.bind("change",function(){
-                        me.editorChange(editor.options.name,editor.getValue(),editor);
-                    });
-                }
-                if (editor) {
-                    if (setEditorValue) {
-                        var sub_val = teacss.ui.prop(me.value,editor.options.name);
-                        editor.setValue(sub_val);
-                    }
-                    me.editors.push(editor);
-                }
+                me.bindEditor(this,$(this).attr("data-editor"),$(this).attr("data-name"),variant,setEditorValue);
             });        
         });
-        
     },
-    
+
     editorChange: function (name,val,editor) {
         var me = this;
         this.value = this.value || {};
