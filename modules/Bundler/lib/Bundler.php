@@ -5,6 +5,8 @@ class Bundler extends \Bingo\Module {
     static function serveFile($bundle_path,$entry_point) {
         if (!$entry_point) return true;
         $bundle_ext = pathinfo($bundle_path, PATHINFO_EXTENSION);
+    
+        ob_start('ob_gzhandler');        
         if ($bundle_ext=='css') {
             header("Content-type: text/css");
             echo " ";return;
@@ -18,7 +20,7 @@ class Bundler extends \Bingo\Module {
         ?>function __bundler_load(key,src) { if (!window[key]) eval.call(window,src+"//# sourceURL=file://bundler/"+key+".js") }<? echo PHP_EOL;
         ?>__bundler_load('bundler',<?=json_encode(file_get_contents(__DIR__.'/../assets/bundler.js'))?>)<? echo PHP_EOL;
         ?>__bundler_load('CleanCSS',<?=json_encode(file_get_contents(__DIR__.'/../assets/clean-css.js'))?>)<? echo PHP_EOL;
-        ?>__bundler_load('uglify',<?=json_encode(file_get_contents(__DIR__.'/../assets/uglify-js.js'))?>)<? echo PHP_EOL;
+        ?>__bundler_load('Terser',<?=json_encode(file_get_contents(__DIR__.'/../assets/terser.min.js'))?>)<? echo PHP_EOL;
 
         $entry_ext = pathinfo($entry_point, PATHINFO_EXTENSION);
         if ($entry_ext == "tea") {

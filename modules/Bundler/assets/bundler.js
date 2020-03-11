@@ -8,8 +8,18 @@ window.bundler = {
         function bundlerRequest(entry_point,css,js) {
             console.debug('minifying css '+entry_point);
             css = css ? CleanCSS.process(css) : '';
+            
             console.debug('minifying js '+entry_point);
-            js = js ? uglify(js) : '';
+            js = js || '';
+            if (js) {
+                var terserResult = Terser.minify(js);
+                if (terserResult.error) {
+                    window._js = js;
+                    console.debug("minify error", terserResult.error);
+                } else {
+                    js = terserResult.code;
+                }
+            }
 
             var request = new XMLHttpRequest();
             request.open('POST', me.base_url + "bundler/build", true);
