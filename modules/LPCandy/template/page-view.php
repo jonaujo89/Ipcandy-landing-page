@@ -12,16 +12,22 @@
         var page_id = <?=$page->id?>;
         var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";
     </script>
-    <link rel="stylesheet" type="text/css" href="<?=url('editor/components.min.css')?>">
-    <script src="<?=url('editor/components.min.js')?>"> </script>    
+
+    <script src="<?=url('editor/app.min.js')?>"></script>
+    <link  href="<?=url('editor/app.min.css')?>" rel="stylesheet" type="text/css">
+    <script src="<?=url('editor/components.min.js')?>"></script>
+    <link  href="<?=url('editor/components.min.css')?>" rel="stylesheet" type="text/css">
+
     <script>
-        window.extraHtmlSubmit = function() {
-            <?= strip_tags($page->extra_html_submit) ?>
-        }
+        lp.run({
+            assets_url: "editor/components/assets",
+            blocks: <?=json_encode($page->loadBlocks($published=true))?>,
+            viewOnly: true
+        });
     </script>
+
 </head>                
     <body>
-        <?= $body_html ?>
-        <?= $page->extra_html?>                    
+        <div id="app"><?=$page->getPublishedHtml()?></div>
     </body>
 </html>

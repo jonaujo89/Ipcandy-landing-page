@@ -75,10 +75,9 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
         $id = $this->id;
         return \LPCandy\Configuration::$base_dir.'/upload/LPCandy/pages/'.$id.($sub ? "/".$sub:"");
     }
-    
-    function getUrl($sub=false) {
-        $id = $this->id;
-        return \LPCandy\Configuration::$base_url.'/upload/LPCandy/pages/'.$id.($sub ? "/".$sub:"");
+
+    function getPagePath($published) {
+        return $published ? $this->getPath("publish/templates/page.yaml") : $this->getPath("templates/page.yaml");        
     }
     
     function getScreenshotUrl() {
@@ -89,35 +88,63 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
         return url('assets/images/no-screenshot.png');
     }
     
-    function getTemplate() {
-        return 'page';
-    }
-    
-    function getTemplatePath($sub=false) {
-        return $this->getPath('templates'.($sub ? "/".$sub:""));
-    }
-    
-    function getSettingsPath() {
-        return $this->getPath('style.json');
-    }
-            
-    function getPublishPath() {
-        return $this->getPath('publish');
-    }
-    
     function copyFromTemplate($other) {
-        $yaml = @file_get_contents($other->getTemplatePath('page.yaml'));
-        $path = $this->getTemplatePath('page.yaml');
+        $yaml = @file_get_contents($other->getPagePath($published = true));
+        $path = $this->getPagePath($published = false);
         
         $dir = dirname($path);
         if (!file_exists($dir)) mkdir($dir,0777,true);
         file_put_contents($path,$yaml);
+    }
+
+    function loadBlocks($published = false) {
+        $blocks = [];
+        $pagePath = $this->getPagePath($published);
+        if (file_exists($pagePath)) {
+            $data = yaml_parse_file($pagePath);
+            foreach ($data as $key=>$block_value) {
+                list($type,$id) = explode('#',$key,2);
+                $blocks[] = ['value' => array_merge(['id'=>$id,'type'=>$type],$block_value)];
+            }
+        }
+        return $blocks;
+    }
+
+    function saveBlocks($blocks,$published = false) {
+        $data = [];
+        foreach ($blocks as $block) {
+            $val = $block['value'];
+            $id = $val['id'];
+            $type = $val['type'];
+            unset($val['id'],$val['type']);
+            $data[$type."#".$id] = $val;
+        }
+
+        $pagePath = $this->getPagePath($published);
+        if (!file_exists(dirname($pagePath))) mkdir(dirname($pagePath),0777,true);
+        file_put_contents($pagePath,yaml_emit($data,YAML_UTF8_ENCODING));
+    }
+
+    function publish($blocks,$html) {
+        $this->saveBlocks($blocks,$published = true);
+        file_put_contents($this->getPath("publish/page.html"),$html);
+        $this->makeScreenshot();
+    }
+
+    function getPublishedHtml() {
+        $path = $this->getPath("publish/page.html");
+        return file_exists($path) ? file_get_contents($path) : "";
+    }
+
+    function makeScreenshot() {
+        $screen_file = $this->getPath("publish/screenshot.png");
+        $url = 'http://'.$_SERVER['SERVER_NAME'].url('page-view/'.$this->id);
+        $rasterize = APP_DIR."/modules/LPCandy/rasterize.js";
         
-        $json = @file_get_contents($other->getSettingsPath());
-        $path = $this->getSettingsPath();
-        $dir = dirname($path);
-        if (!file_exists($dir)) mkdir($dir,0777,true);
-        file_put_contents($path,$json);
+        $pageWidth = 1200;
         
+        $cmd = 'QT_QPA_PLATFORM=offscreen phantomjs '.escapeshellarg($rasterize)." ".escapeshellarg($url)." ".escapeshellarg($screen_file)." ".$pageWidth;
+        $cmd .= " > /dev/null 2>/dev/null &";
+        exec($cmd);
     }
 }

@@ -9,25 +9,17 @@ class Front extends Base {
     
     function home() {
         $home_domain = \Bingo\Config::get('config','domain')[bingo_get_locale()];        
-        $page = \LPCandy\Models\Page::findOneByDomain($home_domain);
+        $page = $this->data['page'] = \LPCandy\Models\Page::findOneByDomain($home_domain);
         if (!$page) return true;
         
-        $api = new \LPCandy\TemplaterApi($page);
-        $body_html = $api->view($page->getTemplate(),false,true);
-
         $this->data['title'] = $page->title;
-        $this->data['body_html'] = $body_html;
         $this->view('lpcandy/home');
     }
 
     function page_view($id) {
-        $page = \LPCandy\Models\Page::find($id);
+        $page = $this->data['page'] = \LPCandy\Models\Page::find($id);
         if (!$page) return true;
         
-        $api = new \LPCandy\TemplaterApi($page);
-
-        $this->data['page'] = $page;
-        $this->data['body_html'] = $api->view($page->getTemplate(),false,true);
         $this->view('lpcandy/page-view');
     }
     

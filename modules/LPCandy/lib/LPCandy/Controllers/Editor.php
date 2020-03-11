@@ -30,27 +30,24 @@ class Editor extends Base {
     function page_design($id) {
         $page = $this->data['page'] = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect('/');
-        $this->data['page_id'] = $page->id;
-        $tpl = $page->getTemplate();
-        
-        $modules = array();
-        $modules[] = INDEX_URL."/view/editor/editor.js";
 
-        if ($page && file_exists($page->getPath("module.js")))
-            $modules[] = $page->getUrl('module.js');
-        
-        $this->data['title'] = _t('Design page');
-        $this->data['tpl'] = $tpl;
-        $this->data['modules'] = $modules;
         $this->view('lpcandy/page-design');
     }    
     
     function page_ajax($id) {
         $page = $this->data['page'] = \LPCandy\Models\Page::find($id);
         if (!$page || $page->user!=$this->user) redirect('/');
-        
-        $api = new \LPCandy\TemplaterApi($page);
-        $api->run();
+
+        $action = @$_POST['_type'];
+        switch ($action) {
+            case 'save':
+                $page->saveBlocks(json_decode($_POST['blocks'],true));
+                break;
+
+            case 'publish':
+                $page->publish(json_decode($_POST['blocks'],true),$_POST['html']);
+                break;
+        }
     }     
 }
 

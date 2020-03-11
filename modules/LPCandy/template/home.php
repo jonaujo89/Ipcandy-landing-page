@@ -1,32 +1,23 @@
 <? include partial('lpcandy/layout') ?>
 <? startblock('content') ?>
-    <link rel="stylesheet" type="text/css" href="<?=url('view/editor/style/style.min.css')?>">
-    <style>
-        html,body {
-            font-size:12px;
-            line-height:1.5em;
-        }
-        @media (max-width:1369px) {
-            .container {
-              width: 930px;
-              margin: 0 auto;
-              margin-left: auto !important;
-              margin-right: auto !important;
-            }
-            .span16 {
-              display: inline;
-              float: left;
-              width: 930px;
-              margin-left: 30px;
-            }
-            .span16:first-child {
-              margin-left: 0;
-            }
-            .stages_1 .item_list .item .name, .benefits_1 .item_list .item .name {
-              font-size: 18px;
-            }
-        }
-    </style>
-    <script src="<?=url('view/editor/style/style.min.js')?>"></script>
-    <?= $body_html ?>
+    <script>
+        var base_url = "<?=INDEX_URL?>";
+        var page_id = <?=$page->id?>;
+        var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";
+    </script>
+
+    <script src="<?=url('editor/app.min.js')?>"></script>
+    <link  href="<?=url('editor/app.min.css')?>" rel="stylesheet" type="text/css">
+    <script src="<?=url('editor/components.min.js')?>"></script>
+    <link  href="<?=url('editor/components.min.css')?>" rel="stylesheet" type="text/css">
+
+    <script>
+        lp.run({
+            assets_url: "editor/components/assets",
+            blocks: <?=json_encode($page->loadBlocks($published=true))?>,
+            viewOnly: true
+        });
+    </script>
+    <div id="app"></div>
+
 <? endblock() ?>
