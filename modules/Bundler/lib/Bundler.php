@@ -21,10 +21,10 @@ class Bundler extends \Bingo\Module {
         ?>__bundler_load('bundler',<?=json_encode(file_get_contents(__DIR__.'/../assets/bundler.js'))?>)<? echo PHP_EOL;
         ?>__bundler_load('CleanCSS',<?=json_encode(file_get_contents(__DIR__.'/../assets/clean-css.js'))?>)<? echo PHP_EOL;
         ?>__bundler_load('Terser',<?=json_encode(file_get_contents(__DIR__.'/../assets/terser.min.js'))?>)<? echo PHP_EOL;
+        ?>__bundler_load('teacss',<?=json_encode(file_get_contents(__DIR__.'/../assets/teacss.js'))?>)<? echo PHP_EOL;
 
         $entry_ext = pathinfo($entry_point, PATHINFO_EXTENSION);
         if ($entry_ext == "tea") {
-            ?>__bundler_load('teacss',<?=json_encode(file_get_contents(__DIR__.'/../assets/teacss.js'))?>)<? echo PHP_EOL;
             ?>bundler.loadTea(<?=json_encode($entry_point)?>,<?=json_encode($bundle_path)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>)<? echo PHP_EOL;
         }
         else if ($entry_ext == "js") {

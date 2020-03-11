@@ -12,7 +12,7 @@ lp.iconCombo = ui.combo.extendOptions({
             if (i>=285 && i<=289) continue;
             if (i>=365 && i<=716) continue;
             if (i>=743 && i<=766) continue;
-            items.push({value:Component.app.options.assets_url+"/ico/"+i+".png"});
+            items.push({value:lp.app.options.assets_url+"/ico/"+i+".png"});
         }
         return items;
     },
@@ -29,7 +29,7 @@ lp.iconComboWhite = lp.iconCombo.extendOptions({
         this.element.css({background:'transparent'});
         this.element.parent().css({background:"#555"});
         for (var i=365;i<=716;i++) {
-            items.push({value:Component.app.options.assets_url+"/ico/"+i+".png"});
+            items.push({value:lp.app.options.assets_url+"/ico/"+i+".png"});
         }
         return items;
     }
@@ -51,7 +51,9 @@ class Icon extends Cover {
         this.passValue();
         return html`<div>
             <div class="ico" style="background-image: url(${base_url+"/"+this.value})">
-                <div ref=${this.cover} class='cmp-cover fa fa-gear' onClick=${()=>{this.openDialog()}} />
+                ${ !lp.app.options.viewOnly && html`
+                    <div ref=${this.cover} class='cmp-cover fa fa-gear' onClick=${()=>{this.openDialog()}} />
+                `}
             </div>
         </div>`;
     }

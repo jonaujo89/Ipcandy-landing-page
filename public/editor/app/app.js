@@ -1,8 +1,12 @@
-require("./../../assets/lib/teacss.js");
 require("./../../assets/lib/teacss-ui/teacss-ui.js");
 require("./../../assets/lib/teacss-ui/teacss-ui.css");
 
-var TemplaterApp = require("./../../assets/lib/templater/client/app.js");
+window.$ = teacss.jQuery;
+window.ui = teacss.ui;
+
+window._t = function(s) { return window._t.hash[s] || s; };
+window._t.hash = {};
+window._t.load = function(h) { $.extend(window._t.hash,h) }
 
 if (window.locale_lang=="ru") {
     require("./locale/ru.js");
@@ -20,171 +24,166 @@ if (window.locale_lang=="ru") {
 }
 
 window.lp = {};
-lp.app = { events: teacss.ui.Control() };
 
-require("./style/editor.css");
 require("./style/font-awesome.css");
+require("./style/editor.css");
 
-require("./ui/internal/checkbox.js");
-
-require("./ui/internal/block.js");
-require("./ui/internal/repeater.js");
-
-require("./lib/spacedText/spacedText.js");
-require("./lib/spacedText/spacedText.css");
-
-require('./lib/datetimePicker/jquery.datetimepicker.css');
-require('./lib/datetimePicker/jquery.datetimepicker.js');
-
-require("./ui/internal/text.js");
-require("./ui/internal/color.js");
-require("./ui/internal/cover.js");
-require("./ui/internal/logo.js");
-require("./ui/internal/icon.js");
-require("./ui/internal/formOrder.js");
-require("./ui/internal/image.js");
-require("./ui/internal/logoItem.js");
-require("./ui/internal/formButton.js");
-require("./ui/internal/uploadButton.js");
-require("./ui/internal/fontCombo.js");
-require("./ui/internal/media.js");
-require("./ui/internal/countdown.js");
-require("./ui/internal/galleryRepeater.js");
-require("./ui/internal/overlayImage.js");
-require("./ui/internal/galleryImage.js");
-require("./ui/internal/background.js");
-require("./ui/internal/liquid.js");
-require("./ui/internal/yandexMap.js");
-
-require("./ui/header.js");
-require("./ui/order.js");
-require("./ui/benefits.js");
-require("./ui/services.js");
-require("./ui/reasons.js");
-require("./ui/gallery.js");
-require("./ui/logos.js");
-require("./ui/cases.js");
-require("./ui/stages.js");
-require("./ui/feedback.js");
-require("./ui/map.js");
-require("./ui/stickyMenu.js");
-require("./ui/footer.js");
-require("./ui/video.js");
-require("./ui/textBlock.js");
-require("./ui/numbers.js");
-require("./ui/timer.js");
-require("./ui/coverBlock.js");
-require("./ui/faq.js");
+require("./pure_components/internal/checkbox");
+require("./pure_components/internal/color");
+require("./pure_components/internal/prompts");
 
 window.preact = require("./lib/preact");
 window.preact.hooks = require("./lib/preact_hooks");
 window.html = require("./lib/htm").bind(preact.h);
 
-const Block = require("./pure_components/internal/block.js");
-require("./pure_components/benefits.js");
+const Block = require("./pure_components/internal/block");
+require("./pure_components/benefits");
 
-var dir = require.dir;
+class App extends preact.Component {
 
-$.fn.toggleVis = function(flag) {
-    $(this).toggleClass("hidden",!flag);
-    $(this).toggleClass("visible",flag);
-}
+    constructor(props) {
+        super(props);
 
-exports = lp.app = TemplaterApp.extend(lp.app,{
-    init: function (o) {
-        teacss.ui.Control.prototype.init.call(this,$.extend(o,{
-            frameBlankUrl: base_url+"editor/app/style/blank.htm"
-        }));
-        Component.app = this;
-        
-        this.staticStyles = [];
-        this.styles = [];
-        
-        var me = this;
-        teacss.jQuery(function(){
-            me.request('load',{cache:0},function (data){
-                try {
-                    data = data || {};
+        this.options = props;
+        this.state = {
+            blocks: props.blocks,
+            preview: false
+        }
+        this.baseId = (new Date()).getTime();
 
-                    me.settings = {};
-                    me.settings.templates = $.parseJSON(data.templates || "{}");
-                    me.settings.theme = $.parseJSON(data.theme || "{}");
-                    teacss.functions.settings = me.settings
+        lp.app = this;
+    }
 
-                    me.components = data.components;
-                    me.settings.upload = data.upload;
-                } catch (e) {
-                    alert(data);
-                }
+    request(action,data,callback) {
+        $.ajax({
+            url: this.props.ajax_url,
+            type: "POST",
+            data: $.extend({},{_type:action},data),
+            success: $.proxy(callback,this)
+        });        
+    }
 
-                Block.registerAll(me);
-                me.initUI();
-            });            
-        });
-        
-        
-        this.bind("change",function(data){
-            if (me.skipSave) return;
-            me.request('save',{
-                templates: JSON.stringify(me.settings.templates),
-                theme: JSON.stringify(me.settings.theme,undefined, 2)
-            });
-        });
-        
-        lp.app.events.trigger("init");
-    },
-    
-    initUI: function () {
-        var me = this;
-        this._super();
+    render(props,state) {
+        console.debug("app render");
+        return html`
+            ${ !props.viewOnly && html`
+                <div id="preview-toolbar">
+                    ${ state.preview && html`
+                        <button onClick=${()=>this.setState({preview:false})} class="editor-button"><i class="fa fa-cog" />${_t("Editor")}</button>
+                    `}
+                    ${ !state.preview && html`
+                        <button onClick=${()=>this.setState({preview:true})}><i class="fa fa-times" />${_t("Preview")}</button>
+                        <button onClick=${()=>this.publish()}><i class="fa fa-play" />${_t("Publish")}</button>
+                        <button onClick=${()=>this.showAddBlockDialog()}><i class="fa fa-plus" />${_t("Add Section")}</button>
+                    `}
+                </div>
+            `}
+            <div id="frame-panel" class="${ (state.preview || props.viewOnly) && 'view-layout' }">
+                ${state.blocks.map((block) => {
+                    const BlockType = Block.list[block.value.type];
+                    if (BlockType) return html`<${ BlockType } key=${block.value.id} value=${block.value} />`;
+                    console.debug("Undefined block type",block.value);
+                })}
+                
+            </div>
+        `;
+    }
 
-        this.frame.bind("init",function(){
-            me.frame.$f("head").append(
-                $("<link>",{type:'text/css',rel:'stylesheet',href:dir+'/style/frame.css'}),
-                $("<link>",{type:'text/css',rel:'stylesheet',href:dir+'/../components.min.css'})
-            );
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.src = dir+'/../components.min.js';
-            this.document.head.appendChild(script);            
-        });
-        
-        this.frame.element.css({left:0});
-        $(".editor-sidebar").detach();
-        $(".preview-toolbar").width("100%");
-        
-        $(".preview-toolbar").append($("#beejee_info"));
-        
-        me.templateTabs.element.detach();
-        me.view3dButton.element.detach();
-        
-        me.publishButton.element.css({position:'relative'});
-        me.addButton = ui.button({
-            label:_t("Add Section"),
-            icons:{ primary: "ui-icon-plus" },
-            click: function (e) { 
-                me.addSection(e);
+    triggerChange() {
+        clearTimeout(this.saveTimeout);
+        this.saveTimeout = setTimeout(()=>{
+            this.request('save',{blocks:JSON.stringify(this.state.blocks)});
+        },500);
+    }
+
+    blockChanged(blockComponent) {
+        this.state.blocks.forEach((block)=>{
+            if (block.value.id==blockComponent.value.id) {
+                block.value = blockComponent.value;
             }
         });
-        me.addButton.element.insertAfter(me.publishButton.element);
-    },
-    
-    addSection: function (e) {
-        var root = Component.previewFrame.root;
-        if (!root) return;
-        if (root.children.length) {
-            root.children[0].addTop(e);
-        } else {
-            root.addInside(e);
-        }
-    },
-    
-    publish: function () {
-        this.request("publish",{},function(){
-            ui.alert({
-                title:_t('Publish success'),
-                text:_t('Your page was successfully published and now is available to your customers')
-            });
-        });
+        this.setState({},()=>this.triggerChange());
     }
-});
+
+    publish() {
+        var me = this;
+        class AppPublished extends App {
+            componentDidMount() {
+                me.request("publish",{html:this.base.outerHTML,blocks:JSON.stringify(this.state.blocks)},()=>{
+                    ui.alert({
+                        title:_t('Publish success'),
+                        text:_t('Your page was successfully published and now is available to your customers')
+                    });
+                });
+            }
+        }
+
+        preact.render(preact.h(AppPublished,{
+            assets_url: this.options.assets_url,
+            blocks: this.state.blocks,
+            viewOnly: true
+        }),$("<div>")[0]);
+    }
+
+    removeBlock(blockComponent) {
+        var blocks = [];
+        this.state.blocks.forEach((block)=>{
+            if (block.value.id!=blockComponent.value.id) blocks.push(block);
+        });
+        this.setState({ blocks },()=>this.triggerChange());
+    }
+
+    addBlock(typeId) {
+        var blocks = [...this.state.blocks];
+        blocks.push({
+            value: {
+                id: 'id'+(++this.baseId),
+                type: typeId
+            }
+        });
+        this.setState({ blocks },()=>this.triggerChange());
+    }
+
+    showAddBlockDialog() {
+        if (!this.typeDialog) {
+            this.typeDialog = teacss.ui.dialog({
+                modal: true,
+                resizable: false,
+                draggable: false,
+                width: 607,
+                dialogClass: 'change-type-dialog',
+                title: _t("Select component type")
+            });        
+
+            var div = $("<div style='position:relative !important;'>")
+                .addClass('button-select-panel')
+                .click(function(e){
+                    e.stopPropagation();
+                })
+            
+            this.typeDialog.element.css({padding:0}).append(div);
+            div.append(div = $("<div>"));
+
+            for (var typeId in Block.list) {
+                var type = Block.list[typeId];
+                var item = $("<div class='combo-item draggable'>")
+                    .append(
+                        $("<div class='combo-item-miniature'>").css({backgroundImage:"url("+base_url+"editor/app/style/miniatures/"+type.name.toLowerCase()+".jpg)"}),
+                        document.createTextNode(type.title),
+                        $("<small>").html(type.description)
+                    )
+                    .click(()=>this.addBlock(typeId))
+                ;
+                
+                div.append(item);
+            };
+        }
+        this.typeDialog.element.css({maxHeight:$(window).height()*0.8});                
+        this.typeDialog.open();        
+    }
+}
+
+
+lp.run = function (options) {
+    $(()=> preact.render(preact.h(App,options),$("#app")[0]));
+}

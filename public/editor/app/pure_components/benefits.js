@@ -5,10 +5,10 @@ const Icon = require("./internal/icon");
 
 class Benefits extends Block {
 
-    static title = _t('Benefits')
-    static description = _t('Main advantages')
+    static get title() { return _t('Benefits') }
+    static get description() { return _t('Main advantages') }
 
-    configForm = {
+    get configForm() { return {
         items: [            
             { 
                 name: "show_title", label: _t("Show first title"), type: "checkbox", width: "auto",  
@@ -39,7 +39,7 @@ class Benefits extends Block {
                 type: lp.blockColor, name: "background_color"  
             }
         ]
-    }    
+    }}    
     
     tpl_1(val) {
         return html`
@@ -96,9 +96,9 @@ class Benefits extends Block {
             'title_2': "Subtitle",
             'items': [
                 {
-                    'icon_1': `${Component.app.options.assets_url}/ico/740.png`,
-                    'icon_2': `${Component.app.options.assets_url}/ico/274.png`,
-                    'icon_3': `${Component.app.options.assets_url}/ico/218.png`,
+                    'icon_1': `${lp.app.options.assets_url}/ico/740.png`,
+                    'icon_2': `${lp.app.options.assets_url}/ico/274.png`,
+                    'icon_3': `${lp.app.options.assets_url}/ico/218.png`,
                     'name_1': "You can go on foot",
                     'name_2': "It increases the degree of mood",
                     'name_3': "It inspires by selective positive ",
@@ -118,9 +118,9 @@ class Benefits extends Block {
             'title_2': "Подзаголовок о крутизне цирка",
             'items': [
                 {
-                    'icon_1': `${Component.app.options.assets_url}/ico/740.png`,
-                    'icon_2': `${Component.app.options.assets_url}/ico/274.png`,
-                    'icon_3': `${Component.app.options.assets_url}/ico/218.png`,
+                    'icon_1': `${lp.app.options.assets_url}/ico/740.png`,
+                    'icon_2': `${lp.app.options.assets_url}/ico/274.png`,
+                    'icon_3': `${lp.app.options.assets_url}/ico/218.png`,
                     'name_1': "В него можно придти пешком",
                     'name_2': "Повышает градус настроения",
                     'name_3': "Заряжает отборным позитивом",
@@ -186,9 +186,9 @@ class Benefits extends Block {
             'title_2': "Subtitle",
             'items': [
                 {
-                    'icon_1': `${Component.app.options.assets_url}/ico/729.png`,
-                    'icon_2': `${Component.app.options.assets_url}/ico/308.png`,
-                    'icon_3': `${Component.app.options.assets_url}/ico/341.png`,
+                    'icon_1': `${lp.app.options.assets_url}/ico/729.png`,
+                    'icon_2': `${lp.app.options.assets_url}/ico/308.png`,
+                    'icon_3': `${lp.app.options.assets_url}/ico/341.png`,
                     'name_1':  "Free Internet",
                     'name_2': "Delicious ice cream",
                     'name_3': "Starry cast",
@@ -207,9 +207,9 @@ class Benefits extends Block {
             'title_2': "Подзаголовок о преимуществе",
             'items': [
                 {
-                    'icon_1': `${Component.app.options.assets_url}/ico/729.png`,
-                    'icon_2': `${Component.app.options.assets_url}/ico/308.png`,
-                    'icon_3': `${Component.app.options.assets_url}/ico/341.png`,
+                    'icon_1': `${lp.app.options.assets_url}/ico/729.png`,
+                    'icon_2': `${lp.app.options.assets_url}/ico/308.png`,
+                    'icon_3': `${lp.app.options.assets_url}/ico/341.png`,
                     'name_1': "Бесплатный интернет",
                     'name_2': "Вкусное мороженное",
                     'name_3': "Звездный состав",
@@ -222,4 +222,4 @@ class Benefits extends Block {
     }    
 }
 
-Block.register(exports = Benefits);
+Block.register('Benefits',exports = Benefits);

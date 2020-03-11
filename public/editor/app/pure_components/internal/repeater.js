@@ -2,9 +2,12 @@ const Editable = require("./editable");
 const Block = require("./block");
 
 class Repeater extends Editable {
-    state = {
-        hoverIdx: -1,
-        hoverType: undefined
+    constructor(props) {
+        super(props);
+        this.state = {
+            hoverIdx: -1,
+            hoverType: undefined
+        }
     }
 
     buttonHover(idx,type) {
@@ -39,22 +42,24 @@ class Repeater extends Editable {
                     <${Block.ValueContext.Provider} value=${{value:sub,name:this.fullName+"."+sub_idx}}>
                         ${item_f(sub)}
                     <//>
-                    <div class='cmp-repeater-cover'>
-                        <div 
-                            class='fa fa-plus lp-button' 
-                            onMouseEnter=${()=>{ this.buttonHover(sub_idx,'add') }} 
-                            onMouseLeave=${()=>{ this.buttonHover(-1) }}
-                            onClick=${()=>{ this.addAfter(sub_idx) }}
-                        />
-                        <div 
-                            class='fa fa-trash-o lp-button lp-remove-button' 
-                            onMouseEnter=${()=>{ this.buttonHover(sub_idx,'remove') }} 
-                            onMouseLeave=${()=>{ this.buttonHover(-1) }} 
-                            onClick=${()=>{ this.remove(sub_idx) }}
-                        />
-                    </div>
-                    ${ state.hoverType=='remove' && state.hoverIdx==sub_idx && html`<div class='cmp-cover cmp-remove-cover fa fa-trash-o' style="opacity:1" />` }
-                    ${ state.hoverType=='add'    && state.hoverIdx==sub_idx && html`<div class='cmp-cover cmp-add-cover' style="opacity:1" />` }
+                    ${ !lp.app.options.viewOnly && html`
+                        <div class='cmp-repeater-cover'>
+                            <div 
+                                class='fa fa-plus lp-button' 
+                                onMouseEnter=${()=>{ this.buttonHover(sub_idx,'add') }} 
+                                onMouseLeave=${()=>{ this.buttonHover(-1) }}
+                                onClick=${()=>{ this.addAfter(sub_idx) }}
+                            />
+                            <div 
+                                class='fa fa-trash-o lp-button lp-remove-button' 
+                                onMouseEnter=${()=>{ this.buttonHover(sub_idx,'remove') }} 
+                                onMouseLeave=${()=>{ this.buttonHover(-1) }} 
+                                onClick=${()=>{ this.remove(sub_idx) }}
+                            />
+                        </div>
+                        ${ state.hoverType=='remove' && state.hoverIdx==sub_idx && html`<div class='cmp-cover cmp-remove-cover fa fa-trash-o' style="opacity:1" />` }
+                        ${ state.hoverType=='add'    && state.hoverIdx==sub_idx && html`<div class='cmp-cover cmp-add-cover' style="opacity:1" />` }
+                    `}
                 </div>
             `)}
         `;

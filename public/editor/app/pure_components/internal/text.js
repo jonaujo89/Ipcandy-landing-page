@@ -1,35 +1,42 @@
+require("./../../lib/spacedText/spacedText.js");
+require("./../../lib/spacedText/spacedText.css");
+
 const Editable = require("./editable");
 const $ = teacss.jQuery;
 
 class Text extends Editable {
-
-    static plain_heading = {'buttons':{"bold":false,"italic":false,"fontcolor":false,"removeformat":false},'oneline':true};
-    static default_heading = {'buttons':["bold","italic","deleted","removeformat"],'oneline':true};    
-    static size_heading = {'buttons':["bold","italic","deleted","size","removeformat"],'oneline':true};
-    static color_heading = {'buttons':["bold","italic","deleted","size","fontcolor","removeformat"],'oneline':true};
-        
-    static plain_text = {'buttons':{"bold":false,"italic":false,"fontcolor":false,"removeformat":false}};
-    static default_text = {'buttons':["bold","italic","deleted","removeformat"],'oneline':false};    
-    static size_text = {'buttons':["bold","italic","deleted","size","removeformat"],'oneline':false};
-    static color_text = {'buttons':["bold","italic","deleted","size","fontcolor","removeformat"],'oneline':false};
-
     render(props,state) {
         this.passValue();
         return html`<${EditableText} onChange=${(val) => this.setValue(val)} value=${this.value} options=${props.options} />`;
     }
 }
 
+Text.plain_heading = {'buttons':{"bold":false,"italic":false,"fontcolor":false,"removeformat":false},'oneline':true};
+Text.default_heading = {'buttons':["bold","italic","deleted","removeformat"],'oneline':true};    
+Text.size_heading = {'buttons':["bold","italic","deleted","size","removeformat"],'oneline':true};
+Text.color_heading = {'buttons':["bold","italic","deleted","size","fontcolor","removeformat"],'oneline':true};
+    
+Text.plain_text = {'buttons':{"bold":false,"italic":false,"fontcolor":false,"removeformat":false}};
+Text.default_text = {'buttons':["bold","italic","deleted","removeformat"],'oneline':false};    
+Text.size_text = {'buttons':["bold","italic","deleted","size","removeformat"],'oneline':false};
+Text.color_text = {'buttons':["bold","italic","deleted","size","fontcolor","removeformat"],'oneline':false};
+
 class EditableText extends preact.Component {
 
-    editor = preact.createRef();
-    toolbar = preact.createRef();
-    value = undefined;
+    constructor(props) {
+        super(props);
+        this.editor = preact.createRef();
+        this.toolbar = preact.createRef();
+        this.value = undefined;
+    }
 
     shouldComponentUpdate(nextProps) {
         return nextProps.value!=this.value;
     }
 
     componentDidMount() {
+        if (lp.app.options.viewOnly) return;
+
         var $editor = $(this.editor.current);
         var $toolbar = $(this.toolbar.current).hide();
         var options = $.extend({
@@ -38,8 +45,8 @@ class EditableText extends preact.Component {
         },this.props.options || {});
 
         $editor.spacedText({
-            document: Component.previewFrame.frame[0].contentWindow.document,
-            window: Component.previewFrame.frame[0].contentWindow,
+            document: document,
+            window: window,
             toolbarExternal: $toolbar,
             focus: false,
             convertLinks: false,

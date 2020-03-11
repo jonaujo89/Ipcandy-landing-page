@@ -28034,9 +28034,9 @@ teacss.ui.eventTarget = teacss.ui.EventTarget = teacss.jQuery.Class.extend("teac
 });
 teacss.ui.Control = teacss.ui.control = teacss.ui.eventTarget.extend("teacss.ui.Control",{
     events: new teacss.ui.eventTarget(),
-    extendOptions: function (static,extra) {
-        if (!extra) { extra = static; static = {}; }
-        return this.extend(static,{
+    extendOptions: function (statics,extra) {
+        if (!extra) { extra = statics; statics = {}; }
+        return this.extend(statics,{
             init: function (options) {
                 this._super(teacss.jQuery.extend({},extra,options));
             }

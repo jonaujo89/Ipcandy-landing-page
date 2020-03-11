@@ -39,14 +39,6 @@
 @append "page.css";
 @append "fonts.css";
 
-@{
-    if (window.Component && Component.previewFrame) {
-        Component.previewFrame.window.base_url = base_url;
-        Component.previewFrame.window.page_id = page_id;
-        Component.previewFrame.window.locale_lang = locale_lang;
-    }
-}
-
 @append "../lib/alertify/css/alertify.css";
 @append "../lib/alertify/css/themes/default.css";
 @append "../lib/fancyBox/jquery.fancybox.css";

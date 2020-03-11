@@ -68,7 +68,7 @@ window.teacss = window.teacss || (function(){
     teacss.LazyLoad_f = LazyLoad_f;
     
     // github.com/mbostock/queue
-    (function(){function a(a){function l(){if(g&&d<a){var b=g,c=b[0],f=Array.prototype.slice.call(b,1),m=b.index;g===h?g=h=null:g=g.next,++d,f.push(function(a,b){--d;if(i)return;a?e&&k(i=a,e=j=g=h=null):(j[m]=b,--e?l():k(null,j))}),c.apply(null,f)}}var c={},d=0,e=0,f=-1,g,h,i=null,j=[],k=b;return arguments.length<1&&(a=Infinity),c.defer=function(){if(!i){var a=arguments;a.index=++f,h?(h.next=a,h=h.next):g=h=a,++e,l()}return c},c.await=function(a){return k=a,e||k(i,j),c},c}function b(){}true?self.queue=a:module.exports=a,a.version="0.0.2"})();    
+    (function(){function a(a){function l(){if(g&&d<a){var b=g,c=b[0],f=Array.prototype.slice.call(b,1),m=b.index;g===h?g=h=null:g=g.next,++d,f.push(function(a,b){--d;if(i)return;a?e&&k(i=a,e=j=g=h=null):(j[m]=b,--e?l():k(null,j))}),c.apply(null,f)}}var c={},d=0,e=0,f=-1,g,h,i=null,j=[],k=b;return arguments.length<1&&(a=Infinity),c.defer=function(){if(!i){var a=arguments;a.index=++f,h?(h.next=a,h=h.next):g=h=a,++e,l()}return c},c.await=function(a){return k=a,e||k(i,j),c},c}function b(){}typeof module=="undefined"?self.queue=a:module.exports=a,a.version="0.0.2"})();    
     teacss.queue = queue;
     
     function trim(text) {
@@ -541,15 +541,16 @@ window.teacss = window.teacss || (function(){
                 }
                 if (this.current)
                     this.current.print(s);
-                else
+                else 
                     this.rules.push({indent:this.indent,getOutput:function(){return this.indent+s+";\n";}});
             }
         },
+
         namespace: function (selector,func) {
-            this.indent = "    ";
             var old_current = this.current;
-            this.current = false;
             this.rules.push({getOutput:function(){return selector+' {\n'}});
+            this.indent = "    ";
+            this.current = new this.Rule(false,this.current ? this.current.getSelector() : '');
             func.call(this.current);
             this.rules.push({getOutput:function(){return '}\n'}});
             this.indent = "";
