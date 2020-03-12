@@ -47,7 +47,7 @@ class AppBlock {
     }
     render(props) {
         const BlockType = Block.list[props.value.type];
-        if (BlockType) return html`<${ BlockType } key=${props.value.id} value=${props.value} />`;
+        if (BlockType) return html`<${ BlockType } value=${props.value} />`;
         console.debug("Undefined block type",props.value);
     }
 }
@@ -93,7 +93,7 @@ class App extends preact.Component {
             `}
             <div id="frame-panel" class="${ (state.preview || props.viewOnly) && 'view-layout' }">
                 ${state.blocks.map((block) => {
-                    return preact.h(AppBlock,{value:block.value})
+                    return preact.h(AppBlock,{value:block.value, key: block.value.id})
                 })}
                 
             </div>
@@ -183,7 +183,10 @@ class App extends preact.Component {
                         document.createTextNode(type.title),
                         $("<small>").html(type.description)
                     )
-                    .click(()=>this.addBlock(typeId))
+                    .click(()=>{
+                        this.typeDialog.close();
+                        this.addBlock(typeId);
+                    })
                 ;
                 
                 div.append(item);
