@@ -79,7 +79,8 @@
     top: 0;
     left: 0; right: 0;
     bottom: 0;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: scroll;
 }
 
 #preview-toolbar + #frame-panel {
@@ -187,6 +188,9 @@
     border: none !important;
 }
 
+#frame-panel > div {
+    position: relative;
+}
 
 .cmp-controls {
     position: absolute;
