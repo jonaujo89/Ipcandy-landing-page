@@ -9,6 +9,13 @@
     <script src="<?=url('editor/app.min.js')?>"></script>
     <link  href="<?=url('editor/app.min.css')?>" rel="stylesheet" type="text/css">
 
+    <style>
+        body {
+            font-size: 12px;
+            line-height: 1.5em;
+        }
+    </style>
+
     <script>
         lp.run({
             assets_url: "editor/components/assets",
