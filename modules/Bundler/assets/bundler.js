@@ -180,7 +180,23 @@ window.bundler = {
 
             var ext_match = /\.[0-9a-z]+$/.exec(path);
             var ext = ext_match ? ext_match[0] : null;
-            
+
+            let css_filter = (css_in) => {
+                return css_in.replace(/url\(['"]?([^'"\)]*)['"]?\)/g, function( whole, part ) {
+                    var rep = part;
+                    if (!me.isAbsoluteOrData(part)) rep = me.absUrl(me.dir(path) + "/" + part);
+                    return 'url('+me.relativePath(rep,bundle_dir)+')';
+                });
+            };
+
+            if (ext=='.js') {
+                var js = "(function(require){var exports={},module={exports:false};";
+                js += "\n"+text;
+                js += "\n" + "return module.exports || exports;})";
+
+                sheet.build_js += "define("+path_string(path)+","+js+")\n";
+                define(path,eval(js+"\n//# sourceURL="+path));
+            }
             if (ext==".css") {
                 sheet.build_js += "define("+path_string(path)+",()=>true)\n";
                 define(path,function(){
@@ -191,23 +207,25 @@ window.bundler = {
                     append.href = path;
                     head.appendChild(append);
 
-                    var css = text.replace(/url\(['"]?([^'"\)]*)['"]?\)/g, function( whole, part ) {
-                        var rep = part;
-                        if (!me.isAbsoluteOrData(part)) rep = me.absUrl(me.dir(path) + "/" + part);
-                        return 'url('+me.relativePath(rep,bundle_dir)+')';
-                    });
-                    sheet.build_css += css + "\n";
+                    sheet.build_css += css_filter(text) + "\n";
                     return true;
                 });
             }
-            if (ext=='.js') {
-                var js = "(function(require){var exports={},module={exports:false};";
-                js += "\n"+text;
-                js += "\n" + "return module.exports || exports;})";
+            if (ext==".tea") {
+                sheet.build_js += "define("+path_string(path)+",()=>true)\n";
+                define(path,function(){
+                    teacss.process(path,()=>{
+                        teacss.tea.Style.insert(document);
+                        teacss.tea.Script.insert(document);
 
-                sheet.build_js += "define("+path_string(path)+","+js+")\n";
-                define(path,eval(js+"\n//# sourceURL="+path));
-            }
+                        teacss.tea.Style.get(
+                            (css) => sheet.build_css += css+"\n",
+                            css_filter
+                        );
+                        teacss.tea.Script.get((js) => sheet.build_js += js);
+                    });
+                });
+            }            
         }
 
         require(entry_url);
