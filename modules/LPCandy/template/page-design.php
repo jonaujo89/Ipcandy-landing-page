@@ -12,8 +12,6 @@
 
         <script src="<?=url('editor/app.min.js')?>"></script>
         <link  href="<?=url('editor/app.min.css')?>" rel="stylesheet" type="text/css">
-        <script src="<?=url('editor/components.min.js')?>"></script>
-        <link  href="<?=url('editor/components.min.css')?>" rel="stylesheet" type="text/css">
 
         <script>
             lp.addressText && (lp.addressText.geocoder_api_key = "<?= \LPCandy\Configuration::$geocoder_api_key ?>");

@@ -1,3 +1,5 @@
+require("./../components/style/makefile.tea");
+
 require("./../../assets/lib/teacss-ui/teacss-ui.js");
 require("./../../assets/lib/teacss-ui/teacss-ui.css");
 

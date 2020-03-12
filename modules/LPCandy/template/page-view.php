@@ -15,8 +15,6 @@
 
     <script src="<?=url('editor/app.min.js')?>"></script>
     <link  href="<?=url('editor/app.min.css')?>" rel="stylesheet" type="text/css">
-    <script src="<?=url('editor/components.min.js')?>"></script>
-    <link  href="<?=url('editor/components.min.css')?>" rel="stylesheet" type="text/css">
 
     <script>
         lp.run({
