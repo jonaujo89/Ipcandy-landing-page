@@ -139,7 +139,6 @@ window.bundler = {
                 var res_path = resolve(path);
                 var ext_match = /\.[0-9a-z]+$/.exec(path);
                 var ext = ext_match ? ext_match[0] : null;
-                if (ext==".css") return;
                 if (w.require.cache.modules[res_path]) return w.require.cache.modules[res_path];
                 if (!w.require.cache.defines[res_path]) {
                     console.debug("Can't require on path: "+res_path);
@@ -163,68 +162,57 @@ window.bundler = {
 
         function path_string(path) {
             return "'"+path.replace(/\\?("|')/g,'\\$1')+"'";
-        }        
+        }
 
-        var build_js = "("+me.loadRequire.toString()+")(window)\n";
-        var build_css = "";
+        var sheet = {
+            src: entry_url,
+            entry_point: entry_point,
+            build_js: "("+me.loadRequire.toString()+")(window)\n",
+            build_css: ""
+        };
+
         me.loadRequire(window);
 
-        for (var url in deps) {
-            var path = me.absUrl(url);
-            var text = deps[url];
+        for (let url in deps) {
+            let path = me.absUrl(url);
+            let text = deps[url];
             if (text===false) continue;
 
             var ext_match = /\.[0-9a-z]+$/.exec(path);
             var ext = ext_match ? ext_match[0] : null;
             
             if (ext==".css") {
-                var head = document.getElementsByTagName("head")[0];
-                var append = document.createElement("link");
-                append.type = "text/css";
-                append.rel = "stylesheet";
-                append.href = path;
-                head.appendChild(append);
+                sheet.build_js += "define("+path_string(path)+",()=>true)\n";
+                define(path,function(){
+                    var head = document.getElementsByTagName("head")[0];
+                    var append = document.createElement("link");
+                    append.type = "text/css";
+                    append.rel = "stylesheet";
+                    append.href = path;
+                    head.appendChild(append);
 
-                var css = text.replace(/url\(['"]?([^'"\)]*)['"]?\)/g, function( whole, part ) {
-                    var rep = part;
-                    if (!me.isAbsoluteOrData(part)) rep = me.absUrl(me.dir(path) + "/" + part);
-                    return 'url('+me.relativePath(rep,bundle_dir)+')';
+                    var css = text.replace(/url\(['"]?([^'"\)]*)['"]?\)/g, function( whole, part ) {
+                        var rep = part;
+                        if (!me.isAbsoluteOrData(part)) rep = me.absUrl(me.dir(path) + "/" + part);
+                        return 'url('+me.relativePath(rep,bundle_dir)+')';
+                    });
+                    sheet.build_css += css + "\n";
+                    return true;
                 });
-                build_css += css + "\n";
-                continue;
             }
-            if (ext!='.js') continue;
-
-            var js = "(function(require){var exports={},module={exports:false};";
-
-            var transform = false;
-            if (options.target=="es5") {
-                transform = Babel.transform(text, { 
-                    presets: ['es2015'],
-                    filename: path,
-                    sourceMap: true
-                });
-                transform.map.sources = [path];
-                js += transform.code;
-            } else {
+            if (ext=='.js') {
+                var js = "(function(require){var exports={},module={exports:false};";
                 js += "\n"+text;
+                js += "\n" + "return module.exports || exports;})";
+
+                sheet.build_js += "define("+path_string(path)+","+js+")\n";
+                define(path,eval(js+"\n//# sourceURL="+path));
             }
-
-            js += "\n" + "return module.exports || exports;})";
-            build_js += "define("+path_string(path)+","+js+")\n";
-
-            if (transform) {
-                var mapURI = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(transform.map));
-                js += "\n//# sourceMappingURL="+mapURI;
-            } else {
-                js += "\n//# sourceURL="+path;
-            }
-
-            define(path,eval(js));     
         }
 
         require(entry_url);
-        build_js += "require("+path_string(entry_url)+")";
-        this.js_sheets.push({src:entry_url,entry_point:entry_point,build_js:build_js,build_css:build_css});
+        sheet.build_js += "require("+path_string(entry_url)+")";
+        
+        this.js_sheets.push(sheet);
     }
 }
