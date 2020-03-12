@@ -9,11 +9,11 @@ class Editable extends preact.Component {
     }
 
     setValue(val) {
-        const block = preact.hooks.useContext(Block.BlockContext);
-        block.editorChange(this.fullName,val,true);
+        this.block.editorChange(this.fullName,val,true);
     }
 
     passValue() {
+        this.block = preact.hooks.useContext(Block.BlockContext);
         const parentContext = preact.hooks.useContext(Block.ValueContext);
         this.fullName = parentContext.name ? (parentContext.name+"."+this.props.name) : this.props.name;
         this.value = (parentContext.value || {})[this.props.name || ""];

@@ -41,6 +41,17 @@ window.html = require("./lib/htm").bind(preact.h);
 const Block = require("./pure_components/internal/block");
 require("./pure_components/benefits");
 
+class AppBlock {
+    shouldComponentUpdate(nextProps) {
+        return nextProps.value != this.props.value;
+    }
+    render(props) {
+        const BlockType = Block.list[props.value.type];
+        if (BlockType) return html`<${ BlockType } key=${props.value.id} value=${props.value} />`;
+        console.debug("Undefined block type",props.value);
+    }
+}
+
 class App extends preact.Component {
 
     constructor(props) {
@@ -82,9 +93,7 @@ class App extends preact.Component {
             `}
             <div id="frame-panel" class="${ (state.preview || props.viewOnly) && 'view-layout' }">
                 ${state.blocks.map((block) => {
-                    const BlockType = Block.list[block.value.type];
-                    if (BlockType) return html`<${ BlockType } key=${block.value.id} value=${block.value} />`;
-                    console.debug("Undefined block type",block.value);
+                    return preact.h(AppBlock,{value:block.value})
                 })}
                 
             </div>
@@ -170,7 +179,7 @@ class App extends preact.Component {
                 var type = Block.list[typeId];
                 var item = $("<div class='combo-item draggable'>")
                     .append(
-                        $("<div class='combo-item-miniature'>").css({backgroundImage:"url("+base_url+"editor/app/style/miniatures/"+type.name.toLowerCase()+".jpg)"}),
+                        $("<div class='combo-item-miniature'>").css({backgroundImage:"url("+base_url+"editor/app/style/miniatures/"+typeId.toLowerCase()+".jpg)"}),
                         document.createTextNode(type.title),
                         $("<small>").html(type.description)
                     )
