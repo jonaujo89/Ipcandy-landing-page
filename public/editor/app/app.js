@@ -179,7 +179,7 @@ class App extends preact.Component {
                 var type = Block.list[typeId];
                 var item = $("<div class='combo-item draggable'>")
                     .append(
-                        $("<div class='combo-item-miniature'>").css({backgroundImage:"url("+base_url+"editor/app/style/miniatures/"+typeId.toLowerCase()+".jpg)"}),
+                        $("<div class='combo-item-miniature'>").css({backgroundImage:"url("+base_url+"/editor/app/style/miniatures/"+typeId.toLowerCase()+".jpg)"}),
                         document.createTextNode(type.title),
                         $("<small>").html(type.description)
                     )
