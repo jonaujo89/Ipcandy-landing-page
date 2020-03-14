@@ -15,7 +15,7 @@ class Bundler extends \Bingo\Module {
         header("Content-type: text/js");
 
         $base_url = "//".$_SERVER['HTTP_HOST'].url("");
-        $deps = self::loadDependencies($base_url.$entry_point);
+        $deps = self::loadDependencies($entry_point);
 
         ?>function __bundler_load(key,src) { if (!window[key]) eval.call(window,src+"//# sourceURL=file://bundler/"+key+".js") }<? echo PHP_EOL;
         ?>__bundler_load('bundler',<?=json_encode(file_get_contents(__DIR__.'/../assets/bundler.js'))?>)<? echo PHP_EOL;
@@ -65,73 +65,64 @@ class Bundler extends \Bingo\Module {
         return true;
     }
 
-    static function loadDependencies($url) {
+    static function loadDependencies($entry_point) {
         $cache = [];
-        $entry_ext = pathinfo(parse_url($url)['path'],PATHINFO_EXTENSION);
-
-        $rel2abs = function($rel, $base) {
-            if (parse_url($rel, PHP_URL_SCHEME) != '' || substr($rel, 0, 2) == '//') return $rel;
-            if ($rel[0]=='#' || $rel[0]=='?') return $base.$rel;
-            extract(parse_url($base));
-            $path = preg_replace('#/[^/]*$#', '', $path);
-            if ($rel[0] == '/') $path = '';
-            $abs = "$host$path/$rel";
+        $base_path = INDEX_DIR."/";
+        
+        $import2rel = function($import,$import_path) use ($base_path) {
+            $import = ltrim(parse_url($import)['path'] ?? '',"\\\/");
+            $abs = preg_replace('#/[^/]*$#', '',$import_path)."/".$import;
             $re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
             for($n=1; $n>0; $abs=preg_replace($re, '/', $abs, -1, $n)) {}
-            return '//'.$abs;
+            $ext = pathinfo($abs,PATHINFO_EXTENSION);
+            if (!$ext) $abs .= ".".pathinfo($import_path,PATHINFO_EXTENSION);
+
+            $from = explode('/', $base_path);
+            $to = explode('/', $abs);
+            foreach($from as $depth => $dir) {
+                if(isset($to[$depth])) {
+                    if ($dir === $to[$depth]) {
+                        unset($to[$depth]);
+                        unset($from[$depth]);
+                    }
+                    else break;
+                }
+            }
+            for($i=0;$i<count($from)-1;$i++) array_unshift($to,'..');
+            $result = implode('/', $to);
+            return $result;
         };
 
-        $process = function ($url) use (&$process,&$cache,&$rel2abs,$entry_ext) {
-            $parsed_url = parse_url($url);
-            $url_path = $parsed_url['path'];
-            $url_host = $parsed_url['host'] ?? false;
-            $url_ext = pathinfo($url_path,PATHINFO_EXTENSION);
+        $process = function ($rel_path) use (&$cache,$base_path,&$process,&$import2rel) {
+            if (isset($cache[$rel_path])) return;
 
-            $base_url = url('');
-            $base_path = INDEX_DIR."/";
+            $path = $base_path.$rel_path;
+            if (!file_exists($path) || is_dir($path)) return $cache[$rel_path] = false;
 
-            if ($url_host && $url_host!=$_SERVER['HTTP_HOST']) return;
-            if (strpos($url_path,$base_url)!==0) return;
-
-            $path = $base_path.substr($url_path,strlen($base_url));
-
-            if (isset($cache[$url])) return;
-            if (!$path || !file_exists($path)) {
-                $cache[$url] = false;
-                return;
-            }
-
+            $path_ext = pathinfo($rel_path,PATHINFO_EXTENSION);
             $text = file_get_contents($path);
-            $cache[$url] = $text;
 
             $sub_uris = [];
-
-            if ($entry_ext=="tea" && $url_ext=="tea") {
+            if ($path_ext=="tea") {
                 $pattern = '/@import\s*(\'|")(.*?)(\'|")/';
                 preg_match_all($pattern,$text,$matches);
-                $sub_uris = $matches[2];
+                foreach ($matches[2] as $import) $sub_uris[] = $import2rel($import,$path);
             }
-            if ($entry_ext=="js" && $url_ext=="js") {
-                $pattern = '/import(?:["\'\s]*([\w*${}\n\r\t, ]+)from\s*)?["\'\s]["\'\s](.*[@\w_-]+)["\'\s].*;/m';
-                preg_match_all($pattern,$text,$matches);
-                $sub_uris = array_merge($sub_uris,$matches[2]);
+            if ($path_ext=="js") {
+                $pattern = '/require\(\s*(\'|")(.*?)(\'|")\s*\)/';
+                $text = preg_replace_callback($pattern,function($matches) use ($path,&$import2rel,&$sub_uris) {
+                    $sub_uri = $import2rel($matches[2],$path);
+                    $sub_uris[] = $sub_uri;
+                    return 'require('.$matches[1].$sub_uri.$matches[3].')';
+                },$text);
+            }
 
-                $pattern_2 = '/require\(\s*(\'|")(.*?)(\'|")\s*\)/';
-                preg_match_all($pattern_2,$text,$matches);
-                $sub_uris = array_merge($sub_uris,$matches[2]);
-            }
-            
-            foreach ($sub_uris as $rel) {
-                $abs_url = $rel2abs($rel,$url);
-                $ext = pathinfo($rel, PATHINFO_EXTENSION);
-                if (!$ext) {
-                    $abs_url = $abs_url.".".$url_ext;
-                }
-                $process($abs_url);
-            }            
+            $cache[$rel_path] = $text;            
+            foreach ($sub_uris as $sub_uri) $process($sub_uri);
         };
-        $process($url);
-        return $cache;
+
+        $process($entry_point);
+        return $cache;        
     }
 
     function __construct() {
