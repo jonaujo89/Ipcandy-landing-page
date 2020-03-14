@@ -59,7 +59,7 @@ class Bundler extends \Bingo\Module {
     }
 
     static function loadDependencies($entry_point,$bundle_path) {
-        $cache = [];
+        $cache = ['js'=>[],'tea'=>[]];
         $bundle_abs = INDEX_DIR."/".$bundle_path;
         $bundle_dir = dirname($bundle_abs)."/";
         
@@ -87,7 +87,7 @@ class Bundler extends \Bingo\Module {
             return $result;
         };
 
-        $process = function ($rel_path) use (&$cache,$bundle_dir,&$process,&$import2rel) {
+        $process = function ($rel_path,$type) use (&$cache,$bundle_dir,&$process,&$import2rel) {
             if (isset($cache[$rel_path])) return;
 
             $path = $bundle_dir.$rel_path;
@@ -118,11 +118,12 @@ class Bundler extends \Bingo\Module {
                 },$text);
             }
 
-            $cache[$rel_path] = $text;            
-            foreach ($sub_uris as $sub_uri) $process($sub_uri);
+            $cache[$type][$rel_path] = $text;
+            foreach ($sub_uris as $sub_uri) $process($sub_uri,$path_ext=="tea" ? "tea" : $type);
         };
 
-        $process($import2rel(basename($entry_point),INDEX_DIR."/".$entry_point));
+        $entry_type = pathinfo($entry_point,PATHINFO_EXTENSION)=="tea" ? "tea" : "js";
+        $process($import2rel(basename($entry_point),INDEX_DIR."/".$entry_point),$entry_type);
         return $cache;        
     }
 

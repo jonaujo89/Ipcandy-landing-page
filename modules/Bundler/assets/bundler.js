@@ -52,9 +52,8 @@ window.bundler = {
         link.href = url;
         return link.href;
     }, 
-    isAbs : function(path) {
-        return /^(.:\/|data:|http:\/\/|https:\/\/|\/)/.test(path)
-    },
+    isAbs : (path) => /^(.:\/|http:\/\/|https:\/\/|\/)/.test(path),
+    isData: (path) => /^(data:)/.test(path),
     relativePath : function (path,from) {
         var pathParts = path.split("/");
         var fromParts = from.split("/");
@@ -121,14 +120,45 @@ window.bundler = {
 
         me.loadRequire(window,bundle_dir);
 
-        for (let rel_path in deps) {
+        let css_pattern = /url\(['"]?([^'"\)]*)['"]?\)/g;
+
+        function processTea(abs_url) {
+            let old_getFile = teacss.getFile;
+            teacss.getFile = function (path,cb) {
+                var rel = me.relativePath(path,bundle_dir_wo_slash);
+                var rel_clean = me.cleanPath(rel);
+                var text = deps.js[rel_clean] || deps.tea[rel_clean];
+                if (text===undefined) console.debug("Can't import tea",path,rel); else teacss.files[path] = text;
+                cb(text);
+            };
+            teacss.process(abs_url,()=>{
+                teacss.tea.Style.insert(document);
+                teacss.tea.Script.insert(document);
+
+                teacss.getFile = old_getFile;
+
+                teacss.tea.Style.get(
+                    (css) => sheet.build_css += css+"\n",
+                    (text,path) => text.replace(css_pattern,(s,part) => {
+                        var is_abs = me.isAbs(part);
+                        if (me.isData(part)) return s;
+                        if (!is_abs && !path) return s;
+                        var part_abs = is_abs ? part : me.dir(path)+"/"+part;
+                        var rel = me.relativePath(part_abs,bundle_dir_wo_slash);
+                        var rel_clean = me.cleanPath(rel);
+                        return 'url('+rel_clean+')';
+                    })
+                );
+                teacss.tea.Script.get((js) => sheet.build_js += js);
+            });
+        };
+
+        for (let rel_path in deps.js) {
             let abs_url = bundle_dir+rel_path;
-            let text = deps[rel_path];
+            let text = deps.js[rel_path];
             if (text===false) continue;
 
-            let css_pattern = /url\(['"]?([^'"\)]*)['"]?\)/g;
-
-            var ext = me.ext(rel_path);
+            let ext = me.ext(rel_path);
             if (ext=='js') {
                 var js = "(function(){var exports={},module={exports:false};";
                 js += "\n"+text;
@@ -145,48 +175,28 @@ window.bundler = {
                     node.type = "text/css";
                     head.appendChild(node);
 
-                    var css_live =  text.replace(css_pattern,(s,part)=> me.isAbs(part) ? s : 'url('+me.absUrl(bundle_dir+part)+')');
+                    var css_live =  text.replace(css_pattern,(s,part)=> (me.isAbs(part) || me.isData(part)) ? s : 'url('+me.absUrl(bundle_dir+part)+')');
                     node.appendChild(document.createTextNode(css_live));
                     sheet.build_css += text+"\n";
                 });
             }
             if (ext=="tea") {
                 sheet.build_js += "define("+path_string(rel_path)+",()=>true)\n";
-                define(rel_path,function(){
-                    let old_getFile = teacss.getFile;
-                    teacss.getFile = function (path,cb) {
-                        var rel = me.relativePath(path,bundle_dir_wo_slash);
-                        var rel_clean = me.cleanPath(rel);
-                        var text = deps[rel_clean];
-                        if (text===undefined) console.debug("Can't import tea",path,rel); else teacss.files[path] = text;
-                        cb(text);
-                    };
-                    teacss.process(abs_url,()=>{
-                        teacss.tea.Style.insert(document);
-                        teacss.tea.Script.insert(document);
-
-                        teacss.getFile = old_getFile;
-
-                        teacss.tea.Style.get(
-                            (css) => sheet.build_css += css+"\n",
-                            (text,path) => text.replace(css_pattern,(s,part) => {
-                                if (!path || me.isAbs(part)) return s;
-                                var rel = me.relativePath(me.dir(path)+"/"+part,bundle_dir_wo_slash);
-                                var rel_clean = me.cleanPath(rel);
-                                return 'url('+rel_clean+')';
-                            })
-                        );
-                        teacss.tea.Script.get((js) => sheet.build_js += js);
-                    });
-                });
+                define(rel_path,()=>processTea(abs_url));
             }            
         }
 
-        var entry_rel = Object.keys(deps)[0];
+        var entry_ext = me.ext(entry_point);
+        var entry_rel = Object.keys(deps[entry_ext])[0];
 
-        require(entry_rel);
-        sheet.build_js += "require("+path_string(entry_rel)+")";
-        
+        if (entry_ext=="js") {
+            require(entry_rel);
+            sheet.build_js += "require("+path_string(entry_rel)+")";
+        }
+        if (entry_ext=="tea") {
+            sheet.build_js = "";
+            processTea(bundle_dir+entry_rel);
+        }
         this.js_sheets.push(sheet);
     }
 }
