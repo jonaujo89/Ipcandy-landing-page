@@ -1,6 +1,5 @@
 window.bundler = {
     base_url: "",
-    tea_sheets: [],
     js_sheets: [],
     build: function () {
         var me = this;
@@ -36,20 +35,6 @@ window.bundler = {
             );
         }
 
-        this.tea_sheets.forEach(function(sheet) {
-            
-            var savePath = me.dir(me.absUrl(base_url+sheet.bundle_path));
-            console.debug('building tea '+sheet.entry_point);
-
-            teacss.build(sheet.src,{
-                callback: function (files) {
-                    bundlerRequest(sheet.entry_point,files[savePath+'/default.css'],files[savePath+'/default.js']);
-                },
-                stylePath: savePath,
-                scriptPath: savePath,
-            });                                        
-        });
-
         this.js_sheets.forEach(function(sheet) {
             console.debug('building js '+sheet.entry_point);
             bundlerRequest(sheet.entry_point,sheet.build_css,sheet.build_js);
@@ -67,7 +52,7 @@ window.bundler = {
         link.href = url;
         return link.href;
     }, 
-    isAbsoluteOrData : function(path) {
+    isAbs : function(path) {
         return /^(.:\/|data:|http:\/\/|https:\/\/|\/)/.test(path)
     },
     relativePath : function (path,from) {
@@ -83,46 +68,25 @@ window.bundler = {
         if (!once || fromParts.length>2) return path;
         return new Array(fromParts.length+1).join("../") + pathParts.join("/");
     },
-    dir: function (path) {
-        return path.replace(/\/[^/]*?$/,'');        
+    cleanPath: function (path) {
+        var parts = path.split("/");
+        var pos = 0;
+        while (parts[pos]) {
+            if (parts[pos]==".") parts.splice(pos,1);
+            else if (pos > 0 && parts[pos]==".." && parts[pos-1]!="..") parts.splice(pos-- - 1,2);
+            else pos++;
+        }
+        return parts.join("/");
     },
-
-    init: function (base_url) {
-        var me = this;
-        me.base_url = base_url;
-        setTimeout(function(){
-            if (window.parent && window.parent!=window && !window.parent.bundler) {
-                window.parent.bundler = me;
-            }
-        },1000);
-    },
-
-    loadTea: function (entry_point,bundle_path,base_url,deps) {
-        
-        this.init(base_url);
-
-        var $ = teacss.jQuery;
-        var me = this;
-        var entry_url = this.absUrl(base_url+entry_point);
-
-        for (url in deps) teacss.files[me.absUrl(url)] = deps[url];
-        var script = document.createElement("script");
-        script.setAttribute("tea",entry_url);
-        document.getElementsByTagName('head')[0].appendChild(script);
-
-        this.tea_sheets.push({src:entry_url,entry_point:entry_point,bundle_path:bundle_path});
-
-        setTimeout(function(){
-            teacss.update();
-        },1);
-    },
+    dir: (path) => path.replace(/\/[^/]*?$/,''),
+    ext: (path) => ((/\.[0-9a-z]+$/.exec(path) || {})[0] || ".").slice(1),
 
     loadRequire: function (w,root) {
         w.require = function (path) {
             var res_path = root+path;
             if (w.require.cache.modules[res_path]) return w.require.cache.modules[res_path];
             if (!w.require.cache.defines[res_path]) {
-                console.debug("Can't require on path: "+res_path);
+                console.debug("Can't require on path: ",path,res_path);
                 return {};
             }
             return w.require.cache.modules[res_path] = w.require.cache.defines[res_path]();
@@ -131,45 +95,41 @@ window.bundler = {
         w.define = w.define || function (path,f) { w.require.cache.defines[root+path] = f };
     },
 
-    loadJS: function (entry_point,bundle_path,base_url,deps,options) {
-        
-        this.init(base_url);
-        
+    run: function (entry_point,bundle_path,base_url,deps,options) {
+
         var me = this;
-        var entry_url = this.absUrl(base_url+entry_point);
+        me.base_url = base_url;
+        setTimeout(function(){
+            if (window.parent && window.parent!=window && !window.parent.bundler) {
+                window.parent.bundler = me;
+            }
+        },1000);
+
         var bundle_url = this.absUrl(base_url+bundle_path);
-        var bundle_dir = this.dir(bundle_url);
+        var bundle_dir_wo_slash = this.dir(bundle_url);
+        var bundle_dir = this.dir(bundle_url)+"/";
 
         function path_string(path) {
             return "'"+path.replace(/\\?("|')/g,'\\$1')+"'";
         }
 
         var sheet = {
-            src: entry_url,
             entry_point: entry_point,
-            build_js: "("+me.loadRequire.toString()+")(window,"+path_string(base_url)+")\n",
+            build_js: "("+me.loadRequire.toString()+")(window,document.currentScript.src.replace(/\\/[^/]*?$/,'/'))\n",
             build_css: ""
         };
 
-        me.loadRequire(window,base_url);
+        me.loadRequire(window,bundle_dir);
 
         for (let rel_path in deps) {
-            let abs_url = me.absUrl(base_url)+rel_path;
+            let abs_url = bundle_dir+rel_path;
             let text = deps[rel_path];
             if (text===false) continue;
 
-            var ext_match = /\.[0-9a-z]+$/.exec(rel_path);
-            var ext = ext_match ? ext_match[0] : null;
+            let css_pattern = /url\(['"]?([^'"\)]*)['"]?\)/g;
 
-            let css_filter = (css_in) => {
-                return css_in.replace(/url\(['"]?([^'"\)]*)['"]?\)/g, function( whole, part ) {
-                    var rep = part;
-                    if (!me.isAbsoluteOrData(part)) rep = me.absUrl(me.dir(abs_url) + "/" + part);
-                    return 'url('+me.relativePath(rep,bundle_dir)+')';
-                });
-            };
-
-            if (ext=='.js') {
+            var ext = me.ext(rel_path);
+            if (ext=='js') {
                 var js = "(function(){var exports={},module={exports:false};";
                 js += "\n"+text;
                 js += "\n" + "return module.exports || exports;})";
@@ -177,39 +137,44 @@ window.bundler = {
                 sheet.build_js += "define("+path_string(rel_path)+","+js+")\n";
                 define(rel_path,eval(js+"\n//# sourceURL="+abs_url));
             }
-            if (ext==".css") {
-                sheet.build_js += "define("+path_string(rel_path)+",()=>true)\n";
+            if (ext=="css") {
+                sheet.build_js += "define("+path_string(rel_path)+",()=>{})\n";
                 define(rel_path,function(){
                     var head = document.getElementsByTagName("head")[0];
-                    var append = document.createElement("link");
-                    append.type = "text/css";
-                    append.rel = "stylesheet";
-                    append.href = abs_url;
-                    head.appendChild(append);
+                    var node = document.createElement("style");
+                    node.type = "text/css";
+                    head.appendChild(node);
 
-                    sheet.build_css += css_filter(text) + "\n";
-                    return true;
+                    var css_live =  text.replace(css_pattern,(s,part)=> me.isAbs(part) ? s : 'url('+me.absUrl(bundle_dir+part)+')');
+                    node.appendChild(document.createTextNode(css_live));
+                    sheet.build_css += text+"\n";
                 });
             }
-            if (ext==".tea") {
+            if (ext=="tea") {
                 sheet.build_js += "define("+path_string(rel_path)+",()=>true)\n";
                 define(rel_path,function(){
-
+                    let old_getFile = teacss.getFile;
                     teacss.getFile = function (path,cb) {
-                        var rel = me.relativePath(me.absUrl(path),me.absUrl(base_url.slice(0,-1)));
-                        if (deps[rel]) return cb(deps[rel]);
-                        cb(""); 
-                        console.debug(rel);
-                        console.debug("Can't import tea file",path);
-                    }
-
+                        var rel = me.relativePath(path,bundle_dir_wo_slash);
+                        var rel_clean = me.cleanPath(rel);
+                        var text = deps[rel_clean];
+                        if (text===undefined) console.debug("Can't import tea",path,rel); else teacss.files[path] = text;
+                        cb(text);
+                    };
                     teacss.process(abs_url,()=>{
                         teacss.tea.Style.insert(document);
                         teacss.tea.Script.insert(document);
 
+                        teacss.getFile = old_getFile;
+
                         teacss.tea.Style.get(
                             (css) => sheet.build_css += css+"\n",
-                            css_filter
+                            (text,path) => text.replace(css_pattern,(s,part) => {
+                                if (!path || me.isAbs(part)) return s;
+                                var rel = me.relativePath(me.dir(path)+"/"+part,bundle_dir_wo_slash);
+                                var rel_clean = me.cleanPath(rel);
+                                return 'url('+rel_clean+')';
+                            })
                         );
                         teacss.tea.Script.get((js) => sheet.build_js += js);
                     });
@@ -217,8 +182,10 @@ window.bundler = {
             }            
         }
 
-        require(entry_point);
-        sheet.build_js += "require("+path_string(entry_point)+")";
+        var entry_rel = Object.keys(deps)[0];
+
+        require(entry_rel);
+        sheet.build_js += "require("+path_string(entry_rel)+")";
         
         this.js_sheets.push(sheet);
     }

@@ -15,21 +15,14 @@ class Bundler extends \Bingo\Module {
         header("Content-type: text/js");
 
         $base_url = "//".$_SERVER['HTTP_HOST'].url("");
-        $deps = self::loadDependencies($entry_point);
+        $deps = self::loadDependencies($entry_point,$bundle_path);
 
         ?>function __bundler_load(key,src) { if (!window[key]) eval.call(window,src+"//# sourceURL=file://bundler/"+key+".js") }<? echo PHP_EOL;
         ?>__bundler_load('bundler',<?=json_encode(file_get_contents(__DIR__.'/../assets/bundler.js'))?>)<? echo PHP_EOL;
         ?>__bundler_load('CleanCSS',<?=json_encode(file_get_contents(__DIR__.'/../assets/clean-css.js'))?>)<? echo PHP_EOL;
         ?>__bundler_load('Terser',<?=json_encode(file_get_contents(__DIR__.'/../assets/terser.min.js'))?>)<? echo PHP_EOL;
         ?>__bundler_load('teacss',<?=json_encode(file_get_contents(__DIR__.'/../assets/teacss.js'))?>)<? echo PHP_EOL;
-
-        $entry_ext = pathinfo($entry_point, PATHINFO_EXTENSION);
-        if ($entry_ext == "tea") {
-            ?>bundler.loadTea(<?=json_encode($entry_point)?>,<?=json_encode($bundle_path)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>)<? echo PHP_EOL;
-        }
-        else if ($entry_ext == "js") {
-            ?>bundler.loadJS(<?=json_encode($entry_point)?>,<?=json_encode($bundle_path)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>,{})<? echo PHP_EOL;
-        }
+        ?>bundler.run(<?=json_encode($entry_point)?>,<?=json_encode($bundle_path)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>)<? echo PHP_EOL;
     }
 
     static function getCachePath($bundle_path) {
@@ -65,11 +58,12 @@ class Bundler extends \Bingo\Module {
         return true;
     }
 
-    static function loadDependencies($entry_point) {
+    static function loadDependencies($entry_point,$bundle_path) {
         $cache = [];
-        $base_path = INDEX_DIR."/";
+        $bundle_abs = INDEX_DIR."/".$bundle_path;
+        $bundle_dir = dirname($bundle_abs)."/";
         
-        $import2rel = function($import,$import_path) use ($base_path) {
+        $import2rel = function($import,$import_path) use ($bundle_dir) {
             $import = ltrim(parse_url($import)['path'] ?? '',"\\\/");
             $abs = preg_replace('#/[^/]*$#', '',$import_path)."/".$import;
             $re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
@@ -77,7 +71,7 @@ class Bundler extends \Bingo\Module {
             $ext = pathinfo($abs,PATHINFO_EXTENSION);
             if (!$ext) $abs .= ".".pathinfo($import_path,PATHINFO_EXTENSION);
 
-            $from = explode('/', $base_path);
+            $from = explode('/', $bundle_dir);
             $to = explode('/', $abs);
             foreach($from as $depth => $dir) {
                 if(isset($to[$depth])) {
@@ -93,10 +87,10 @@ class Bundler extends \Bingo\Module {
             return $result;
         };
 
-        $process = function ($rel_path) use (&$cache,$base_path,&$process,&$import2rel) {
+        $process = function ($rel_path) use (&$cache,$bundle_dir,&$process,&$import2rel) {
             if (isset($cache[$rel_path])) return;
 
-            $path = $base_path.$rel_path;
+            $path = $bundle_dir.$rel_path;
             if (!file_exists($path) || is_dir($path)) return $cache[$rel_path] = false;
 
             $path_ext = pathinfo($rel_path,PATHINFO_EXTENSION);
@@ -116,12 +110,19 @@ class Bundler extends \Bingo\Module {
                     return 'require('.$matches[1].$sub_uri.$matches[3].')';
                 },$text);
             }
+            if ($path_ext=="css") {
+                $pattern = '/url\([\'"]?([^\'"\)]*)[\'"]?\)/i';
+                $text = preg_replace_callback($pattern,function ($matches) use ($path,&$import2rel) {
+                    if (preg_match('/^(.:\/|data:|http:\/\/|https:\/\/|\/)/',$matches[1])) return $matches[0];
+                    return 'url('.$import2rel($matches[1],$path).')';
+                },$text);
+            }
 
             $cache[$rel_path] = $text;            
             foreach ($sub_uris as $sub_uri) $process($sub_uri);
         };
 
-        $process($entry_point);
+        $process($import2rel(basename($entry_point),INDEX_DIR."/".$entry_point));
         return $cache;        
     }
 
