@@ -20,16 +20,12 @@
     background-image: url(@{canvas.toDataURL()});
 }
 
-.logo(url) {
-    @ var img = image(url);
+.logo(url,w,h) {
     display: block;
-    @ if (img.src) {
-        background: url(@img.src) no-repeat 50% 50%;
-    @ }
-    width: @{img.width}px;
-    height: @{img.height}px;
+    background: url(@url) no-repeat 50% 50%;
+    width: @{w}px;
+    height: @{h}px;
     text-indent: -999em;
-    @ return img;
 }
 
 .reset();
@@ -120,7 +116,7 @@ body {
             }
             
             #logo {
-                .logo(tea.dir+"../images/lpcandy.png");
+                .logo(tea.dir+"../images/lpcandy.png",135,103);
                 margin: 10px auto;
                 border: none;
                 padding: 0;
@@ -209,7 +205,7 @@ body {
         text-decoration: none;
         
         > span {
-            .logo(tea.dir+'../images/logo-beejee.jpg');
+            .logo(tea.dir+'../images/logo-beejee.jpg',30,30);
             vertical-align: middle;
             display: inline-block;
             margin-right: 5px;
