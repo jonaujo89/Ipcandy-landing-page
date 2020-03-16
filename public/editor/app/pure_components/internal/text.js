@@ -2,7 +2,6 @@ require("./../../lib/spacedText/spacedText.js");
 require("./../../lib/spacedText/spacedText.css");
 
 const Editable = require("./editable");
-const $ = teacss.jQuery;
 
 class Text extends Editable {
     render(props,state) {

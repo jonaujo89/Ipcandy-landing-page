@@ -1,19 +1,14 @@
-lp.formComposite = ui.composite.extend({
-    setValue: function (value) {
-        if (!this.innerForm) return;
-        this.innerForm.setValue(value || {});
-    }
-});
+const {Dialog} = require("./Dialog/Dialog");
 
 const ValueContext = preact.createContext({name:"",value:{}});
 const BlockContext = preact.createContext(false);
-const $ = teacss.jQuery;
 
 class Block extends preact.Component {
     static register(clsName,cls) {
         Block.list = Block.list || {};
         Block.list[clsName] = cls;
         for (var i=0;i<13;i++) {
+            cls.id = clsName;
             Block.list[clsName+i.toString()] = cls;
         }
     }
@@ -21,8 +16,8 @@ class Block extends preact.Component {
     constructor(props) {
         super(props);
 
-        this.dragButton = preact.createRef();
         this.configButton = preact.createRef();
+        this.configDialog = preact.createRef();
         this.variantValues = {}
 
         this.variantCount = 0;
@@ -42,9 +37,41 @@ class Block extends preact.Component {
     }
 
     editorChange(fullName,val) {
-        ui.prop(this.value,fullName,val);
+        this.prop(fullName,val);
         this.triggerChange();
     }
+
+    prop(path,value) {
+        var layer = this.value;
+        var i = 0,path = path.split('.');
+        for (; i < path.length; i++) {
+            if (value != null && i + 1 === path.length)
+                layer[path[i]] = this.clone(value);
+            var next = layer[path[i]];
+            if (next==undefined) {
+                if (value!==undefined) {
+                    layer[path[i]] = next = {};
+                } else {
+                    return undefined;
+                }
+            }
+            layer = next;
+        }
+        return layer;
+    }    
+
+    clone(o) {
+        if(!o || "object" !== typeof o) return o;
+        var c = "function" === typeof o.pop ? [] : {};
+        var p, v;
+        for(p in o) {
+            if(o.hasOwnProperty(p)) {
+                v = o[p];
+                if(v && "object" === typeof v) c[p] = this.clone(v); else c[p] = v;
+            }
+        }
+        return c;
+    } 
 
     triggerChange() {
         this.forceUpdate();
@@ -70,143 +97,60 @@ class Block extends preact.Component {
     }
 
     remove() {
-        ui.confirm({title:_t("Remove confirmation"),text:_t("Sure to remove component?")},(res) => {
+        Dialog.confirm({title:_t("Remove confirmation"),text:_t("Sure to remove component?")},(res) => {
             if (res) lp.app.removeBlock(this);
         })
     }
 
-    config(position) {
-        var me = this;
-        
-        var dialogId = this.configForm.id || "dialog";
-        var dialog = this.constructor[dialogId];
-        
-        function setVisible() {
-            var form = dialog.form;
-            if (!form.innerForm) return;
-            var val = form.getValue();
-            $.each(form.innerForm.items,function(i,item){
-                var when = item.options.showWhen;
-                if (when) {
-                    var show = true;
-                    for (var key in when) {
-                        if ($.isArray(when[key])) {
-                            if (jQuery.inArray(val[key],when[key])==-1) show = false;
-                        } else {
-                            if (when[key]!=val[key]) show = false;
-                        }
-                    }
-                    if (show)
-                        item.element.show();
-                    else
-                        item.element.hide();
-                }
-            });
-        }
-        
-        if (!dialog) {
-            var dialogWidth = 500;
-            var dialogHeight = undefined;
-            var form;
-            
-            if (this.configForm.width) {
-                dialogWidth = this.configForm.width;
-                delete this.configForm.width;
-            }
-            if (this.configForm.height) {
-                dialogHeight = this.configForm.height;
-                delete this.configForm.height;
-            }
-            if (this.configForm.item) {
-                form = this.configForm.item({});
-            } else {
-                form = lp.formComposite(this.configForm);
-            }
-            
-            dialog = this.constructor[dialogId] = ui.dialog({
-                width: dialogWidth,
-                height: dialogHeight,
-                modal: false,
-                title: this.configForm.title || _t("Settings"),
-                resizable: false,
-                items: [ form ],
-                open: function (){
-                    dialog.detached.appendTo(dialog.element);
-                    if (!lp.configOverlay) {
-                        lp.configOverlay = $("<div>").css({
-                            position: "fixed", left: 0, right: 0, top: 0, bottom: 0, zIndex: 1001
-                        }).click(function(){
-                            $(".ui-dialog-content:visible").dialog("close");
-                            $(".button-select-panel:visible").hide();
-                        });
-                        $("#teacss-layer").append(lp.configOverlay);
-                    }
-                    lp.configOverlay.show();
-                },
-                close: function () {
-                    lp.configOverlay.hide();
-                }
-            });
-            form.bind("change",function(){
-                me.constructor.current.value = form.getValue();
-                setVisible();
-                me.triggerChange();
-            });
-            dialog.form = form;
-        }
-        dialog.form.setValue(this.value);
-        this.constructor.current = this;
-        setVisible();
-        
-        dialog.detached = dialog.element.children().detach();
-        if (position) {
-            dialog.element.dialog("option","position",position);
-        }
-        
-        $(".ui-dialog-content:visible").dialog("close");
-        dialog.open();
+    configForm() {
+        return false;
     }
 
     render(props,state) {
-
-        console.debug("block render",this.value.type,this.value);
+        //console.debug("block render",this.value.type,this.value);
 
         var variant = this.value.variant;
         var tpl_f = this['tpl_'+variant] || (() => html`<div>Unsupported variant ${variant}</div>`);
+
+        var configForm = this.configForm();
+        if (configForm) configForm.ref = this.configDialog;
+
         return html`
-        <div>
-            <${BlockContext.Provider} value=${this}>
-                <${ValueContext.Provider} value=${{name:"",value:this.value,defaultValue:this.defaultValue}}>
-                    ${tpl_f.call(this,this.value,props,state)}
-                <//>
-            <//>
-            ${ !lp.app.options.viewOnly && html`
-                <div class='cmp-controls'>
-                    ${ this.variantCount > 1 && html`
-                        <div class='fa fa-chevron-left lp-button' onClick=${()=>this.prev()} />
-                        <div class='fa fa-chevron-right lp-button' onClick=${()=>this.next()} />
-                        <div class='lp-variant-label'>
-                            ${variant}/${this.variantCount}
-                        </div>
-                    `}
-                    ${ this.configForm && html`
-                        <div 
-                            ref=${this.configButton} 
-                            class='fa fa-gear lp-button right' 
-                            onClick=${ 
-                                () => this.config({
-                                    my:"right top",
-                                    at:"right top",
-                                    of:$(this.configButton.current)
-                                }) 
-                            } 
-                        />
-                    `}
-                    <div ref=${this.dragButton} class='fa fa-arrows lp-button right draggable' />
-                    <div class='fa fa-trash-o lp-button right' onClick=${()=>this.remove()} />
-                </div>
-            `}
-        </div>`;
+        <${BlockContext.Provider} value=${this}>
+        <${ValueContext.Provider} value=${{name:"",value:this.value,defaultValue:this.defaultValue}}>
+            <div class="lp-block">
+                ${tpl_f.call(this,this.value,props,state)}
+                ${ !lp.app.options.viewOnly && html`
+                    <div class='cmp-controls'>
+                        ${ this.variantCount > 1 && html`
+                            <div class='fa fa-chevron-left lp-button' onClick=${()=>this.prev()} />
+                            <div class='fa fa-chevron-right lp-button' onClick=${()=>this.next()} />
+                            <div class='lp-variant-label'>
+                                ${variant}/${this.variantCount}
+                            </div>
+                        `}
+                        ${ configForm && html`
+                            <div 
+                                ref=${this.configButton} 
+                                class='fa fa-gear lp-button right' 
+                                onClick=${
+                                    () => {
+                                        let dlg = this.configDialog.current;
+                                        let rect = this.configButton.current.getBoundingClientRect();
+                                        dlg.open({x:rect.x-dlg.props.width+rect.width-1,y:rect.y});
+                                    }
+                                } 
+                            />
+                        `}
+                        <div class='fa fa-arrows lp-button right' onMouseDown=${(e)=>lp.app.draggableMouseDown(e,this)} />
+                        <div class='fa fa-trash-o lp-button right' onClick=${()=>this.remove()} />
+                    </div>
+                `}
+            </div>
+            ${ !lp.app.options.viewOnly && configForm }
+        <//>
+        <//>
+        `;
     }
 }
 

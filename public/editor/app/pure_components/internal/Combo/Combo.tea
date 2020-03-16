@@ -1,0 +1,23 @@
+.lp-panel {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    max-height: 500px;
+    overflow: auto;
+
+    &.lp-panel-single {
+        margin:0;
+    }
+
+    .lp-panel-item {
+        padding:2px;
+        display: inline-block;
+        cursor: pointer;
+
+        &:hover {
+            background: #eee;
+        }
+        &.lp-selected {
+            background: #2196F3;
+        }
+    }
+}

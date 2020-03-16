@@ -1,46 +1,31 @@
 const Block = require("./internal/block");
 const Repeater = require("./internal/repeater");
 const Text = require("./internal/text");
-const Icon = require("./internal/icon");
+
+const {Icon} = require("./internal/Icon/Icon");
+const {BlockColor} = require("./internal/Color/Color");
+const {Switch} = require("./internal/Switch/Switch");
+const {Dialog} = require("./internal/Dialog/Dialog");
 
 class Benefits extends Block {
 
     static get title() { return _t('Benefits') }
     static get description() { return _t('Main advantages') }
 
-    get configForm() { return {
-        items: [            
-            { 
-                name: "show_title", label: _t("Show first title"), type: "checkbox", width: "auto",  
-                margin: "5px 49% 0px 0px",
-            },
-            { 
-                name: "show_title_2", label: _t("Show second title"), type: "checkbox", width: "auto",  
-                margin: "5px 49% 0px 0px",
-            },
-            { 
-                name: "show_icon_border", label: _t("Show icon around"), type: "checkbox", width: "auto",  
-                margin: "5px 49% 0px 0px", showWhen: { variant: [1] }
-            },
-            { 
-                name: "show_name_benefit", label: _t("Show name benefit"), type: "checkbox", width: "auto",  
-                margin: "5px 49% 0px 0px", showWhen: { variant: [1,2,3,5] }
-            },
-            { 
-                name: "show_desc_benefit", label: _t("Show description benefit"), type: "checkbox", width: "auto",  
-                margin: "5px 49% 0px 0px", showWhen: { variant: [1,2,5] }
-            },
-            { 
-                name: "show_image_border", label: _t("Show image around"), type: "checkbox", width: "auto",  
-                margin: "5px 49% 0px 0px", showWhen: { variant: [4,5] }
-            },
-            { type: "label", value: _t("Background color:"), margin: "5px 0"},
-            { 
-                type: lp.blockColor, name: "background_color"  
-            }
-        ]
-    }}    
-    
+    configForm() {
+        return html`
+            <${Dialog}>
+                <${Switch} name="show_title" label="${_t("Show first title")}" />
+                <${Switch} name="show_title_2" label="${_t("Show second title")}" />
+                <${Switch} name="show_icon_border" label="${_t("Show icon border")}" showWhen=${{variant:[1]}} />
+                <${Switch} name="show_name_benefit" label="${_t("Show benefit name")}" showWhen=${{variant:[1,2,3,5]}} />
+                <${Switch} name="show_desc_benefit" label="${_t("Show benefit desc")}" showWhen=${{variant:[1,2,5]}} />
+                <${Switch} name="show_show_image_border" label="${_t("Show image border")}" showWhen=${{variant:[4,5]}} />
+                <${BlockColor} name="background_color" />
+            <//>
+        `;
+    }
+
     tpl_1(val) {
         return html`
         <div class="container-fluid benefits benefits_1" style="background: ${val.background_color}">
