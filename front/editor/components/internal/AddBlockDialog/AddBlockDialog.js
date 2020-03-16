@@ -17,7 +17,7 @@ class AddBlockDialog extends preact.Component {
                             this.dialog.close();
                             lp.app.addBlock(typeId);
                         }}>
-                            <div class='lp-add-block-item-pic' style=${{backgroundImage:"url("+base_url+"/editor/app/style/miniatures/"+type.id.toLowerCase()+".jpg)"}} />
+                            <div class='lp-add-block-item-pic' style=${{backgroundImage:"url("+base_url+"/"+lp.app.options.assets_url+"/miniatures/"+type.id.toLowerCase()+".jpg)"}} />
                             ${type.title}
                             <small>${type.description}</small>
                         </div>

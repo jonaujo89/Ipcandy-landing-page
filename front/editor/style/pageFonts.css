@@ -1,0 +1,89 @@
+/* font-family: "OpenSansRegular"; */
+@font-face {
+    font-family: "Open Sans";
+    src: url("../../../public/assets/fonts/OpenSansRegular.eot");
+    src: url("../../../public/assets/fonts/OpenSansRegular.eot?#iefix") format("embedded-opentype"),
+    url("../../../public/assets/fonts/OpenSansRegular.woff") format("woff"),
+    url("../../../public/assets/fonts/OpenSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+/* font-family: "OpenSansLight"; */
+@font-face {
+    font-family: "Open Sans Light";
+    src: url("../../../public/assets/fonts/OpenSansLight.eot");
+    src: url("../../../public/assets/fonts/OpenSansLight.eot?#iefix") format("embedded-opentype"),
+    url("../../../public/assets/fonts/OpenSansLight.woff") format("woff"),
+    url("../../../public/assets/fonts/OpenSansLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansBold"; */
+@font-face {
+    font-family: "Open Sans Bold";
+    src: url("../../../public/assets/fonts/OpenSansBold.eot");
+    src: url("../../../public/assets/fonts/OpenSansBold.eot?#iefix") format("embedded-opentype"),
+    url("../../../public/assets/fonts/OpenSansBold.woff") format("woff"),
+    url("../../../public/assets/fonts/OpenSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("../../../public/assets/fonts/OpenSansBold.eot");
+    src: url("../../../public/assets/fonts/OpenSansBold.eot?#iefix") format("embedded-opentype"),
+    url("../../../public/assets/fonts/OpenSansBold.woff") format("woff"),
+    url("../../../public/assets/fonts/OpenSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+/* font-family: "OpenSansSemiBold"; */
+@font-face {
+    font-family: "Open Sans SemiBold";
+    src: url("../../../public/assets/fonts/OpenSansSemiBold.eot");
+    src: url("../../../public/assets/fonts/OpenSansSemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../../../public/assets/fonts/OpenSansSemiBold.woff") format("woff"),
+    url("../../../public/assets/fonts/OpenSansSemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("../../../public/assets/fonts/OpenSansSemiBold.eot");
+    src: url("../../../public/assets/fonts/OpenSansSemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../../../public/assets/fonts/OpenSansSemiBold.woff") format("woff"),
+    url("../../../public/assets/fonts/OpenSansSemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* for Timer */
+@font-face {
+	font-family: 'Catorze27Style1 SemiBold';
+    src: url("../../../public/assets/fonts/catorze27Style1_SemiBold.eot");
+    src: url("../../../public/assets/fonts/catorze27Style1_SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../../../public/assets/fonts/catorze27Style1_SemiBold.woff") format("woff"),
+    url(../../../public/assets/fonts/catorze27Style1_SemiBold.ttf) format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'BOLDfinger';
+    src: url('../../../public/assets/fonts/boldfinger.eot?#iefix') format('embedded-opentype'),
+         url('../../../public/assets/fonts/boldfinger.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Langdon';
+    src: url('../../../public/assets/fonts/langdon.eot?#iefix') format('embedded-opentype'),
+         url('../../../public/assets/fonts/langdon.otf') format('opentype');
+
+    font-weight: normal;
+    font-style: normal;
+
+}

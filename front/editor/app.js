@@ -6,22 +6,27 @@ window._t.load = function(h) { window._t.hash = {...window._t.hash,...h} }
 if (window.locale_lang=="ru") require("./locale/ru.js");
 
 window.lp = {};
-
 require("./lib/jquery.min.js");
 
+// editor styles
 require("./style/font-awesome.css");
 require("./style/editor.css");
-require("./../components/style/makefile.tea");
+
+// component styles
+require("./style/page.css");
+require("./style/pageFonts.css");
+require("./style/components.tea");
+require("../../public/assets/plugins/plugins.tea");
 
 window.preact = require("./lib/preact");
 window.preact.hooks = require("./lib/preact_hooks");
 window.html = require("./lib/htm").bind(preact.h);
 
-const Block = require("./pure_components/internal/block");
-const {Dialog} = require("./pure_components/internal/Dialog/Dialog");
-const {AddBlockDialog} = require("./pure_components/internal/AddBlockDialog/AddBlockDialog");
+const Block = require("./components/internal/block");
+const {Dialog} = require("./components/internal/Dialog/Dialog");
+const {AddBlockDialog} = require("./components/internal/AddBlockDialog/AddBlockDialog");
 
-require("./pure_components/benefits");
+require("./components/benefits");
 
 class AppBlock {
     shouldComponentUpdate(nextProps) {
