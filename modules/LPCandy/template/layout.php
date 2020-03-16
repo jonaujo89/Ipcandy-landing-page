@@ -10,7 +10,6 @@
         var browse_text = "<?=_t('Browse')?>";
     </script>   
 
-    <script src="<?= url('assets/lib/jquery.js') ?>"></script>
     <script src="<?= url('assets/lpcandy.min.js') ?>"></script>
     <link  href="<?= url('assets/lpcandy.min.css') ?>" rel="stylesheet" type="text/css" /> 
 </head>
