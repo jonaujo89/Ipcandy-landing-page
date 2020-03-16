@@ -95,7 +95,6 @@ window.bundler = {
     },
 
     run: function (entry_point,bundle_path,base_url,deps,options) {
-
         var me = this;
         me.base_url = base_url;
         setTimeout(function(){
@@ -127,7 +126,7 @@ window.bundler = {
             teacss.getFile = function (path,cb) {
                 var rel = me.relativePath(path,bundle_dir_wo_slash);
                 var rel_clean = me.cleanPath(rel);
-                var text = deps.js[rel_clean] || deps.tea[rel_clean];
+                var text = deps.js[rel_clean]===undefined ? deps.tea[rel_clean] : deps.js[rel_clean];
                 if (text===undefined) console.debug("Can't import tea",path,rel); else teacss.files[path] = text;
                 cb(text);
             };
