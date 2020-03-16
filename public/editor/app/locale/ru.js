@@ -1,4 +1,13 @@
 window._t.load({
+    "Yes" : "Да",
+    "Cancel" : "Отмена",
+    "Preview" : "Предпросмотр",
+    "Publish" : "Публиковать",
+    "Editor" : "Редактор",
+    "Add Section" : "Добавить блок",
+    "Select component type" : "Выбрать тип блока",
+    'Your page was successfully published and now is available to your customers' : 'Ваша страница теперь опубликована и на нее смогут зайти посетители',
+    'Publish success' : 'Успешная публикация',
     "Show icon": "Иконка",
     "Show form as popup": "Всплывающая форма",
     "Map is draggable":"Можно перетаскивать карту",
