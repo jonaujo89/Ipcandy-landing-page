@@ -141,7 +141,7 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
         $url = 'http://'.$_SERVER['SERVER_NAME'].url('page-view/'.$this->id);
         $rasterize = APP_DIR."/modules/LPCandy/rasterize.js";
         
-        $pageWidth = 1200;
+        $pageWidth = 1300;
         
         $cmd = 'QT_QPA_PLATFORM=offscreen phantomjs '.escapeshellarg($rasterize)." ".escapeshellarg($url)." ".escapeshellarg($screen_file)." ".$pageWidth;
         $cmd .= " > /dev/null 2>/dev/null &";
