@@ -1,3 +1,4 @@
+require("./Benefits.tea");
 const {Block} = require("../../internal/Block/Block");
 const {Repeater} = require("../../internal/Repeater/Repeater");
 const {Text} = require("../../internal/Text/Text");

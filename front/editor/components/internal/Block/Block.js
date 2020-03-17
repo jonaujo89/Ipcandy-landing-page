@@ -1,3 +1,4 @@
+require("./Block.tea");
 const {Dialog} = require("../Dialog/Dialog");
 
 const ValueContext = preact.createContext({name:"",value:{}});

@@ -1,0 +1,152 @@
+#logged_info {    
+    background: #333;
+    border-bottom: 2px solid #777777;
+    border-left: 2px solid #777777;
+    border-radius: 0 0 0 20px;
+    margin: 0;
+    padding: 5px 10px 5px 15px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    color: #aaa;
+    white-space: nowrap;
+    z-index: 50000;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.5em;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    a.home {
+        width: 20px;
+        height: 20px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABLUlEQVR4nM2UvUoDQRRGzwZFI1aCD2BnIVoKBgKCkE58ABEshfgoNmJhK76DIIKFBLGxVTSFoJWd+BOVCMcio5ks65poBD9YZu+duWdmvpndRKWfKvSVBgx0MWYUmAOOgceQKwMjQAM46hit5j2Tat2WztWJkI/VUZMHq6h3oeg0tLfq7E+A6+qb2lSrAVINcSMPmD6UQWAb2AQegCVgBjgBpoFF4DnX8Yg+ph6GWS/UslpLraamltSzKDeeteXY/AN1Qb0xW9fqvLoX4it1KgaWbJu/pa5k+JRWQ11WN0J8HyahADyF3a+Fe7YDFL+5m0VgF2gCq4Af3ia2Pr0h4DV09KoEGAZeYuDnGWUU7EfvlS+A7aALYNJDf/9/Dn8OrPdYf5lOpD38tf6/h+9paMshEIIyawAAAABJRU5ErkJggg==);
+        display: inline-block;
+        vertical-align: bottom;
+        margin-left: -5px;
+    }
+}
+
+#preview-toolbar {
+    border-top: 5px solid #71a0d0;
+    background: #333;
+    padding-left: 8px;
+    line-height: 50px;
+    white-space: nowrap;
+    position: fixed;
+    top: 0; left:0; right: 0; 
+    height: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    z-index: 100;
+
+    #beejee_info {
+        display: inline-block;
+        color: #aaa;
+        text-decoration: none;
+        margin-left: 0.6em;
+
+        > span {
+            display: block;
+            background: url(../../../assets/images/logo-beejee.jpg) no-repeat 0 50%;
+            background-size: cover;
+            width: 2em;
+            height: 2em;
+            text-indent: -999em;
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        > p {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: left;
+            font-size: 0.8em;
+            line-height: 1.2em;
+            font-family: Arial;
+
+            span {
+            
+            }            
+        }
+    }
+
+    button {
+        color: #F2F2F2;
+        cursor: pointer;
+        white-space: nowrap;
+        font-size: 0.8em;
+        outline: none;
+
+        margin: 0px 0.3em 0 0;
+        padding: 0.3em 0.6em;
+        vertical-align: middle;
+
+        border-radius: 0.3em;
+        border: 1px solid #ccc;
+        border-bottom-color: #bbb;
+    
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+        text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+        background: #6296cb;
+        background-image: linear-gradient(top, #71a0d0, #4b87c3);
+        background-repeat: repeat-x;
+        border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0, 0, 0, 0.25);
+
+        &:hover {
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+            background: #71a0d0;
+        }
+
+        i {
+            margin-right: 0.3em;
+        }        
+    }
+}
+
+#frame-panel {
+    #preview-toolbar + & {
+        padding-top: 55px;
+    }
+
+    &.view-layout {
+        *[class^="cmp-"],
+        *[class*=" cmp-"]  {
+            display: none !important;
+        }
+    }
+}
+
+
+.drop-marker {
+    position: relative;
+    z-index: 99;
+
+    &::before {
+        content: "";
+        top: 0; left: 0;
+        width: 100%; height: 0;
+        border-top: 4px dashed #f80;
+        box-sizing: border-box;
+        position: absolute;
+        z-index: 99;
+    }
+}
+
+.drop-rect {
+    border: 4px solid #f80;
+    background: rgba(255,136,0,0.3);
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 99;
+    opacity: 1;
+    left: 0; right: 0;
+
+    -webkit-transition: top 0.5s, height 0.5s, opacity 0.5s 0.5s;
+    transition: top 0.5s, height 0.5s, opacity 0.5s 0.5s;
+}

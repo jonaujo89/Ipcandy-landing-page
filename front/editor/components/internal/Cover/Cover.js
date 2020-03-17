@@ -1,3 +1,4 @@
+require("./Cover.tea");
 const {Editable} = require("../Editable/Editable");
 
 class Cover extends Editable {

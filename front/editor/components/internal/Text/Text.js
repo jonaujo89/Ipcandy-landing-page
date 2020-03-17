@@ -1,5 +1,6 @@
-require("./../../../lib/spacedText/spacedText.js");
-require("./../../../lib/spacedText/spacedText.css");
+require("./Text.tea");
+require("./spacedText/spacedText.js");
+require("./spacedText/spacedText.css");
 
 const {Editable} = require("../Editable/Editable");
 

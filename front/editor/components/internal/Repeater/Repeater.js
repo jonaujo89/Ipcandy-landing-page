@@ -1,3 +1,4 @@
+require("./Repeater.tea");
 const {Editable} = require("../Editable/Editable");
 const {Block,BlockContext,ValueContext} = require("../Block/Block");
 

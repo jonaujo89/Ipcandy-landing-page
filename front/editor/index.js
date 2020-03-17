@@ -8,11 +8,7 @@ if (window.locale_lang=="ru") require("./locale/ru.js");
 window.lp = {};
 require("./lib/jquery.min.js");
 
-// editor styles
 require("./style/font-awesome.css");
-require("./style/editor.css");
-
-// component styles
 require("./style/page.css");
 require("./style/pageFonts.css");
 require("./style/components.tea");

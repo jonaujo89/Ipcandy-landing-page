@@ -1,0 +1,24 @@
+.text_toolbar {
+    bottom: 100%;
+    left: -1px;
+    position: absolute;
+    z-index: 2001;
+}
+
+.editor_text {
+    min-height: 1em;
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus
+    {
+        border: 1px dashed #f80;
+        outline: none;
+    }
+
+    .view-layout & {
+        border: none !important;
+    }    
+}
+
+
