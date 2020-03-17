@@ -1,4 +1,4 @@
-const Block = require("./block");
+const {Block,BlockContext,ValueContext} = require("../Block/Block");
 
 class Editable extends preact.Component {
 
@@ -13,8 +13,8 @@ class Editable extends preact.Component {
     }
 
     passValue() {
-        this.block = preact.hooks.useContext(Block.BlockContext);
-        const parentContext = preact.hooks.useContext(Block.ValueContext);
+        this.block = preact.hooks.useContext(BlockContext);
+        const parentContext = preact.hooks.useContext(ValueContext);
         this.fullName = parentContext.name ? (parentContext.name+"."+this.props.name) : this.props.name;
         this.value = (parentContext.value || {})[this.props.name || ""];
         this.defaultValue = (parentContext.defaultValue || {})[this.props.name || ""];
@@ -41,4 +41,4 @@ class Editable extends preact.Component {
     }
 }
 
-exports = Editable;
+exports.Editable = Editable;

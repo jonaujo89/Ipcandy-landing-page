@@ -1,5 +1,5 @@
 require("./Combo.tea");
-const Editable = require("../editable");
+const {Editable} = require("../Editable/Editable");
 
 class Combo extends Editable {
     tpl(props,state) {

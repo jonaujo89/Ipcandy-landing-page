@@ -1,5 +1,5 @@
 require("./AddBlockDialog.tea");
-const Block = require("../block");
+const {Block} = require("../Block/Block");
 const {Dialog} = require("../Dialog/Dialog");
 
 class AddBlockDialog extends preact.Component {

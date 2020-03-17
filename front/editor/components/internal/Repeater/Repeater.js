@@ -1,5 +1,5 @@
-const Editable = require("./editable");
-const Block = require("./block");
+const {Editable} = require("../Editable/Editable");
+const {Block,BlockContext,ValueContext} = require("../Block/Block");
 
 class Repeater extends Editable {
     constructor(props) {
@@ -18,7 +18,7 @@ class Repeater extends Editable {
     }
 
     addAfter(idx,type) {
-        const parentContext = preact.hooks.useContext(Block.ValueContext);
+        const parentContext = preact.hooks.useContext(ValueContext);
         var item_default = this.defaultValue[0] || {};
 
         var new_value = [...this.value];
@@ -39,7 +39,7 @@ class Repeater extends Editable {
         return html`
             ${list.map((sub,sub_idx) => html`
                 <div class="item_block">
-                    <${Block.ValueContext.Provider} value=${{value:sub,name:this.fullName+"."+sub_idx}}>
+                    <${ValueContext.Provider} value=${{value:sub,name:this.fullName+"."+sub_idx}}>
                         ${item_f(sub)}
                     <//>
                     ${ !lp.app.options.viewOnly && html`
@@ -66,4 +66,4 @@ class Repeater extends Editable {
     }
 }
 
-exports = Repeater;
+exports.Repeater = Repeater;

@@ -1,5 +1,5 @@
 require("./Icon.tea");
-const Cover = require("../cover");
+const {Cover} = require("../Cover/Cover");
 const {Combo} = require("../Combo/Combo");
 const {Dialog} = require("../Dialog/Dialog");
 

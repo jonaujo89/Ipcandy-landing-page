@@ -1,5 +1,5 @@
 require("./Dialog.tea");
-const {createPortal,Portal} = require("../portal");
+const {createPortal,Portal} = require("../Portal/Portal");
 
 class Dialog extends preact.Component {
     constructor(props) {

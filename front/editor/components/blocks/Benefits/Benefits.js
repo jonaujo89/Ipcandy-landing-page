@@ -1,11 +1,11 @@
-const Block = require("./internal/block");
-const Repeater = require("./internal/repeater");
-const Text = require("./internal/text");
+const {Block} = require("../../internal/Block/Block");
+const {Repeater} = require("../../internal/Repeater/Repeater");
+const {Text} = require("../../internal/Text/Text");
 
-const {Icon} = require("./internal/Icon/Icon");
-const {BlockColor} = require("./internal/Color/Color");
-const {Switch} = require("./internal/Switch/Switch");
-const {Dialog} = require("./internal/Dialog/Dialog");
+const {Icon} = require("../../internal/Icon/Icon");
+const {BlockColor} = require("../../internal/Color/Color");
+const {Switch} = require("../../internal/Switch/Switch");
+const {Dialog} = require("../../internal/Dialog/Dialog");
 
 class Benefits extends Block {
 

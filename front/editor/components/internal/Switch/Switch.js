@@ -1,5 +1,5 @@
 require("./Switch.tea");
-const Editable = require("../editable");
+const {Editable} = require("../Editable/Editable");
 
 class Switch extends Editable {
     tpl(props,state) {

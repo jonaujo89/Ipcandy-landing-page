@@ -1,4 +1,4 @@
-const {Dialog} = require("./Dialog/Dialog");
+const {Dialog} = require("../Dialog/Dialog");
 
 const ValueContext = preact.createContext({name:"",value:{}});
 const BlockContext = preact.createContext(false);
@@ -154,7 +154,6 @@ class Block extends preact.Component {
     }
 }
 
-lp.Block = Block;
-Block.BlockContext = BlockContext;
-Block.ValueContext = ValueContext;
-exports = Block;
+exports.BlockContext = BlockContext;
+exports.ValueContext = ValueContext;
+exports.Block = Block;

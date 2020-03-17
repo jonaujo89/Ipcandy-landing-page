@@ -86,6 +86,7 @@ window.bundler = {
             if (w.require.cache.modules[res_path]) return w.require.cache.modules[res_path];
             if (!w.require.cache.defines[res_path]) {
                 console.debug("Can't require on path: ",path,res_path);
+                try { throw new Error; } catch(e) { console.log(e.stack); }
                 return {};
             }
             return w.require.cache.modules[res_path] = w.require.cache.defines[res_path]();

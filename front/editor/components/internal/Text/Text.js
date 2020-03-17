@@ -1,7 +1,7 @@
-require("./../../lib/spacedText/spacedText.js");
-require("./../../lib/spacedText/spacedText.css");
+require("./../../../lib/spacedText/spacedText.js");
+require("./../../../lib/spacedText/spacedText.css");
 
-const Editable = require("./editable");
+const {Editable} = require("../Editable/Editable");
 
 class Text extends Editable {
     render(props,state) {
@@ -79,4 +79,4 @@ class EditableText extends preact.Component {
     }
 }
 
-exports = Text;
+exports.Text = Text;

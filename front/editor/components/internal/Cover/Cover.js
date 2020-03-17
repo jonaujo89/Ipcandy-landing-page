@@ -1,5 +1,4 @@
-const Editable = require("./editable");
-const Block = require("./block");
+const {Editable} = require("../Editable/Editable");
 
 class Cover extends Editable {
     constructor(props) {
@@ -40,4 +39,4 @@ class Cover extends Editable {
         </div>`;
     }
 }
-exports = Cover;
+exports.Cover = Cover;
