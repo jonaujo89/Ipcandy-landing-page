@@ -3,12 +3,13 @@ const {Block,BlockContext,ValueContext} = require("../Block/Block");
 function Editable(Type) {
     class TypeWrap extends preact.Component {
         shouldComponentUpdate(props,state) {
+            if (props.alwaysRender) return true;
             if (props.value==this.props.value) return false;
-            console.debug("editable",props.fullName,props.value);
             return true;
         }
 
         render(props) {
+            console.debug("editable",props.fullName,props.value);
             return preact.h(Type,{...props});
         }
     }

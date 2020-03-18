@@ -38,45 +38,31 @@ class Block extends preact.Component {
     }
 
     editorChange(fullName,val) {
-        this.prop(fullName,val);
-        this.triggerChange();
-    }
-
-    prop(path,value) {
-        var layer = this.value;
-        var i = 0,path = path.split('.');
-        for (; i < path.length; i++) {
-            if (value != null && i + 1 === path.length)
-                layer[path[i]] = this.clone(value);
-            var next = layer[path[i]];
-            if (next==undefined) {
-                if (value!==undefined) {
-                    layer[path[i]] = next = {};
-                } else {
-                    return undefined;
-                }
+        function shallowClone(o) {
+            if(!o || "object" !== typeof o) return o || {};
+            var c = "function" === typeof o.pop ? [] : {};
+            for(var p in o) {
+                if(o.hasOwnProperty(p)) c[p] = o[p];
             }
-            layer = next;
+            return c;
         }
-    }    
 
-    clone(o) {
-        if(!o || "object" !== typeof o) return o;
-        var c = "function" === typeof o.pop ? [] : {};
-        var p, v;
-        for(p in o) {
-            if(o.hasOwnProperty(p)) {
-                v = o[p];
-                if(v && "object" === typeof v) c[p] = this.clone(v); else c[p] = v;
+        var ret = shallowClone(this.value);
+        var current = ret;
+
+        var parts = fullName.split(".");
+        parts.forEach((part,i)=>{
+            if (parts.length==i+1) {
+                current[part] = val;
+            } else {
+                current[part] = shallowClone(current[part]);
             }
-        }
-        return c;
-    } 
-
-    triggerChange() {
-        this.forceUpdate();
+            current = current[part];
+        });
+        this.value = ret;
         lp.app.blockChanged(this);
     }
+
 
     prev() {
         var newVariant = (this.value.variant - 2 + this.variantCount) % this.variantCount + 1;
@@ -107,7 +93,7 @@ class Block extends preact.Component {
     }
 
     render(props,state) {
-        //console.debug("block render",this.value.type,this.value);
+        console.debug("block render",this.value.type,this.value);
 
         var variant = this.value.variant;
         var tpl_f = this['tpl_'+variant] || (() => html`<div>Unsupported variant ${variant}</div>`);

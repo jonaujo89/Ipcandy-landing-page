@@ -64,5 +64,8 @@ const Repeater = Editable(class extends preact.Component {
         `;
     }
 });
+Repeater.defaultProps = {
+    alwaysRender: true
+};
 
 exports.Repeater = Repeater;
