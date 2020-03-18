@@ -2,16 +2,15 @@ require("./Icon.tea");
 const {Cover} = require("../Cover/Cover");
 const {Combo} = require("../Combo/Combo");
 const {Dialog} = require("../Dialog/Dialog");
+const {Editable} = require("../Editable/Editable");
 
-class IconCombo extends Combo {
-    tpl_item(item) {
-        return html`
-            <div class="lp-icon-panel-item" style=${{backgroundImage:"url("+base_url+"/"+item.value+")"}} />
-        `;
-    }
-}
-IconCombo.defaultProps = {
-    items: ()=>{
+const iconComboItemTpl = (item)=>html`
+    <div class="lp-icon-panel-item" style=${{backgroundImage:"url("+base_url+"/"+item.value+")"}} />
+`;
+
+const IconCombo = (props) => preact.h(Combo,{...props,
+    tpl_item: iconComboItemTpl,
+    items: () => {
         var items = [];
         for (var i=1;i<=841;i++) {
             if (i>=285 && i<=289) continue;
@@ -21,46 +20,40 @@ IconCombo.defaultProps = {
         }
         return items;
     }
-}
+})
 
-class IconComboWhite extends IconCombo {};
-IconComboWhite.defaultProps = {
-   items: ()=>{
-       var items = [];
-       for (var i=365;i<=716;i++) {
+const IconComboWhite = (props) => preact.h(Combo,{...props,
+    tpl_item: iconComboItemTpl,
+    items: () => {
+        var items = [];
+        for (var i=365;i<=716;i++) {
             items.push({value:lp.app.options.assets_url+"/ico/"+i+".png"});
         }
         return items;
-   },
-   background: '#555'
-}
- 
-class Icon extends Cover {
-    configForm() {
-        var IconComboCls = this.props.iconType=="white" ? IconComboWhite : IconCombo;
-        return html`
-            <${Dialog} title=${_t("Icons")} class="lp-icon-config-dialog">
-                <${IconComboCls} name=${this.props.name} />
-            <//>
-        `;
-    }
+    },
+    background: "#555"
+})
 
-    render() {
-        var configForm = this.configForm();
-        if (configForm) configForm.ref = this.configDialog;
-        this.passValue();
-        return html`<div class="lp-cover">
-            <div class="ico" style="background-image: url(${base_url+"/"+this.value})">
-                ${ !lp.app.options.viewOnly && html`
-                    <div ref=${this.cover} class='cmp-cover fa fa-gear' onClick=${()=>this.openConfig()} />
-                    ${ configForm }
-                
+
+const Icon = Editable(class extends preact.Component{
+    render(props) {
+        var IconComboCls = props.iconType=="white" ? IconComboWhite : IconCombo;
+        return html`
+            <${Cover} 
+                configForm=${html`
+                    <${Dialog} title=${_t("Icons")} class="lp-icon-config-dialog">
+                        <${IconComboCls} name=${props.name} />
+                    <//>
                 `}
-            </div>
-        </div>`;
+                customCover=${true}
+                ref=${(r)=>this.coverCmp=r}
+            >
+                <div class="ico" style="background-image: url(${base_url+"/"+props.value})">
+                    <div ref=${(r)=>this.cover=r} class='cmp-cover fa fa-gear' onClick=${()=>this.coverCmp.openConfig(this.cover)} />
+                </div>
+            <//>
+        `
     }
-}
+});
 
 exports.Icon = Icon;
-exports.IconCombo = IconCombo;
-exports.IconComboWhite = IconComboWhite;

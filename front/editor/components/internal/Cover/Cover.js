@@ -1,20 +1,10 @@
 require("./Cover.tea");
 const {Editable} = require("../Editable/Editable");
 
-class Cover extends Editable {
-    constructor(props) {
-        super(props);
-        this.cover = preact.createRef();
-        this.configDialog = preact.createRef();
-    }
-
-    configForm() {
-        return false;
-    }
-
-    openConfig() {
-        let dlg = this.configDialog.current;
-        let rect = this.cover.current.getBoundingClientRect();
+class Cover extends preact.Component {
+    openConfig(cover) {
+        let dlg = this.configDialog;
+        let rect = cover.getBoundingClientRect();
         var dw = document.documentElement.clientWidth;
         var dh = document.documentElement.clientHeight;
         var dlgw = dlg.props.width;
@@ -25,19 +15,22 @@ class Cover extends Editable {
             if (x<0) x = 0;
         }
         dlg.open({x,y:rect.y});
-    }
+    }    
 
-    render(props,state) {
-        var configForm = this.configForm();
-        if (configForm) configForm.ref = this.configDialog;
-        this.passValue();
+    render(props) {
+        var configForm = props.configForm;
+        if (configForm) configForm.ref = (r) => this.configDialog = r;
+
         return html`<div class="lp-cover">
-            ${this.tpl(props,state)}
+            ${props.children}
             ${ !lp.app.options.viewOnly && html`
-                <div ref=${this.cover} class='cmp-cover fa fa-gear' onClick=${()=>this.openConfig()} />
-                ${ configForm }
+                ${ !props.customCover && html`
+                    <div ref=${(r)=>this.cover=r} class='cmp-cover fa fa-gear' onClick=${()=>this.openConfig(this.cover)} />
+                `}
+                ${ configForm || "" }
             `}
-        </div>`;
+        </div>`
     }
 }
+
 exports.Cover = Cover;

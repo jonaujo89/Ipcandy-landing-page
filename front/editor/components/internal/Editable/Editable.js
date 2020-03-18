@@ -1,44 +1,53 @@
 const {Block,BlockContext,ValueContext} = require("../Block/Block");
 
-class Editable extends preact.Component {
+function Editable(Type) {
+    class TypeWrap extends preact.Component {
+        shouldComponentUpdate(props,state) {
+            if (props.value==this.props.value) return false;
+            console.debug("editable",props.fullName,props.value);
+            return true;
+        }
 
-    constructor(props) {
-        super(props);
-        this.fullName = "";
-        this.value = undefined;
+        render(props) {
+            return preact.h(Type,{...props});
+        }
     }
 
-    setValue(val) {
-        this.block.editorChange(this.fullName,val,true);
-    }
+    const EditableType = class extends preact.Component {
+        render (props) {
+            var block = preact.hooks.useContext(BlockContext);
+            var parentContext = preact.hooks.useContext(ValueContext);
 
-    passValue() {
-        this.block = preact.hooks.useContext(BlockContext);
-        const parentContext = preact.hooks.useContext(ValueContext);
-        this.fullName = parentContext.name ? (parentContext.name+"."+this.props.name) : this.props.name;
-        this.value = (parentContext.value || {})[this.props.name || ""];
-        this.defaultValue = (parentContext.defaultValue || {})[this.props.name || ""];
-        //console.debug("editable render",this.constructor.name,this.value);
-    }
-    
-    render(props,state) {
-        this.passValue();
-        var show = true;
-        var when = props.showWhen;
-        if (when) {
-            var val = this.block.value;
-            for (var key in when) {
-                if (Array.isArray(when[key])) {
-                    if (!when[key].includes(val[key])) show = false;
-                } else {
-                    if (when[key]!=val[key]) show = false;
+            var fullName, value, defaultValue;
+
+            if (props.name && props.name[0]=="@") {
+                fullName = props.name;
+                value = block.value[props.name];
+                defaultValue = block.defaultValue[props.name];
+            } else {
+                fullName = parentContext.name ? (parentContext.name+"."+props.name) : props.name;
+                value = (parentContext.value || {})[props.name || ""];
+                defaultValue = (parentContext.defaultValue || {})[props.name || ""];
+            }
+            var onChange = (val) => block.editorChange(fullName,val,true);
+
+            var show = true;
+            var when = props.showWhen;
+            if (when) {
+                var val = block.value;
+                for (var key in when) {
+                    if (Array.isArray(when[key])) {
+                        if (!when[key].includes(val[key])) show = false;
+                    } else {
+                        if (when[key]!=val[key]) show = false;
+                    }
                 }
             }
+            return show && preact.h(TypeWrap,{...props,fullName,value,defaultValue,onChange});
         }
-        return show && html`<div>
-            ${this.tpl(props,state)}
-        </div>`;
     }
+    EditableType.Type = Type;
+    return EditableType;
 }
 
 exports.Editable = Editable;

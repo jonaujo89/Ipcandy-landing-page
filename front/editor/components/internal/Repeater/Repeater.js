@@ -2,7 +2,7 @@ require("./Repeater.tea");
 const {Editable} = require("../Editable/Editable");
 const {Block,BlockContext,ValueContext} = require("../Block/Block");
 
-class Repeater extends Editable {
+const Repeater = Editable(class extends preact.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,28 +19,26 @@ class Repeater extends Editable {
     }
 
     addAfter(idx,type) {
-        const parentContext = preact.hooks.useContext(ValueContext);
-        var item_default = this.defaultValue[0] || {};
-
-        var new_value = [...this.value];
+        var item_default = this.props.defaultValue[0] || {};
+        var new_value = [...this.props.value];
         new_value.splice(idx+1,0,item_default);
-        this.setValue(new_value);
+        this.props.onChange(new_value);
     }
 
     remove(idx) {
-        var new_value = [...this.value];
+        var new_value = [...this.props.value];
         new_value.splice(idx,1);
-        this.setValue(new_value);
+        this.props.onChange(new_value);
     }
 
-    tpl(props,state) {
-        var list = this.value || [];
+    render(props,state) {
+        var list = props.value || [];
         var item_f = props.children;
 
         return html`
             ${list.map((sub,sub_idx) => html`
                 <div class="item_block">
-                    <${ValueContext.Provider} value=${{value:sub,name:this.fullName+"."+sub_idx}}>
+                    <${ValueContext.Provider} value=${{value:sub,name:props.fullName+"."+sub_idx}}>
                         ${item_f(sub)}
                     <//>
                     ${ !lp.app.options.viewOnly && html`
@@ -65,6 +63,6 @@ class Repeater extends Editable {
             `)}
         `;
     }
-}
+});
 
 exports.Repeater = Repeater;

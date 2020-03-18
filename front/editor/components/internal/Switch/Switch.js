@@ -1,19 +1,12 @@
 require("./Switch.tea");
 const {Editable} = require("../Editable/Editable");
 
-class Switch extends Editable {
-    tpl(props,state) {
-        return html`
-            <label class="lp-switch">
-                <input type="checkbox" checked=${this.value||false} onClick=${()=>this.setValue(!this.value)}/>
-                <span class="lp-switch-slider"></span>
-                <span class="lp-switch-label">${props.label}</span>
-            </label>        
-        `;
-    }
-}
-Switch.defaultProps = {
-    label: ""
-}
+const Switch = Editable((props)=>html`<div>
+    <label class="lp-switch">
+        <input type="checkbox" checked=${props.value||false} onClick=${()=>props.onChange(!props.value)}/>
+        <span class="lp-switch-slider"></span>
+        <span class="lp-switch-label">${props.label || ""}</span>
+    </label>        
+</div>`);
 
 exports.Switch = Switch;

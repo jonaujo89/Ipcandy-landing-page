@@ -4,12 +4,9 @@ require("./spacedText/spacedText.css");
 
 const {Editable} = require("../Editable/Editable");
 
-class Text extends Editable {
-    render(props,state) {
-        this.passValue();
-        return html`<${EditableText} onChange=${(val) => this.setValue(val)} value=${this.value} options=${props.options} />`;
-    }
-}
+const Text = Editable((props)=>
+    html`<${EditableText} onChange=${(val) => props.onChange(val)} value=${props.value} options=${props.options} />`
+);
 
 Text.plain_heading = {'buttons':{"bold":false,"italic":false,"fontcolor":false,"removeformat":false},'oneline':true};
 Text.default_heading = {'buttons':["bold","italic","deleted","removeformat"],'oneline':true};    

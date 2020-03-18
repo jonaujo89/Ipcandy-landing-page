@@ -58,7 +58,6 @@ class Block extends preact.Component {
             }
             layer = next;
         }
-        return layer;
     }    
 
     clone(o) {

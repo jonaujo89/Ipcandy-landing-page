@@ -1,41 +1,40 @@
 require("./Combo.tea");
 const {Editable} = require("../Editable/Editable");
 
-class Combo extends Editable {
-    tpl(props,state) {
+class Combo extends preact.Component {
+    render(props,state) {
         this.items = this.items || (props.items.call ? props.items.call(this) : props.items);
         return html`
             <div class="lp-panel" style=${{background:props.background}}>
                 ${ this.items.map((item)=> html`
                     <div 
-                        class="lp-panel-item ${(state.prevValue==item.value || (!state.prevValue && this.value==item.value)) ? "lp-selected":""}"
+                        class="lp-panel-item ${(state.prevValue==item.value || (!state.prevValue && props.value==item.value)) ? "lp-selected":""}"
                         onClick=${()=>{
                             this.setState({prevValue:undefined});
-                            this.setValue(item.value);
+                            props.onChange(item.value);
                         }}
                         onMouseEnter=${()=>{
-                            this.setState({prevValue:this.value});
-                            if (this.value!=item.value) this.setValue(item.value);
+                            this.setState({prevValue:props.value});
+                            if (props.value!=item.value) props.onChange(item.value);
                         }}
                         onMouseLeave=${()=>{
-                            if (state.prevValue && state.prevValue!=this.value) this.setValue(state.prevValue);
+                            if (state.prevValue && state.prevValue!=props.value) props.onChange(state.prevValue);
                             this.setState({prevValue:undefined});
                         }}
                     >
-                        ${this.tpl_item(item)}
+                        ${props.tpl_item(item)}
                     </div>
                 `)}
             </div>
         `;
     }
+};
 
-    tpl_item(item) {
-        return html`${item.value}`;
-    }
-}
-Combo.defaultProps = {
+Combo.defaultProps = { 
     items: [],
     background: ""
-};
+}
+Combo = Editable(Combo);
+
 
 exports.Combo = Combo;
