@@ -10,7 +10,9 @@ function Editable(Type) {
 
         render(props) {
             console.debug("editable",props.fullName,props.value);
-            return preact.h(Type,{...props});
+            return preact.h(ValueContext.Provider,{value:{value:props.value,name:props.fullName}},
+                preact.h(Type,{...props})
+            ); 
         }
     }
 
