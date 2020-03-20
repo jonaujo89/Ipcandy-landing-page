@@ -27,11 +27,18 @@ function Editable(Type) {
                 fullName = props.name;
                 value = block.value[props.name];
                 defaultValue = block.defaultValue[props.name];
-            } else {
+            } 
+            else if (props.name) {
                 fullName = parentContext.name ? (parentContext.name+"."+props.name) : props.name;
                 value = (parentContext.value || {})[props.name || ""];
                 defaultValue = (parentContext.defaultValue || {})[props.name || ""];
             }
+            else {
+                fullName = parentContext.name;
+                value = parentContext.value;
+                defaultValue = parent.defaultValue;
+            }
+
             var onChange = (val) => block.editorChange(fullName,val,true);
 
             var show = true;

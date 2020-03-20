@@ -42,7 +42,7 @@ const Icon = Editable(class extends preact.Component{
             <${Cover} 
                 configForm=${html`
                     <${Dialog} title=${_t("Icons")} class="lp-icon-config-dialog">
-                        <${IconComboCls} name=${props.name} />
+                        <${IconComboCls} />
                     <//>
                 `}
                 customCover=${true}
