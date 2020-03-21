@@ -13,7 +13,7 @@ class Dialog extends preact.Component {
     }
 
     open(pos) {
-        this.setState({open:true,pos});
+        this.setState({open:true,pos},this.props.onOpen && this.props.onOpen.bind(this));
     }
 
     close() {
@@ -84,11 +84,15 @@ class Dialog extends preact.Component {
         }
 
         return this.div && createPortal(state.open && html`
-            <div class="lp-dialog ${props.class || ""}" style=${{
+            <div 
+                class="lp-dialog ${props.class || ""}" 
+                style=${{
                     width:props.width+"px",
                     left: this.state.pos.x + 'px',
                     top: this.state.pos.y + 'px'
-                }}>
+                }}
+                ref=${(r)=>this.dialogDiv=r}
+            >
                 <div class="lp-dialog-title" onMouseDown=${(e)=>this.onMouseDown(e)}>
                     ${props.title || ""}
                     <span class="lp-dialog-button-close" onClick=${()=>this.close()}>

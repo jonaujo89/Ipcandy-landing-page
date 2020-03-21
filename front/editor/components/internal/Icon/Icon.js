@@ -41,7 +41,10 @@ const Icon = Editable(class extends preact.Component{
         return html`
             <${Cover} 
                 configForm=${html`
-                    <${Dialog} title=${_t("Icons")} class="lp-icon-config-dialog">
+                    <${Dialog} title=${_t("Icons")} class="lp-icon-config-dialog" onOpen=${function(){
+                        var el = $(this.dialogDiv).find(".lp-selected")[0];
+                        if (el) el.scrollIntoView();
+                    }}>
                         <${IconComboCls} />
                     <//>
                 `}
