@@ -69,7 +69,8 @@ class Bundler extends \Bingo\Module {
             $re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
             for($n=1; $n>0; $abs=preg_replace($re, '/', $abs, -1, $n)) {}
             $ext = pathinfo($abs,PATHINFO_EXTENSION);
-            if (!$ext) $abs .= ".".pathinfo($import_path,PATHINFO_EXTENSION);
+            if (is_dir($abs)) $abs = rtrim($abs,"/") . "/index." . pathinfo($import_path,PATHINFO_EXTENSION);            
+            elseif (!$ext) $abs .= ".".pathinfo($import_path,PATHINFO_EXTENSION);
 
             $from = explode('/', $bundle_dir);
             $to = explode('/', $abs);

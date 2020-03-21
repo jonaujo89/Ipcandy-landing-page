@@ -1,12 +1,5 @@
 require("./Benefits.tea");
-const {Block} = require("../../internal/Block/Block");
-const {Repeater} = require("../../internal/Repeater/Repeater");
-const {Text} = require("../../internal/Text/Text");
-
-const {Icon} = require("../../internal/Icon/Icon");
-const {BlockColor} = require("../../internal/Color/Color");
-const {Switch} = require("../../internal/Switch/Switch");
-const {Dialog} = require("../../internal/Dialog/Dialog");
+const {Block,Repeater,Text,Icon,BlockColor,Switch,Dialog} = require("../../internal");
 
 class Benefits extends Block {
 
