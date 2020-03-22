@@ -1,21 +1,23 @@
 require("./Faq.tea");
 const {Block,Repeater,Text,Icon,BlockColor,Switch,Dialog} = require("../../internal");
 
-const FAQItem = ({val,item_val}) => html`
-    <div class="faq-item">
-        ${ val.show_icon && html`
-            <div class="icon"><${Icon} name='@icon' /></div>
-        `}
-        <div class="faq-content">
-            <div class="question">
-                <${Text} name='question' options=${Text.plain_heading} />
-            </div>
-            <div class="answer">
-                <${Text} name='answer' options=${Text.default_text} />
+const FAQItem = ({val,item_val}) => {
+    return html`
+        <div class="faq-item">
+            ${ val.show_icon && html`
+                <div class="icon"><${Icon} name='@icon' /></div>
+            `}
+            <div class="faq-content">
+                <div class="question">
+                    <${Text} name='question' options=${Text.plain_heading} />
+                </div>
+                <div class="answer">
+                    <${Text} name='answer' options=${Text.default_text} />
+                </div>
             </div>
         </div>
-    </div>
-`}
+    `;
+}
 
 class FAQ extends Block {
     static get title() { return _t('FAQ') }

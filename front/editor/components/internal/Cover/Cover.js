@@ -7,7 +7,7 @@ class Cover extends preact.Component {
         let rect = cover.getBoundingClientRect();
         var dw = document.documentElement.clientWidth;
         var dh = document.documentElement.clientHeight;
-        var dlgw = dlg.props.width;
+        var dlgw = parseInt(dlg.props.width);
 
         var x = rect.x+rect.width;
         if (x+dlgw > dw) {
