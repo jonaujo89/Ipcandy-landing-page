@@ -7,8 +7,10 @@ exports = {
     ...require("Dialog/Dialog"),
     ...require("Editable/Editable"),
     ...require("Icon/Icon"),
+    ...require("Image/Image"),
     ...require("Portal/Portal"),
     ...require("Repeater/Repeater"),
     ...require("Switch/Switch"),
     ...require("Text/Text"),
+    ...require("UploadButton/UploadButton"),
 }

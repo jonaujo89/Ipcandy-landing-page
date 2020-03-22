@@ -47,6 +47,11 @@ class Editor extends Base {
             case 'publish':
                 $page->publish(json_decode($_POST['blocks'],true),$_POST['html']);
                 break;
+
+            case 'upload':
+                $res = $page->upload($_POST['name'],$_POST['iconWidth'],$_POST['iconHeight']);
+                echo json_encode($res);
+                break;
         }
     }     
 }
