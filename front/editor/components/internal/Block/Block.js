@@ -8,10 +8,7 @@ class Block extends preact.Component {
     static register(clsName,cls) {
         Block.list = Block.list || {};
         Block.list[clsName] = cls;
-        for (var i=0;i<13;i++) {
-            cls.id = clsName;
-            Block.list[clsName+i.toString()] = cls;
-        }
+        cls.id = clsName;
     }
 
     constructor(props) {
