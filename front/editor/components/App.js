@@ -31,7 +31,6 @@ class App extends preact.Component {
         this.dragging = false;
         
         this.blocks = [];
-        this.addBlockDialog = preact.createRef();
 
         if (props.isGlobal) lp.app = this;
 
@@ -54,15 +53,21 @@ class App extends preact.Component {
                 if (block.value.id==this.dragComponent.value.id) currentIndex = blockIndex;
             });
             var dropIndex = this.state.dragHandleIndex;
-            if (dropIndex!=currentIndex && dropIndex!=currentIndex+1) {
+            if (currentIndex==-1 || (dropIndex!=currentIndex && dropIndex!=currentIndex+1)) {
                 var blocks = [...this.state.blocks];
-                var block = blocks[currentIndex];
-                
-                blocks.splice(currentIndex,1);
-                if (currentIndex < dropIndex) dropIndex--;
-                blocks.splice(dropIndex,0,block);
 
-                var $drag = $(this.dragComponent.base);
+                if (currentIndex==-1) {
+                    var block = {value:{...this.dragComponent.value,id:this.newBlockId()}};
+                    var $drag = $(".drop-marker");
+                    blocks.splice(dropIndex,0,block);
+                } else {
+                    var block = blocks[currentIndex];
+                    var $drag = $(this.dragComponent.base);
+                    blocks.splice(currentIndex,1);
+                    if (currentIndex < dropIndex) dropIndex--;
+                    blocks.splice(dropIndex,0,block);
+                }
+                
                 var $rect = $("<div class='drop-rect'>").appendTo("body").css({ 
                     top: $drag.offset().top, height: $drag[0].clientHeight, opacity: 1
                 });
@@ -74,16 +79,16 @@ class App extends preact.Component {
                     var off = $block.offset();
 
                     $("html").scrollTop(scrollTop);
-                    $rect.css({top: $block.offset().top, opacity:0});
+                    $rect.css({top: $block.offset().top, height: $block[0].clientHeight, opacity:0});
                     setTimeout(()=>$rect.remove(),1000);
                 });
             }
 
             this.setState({dragHandleIndex:-1});
-            this.dragComponent = false;
             this.dragging = false;
             $("body").removeClass("dragging");
         }
+        this.dragComponent = false;
     }
 
     draggableMouseMove(e) {
@@ -91,6 +96,7 @@ class App extends preact.Component {
             if (Math.abs(e.pageX-this.dragPoint.x)>3 || Math.abs(e.pageY-this.dragPoint.y)>3) {
                 this.dragging = true;
                 $("body").addClass("dragging");
+                this.addBlockDialog.close();
             }
         }
 
@@ -152,10 +158,10 @@ class App extends preact.Component {
                     ${ !state.preview && html`
                         <button onClick=${()=>this.setState({preview:true})}><i class="fa fa-times" />${_t("Preview")}</button>
                         <button onClick=${()=>this.publish()}><i class="fa fa-play" />${_t("Publish")}</button>
-                        <button onClick=${()=>this.addBlockDialog.current.open({x:0,y:0})}><i class="fa fa-plus" />${_t("Add Section")}</button>
+                        <button onClick=${()=>this.addBlockDialog.open({x:0,y:0})}><i class="fa fa-plus" />${_t("Add Section")}</button>
                     `}
                 </div>
-                <${AddBlockDialog} ref=${this.addBlockDialog} />
+                <${AddBlockDialog} ref=${(r)=>this.addBlockDialog=r} />
             `}
             <div id="frame-panel" class="${ (state.preview || props.viewOnly) && 'view-layout' }">
                 ${state.blocks.map((block,blockIndex) => {
@@ -221,11 +227,15 @@ class App extends preact.Component {
         this.setState({ blocks },()=>this.triggerChange());
     }
 
+    newBlockId() {
+        return 'id'+(++this.baseId);        
+    }
+
     addBlock(typeId) {
         var blocks = [...this.state.blocks];
         blocks.push({
             value: {
-                id: 'id'+(++this.baseId),
+                id: this.newBlockId(),
                 type: typeId
             }
         });

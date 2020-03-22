@@ -9,6 +9,9 @@ class AddBlockDialog extends preact.Component {
             y: $("#preview-toolbar").outerHeight()
         });
     }
+    close() {
+        this.dialog.close();
+    }
     render() {
         return html`
             <${Dialog} title=${_t("Select component type")} width=595 ref=${(r)=>this.dialog=r}>${()=>{
@@ -16,10 +19,15 @@ class AddBlockDialog extends preact.Component {
                 for (let typeId in Block.list) {                    
                     let type = Block.list[typeId];
                     items.push(html`
-                        <div class='lp-add-block-item' onClick=${()=>{
-                            this.dialog.close();
-                            lp.app.addBlock(typeId);
-                        }}>
+                        <div class='lp-add-block-item' 
+                            onClick=${()=>{
+                                this.dialog.close();
+                                lp.app.addBlock(typeId);
+                            }}
+                            onMouseDown=${(e)=>{
+                                lp.app.draggableMouseDown(e,{value:{type:typeId}})
+                            }}
+                        >
                             <div class='lp-add-block-item-pic' style=${{backgroundImage:"url("+base_url+"/"+lp.app.options.assets_url+"/miniatures/"+type.id.toLowerCase()+".jpg)"}} />
                             ${type.title}
                             <small>${type.description}</small>
