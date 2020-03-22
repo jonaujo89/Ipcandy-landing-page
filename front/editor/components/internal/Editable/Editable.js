@@ -24,9 +24,10 @@ function Editable(Type) {
             var fullName, value, defaultValue;
 
             if (props.name && props.name[0]=="@") {
-                fullName = props.name;
-                value = block.value[props.name];
-                defaultValue = block.defaultValue[props.name];
+                let name = props.name.substring(1);
+                fullName = name;
+                value = block.value[name];
+                defaultValue = block.defaultValue[name];
             } 
             else if (props.name) {
                 fullName = parentContext.name ? (parentContext.name+"."+props.name) : props.name;

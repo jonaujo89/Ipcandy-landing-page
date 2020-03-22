@@ -21,6 +21,7 @@ window.html = require("./lib/htm").bind(preact.h);
 const {App} = require("./components/App");
 
 require("./components/blocks/Benefits/Benefits");
+require("./components/blocks/Faq/Faq");
 
 lp.run = function (options) {
     options.isGlobal = true;
