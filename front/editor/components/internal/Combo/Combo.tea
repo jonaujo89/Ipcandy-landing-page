@@ -1,3 +1,17 @@
+.lp-combo {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+
+    label + & {
+        margin-top: 0;
+    }
+
+    i {
+        margin: 0 0 0 0.5em;
+    }
+}
+
 .lp-panel {
     margin-top: 10px;
     margin-bottom: 5px;
@@ -15,10 +29,23 @@
         cursor: pointer;
 
         &:hover {
-            background: #eee;
+            background: #aaa;
         }
         &.lp-selected {
             background: #2196F3;
         }
     }
+
+    label + & {
+        margin-top: 5px;
+    }
+}
+
+.lp-panel-dropdown {
+    margin: 0px;
+    position: fixed;
+    z-index: 101;
+    overflow: auto;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }

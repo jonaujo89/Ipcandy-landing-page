@@ -1,8 +1,45 @@
 .lp-dialog {
     position: fixed;
-    z-index:1001;
+    z-index:2001;
     background: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+    .lp-row {
+        display: flex;
+        margin: 0 -5px;
+        > div {
+            flex: 1;
+            margin: 0 5px;
+        }
+    }
+
+    button {
+        margin-right: 5px;
+
+        cursor: pointer;
+        white-space: nowrap;
+        outline: none;
+
+        padding: 0.3em 0.6em;
+        vertical-align: middle;
+
+        border: 1px solid #ccc;
+        background: #eee;
+
+        &:hover {
+            background: #fff;
+        }
+
+        i {
+            margin-right: 0.2em;
+        }
+    }  
+
+    label {
+        margin-top: 10px;
+        margin-bottom: 2px;
+        display: block;
+    }      
 
     .lp-dialog-title {
         background: #eee;
@@ -34,27 +71,14 @@
 
         button {
             margin-left: 5px;
-
-            cursor: pointer;
-            white-space: nowrap;
-            outline: none;
-
-            padding: 0.3em 0.6em;
-            vertical-align: middle;
-
-            border: 1px solid #ccc;
-            background: #eee;
-
-            &:hover {
-                background: #fff;
-            }
+            margin-right: 0px;
         }
     }
 }
 
 .lp-dialog-overlay {
     position: fixed;
-    z-index: 1000;
+    z-index: 2000;
     left: 0; right: 0;
     top: 0; bottom: 0;
     background: transparent;

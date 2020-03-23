@@ -5,7 +5,7 @@ const {Dialog} = require("../Dialog/Dialog");
 const {Editable} = require("../Editable/Editable");
 
 const iconComboItemTpl = (item)=>html`
-    <div class="lp-icon-panel-item" style=${{backgroundImage:"url("+base_url+"/"+item.value+")"}} />
+    <div class="lp-icon-panel-item" style=${{backgroundImage:"url('"+base_url+"/"+item.value+"')"}} />
 `;
 
 const IconCombo = (props) => preact.h(Combo,{...props,

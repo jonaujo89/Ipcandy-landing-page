@@ -7,6 +7,7 @@
 
         <script>
             var base_url = "<?=INDEX_URL?>";
+            var page_id = <?=$page->id?>;
             var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";
         </script>
 

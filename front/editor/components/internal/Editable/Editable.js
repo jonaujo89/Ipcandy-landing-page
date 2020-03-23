@@ -9,11 +9,20 @@ function Editable(Type) {
         }
 
         render(props) {
-            console.debug("editable",props.fullName,props.value);
+            //console.debug("editable",props.fullName,props.value);
             return preact.h(ValueContext.Provider,{value:{value:props.value,name:props.fullName}},
                 preact.h(Type,{...props})
             ); 
         }
+    }
+
+    function getSub(value,name) {
+        name.split(".").forEach((part)=>{
+            if (part) {
+                value = value ? value[part] : undefined;
+            }
+        });
+        return value;
     }
 
     const EditableType = class extends preact.Component {
@@ -26,13 +35,13 @@ function Editable(Type) {
             if (props.name && props.name[0]=="@") {
                 let name = props.name.substring(1);
                 fullName = name;
-                value = block.value[name];
-                defaultValue = block.defaultValue[name];
+                value = getSub(block.value,name);
+                defaultValue = getSub(block.defaultValue,name);
             } 
             else if (props.name) {
                 fullName = parentContext.name ? (parentContext.name+"."+props.name) : props.name;
-                value = (parentContext.value || {})[props.name || ""];
-                defaultValue = (parentContext.defaultValue || {})[props.name || ""];
+                value = getSub(parentContext.value || {},props.name || "");
+                defaultValue = getSub(parentContext.defaultValue || {},props.name || "");
             }
             else {
                 fullName = parentContext.name;

@@ -147,6 +147,7 @@ class App extends preact.Component {
 
     render(props,state) {
         console.debug("app render");
+        document.body.className = (state.preview || props.viewOnly) ? "view-layout" : "";
         
         var dropMarker = html`<div class="drop-marker" key="drop-marker"/>`;
         return html`
@@ -163,7 +164,7 @@ class App extends preact.Component {
                 </div>
                 <${AddBlockDialog} ref=${(r)=>this.addBlockDialog=r} />
             `}
-            <div id="frame-panel" class="${ (state.preview || props.viewOnly) && 'view-layout' }">
+            <div id="frame-panel">
                 ${state.blocks.map((block,blockIndex) => {
                     var blockNode = preact.h(AppBlock,{
                         value:block.value, 

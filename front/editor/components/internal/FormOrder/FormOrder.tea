@@ -1,0 +1,38 @@
+.lp-form-repeater-item {
+    border: 1px solid #eee;
+    margin-bottom: 1px;
+
+    .lp-form-repeater-item-title {
+        padding: 5px;
+        background: #eee;
+
+        i {
+            margin-right: 0.2em;
+        }
+
+        .lp-form-repeater-button-remove {
+            float: right;
+        }
+    }
+
+    .lp-form-repeater-item-content {
+        padding: 10px;    
+    }
+}
+
+.lp-form-repeater-items {
+    .lp-form-repeater-item {
+        .lp-form-repeater-item-title {
+            cursor: pointer;
+        }
+
+        .lp-form-repeater-item-content {
+            padding: 10px;    
+            display: none;
+        }
+
+        &.selected .lp-form-repeater-item-content {
+            display: block;
+        }
+    }
+}

@@ -28,7 +28,7 @@ class AddBlockDialog extends preact.Component {
                                 lp.app.draggableMouseDown(e,{value:{type:typeId}})
                             }}
                         >
-                            <div class='lp-add-block-item-pic' style=${{backgroundImage:"url("+base_url+"/"+lp.app.options.assets_url+"/miniatures/"+type.id.toLowerCase()+".jpg)"}} />
+                            <div class='lp-add-block-item-pic' style=${{backgroundImage:"url('"+base_url+"/"+lp.app.options.assets_url+"/miniatures/"+type.id.toLowerCase()+".jpg')"}} />
                             ${type.title}
                             <small>${type.description}</small>
                         </div>
