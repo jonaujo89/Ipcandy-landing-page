@@ -1,6 +1,9 @@
 const {Cover} = require("../Cover/Cover");
 const {Dialog} = require("../Dialog/Dialog");
 const {Editable} = require("../Editable/Editable");
+const {Radio} = require("../Radio/Radio");
+const {UploadButton} = require("../UploadButton/UploadButton");
+const {Input} = require("../Input/Input");
 
 const Media = Editable((props)=>{
     let video_url = '';
@@ -19,7 +22,7 @@ const Media = Editable((props)=>{
         }
 
         if (!match) {
-            video_url = `${base_url}/${lp.app.options.assets_url}/404.php`;
+            video_url = `${base_url}/${lp.app.options.assets_url}/404.htm`;
         }
     }
 
@@ -27,12 +30,15 @@ const Media = Editable((props)=>{
         <${Cover}
             configForm=${html`
                 <${Dialog} title=${_t("Media file")} id=${"dialog_"+(props.switchType ? 'sw':'nosw')}>
-                    <radio name="type" label="Image" value="image" />
-                    <radio name="type" label="Video" value="video" />
-                    <uploadButton name="image_url" label="Upload file" showWhen="${{type: 'video'}}" />
-                    <label value="${_t("Video url (youtube or vimeo):")}" showWhen="${{type: 'video'}}" />
-                    <text name="video_url" value="${_t("Video url (youtube or vimeo):")}" showWhen="${{type: 'video'}}" />
-                    <label value="${_t("example: www.youtube.com/embed/P55qVX3y134")}" showWhen="${{type: 'video'}}" /> 
+                    <${Radio} name="type" items=${[
+                        { label: _t("Image"), value: "image" },
+                        { label: _t("Video"), value: "video" }
+                    ]} />
+                    <${UploadButton} name="image_url" label=${_t("Upload file")} showWhen=${{type: 'video'}} />
+                    ${ props.value.type=="video" && html`
+                        <label>${_t("Video url (youtube or vimeo):")}</label>
+                        <${Input} name="video_url" />
+                    `}
                 <//>
 
             `}
