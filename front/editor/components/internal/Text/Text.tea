@@ -1,24 +1,29 @@
-.text_toolbar {
-    bottom: 100%;
-    left: -1px;
-    position: absolute;
-    z-index: 2001;
-}
+.lp-text {
 
-.editor_text {
-    min-height: 1em;
-    border: 1px solid transparent;
+    position: relative;
 
-    &:hover,
-    &:focus
-    {
-        border: 1px dashed #f80;
-        outline: none;
+    .lp-text-toolbar {
+        bottom: 100%;
+        left: -1px;
+        position: absolute;
+        z-index: 2001;
     }
 
-    .view-layout & {
-        border: none !important;
-    }    
+    .lp-text-editor {
+        min-height: 1em;
+        border: 1px solid transparent;
+
+        &:hover,
+        &:focus
+        {
+            border: 1px dashed #f80;
+            outline: none;
+        }
+
+        .view-layout & {
+            border: none !important;
+        }    
+    }
 }
 
 

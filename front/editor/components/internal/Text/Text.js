@@ -1,6 +1,7 @@
+require("../../../../../public/assets/plugins/spacedText/spacedText.js");
+require("../../../../../public/assets/plugins/spacedText/spacedText.css");
+
 require("./Text.tea");
-require("./spacedText/spacedText.js");
-require("./spacedText/spacedText.css");
 
 const {Editable} = require("../Editable/Editable");
 
@@ -70,9 +71,9 @@ class EditableText extends preact.Component {
 
     render(props,state) {
         this.value = props.value;
-        return html`<div>
-            <div ref=${this.editor} class="editor_text" dangerouslySetInnerHTML=${{__html:props.value}} />
-            <div ref=${this.toolbar} class="text_toolbar" />
+        return html`<div class="lp-text">
+            <div ref=${this.editor} class="lp-text-editor" dangerouslySetInnerHTML=${{__html:props.value}} />
+            <div ref=${this.toolbar} class="lp-text-toolbar" />
         </div`;        
     }
 }
