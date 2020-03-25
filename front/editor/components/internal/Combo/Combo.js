@@ -8,9 +8,12 @@ class Combo extends preact.Component {
             $(document).mousedown((e)=>{
                 if (e.which!=1) return;
                 var meClick = false;
-                $(e.target).parents().andSelf().each((i,item)=>{
-                    if (item==this.button || item==this.panel) meClick = true;
-                })
+
+                var el = e.target;
+                while (el) {
+                    if (el==this.button || el==this.panel) meClick = true;
+                    el = el.parentElement;
+                }
                 if (!meClick) this.setState({is_open:false});
             }); 
         }       

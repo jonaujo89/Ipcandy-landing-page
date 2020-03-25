@@ -28,7 +28,7 @@ class Block extends preact.Component {
         var variant = val.variant || 1;
         var def_f = this['tpl_default_'+variant] || (() => {});
         var defaultValue = def_f();
-        var fullValue = $.extend(true,{variant},defaultValue,val);
+        var fullValue = $.extend({variant},defaultValue,val);
         
         this.defaultValue = defaultValue;
         this.value = fullValue;

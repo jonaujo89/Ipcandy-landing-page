@@ -34,8 +34,8 @@ class App extends preact.Component {
 
         if (props.isGlobal) lp.app = this;
 
-        $(document).mouseup((e)=>this.draggableMouseUp());
-        $(document).mousemove((e)=>this.draggableMouseMove(e));
+        $(document).on("mouseup",(e)=>this.draggableMouseUp());
+        $(document).on("mousemove",(e)=>this.draggableMouseMove(e));
     }
 
     draggableMouseDown(e,cmp) {
@@ -137,12 +137,15 @@ class App extends preact.Component {
     }
 
     request(action,data,callback) {
-        $.ajax({
-            url: this.props.ajax_url,
-            type: "POST",
-            data: $.extend({},{_type:action},data),
-            success: $.proxy(callback,this)
-        });        
+        var formData = new FormData;
+        formData.append("_type",action);
+        for (var key in data) formData.append(key,data[key]);
+
+        fetch(this.props.ajax_url, {
+            method: 'POST',
+            cache: 'no-cache',
+            body: formData
+        }).then((response) => response.text().then(callback));
     }
 
     render(props,state) {
