@@ -137,9 +137,14 @@ class App extends preact.Component {
     }
 
     request(action,data,callback) {
-        var formData = new FormData;
+        var formData;
+        if (data instanceof FormData) {
+            formData = data;
+        } else {
+            var formData = new FormData;
+            for (var key in data) formData.append(key,data[key]);
+        }
         formData.append("_type",action);
-        for (var key in data) formData.append(key,data[key]);
 
         fetch(this.props.ajax_url, {
             method: 'POST',

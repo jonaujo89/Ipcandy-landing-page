@@ -14,8 +14,9 @@ const Radio = Editable(class extends preact.Component {
                     <label>
                         <input type='radio' value=${item.value} name=${this.name} checked=${item.value==props.value} onChange=${()=>{
                             var val = undefined;
-                            $(this.base).find("input").each(function(){
-                                if (this.checked) val = $(this).val();
+
+                            [...this.base.getElementsByTagName("input")].forEach(function(input){
+                                if (input.checked) val = input.value;
                             });
                             props.onChange(val);
                         }} />

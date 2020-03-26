@@ -6,7 +6,7 @@ class AddBlockDialog extends preact.Component {
     open() {
         this.dialog.open({
             x: document.body.clientWidth/2 - this.dialog.props.width/2,
-            y: $("#preview-toolbar").outerHeight()
+            y: document.getElementById("preview-toolbar").offsetHeight
         });
     }
     close() {

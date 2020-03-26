@@ -6,42 +6,45 @@ const UploadButton = Editable((props)=>{
         e.preventDefault();
 
         if (!this.uploader) {
-            this.uploader = $("<input type='file' accept='.jpg,.jpeg,.png,.gif'>").css({position:'fixed',top:0,left:0,zIndex:10000,width:0}).hide().appendTo("body");
-            this.uploader.change(()=>{
+            this.uploader = document.createElement("input");
+            this.uploader.type = "file";
+            this.uploader.accept = ".jpg,.jpeg,.png,.gif";
+            this.uploader.style.position = "fixed";
+            this.uploader.style.top = 0;
+            this.uploader.style.left = 0;
+            this.uploader.style.width = 0;
+            this.uploader.style.zIndex = 10000;
+            this.uploader.style.display = "none";
+            document.body.appendChild(this.uploader);
+
+            this.uploader.addEventListener("change",()=>{
                 var data = new FormData();
-                $.each(this.uploader[0].files, function(i, file) {                
+                [...this.uploader.files].forEach((file,i) => {                
                     data.append('file-'+i, file);
                 });
-                data.append('_type','upload');
                 data.append('name',props.uploadDir);
                 data.append('iconWidth',props.iconWidth);
                 data.append('iconHeight',props.iconHeight);
 
-                $.ajax({
-                    url: lp.app.options.ajax_url,
-                    data: data,
-                    dataType: "json",
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    type: 'POST',
-                    success: function(data){
-                        if (data && data.length) {
-                            if (data[0].error) {
-                                alert(data[0].error);
-                            } else {
-                                var sub_url = data[0].url;
-                                if (sub_url[0]=="/") sub_url = sub_url.substring(1);
-                                props.onChange(sub_url);
-                            }
+                lp.app.request("upload",data,(data)=>{
+                    data = JSON.parse(data);
+                    if (data && data.length) {
+                        if (data[0].error) {
+                            alert(data[0].error);
+                        } else {
+                            var sub_url = data[0].url;
+                            if (sub_url[0]=="/") sub_url = sub_url.substring(1);
+                            props.onChange(sub_url);
                         }
                     }
-                });            
+                });
             });            
         }
-        this.uploader.val("").show();
+        
+        this.uploader.value = "";
+        this.uploader.style.display = "";
         this.uploader.click();
-        this.uploader.hide();
+        this.uploader.style.display = "none";
     }
 
     return html`

@@ -5,7 +5,7 @@ class Combo extends preact.Component {
 
     componentDidMount() {
         if (this.props.dropdown) {
-            $(document).mousedown((e)=>{
+            document.addEventListener("mousedown",(e)=>{
                 if (e.which!=1) return;
                 var meClick = false;
 
