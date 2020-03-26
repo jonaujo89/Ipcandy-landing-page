@@ -1,31 +1,13 @@
-require("../../../../../public/assets/plugins/spacedText/spacedText.js");
-require("../../../../../public/assets/plugins/spacedText/spacedText.css");
-
 require("./Text.tea");
 
 const {Editable} = require("../Editable/Editable");
 
-const Text = Editable((props)=>
-    html`<${EditableText} onChange=${(val) => props.onChange(val)} value=${props.value} options=${props.options} />`
-);
-
-Text.plain_heading = {'buttons':{"bold":false,"italic":false,"fontcolor":false,"removeformat":false},'oneline':true};
-Text.default_heading = {'buttons':["bold","italic","deleted","removeformat"],'oneline':true};    
-Text.size_heading = {'buttons':["bold","italic","deleted","size","removeformat"],'oneline':true};
-Text.color_heading = {'buttons':["bold","italic","deleted","size","fontcolor","removeformat"],'oneline':true};
-    
-Text.plain_text = {'buttons':{"bold":false,"italic":false,"fontcolor":false,"removeformat":false}};
-Text.default_text = {'buttons':["bold","italic","deleted","removeformat"],'oneline':false};    
-Text.size_text = {'buttons':["bold","italic","deleted","size","removeformat"],'oneline':false};
-Text.color_text = {'buttons':["bold","italic","deleted","size","fontcolor","removeformat"],'oneline':false};
-
-class EditableText extends preact.Component {
+const Text = Editable(class extends preact.Component {
 
     constructor(props) {
         super(props);
-        this.editor = preact.createRef();
-        this.toolbar = preact.createRef();
-        this.value = undefined;
+        this.buttons = {};
+        props.options.buttons.forEach((btn)=>{ this.buttons[btn]=true });
     }
 
     shouldComponentUpdate(nextProps) {
@@ -33,49 +15,83 @@ class EditableText extends preact.Component {
     }
 
     componentDidMount() {
-        if (lp.app.options.viewOnly) return;
-
-        var $editor = $(this.editor.current);
-        var $toolbar = $(this.toolbar.current).hide();
-        var options = $.extend({
-            oneline: false,
-            buttons: ["bold","italic","removeformat"]
-        },this.props.options || {});
-
-        $editor.spacedText({
-            document: document,
-            window: window,
-            toolbarExternal: $toolbar,
-            focus: false,
-            convertLinks: false,
-            buttons: options.buttons,
-            buttons_extra: [],
-            oneline: options.oneline,
-            on_change: (val) => {
-                this.value = val;
-                if (this.props.onChange) this.props.onChange(val);
+        this.value = this.props.value;
+        this.editor.addEventListener("keydown",(e)=>{
+            if (e.keyCode == 13 && this.props.options.oneline) {
+                e.preventDefault();
+            }
+            if (e.metaKey || e.ctrlKey) {
+                e.preventDefault();
+                var char = String.fromCharCode(e.keyCode).toLowerCase();
+                if (char=="b" && this.buttons.bold) this.cmd(e,"bold");
+                if (char=="i" && this.buttons.italic) this.cmd(e,"italic");
             }
         });
-        
-        if ($toolbar.find("ul li").length < 1) {
-            $toolbar.css("visibility", "hidden")
-        }        
-        
-        $editor.on("focus", () => $toolbar.show());
-        $editor.on("blur", (d) => {
-            if ($(d.relatedTarget).closest("ul.spacedText_toolbar").length < 1) {
-                $toolbar.hide();
-            }
+        this.editor.addEventListener("input",()=>{
+            this.value = this.editor.innerHTML;
+            this.props.onChange(this.value);
         });
     }
 
-    render(props,state) {
-        this.value = props.value;
+    cmd(e,cmd) {
+        e.preventDefault();
+        e.stopPropagation();
+        document.execCommand(cmd,false,null);
+    }
+
+    color(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!this.colorInput) {
+            this.colorInput = document.createElement("input");
+            this.colorInput.type = "color";
+            this.colorInput.addEventListener("input",()=>{
+                document.execCommand('foreColor', false, this.colorInput.value);
+            });
+        }
+        this.colorInput.click();
+    }
+
+    size(e,size) {
+        e.preventDefault();
+        e.stopPropagation();
+        document.execCommand('fontSize', false,size);
+    }
+
+    render(props) {
         return html`<div class="lp-text">
-            <div ref=${this.editor} class="lp-text-editor" dangerouslySetInnerHTML=${{__html:props.value}} />
-            <div ref=${this.toolbar} class="lp-text-toolbar" />
-        </div`;        
+            <div ref=${(r)=>this.editor=r} class="lp-text-editor" dangerouslySetInnerHTML=${{__html:props.value}} contenteditable />
+            <div class="lp-text-toolbar">
+                ${this.buttons.bold && html`<span class="lp-text-bold" title=${_t("Bold")} onMouseDown=${(e)=>this.cmd(e,"bold")}>b</span>`}
+                ${this.buttons.italic && html`<span class="lp-text-italic" title=${_t("Italic")} onMouseDown=${(e)=>this.cmd(e,"italic")}>i</span>`}
+                ${this.buttons.deleted && html`<span class="lp-text-deleted" title=${_t("Deleted")} onMouseDown=${(e)=>this.cmd(e,"strikeThrough")}>d</span>`}
+                ${this.buttons.removeformat && html`<span class="lp-text-removeformat" title=${_t("Clear format")} onMouseDown=${(e)=>this.cmd(e,"removeFormat")}>f</span>`}
+                ${this.buttons.size && html`<span class="lp-text-size" title=${_t("Font size")}>
+                    Tt
+                    <span>
+                        ${[-3,-2,-1,0,1,2,3].map((size)=>html`
+                            <i onMouseDown=${(e)=>this.size(e,size+4)}>
+                                ${(size>0 ? "+":"")+size}
+                            </i>
+                        `)}
+                    </span>
+                </span>`}
+                ${this.buttons.fontcolor && html`<span class="lp-text-color" title=${_t("Text color")} onMouseDown=${(e)=>this.color(e)}>c</span>`}
+            </div>
+        </div>`;   
     }
-}
+
+});
+
+Text.plain_heading = {'buttons':[],'oneline':true};
+Text.default_heading = {'buttons':["bold","italic","deleted","removeformat"],'oneline':true};    
+Text.size_heading = {'buttons':["bold","italic","deleted","size","removeformat"],'oneline':true};
+Text.color_heading = {'buttons':["bold","italic","deleted","size","fontcolor","removeformat"],'oneline':true};
+    
+Text.plain_text = {'buttons':[]};
+Text.default_text = {'buttons':["bold","italic","deleted","removeformat"],'oneline':false};    
+Text.size_text = {'buttons':["bold","italic","deleted","size","removeformat"],'oneline':false};
+Text.color_text = {'buttons':["bold","italic","deleted","size","fontcolor","removeformat"],'oneline':false};
 
 exports.Text = Text;
