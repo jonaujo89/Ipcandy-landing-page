@@ -3,20 +3,6 @@ const {Editable} = require("../Editable/Editable");
 const {Block,BlockContext,ValueContext} = require("../Block/Block");
 
 const Repeater = Editable(class extends preact.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            hoverIdx: -1,
-            hoverType: undefined
-        }
-    }
-
-    buttonHover(idx,type) {
-        this.setState({
-            hoverIdx: idx,
-            hoverType: type
-        });
-    }
 
     addAfter(idx,type) {
         var item_default = this.props.defaultValue[0] || {};
@@ -41,24 +27,7 @@ const Repeater = Editable(class extends preact.Component {
                     <${ValueContext.Provider} value=${{value:sub,name:props.fullName+"."+sub_idx}}>
                         ${item_f(sub)}
                     <//>
-                    ${ !lp.app.options.viewOnly && html`
-                        <div class='cmp-repeater-cover'>
-                            <div 
-                                class='fa fa-plus lp-button' 
-                                onMouseEnter=${()=>{ this.buttonHover(sub_idx,'add') }} 
-                                onMouseLeave=${()=>{ this.buttonHover(-1) }}
-                                onClick=${()=>{ this.addAfter(sub_idx) }}
-                            />
-                            <div 
-                                class='fa fa-trash-o lp-button lp-remove-button' 
-                                onMouseEnter=${()=>{ this.buttonHover(sub_idx,'remove') }} 
-                                onMouseLeave=${()=>{ this.buttonHover(-1) }} 
-                                onClick=${()=>{ this.remove(sub_idx) }}
-                            />
-                        </div>
-                        ${ state.hoverType=='remove' && state.hoverIdx==sub_idx && html`<div class='cmp-cover cmp-remove-cover fa fa-trash-o' style="opacity:1" />` }
-                        ${ state.hoverType=='add'    && state.hoverIdx==sub_idx && html`<div class='cmp-cover cmp-add-cover' style="opacity:1" />` }
-                    `}
+                    ${ !lp.app.options.viewOnly && html`<${RepeaterCover} parent=${this} index=${sub_idx} />`}
                 </div>
             `)}
         `;
@@ -66,6 +35,37 @@ const Repeater = Editable(class extends preact.Component {
 });
 Repeater.defaultProps = {
     alwaysRender: true
+};
+
+const RepeaterCover = function (props) {
+    const {inline,configForm} = this.props.parent.props;
+    const {index,parent} = this.props;
+    const [hoverType,setHoverType] = preact.hooks.useState("");
+
+    return html`
+        <div class='cmp-repeater-cover ${inline ? "cmp-repeater-cover-inline":""}'>
+            <div 
+                class='fa fa-plus lp-button' 
+                onMouseEnter=${()=>{ setHoverType("add") }} 
+                onMouseLeave=${()=>{ setHoverType("") }}
+                onClick=${()=>{ parent.addAfter(index) }}
+            />
+            ${ configForm && html`
+                <div 
+                    class='fa fa-gear lp-button lp-config-button' 
+                    onClick=${()=>{}}
+                />
+            `}
+            <div 
+                class='fa fa-trash-o lp-button lp-remove-button' 
+                onMouseEnter=${()=>{ setHoverType('remove') }} 
+                onMouseLeave=${()=>{ setHoverType('') }} 
+                onClick=${()=>{ parent.remove(index) }}
+            />                            
+        </div>
+        ${ hoverType=='remove' && html`<div class='cmp-cover cmp-remove-cover fa fa-trash-o' style="opacity:1" />` }
+        ${ hoverType=='add'    && html`<div class='cmp-cover cmp-add-cover' style="opacity:1" />` }
+    `;
 };
 
 exports.Repeater = Repeater;
