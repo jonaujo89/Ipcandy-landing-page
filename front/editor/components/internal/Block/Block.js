@@ -96,7 +96,10 @@ class Block extends preact.Component {
         var tpl_f = this['tpl_'+variant] || (() => html`<div>Unsupported variant ${variant}</div>`);
 
         var configForm = this.configForm();
-        if (configForm) configForm.ref = this.configDialog;
+        if (configForm) {
+            configForm.ref = this.configDialog;
+            configForm.props.title = configForm.props.title || _t("Settings");
+        }
 
         return html`
         <${BlockContext.Provider} value=${this}>

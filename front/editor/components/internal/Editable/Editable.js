@@ -11,7 +11,7 @@ function Editable(Type) {
         render(props) {
             //console.debug("editable",props.fullName,props.value);
             return preact.h(ValueContext.Provider,{value:{value:props.value,name:props.fullName}},
-                preact.h(Type,{...props})
+                preact.h(Type,{...props,ref:(r)=>props.wrapper.editable=r})
             ); 
         }
     }
@@ -63,7 +63,7 @@ function Editable(Type) {
                     }
                 }
             }
-            return show && preact.h(TypeWrap,{...props,fullName,value,defaultValue,onChange});
+            return show && preact.h(TypeWrap,{...props,fullName,value,defaultValue,onChange,wrapper:this});
         }
     }
     EditableType.Type = Type;

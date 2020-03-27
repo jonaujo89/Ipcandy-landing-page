@@ -13,28 +13,6 @@
         }
     }
 
-    button {
-        margin-right: 5px;
-
-        cursor: pointer;
-        white-space: nowrap;
-        outline: none;
-
-        padding: 0.3em 0.6em;
-        vertical-align: middle;
-
-        border: 1px solid #ccc;
-        background: #eee;
-
-        &:hover {
-            background: #fff;
-        }
-
-        i {
-            margin-right: 0.2em;
-        }
-    }  
-
     .lp-dialog-title {
         background: #eee;
         line-height: 2em;
@@ -65,8 +43,31 @@
             margin-bottom: 2px;
             display: block;
         }      
-
     }
+
+    .lp-dialog-content > button,
+    .lp-dialog-buttons > button
+    {
+        margin-right: 5px;
+
+        cursor: pointer;
+        white-space: nowrap;
+        outline: none;
+
+        padding: 0.3em 0.6em;
+        vertical-align: middle;
+
+        border: 1px solid #ccc;
+        background: #eee;
+
+        &:hover {
+            background: #fff;
+        }
+
+        i {
+            margin-right: 0.2em;
+        }
+    }      
 
     .lp-dialog-buttons {
         margin-top: 10px;

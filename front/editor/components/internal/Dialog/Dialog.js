@@ -7,10 +7,11 @@ class Dialog extends preact.Component {
     constructor(props) {
         super(props);
         this.onMouseMove = this.onMouseMove.bind(this);
-        this.onMouseUp = this.onMouseUp.bind(this);        
+        this.onMouseUp = this.onMouseUp.bind(this);
+        Dialog.list.push(this);
     }
 
-    open(pos) {
+    createElements() {
         if (!this.div) {
             this.div = document.createElement("div");
             this.div.className = "lp-dialog "+(this.props.class || "");
@@ -39,6 +40,17 @@ class Dialog extends preact.Component {
 
             this.div.append(this.divTitle,this.divContent);
         }
+    }
+
+    open(pos,onOpen) {
+        if (!pos) {
+            pos = {
+                x: document.documentElement.clientWidth*0.5 - parseInt(this.props.width)*0.5,
+                y: document.documentElement.clientHeight*0.2
+            }
+        }
+
+        this.createElements();
 
         if (this.props.modal) document.body.append(this.divOverlay);
         document.body.append(this.div);
@@ -48,12 +60,13 @@ class Dialog extends preact.Component {
         this.setState({},()=>{
             let rect = this.div.getBoundingClientRect();
             var dh = document.documentElement.clientHeight;
-            if (rect.left+rect.height>dh) {
+            if (rect.top+rect.height>dh) {
                 var y = dh-rect.height-1;
                 if (y<0) y = 0;
                 this.div.style.top = y+"px";
             }
             this.props.onOpen && this.props.onOpen.bind(this)();
+            onOpen && onOpen();
         });
     }
 
@@ -96,8 +109,14 @@ class Dialog extends preact.Component {
         this.isOpen = false;
     }
 
+    static closeAll() {
+        Dialog.list.forEach((one)=>{
+            if (one.isOpen) one.close();
+        });
+    }
+
     render(props) {
-        if (this.divContent && this.isOpen) { 
+        if (this.divContent) { 
             return createPortal(
                 props.children.call ? props.children() : props.children,
                 this.divContent
@@ -105,8 +124,9 @@ class Dialog extends preact.Component {
         }
     }
 }
+Dialog.list = [];
 Dialog.defaultProps = {
-    title: _t("Settings"),
+    title: "",
     modal: true,
     width: 510,
     overlayColor: 'transparent'

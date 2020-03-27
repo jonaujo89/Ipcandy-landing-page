@@ -131,8 +131,8 @@ const FieldsRepeater = Editable((props)=>{
 
 const FormOrder = Editable(class extends preact.Component {
     showFormSuccess() {
-        this.coverCmp.configDialog.close();        
-        window.alertify.genericDialog(this.formSuccess);
+        Dialog.closeAll();
+        this.successDialog.open();
     }
     
     render(props) {
@@ -176,8 +176,8 @@ const FormOrder = Editable(class extends preact.Component {
                             </div>
                         </button>
                     </div>
-                    <div style="display:none">
-                        <div class="form_done" ref=${(r)=>this.formSuccess=r}>
+                    <${Dialog} ref=${(r)=>this.successDialog=r} class="success_dialog" overlayColor="rgba(0,0,0,0.5)">
+                        <div class="form_done">
                             <div class="form_done_title">
                                 <${Text} name="form_done_title" options=${Text.default_text} />
                             </div>
@@ -185,7 +185,7 @@ const FormOrder = Editable(class extends preact.Component {
                                 <${Text} name="form_done_text" options=${Text.default_text} />
                             </div>
                         </div>
-                    </div>                
+                    <//>                
                 </form>
             <//>
         `;

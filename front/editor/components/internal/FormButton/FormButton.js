@@ -11,12 +11,13 @@ const FormButton = Editable(class extends preact.Component {
 
     showForm() {
         this.coverCmp.configDialog.close();
-        window.alertify.genericDialog(this.form);
+        this.formDialog.open();
     }
 
-    showFormSuccess() {
-        this.coverCmp.configDialog.close();        
-        window.alertify.genericDialog(this.formOrder.formSuccess);
+    showSuccess() {
+        this.formDialog.open(false,()=>{
+            this.formOrder.editable.showFormSuccess();
+        });
     }
 
     render(props) {
@@ -43,7 +44,7 @@ const FormButton = Editable(class extends preact.Component {
                         ${props.value.type=="form" && html`
                             <label>${_t("Form")}</label>
                             <button onClick=${()=>this.showForm()}>${_t("Show form")}</button>
-                            <button onClick=${()=>this.showFormSuccess()}>${_t("Show success window")}</button>
+                            <button onClick=${()=>this.showSuccess()}>${_t("Show success window")}</button>
                         `}
                         ${props.value.type=="link" && html`
                             <label>${_t("Link")}</label>
@@ -56,7 +57,7 @@ const FormButton = Editable(class extends preact.Component {
                     ${props.value.text}
                 </a>
                 ${props.value.type == 'form' && html`
-                    <div style='display:none'>
+                    <${Dialog} ref=${(r)=>this.formDialog=r} class="form_dialog" overlayColor="rgba(0,0,0,0.5)">
                         <div class="form" ref=${(r)=>this.form=r}>
                             <div class="form_title">
                                 <${Text} name="form_title"/>    
@@ -68,7 +69,7 @@ const FormButton = Editable(class extends preact.Component {
                                 <${Text} name="form_bottom_text"/>    
                             </div>
                         </div>
-                    </div>
+                    <//>
                 `}
 
             <//>

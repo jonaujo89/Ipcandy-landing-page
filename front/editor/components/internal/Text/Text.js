@@ -89,9 +89,13 @@ Text.default_heading = {'buttons':["bold","italic","deleted","removeformat"],'on
 Text.size_heading = {'buttons':["bold","italic","deleted","size","removeformat"],'oneline':true};
 Text.color_heading = {'buttons':["bold","italic","deleted","size","fontcolor","removeformat"],'oneline':true};
     
-Text.plain_text = {'buttons':[]};
+Text.plain_text = {'buttons':[] };
 Text.default_text = {'buttons':["bold","italic","deleted","removeformat"],'oneline':false};    
 Text.size_text = {'buttons':["bold","italic","deleted","size","removeformat"],'oneline':false};
 Text.color_text = {'buttons':["bold","italic","deleted","size","fontcolor","removeformat"],'oneline':false};
+
+Text.defaultProps = {
+    options: Text.plain_text
+};
 
 exports.Text = Text;
