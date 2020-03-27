@@ -35,12 +35,6 @@
         }
     }  
 
-    label {
-        margin-top: 10px;
-        margin-bottom: 2px;
-        display: block;
-    }      
-
     .lp-dialog-title {
         background: #eee;
         line-height: 2em;
@@ -48,6 +42,7 @@
         position: relative;
         cursor: move;
     }
+
     .lp-dialog-button-close {
         width: 1.5em;
         height: 1.5em;
@@ -62,9 +57,17 @@
             background: #fff;
         }
     }
+
     .lp-dialog-content {
         padding: 10px;
+        > label {
+            margin-top: 10px;
+            margin-bottom: 2px;
+            display: block;
+        }      
+
     }
+
     .lp-dialog-buttons {
         margin-top: 10px;
         text-align: right;

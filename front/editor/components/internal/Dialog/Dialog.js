@@ -1,112 +1,108 @@
 require("./Dialog.tea");
 const {createPortal,Portal} = require("../Portal/Portal");
 
+
 class Dialog extends preact.Component {
+
     constructor(props) {
         super(props);
-        this.state = {
-            open: props.open ? true : false,
-            pos: { x:0, y:0 },
-            dragging: false,
-            rel: null // position relative to the cursor            
-        };
+        this.onMouseMove = this.onMouseMove.bind(this);
+        this.onMouseUp = this.onMouseUp.bind(this);        
     }
 
     open(pos) {
-        this.setState({open:true,pos},this.props.onOpen && this.props.onOpen.bind(this));
-    }
+        if (!this.div) {
+            this.div = document.createElement("div");
+            this.div.className = "lp-dialog "+(this.props.class || "");
+            this.div.style.width = parseInt(this.props.width)+"px";
 
-    close() {
-        this.setState({open:false});
-    }
+            this.closeButton = document.createElement("span");
+            this.closeButton.className = "lp-dialog-button-close";
+            this.closeButton.innerHTML = '<i class="fa fa-times" />';
+            this.closeButton.addEventListener("click",()=>this.close());
 
-    componentDidUpdate(props, state) {
-        this.mm = this.mm || this.onMouseMove.bind(this);
-        this.mu = this.mu || this.onMouseUp.bind(this);
+            this.divTitle = document.createElement("div");
+            this.divTitle.className = "lp-dialog-title";
+            this.divTitle.append(
+                document.createTextNode(this.props.title || ""),
+                this.closeButton
+            );
+            this.divTitle.addEventListener("mousedown",(e)=>this.onMouseDown(e));
 
-        if (this.state.dragging && !state.dragging) {
-            document.addEventListener('mousemove', this.mm)
-            document.addEventListener('mouseup', this.mu)
-        } else if (!this.state.dragging && state.dragging) {
-            document.removeEventListener('mousemove', this.mm)
-            document.removeEventListener('mouseup', this.mu)
+            this.divContent = document.createElement("div");
+            this.divContent.className = "lp-dialog-content";
+
+            this.divOverlay = document.createElement("div");
+            this.divOverlay.className = "lp-dialog-overlay";
+            if (this.props.overlayColor) this.divOverlay.style.backgroundColor = this.props.overlayColor;
+            this.divOverlay.addEventListener("click",()=>this.close());
+
+            this.div.append(this.divTitle,this.divContent);
         }
-        if (this.state.open && !state.open) {
-            let rect = this.div.querySelector(".lp-dialog").getBoundingClientRect();
+
+        if (this.props.modal) document.body.append(this.divOverlay);
+        document.body.append(this.div);
+        this.div.style.left = pos.x+"px";
+        this.div.style.top = pos.y+"px";
+        this.isOpen = true;
+        this.setState({},()=>{
+            let rect = this.div.getBoundingClientRect();
             var dh = document.documentElement.clientHeight;
-            if (this.state.pos.y+rect.height>dh) {
+            if (rect.left+rect.height>dh) {
                 var y = dh-rect.height-1;
                 if (y<0) y = 0;
-                this.setState({
-                    pos: {x:this.state.pos.x,y}
-                });
+                this.div.style.top = y+"px";
             }
-        }
+            this.props.onOpen && this.props.onOpen.bind(this)();
+        });
     }
 
     onMouseDown(e) {
         if (e.button !== 0) return;
-        this.setState({
-            dragging: true,
-            rel: {
-                x: e.pageX - this.state.pos.x,
-                y: e.pageY - this.state.pos.y
-            }
-        })
+        this.dragging = true;
+
+        document.addEventListener('mousemove', this.onMouseMove)
+        document.addEventListener('mouseup', this.onMouseUp)
+
+        this.rel = {
+            x: e.pageX - this.div.offsetLeft,
+            y: e.pageY - this.div.offsetTop
+        };
         e.stopPropagation()
         e.preventDefault()
-    }
-    
+    }    
+
     onMouseUp(e) {
-        this.setState({dragging: false})
+        this.dragging = false;
+        document.removeEventListener('mousemove', this.onMouseMove)
+        document.removeEventListener('mouseup', this.onMouseUp)
+
         e.stopPropagation()
         e.preventDefault()
     }
     
     onMouseMove(e) {
-        if (!this.state.dragging) return
-        this.setState({
-            pos: {
-                x: e.pageX - this.state.rel.x,
-                y: e.pageY - this.state.rel.y
-            }
-        })
+        if (!this.dragging) return
+        this.div.style.left = (e.pageX - this.rel.x)+"px";
+        this.div.style.top = (e.pageY - this.rel.y)+"px";
+
         e.stopPropagation()
         e.preventDefault()
-    }      
+    }     
 
-    render(props,state) {
-        if (state.open) {
-            if (!this.div) this.div = document.createElement("div");
-            if (!this.div.parentElement) document.body.append(this.div);
-        } else {
-            if (this.div && this.div.parentElement) this.div.remove();
+    close() {
+        this.divOverlay.remove();
+        this.div.remove();
+        this.isOpen = false;
+    }
+
+    render(props) {
+        if (this.divContent && this.isOpen) { 
+            return createPortal(
+                props.children.call ? props.children() : props.children,
+                this.divContent
+            );  
         }
-
-        return this.div && createPortal(state.open && html`
-            <div 
-                class="lp-dialog ${props.class || ""}" 
-                style=${{
-                    width:props.width+"px",
-                    left: this.state.pos.x + 'px',
-                    top: this.state.pos.y + 'px'
-                }}
-                ref=${(r)=>this.dialogDiv=r}
-            >
-                <div class="lp-dialog-title" onMouseDown=${(e)=>this.onMouseDown(e)}>
-                    ${props.title || ""}
-                    <span class="lp-dialog-button-close" onClick=${()=>this.close()}>
-                        <i class="fa fa-times" />
-                    </span>
-                </div>
-                <div class="lp-dialog-content">
-                    ${ props.children.call ? props.children() : props.children }
-                </div>
-            </div>
-            ${ props.modal && html`
-                <div class="lp-dialog-overlay" style=${{backgroundColor:props.overlayColor}} onClick=${()=>this.close()} />
-            `}
-        `,this.div);
     }
 }
 Dialog.defaultProps = {
