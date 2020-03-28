@@ -11,6 +11,7 @@ exports = {
     ...require("FormOrder/FormOrder"),
     ...require("Icon/Icon"),
     ...require("Image/Image"),
+    ...require("ImageLink/ImageLink"),
     ...require("Media/Media"),
     ...require("Portal/Portal"),
     ...require("Repeater/Repeater"),

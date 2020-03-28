@@ -63,7 +63,7 @@ function Editable(Type) {
                     }
                 }
             }
-            return show && preact.h(TypeWrap,{...props,fullName,value,defaultValue,onChange,wrapper:this});
+            return show && preact.h(TypeWrap,{...props,fullName,value,defaultValue,onChange,block,wrapper:this});
         }
     }
     EditableType.Type = Type;
