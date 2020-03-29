@@ -53,7 +53,16 @@ const FormButton = Editable(class extends preact.Component {
                     <//>
                 `}
             >
-                <a class="btn_form ${props.value.color}" href=${props.value.type=="link" ? props.value.link : undefined}>
+                <a 
+                    class="btn_form ${props.value.color}" 
+                    href=${props.value.type=="link" ? props.value.link : '#'} 
+                    onClick=${(e)=>{
+                        if (props.value.type=="form") {
+                            e.preventDefault();
+                            this.showForm();
+                        }
+                    }}
+                >
                     ${props.value.text}
                 </a>
                 ${props.value.type == 'form' && html`
