@@ -199,13 +199,16 @@ class App extends preact.Component {
         },500);
     }
 
-    blockChanged(blockComponent) {
+    blockChanged(blockComponent,cb) {
         this.state.blocks.forEach((block)=>{
             if (block.value.id==blockComponent.value.id) {
                 block.value = blockComponent.value;
             }
         });
-        this.setState({},()=>this.triggerChange());
+        this.setState({},()=>{
+            this.triggerChange();
+            cb && cb();
+        });
     }
 
     publish() {

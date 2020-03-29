@@ -25,7 +25,7 @@ class Cover extends preact.Component {
             ${props.children}
             ${ !lp.app.options.viewOnly && html`
                 ${ !props.customCover && html`
-                    <div ref=${(r)=>this.cover=r} class='cmp-cover fa fa-gear' onClick=${()=>this.openConfig(this.cover)} />
+                    <div ref=${(r)=>this.cover=r} class='cmp-cover cmp-config-cover fa fa-gear' onClick=${()=>this.openConfig(this.cover)} />
                 `}
                 ${ configForm || "" }
             `}

@@ -52,7 +52,7 @@ const Icon = Editable(class extends preact.Component{
                 ref=${(r)=>this.coverCmp=r}
             >
                 <div class="ico" style="background-image: url(${base_url+"/"+props.value})">
-                    <div ref=${(r)=>this.cover=r} class='cmp-cover fa fa-gear' onClick=${()=>this.coverCmp.openConfig(this.cover)} />
+                    <div ref=${(r)=>this.cover=r} class='cmp-cover cmp-config-cover fa fa-gear' onClick=${()=>this.coverCmp.openConfig(this.cover)} />
                 </div>
             <//>
         `

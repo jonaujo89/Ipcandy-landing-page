@@ -9,7 +9,6 @@
     z-index: 100;
     background: rgba(0,0,0,0.2);
     cursor: pointer;
-    opacity: 0;
 
     &.lp-button {
         right: 5px;
@@ -17,6 +16,7 @@
         left: auto;
         bottom: auto;
         opacity: 0;
+        background: #eee;
     }
 
     &:not(.lp-button):before {
@@ -35,13 +35,18 @@
     }        
 }
 
+.cmp-config-cover {
+    opacity: 0;
+}
+
+:hover > .cmp-config-cover.lp-button,
+.cmp-config-cover:hover {
+    opacity: 1;
+}
+
 .cmp-add-cover {
     top: auto; 
     height: 10px;
     bottom: -10px;
 }
 
-:hover > .cmp-cover.lp-button,
-.cmp-cover:hover {
-    opacity: 1;
-}

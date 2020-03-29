@@ -17,7 +17,7 @@ const Image = Editable(class extends preact.Component {
             >
                 <div class="img">
                     <img src="${base_url+"/"+props.value}" alt="" />
-                    <div ref=${(r)=>this.cover=r} class='cmp-cover fa fa-gear' onClick=${()=>this.coverCmp.openConfig(this.cover)} />
+                    <div ref=${(r)=>this.cover=r} class='cmp-cover cmp-config-cover fa fa-gear' onClick=${()=>this.coverCmp.openConfig(this.cover)} />
                 </div>
             <//>
         `;

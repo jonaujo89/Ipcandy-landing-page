@@ -25,7 +25,7 @@ class Dialog extends preact.Component {
             this.divTitle = document.createElement("div");
             this.divTitle.className = "lp-dialog-title";
             this.divTitle.append(
-                document.createTextNode(this.props.title || ""),
+                this.nodeTitle = document.createTextNode(this.props.title || ""),
                 this.closeButton
             );
             this.divTitle.addEventListener("mousedown",(e)=>this.onMouseDown(e));
@@ -54,6 +54,9 @@ class Dialog extends preact.Component {
 
         if (this.props.modal) document.body.append(this.divOverlay);
         document.body.append(this.div);
+
+        this.nodeTitle.nodeValue = this.props.title || "";
+
         this.div.style.left = pos.x+"px";
         this.div.style.top = pos.y+"px";
         this.isOpen = true;
@@ -64,6 +67,13 @@ class Dialog extends preact.Component {
                 var y = dh-rect.height-1;
                 if (y<0) y = 0;
                 this.div.style.top = y+"px";
+            }
+            var dw = document.documentElement.clientWidth;
+            if (rect.left<0) this.div.style.left = "0px";
+            else if (rect.left+rect.width>dw) {
+                var x = dw-rect.width-1;
+                if (x<0) x = 0;
+                this.div.style.left = x+"px";
             }
             this.props.onOpen && this.props.onOpen.bind(this)();
             onOpen && onOpen();
@@ -165,8 +175,7 @@ class Prompts extends preact.Component {
                 cb(res);
             }
             
-            this.setState({confirm:options});
-            open(this.confirm)
+            this.setState({confirm:options},()=>open(this.confirm));
         }
 
         Dialog.alert = (options,cb) => {
@@ -176,8 +185,7 @@ class Prompts extends preact.Component {
                 }
             };
             options.title = options.title ||  _t('Alert');
-            this.setState({alert:options});
-            open(this.alert);
+            this.setState({alert:options},()=>open(this.alert));
         }
     }
 

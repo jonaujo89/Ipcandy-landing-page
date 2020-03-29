@@ -34,7 +34,7 @@ class Block extends preact.Component {
         this.value = fullValue;
     }
 
-    editorChange(fullName,val) {
+    editorChange(fullName,val,cb) {
         function shallowClone(o) {
             if(!o || "object" !== typeof o) return o || {};
             var c = "function" === typeof o.pop ? [] : {};
@@ -57,7 +57,7 @@ class Block extends preact.Component {
             current = current[part];
         });
         this.value = ret;
-        lp.app.blockChanged(this);
+        lp.app.blockChanged(this,cb);
     }
 
 

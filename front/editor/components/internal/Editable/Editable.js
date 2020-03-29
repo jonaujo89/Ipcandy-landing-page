@@ -49,7 +49,7 @@ function Editable(Type) {
                 defaultValue = parent.defaultValue;
             }
 
-            var onChange = (val) => block.editorChange(fullName,val,true);
+            var onChange = (val,cb) => block.editorChange(fullName,val,cb);
 
             var show = true;
             var when = props.showWhen;

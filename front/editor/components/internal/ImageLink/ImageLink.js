@@ -56,7 +56,7 @@ const ImageLink = Editable(class extends preact.Component {
         ImageBox.instance().setState({open:true,loaded:false,link:this,others:this.getOtherLinks()});
     }
     render(props) {
-        return html`<a class="big_img" href=${props.href} onClick=${(e)=>this.open(e)} />`;
+        return html`<a class="big_img ${props.class || ''}" href=${props.href} onClick=${(e)=>this.open(e)} />`;
     }
 })
 
