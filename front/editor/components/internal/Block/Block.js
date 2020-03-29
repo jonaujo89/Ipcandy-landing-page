@@ -89,6 +89,13 @@ class Block extends preact.Component {
         return false;
     }
 
+    bg_style(bg) {
+        if (bg.url)
+            return `background:url("${base_url}/${bg.url}")`;
+        else
+            return `background:${bg.color}`;
+    }    
+
     render(props,state) {
         console.debug("block render",this.value.type,this.value);
 

@@ -1,12 +1,21 @@
 .lp-radio {
     margin-top: 5px;
+    &:first-child {
+        margin-top: 0;
+    }
+
     > label {
         margin-top: 0px;
         display: inline-block;
-
     }
 
     label + & {
         margin-top: 4px;
+    }
+
+    &.lp-radio-block {
+        > label {
+            display: block;
+        }
     }
 }

@@ -9,7 +9,7 @@ const Radio = Editable(class extends preact.Component {
     }
     render(props) {
         return html`
-            <div class="lp-radio">
+            <div class="lp-radio ${props.inline ? '':'lp-radio-block'}">
                 ${props.items.map((item,i)=>html`
                     <label>
                         <input type='radio' value=${item.value} name=${this.name} checked=${item.value==props.value} onChange=${()=>{
@@ -27,4 +27,8 @@ const Radio = Editable(class extends preact.Component {
         `
     }
 });
+Radio.defaultProps = {
+    inline: true
+}
+
 exports.Radio = Radio;

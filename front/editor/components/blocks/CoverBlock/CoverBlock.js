@@ -36,6 +36,7 @@ class CoverBlock extends Block {
                     itemHeight=${112}
                     comboWidth=${635}
                     comboHeight=${600}
+                    dropdown=${true}
                 />
                 <${UploadButton} name="background" label=${_t('Upload image file')} />
             <//>

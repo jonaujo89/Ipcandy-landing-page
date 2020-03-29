@@ -4,6 +4,7 @@ exports = {
     ...require("Block/Block"),
     ...require("Color/Color"),
     ...require("Combo/Combo"),
+    ...require("Countdown/Countdown"),
     ...require("Cover/Cover"),
     ...require("Dialog/Dialog"),
     ...require("Editable/Editable"),

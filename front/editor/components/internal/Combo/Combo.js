@@ -47,6 +47,18 @@ class Combo extends preact.Component {
             if (item.value==props.value) selectedItem = item;
         })
 
+        const eq = (a,b) => {
+            if (a==b) return true;
+            if (Object(a)==a && Object(b)==b) {
+                if (Object.keys(a).length!=Object.keys(b).length) return false;
+                for (var key in a) {
+                    if (a[key]!=b[key]) return false;
+                }
+                return true;
+            }
+            return false;
+        };
+
         return html`
             ${props.dropdown && html`
                 <button class='lp-combo' ref=${(r)=>this.button=r} onClick=${()=>this.toggle()}>
@@ -64,7 +76,7 @@ class Combo extends preact.Component {
                 }}>
                     ${ this.items.map((item)=> html`
                         <div 
-                            class="lp-panel-item ${(state.prevValue==item.value || (!state.prevValue && props.value==item.value)) ? "lp-selected":""}"
+                            class="lp-panel-item ${(eq(state.prevValue,item.value) || (!state.prevValue && eq(props.value,item.value))) ? "lp-selected":""}"
                             onClick=${()=>{
                                 this.setState({prevValue:undefined});
                                 props.onChange(item.value);
@@ -76,7 +88,7 @@ class Combo extends preact.Component {
                             }}
                             onMouseLeave=${()=>{
                                 if (!props.preview) return;
-                                if (state.prevValue && state.prevValue!=props.value) props.onChange(state.prevValue);
+                                if (state.prevValue && !eq(state.prevValue,props.value)) props.onChange(state.prevValue);
                                 this.setState({prevValue:undefined});
                             }}
                         >
