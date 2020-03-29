@@ -15,7 +15,6 @@ const Text = Editable(class extends preact.Component {
     }
 
     componentDidMount() {
-        this.value = this.props.value;
         this.editor.addEventListener("keydown",(e)=>{
             if (e.keyCode == 13 && this.props.options.oneline) {
                 e.preventDefault();
@@ -60,6 +59,7 @@ const Text = Editable(class extends preact.Component {
     }
 
     render(props) {
+        this.value = props.value;
         return html`<div class="lp-text">
             <div ref=${(r)=>this.editor=r} class="lp-text-editor" dangerouslySetInnerHTML=${{__html:props.value}} contenteditable />
             <div class="lp-text-toolbar">
