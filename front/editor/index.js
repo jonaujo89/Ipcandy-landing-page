@@ -23,6 +23,7 @@ const {App} = require("./components/App");
 require("./components/blocks/Benefits/Benefits");
 require("./components/blocks/CoverBlock/CoverBlock");
 require("./components/blocks/Faq/Faq");
+require("./components/blocks/Gallery/Gallery");
 
 lp.run = function (options) {
     options.isGlobal = true;
