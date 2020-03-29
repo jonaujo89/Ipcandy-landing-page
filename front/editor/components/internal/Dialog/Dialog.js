@@ -114,8 +114,8 @@ class Dialog extends preact.Component {
     }     
 
     close() {
-        this.divOverlay.remove();
-        this.div.remove();
+        if (this.divOverlay) this.divOverlay.remove();
+        if (this.div) this.div.remove();
         this.isOpen = false;
     }
 

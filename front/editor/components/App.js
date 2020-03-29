@@ -5,9 +5,10 @@ const {AddBlockDialog} = require("internal/AddBlockDialog/AddBlockDialog");
 
 class AppBlock {
     shouldComponentUpdate(nextProps) {
-        return nextProps.value != this.props.value;
+        return nextProps.value != this.props.value || lp.app.state.preview != this.preview;
     }
     render(props) {
+        this.preview = lp.app.state.preview;
         const BlockType = Block.list[props.value.type];
         if (BlockType) return html`<${ BlockType } value=${props.value} />`;
         console.debug("Undefined block type",props.value);
@@ -22,7 +23,7 @@ class App extends preact.Component {
         this.options = props;
         this.state = {
             blocks: props.blocks,
-            preview: false,
+            preview: props.viewOnly ? true : false,
             dragHandleIndex: -1
         }
         this.baseId = (new Date()).getTime();
@@ -155,8 +156,6 @@ class App extends preact.Component {
 
     render(props,state) {
         console.debug("app render");
-        document.body.className = (state.preview || props.viewOnly) ? "view-layout" : "";
-        
         var dropMarker = html`<div class="drop-marker" key="drop-marker"/>`;
         return html`
             ${ !props.viewOnly && html`

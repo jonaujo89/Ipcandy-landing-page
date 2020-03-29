@@ -104,16 +104,12 @@
         min-height: 1em;
         border: 1px solid transparent;
 
-        &:hover,
-        &:focus
+        &[contenteditable]:hover,
+        &[contenteditable]:focus
         {
             border: 1px dashed #f80;
             outline: none;
         }
-
-        .view-layout & {
-            border: none !important;
-        }    
     }
 }
 

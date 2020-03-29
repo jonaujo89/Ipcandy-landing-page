@@ -113,7 +113,7 @@ class Block extends preact.Component {
         <${ValueContext.Provider} value=${{name:"",value:this.value,defaultValue:this.defaultValue}}>
             <div class="lp-block">
                 ${tpl_f.call(this,this.value,props,state)}
-                ${ !lp.app.options.viewOnly && html`
+                ${ !lp.app.state.preview && html`
                     <div class='cmp-controls'>
                         ${ this.variantCount > 1 && html`
                             <div class='fa fa-chevron-left lp-button' onClick=${()=>this.prev()} />
@@ -140,7 +140,7 @@ class Block extends preact.Component {
                     </div>
                 `}
             </div>
-            ${ !lp.app.options.viewOnly && configForm }
+            ${ !lp.app.state.preview && configForm }
         <//>
         <//>
         `;

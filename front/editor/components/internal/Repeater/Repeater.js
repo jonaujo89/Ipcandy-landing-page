@@ -70,7 +70,7 @@ const Repeater = Editable(class extends preact.Component {
                         >
                             <${ValueContext.Provider} value=${{value:sub,name:props.fullName+"."+sub_idx}}>
                                 ${item_f(sub)}
-                                ${ !lp.app.options.viewOnly && html`<${RepeaterCover} parent=${this} index=${sub_idx} />`}
+                                ${ !lp.app.state.preview && html`<${RepeaterCover} parent=${this} index=${sub_idx} />`}
                             <//>
                         </div>
                     `)}

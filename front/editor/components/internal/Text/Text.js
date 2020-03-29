@@ -11,7 +11,7 @@ const Text = Editable(class extends preact.Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        return nextProps.value!=this.value;
+        return nextProps.value!=this.value || this.preview!=lp.app.state.preview;
     }
 
     componentDidMount() {
@@ -59,10 +59,11 @@ const Text = Editable(class extends preact.Component {
     }
 
     render(props) {
+        this.preview = lp.app.state.preview;
         this.value = props.value;
         return html`<div class="lp-text">
-            <div ref=${(r)=>this.editor=r} class="lp-text-editor" dangerouslySetInnerHTML=${{__html:props.value}} contenteditable />
-            <div class="lp-text-toolbar">
+            <div ref=${(r)=>this.editor=r} class="lp-text-editor" dangerouslySetInnerHTML=${{__html:props.value}} contenteditable=${!this.preview} />
+            ${!this.preview && html`<div class="lp-text-toolbar">
                 ${this.buttons.bold && html`<span class="lp-text-bold" title=${_t("Bold")} onMouseDown=${(e)=>this.cmd(e,"bold")}>b</span>`}
                 ${this.buttons.italic && html`<span class="lp-text-italic" title=${_t("Italic")} onMouseDown=${(e)=>this.cmd(e,"italic")}>i</span>`}
                 ${this.buttons.deleted && html`<span class="lp-text-deleted" title=${_t("Deleted")} onMouseDown=${(e)=>this.cmd(e,"strikeThrough")}>d</span>`}
@@ -78,7 +79,7 @@ const Text = Editable(class extends preact.Component {
                     </span>
                 </span>`}
                 ${this.buttons.fontcolor && html`<span class="lp-text-color" title=${_t("Text color")} onMouseDown=${(e)=>this.color(e)}>c</span>`}
-            </div>
+            </div>`}
         </div>`;   
     }
 
