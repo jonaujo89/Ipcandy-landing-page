@@ -63,9 +63,9 @@ const Countdown = Editable(class extends preact.Component{
             var takeFromCache = true;
             for (var key in this.props.value) {
                 if (this.props.value[key]!=this.cached.value[key]) takeFromCache = false;
-                if (takeFromCache) {
-                    return this.cached.set_date;
-                }
+            }
+            if (takeFromCache) {
+                return this.cached.set_date;
             }
         }
 
@@ -83,7 +83,7 @@ const Countdown = Editable(class extends preact.Component{
         var time = get_date.time.split(':');
         var hours = time[0];
         var minutes = time[1];
-		
+
 		switch (get_date.type) {
             case 'datetime':
                 set_date = new Date(get_date.date + ' ' + get_date.time);
