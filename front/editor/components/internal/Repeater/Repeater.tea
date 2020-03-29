@@ -24,14 +24,59 @@
             border-left: none;
             box-sizing: border-box;
         }
+
+        &.cmp-repeater-cover-inline {
+            right: 0px;
+            justify-content: flex-start;
+            z-index: 101;
+
+            &:before {
+                display: none;
+            }
+        }        
     }    
 
     &:hover .cmp-repeater-cover {
         display: flex;
     }
-
-    &:nth-child(1) .cmp-repeater-cover .fa.fa-trash-o.lp-button {
-        display: none;
-    }    
 }
 
+.lp-repeater {
+    position: relative;
+
+    .lp-button-repeater-add-wrap {
+        position: absolute !important;
+        top: 100%;
+        height: 40px;
+        padding-top: 5px;
+        left: 0; right: 0;
+        display: none;
+        text-align: center;
+
+        .lp-button-repeater-add {
+            position: relative;
+            font-size: 16px;
+            padding: 0 20px 0 50px;
+            margin: 0 auto;
+            width: auto;
+            opacity: 0.5;
+
+            &:before {
+                position: absolute;
+                left: 0; top: 0;
+                width: 30px; height: 30px;
+                border-right: 1px solid #ccc;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &:hover > .lp-button-repeater-add-wrap {
+        display: block;
+    }
+}
