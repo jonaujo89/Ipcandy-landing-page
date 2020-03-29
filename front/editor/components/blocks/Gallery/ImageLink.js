@@ -1,5 +1,5 @@
 require("./ImageLink.tea");
-const {Editable} = require("../Editable/Editable");
+const {Editable} = require("../../internal/Editable/Editable");
 
 class ImageBox extends preact.Component {
     constructor(props) {

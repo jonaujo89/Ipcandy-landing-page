@@ -109,7 +109,7 @@ window._t.load({
     "Show image name":"Название изображения",
     "Show image signature":"Подпись изображения",
     "Show image descroption":"Описание изображение",
-    "Show big image (enable fancybox)":"Увеличивать при клике(вкл. fancybox)",
+    "Show big image":"Увеличивать при клике",
     "Grayscale logo":"Обесцветить лого",
     "Show name company":"Название компании",
     "Show branch company":"Направление компании",

@@ -1,55 +1,9 @@
 require("./Gallery.tea");
-const {Block,Cover,Editable,Repeater,Text,BlockColor,Switch,Dialog,ImageLink,UploadButton,Input,Slider} = require("../../internal");
-
-const withGalleryForm = (Type) => {
-    return (props) => html`
-        <${Type} 
-            inline=${true}
-            name=${props.name} 
-            configForm=${html`
-                <${Dialog} title=${_t('Image')}>
-                    <label>${_t('Upload image file')}</label>
-                    <${UploadButton} name="image" label=${_t("Select file")} />
-                    <label>${_t('Image title:')}</label>
-                    <${Input} name="title" />
-                    <label>${_t('Image description:')}</label>
-                    <${Input} name="desc" />
-                <//>
-            `}
-        >
-            ${props.children}
-        <//>
-    `;
-}
-const GalleryRepeater = withGalleryForm(Repeater);
-const GallerySlider = withGalleryForm(Slider);
-
-const GalleryImage = Editable(class extends preact.Component{ 
-    render(props) {
-        var val = props.value || {};
-        var href = base_url + "/" + val.image;
-        return html`
-            <${Cover}
-                configForm=${html`
-                    <${Dialog} title=${_t("Image")}>
-                        <label>${_t('Upload image file')}</label>
-                        <${UploadButton} name="image" label=${_t('Select file')} />
-                    <//>
-                `}
-                customCover=${true}
-                ref=${(r)=>this.coverCmp=r}
-            >
-                <div class='preview_img' style='background-image: url("${href}")'>
-                    ${ props.block.value.enable_fancybox && html`<${ImageLink} class="fancybox" href=${href} />` }
-                </div>
-                <div class='cmp-cover cmp-config-cover fa fa-gear lp-button' onClick=${(e)=>this.coverCmp.openConfig(e.target)} />
-            <//>
-        `
-    }
-});
-GalleryImage.defaultProps = {
-    alwaysRender: true
-};
+const {Block,Repeater,Text,BlockColor,Switch,Dialog} = require("../../internal");
+const {GalleryRepeater,GallerySlider} = require("GalleryRepeater");
+const {GalleryImage} = require("GalleryImage");
+const {OverlayImage} = require("OverlayImage");
+const {ImageLink} = require("ImageLink");
 
 class Gallery extends Block {
 
@@ -61,11 +15,11 @@ class Gallery extends Block {
             <${Dialog}>
                 <${Switch} name="show_title" label="${_t("Show first title")}" />
                 <${Switch} name="show_title_2" label="${_t("Show second title")}" />
-                <${Switch} name="show_image_title" label="${_t("Show block with text")}" showWhen=${{variant:[1,5,6,7,8,9,10]}} /> 
+                <${Switch} name="show_image_title" label="${_t("Show image title")}" showWhen=${{variant:[1,5,6,7,8,9,10]}} /> 
                 <${Switch} name="show_image_overlay" label="${_t("Show block with text")}" showWhen=${{variant:[2,3,4]}} /> 
                 <${Switch} name="show_image_desc" label="${_t("Show image description")}" showWhen=${{variant:[1,5,6,7,8,9,10]}} /> 
                 <${Switch} name="show_image_desc" label="${_t("Show image description")}" showWhen=${{variant:[2,3,4], show_image_overlay: true}} /> 
-                <${Switch} name="enable_fancybox" label="${_t("Show big image (enable fancybox)")}" showWhen=${{variant:[1,3,4,5,6,7,8,9,10]}} />
+                <${Switch} name="enable_fancybox" label="${_t("Show big image")}" showWhen=${{variant:[1,3,4,5,6,7,8,9,10]}} />
                 <label value=${_t("Background color:")} />
                 <${BlockColor} name="background" />
             <//>
@@ -515,7 +469,6 @@ class Gallery extends Block {
     }
 
     tpl_5(val) {
-        const isAllowOpacity = val.show_image_title && val.show_image_desc;
         return html`<div class="container-fluid gallery gallery_5" style="background: ${val.background};">           
             <div class="container">
                 <div class="row">
@@ -530,7 +483,7 @@ class Gallery extends Block {
                                 <${Text} name="title_2" options=${Text.plain_heading} />
                             </div>
                         `}
-                        <div class="item_list ${isAllowOpacity ? '' : 'no_opacity'}">
+                        <div class="item_list ${(!val.show_image_title && !val.show_image_desc) ? 'no_opacity': '' }">
                             <${GallerySlider} name="items">${item_val => html`                                
                                 <div class="preview_img">
                                     <img src="${base_url}/${item_val.image}" />
@@ -605,8 +558,6 @@ class Gallery extends Block {
     }
 
     tpl_6(val) {
-        const isAllowOpacity = val.show_image_title && val.show_image_title;
-
         return html`<div class="container-fluid gallery gallery_6" style="background: ${val.background};">
             <div class="container">
                 <div class="row">
@@ -621,12 +572,12 @@ class Gallery extends Block {
                                 <${Text} name="title_2" options=${Text.plain_heading} />
                             </div>
                         `}
-                        <div class="item_list masonry ${isAllowOpacity ? '' : 'no_opacity'}" data-masonry-gutter="15">
+                        <div class="item_list ${(!val.show_image_title && !val.show_image_desc) ? 'no_opacity': '' }">
                             <${GalleryRepeater} name="items">${item_val => html`
                                 <div class="preview_img">
                                     <img src="${base_url}/${item_val.image}" />
                                     ${val.enable_fancybox && html`
-                                        <a class="fancybox big_img" href="${base_url}/${item_val.image}" title=${item_val.title} />
+                                        <${ImageLink} href="${base_url}/${item_val.image}" title=${item_val.title} />
                                     `}
                                 </div>
                                 <div class="overlay">
@@ -694,8 +645,6 @@ class Gallery extends Block {
     }
 
     tpl_7(val) {
-        const isAllowOpacity = val.show_image_title && val.show_image_title;
-
         return html`<div class="container-fluid gallery gallery_7" style="background: ${val.background};">           
             <div class="container">
                 <div class="row">
@@ -710,7 +659,7 @@ class Gallery extends Block {
                                 <${Text} name="title_2" options=${Text.plain_heading} />
                             </div>
                         `}
-                        <div class="item_list ${isAllowOpacity ? '' : 'no_opacity'}">
+                        <div class="item_list ${(!val.show_image_title && !val.show_image_desc) ? 'no_opacity': '' }">
                             <${Repeater} name="items">${item_val => html`
                                 <div class="img_double"> 
                                     <div class="img">
@@ -773,8 +722,6 @@ class Gallery extends Block {
     }
 
     tpl_8(val) {
-        const isAllowOpacity = val.show_image_title && val.show_image_title;
-
         return html`<div class="container-fluid gallery gallery_8" style="background: ${val.background};">
             <div class="container">
                 <div class="row">
@@ -789,7 +736,7 @@ class Gallery extends Block {
                                 <${Text} name="title_2" options=${Text.plain_heading} />
                             </div>
                         `}
-                        <div class="item_list clear ${isAllowOpacity ? '' : 'no_opacity'}">
+                        <div class="item_list clear ${(!val.show_image_title && !val.show_image_desc) ? 'no_opacity': '' }">
                             <${Repeater} name="items">${item_val => html`
                                 <div class="img_side">
                                     <div class="img img_h2">
@@ -913,8 +860,6 @@ class Gallery extends Block {
     }
 
     tpl_9(val) {
-        const isAllowOpacity = val.show_image_title && val.show_image_title;
-
         return html`<div class="container-fluid gallery gallery_9" style="background: ${val.background};">           
             <div class="container">
                 <div class="row">
@@ -929,7 +874,7 @@ class Gallery extends Block {
                                 <${Text} name="title_2" options=${Text.plain_heading} />
                             </div>
                         `}
-                        <div class="item_list clear ${isAllowOpacity ? '' : 'no_opacity'}">
+                        <div class="item_list clear ${(!val.show_image_title && !val.show_image_desc) ? 'no_opacity': '' }">
                             <${Repeater} name="items">${item_val => html`                    
                                 <div class="img_double">
                                     <div class="img">
@@ -1034,8 +979,6 @@ class Gallery extends Block {
     }
 
     tpl_10(val) {
-        const isAllowOpacity = val.show_image_title && val.show_image_title;
-
         return html`<div class="container-fluid gallery gallery_10" style="background: ${val.background};">           
             <div class="container">
                 <div class="row">
@@ -1050,7 +993,7 @@ class Gallery extends Block {
                                 <${Text} name="title_2" options=${Text.plain_heading} />
                             </div>
                         `}
-                        <div class="item_list clear ${isAllowOpacity ? '' : 'no_opacity'}">
+                        <div class="item_list clear ${(!val.show_image_title && !val.show_image_desc) ? 'no_opacity': '' }">
                             <${Repeater} name="items">${item_val => html`
                                 <div class="img_side">
                                     <div class="img img_w1 img_h2">
