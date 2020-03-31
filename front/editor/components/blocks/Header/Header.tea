@@ -1,0 +1,218 @@
+.header {    
+    .container {
+        color: @headingColor;
+
+        .span_btn {
+            .btn_wrap {
+                a {
+                    user-select: none;          
+                    border-radius: 3px;
+                    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
+                    color: #ffffff;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 1rem;
+                    padding: 7px 27px;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        img {
+            border: 0 none;
+            height: auto;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+
+        .logo {
+            line-height: 3.5;
+            img {
+                max-width: 280px;
+            }
+        }
+
+        .company_name {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .phone {
+            font-size: 1.87rem;
+            line-height: 1.1;
+        }
+    }
+
+    &.header_1 {
+        .container {
+            .span_logo {
+                @media (max-width: @grid.mediaWidth()) {
+                    text-align: center;
+                }
+            }
+
+            .span_desc.col-5 {
+                line-height: 1.4;
+                .font_size_flexible(5, 20, 15);
+
+                @media (max-width: @grid.mediaWidth()) {
+                    text-align: center;
+                }
+            }
+
+            .span_phone.col-4 {
+                text-align: right;
+
+                .phone {
+                    line-height: 1.4;
+                    .font_size_flexible(4, 24, 16);
+                }
+
+                .phone_desc {
+                    line-height: 1.2;
+                    .font_size_flexible(4, 16, 13);
+                }
+
+                @media (max-width: @grid.mediaWidth()) {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &.header_2 {
+        .container {
+            .span_btn {
+                line-height: 1.1;
+                padding: 10px;
+            }
+
+            .span_btn, .span_logo {
+                @media (max-width: @grid.mediaWidth()) {
+                    text-align: center;
+                }
+            }
+
+            .span_phone {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: right;
+
+                @media (max-width: @grid.mediaWidth()) {
+                    text-align: center;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
+
+    &.header_3 {
+        .container {
+            .span_desc.col-4 {
+                .desc_1, .desc_2 {
+                    line-height: 1.2;
+                    text-align: right;
+    
+                    @media (max-width: @grid.mediaWidth()) {
+                        text-align: center;
+                    }
+                    .font_size_flexible(4, 24, 16);
+                }
+    
+                .desc_2 {
+                    color: #c1103a;
+                    .font_size_flexible(4, 16, 13);
+                }
+            }
+
+            .logo {
+                text-align: center;
+                line-height: 4.5;
+            }
+
+            .btn_wrap {
+                margin-top: 10px;
+            }
+
+            @media (max-width: @grid.mediaWidth()) {
+                .span_phone {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &.header_4 {
+        .container {
+            .span_logo.col-4 {
+                .logo {
+                    text-align: left;
+                    line-height: 2;
+    
+                    @media (max-width: @grid.mediaWidth()) {
+                        text-align: center;
+                    }
+
+                    .font_size_flexible(4, 16, 13);
+    
+                    .company_name {
+                        text-transform: uppercase;
+                        white-space: normal;
+                    }
+                }
+    
+                .desc {
+                    margin-top: 5px;
+    
+                    @media (max-width: @grid.mediaWidth()) {
+                        text-align: center;
+                    }
+
+                    .font_size_flexible(4, 15, 12);
+                }
+            }
+
+            .ico_wrap {
+                float: left;
+                width: 33.33%;
+
+                .ico {
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: 37px auto;
+                    height: 55px;
+                    margin: 0 auto;
+                    width: 55px;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    z-index: 1;
+                    position: relative;
+                }
+
+                .ico_name {
+                    font-size: 0.67rem;
+                    text-align: center;
+                    line-height: 1.1;
+                }
+            }
+
+            .span_phone {
+                @media (max-width: @grid.mediaWidth()) {
+                    text-align: center;
+                }
+            }
+
+            .span_btn {
+                .btn_wrap {
+                    margin-top: 12px;
+                }
+            }
+
+            .span_logo {
+                padding-top: 18px;
+            }
+        }
+    }
+}

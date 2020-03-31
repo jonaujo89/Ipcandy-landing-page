@@ -165,7 +165,7 @@ window.bundler = {
                 js += "\n" + "return module.exports || exports;})";
 
                 sheet.build_js += "define("+path_string(rel_path)+","+js+")\n";
-                define(rel_path,eval(js+"\n//# sourceURL="+abs_url));
+                define(rel_path,eval.call(null, js+"\n//# sourceURL="+abs_url));
             }
             if (ext=="css") {
                 sheet.build_js += "define("+path_string(rel_path)+",()=>{})\n";

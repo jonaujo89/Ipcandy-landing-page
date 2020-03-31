@@ -25,6 +25,7 @@ require("./components/blocks/CoverBlock/CoverBlock");
 require("./components/blocks/Faq/Faq");
 require("./components/blocks/Gallery/Gallery");
 require("./components/blocks/Timer/Timer");
+require("./components/blocks/Header/Header");
 
 lp.run = function (options) {
     options.isGlobal = true;

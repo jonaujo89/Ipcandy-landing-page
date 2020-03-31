@@ -19,5 +19,7 @@ exports = {
     ...require("Slider/Slider"),
     ...require("Switch/Switch"),
     ...require("Text/Text"),
+    ...require("Radio/Radio"),
     ...require("UploadButton/UploadButton"),
+    ...require("Logo/Logo"),
 }

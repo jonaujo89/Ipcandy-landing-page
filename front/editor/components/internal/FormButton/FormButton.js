@@ -10,7 +10,9 @@ const {Editable} = require("../Editable/Editable");
 const FormButton = Editable(class extends preact.Component {
 
     showForm() {
-        this.coverCmp.configDialog.close();
+        if (this.coverCmp.configDialog) {
+            this.coverCmp.configDialog.close();
+        }
         this.formDialog.open();
     }
 
