@@ -30,6 +30,7 @@ require("./components/blocks/Services/Services");
 require("./components/blocks/Reasons/Reasons");
 require("./components/blocks/Cases/Cases");
 require("./components/blocks/Stages/Stages");
+require("./components/blocks/Feedback/Feedback");
 
 lp.run = function (options) {
     options.isGlobal = true;
