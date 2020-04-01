@@ -33,6 +33,7 @@ require("./components/blocks/Stages/Stages");
 require("./components/blocks/Feedback/Feedback");
 require("./components/blocks/Order/Order");
 require("./components/blocks/Logos/Logos");
+require("./components/blocks/Footer/Footer");
 
 lp.run = function (options) {
     options.isGlobal = true;
