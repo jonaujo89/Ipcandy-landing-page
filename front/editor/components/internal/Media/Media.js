@@ -8,7 +8,7 @@ const {Input} = require("../Input/Input");
 const Media = Editable((props)=>{
     let video_url = '';
     if (props.value.type === "video") {
-        const url = props.value.video_url;
+        const url = props.value.video_url || '';
         const pattern_youtube = /youtu/;
         const pattern_vimeo = /vimeo/;
 
@@ -34,7 +34,7 @@ const Media = Editable((props)=>{
                         { label: _t("Image"), value: "image" },
                         { label: _t("Video"), value: "video" }
                     ]} />
-                    <${UploadButton} name="image_url" label=${_t("Upload file")} showWhen=${{type: 'video'}} />
+                    <${UploadButton} name="image_url" label=${_t("Upload file")} showWhen=${{type: 'image'}} />
                     ${ props.value.type=="video" && html`
                         <label>${_t("Video url (youtube or vimeo):")}</label>
                         <${Input} name="video_url" />
@@ -50,7 +50,7 @@ const Media = Editable((props)=>{
                 ${props.value.type == "image" && html`
                     <div class="img" style="background-image: url('${base_url+"/"+props.value.image_url}')" />
                 `}
-            </div>;
+            </div>
         <//>
     `;
 });

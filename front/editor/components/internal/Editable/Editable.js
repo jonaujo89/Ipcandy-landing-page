@@ -56,7 +56,7 @@ function Editable(Type) {
             var show = true;
             var when = props.showWhen;
             if (when) {
-                var val = block.value;
+                var val = parentContext.value;
                 for (var key in when) {
                     if (Array.isArray(when[key])) {
                         if (!when[key].includes(val[key])) show = false;

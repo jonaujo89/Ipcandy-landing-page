@@ -28,6 +28,7 @@ require("./components/blocks/Timer/Timer");
 require("./components/blocks/Header/Header");
 require("./components/blocks/Services/Services");
 require("./components/blocks/Reasons/Reasons");
+require("./components/blocks/Cases/Cases");
 
 lp.run = function (options) {
     options.isGlobal = true;
