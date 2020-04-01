@@ -143,7 +143,7 @@ window.bundler = {
                         var is_abs = me.isAbs(part);
                         if (me.isData(part)) return s;
                         if (!is_abs && !path) return s;
-                        var part_abs = is_abs ? part : me.dir(path)+"/"+part;
+                        var part_abs = is_abs ? me.absUrl(part) : me.dir(path)+"/"+part;
                         var rel = me.relativePath(part_abs,bundle_dir_wo_slash);
                         var rel_clean = me.cleanPath(rel);
                         return 'url('+rel_clean+')';
