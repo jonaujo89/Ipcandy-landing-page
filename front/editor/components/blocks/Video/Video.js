@@ -44,7 +44,7 @@ class Video extends Block {
                             </div>
                         `}
                         <div class="video ${val.video_size || 'small'}">  
-                             <${Media} name="video"/>
+                             <${Media} name="video" switchType=${false}/>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@ class Video extends Block {
                                     <div class="item row">
                                         ${val.items.map (item => html`
                                             <div class="video col-6">
-                                                <${Media} name="video" />
+                                                <${Media} name="video" switchType=${false} />
                                             </div>
                                             <div class="text_wrap col-6"> 
                                                     <h1 class="text_title"> 
@@ -167,7 +167,7 @@ class Video extends Block {
                                         ${[1, 2, 3].map (i => html` 
                                             <div class="item col-4"> 
                                                 <div class="video ${!val.show_border ? 'hide_border' : ''}">
-                                                    <${Media} name="video_${i}"/>
+                                                    <${Media} name="video_${i}" switchType=${false}/>
                                                 </div>
                                                 <div class="info">
                                                     <div class="name">

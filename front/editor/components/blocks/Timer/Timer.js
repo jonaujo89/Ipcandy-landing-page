@@ -3,8 +3,8 @@ require("Timer.tea");
 const {Block,Text,FormOrder,BlockColor,Color,TextureBackground,Switch,Dialog,Countdown} = require("../../internal");
 
 class Timer extends Block { 
-    static title = _t('Countdown');
-    static description = _t('Countdown for the stock');
+    static get title() { return _t('Countdown') }
+    static get description() { return _t('Countdown for the stock') }
 
     configForm() { 
         var val = this.value;

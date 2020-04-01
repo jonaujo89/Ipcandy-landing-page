@@ -22,12 +22,12 @@ class Services extends Block {
                 <${Switch} name="show_image_shadow" label="${_t("Show image shadow")}" showWhen=${{variant:[2]}} />
                 <${Switch} name="show_image_shadow" label="${_t("Show shadow under image")}" showWhen=${{variant:[3]}} />
                 ${val.variant == 3 && html`<label>${_t("Image size:")}</label>`}
-                <${Radio} name="image_size" items=${[
+                <${Radio} name="image_size" inline=${false} items=${[
                     {label: _t("middle"), value:"middle"},
                     {label: _t("large"), value:"large"},
                 ]} showWhen=${{variant:[3]}} />
                 ${(val.variant == 2 || val.variant == 5) && html`<label>${_t("Image shape:")}</label>`}
-                <${Radio} name="image_shape" items=${[
+                <${Radio} name="image_shape" inline=${false} items=${[
                     { label: _t("circle"), value:"circle"},
                     { label: _t("square"), value:"square"},
                 ]} showWhen=${{variant:[2,5]}} />

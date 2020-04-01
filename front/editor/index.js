@@ -20,23 +20,23 @@ window.html = require("./lib/htm").bind(preact.h);
 
 const {App} = require("./components/App");
 
-require("./components/blocks/Benefits/Benefits");
 require("./components/blocks/CoverBlock/CoverBlock");
-require("./components/blocks/Faq/Faq");
-require("./components/blocks/Gallery/Gallery");
-require("./components/blocks/Timer/Timer");
 require("./components/blocks/Header/Header");
+require("./components/blocks/Order/Order");
+require("./components/blocks/Benefits/Benefits");
 require("./components/blocks/Services/Services");
 require("./components/blocks/Reasons/Reasons");
+require("./components/blocks/Gallery/Gallery");
 require("./components/blocks/Cases/Cases");
 require("./components/blocks/Stages/Stages");
 require("./components/blocks/Feedback/Feedback");
-require("./components/blocks/Order/Order");
 require("./components/blocks/Logos/Logos");
 require("./components/blocks/Footer/Footer");
 require("./components/blocks/Video/Video");
 require("./components/blocks/TextBlock/TextBlock");
+require("./components/blocks/Timer/Timer");
 require("./components/blocks/Numbers/Numbers");
+require("./components/blocks/Faq/Faq");
 require("./components/blocks/Custom/Custom"); 
 
 lp.run = function (options) {

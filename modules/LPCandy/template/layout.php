@@ -3,7 +3,7 @@
 <head>
     <title><?= _h($title) ?></title>
     <meta charset="utf-8" />
-    <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="view/assets/images/lpcandy.png"/> 
+    <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="<?= url('assets/images/lpcandy.png') ?>/> 
     <script>
         var base_url = "<?=rtrim(url(''),"/")?>";
         var locale_lang = "<?=explode("_",bingo_get_locale())[0]?>";

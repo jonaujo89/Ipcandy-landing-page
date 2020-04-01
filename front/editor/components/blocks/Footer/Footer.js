@@ -31,9 +31,7 @@ class Footer extends Block {
                         </div>
                         ${ val.show_policy && html`
                             <div class="policy_wrap">
-                                <a class="policy" onClick=${()=>this.policyDialog.open()}>
-                                    ${window.locale_lang == 'en' ? "Information policy" : "Политика конфиденциальности"}
-                                </a>
+                                <a class="policy" onClick=${()=>this.policyDialog.open()}>${_t("Information policy")}</a>
                                 <${Dialog} ref=${(r)=>this.policyDialog=r} class="policy_dialog" overlayColor="rgba(0,0,0,0.5)">
                                     <div class="policy_info">
                                         <${Text} name="policy_info" options=${Text.size_text} />

@@ -30,10 +30,12 @@ const Media = Editable((props)=>{
         <${Cover}
             configForm=${html`
                 <${Dialog} title=${_t("Media file")} id=${"dialog_"+(props.switchType ? 'sw':'nosw')}>
-                    <${Radio} name="type" items=${[
-                        { label: _t("Image"), value: "image" },
-                        { label: _t("Video"), value: "video" }
-                    ]} />
+                    ${props.switchType !== false && html`
+                        <${Radio} name="type" items=${[
+                            { label: _t("Image"), value: "image" },
+                            { label: _t("Video"), value: "video" }
+                        ]} />
+                    `}
                     <${UploadButton} name="image_url" label=${_t("Upload file")} showWhen=${{type: 'image'}} />
                     ${ props.value.type=="video" && html`
                         <label>${_t("Video url (youtube or vimeo):")}</label>

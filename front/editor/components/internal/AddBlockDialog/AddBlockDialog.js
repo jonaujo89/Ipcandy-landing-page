@@ -14,7 +14,7 @@ class AddBlockDialog extends preact.Component {
     }
     render() {
         return html`
-            <${Dialog} title=${_t("Select component type")} width=595 ref=${(r)=>this.dialog=r}>${()=>{
+            <${Dialog} class="lp-add-block-dialog" title=${_t("Select component type")} width=595 ref=${(r)=>this.dialog=r}>${()=>{
                 var items = [];
                 for (let typeId in Block.list) {                    
                     let type = Block.list[typeId];

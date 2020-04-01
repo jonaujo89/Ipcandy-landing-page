@@ -26,7 +26,7 @@ class Order extends Block {
                     }}
                     itemWidth=${210}
                     itemHeight=${50}
-                    comboWidth=${660}
+                    comboWidth=${665}
                     comboHeight=${600}
                     dropdown=${true}
                     showWhen=${{variant:[1, 2, 6]}}
@@ -63,7 +63,7 @@ class Order extends Block {
                     }}
                     itemWidth=${50}
                     itemHeight=${50}
-                    comboWidth=${432}
+                    comboWidth=${435}
                     comboHeight=${175}
                     dropdown=${true}
                     showWhen=${{variant:[3]}}
