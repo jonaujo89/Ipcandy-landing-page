@@ -167,7 +167,7 @@ window._t.load({
     "Image shape:":"Форма изображения:",
     "Show noise":"Добавить шум к изображению",
     "Show arrow":"Стрелочка к кнопке",
-    "left<br>":"слева<br>",
+    "left":"слева",
     "center<br>":"по центру<br>",
     "right":"справа",
     "Show image title":"Название изображения",

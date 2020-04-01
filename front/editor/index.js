@@ -31,6 +31,7 @@ require("./components/blocks/Reasons/Reasons");
 require("./components/blocks/Cases/Cases");
 require("./components/blocks/Stages/Stages");
 require("./components/blocks/Feedback/Feedback");
+require("./components/blocks/Order/Order");
 
 lp.run = function (options) {
     options.isGlobal = true;
