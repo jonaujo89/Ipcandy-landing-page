@@ -1,0 +1,166 @@
+.stages {
+    .title {
+        margin: 15px 0 10px 0;
+        text-align: center;
+        font-weight: 400;
+
+        .font_size_flexible(12, 48, 32);
+    }
+
+    .title_2 {
+        margin: 10px 0 25px 0;
+        text-align: center;
+        font-weight: 300;
+
+        .font_size_flexible(12, 25, 18);
+    }
+
+    .item_list {
+        margin-top: 35px;
+    }
+    
+    &.stages_1 {
+        .item_list {
+            .item.col-3 {
+                text-align: center;
+
+                &:first-child {
+                    .arrow {
+                        display: none;
+                    }
+                }
+
+                .arrow {
+                    position: absolute;
+                    top: 40px;
+                    left: -50px;
+                    width: 100px;
+                    height: 20px;
+                    background-image: url("@{assetsPath}/stages/arrow.retina.png");
+                    background-size: 100px 10px;
+                    background-repeat: no-repeat;
+                }
+
+                .ico {
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                    border-radius: 43px;
+                    background-repeat: no-repeat;
+                    background-size: 40px;
+                    background-position: center center;
+                    overflow: hidden;
+                    z-index: 1;
+                }
+
+                .name {
+                    margin-bottom: 18px;
+                    color: @headingColor;
+                    font-size: 1.25rem;
+                    font-family: @headingFont, @primaryFont;
+                    font-weight: 600;
+                }
+
+                .desc {
+                    font-size: 0.875rem;
+                    line-height: 1.57;
+                }
+
+                @media (max-width: @grid.mediaWidth()) {
+                    float: none;
+                    margin-x: auto;
+
+                    & + .item {
+                        margin-top: 35px;
+                    }
+
+                    .arrow {
+                        top: -20px;
+                        left: 50%;
+                        margin-left: -30px;
+                        transform: rotate(90deg) scale(.75);
+                        background-position: -40px;
+                        width: 60px;
+                        height: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.stages_2 {
+        .item_list.row {
+            justify-content: center;
+            .item.col-2 {
+                margin-y: 15px;
+                text-align: center;
+
+                &:first-child .line {
+                    display: none;
+                }
+
+                &:nth-child(2) .number {
+                    background-position: -60px 0;
+                }
+
+                &:nth-child(3) .number {
+                    background-position: -120px 0;
+                }
+
+                &:nth-child(4) .number {
+                    background-position: -180px 0;
+                }
+
+                &:nth-child(5) .number {
+                    background-position: -240px 0;
+                }
+
+                .line {
+                    position: absolute;
+                    top: 40px;
+                    left: -30px;
+                    width: 60px;
+                    height: 20px;
+                    background-repeat: no-repeat;
+                    background-image: url("@{assetsPath}/stages/line.retina.png");
+                    background-size: 60px 4px;
+                }
+
+                .number {
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                    border-radius: 43px;
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+                    background-image: url("@{assetsPath}/stages/number.png");
+                }
+
+                .name {
+                    font-size: 0.9375rem;
+                }
+
+                @media (max-width: @grid.mediaWidth()) {
+                    float: none;
+                    margin-x: auto;
+
+                    & + .item {
+                        margin-top: 20px;
+                    }
+
+                    .line {
+                        top: -15px;
+                        left: 50%;
+                        margin-left: -15px;
+                        width: 30px;
+                        height: 5px;
+                        transform: rotate(90deg);
+                        background-position: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
