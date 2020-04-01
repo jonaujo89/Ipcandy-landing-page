@@ -52,7 +52,7 @@ const UploadButton = Editable(class extends preact.Component{
         `;
     }
 })
-UploadButton.defaultProps = {
+UploadButton.Type.defaultProps = {
     iconWidth: 64,
     iconHeight: 52,
     uploadDir: 'files'

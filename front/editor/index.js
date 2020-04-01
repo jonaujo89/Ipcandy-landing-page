@@ -37,6 +37,7 @@ require("./components/blocks/Footer/Footer");
 require("./components/blocks/Video/Video");
 require("./components/blocks/TextBlock/TextBlock");
 require("./components/blocks/Numbers/Numbers");
+require("./components/blocks/Custom/Custom"); 
 
 lp.run = function (options) {
     options.isGlobal = true;

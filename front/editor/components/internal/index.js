@@ -23,4 +23,6 @@ exports = {
     ...require("UploadButton/UploadButton"),
     ...require("Logo/Logo"),
     ...require("LogoItem/LogoItem"),
+    ...require("Liquid/Liquid"),
+    ...require("Textarea/Textarea"),
 }
