@@ -4,40 +4,44 @@ window.bundler = {
     build: function () {
         var me = this;
 
-        function bundlerRequest(entry_point,css,js) {
-            console.debug('minifying css '+entry_point);
-            css = css ? CleanCSS.process(css) : '';
-            
-            console.debug('minifying js '+entry_point);
-            js = js || '';
-            if (js) {
-                var terserResult = Terser.minify(js);
-                if (terserResult.error) {
-                    window._js = js;
-                    console.debug("minify error", terserResult.error);
-                } else {
-                    js = terserResult.code;
-                }
-            }
-
+        function request(url,data,cb) {
             var request = new XMLHttpRequest();
-            request.open('POST', me.base_url + "bundler/build", true);
+            request.open('POST', me.base_url + url, true);
             request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
             request.onload = function() {
-                if (request.status >= 200 && request.status < 400) {
-                    console.debug(request.responseText);
-                }
+                if (request.status >= 200 && request.status < 400) cb(request.responseText);
             };        
-            request.send(
-                "entry_point="+encodeURIComponent(entry_point)+"&"+
-                "css="+encodeURIComponent(css||"")+"&"+
-                "js="+encodeURIComponent(js||"")
-            );
+            request.send(data);
+        }
+
+        function bundlerRequest(bundle_path,entry_point,css,js) {
+            window.Terser ? process() : request(bundle_path,"load=1",(text)=>{eval(text);process()});
+            function process() {
+                console.debug('minifying css '+entry_point);
+                css = css ? CleanCSS.process(css) : '';
+
+                console.debug('minifying js '+entry_point);
+                js = js || '';
+                if (js) {
+                    var terserResult = Terser.minify(js);
+                    if (terserResult.error) {
+                        window._js = js;
+                        console.debug("minify error", terserResult.error);
+                    } else {
+                        js = terserResult.code;
+                    }
+                }
+                request('bundler/build',
+                    "entry_point="+encodeURIComponent(entry_point)+"&"+
+                    "css="+encodeURIComponent(css||"")+"&"+
+                    "js="+encodeURIComponent(js||"")
+                ,console.debug);
+            }
         }
 
         this.js_sheets.forEach(function(sheet) {
             console.debug('building js '+sheet.entry_point);
-            bundlerRequest(sheet.entry_point,sheet.build_css,sheet.build_js);
+            bundlerRequest(sheet.bundle_path,sheet.entry_point,sheet.build_css,sheet.build_js);
         });
 
         try {
@@ -114,6 +118,7 @@ window.bundler = {
 
         var sheet = {
             entry_point: entry_point,
+            bundle_path: bundle_path,
             build_js: "("+me.loadRequire.toString()+")(window,document.currentScript.src.replace(/\\/[^/]*?$/,'/'))\n",
             build_css: ""
         };

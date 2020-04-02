@@ -18,11 +18,15 @@ class Bundler extends \Bingo\Module {
         $deps = self::loadDependencies($entry_point,$bundle_path);
 
         ?>function __bundler_load(key,src) { if (!window[key]) eval.call(window,src+"//# sourceURL=file://bundler/"+key+".js") }<? echo PHP_EOL;
-        ?>__bundler_load('bundler',<?=json_encode(file_get_contents(__DIR__.'/../assets/bundler.js'))?>)<? echo PHP_EOL;
-        ?>__bundler_load('CleanCSS',<?=json_encode(file_get_contents(__DIR__.'/../assets/clean-css.js'))?>)<? echo PHP_EOL;
-        ?>__bundler_load('Terser',<?=json_encode(file_get_contents(__DIR__.'/../assets/terser.min.js'))?>)<? echo PHP_EOL;
-        ?>__bundler_load('teacss',<?=json_encode(file_get_contents(__DIR__.'/../assets/teacss.js'))?>)<? echo PHP_EOL;
-        ?>bundler.run(<?=json_encode($entry_point)?>,<?=json_encode($bundle_path)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>)<? echo PHP_EOL;
+
+        if (isset($_POST['load'])) {
+            ?>__bundler_load('CleanCSS',<?=json_encode(file_get_contents(__DIR__.'/../assets/clean-css.js'))?>)<? echo PHP_EOL;
+            ?>__bundler_load('Terser',<?=json_encode(file_get_contents(__DIR__.'/../assets/terser.min.js'))?>)<? echo PHP_EOL;
+        } else {
+            ?>__bundler_load('bundler',<?=json_encode(file_get_contents(__DIR__.'/../assets/bundler.js'))?>)<? echo PHP_EOL;
+            ?>__bundler_load('teacss',<?=json_encode(file_get_contents(__DIR__.'/../assets/teacss.js'))?>)<? echo PHP_EOL;
+            ?>bundler.run(<?=json_encode($entry_point)?>,<?=json_encode($bundle_path)?>,<?=json_encode($base_url)?>,<?=json_encode($deps)?>)<? echo PHP_EOL;
+        }
     }
 
     static function getCachePath($bundle_path) {
