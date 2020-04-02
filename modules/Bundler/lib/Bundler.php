@@ -89,10 +89,10 @@ class Bundler extends \Bingo\Module {
         };
 
         $process = function ($rel_path,$type) use (&$cache,$bundle_dir,&$process,&$import2rel) {
-            if (isset($cache[$rel_path])) return;
+            if (isset($cache[$type][$rel_path])) return;
 
             $path = $bundle_dir.$rel_path;
-            if (!file_exists($path) || is_dir($path)) return $cache[$rel_path] = false;
+            if (!file_exists($path) || is_dir($path)) return $cache[$type][$rel_path] = false;
 
             $path_ext = pathinfo($rel_path,PATHINFO_EXTENSION);
             $text = file_get_contents($path);
