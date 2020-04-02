@@ -1,6 +1,7 @@
 window.bundler = {
     base_url: "",
     js_sheets: [],
+    js_transform: false,
     build: function () {
         var me = this;
 
@@ -29,6 +30,10 @@ window.bundler = {
                         console.debug("minify error", terserResult.error);
                     } else {
                         js = terserResult.code;
+                        if (bundler.js_transform) {
+                            console.debug('custom transform',bundler.js_transform);
+                            js = bundler.js_transform(js);
+                        }
                     }
                 }
                 request('bundler/build',
