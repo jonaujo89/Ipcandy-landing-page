@@ -1,0 +1,33 @@
+.lp-dialog-yandex-map {
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 5px;
+
+        tr {
+            border-bottom: 1px solid #ccc;
+        }
+
+        td,th {
+            padding: 5px;
+        }
+
+        td {
+            .lp-panel, .lp-input {
+                margin: 0;
+            }
+            > button {
+                margin: 0 !important;
+            }
+            input.invalid {
+                background: #faa;
+            }
+        }
+
+        td:nth-last-child(1),
+        td:nth-last-child(2)
+        {
+            width: 1px;
+        }
+    }
+}

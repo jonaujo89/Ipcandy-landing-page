@@ -31,6 +31,7 @@ require("./components/blocks/Gallery/Gallery");
 require("./components/blocks/Cases/Cases");
 require("./components/blocks/Stages/Stages");
 require("./components/blocks/Feedback/Feedback");
+require("./components/blocks/Map/Map");
 require("./components/blocks/Logos/Logos");
 require("./components/blocks/Footer/Footer");
 require("./components/blocks/Video/Video");

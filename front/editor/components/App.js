@@ -5,6 +5,12 @@ const {AddBlockDialog} = require("internal/AddBlockDialog/AddBlockDialog");
 
 class App extends preact.Component {
 
+    static ready(f) {
+        if (lp.app) return f();
+        App.ready_list = App.ready_list || [];
+        App.ready_list.push(f);
+    }
+
     constructor(props) {
         super(props);
 
@@ -21,7 +27,10 @@ class App extends preact.Component {
         
         this.blocks = [];
 
-        if (props.isGlobal) lp.app = this;
+        if (props.isGlobal) {
+            lp.app = this;
+            (App.ready_list || []).forEach((f)=>f());
+        }
 
         $(document).on("mouseup",(e)=>this.draggableMouseUp());
         $(document).on("mousemove",(e)=>this.draggableMouseMove(e));
