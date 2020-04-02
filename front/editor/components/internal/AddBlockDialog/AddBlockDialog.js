@@ -18,6 +18,7 @@ class AddBlockDialog extends preact.Component {
                 var items = [];
                 for (let typeId in Block.list) {                    
                     let type = Block.list[typeId];
+                    let miniature = type.id[0].toLowerCase()+type.id.substring(1);
                     items.push(html`
                         <div class='lp-add-block-item' 
                             onClick=${()=>{
@@ -28,7 +29,7 @@ class AddBlockDialog extends preact.Component {
                                 lp.app.draggableMouseDown(e,{value:{type:typeId}})
                             }}
                         >
-                            <div class='lp-add-block-item-pic' style=${{backgroundImage:"url('"+base_url+"/"+lp.app.options.assets_url+"/miniatures/"+type.id.toLowerCase()+".jpg')"}} />
+                            <div class='lp-add-block-item-pic' style=${{backgroundImage:"url('"+base_url+"/"+lp.app.options.assets_url+"/miniatures/"+miniature+".jpg')"}} />
                             ${type.title}
                             <small>${type.description}</small>
                         </div>

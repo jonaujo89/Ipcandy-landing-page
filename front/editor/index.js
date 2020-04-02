@@ -23,6 +23,7 @@ const {App} = require("./components/App");
 require("./components/blocks/CoverBlock/CoverBlock");
 require("./components/blocks/Header/Header");
 require("./components/blocks/Order/Order");
+require("./components/blocks/StickyMenu/StickyMenu");
 require("./components/blocks/Benefits/Benefits");
 require("./components/blocks/Services/Services");
 require("./components/blocks/Reasons/Reasons");

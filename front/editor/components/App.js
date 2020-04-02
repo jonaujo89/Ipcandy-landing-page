@@ -3,18 +3,6 @@ const {Block} = require("internal/Block/Block");
 const {Dialog} = require("internal/Dialog/Dialog");
 const {AddBlockDialog} = require("internal/AddBlockDialog/AddBlockDialog");
 
-class AppBlock {
-    shouldComponentUpdate(nextProps) {
-        return nextProps.value != this.props.value || lp.app.state.preview != this.preview;
-    }
-    render(props) {
-        this.preview = lp.app.state.preview;
-        const BlockType = Block.list[props.value.type];
-        if (BlockType) return html`<${ BlockType } value=${props.value} />`;
-        console.debug("Undefined block type",props.value);
-    }
-}
-
 class App extends preact.Component {
 
     constructor(props) {
@@ -173,15 +161,19 @@ class App extends preact.Component {
             `}
             <div id="frame-panel">
                 ${state.blocks.map((block,blockIndex) => {
-                    var blockNode = preact.h(AppBlock,{
-                        value:block.value, 
+                    const BlockType = Block.list[block.value.type];
+                    if (!BlockType) console.debug("Undefined block type",block.value);
+                    
+                    var blockNode = BlockType && preact.h(BlockType,{
+                        value: block.value, 
                         key: block.value.id, 
                         ref: (r) => { 
                             if (!r) return;
                             if (blockIndex==0) this.blocks=[]; 
                             this.blocks.push(r); 
                         } 
-                    });
+                    })
+
                     if (blockIndex==state.dragHandleIndex) return [dropMarker,blockNode];
                     if (blockIndex==state.blocks.length-1 && state.dragHandleIndex==blockIndex+1) return [blockNode,dropMarker];
                     return blockNode;

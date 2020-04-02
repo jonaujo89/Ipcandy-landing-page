@@ -24,6 +24,12 @@ class Block extends preact.Component {
         this.setValue(props.value);
     }
 
+    shouldComponentUpdate(nextProps) {
+        var res = nextProps.value != this.props.value || lp.app.state.preview != this.preview;
+        this.preview = lp.app.state.preview;
+        return res;
+    }    
+
     setValue(val) {
         var variant = val.variant || 1;
         var def_f = this['tpl_default_'+variant] || (() => {});
