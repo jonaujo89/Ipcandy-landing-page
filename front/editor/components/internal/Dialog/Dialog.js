@@ -161,7 +161,7 @@ class Prompts extends preact.Component {
         };
 
         Dialog.confirm = (options,cb) => {
-            if ($.type(options)=="string") {
+            if (typeof options=="string") {
                 options = {
                     text: options
                 }
@@ -179,7 +179,7 @@ class Prompts extends preact.Component {
         }
 
         Dialog.alert = (options,cb) => {
-            if ($.type(options)=="string") {
+            if (typeof options=="string") {
                 options = {
                     text: options
                 }

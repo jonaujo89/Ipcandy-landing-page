@@ -6,13 +6,11 @@ window._t.load = function(h) { window._t.hash = {...window._t.hash,...h} }
 if (window.locale_lang=="ru") require("./locale/ru.js");
 
 window.lp = {};
-require("./lib/jquery.min.js");
 
 require("./style/font-awesome.css");
 require("./style/page.css");
 require("./style/pageFonts.css");
 require("./style/components.tea");
-require("../../public/assets/plugins/plugins.tea");
 
 window.preact = require("./lib/preact");
 window.preact.hooks = require("./lib/preact_hooks");
@@ -43,5 +41,7 @@ require("./components/blocks/Custom/Custom");
 
 lp.run = function (options) {
     options.isGlobal = true;
-    $(()=> preact.render(preact.h(App,options),$("#app")[0]));
+    document.addEventListener("DOMContentLoaded",()=>{
+        preact.render(preact.h(App,options),document.getElementById("app"));
+    });
 }

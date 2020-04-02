@@ -32,8 +32,8 @@ class App extends preact.Component {
             (App.ready_list || []).forEach((f)=>f());
         }
 
-        $(document).on("mouseup",(e)=>this.draggableMouseUp());
-        $(document).on("mousemove",(e)=>this.draggableMouseMove(e));
+        document.addEventListener("mouseup",(e)=>this.draggableMouseUp());
+        document.addEventListener("mousemove",(e)=>this.draggableMouseMove(e));
     }
 
     draggableMouseDown(e,cmp) {
@@ -56,35 +56,36 @@ class App extends preact.Component {
 
                 if (currentIndex==-1) {
                     var block = {value:{...this.dragComponent.value,id:this.newBlockId()}};
-                    var $drag = $(".drop-marker");
+                    var dragEl = document.getElementsByClassName("drop-marker");
                     blocks.splice(dropIndex,0,block);
                 } else {
                     var block = blocks[currentIndex];
-                    var $drag = $(this.dragComponent.base);
+                    var dragEl = this.dragComponent.base;
                     blocks.splice(currentIndex,1);
                     if (currentIndex < dropIndex) dropIndex--;
                     blocks.splice(dropIndex,0,block);
                 }
+
+                var rect = document.createElement("div");
+                rect.className = "drop-rect";
+                Object.assign(rect.style,{ top: dragEl.offsetTop+"px", height: dragEl.clientHeight+"px", opacity: 1 });
+                document.body.append(rect);
                 
-                var $rect = $("<div class='drop-rect'>").appendTo("body").css({ 
-                    top: $drag.offset().top, height: $drag[0].clientHeight, opacity: 1
-                });
-                var scrollTop = $("html").scrollTop();
+                var scrollTop = document.documentElement.scrollTop;
                     
                 this.setState({blocks},()=>{
                     this.triggerChange();
-                    var $block = $(this.blocks[dropIndex].base);
-                    var off = $block.offset();
+                    var blockEl = this.blocks[dropIndex].base;
 
-                    $("html").scrollTop(scrollTop);
-                    $rect.css({top: $block.offset().top, height: $block[0].clientHeight, opacity:0});
-                    setTimeout(()=>$rect.remove(),1000);
+                    document.documentElement.scrollTop = scrollTop;
+                    Object.assign(rect.style,{top: blockEl.offsetTop+"px", height: blockEl.clientHeight+"px", opacity:0});
+                    setTimeout(()=>rect.remove(),1000);
                 });
             }
 
             this.setState({dragHandleIndex:-1});
             this.dragging = false;
-            $("body").removeClass("dragging");
+            document.body.classList.remove("dragging");
         }
         this.dragComponent = false;
     }
@@ -93,7 +94,7 @@ class App extends preact.Component {
         if (this.dragComponent && !this.dragging) {
             if (Math.abs(e.pageX-this.dragPoint.x)>3 || Math.abs(e.pageY-this.dragPoint.y)>3) {
                 this.dragging = true;
-                $("body").addClass("dragging");
+                document.body.classList.add("dragging");
                 this.addBlockDialog.close();
             }
         }
@@ -115,7 +116,7 @@ class App extends preact.Component {
                 }
             }
             if (this.prevMove) {
-                let wh = $(window).height();
+                let wh = document.body.clientHeight;
                 let dragScrollHeight = 100;
                 let delta = Math.abs(this.prevMove.clientY - e.clientY);
                 let direction = 0;
@@ -124,7 +125,7 @@ class App extends preact.Component {
                 if (e.clientY > wh - dragScrollHeight) direction = 5;
 
                 if (delta*direction) {
-                    $('html').animate({scrollTop: $("html").scrollTop() + delta*direction},0,"linear");
+                    document.documentElement.scrollTop += delta*direction;
                 }
             }
 
@@ -228,7 +229,7 @@ class App extends preact.Component {
             assets_url: this.options.assets_url,
             blocks: this.state.blocks,
             viewOnly: true
-        }),$("<div>")[0]);
+        }),document.createElement("div"));
     }
 
     removeBlock(blockComponent) {

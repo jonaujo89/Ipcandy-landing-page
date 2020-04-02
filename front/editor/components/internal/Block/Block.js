@@ -34,7 +34,7 @@ class Block extends preact.Component {
         var variant = val.variant || 1;
         var def_f = this['tpl_default_'+variant] || (() => {});
         var defaultValue = def_f();
-        var fullValue = $.extend({variant},defaultValue,val);
+        var fullValue = {...{variant},...defaultValue,...val};
         
         this.defaultValue = defaultValue;
         this.value = fullValue;
@@ -79,9 +79,10 @@ class Block extends preact.Component {
 
     setVariant(variant) {
         this.variantValues[this.value.variant] = this.value;
-        this.setValue(
-            $.extend(this.variantValues[variant] || { type:this.value.type, id:this.value.id },{variant})
-        );
+        this.setValue({
+            ...(this.variantValues[variant] || { type:this.value.type, id:this.value.id }),
+            variant
+        });
         lp.app.blockChanged(this);
     }
 
