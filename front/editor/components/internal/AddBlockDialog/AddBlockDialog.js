@@ -18,7 +18,7 @@ class AddBlockDialog extends preact.Component {
                 var items = [];
                 for (let typeId in Block.list) {                    
                     let type = Block.list[typeId];
-                    let miniature = type.id[0].toLowerCase()+type.id.substring(1);
+                    let miniature = type.id.replace(/^[A-Z]+/,(match)=>match.toLowerCase());
                     items.push(html`
                         <div class='lp-add-block-item' 
                             onClick=${()=>{
