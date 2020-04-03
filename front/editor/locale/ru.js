@@ -1,4 +1,5 @@
 window._t.load({
+    "field is required":"обязательное поле",
     "bold":"жирный",
     "italic":"наклонный",
     "Yes" : "Да",

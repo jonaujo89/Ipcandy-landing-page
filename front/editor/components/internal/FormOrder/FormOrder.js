@@ -1,138 +1,55 @@
 require("./FormOrder.tea");
-
-const {Input} = require("../Input/Input");
 const {Text} = require("../Text/Text");
 const {Dialog} = require("../Dialog/Dialog"); 
 const {Editable} = require("../Editable/Editable");
 const {Cover} = require("../Cover/Cover");
 const {Color} = require("../Color/Color");
-const {Switch} = require("../Switch/Switch");
-const {ValueContext} = require("../Block/Block");
-
-const FieldLabel = (props)=>{
-    let {label,required,desc} = props.value;
-    label = (label || "").trim();
-    desc = (desc || "").trim();
-    return html`
-        ${label && html`
-            <div class="field_title">
-                ${ required && html`<i>*</i>` }
-                ${label}
-            </div>
-        `}
-        ${desc && html`
-            <div class="desc">
-                ${desc}
-            </div>
-        `}
-    `
-};
-
-let formControls = {
-    text: {
-        selectLabel: _t("Text"),
-        selectIcon: "font",
-        configForm: (props)=>html`
-            <label>${_t("Field label")}</label>
-            <${Input} name="label" />
-            <label>${_t("Field description")}</label>
-            <${Input} name="desc" />
-            <label>${_t("Field placeholder")}</label>
-            <${Input} name="placeholder" />
-            <${Switch} name="required" label=${_t("Is required?")} />
-        `,
-        tpl: (value)=>html`
-            <div class="form_field">
-                <label>
-                    <${FieldLabel} value=${value} />
-                    <input class="form_field_text" type="text" placeholder=${value.placeholder || ""} />
-                    <div class="error" />
-                </label>
-            </div>
-        `
-    },
-    textarea: {
-        selectLabel: _t("Text area"),
-        selectIcon: "bars",
-        configForm: (props)=>html`
-            <${formControls.text.configForm} />
-        `,
-        tpl: (value)=>html`
-            <div class="form_field">
-                <label>
-                    <${FieldLabel} value=${value} />
-                    <textarea class="form_field_textarea" rows="3" placeholder=${value.placeholder || ""} />
-                    <div class="error" />
-                </label>
-            </div>        
-        `
-    }
-}
-
-
-const FieldsRepeater = Editable((props)=>{
-
-    [selected,setSelected] = preact.hooks.useState(-1);
-
-    function addField(type) {
-        var cls = formControls[type];
-        var item_default = {type:type,label:cls.selectLabel};
-        var new_value = [...props.value,item_default];
-        setSelected(new_value.length-1);
-        props.onChange(new_value);            
-    }
-
-    function removeField(idx) {
-        var new_value = [...props.value];
-        new_value.splice(idx,1);
-        props.onChange(new_value);
-        if (selected==idx) setSelected(-1);
-    }
-
-    return html`<div class="lp-form-repeater">
-        <div class="lp-form-repeater-items">
-            ${props.value.map((sub,sub_idx)=>{
-                var type = formControls[sub.type];
-                return html`
-                    <div class="lp-form-repeater-item ${sub_idx==selected ? "selected":""}">
-                        <div class="lp-form-repeater-item-title" onClick=${()=>setSelected(sub_idx==selected ? -1 : sub_idx)}>
-                            <i class="fa fa-${type.selectIcon}" />
-                            ${sub.label || "["+sub.placeholder+"]"}
-                            <span class="lp-form-repeater-button-remove" onClick=${()=>removeField(sub_idx)}>
-                                <i class="fa fa-times" />
-                            </span>
-                        </div>
-                        <div class="lp-form-repeater-item-content">
-                            <${ValueContext.Provider} value=${{value:sub,name:props.fullName+"."+sub_idx}}>
-                                <${type.configForm} />
-                            <//>
-                        </div>
-                    </div>
-                `;
-            })}
-        </div>
-        <div class="lp-form-repeater-item">
-            <div class="lp-form-repeater-item-title">
-                ${_t("Add Field")}
-            </div>
-            <div class="lp-form-repeater-item-content">
-                ${Object.keys(formControls).map((typeId)=>{ 
-                    let type = formControls[typeId];
-                    return html`
-                    <button onClick=${()=>addField(typeId)}>
-                        <i class="fa fa-${type.selectIcon}"></i>
-                        ${type.selectLabel}
-                    </button>`
-                })}
-            </div>
-        </div>
-    </div>`
-});
+const {Input} = require("../Input/Input");
+const {FieldsRepeater} = require("FieldsRepeater");
+const {formControls} = require("FormControl");
 
 const FormOrder = Editable(class extends preact.Component {
     showFormSuccess() {
         Dialog.closeAll();
         this.successDialog.open();
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+
+        let valid = true;
+        this.fields.forEach((field)=>{
+            if (!field.validate()) valid = false;
+        });
+        if (!valid) return;
+
+        var file_counter = 0
+        var values = [];
+        var data = new FormData();
+
+        this.fields.forEach((field)=>{
+            var value = field.getValue();
+            if (value instanceof FileList) {
+                value = Array.from(value).map((file)=>{
+                    var name = 'file-'+file_counter++;
+                    data.append(name,file);
+                    return name;
+                });
+            }
+            values.push({label:field.props.value.label,value:value});
+        });
+
+        data.append('form',JSON.stringify(values));
+
+        fetch(base_url+"/track/"+page_id,{
+            method: "POST",
+            body: data
+        }).then((response)=>{
+            response.text().then(()=>{
+                this.fields.forEach((field)=>field.reset());
+                this.showFormSuccess();
+            })
+        })
     }
     
     render(props) {
@@ -165,9 +82,17 @@ const FormOrder = Editable(class extends preact.Component {
                     <//>            
                 `}
             >
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="" method="post" enctype="multipart/form-data" onSubmit=${(e) => this.onSubmit(e)}>
                     <div class="form_fields">  
-                        ${props.value.fields.map((sub)=>formControls[sub.type].tpl(sub))}
+                        ${props.value.fields.map((sub, sub_idx) => {
+                            const ControlType = formControls[sub.type];
+                            if (!ControlType) { console.debug('Field control type is not defined',sub); return; }
+                            return html`<${ControlType} value=${sub} ref=${(r)=>{
+                                if (!r) return;
+                                if (sub_idx==0) this.fields=[]; 
+                                this.fields.push(r); 
+                            }} />`;
+                        })}
                     </div>
                     <div class="form_submit">
                         <button type="submit" class="form_field_submit ${props.value.button.color}">

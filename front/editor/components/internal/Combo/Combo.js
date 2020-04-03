@@ -63,7 +63,7 @@ class Combo extends preact.Component {
             ${props.dropdown && html`
                 <button class='lp-combo' ref=${(r)=>this.button=r} onClick=${()=>this.toggle()}>
                     <div class="lp-combo-button-item">
-                        ${props.tpl_item(selectedItem)}
+                        ${props.tpl_item(selectedItem,true)}
                     </div>
                     <i class="fa fa-sort-down"/>
                 </button>            
@@ -80,6 +80,7 @@ class Combo extends preact.Component {
                             onClick=${()=>{
                                 this.setState({prevValue:undefined});
                                 props.onChange(item.value);
+                                if (props.closeOnSelect) this.setState({is_open:false});
                             }}
                             onMouseEnter=${()=>{
                                 if (!props.preview) return;
@@ -105,7 +106,8 @@ Combo.defaultProps = {
     items: [],
     background: "",
     preview: true,
-    dropdown: false
+    dropdown: false,
+    closeOnSelect: false
 }
 Combo = Editable(Combo);
 

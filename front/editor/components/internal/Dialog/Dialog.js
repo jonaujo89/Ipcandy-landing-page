@@ -160,8 +160,8 @@ class Prompts extends preact.Component {
     componentDidMount() {
         let open = (what) => {
             what.open({
-                x: document.body.clientWidth/2 - what.props.width/2,
-                y: document.body.clientHeight/5
+                x: document.documentElement.clientWidth/2 - what.props.width/2,
+                y: document.documentElement.clientHeight/5
             });
         };
 

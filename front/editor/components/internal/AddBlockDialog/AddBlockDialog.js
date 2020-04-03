@@ -5,7 +5,7 @@ const {Dialog} = require("../Dialog/Dialog");
 class AddBlockDialog extends preact.Component {
     open() {
         this.dialog.open({
-            x: document.body.clientWidth/2 - this.dialog.props.width/2,
+            x: document.documentElement.clientWidth/2 - this.dialog.props.width/2,
             y: document.getElementById("preview-toolbar").offsetHeight
         });
     }

@@ -116,7 +116,7 @@ class App extends preact.Component {
                 }
             }
             if (this.prevMove) {
-                let wh = document.body.clientHeight;
+                let wh = document.documentElement.clientHeight;
                 let dragScrollHeight = 100;
                 let delta = Math.abs(this.prevMove.clientY - e.clientY);
                 let direction = 0;

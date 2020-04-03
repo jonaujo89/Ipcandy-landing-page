@@ -102,9 +102,11 @@ class Track extends Base {
                             $files_str[] = anchor('track-file/'.$track->id.'?file='.urlencode($f['dest'])."&name=".urlencode($f['src']),$f['src']);
                         }
                     }
-                    $sub = implode(", ",$files_str);
+                    $sub_clean = implode(", ",$files_str);
+                } else {
+                    $sub_clean = htmlentities($sub);
                 }
-                $data.="<b>".htmlspecialchars($one['label']).": </b>".htmlentities($sub)."<br>";
+                $data.="<b>".htmlspecialchars($one['label']).": </b>".$sub_clean."<br>";
             }
             return $data;
         }; 

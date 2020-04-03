@@ -236,12 +236,12 @@ class Page extends \LPCandy\Models\Page implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getUrl($sub = false)
+    public function getPagePath($published)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUrl', array($sub));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPagePath', array($published));
 
-        return parent::getUrl($sub);
+        return parent::getPagePath($published);
     }
 
     /**
@@ -258,56 +258,78 @@ class Page extends \LPCandy\Models\Page implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getTemplate()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTemplate', array());
-
-        return parent::getTemplate();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getTemplatePath($sub = false)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTemplatePath', array($sub));
-
-        return parent::getTemplatePath($sub);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getSettingsPath()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSettingsPath', array());
-
-        return parent::getSettingsPath();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getPublishPath()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPublishPath', array());
-
-        return parent::getPublishPath();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function copyFromTemplate($other)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'copyFromTemplate', array($other));
 
         return parent::copyFromTemplate($other);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function loadBlocks($published = false)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'loadBlocks', array($published));
+
+        return parent::loadBlocks($published);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function saveBlocks($blocks, $published = false)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'saveBlocks', array($blocks, $published));
+
+        return parent::saveBlocks($blocks, $published);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function publish($blocks, $html)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'publish', array($blocks, $html));
+
+        return parent::publish($blocks, $html);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPublishedHtml()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPublishedHtml', array());
+
+        return parent::getPublishedHtml();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function makeScreenshot()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'makeScreenshot', array());
+
+        return parent::makeScreenshot();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function upload($name, $iconWidth, $iconHeight)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'upload', array($name, $iconWidth, $iconHeight));
+
+        return parent::upload($name, $iconWidth, $iconHeight);
     }
 
     /**
