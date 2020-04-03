@@ -39,7 +39,7 @@
                 }
 
                 .answer {
-                    margin-top: 14px;
+                    margin-top: 0px;
                     color: @subHeadingColor;
                     font-size: 15px;
                     font-family: @subHeadingFont;
@@ -47,7 +47,7 @@
                     overflow: hidden;
                     height: 0px;
                     opacity: 0;
-                    transition: opacity 0.5s ease-in-out;
+                    transition: opacity 0.5s, margin 0.5s;
                 }
             }
 
@@ -65,6 +65,7 @@
             &.active {
                 .faq-content .answer {
                     opacity: 1.0;
+                    margin-top: 14px;
                     height: auto;
                 }
             }
