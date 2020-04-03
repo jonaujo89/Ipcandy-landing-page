@@ -2,8 +2,9 @@ require("./Faq.tea");
 const {Block,Repeater,Text,Icon,BlockColor,Switch,Dialog} = require("../../internal");
 
 const FAQItem = ({val,item_val}) => {
+    const [active,setActive] = preact.hooks.useState(false);
     return html`
-        <div class="faq-item">
+        <div class="faq-item ${active?'active':''}" onClick=${()=>setActive(!active)}>
             ${ val.show_icon && html`
                 <div class="icon"><${Icon} name='@icon' /></div>
             `}

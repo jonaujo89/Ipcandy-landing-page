@@ -44,7 +44,10 @@
                     font-size: 15px;
                     font-family: @subHeadingFont;
                     line-height: 1.6;
-                    display: none;
+                    overflow: hidden;
+                    height: 0px;
+                    opacity: 0;
+                    transition: opacity 0.5s ease-in-out;
                 }
             }
 
@@ -57,7 +60,14 @@
 
             &.active:after  {
                 content: "–";
-            }            
+            }    
+
+            &.active {
+                .faq-content .answer {
+                    opacity: 1.0;
+                    height: auto;
+                }
+            }
         }
     }
 
