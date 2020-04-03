@@ -31,8 +31,8 @@ class Footer extends Block {
                         </div>
                         ${ val.show_policy && html`
                             <div class="policy_wrap">
-                                <a class="policy" onClick=${()=>this.policyDialog.open()}>${_t("Information policy")}</a>
-                                <${Dialog} ref=${(r)=>this.policyDialog=r} class="policy_dialog" overlayColor="rgba(0,0,0,0.5)">
+                                <a class="policy" href="#" onClick=${(e)=>{e.preventDefault();this.policyDialog.open()}}>${_t("Information policy")}</a>
+                                <${Dialog} ref=${(r)=>this.policyDialog=r} class="policy_dialog" scrollable=${true} overlayColor="rgba(0,0,0,0.5)">
                                     <div class="policy_info">
                                         <${Text} name="policy_info" options=${Text.size_text} />
                                     </div>
@@ -62,7 +62,7 @@ class Footer extends Block {
             'desc': "The best circus «One and the same are at the circus ring»,<br>Moscow, Color Blvd., 13",
             'phone': '+7 (495) 321-46-98',
             'phone_desc': 'Free call from Venus',
-            'policy_info': `<div class="policy_info_alertify">
+            'policy_info': `
                 <h2>Privacy Policy</h2>
                 <p>This privacy policy discloses the privacy practices for lpcandy.ru. This privacy policy applies solely to information collected by this web site.</p>
                 <p>It will notify you of the following:</p>
@@ -91,7 +91,7 @@ class Footer extends Block {
                 <h3>Updates</h3>
                 <p>Our Privacy Policy may change from time to time and all updates will be posted on this page.</p>
                 <p>If you feel that we are not abiding by this privacy policy, you should contact us immediately via email.</p>
-                </div>`,
+            `,
         } : {
             'show_policy': true,
             'background_color': '#FFFFFF',
@@ -99,7 +99,7 @@ class Footer extends Block {
             'desc': "Лучший цирк «НА МАНЕЖЕ ВСЕ ТЕ ЖЕ»,<br>г.Москва, Цветной бульвар, 13",
             'phone': '+7 (495) 321-46-98',
             'phone_desc': 'Звонок с Венеры бесплатный',
-            'policy_info': `<div class="policy_info_alertify">
+            'policy_info': `
                 <h2>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</h2>
                 <p>Соблюдение Вашей конфиденциальности важно для нас. По этой причине, мы разработали Политику Конфиденциальности, которая описывает, как мы используем и храним Вашу информацию. Пожалуйста, ознакомьтесь с нашими правилами соблюдения конфиденциальности и сообщите нам, если у вас возникнут какие-либо вопросы.</p>
                 <h3>Сбор и использование персональной информации</h3>
@@ -126,7 +126,7 @@ class Footer extends Block {
                 <p>Мы предпринимаем меры предосторожности — включая административные, технические и физические — для защиты вашей персональной информации от утраты, кражи, и недобросовестного использования, а также от несанкционированного доступа, раскрытия, изменения и уничтожения.</p>
                 <h3>Соблюдение вашей конфиденциальности на уровне компании</h3>
                 <p>Для того чтобы убедиться, что ваша персональная информация находится в безопасности, мы доводим нормы соблюдения конфиденциальности и безопасности до наших сотрудников, и строго следим за исполнением мер соблюдения конфиденциальности.</p>
-                </div>`,
+            `,
         }
     }
 }

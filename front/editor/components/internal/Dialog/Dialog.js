@@ -36,9 +36,12 @@ class Dialog extends preact.Component {
             this.divOverlay = document.createElement("div");
             this.divOverlay.className = "lp-dialog-overlay";
             if (this.props.overlayColor) this.divOverlay.style.backgroundColor = this.props.overlayColor;
+            
+            this.div.addEventListener("click",(e)=>e.stopPropagation());
             this.divOverlay.addEventListener("click",()=>this.close());
 
             this.div.append(this.divTitle,this.divContent);
+            this.divOverlay.append(this.div);
         }
     }
 
@@ -52,18 +55,19 @@ class Dialog extends preact.Component {
 
         this.createElements();
 
-        if (this.props.modal) document.body.append(this.divOverlay);
-        document.body.append(this.div);
+        this.divOverlay.classList.toggle("scrollable",this.props.scrollable);
+        document.body.append(this.divOverlay);
 
         this.nodeTitle.nodeValue = this.props.title || "";
 
         this.div.style.left = pos.x+"px";
         this.div.style.top = pos.y+"px";
+
         this.isOpen = true;
         this.setState({},()=>{
             let rect = this.div.getBoundingClientRect();
             var dh = document.documentElement.clientHeight;
-            if (rect.top+rect.height>dh) {
+            if (rect.top+rect.height>dh && !this.props.scrollable) {
                 var y = dh-rect.height-1;
                 if (y<0) y = 0;
                 this.div.style.top = y+"px";
@@ -114,8 +118,9 @@ class Dialog extends preact.Component {
     }     
 
     close() {
-        if (this.divOverlay) this.divOverlay.remove();
-        if (this.div) this.div.remove();
+        if (this.divOverlay) {
+            this.divOverlay.remove();
+        }
         this.isOpen = false;
     }
 
@@ -137,9 +142,9 @@ class Dialog extends preact.Component {
 Dialog.list = [];
 Dialog.defaultProps = {
     title: "",
-    modal: true,
     width: 510,
-    overlayColor: 'transparent'
+    overlayColor: 'transparent',
+    scrollable: false
 };
 
 class Prompts extends preact.Component {

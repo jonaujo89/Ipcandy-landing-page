@@ -38,14 +38,6 @@
   border: 1px solid #EA493C !important;
 }
 
-ul li {
-    list-style-type: square;
-}
-
-ol li {
-    list-style-type: decimal;
-}
-
 .error{
     color: #EA493C !important;
     font-family: "Arial";
@@ -87,62 +79,6 @@ a.btn_form {
   padding: 7px 45px;
   text-decoration: none;
   text-align: center;
-}
-
-
-/* policy AlertifyJS dialog */
-.alertify .ajs-body .ajs-content .policy_info_alertify p {
-  display: block;
-  margin: 1.0em 0;
-}
-
-.policy_info_alertify{
-    font-family: "Arial",sans-serif;
-    font-size: 14px;
-    color: #333;
-}
-
-.policy_info_alertify h2 {
-    display: block;
-    font-size: 1.5em;
-    margin: 0.83em 0;
-    font-weight: bold;
-}
-
-.policy_info_alertify h3 {
-  display: block;
-  font-size: 1.17em;
-  margin: 1.0em 0;
-  font-weight: bold;
-}
-
-.policy_info_alertify h4 {
-  display: block;
-  margin: 1.33em 0;
-  font-weight: bold;
-}
-
-.policy_info_alertify ul {
-    margin: 0;
-    padding-left: 18px;
-}
-
-.policy_info_alertify ul li {
-    padding: 5px 0;
-}
-
-/* add position: relative after publishing*/
-.order_5 .item > div, .benefits_2 .item > div, .benefits_3 .item > div, .text_block_6 .item > div{
-    position: relative;
-}
-
-/* AlertifyJS dialog */
-.ajs-dialog {
-  background: linear-gradient(to bottom, #fffefc, #e6e6e6) no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-}
-
-.ajs-body {
-  padding: 0 32px;
 }
 
 /* form */
