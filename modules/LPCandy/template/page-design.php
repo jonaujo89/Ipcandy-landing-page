@@ -3,6 +3,7 @@
     <head>
         <title><?=_t('Templater editor')?></title>
         <meta charset="utf-8" alt>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="<?= url('assets/images/lpcandy.png') ?>"/> 
 
         <script>

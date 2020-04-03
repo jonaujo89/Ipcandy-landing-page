@@ -55,23 +55,53 @@ class StickyMenu extends Block {
         });
 
     }
+
+    componentDidMount() {
+        this.scrollListener = () => {
+            this.base.style.top = 0;
+            this.base.style.top = Math.max(0,this.scrollParent.scrollTop-this.base.offsetTop)+"px";
+        };
+        this.scrollParent = this.base.parentElement;
+        this.scrollParent.addEventListener("scroll",this.scrollListener);
+        window.addEventListener("resize",this.scrollListener);
+        this.scrollListener();
+    }
+
+    componentWillUnmount() {
+        this.scrollParent.removeEventListener("scroll",this.scrollListener);
+        window.removeEventListener("resize",this.scrollListener);
+    }
     
     tpl_1(val) {
         let enabledItems = this.getItems().filter((one)=>one.enabled);
         return html`
-            <div class="container-fluid sticky_menu sticky_menu_component ${val.isDark ? 'dark':''}">
+            <div class="container-fluid sticky_menu ${val.isDark ? 'dark':''} ${this.state.active ? 'active':''}">
                 <div class="container">
                     <div class="row">
                         <div class="col-12 menu-col">
                             ${enabledItems.length!=0 && html`
-                                <div class="toggler">
+                                <div class="toggler" onClick=${()=>this.setState({active:!this.state.active})}>
                                     <span class="toggler-icon"></span>
                                 </div>
                             `}
                             <ul class="items">
                                 ${enabledItems.map((item)=>html`
                                     <li>
-                                        <a href="#" data-id="#${item.id}">${item.title}</a>
+                                        <a href="#${item.id}" onClick=${(e)=>{
+                                            e.preventDefault();
+                                            var id = e.target.hash.substring(1);
+                                            var to = document.getElementById(id);
+                                            if (to) {
+                                                var menuDelta = this.base.offsetTop<to.offsetTop ? this.base.clientHeight : 0;
+                                                this.scrollParent.scrollTo({
+                                                    top: Math.max(0,to.offsetTop-menuDelta),
+                                                    behavior: "smooth"
+                                                });
+                                            }
+                                            this.setState({active:false});
+                                        }}>
+                                            ${item.title}
+                                        </a>
                                     </li>
                                 `)}
                             </ul>

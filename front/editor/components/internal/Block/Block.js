@@ -118,7 +118,7 @@ class Block extends preact.Component {
         return html`
         <${BlockContext.Provider} value=${this}>
         <${ValueContext.Provider} value=${{name:"",value:this.value,defaultValue:this.defaultValue}}>
-            <div class="lp-block">
+            <div class="lp-block" id=${this.value.id}>
                 ${tpl_f.call(this,this.value,props,state)}
                 ${ !lp.app.state.preview && html`
                     <div class='cmp-controls'>
