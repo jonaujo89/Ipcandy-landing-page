@@ -1,4 +1,6 @@
-if (window.bundler) bundler.js_transform = (js) => js.replace(/([>`}])(\s*\n\s*)([<`\$])/mg,"$1$3").replace(/\s*\n\s*/mg,' ');
+if (window.bundler) {
+    bundler.js_transform = (js) => js.replace(/([>`}])(\s*\n\s*)([<`\$])/mg,"$1$3").replace(/\s*\n\s*/mg,' ');
+}
 
 window._t = function(s) { return window._t.hash[s] || s; };
 window._t.hash = {};
@@ -8,10 +10,9 @@ if (window.locale_lang=="ru") require("./locale/ru.js");
 
 window.lp = {};
 
-require("./style/font-awesome.css");
-require("./style/page.css");
-require("./style/pageFonts.css");
-require("./style/components.tea");
+require("./style/fontAwesome.css");
+require("./style/fonts.css");
+require("./style/global.tea");
 
 window.preact = require("./lib/preact");
 window.preact.hooks = require("./lib/preact_hooks");

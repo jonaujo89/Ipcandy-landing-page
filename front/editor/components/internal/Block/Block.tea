@@ -48,3 +48,47 @@
         float: right;
     }
 }
+
+.clear {
+    zoom: 1;
+    min-height: 5px;
+}
+
+.container {
+    padding-y: 35px;
+    font-family: @primaryFont;
+    color: @primaryColor;
+
+    .grid.container();
+
+    .title {
+        margin: 10px auto;
+        text-align: center;
+        color: @headingColor;
+
+        line-height: 1.25;
+        font-family: @{headingFont};
+        font-weight: 400;
+
+        .font_size_flexible(12, 48, 22)
+    }
+
+    .title_2 {
+        margin: 10px auto;
+        line-height: 1.25;
+        text-align: center;
+        color: @subHeadingColor;
+        font-family: @{subHeadingFont};
+
+        .font_size_flexible(12, 24, 15)
+    }
+
+    .img {
+        width: 100%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+    }
+}

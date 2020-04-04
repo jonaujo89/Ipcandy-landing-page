@@ -1,18 +1,16 @@
-/* font-family: "OpenSansRegular"; */
+/* heading fonts */
 @font-face {
     font-family: "Open Sans";
     src: url("../../../public/assets/fonts/OpenSansRegular.ttf") format("truetype");
     font-style: normal;
     font-weight: 400;
 }
-/* font-family: "OpenSansLight"; */
 @font-face {
     font-family: "Open Sans Light";
     src: url("../../../public/assets/fonts/OpenSansLight.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
 }
-/* font-family: "OpenSansBold"; */
 @font-face {
     font-family: "Open Sans Bold";
     src: url("../../../public/assets/fonts/OpenSansBold.ttf") format("truetype");
@@ -25,7 +23,6 @@
     font-style: normal;
     font-weight: 700;
 }
-/* font-family: "OpenSansSemiBold"; */
 @font-face {
     font-family: "Open Sans SemiBold";
     src: url("../../../public/assets/fonts/OpenSansSemiBold.ttf") format("truetype");
@@ -38,7 +35,8 @@
     font-style: normal;
     font-weight: 600;
 }
-/* for Timer */
+
+/* timer fonts */
 @font-face {
 	font-family: 'Catorze27Style1 SemiBold';
     src: url(../../../public/assets/fonts/catorze27Style1_SemiBold.ttf) format('truetype');

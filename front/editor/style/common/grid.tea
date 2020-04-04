@@ -111,3 +111,30 @@
         margin-right: 0;
     }
 }
+
+.row {
+    .grid.row();
+}
+
+@{
+    for (var i=1; i <= grid.columnCount; i++) {
+        @{
+            .col-@i {
+                padding-y: @{grid.columnPaddingDesktop}px;
+                .grid.columns(i);
+            }
+        }
+    }
+    
+    for (var i=1; i<=grid.columnCount; i++) {
+        @{
+            .before-@i {
+                .grid.prepend(i);
+            }
+
+            .after-@i {
+                .grid.append(i);
+            }
+        }
+    }
+}
