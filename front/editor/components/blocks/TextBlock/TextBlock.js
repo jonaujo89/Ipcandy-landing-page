@@ -311,7 +311,7 @@ class TextBlock extends Block {
                             - Super suits<br>
                             - And others<br>
                         </div> `,
-                    image: `${lp.app.options.assets_url}/text/3.jpg`,
+                    image: `${App.assets_url}/text/3.jpg`,
                 }
             ]
         } : {
@@ -328,7 +328,7 @@ class TextBlock extends Block {
                                     - Супер костюмы<br>
                                     - Да и всё остальное тоже<br>
                                 </div>`,
-                    image: `${lp.app.options.assets_url}/text/3.jpg`,
+                    image: `${App.assets_url}/text/3.jpg`,
                 }
             ]
         }
@@ -369,13 +369,13 @@ class TextBlock extends Block {
                     text_title: 'Hocus Pocus',
                     text: `<div> Magician from distant countries will surprise you with his skillful hands and the power of thought. Come and see for yourself!</div>
                         <br> <div> - Mystique<br> - Magic<br> - And wonder<br> </div>`,
-                    image: `${lp.app.options.assets_url}/text/1.jpg`,
+                    image: `${App.assets_url}/text/1.jpg`,
                 },
                 {
                     text_title: 'the Little Humpbacked Horse',
                     text: `<div>The Arabian horses, running around the arena, take you into the prairie! You are guaranteed emotional decompensation!</div>
                     <br><div>- Dynamics<br>  - Diversity of colors<br> - Entertainment<br></div>`,
-                    image: `${lp.app.options.assets_url}/text/2.jpg`,
+                    image: `${App.assets_url}/text/2.jpg`,
                 }]
         } : {
             show_border: true,
@@ -385,13 +385,13 @@ class TextBlock extends Block {
                     text_title: 'Фокус-покус',
                     text: `<div>Маг и волшебник из далекого зарубежья удивит вас своими умелыми руками и силой мысли. Приходите и убедитесь в этом сами!</div>
                         <br> <div> - Таинственность<br> - Магия<br> - И Удивление<br></div>`,
-                    image: `${lp.app.options.assets_url}/text/1.jpg`,
+                    image: `${App.assets_url}/text/1.jpg`,
                 },
                 {
                     text_title: 'Конёк-горбунок',
                     text: ` <div>Табун арабских скакунов, пробежав галопом по арене, перенесет вас в прерию! Эмоциональный взрыв вам гарантирован!</div>
                         <br> <div> - Динамика<br> - Пестрота<br> - Зрелищность<br> </div>`,
-                    image: `${lp.app.options.assets_url}/text/2.jpg`,
+                    image: `${App.assets_url}/text/2.jpg`,
                 }
             ]
         }
@@ -448,17 +448,17 @@ class TextBlock extends Block {
                 {
                     name: 'Amusement',
                     desc: 'We have the funny presentation for each taste and age.',
-                    icon: `${lp.app.options.assets_url}/ico/77.png`,
+                    icon: `${App.assets_url}/ico/77.png`,
                 },
                 {
                     name: 'Gladness',
                     desc: "Pants are full of joy for all visitors. Come, you won't regret it.",
-                    icon: `${lp.app.options.assets_url}/ico/89.png`,
+                    icon: `${App.assets_url}/ico/89.png`,
                 },
                 {
                     name: 'Laughter',
                     desc: 'You will laugh your head off. You are welcome!',
-                    icon: `${lp.app.options.assets_url}/ico/127.png`,
+                    icon: `${App.assets_url}/ico/127.png`,
                 }
             ],
         } : {
@@ -473,17 +473,17 @@ class TextBlock extends Block {
                 {
                     name: 'Веселье',
                     desc: 'Только у нас самые весёлые представления на любой вкус и возраст.',
-                    icon: `${lp.app.options.assets_url}/ico/77.png`,
+                    icon: `${App.assets_url}/ico/77.png`,
                 },
                 {
                     name: 'Радость',
                     desc: 'Полные штаны радости всем посетителям обеспечено. Приходите, не пожалеете.',
-                    icon: `${lp.app.options.assets_url}/ico/89.png`,
+                    icon: `${App.assets_url}/ico/89.png`,
                 },
                 {
                     name: 'Смех',
                     desc: 'Надрывать живот от смеха гарантировано всем. Ждем Вас в гости.',
-                    icon: `${lp.app.options.assets_url}/ico/127.png`,
+                    icon: `${App.assets_url}/ico/127.png`,
                 }
             ],
         }

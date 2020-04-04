@@ -8,8 +8,6 @@ window._t.load = function(h) { window._t.hash = {...window._t.hash,...h} }
 
 if (window.locale_lang=="ru") require("./locale/ru.js");
 
-window.lp = {};
-
 require("./style/fontAwesome.css");
 require("./style/fonts.css");
 require("./style/global.tea");
@@ -17,8 +15,6 @@ require("./style/global.tea");
 window.preact = require("./lib/preact");
 window.preact.hooks = require("./lib/preact_hooks");
 window.html = require("./lib/htm").bind(preact.h);
-
-const {App} = require("./components/App");
 
 require("./components/blocks/CoverBlock/CoverBlock");
 require("./components/blocks/Header/Header");
@@ -41,9 +37,5 @@ require("./components/blocks/Numbers/Numbers");
 require("./components/blocks/Faq/Faq");
 require("./components/blocks/Custom/Custom"); 
 
-lp.run = function (options) {
-    options.isGlobal = true;
-    document.addEventListener("DOMContentLoaded",()=>{
-        preact.render(preact.h(App,options),document.getElementById("app"));
-    });
-}
+const {App} = require("./components/App");
+window.App = App;

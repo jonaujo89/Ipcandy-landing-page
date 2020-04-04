@@ -33,7 +33,7 @@ TextureBackground.defaultProps = {
         );
         for (var i=1;i<=3;i++) {
             items.push({
-                value: {url:lp.app.options.assets_url+"/texture_black/"+i+".jpg"},
+                value: {url:App.assets_url+"/texture_black/"+i+".jpg"},
             });
         }                        
         return items;

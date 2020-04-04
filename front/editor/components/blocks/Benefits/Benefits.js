@@ -76,9 +76,9 @@ class Benefits extends Block {
             'title_2': "Subtitle",
             'items': [
                 {
-                    'icon_1': `${lp.app.options.assets_url}/ico/740.png`,
-                    'icon_2': `${lp.app.options.assets_url}/ico/274.png`,
-                    'icon_3': `${lp.app.options.assets_url}/ico/218.png`,
+                    'icon_1': `${App.assets_url}/ico/740.png`,
+                    'icon_2': `${App.assets_url}/ico/274.png`,
+                    'icon_3': `${App.assets_url}/ico/218.png`,
                     'name_1': "You can go on foot",
                     'name_2': "It increases the degree of mood",
                     'name_3': "It inspires by selective positive ",
@@ -98,9 +98,9 @@ class Benefits extends Block {
             'title_2': "Подзаголовок о крутизне цирка",
             'items': [
                 {
-                    'icon_1': `${lp.app.options.assets_url}/ico/740.png`,
-                    'icon_2': `${lp.app.options.assets_url}/ico/274.png`,
-                    'icon_3': `${lp.app.options.assets_url}/ico/218.png`,
+                    'icon_1': `${App.assets_url}/ico/740.png`,
+                    'icon_2': `${App.assets_url}/ico/274.png`,
+                    'icon_3': `${App.assets_url}/ico/218.png`,
                     'name_1': "В него можно придти пешком",
                     'name_2': "Повышает градус настроения",
                     'name_3': "Заряжает отборным позитивом",
@@ -166,9 +166,9 @@ class Benefits extends Block {
             'title_2': "Subtitle",
             'items': [
                 {
-                    'icon_1': `${lp.app.options.assets_url}/ico/729.png`,
-                    'icon_2': `${lp.app.options.assets_url}/ico/308.png`,
-                    'icon_3': `${lp.app.options.assets_url}/ico/341.png`,
+                    'icon_1': `${App.assets_url}/ico/729.png`,
+                    'icon_2': `${App.assets_url}/ico/308.png`,
+                    'icon_3': `${App.assets_url}/ico/341.png`,
                     'name_1':  "Free Internet",
                     'name_2': "Delicious ice cream",
                     'name_3': "Starry cast",
@@ -187,9 +187,9 @@ class Benefits extends Block {
             'title_2': "Подзаголовок о преимуществе",
             'items': [
                 {
-                    'icon_1': `${lp.app.options.assets_url}/ico/729.png`,
-                    'icon_2': `${lp.app.options.assets_url}/ico/308.png`,
-                    'icon_3': `${lp.app.options.assets_url}/ico/341.png`,
+                    'icon_1': `${App.assets_url}/ico/729.png`,
+                    'icon_2': `${App.assets_url}/ico/308.png`,
+                    'icon_3': `${App.assets_url}/ico/341.png`,
                     'name_1': "Бесплатный интернет",
                     'name_2': "Вкусное мороженное",
                     'name_3': "Звездный состав",
@@ -253,18 +253,18 @@ class Benefits extends Block {
             'title_2': "Subtitle",
             'items': [
                 {
-                    'icon_1': `${lp.app.options.assets_url}/ico/3.png`,
+                    'icon_1': `${App.assets_url}/ico/3.png`,
                     'name_1': "Color TV",
                     'desc_1': "We have a color TV RUBIN-2M in the lobby.",
-                    'icon_2': `${lp.app.options.assets_url}/ico/790.png`,
+                    'icon_2': `${App.assets_url}/ico/790.png`,
                     'name_2': "Cozy circus tent",
                     'desc_2': "Our tent will protect you from snow and wind during a spectacular view.",
                 },
                 {
-                    'icon_1': `${lp.app.options.assets_url}/ico/231.png`,
+                    'icon_1': `${App.assets_url}/ico/231.png`,
                     'name_1': "Discount system",
                     'desc_1': "Buy a ticket to the circus for six months and you can live here free of charge for another three months.",
-                    'icon_2': `${lp.app.options.assets_url}/ico/150.png`,
+                    'icon_2': `${App.assets_url}/ico/150.png`,
                     'name_2': "Barbecue at the entrance gate",
                     'desc_2': "Uncle Izzy cooks barbecue for visitors and aunt Sarah accompanies him.",
                 }
@@ -279,18 +279,18 @@ class Benefits extends Block {
             'title_2': "Подзаголовок о преимуществах",
             'items': [
                 {
-                    'icon_1': `${lp.app.options.assets_url}/ico/3.png`,
+                    'icon_1': `${App.assets_url}/ico/3.png`,
                     'name_1': "Цветной телевизор",
                     'desc_1': "Только в нашем цирке есть практически цветной телевизор РУБИН-2М в холле.",
-                    'icon_2': `${lp.app.options.assets_url}/ico/790.png`,
+                    'icon_2': `${App.assets_url}/ico/790.png`,
                     'name_2': "Уютный цирковой шатёр",
                     'desc_2': "Наш шатер защитит Вас от снега и ветра во время захватывающего представления.",
                 },
                 {
-                    'icon_1': `${lp.app.options.assets_url}/ico/231.png`,
+                    'icon_1': `${App.assets_url}/ico/231.png`,
                     'name_1': "Система скидок",
                     'desc_1': "Купи абонемент в цирк на полгода и можешь оставаться жить ещё три месяца бесплатно.",
-                    'icon_2': `${lp.app.options.assets_url}/ico/150.png`,
+                    'icon_2': `${App.assets_url}/ico/150.png`,
                     'name_2': "Шашлычная у входа",
                     'desc_2': "Дядя Изя готовит шашлык для посетителей цирка. Аккомпанирует ему тетя Сара.",
                 }
@@ -351,8 +351,8 @@ class Benefits extends Block {
             'title_2': "Subtitle",
             'items': [
                 {
-                    'image_1': `${lp.app.options.assets_url}/benefits/1.jpg`,
-                    'image_2': `${lp.app.options.assets_url}/benefits/2.jpg`,
+                    'image_1': `${App.assets_url}/benefits/1.jpg`,
+                    'image_2': `${App.assets_url}/benefits/2.jpg`,
                     'name_1': "Serious approach",
                     'name_2': "Attention to detail",
                     'desc_1': "The seriousness of our approach could not be underestimated. We have the most serious circus. And we are serious!",
@@ -368,8 +368,8 @@ class Benefits extends Block {
             'title_2': "Подзаголовок о преимуществах",
             'items': [
                 {
-                    'image_1': `${lp.app.options.assets_url}/benefits/1.jpg`,
-                    'image_2': `${lp.app.options.assets_url}/benefits/2.jpg`,
+                    'image_1': `${App.assets_url}/benefits/1.jpg`,
+                    'image_2': `${App.assets_url}/benefits/2.jpg`,
                     'name_1': "Серьёзный подход",
                     'name_2': "Внимание к деталям",
                     'desc_1': "Серьёзность нашего подхода нельзя недооценивать. Мы самый серьёзный цирк. И это мы серьезно!",
@@ -434,9 +434,9 @@ class Benefits extends Block {
             'title_2': "Subtitle",
             'items': [
                 {
-                    'image_1': `${lp.app.options.assets_url}/benefits/3.jpg`,
-                    'image_2': `${lp.app.options.assets_url}/benefits/4.jpg`,
-                    'image_3': `${lp.app.options.assets_url}/benefits/5.jpg`,
+                    'image_1': `${App.assets_url}/benefits/3.jpg`,
+                    'image_2': `${App.assets_url}/benefits/4.jpg`,
+                    'image_3': `${App.assets_url}/benefits/5.jpg`,
                     'name_1': "Simplicity of passage",
                     'name_2': "Seats",
                     'name_3': "Support for a laugh",
@@ -456,9 +456,9 @@ class Benefits extends Block {
             'title_2': "Подзаголовок о преимуществах",
             'items': [
                 {
-                    'image_1': `${lp.app.options.assets_url}/benefits/3.jpg`,
-                    'image_2': `${lp.app.options.assets_url}/benefits/4.jpg`,
-                    'image_3': `${lp.app.options.assets_url}/benefits/5.jpg`,
+                    'image_1': `${App.assets_url}/benefits/3.jpg`,
+                    'image_2': `${App.assets_url}/benefits/4.jpg`,
+                    'image_3': `${App.assets_url}/benefits/5.jpg`,
                     'name_1': "Простота прохода",
                     'name_2': "Места по номерам",
                     'name_3': "Поддержка смехом",

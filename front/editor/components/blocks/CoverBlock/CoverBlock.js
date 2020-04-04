@@ -26,8 +26,8 @@ class CoverBlock extends Block {
                          var items = [];
                          for (var i=1;i<=100;i++) {
                              items.push({
-                                 value:lp.app.options.assets_url+"/cover/cover-"+i+".jpg",
-                                 thumb:lp.app.options.assets_url+"/cover/thumbs/cover-"+i+".jpg",
+                                 value:App.assets_url+"/cover/cover-"+i+".jpg",
+                                 thumb:App.assets_url+"/cover/thumbs/cover-"+i+".jpg",
                              });
                          }
                          return items;
@@ -145,8 +145,8 @@ class CoverBlock extends Block {
         };
 
         const baseParams = {
-            background: `${lp.app.options.assets_url}/gallery/6.jpg`,
-            icon: `${lp.app.options.assets_url}/ico/383.png`,
+            background: `${App.assets_url}/gallery/6.jpg`,
+            icon: `${App.assets_url}/ico/383.png`,
             show_icon: false,
             show_title: true,
             show_title_2: true,
@@ -261,8 +261,8 @@ class CoverBlock extends Block {
         };
 
         const baseParams = {
-           background: `${lp.app.options.assets_url}/gallery/6.jpg`,
-            icon: `${lp.app.options.assets_url}/ico/383.png`,
+           background: `${App.assets_url}/gallery/6.jpg`,
+            icon: `${App.assets_url}/ico/383.png`,
             show_icon: false,
             show_title: true,
             show_title_2: true,
@@ -317,7 +317,7 @@ class CoverBlock extends Block {
                 show_title_2:  true,
                 title: 'Двери нашего цирка открыты всегда',
                 title_2: 'Приводите детей, дедушек, бабушек и даже домашних животных',
-                background:  `${lp.app.options.assets_url}/gallery/3.jpg`,
+                background:  `${App.assets_url}/gallery/3.jpg`,
                 media:  {...Media.tpl_default(), type: 'video'},
                 form_button: {
                     type: 'form',

@@ -16,7 +16,7 @@ const IconCombo = (props) => preact.h(Combo,{...props,
             if (i>=285 && i<=289) continue;
             if (i>=365 && i<=716) continue;
             if (i>=743 && i<=766) continue;
-            items.push({value:lp.app.options.assets_url+"/ico/"+i+".png"});
+            items.push({value:App.assets_url+"/ico/"+i+".png"});
         }
         return items;
     }
@@ -27,7 +27,7 @@ const IconComboWhite = (props) => preact.h(Combo,{...props,
     items: () => {
         var items = [];
         for (var i=365;i<=716;i++) {
-            items.push({value:lp.app.options.assets_url+"/ico/"+i+".png"});
+            items.push({value:App.assets_url+"/ico/"+i+".png"});
         }
         return items;
     },
@@ -52,7 +52,7 @@ const Icon = Editable(class extends preact.Component{
                 ref=${(r)=>this.coverCmp=r}
             >
                 <div class="ico" style="background-image: url(${base_url+"/"+props.value})">
-                    ${ !lp.app.state.preview && html`
+                    ${ !App.instance.state.preview && html`
                         <div ref=${(r)=>this.cover=r} class='cmp-cover cmp-config-cover fa fa-gear' onClick=${()=>this.coverCmp.openConfig(this.cover)} />
                     `}
                 </div>

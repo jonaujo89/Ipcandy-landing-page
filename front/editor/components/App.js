@@ -6,9 +6,19 @@ const {AddBlockDialog} = require("internal/AddBlockDialog/AddBlockDialog");
 class App extends preact.Component {
 
     static ready(f) {
-        if (lp.app) return f();
+        if (App.instance) return f();
         App.ready_list = App.ready_list || [];
         App.ready_list.push(f);
+    }
+
+    static run(options) {
+        for (var key in options) {
+            App[key] = options[key];
+        }
+        options.isGlobal = true;
+        document.addEventListener("DOMContentLoaded",()=>{
+            preact.render(preact.h(App,options),document.getElementById("app"));
+        });
     }
 
     constructor(props) {
@@ -28,7 +38,7 @@ class App extends preact.Component {
         this.blocks = [];
 
         if (props.isGlobal) {
-            lp.app = this;
+            App.instance = this;
             (App.ready_list || []).forEach((f)=>f());
         }
 

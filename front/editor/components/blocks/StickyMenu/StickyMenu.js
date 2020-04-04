@@ -45,7 +45,7 @@ class StickyMenu extends Block {
     getItems() {
         let hash = {};
         this.value.items.forEach((item)=>hash[item.id]=item);
-        return lp.app.state.blocks.filter((block)=>block.value.id!=this.value.id).map((block)=>{
+        return App.instance.state.blocks.filter((block)=>block.value.id!=this.value.id).map((block)=>{
             let id = block.value.id;
             return {
                 id,

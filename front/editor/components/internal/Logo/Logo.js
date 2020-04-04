@@ -83,7 +83,7 @@ const Logo = Editable(class extends preact.Component{
 Logo.tpl_default = () => {
     return window.locale_lang == 'en' ? {
         'type': 'image',
-        'url': `${lp.app.options.assets_url}/default_logo_en.png`,
+        'url': `${App.assets_url}/default_logo_en.png`,
         'text': "No name",
         'bold': true,
         'italic': false,
@@ -92,7 +92,7 @@ Logo.tpl_default = () => {
         'fontSize': 24
     } : {
         'type': 'image',
-        'url': `${lp.app.options.assets_url}/default_logo.png`,
+        'url': `${App.assets_url}/default_logo.png`,
         'text': 'Нет названия',
         'bold': true,
         'italic': false,

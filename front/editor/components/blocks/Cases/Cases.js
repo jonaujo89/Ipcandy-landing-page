@@ -80,13 +80,13 @@ class Cases extends Block {
             'title_2': "Subtitle",
             'items': [
                 {
-                    'media': {...Media.tpl_default(), 'type': 'image', 'image_url': `${lp.app.options.assets_url}/cases/1.jpg` },
+                    'media': {...Media.tpl_default(), 'type': 'image', 'image_url': `${App.assets_url}/cases/1.jpg` },
                     'name': "Happy faces of the children",
                     'desc': "FUNNY TECHNOLOGIES",
                     'text': "Task: Evoke a childlike smile<br><br>The show includes events suited to every fancy: mystical performances with magic events, wild animals, acrobats, tightrope walkers, magicians and, of course, a circus clown.",
                 },
                 {
-                    'media': {...Media.tpl_default(), 'type': 'image', 'image_url': `${lp.app.options.assets_url}/cases/2.jpg` },
+                    'media': {...Media.tpl_default(), 'type': 'image', 'image_url': `${App.assets_url}/cases/2.jpg` },
                     'name': "Joyful face",
                     'desc': "FUNNY TECHNOLOGIES",
                     'text': "Task: Evoke an adult smile<br><br>Only glass of cold beer is able to give a joy to the fathers whose children will be watching our circus program.",
@@ -102,13 +102,13 @@ class Cases extends Block {
             'title_2': "Подзаголовок",
             'items': [
                 {
-                    'media': {...Media.tpl_default(), 'type': 'image', 'image_url': `${lp.app.options.assets_url}/cases/1.jpg` },
+                    'media': {...Media.tpl_default(), 'type': 'image', 'image_url': `${App.assets_url}/cases/1.jpg` },
                     'name': "Радостные лица детей",
                     'desc': "СМЕШНЫЕ ТЕХНОЛОГИИ",
                     'text': "Задание: Вызвать улыбку у детей<br><br> В шоу включены номера на любой вкус: мистические выступления с магическими номерами, выступления диких животных, акробатов, эквилибристов, иллюзионистов и, конечно же, цирковая клоунада.",
                 },
                 {
-                    'media': {...Media.tpl_default(), 'type': 'image', 'image_url': `${lp.app.options.assets_url}/cases/2.jpg` },
+                    'media': {...Media.tpl_default(), 'type': 'image', 'image_url': `${App.assets_url}/cases/2.jpg` },
                     'name': "Радостные лица взрослых",
                     'desc': "СМЕШНЫЕ ТЕХНОЛОГИИ",
                     'text': "Задание: Вызвать улыбку у родителей<br><br>Только подарочный бокал пенного холодного пива способен подарить отцам радость, дети которых с восторгом будут смотреть нашу цирковую программу.",

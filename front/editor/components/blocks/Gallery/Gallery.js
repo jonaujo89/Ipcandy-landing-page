@@ -80,12 +80,12 @@ class Gallery extends Block {
                 'title': "Our program in photos",
                 'title_2': "Subtitle",
                 'items': [
-                    { 'image': `${lp.app.options.assets_url}/gallery/21.jpg`, 'title': 'Three people put the hats on', 'desc': 'Acrobats on the ropes' },
-                    { 'image': `${lp.app.options.assets_url}/gallery/24.jpg`, 'title': 'Tusk', 'desc': 'Trained rhino' },
-                    { 'image': `${lp.app.options.assets_url}/gallery/25.jpg`, 'title': 'Jumper', 'desc': 'Show with the horse' },
-                    { 'image': `${lp.app.options.assets_url}/gallery/26.jpg`, 'title': 'Lambada', 'desc': 'Dancing elephants' },
-                    { 'image': `${lp.app.options.assets_url}/gallery/27.jpg`, 'title': 'Tigress', 'desc': 'It is the one on the left' },
-                    { 'image': `${lp.app.options.assets_url}/gallery/30.jpg`, 'title': 'Grace', 'desc': 'Girl on the tape' },
+                    { 'image': `${App.assets_url}/gallery/21.jpg`, 'title': 'Three people put the hats on', 'desc': 'Acrobats on the ropes' },
+                    { 'image': `${App.assets_url}/gallery/24.jpg`, 'title': 'Tusk', 'desc': 'Trained rhino' },
+                    { 'image': `${App.assets_url}/gallery/25.jpg`, 'title': 'Jumper', 'desc': 'Show with the horse' },
+                    { 'image': `${App.assets_url}/gallery/26.jpg`, 'title': 'Lambada', 'desc': 'Dancing elephants' },
+                    { 'image': `${App.assets_url}/gallery/27.jpg`, 'title': 'Tigress', 'desc': 'It is the one on the left' },
+                    { 'image': `${App.assets_url}/gallery/30.jpg`, 'title': 'Grace', 'desc': 'Girl on the tape' },
                 ]
             } : {
             'show_title': true,
@@ -97,12 +97,12 @@ class Gallery extends Block {
             'title': "Наша программа в фотографиях",
             'title_2': "Подзаголовок",
             'items': [
-                { 'image': `${lp.app.options.assets_url}/gallery/21.jpg`, 'title': 'Трое в шляпах', 'desc': 'Акробаты на канатах' },
-                { 'image': `${lp.app.options.assets_url}/gallery/24.jpg`, 'title': 'Бивень', 'desc': 'Дрессированный носорог' },
-                { 'image': `${lp.app.options.assets_url}/gallery/25.jpg`, 'title': 'Прыгун', 'desc': 'Номер с конём' },
-                { 'image': `${lp.app.options.assets_url}/gallery/26.jpg`, 'title': 'Ламбада', 'desc': 'Танцующие слоны' },
-                { 'image': `${lp.app.options.assets_url}/gallery/27.jpg`, 'title': 'Тигрица', 'desc': 'Это та, что слева' },
-                { 'image': `${lp.app.options.assets_url}/gallery/30.jpg`, 'title': 'Грация', 'desc': 'Девушка на лентах' },
+                { 'image': `${App.assets_url}/gallery/21.jpg`, 'title': 'Трое в шляпах', 'desc': 'Акробаты на канатах' },
+                { 'image': `${App.assets_url}/gallery/24.jpg`, 'title': 'Бивень', 'desc': 'Дрессированный носорог' },
+                { 'image': `${App.assets_url}/gallery/25.jpg`, 'title': 'Прыгун', 'desc': 'Номер с конём' },
+                { 'image': `${App.assets_url}/gallery/26.jpg`, 'title': 'Ламбада', 'desc': 'Танцующие слоны' },
+                { 'image': `${App.assets_url}/gallery/27.jpg`, 'title': 'Тигрица', 'desc': 'Это та, что слева' },
+                { 'image': `${App.assets_url}/gallery/30.jpg`, 'title': 'Грация', 'desc': 'Девушка на лентах' },
             ]
         };
     }
@@ -168,21 +168,21 @@ class Gallery extends Block {
             'title_2' : "Subtilte",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/1.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/1.jpg`},
                     'img_title_1' : "In ring",
                     'img_desc_1' : "Fascinating spectacle",
                     'img_text_1' : "Additional description of the picture. Brevity - the sister of talent.",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/2.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/2.jpg`},
                     'img_title_2' : "Entrance",
                     'img_desc_2' : "At the entrance she meets",
                     'img_text_2' : "Additional description of the picture. Brevity - the sister of talent.",
                 },
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}gallery/5.jpg`},
+                    'image_1' : {'image': `${App.assets_url}gallery/5.jpg`},
                     'img_title_1' : "Form №2",
                     'img_desc_1' : "Nude torso",
                     'img_text_1' : "Additional description of the picture. Brevity - the sister of talent.",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/6.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/6.jpg`},
                     'img_title_2' : "Prima and clown",
                     'img_desc_2' : "Foci",
                     'img_text_2' : "Additional description of the picture. Brevity - the sister of talent.",
@@ -198,21 +198,21 @@ class Gallery extends Block {
 			'title_2' : "Подзаголовок",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/1.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/1.jpg`},
                     'img_title_1' : "В кольце",
                     'img_desc_1' : "Завораживающее зрелище",
                     'img_text_1' : "Дополнительное описание картинки. Краткость - сестра таланта.",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/2.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/2.jpg`},
                     'img_title_2' : "У входа",
                     'img_desc_2' : "На входе встречает она",
                     'img_text_2' : "Дополнительное описание картинки. Краткость - сестра таланта.",
                 },
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/5.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/5.jpg`},
                     'img_title_1' : "Форма №2",
                     'img_desc_1' : "Голый торс",
                     'img_text_1' : "Дополнительное описание картинки. Краткость - сестра таланта.",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/6.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/6.jpg`},
                     'img_title_2' : "Прима и клоун",
                     'img_desc_2' : "Номер с фокусами",
                     'img_text_2' : "Дополнительное описание картинки. Краткость - сестра таланта.",
@@ -281,24 +281,24 @@ class Gallery extends Block {
             'title_2' : "Subtitle",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/1.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/1.jpg`},
                     'img_title_1' : "In ring",
                     'img_desc_1' : "Fascinating spectacle",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/2.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/2.jpg`},
                     'img_title_2' : "Entrance",
                     'img_desc_2' : "At the entrance she meets",
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/3.jpg`},
+                    'image_3' : {'image': `${App.assets_url}/gallery/3.jpg`},
                     'img_title_3' : "Throwing knives",
                     'img_desc_3' : "Dangerous stunts with knives",
                 },
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/5.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/5.jpg`},
                     'img_title_1' : "Form №2",
                     'img_desc_1' : "Nude torso",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/6.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/6.jpg`},
                     'img_title_2' : "Prima and clown",
                     'img_desc_2' : "Foci",
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/7.jpg`},
+                    'image_3' : {'image': `${App.assets_url}/gallery/7.jpg`},
                     'img_title_3' : "Long legs",
                     'img_desc_3' : "16 and up",
                 }
@@ -314,24 +314,24 @@ class Gallery extends Block {
             'title_2' : "Подзаголовок",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/1.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/1.jpg`},
                     'img_title_1' : "В кольце",
                     'img_desc_1' : "Завораживающее зрелище",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/2.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/2.jpg`},
                     'img_title_2' : "У входа",
                     'img_desc_2' : "На входе встречает она",
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/3.jpg`},
+                    'image_3' : {'image': `${App.assets_url}/gallery/3.jpg`},
                     'img_title_3' : "Метание ножей",
                     'img_desc_3' : "Опасный трюк с ножами",
                 },
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/5.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/5.jpg`},
                     'img_title_1' : "Форма №2",
                     'img_desc_1' : "Голый торс",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/6.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/6.jpg`},
                     'img_title_2' : "Прима и клоун",
                     'img_desc_2' : "Номер с фокусами",
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/7.jpg`},
+                    'image_3' : {'image': `${App.assets_url}/gallery/7.jpg`},
                     'img_title_3' : "Ноги от ушей",
                     'img_desc_3' : "От 16 и старше",
                 }
@@ -398,30 +398,30 @@ class Gallery extends Block {
             'title_2' : "Subtitle",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/1.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/1.jpg`},
                     'img_title_1' : "In ring",
                     'img_desc_1' : "Fascinating spectacle",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/2.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/2.jpg`},
                     'img_title_2' : "Entrance",
                     'img_desc_2' : "At the entrance she meets",
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/3.jpg`},
+                    'image_3' : {'image': `${App.assets_url}/gallery/3.jpg`},
                     'img_title_3' : "Throwing knives",
                     'img_desc_3' : "Dangerous stunts with knives",
-                    'image_4' : {'image': `${lp.app.options.assets_url}/gallery/4.jpg`},
+                    'image_4' : {'image': `${App.assets_url}/gallery/4.jpg`},
                     'img_title_4' : "Ticketing",
                     'img_desc_4' : "At the box office again Prima",
                 },
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/5.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/5.jpg`},
                     'img_title_1' : "Form №2",
                     'img_desc_1' : "Nude torso",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/6.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/6.jpg`},
                     'img_title_2' : "Prima and clown",
                     'img_desc_2' : "Foci",
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/7.jpg`},
+                    'image_3' : {'image': `${App.assets_url}/gallery/7.jpg`},
                     'img_title_3' : "Long legs",
                     'img_desc_3' : "16 and up",
-                    'image_4' : {'image': `${lp.app.options.assets_url}/gallery/8.jpg`},
+                    'image_4' : {'image': `${App.assets_url}/gallery/8.jpg`},
                     'img_title_4' : "In the dressing room",
                     'img_desc_4' : "Before going on stage",
                 }
@@ -437,30 +437,30 @@ class Gallery extends Block {
             'title_2' : "Подзаголовок",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/1.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/1.jpg`},
                     'img_title_1' : "В кольце",
                     'img_desc_1' : "Завораживающее зрелище",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/2.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/2.jpg`},
                     'img_title_2' : "У входа",
                     'img_desc_2' : "На входе встречает она",
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/3.jpg`},
+                    'image_3' : {'image': `${App.assets_url}/gallery/3.jpg`},
                     'img_title_3' : "Метание ножей",
                     'img_desc_3' : "Опасный трюк с ножами",
-                    'image_4' : {'image': `${lp.app.options.assets_url}/gallery/4.jpg`},
+                    'image_4' : {'image': `${App.assets_url}/gallery/4.jpg`},
                     'img_title_4' : "Обилечивание",
                     'img_desc_4' : "У кассы снова Прима",
                 },
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/5.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/5.jpg`},
                     'img_title_1' : "Форма №2",
                     'img_desc_1' : "Голый торс",
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/6.jpg`},
+                    'image_2' : {'image': `${App.assets_url}/gallery/6.jpg`},
                     'img_title_2' : "Прима и клоун",
                     'img_desc_2' : "Номер с фокусами",
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/7.jpg`},
+                    'image_3' : {'image': `${App.assets_url}/gallery/7.jpg`},
                     'img_title_3' : "Ноги от ушей",
                     'img_desc_3' : "От 16 и старше",
-                    'image_4' : {'image': `${lp.app.options.assets_url}/gallery/8.jpg`},
+                    'image_4' : {'image': `${App.assets_url}/gallery/8.jpg`},
                     'img_title_4' : "В гримёрке",
                     'img_desc_4' : "Перед выходом на сцену",
                 }
@@ -524,15 +524,15 @@ class Gallery extends Block {
             'title' : "Lovely",
             'title_2' : "Subtitle",
             'items' : [
-                { 'image' : `${lp.app.options.assets_url}/gallery/1.jpg`, 'title' : 'In ring', 'desc' : 'Fascinating spectacle' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/2.jpg`, 'title' : 'Entrance', 'desc' : 'At the entrance she meets' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/3.jpg`, 'title' : 'Throwing knives', 'desc' : 'Dangerous stunts with knives' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/4.jpg`, 'title' : 'Ticketing', 'desc' : 'At the box office again Prima' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/5.jpg`, 'title' : 'Form №2', 'desc' : 'Nude torso' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/6.jpg`, 'title' : 'Prima and clown', 'desc' : 'Foci' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/7.jpg`, 'title' : 'Long legs', 'desc' : '16 and up' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/8.jpg`, 'title' : 'In the dressing room', 'desc' : 'Before going on stage' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/9.jpg`, 'title' : 'Swing', 'desc' : 'Prima under the dome' },
+                { 'image' : `${App.assets_url}/gallery/1.jpg`, 'title' : 'In ring', 'desc' : 'Fascinating spectacle' },
+                { 'image' : `${App.assets_url}/gallery/2.jpg`, 'title' : 'Entrance', 'desc' : 'At the entrance she meets' },
+                { 'image' : `${App.assets_url}/gallery/3.jpg`, 'title' : 'Throwing knives', 'desc' : 'Dangerous stunts with knives' },
+                { 'image' : `${App.assets_url}/gallery/4.jpg`, 'title' : 'Ticketing', 'desc' : 'At the box office again Prima' },
+                { 'image' : `${App.assets_url}/gallery/5.jpg`, 'title' : 'Form №2', 'desc' : 'Nude torso' },
+                { 'image' : `${App.assets_url}/gallery/6.jpg`, 'title' : 'Prima and clown', 'desc' : 'Foci' },
+                { 'image' : `${App.assets_url}/gallery/7.jpg`, 'title' : 'Long legs', 'desc' : '16 and up' },
+                { 'image' : `${App.assets_url}/gallery/8.jpg`, 'title' : 'In the dressing room', 'desc' : 'Before going on stage' },
+                { 'image' : `${App.assets_url}/gallery/9.jpg`, 'title' : 'Swing', 'desc' : 'Prima under the dome' },
             ]
         } : {
             'show_title' : true,
@@ -544,15 +544,15 @@ class Gallery extends Block {
             'title' : "Активистка, комсомолка и просто...",
             'title_2' : "Подзаголовок",
             'items' : [
-                { 'image' : `${lp.app.options.assets_url}/gallery/1.jpg`, 'title' : 'В кольце', 'desc' : 'Завораживающее зрелище' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/2.jpg`, 'title' : 'У входа', 'desc' : 'На входе встречает она' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/3.jpg`, 'title' : 'Метание ножей', 'desc' : 'Опасный трюк с ножами' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/4.jpg`, 'title' : 'Обилечивание', 'desc' : 'У кассы снова прима' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/5.jpg`, 'title' : 'Форма №2', 'desc' : 'Голый торс' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/6.jpg`, 'title' : 'Прима и клоун', 'desc' : 'Номер с фокусами' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/7.jpg`, 'title' : 'Ноги от ушей', 'desc' : 'От 16 и старше' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/8.jpg`, 'title' : 'В гримёрке', 'desc' : 'Перед выходом на сцену' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/9.jpg`, 'title' : 'Качели', 'desc' : 'Прима под куполом' },
+                { 'image' : `${App.assets_url}/gallery/1.jpg`, 'title' : 'В кольце', 'desc' : 'Завораживающее зрелище' },
+                { 'image' : `${App.assets_url}/gallery/2.jpg`, 'title' : 'У входа', 'desc' : 'На входе встречает она' },
+                { 'image' : `${App.assets_url}/gallery/3.jpg`, 'title' : 'Метание ножей', 'desc' : 'Опасный трюк с ножами' },
+                { 'image' : `${App.assets_url}/gallery/4.jpg`, 'title' : 'Обилечивание', 'desc' : 'У кассы снова прима' },
+                { 'image' : `${App.assets_url}/gallery/5.jpg`, 'title' : 'Форма №2', 'desc' : 'Голый торс' },
+                { 'image' : `${App.assets_url}/gallery/6.jpg`, 'title' : 'Прима и клоун', 'desc' : 'Номер с фокусами' },
+                { 'image' : `${App.assets_url}/gallery/7.jpg`, 'title' : 'Ноги от ушей', 'desc' : 'От 16 и старше' },
+                { 'image' : `${App.assets_url}/gallery/8.jpg`, 'title' : 'В гримёрке', 'desc' : 'Перед выходом на сцену' },
+                { 'image' : `${App.assets_url}/gallery/9.jpg`, 'title' : 'Качели', 'desc' : 'Прима под куполом' },
             ]
         };
     }
@@ -615,13 +615,13 @@ class Gallery extends Block {
             'title' : "Our program in photos",
             'title_2' : "Subtitle",
             'items' : [
-                { 'image' : `${lp.app.options.assets_url}/gallery/11.jpg`, 'title' : 'Clown Zhora', 'desc' : 'Play-actor №1' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/12.jpg`, 'title' : 'Jugglers', 'desc' : 'Funny boys' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/13.jpg`, 'title' : 'Clown John', 'desc' : 'Funny hocus-pocus' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/14.jpg`, 'title' : 'Soaring', 'desc' : 'Two in the air' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/15.jpg`, 'title' : 'Figure', 'desc' : 'Girls under the big top' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/16.jpg`, 'title' : 'Python and Zhora', 'desc' : 'Dangerous performance' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/17.jpg`, 'title' : 'Hippo with a ball', 'desc' : 'Woman with ball' },
+                { 'image' : `${App.assets_url}/gallery/11.jpg`, 'title' : 'Clown Zhora', 'desc' : 'Play-actor №1' },
+                { 'image' : `${App.assets_url}/gallery/12.jpg`, 'title' : 'Jugglers', 'desc' : 'Funny boys' },
+                { 'image' : `${App.assets_url}/gallery/13.jpg`, 'title' : 'Clown John', 'desc' : 'Funny hocus-pocus' },
+                { 'image' : `${App.assets_url}/gallery/14.jpg`, 'title' : 'Soaring', 'desc' : 'Two in the air' },
+                { 'image' : `${App.assets_url}/gallery/15.jpg`, 'title' : 'Figure', 'desc' : 'Girls under the big top' },
+                { 'image' : `${App.assets_url}/gallery/16.jpg`, 'title' : 'Python and Zhora', 'desc' : 'Dangerous performance' },
+                { 'image' : `${App.assets_url}/gallery/17.jpg`, 'title' : 'Hippo with a ball', 'desc' : 'Woman with ball' },
             ]
         } : {
             'show_title' : true,
@@ -633,13 +633,13 @@ class Gallery extends Block {
             'title' : "Фото цирковых номеров",
             'title_2' : "Подзаголовок",
             'items' : [
-                { 'image' : `${lp.app.options.assets_url}/gallery/11.jpg`, 'title' : 'Клоун Жора', 'desc' : 'Смехун цирка №1' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/12.jpg`, 'title' : 'Жонглёры', 'desc' : 'Весёлые ребята' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/13.jpg`, 'title' : 'Клоун Клёва', 'desc' : 'Весёлые фокусы-покусы' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/14.jpg`, 'title' : 'Парящие', 'desc' : 'Пара в воздухе' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/15.jpg`, 'title' : 'Фигура', 'desc' : 'Девушки под куполом цирка' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/16.jpg`, 'title' : 'Питон и Жора', 'desc' : 'Опасный номер' },
-                { 'image' : `${lp.app.options.assets_url}/gallery/17.jpg`, 'title' : 'Бегемотица с шаром', 'desc' : 'Капибара и женщина с шаром' },
+                { 'image' : `${App.assets_url}/gallery/11.jpg`, 'title' : 'Клоун Жора', 'desc' : 'Смехун цирка №1' },
+                { 'image' : `${App.assets_url}/gallery/12.jpg`, 'title' : 'Жонглёры', 'desc' : 'Весёлые ребята' },
+                { 'image' : `${App.assets_url}/gallery/13.jpg`, 'title' : 'Клоун Клёва', 'desc' : 'Весёлые фокусы-покусы' },
+                { 'image' : `${App.assets_url}/gallery/14.jpg`, 'title' : 'Парящие', 'desc' : 'Пара в воздухе' },
+                { 'image' : `${App.assets_url}/gallery/15.jpg`, 'title' : 'Фигура', 'desc' : 'Девушки под куполом цирка' },
+                { 'image' : `${App.assets_url}/gallery/16.jpg`, 'title' : 'Питон и Жора', 'desc' : 'Опасный номер' },
+                { 'image' : `${App.assets_url}/gallery/17.jpg`, 'title' : 'Бегемотица с шаром', 'desc' : 'Капибара и женщина с шаром' },
             ]
         };
     }
@@ -693,11 +693,11 @@ class Gallery extends Block {
             'title_2' : "Subtitle",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/30.jpg`, 'title' : 'Grace', 'desc' : 'Girl on the tape'},
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/22.jpg`, 'title' : 'Kite Bob', 'desc' : 'Bob is sitting on a barrel'},
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/21.jpg`, 'title' : 'Three people put the hats on', 'desc' : 'Acrobats on the ropes'},
-                    'image_4' : {'image': `${lp.app.options.assets_url}/gallery/25.jpg`, 'title' : 'Jumper', 'desc' : 'Show with the horse'},
-                    'image_5' : {'image': `${lp.app.options.assets_url}/gallery/28.jpg`, 'title' : 'Live time', 'desc' : 'Girls imitate watches'},
+                    'image_1' : {'image': `${App.assets_url}/gallery/30.jpg`, 'title' : 'Grace', 'desc' : 'Girl on the tape'},
+                    'image_2' : {'image': `${App.assets_url}/gallery/22.jpg`, 'title' : 'Kite Bob', 'desc' : 'Bob is sitting on a barrel'},
+                    'image_3' : {'image': `${App.assets_url}/gallery/21.jpg`, 'title' : 'Three people put the hats on', 'desc' : 'Acrobats on the ropes'},
+                    'image_4' : {'image': `${App.assets_url}/gallery/25.jpg`, 'title' : 'Jumper', 'desc' : 'Show with the horse'},
+                    'image_5' : {'image': `${App.assets_url}/gallery/28.jpg`, 'title' : 'Live time', 'desc' : 'Girls imitate watches'},
                 }
             ]
         } : {
@@ -711,11 +711,11 @@ class Gallery extends Block {
             'title_2' : "Подзаголовок",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/30.jpg`, 'title' : 'Грация', 'desc' : 'Девушка на лентах'},
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/22.jpg`, 'title' : 'Коршун Веня', 'desc' : 'Веня сидит на бочке'},
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/21.jpg`, 'title' : 'Трое в шляпах', 'desc' : 'Акробаты на канатах'},
-                    'image_4' : {'image': `${lp.app.options.assets_url}/gallery/25.jpg`, 'title' : 'Прыгун', 'desc' : 'Номер с конём'},
-                    'image_5' : {'image': `${lp.app.options.assets_url}/gallery/28.jpg`, 'title' : 'Живое время', 'desc' : 'Девушки имитируют часы'},
+                    'image_1' : {'image': `${App.assets_url}/gallery/30.jpg`, 'title' : 'Грация', 'desc' : 'Девушка на лентах'},
+                    'image_2' : {'image': `${App.assets_url}/gallery/22.jpg`, 'title' : 'Коршун Веня', 'desc' : 'Веня сидит на бочке'},
+                    'image_3' : {'image': `${App.assets_url}/gallery/21.jpg`, 'title' : 'Трое в шляпах', 'desc' : 'Акробаты на канатах'},
+                    'image_4' : {'image': `${App.assets_url}/gallery/25.jpg`, 'title' : 'Прыгун', 'desc' : 'Номер с конём'},
+                    'image_5' : {'image': `${App.assets_url}/gallery/28.jpg`, 'title' : 'Живое время', 'desc' : 'Девушки имитируют часы'},
                 }
             ]
         };
@@ -782,32 +782,32 @@ class Gallery extends Block {
             'items' : [
                 {
                     'image_1': {
-                        'image': `${lp.app.options.assets_url}/gallery/25.jpg`,
+                        'image': `${App.assets_url}/gallery/25.jpg`,
                         'title': 'Jumper',
                         'desc': 'Show with the horse'
                     },
                     'image_2': {
-                        'image': `${lp.app.options.assets_url}/gallery/26.jpg`,
+                        'image': `${App.assets_url}/gallery/26.jpg`,
                         'title': 'Lambada',
                         'desc': 'Dancing elephants'
                     },
                     'image_3': {
-                        'image': `${lp.app.options.assets_url}/gallery/30.jpg`,
+                        'image': `${App.assets_url}/gallery/30.jpg`,
                         'title': 'Grace',
                         'desc': 'The girl on the tape'
                     },
                     'image_4': {
-                        'image': `${lp.app.options.assets_url}/gallery/24.jpg`,
+                        'image': `${App.assets_url}/gallery/24.jpg`,
                         'title': 'Tusk',
                         'desc': 'Trained rhino'
                     },
                     'image_5': {
-                        'image': `${lp.app.options.assets_url}/gallery/21.jpg`,
+                        'image': `${App.assets_url}/gallery/21.jpg`,
                         'title': 'Three people put the hats on',
                         'desc': 'Acrobats on the ropes'
                     },
                     'image_6': {
-                        'image': `${lp.app.options.assets_url}/gallery/27.jpg`,
+                        'image': `${App.assets_url}/gallery/27.jpg`,
                         'title': 'Tigress',
                         'desc': 'It is the one on the left'
                     },
@@ -825,32 +825,32 @@ class Gallery extends Block {
             'items' : [
                 {
                     'image_1': {
-                        'image': `${lp.app.options.assets_url}/gallery/25.jpg`,
+                        'image': `${App.assets_url}/gallery/25.jpg`,
                         'title': 'Прыгун',
                         'desc': 'Номер с конём'
                     },
                     'image_2': {
-                        'image': `${lp.app.options.assets_url}/gallery/26.jpg`,
+                        'image': `${App.assets_url}/gallery/26.jpg`,
                         'title': 'Ламбада',
                         'desc': 'Танцующие слоны'
                     },
                     'image_3': {
-                        'image': `${lp.app.options.assets_url}/gallery/30.jpg`,
+                        'image': `${App.assets_url}/gallery/30.jpg`,
                         'title': 'Грация',
                         'desc': 'Девушка на лентах'
                     },
                     'image_4': {
-                        'image': `${lp.app.options.assets_url}/gallery/24.jpg`,
+                        'image': `${App.assets_url}/gallery/24.jpg`,
                         'title': 'Бивень',
                         'desc': 'Дрессированный носорог'
                     },
                     'image_5': {
-                        'image': `${lp.app.options.assets_url}/gallery/21.jpg`,
+                        'image': `${App.assets_url}/gallery/21.jpg`,
                         'title': 'Трое в шляпах',
                         'desc': 'Акробаты на канатах'
                     },
                     'image_6': {
-                        'image': `${lp.app.options.assets_url}/gallery/27.jpg`,
+                        'image': `${App.assets_url}/gallery/27.jpg`,
                         'title': 'Тигрица',
                         'desc': 'Это та, что слева'
                     },
@@ -924,12 +924,12 @@ class Gallery extends Block {
             'title_2' : "Subtitle",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/23.jpg`, 'title' : 'Leapfrog', 'desc' : 'People in blue trousers'},
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/28.jpg`, 'title' : 'Live time', 'desc' : 'Girls imitate watches'},
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/29.jpg`, 'title' : 'Moon', 'desc' : 'Flying people on the moon'},
-                    'image_4' : {'image': `${lp.app.options.assets_url}/gallery/30.jpg`, 'title' : 'Grace', 'desc' : 'The girl on the tape'},
-                    'image_5' : {'image': `${lp.app.options.assets_url}/gallery/21.jpg`, 'title' : 'Three people put the hats on', 'desc' : 'Acrobats on the ropes'},
-                    'image_6' : {'image': `${lp.app.options.assets_url}/gallery/22.jpg`, 'title' : 'Kite Bob', 'desc' : 'Bob is sitting on a barrel'},
+                    'image_1' : {'image': `${App.assets_url}/gallery/23.jpg`, 'title' : 'Leapfrog', 'desc' : 'People in blue trousers'},
+                    'image_2' : {'image': `${App.assets_url}/gallery/28.jpg`, 'title' : 'Live time', 'desc' : 'Girls imitate watches'},
+                    'image_3' : {'image': `${App.assets_url}/gallery/29.jpg`, 'title' : 'Moon', 'desc' : 'Flying people on the moon'},
+                    'image_4' : {'image': `${App.assets_url}/gallery/30.jpg`, 'title' : 'Grace', 'desc' : 'The girl on the tape'},
+                    'image_5' : {'image': `${App.assets_url}/gallery/21.jpg`, 'title' : 'Three people put the hats on', 'desc' : 'Acrobats on the ropes'},
+                    'image_6' : {'image': `${App.assets_url}/gallery/22.jpg`, 'title' : 'Kite Bob', 'desc' : 'Bob is sitting on a barrel'},
                 }
             ]
         } : {
@@ -944,32 +944,32 @@ class Gallery extends Block {
             'items' : [
                 {
                     'image_1': {
-                        'image': `${lp.app.options.assets_url}/gallery/23.jpg`,
+                        'image': `${App.assets_url}/gallery/23.jpg`,
                         'title': 'Чехарда',
                         'desc': 'Люди в синих трениках'
                     },
                     'image_2': {
-                        'image': `${lp.app.options.assets_url}/gallery/28.jpg`,
+                        'image': `${App.assets_url}/gallery/28.jpg`,
                         'title': 'Живое время',
                         'desc': 'Девушки имитируют часы'
                     },
                     'image_3': {
-                        'image': `${lp.app.options.assets_url}/gallery/29.jpg`,
+                        'image': `${App.assets_url}/gallery/29.jpg`,
                         'title': 'Лунтики',
                         'desc': 'Полёт людей на луну'
                     },
                     'image_4': {
-                        'image': `${lp.app.options.assets_url}/gallery/30.jpg`,
+                        'image': `${App.assets_url}/gallery/30.jpg`,
                         'title': 'Грация',
                         'desc': 'Девушка на лентах'
                     },
                     'image_5': {
-                        'image': `${lp.app.options.assets_url}/gallery/21.jpg`,
+                        'image': `${App.assets_url}/gallery/21.jpg`,
                         'title': 'Трое в шляпах',
                         'desc': 'Акробаты на канатах'
                     },
                     'image_6': {
-                        'image': `${lp.app.options.assets_url}/gallery/22.jpg`,
+                        'image': `${App.assets_url}/gallery/22.jpg`,
                         'title': 'Коршун Веня',
                         'desc': 'Веня сидит на бочке'
                     },
@@ -1034,12 +1034,12 @@ class Gallery extends Block {
             'title_2' : "Subtitle",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/21.jpg`, 'title' : 'Three people put the hats on', 'desc' : 'Acrobats on the ropes'},
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/22.jpg`, 'title' : 'Kite Bob', 'desc' : 'Bob is sitting on a barrel'},
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/23.jpg`, 'title' : 'Leapfrog', 'desc' : 'People in blue trousers'},
-                    'image_4' : {'image': `${lp.app.options.assets_url}/gallery/24.jpg`, 'title' : 'Tusk', 'desc' : 'Trained rhino'},
-                    'image_5' : {'image': `${lp.app.options.assets_url}/gallery/25.jpg`, 'title' : 'Jumper', 'desc' : 'Show with the horse'},
-                    'image_6' : {'image': `${lp.app.options.assets_url}/gallery/26.jpg`, 'title' : 'Lambada', 'desc' : 'Dancing elephants'},
+                    'image_1' : {'image': `${App.assets_url}/gallery/21.jpg`, 'title' : 'Three people put the hats on', 'desc' : 'Acrobats on the ropes'},
+                    'image_2' : {'image': `${App.assets_url}/gallery/22.jpg`, 'title' : 'Kite Bob', 'desc' : 'Bob is sitting on a barrel'},
+                    'image_3' : {'image': `${App.assets_url}/gallery/23.jpg`, 'title' : 'Leapfrog', 'desc' : 'People in blue trousers'},
+                    'image_4' : {'image': `${App.assets_url}/gallery/24.jpg`, 'title' : 'Tusk', 'desc' : 'Trained rhino'},
+                    'image_5' : {'image': `${App.assets_url}/gallery/25.jpg`, 'title' : 'Jumper', 'desc' : 'Show with the horse'},
+                    'image_6' : {'image': `${App.assets_url}/gallery/26.jpg`, 'title' : 'Lambada', 'desc' : 'Dancing elephants'},
                 }
             ]
         } : {
@@ -1053,12 +1053,12 @@ class Gallery extends Block {
             'title_2' : "Подзаголовок",
             'items' : [
                 {
-                    'image_1' : {'image': `${lp.app.options.assets_url}/gallery/21.jpg`, 'title' : 'Трое в шляпах', 'desc' : 'Акробаты на канатах'},
-                    'image_2' : {'image': `${lp.app.options.assets_url}/gallery/22.jpg`, 'title' : 'Коршун Веня', 'desc' : 'Веня сидит на бочке'},
-                    'image_3' : {'image': `${lp.app.options.assets_url}/gallery/23.jpg`, 'title' : 'Чехарда', 'desc' : 'Люди в синих трениках'},
-                    'image_4' : {'image': `${lp.app.options.assets_url}/gallery/24.jpg`, 'title' : 'Бивень', 'desc' : 'Дрессированный носорог'},
-                    'image_5' : {'image': `${lp.app.options.assets_url}/gallery/25.jpg`, 'title' : 'Прыгун', 'desc' : 'Номер с конём'},
-                    'image_6' : {'image': `${lp.app.options.assets_url}/gallery/26.jpg`, 'title' : 'Ламбада', 'desc' : 'Танцующие слоны'},
+                    'image_1' : {'image': `${App.assets_url}/gallery/21.jpg`, 'title' : 'Трое в шляпах', 'desc' : 'Акробаты на канатах'},
+                    'image_2' : {'image': `${App.assets_url}/gallery/22.jpg`, 'title' : 'Коршун Веня', 'desc' : 'Веня сидит на бочке'},
+                    'image_3' : {'image': `${App.assets_url}/gallery/23.jpg`, 'title' : 'Чехарда', 'desc' : 'Люди в синих трениках'},
+                    'image_4' : {'image': `${App.assets_url}/gallery/24.jpg`, 'title' : 'Бивень', 'desc' : 'Дрессированный носорог'},
+                    'image_5' : {'image': `${App.assets_url}/gallery/25.jpg`, 'title' : 'Прыгун', 'desc' : 'Номер с конём'},
+                    'image_6' : {'image': `${App.assets_url}/gallery/26.jpg`, 'title' : 'Ламбада', 'desc' : 'Танцующие слоны'},
                 }
             ]
         };

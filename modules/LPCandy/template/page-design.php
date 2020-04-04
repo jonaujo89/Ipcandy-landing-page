@@ -16,10 +16,9 @@
         <link  href="<?=url('assets/editor.min.css')?>" rel="stylesheet" type="text/css">
 
         <script>
-            lp.run({
+            App.run({
                 ajax_url: "<?=url('page-ajax/'.$page->id)?>",
                 assets_url: "assets/components",
-                upload_url: "<?=url('upload/LPCandy/files/'.$page->user->id)?>",
                 geocoder_api_key: "<?= \LPCandy\Configuration::$geocoder_api_key ?>",
                 blocks: <?=json_encode($page->loadBlocks($published=false))?>,
             });

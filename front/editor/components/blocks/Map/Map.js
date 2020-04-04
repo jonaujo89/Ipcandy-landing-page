@@ -210,7 +210,7 @@ class Map extends Block {
             background_color: '#FFFFFF',
             map: YandexMap.tpl_default(),
             info_lines:  Map.tpl_default_info_lines(),
-            image: `${lp.app.options.assets_url}/gallery/4.jpg`,
+            image: `${App.assets_url}/gallery/4.jpg`,
             send_message_button: Map.tpl_default_send_message()
         } : {
             show_title: true,
@@ -221,7 +221,7 @@ class Map extends Block {
             map: YandexMap.tpl_default(),
             info_lines:  Map.tpl_default_info_lines(),
              
-            image: `${lp.app.options.assets_url}/gallery/4.jpg`,
+            image: `${App.assets_url}/gallery/4.jpg`,
             send_message_button: Map.tpl_default_send_message()
         }
     }
@@ -454,17 +454,17 @@ class Map extends Block {
             background_color: '#313138',
             contact_lines:  [
                 {
-                    icon: `${lp.app.options.assets_url}/ico/195.png`,
+                    icon: `${App.assets_url}/ico/195.png`,
                     title: 'Address',
                     text: ' Moscow, Color Blvd., 13'
                 },
                 {
-                    icon:  `${lp.app.options.assets_url}/ico/217.png`,
+                    icon:  `${App.assets_url}/ico/217.png`,
                     title: 'Phone',
                     text: '+7 (495) 321-46-98'
                 },
                 {
-                    icon:  `${lp.app.options.assets_url}/ico/26.png`,
+                    icon:  `${App.assets_url}/ico/26.png`,
                     title: 'E-mail',
                     text: 'smile@zaraza.net'
                 },
@@ -475,17 +475,17 @@ class Map extends Block {
             background_color: '#313138',
             contact_lines: [
                 {
-                    icon: `${lp.app.options.assets_url}/ico/195.png`,
+                    icon: `${App.assets_url}/ico/195.png`,
                     title: 'Адрес',
                     text: 'г. Москва, Цветной бульвар, 13'
                 },
                 {
-                    icon: `${lp.app.options.assets_url}/ico/217.png`,
+                    icon: `${App.assets_url}/ico/217.png`,
                     title: 'Телефон',
                     text: '+7 (495) 321-46-98'
                 },
                 {
-                    icon: `${lp.app.options.assets_url}/ico/26.png`,
+                    icon: `${App.assets_url}/ico/26.png`,
                     title: 'E-mail',
                     text: 'smile@zaraza.net'
                 },

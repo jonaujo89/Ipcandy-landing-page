@@ -10,7 +10,7 @@ const {Color} = require("../Color/Color");
 const {App} = require("../../App");
 
 App.ready(()=>{
-    if (!lp.app.options.geocoder_api_key && !lp.app.options.viewOnly) Dialog.alert("Please fill geocoder_api_key in app config");
+    if (!App.geocoder_api_key && !App.viewOnly) Dialog.alert("Please fill geocoder_api_key in app config");
 });
 
 class AddressInput extends preact.Component {
@@ -22,7 +22,7 @@ class AddressInput extends preact.Component {
                     this.geocodeTimeout = setTimeout(()=>{
                         fetch(
                             `https://geocode-maps.yandex.ru/1.x/`
-                            +`?format=json&results=1&geocode=${encodeURIComponent(address)}&apikey=${encodeURIComponent(lp.app.options.geocoder_api_key)}`
+                            +`?format=json&results=1&geocode=${encodeURIComponent(address)}&apikey=${encodeURIComponent(App.geocoder_api_key)}`
                         )
                         .then((res)=>res.json().then(update));
                     },500);

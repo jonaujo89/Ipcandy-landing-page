@@ -22,7 +22,7 @@ const Media = Editable((props)=>{
         }
 
         if (!match) {
-            video_url = `${base_url}/${lp.app.options.assets_url}/404.htm`;
+            video_url = `${base_url}/${App.assets_url}/404.htm`;
         }
     }
 
@@ -59,7 +59,7 @@ const Media = Editable((props)=>{
 
 Media.tpl_default = () => ({
     type: 'image',
-    image_url: `${lp.app.options.assets_url}/background/218.jpg`,
+    image_url: `${App.assets_url}/background/218.jpg`,
     video_url: 'www.youtube.com/watch?v=EILqvdxdc5c',
 });
 

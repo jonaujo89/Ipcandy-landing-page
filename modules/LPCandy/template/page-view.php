@@ -17,7 +17,7 @@
     <link  href="<?=url('assets/editor.min.css')?>" rel="stylesheet" type="text/css">
 
     <script>
-        lp.run({
+        App.run({
             assets_url: "assets/components",
             blocks: <?=json_encode($page->loadBlocks($published=true))?>,
             viewOnly: true

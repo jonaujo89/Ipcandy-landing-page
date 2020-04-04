@@ -25,8 +25,8 @@ class Block extends preact.Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        var res = nextProps.value != this.props.value || lp.app.state.preview != this.preview;
-        this.preview = lp.app.state.preview;
+        var res = nextProps.value != this.props.value || App.instance.state.preview != this.preview;
+        this.preview = App.instance.state.preview;
         return res;
     }    
 
@@ -63,7 +63,7 @@ class Block extends preact.Component {
             current = current[part];
         });
         this.value = ret;
-        lp.app.blockChanged(this,cb);
+        App.instance.blockChanged(this,cb);
     }
 
 
@@ -83,12 +83,12 @@ class Block extends preact.Component {
             ...(this.variantValues[variant] || { type:this.value.type, id:this.value.id }),
             variant
         });
-        lp.app.blockChanged(this);
+        App.instance.blockChanged(this);
     }
 
     remove() {
         Dialog.confirm({title:_t("Remove confirmation"),text:_t("Sure to remove component?")},(res) => {
-            if (res) lp.app.removeBlock(this);
+            if (res) App.instance.removeBlock(this);
         })
     }
 
@@ -120,7 +120,7 @@ class Block extends preact.Component {
         <${ValueContext.Provider} value=${{name:"",value:this.value,defaultValue:this.defaultValue}}>
             <div class="lp-block" id=${this.value.id}>
                 ${tpl_f.call(this,this.value,props,state)}
-                ${ !lp.app.state.preview && html`
+                ${ !App.instance.state.preview && html`
                     <div class='cmp-controls'>
                         ${ this.variantCount > 1 && html`
                             <div class='fa fa-chevron-left lp-button' onClick=${()=>this.prev()} />
@@ -142,12 +142,12 @@ class Block extends preact.Component {
                                 } 
                             />
                         `}
-                        <div class='fa fa-arrows lp-button right' onMouseDown=${(e)=>lp.app.draggableMouseDown(e,this)} />
+                        <div class='fa fa-arrows lp-button right' onMouseDown=${(e)=>App.instance.draggableMouseDown(e,this)} />
                         <div class='fa fa-trash-o lp-button right' onClick=${()=>this.remove()} />
                     </div>
                 `}
             </div>
-            ${ !lp.app.state.preview && configForm }
+            ${ !App.instance.state.preview && configForm }
         <//>
         <//>
         `;

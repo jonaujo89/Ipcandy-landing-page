@@ -11,7 +11,7 @@ const Text = Editable(class extends preact.Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        return nextProps.value!=this.value || this.preview!=lp.app.state.preview;
+        return nextProps.value!=this.value || this.preview!=App.instance.state.preview;
     }
 
     componentDidMount() {
@@ -59,7 +59,7 @@ const Text = Editable(class extends preact.Component {
     }
 
     render(props) {
-        this.preview = lp.app.state.preview;
+        this.preview = App.instance.state.preview;
         this.value = props.value;
         return html`<div class="lp-text">
             <div ref=${(r)=>this.editor=r} class="lp-text-editor" dangerouslySetInnerHTML=${{__html:props.value}} contenteditable=${!this.preview} />

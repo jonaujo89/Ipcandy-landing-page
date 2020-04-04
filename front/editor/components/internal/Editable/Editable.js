@@ -4,14 +4,14 @@ function Editable(Type) {
     class TypeWrap extends preact.Component {
         shouldComponentUpdate(props,state) {
             if (props.alwaysRender) return true;
-            if (lp.app.state.preview!=this.preview) return true;
+            if (App.instance.state.preview!=this.preview) return true;
             if (props.value==this.props.value) return false;
             return true;
         }
 
         render(props) {
             //console.debug("editable",props.fullName,props.value);
-            this.preview = lp.app.state.preview;
+            this.preview = App.instance.state.preview;
             return preact.h(ValueContext.Provider,{value:{value:props.value,name:props.fullName}},
                 preact.h(Type,{...props,ref:(r)=>props.wrapper.editable=r})
             ); 
