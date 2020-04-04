@@ -1,3 +1,4 @@
+require("FormButton.tea");
 const {Cover} = require("../Cover/Cover"); 
 const {FormOrder} = require("../FormOrder/FormOrder");
 const {Text} = require("../Text/Text");
