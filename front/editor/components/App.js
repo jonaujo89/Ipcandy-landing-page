@@ -15,7 +15,6 @@ class App extends preact.Component {
         for (var key in options) {
             App[key] = options[key];
         }
-        options.isGlobal = true;
         document.addEventListener("DOMContentLoaded",()=>{
             preact.render(preact.h(App,options),document.getElementById("app"));
         });
@@ -37,10 +36,9 @@ class App extends preact.Component {
         
         this.blocks = [];
 
-        if (props.isGlobal) {
-            App.instance = this;
-            (App.ready_list || []).forEach((f)=>f());
-        }
+        App.instance = this;
+        (App.ready_list || []).forEach((f)=>f());
+        App.ready_list = [];
 
         document.addEventListener("mouseup",(e)=>this.draggableMouseUp());
         document.addEventListener("mousemove",(e)=>this.draggableMouseMove(e));
@@ -232,14 +230,17 @@ class App extends preact.Component {
                         text:_t('Your page was successfully published and now is available to your customers')
                     });
                 });
+                App.instance = me;
             }
         }
 
+        var div = document.createElement("div");
         preact.render(preact.h(AppPublished,{
             assets_url: this.options.assets_url,
             blocks: this.state.blocks,
             viewOnly: true
-        }),document.createElement("div"));
+        }),div);
+        preact.render(null,div);
     }
 
     removeBlock(blockComponent) {
