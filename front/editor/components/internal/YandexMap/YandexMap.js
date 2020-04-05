@@ -1,4 +1,4 @@
-require("YandexMap.tea");
+require("./YandexMap.tea");
 const {Cover} = require("../Cover/Cover");
 const {Dialog} = require("../Dialog/Dialog");
 const {Editable} = require("../Editable/Editable");

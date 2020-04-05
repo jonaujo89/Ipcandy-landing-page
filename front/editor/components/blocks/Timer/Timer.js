@@ -1,4 +1,4 @@
-require("Timer.tea");
+require("./Timer.tea");
 
 const {Block,Text,FormOrder,BlockColor,Color,TextureBackground,Switch,Dialog,Countdown} = require("../../internal");
 

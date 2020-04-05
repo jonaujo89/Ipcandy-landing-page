@@ -5,8 +5,8 @@ const {Editable} = require("../Editable/Editable");
 const {Cover} = require("../Cover/Cover");
 const {Color} = require("../Color/Color");
 const {Input} = require("../Input/Input");
-const {FieldsRepeater} = require("FieldsRepeater");
-const {formControls} = require("FormControl");
+const {FieldsRepeater} = require("./FieldsRepeater");
+const {formControls} = require("./FormControl");
 
 const FormOrder = Editable(class extends preact.Component {
     showFormSuccess() {

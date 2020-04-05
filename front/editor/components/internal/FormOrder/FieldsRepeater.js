@@ -1,7 +1,7 @@
 const {Editable} = require("../Editable/Editable");
 const {ValueContext} = require("../Block/Block");
 const {Combo} = require("../Combo/Combo");
-const {formControls} = require("FormControl");
+const {formControls} = require("./FormControl");
 
 const FieldsRepeater = Editable((props)=>{
 

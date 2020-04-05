@@ -1,5 +1,5 @@
 const {Editable,UploadButton,Cover,Dialog} = require("../../internal");
-const {ImageLink} = require("ImageLink");
+const {ImageLink} = require("./ImageLink");
 
 const GalleryImage = Editable(class extends preact.Component{ 
     render(props) {

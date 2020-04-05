@@ -1,9 +1,9 @@
 require("./Gallery.tea");
 const {Block,Repeater,Text,BlockColor,Switch,Dialog} = require("../../internal");
-const {GalleryRepeater,GallerySlider} = require("GalleryRepeater");
-const {GalleryImage} = require("GalleryImage");
-const {OverlayImage} = require("OverlayImage");
-const {ImageLink} = require("ImageLink");
+const {GalleryRepeater,GallerySlider} = require("./GalleryRepeater");
+const {GalleryImage} = require("./GalleryImage");
+const {OverlayImage} = require("./OverlayImage");
+const {ImageLink} = require("./ImageLink");
 
 class Gallery extends Block {
 

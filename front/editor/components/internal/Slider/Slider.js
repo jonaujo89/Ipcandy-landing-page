@@ -1,4 +1,4 @@
-require("Slider.tea");
+require("./Slider.tea");
 const {Repeater} = require("../Repeater/Repeater");
 const {Editable} = require("../Editable/Editable");
 

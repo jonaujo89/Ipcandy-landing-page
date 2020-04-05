@@ -1,7 +1,7 @@
 require("./App.tea");
-const {Block} = require("internal/Block/Block");
-const {Dialog} = require("internal/Dialog/Dialog");
-const {AddBlockDialog} = require("internal/AddBlockDialog/AddBlockDialog");
+const {Block} = require("./internal/Block/Block");
+const {Dialog} = require("./internal/Dialog/Dialog");
+const {AddBlockDialog} = require("./internal/AddBlockDialog/AddBlockDialog");
 
 class App extends preact.Component {
 

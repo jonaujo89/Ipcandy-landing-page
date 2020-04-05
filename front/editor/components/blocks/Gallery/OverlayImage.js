@@ -1,5 +1,5 @@
 const {Editable,UploadButton,Cover,Dialog,Input} = require("../../internal");
-const {ImageLink} = require("ImageLink");
+const {ImageLink} = require("./ImageLink");
 
 const OverlayImage = Editable(class extends preact.Component{ 
     render(props) {
