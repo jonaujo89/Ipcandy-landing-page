@@ -1,7 +1,3 @@
-if (window.bundler) {
-    bundler.js_transform = (js) => js.replace(/([>`}])(\s*\n\s*)([<`\$])/mg,"$1$3").replace(/\s*\n\s*/mg,' ');
-}
-
 window._t = function(s) { return window._t.hash[s] || s; };
 window._t.hash = {};
 window._t.load = function(h) { window._t.hash = {...window._t.hash,...h} }

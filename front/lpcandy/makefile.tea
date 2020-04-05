@@ -1,24 +1,12 @@
+@ teacss.Canvas = teacss.Canvas || {effects:{}}
+@ teacss.functions.Canvas = teacss.Canvas;
+
+@import "color.js";
 @import "bake.min.js";
 
 @ color1 = '#123';
 @ color2 = '#f90';
 @ sheetWidth = 760;
-
-.background_striped(size,width,color) {
-    @{
-        var canvas = (new Canvas(size,size))
-        .draw2D(function(ctx){
-            ctx.beginPath();
-            ctx.lineWidth = width;
-            ctx.strokeStyle = color.toString();
-            ctx.moveTo(-size,-size); ctx.lineTo(size*2,size*2);
-            ctx.moveTo(-size-size,-size); ctx.lineTo(size,size*2);
-            ctx.moveTo(-size+size,-size); ctx.lineTo(size*3,size*2);
-            ctx.stroke();
-        });
-    }
-    background-image: url(@{canvas.toDataURL()});
-}
 
 .logo(url,w,h) {
     display: block;
@@ -84,7 +72,7 @@ body {
 }
 
 body {
-    .background_striped(4,2,"#ddd");
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAANklEQVQIW2O8e/fufwYGhgtMTEyB//7928B49+7dCwwMDPowQcb79+8rgGRggmAVTExMATBBAOjoHCXWaHqyAAAAAElFTkSuQmCC);
 }
 
 #page {
