@@ -12,7 +12,9 @@ const FAQItem = ({val,item_val}) => {
                 <div class="question">
                     <${Text} name='question' options=${Text.plain_heading} />
                 </div>
-                <div class="answer">
+                <div class="answer" onClick=${(e)=>{
+                    if (!App.instance.state.preview) e.stopPropagation();
+                }}>
                     <${Text} name='answer' options=${Text.default_text} />
                 </div>
             </div>

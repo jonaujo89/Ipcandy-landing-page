@@ -178,7 +178,7 @@ class Gallery extends Block {
                     'img_text_2' : "Additional description of the picture. Brevity - the sister of talent.",
                 },
                 {
-                    'image_1' : {'image': `${App.assets_url}gallery/5.jpg`},
+                    'image_1' : {'image': `${App.assets_url}/gallery/5.jpg`},
                     'img_title_1' : "Form №2",
                     'img_desc_1' : "Nude torso",
                     'img_text_1' : "Additional description of the picture. Brevity - the sister of talent.",

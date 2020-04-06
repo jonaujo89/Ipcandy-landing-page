@@ -205,19 +205,19 @@ const Countdown = Editable(class extends preact.Component{
                 <div class="countdown">
                     <div class="countdown-days">
                         <div>${format(days)}</div>
-                        <span>дни</span>
+                        <span>${_t("days")}</span>
                     </div>
                     <div class="countdown-hours countdown-separator">
                         <div>${format(hours)}</div>
-                        <span>часы</span>
+                        <span>${_t("hours")}</span>
                     </div>
                     <div class="countdown-minutes countdown-separator">
                         <div>${format(minutes)}</div>
-                        <span>минуты</span>
+                        <span>${_t("minutes")}</span>
                     </div>
                     <div class="countdown-seconds countdown-separator">
                         <div>${format(seconds)}</div>
-                        <span>секунды</span>
+                        <span>${_t("seconds")}</span>
                     </div>                                                            
                 </div>
             <//>

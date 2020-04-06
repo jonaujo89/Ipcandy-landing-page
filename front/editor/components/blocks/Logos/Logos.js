@@ -35,7 +35,7 @@ class Logos  extends Block {
                             </h1>
                         `}
                         <div class="item_list ${val.grayscale_logo ? 'gray' : ''}">
-                            <${Repeater} name="items">${item_val => html` 
+                            <${Repeater} name="items" inline=${true}>${item_val => html` 
                                 <${LogoItem} name="image" />
                             `}<//> 
                         </div> 

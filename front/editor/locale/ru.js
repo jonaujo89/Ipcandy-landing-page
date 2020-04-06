@@ -1,4 +1,8 @@
 window._t.load({
+    "days":"дни",
+    "hours":"часы",
+    "minutes":"минуты",
+    "seconds":"секунды",
     "field is required":"обязательное поле",
     "bold":"жирный",
     "italic":"наклонный",
