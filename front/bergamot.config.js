@@ -5,7 +5,7 @@ module.exports = {
         js_transform: (js) => js.replace(/([>`}])(\s*\n\s*)([<`\$])/mg,"$1$3").replace(/\s*\n\s*/mg,' ')
     },
     lpcandy: {
-        entry_point: "lpcandy/makefile.tea",
+        entry_point: "lpcandy/index.js",
         bundle_path: "../public/assets/lpcandy.min.js"
     }
 }
