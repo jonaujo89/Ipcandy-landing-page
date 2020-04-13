@@ -224,11 +224,18 @@ class App extends preact.Component {
         var me = this;
         class AppPublished extends App {
             componentDidMount() {
-                me.request("publish",{html:this.base.outerHTML,blocks:JSON.stringify(this.state.blocks)},()=>{
-                    Dialog.alert({
-                        title:_t('Publish success'),
-                        text:_t('Your page was successfully published and now is available to your customers')
-                    });
+                me.request("publish",{html:this.base.outerHTML,blocks:JSON.stringify(this.state.blocks)},(res)=>{
+                    if (!res || res=='ok') {
+                        Dialog.alert({
+                            title:_t('Publish success'),
+                            text:_t('Your page was successfully published and now is available to your customers')
+                        });
+                    } else {
+                        Dialog.alert({
+                            title:_t('Publish failed'),
+                            text: res
+                        });
+                    }
                 });
                 App.instance = me;
             }

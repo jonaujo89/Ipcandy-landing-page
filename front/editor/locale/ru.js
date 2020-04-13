@@ -15,6 +15,7 @@ window._t.load({
     "Select component type" : "Выбрать тип блока",
     'Your page was successfully published and now is available to your customers' : 'Ваша страница теперь опубликована и на нее смогут зайти посетители',
     'Publish success' : 'Успешная публикация',
+    'Publish failed': 'Ошибка публикации',
     "Show icon": "Иконка",
     "Show form as popup": "Всплывающая форма",
     "Map is draggable":"Можно перетаскивать карту",
