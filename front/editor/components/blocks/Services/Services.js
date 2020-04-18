@@ -102,7 +102,7 @@ class Services extends Block {
     `}
 
     tpl_default_1() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: true,
             show_image: true,
@@ -114,9 +114,9 @@ class Services extends Block {
             title_2: "We have a plenty of choices",
             items: [
                 {
-                    image_1: `${App.assets_url}/services/1.jpg`,
-                    image_2: `${App.assets_url}/services/2.jpg`,
-                    image_3: `${App.assets_url}/services/3.jpg`,
+                    image_1: `${config.assets_url}/services/1.jpg`,
+                    image_2: `${config.assets_url}/services/2.jpg`,
+                    image_3: `${config.assets_url}/services/3.jpg`,
                     name_1: "Smiling dog",
                     name_2: "Flying gymnast",
                     name_3: "Clam cats",
@@ -141,9 +141,9 @@ class Services extends Block {
             title_2: "У нас супер выбор",
             items: [
                 {
-                    image_1: `${App.assets_url}/services/1.jpg`,
-                    image_2: `${App.assets_url}/services/2.jpg`,
-                    image_3: `${App.assets_url}/services/3.jpg`,
+                    image_1: `${config.assets_url}/services/1.jpg`,
+                    image_2: `${config.assets_url}/services/2.jpg`,
+                    image_3: `${config.assets_url}/services/3.jpg`,
                     name_1: "Собака-улыбака",
                     name_2: "Летающий гимнаст",
                     name_3: "Коты-молчуны",
@@ -218,7 +218,7 @@ class Services extends Block {
     `}
 
     tpl_default_2() {
-        return window.locale_lang == 'en' ? { 
+        return config.language == 'en' ? { 
             show_title: true,
             show_title_2: true,
             show_desc: true,
@@ -231,8 +231,8 @@ class Services extends Block {
             title_2: "Hire of deers team",
             items: [
                 {
-                    image_1: `${App.assets_url}/services/4.jpg`,
-                    image_2: `${App.assets_url}/services/5.jpg`,
+                    image_1: `${config.assets_url}/services/4.jpg`,
+                    image_2: `${config.assets_url}/services/5.jpg`,
                     name_1: "KITTEH-DEER",
                     name_2: "DOG-DEER",
                     desc_1: "Team of the kitteh-deer will carry you away beyond the horizon from the bad mood.",
@@ -255,8 +255,8 @@ class Services extends Block {
             title_2: "Упряжка оленей на прокат",
             items:[
                     {
-                        image_1: `${App.assets_url}/services/4.jpg`,
-                        image_2: `${App.assets_url}/services/5.jpg`,
+                        image_1: `${config.assets_url}/services/4.jpg`,
+                        image_2: `${config.assets_url}/services/5.jpg`,
                         name_1: "КОТ-ОЛЕНЬ",
                         name_2: "ПЁС-ОЛЕНЬ",
                         desc_1: "Упряжка из котов-оленей унесет Вас за горизонт прочь от плохого настроения.",
@@ -328,7 +328,7 @@ class Services extends Block {
     }
 
     tpl_default_3(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: true,
             show_desc: true,
@@ -342,7 +342,7 @@ class Services extends Block {
             title_2: "Miracle for human eyes",
             items: [
                 {
-                    image: `${App.assets_url}/services/12.jpg`,
+                    image: `${config.assets_url}/services/12.jpg`,
                     name: "CONJURER FEDOR",
                     desc: `Using forbidden magic spell, Sedoborodov Fedor Yakovlevich creats a miracle on your eyes never happened yet. Your  old wife will be transformed into a young maiden.<i>Rejuvenating apples are included.</i>.`,
                     price: "<span style='color: #BBBBBB'><strike>50 000 $</strike></span> 25 000 $",
@@ -364,7 +364,7 @@ class Services extends Block {
             title_2: "Чарующее людской взор чудо",
             items: [
                 {
-                    image: `${App.assets_url}/services/12.jpg`,
+                    image: `${config.assets_url}/services/12.jpg`,
                     name: "ЗАКЛИНАТЕЛЬ ФЁДОР",
                     desc: `Используя запрещённое магическое заклинание, Седобородов Фёдор Яковлевич на Ваших глазах сотворит чудо каких не бывало ещё.
                     Ваша изнеможденная жена-старуха будет превращена в молодую деву. <i>Молодильные яблоки входят в стоимость</i>.`,
@@ -437,7 +437,7 @@ class Services extends Block {
     }
 
     tpl_default_4(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: true,
             show_image: true,
@@ -449,9 +449,9 @@ class Services extends Block {
             title_2: "Parties for the littlest",
             items: [
                 {
-                    image_1: `${App.assets_url}/ico/772.png`,
-                    image_2: `${App.assets_url}/ico/335.png`,
-                    image_3: `${App.assets_url}/ico/255.png`,
+                    image_1: `${config.assets_url}/ico/772.png`,
+                    image_2: `${config.assets_url}/ico/335.png`,
+                    image_3: `${config.assets_url}/ico/255.png`,
                     name_1: "FUNNY STRUMMING",
                     name_2: "EATING BISCUITS",
                     name_3: "KARAOKE",
@@ -477,9 +477,9 @@ class Services extends Block {
             title_2: "Проведение детских праздников для самых маленьких",
             items: [
                 {
-                    image_1: `${App.assets_url}/ico/772.png`,
-                    image_2: `${App.assets_url}/ico/335.png`,
-                    image_3: `${App.assets_url}/ico/255.png`,
+                    image_1: `${config.assets_url}/ico/772.png`,
+                    image_2: `${config.assets_url}/ico/335.png`,
+                    image_3: `${config.assets_url}/ico/255.png`,
                     name_1: "ВЕСЁЛОЕ БРЫНЧАНИЕ",
                     name_2: "ПОЕДАНИЕ ПЕЧЕНЬЯ",
                     name_3: "КАРАОКЕ-БАР",
@@ -557,7 +557,7 @@ class Services extends Block {
     }
 
     tpl_default_5(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: true,
             show_image: true,
@@ -570,9 +570,9 @@ class Services extends Block {
             title_2: "Circus entertainment program for those who are over 50",
             items: [
                 {
-                    image_1: `${App.assets_url}/services/6.jpg`,
-                    image_2: `${App.assets_url}/services/7.jpg`,
-                    image_3: `${App.assets_url}/services/8.jpg`,
+                    image_1: `${config.assets_url}/services/6.jpg`,
+                    image_2: `${config.assets_url}/services/7.jpg`,
+                    image_3: `${config.assets_url}/services/8.jpg`,
                     name_1: "Chess battle",
                     name_2: "Soviet movie",
                     name_3: "Yard gatherings",
@@ -598,9 +598,9 @@ class Services extends Block {
             title_2: "Увеселительная цирковая программа для тех, кому за 50",
             items: [
                 {
-                    image_1: `${App.assets_url}/services/6.jpg`,
-                    image_2: `${App.assets_url}/services/7.jpg`,
-                    image_3: `${App.assets_url}/services/8.jpg`,
+                    image_1: `${config.assets_url}/services/6.jpg`,
+                    image_2: `${config.assets_url}/services/7.jpg`,
+                    image_3: `${config.assets_url}/services/8.jpg`,
                     name_1: "Шахматный бой",
                     name_2: "Советское кино",
                     name_3: "Дворовые посиделки",
@@ -668,7 +668,7 @@ class Services extends Block {
     }
 
     tpl_default_6(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: true,
             background: '#F7F7F7',
@@ -676,9 +676,9 @@ class Services extends Block {
             title_2: "The best games for your corporate party",
             items: [
                 {
-                    image_1: `${App.assets_url}/services/9.jpg`,
-                    image_2: `${App.assets_url}/services/10.jpg`,
-                    image_3: `${App.assets_url}/services/11.jpg`,
+                    image_1: `${config.assets_url}/services/9.jpg`,
+                    image_2: `${config.assets_url}/services/10.jpg`,
+                    image_3: `${config.assets_url}/services/11.jpg`,
                     name_1: "Chief is in two",
                     name_2: "Prick for accountant",
                     name_3: "Admin is alongside",
@@ -696,9 +696,9 @@ class Services extends Block {
             title_2: "Лучшие игры для Вашего корпоратива",
             items: [
                 {
-                    image_1: `${App.assets_url}/services/9.jpg`,
-                    image_2: `${App.assets_url}/services/10.jpg`,
-                    image_3: `${App.assets_url}/services/11.jpg`,
+                    image_1: `${config.assets_url}/services/9.jpg`,
+                    image_2: `${config.assets_url}/services/10.jpg`,
+                    image_3: `${config.assets_url}/services/11.jpg`,
                     name_1: "Начальника по полам",
                     name_2: "Укол бухгалтеру",
                     name_3: "Админ у стенки",

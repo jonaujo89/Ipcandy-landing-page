@@ -43,7 +43,7 @@ class Header extends Block {
     }
     
    tpl_default_1() {    
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             background:'#FFFFFF',
             logo: { ...Logo.tpl_default(), 'size': 100},
             desc: '<span style="font-size: 1.1em;">Circus<b> One and the same are at the circus ring</b></span><br><span style="font-size: 0.9em;">Tickets delivery by bear on a bicycle</span>',
@@ -83,7 +83,7 @@ class Header extends Block {
     }   
     
    tpl_default_2() {    
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_order_button: true,
             background:'#FFFFFF',
             logo: { ...Logo.tpl_default(), 'size': 62},
@@ -131,7 +131,7 @@ class Header extends Block {
     `} 
     
     tpl_default_3() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             background:'#FFFFFF',
             logo: { ...Logo.tpl_default(), 'size': 80},
             desc_1: "Hippos hire",
@@ -203,14 +203,14 @@ class Header extends Block {
    }  
     
     tpl_default_4() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_order_button: true,
             background: '#FFFFFF',
             logo: { ...Logo.tpl_default(), type: 'text', text: 'One and the same are at the circus ring', fontSize: 19, color: '#C1103A', font: 'Trebuchet MS' },
             desc: 'WE ONLY HAVE REMEDY FROM BAD MOOD',
-            ico_1: `${App.assets_url}/ico/209.png`,
-            ico_2: `${App.assets_url}/ico/204.png`,
-            ico_3: `${App.assets_url}/ico/795.png`, 
+            ico_1: `${config.assets_url}/ico/209.png`,
+            ico_2: `${config.assets_url}/ico/204.png`,
+            ico_3: `${config.assets_url}/ico/795.png`, 
             text_1: "MASKED<br>MAN",
             text_2: "PUSSY<br>CAT",
             text_3: "ClOWN<br>JORA",
@@ -221,9 +221,9 @@ class Header extends Block {
             background:'#FFFFFF',
             logo: { ...Logo.tpl_default(), type: 'text', text: 'На манеже все те же', fontSize: 28, color: '#C1103A', font: 'Trebuchet MS' },
             desc: "ТОЛЬКО У НАС ЕСТЬ ЛЕКАРСТВО ОТ ГРУСТИ",
-            ico_1: `${App.assets_url}/ico/209.png`, 
-            ico_2: `${App.assets_url}/ico/204.png`, 
-            ico_3: `${App.assets_url}/ico/795.png`, 
+            ico_1: `${config.assets_url}/ico/209.png`, 
+            ico_2: `${config.assets_url}/ico/204.png`, 
+            ico_3: `${config.assets_url}/ico/795.png`, 
             text_1: "ЧЕЛОВЕК<br>В МАСКЕ",
             text_2: "КОТ<br>КОТОВЕЙ",
             text_3: "КЛОУН<br>ЖОРА",

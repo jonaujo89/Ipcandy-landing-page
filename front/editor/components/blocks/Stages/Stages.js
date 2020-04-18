@@ -66,7 +66,7 @@ class Stages extends Block {
 
 
     tpl_default_1() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: false,
             show_name: true,
@@ -74,10 +74,10 @@ class Stages extends Block {
             background_color: '#FFFFFF',
             title: 'The procedure for obtaining a positive charge of vivacity',
             title_2: 'Subtitle', 
-            icon_1: `${App.assets_url}/ico/822.png`,
-            icon_2: `${App.assets_url}/ico/175.png`,
-            icon_3: `${App.assets_url}/ico/778.png`,
-            icon_4: `${App.assets_url}/ico/345.png`,
+            icon_1: `${config.assets_url}/ico/822.png`,
+            icon_2: `${config.assets_url}/ico/175.png`,
+            icon_3: `${config.assets_url}/ico/778.png`,
+            icon_4: `${config.assets_url}/ico/345.png`,
             name_1: 'Ticket', 
             name_2: 'The arrival in the circus',
             name_3: 'Program viewing',
@@ -94,10 +94,10 @@ class Stages extends Block {
             background_color: '#FFFFFF',
             title: 'Порядок получения позитивного заряда бодрости',
             title_2: 'Подзаголовок', 
-            icon_1: `${App.assets_url}/ico/822.png`,
-            icon_2: `${App.assets_url}/ico/175.png`,
-            icon_3: `${App.assets_url}/ico/778.png`,
-            icon_4: `${App.assets_url}/ico/345.png`,
+            icon_1: `${config.assets_url}/ico/822.png`,
+            icon_2: `${config.assets_url}/ico/175.png`,
+            icon_3: `${config.assets_url}/ico/778.png`,
+            icon_4: `${config.assets_url}/ico/345.png`,
             name_1: 'Заказ билета',
             name_2: 'Приход в цирк',
             name_3: 'Просмотр программы',
@@ -146,7 +146,7 @@ class Stages extends Block {
     }
 
     tpl_default_2() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: false,
             show_name: true,

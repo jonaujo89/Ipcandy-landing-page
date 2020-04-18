@@ -10,7 +10,7 @@ const Background = (props) => preact.h(Combo,{...props,
                 style=${{
                     width: props.itemWidth+"px",
                     height: props.itemHeight+"px",
-                    background: item.value.color || ("url('"+(base_url + "/" + (item.value.url || item.thumb || item.value))+"')"),
+                    background: item.value.color || ("url('"+(config.base_url + "/" + (item.value.url || item.thumb || item.value))+"')"),
                     backgroundSize: "cover",
                     backgroundPosition: "auto 100%"
                 }}
@@ -33,7 +33,7 @@ TextureBackground.defaultProps = {
         );
         for (var i=1;i<=3;i++) {
             items.push({
-                value: {url:App.assets_url+"/texture_black/"+i+".jpg"},
+                value: {url:config.assets_url+"/texture_black/"+i+".jpg"},
             });
         }                        
         return items;

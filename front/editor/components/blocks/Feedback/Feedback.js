@@ -71,7 +71,7 @@ class Feedback extends Block {
     }
 
     tpl_default_1() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             'show_image': true,
             'show_title': true,
             'show_title_2': false,
@@ -82,9 +82,9 @@ class Feedback extends Block {
             'title_2': "Subtitle",
             'items': [
                 {
-                    'image_1': `${App.assets_url}/feedback/1.jpg`,
-                    'image_2': `${App.assets_url}/feedback/2.jpg`,
-                    'image_3': `${App.assets_url}/feedback/3.jpg`,
+                    'image_1': `${config.assets_url}/feedback/1.jpg`,
+                    'image_2': `${config.assets_url}/feedback/2.jpg`,
+                    'image_3': `${config.assets_url}/feedback/3.jpg`,
                     'name_1': "Afrosinya Nikonorovna",
                     'name_2': "Ludwig Aristarkhovich",
                     'name_3': "Just Kolyan",
@@ -107,9 +107,9 @@ class Feedback extends Block {
             'title_2': "Подзаголовок",
             'items': [
                 {
-                    'image_1': `${App.assets_url}/feedback/1.jpg`,
-                    'image_2': `${App.assets_url}/feedback/2.jpg`,
-                    'image_3': `${App.assets_url}/feedback/3.jpg`,
+                    'image_1': `${config.assets_url}/feedback/1.jpg`,
+                    'image_2': `${config.assets_url}/feedback/2.jpg`,
+                    'image_3': `${config.assets_url}/feedback/3.jpg`,
                     'name_1': "Афросинья Никоноровна",
                     'name_2': "Людвиг Аристархович",
                     'name_3': "Прохожий просто Колян",

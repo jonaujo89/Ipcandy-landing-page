@@ -85,7 +85,7 @@ class Numbers extends Block {
     }
 
     tpl_default_1(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: false,
             show_title_2: false,
             background_color: '#FFFFFF',
@@ -168,7 +168,7 @@ class Numbers extends Block {
     }
 
     tpl_default_2(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: false,
             show_title_2: false,
             background_color: '#FFFFFF',
@@ -247,10 +247,10 @@ class Numbers extends Block {
     }
 
     tpl_default_3(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: false,
             show_title_2: false,
-            background: {url:`${App.assets_url}/texture_black/1.jpg`},
+            background: {url:`${config.assets_url}/texture_black/1.jpg`},
             title: 'Circus facts',
             title_2: 'Subtitle',
             items: [
@@ -266,7 +266,7 @@ class Numbers extends Block {
         } : {
             show_title: false,
             show_title_2: false,
-            background: {url:`${App.assets_url}/texture_black/1.jpg`},
+            background: {url:`${config.assets_url}/texture_black/1.jpg`},
             title: 'Факты о цирке',
             title_2: 'Подзаголовок',
             items: [
@@ -326,7 +326,7 @@ class Numbers extends Block {
     }
 
     tpl_default_4(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: false,
             show_title_2: false,
             icon_color: 'grey',
@@ -335,16 +335,16 @@ class Numbers extends Block {
             title_2: 'Subtitle',
             items: [
                 {
-                    icon_1: `${App.assets_url}/ico/101.png`,
+                    icon_1: `${config.assets_url}/ico/101.png`,
                     value_1: '5000',
                     name_1: 'Diplomas',
-                    icon_2: `${App.assets_url}/ico/99.png`,
+                    icon_2: `${config.assets_url}/ico/99.png`,
                     value_2: '20',
                     name_2: 'Satisfied visitors',
-                    icon_3: `${App.assets_url}/ico/178.png`,
+                    icon_3: `${config.assets_url}/ico/178.png`,
                     value_3: '50',
                     name_3: 'Pour out in the cafeteria',
-                    icon_4: `${App.assets_url}/ico/739.png`,
+                    icon_4: `${config.assets_url}/ico/739.png`,
                     value_4: '350',
                     name_4: 'Smiling children',
                 }
@@ -358,16 +358,16 @@ class Numbers extends Block {
             title_2: 'Подзаголовок',
             items: [
                 {
-                icon_1: `${App.assets_url}/ico/101.png`,
+                icon_1: `${config.assets_url}/ico/101.png`,
                 value_1: '5000',
                 name_1: 'Почётных грамот',
-                icon_2: `${App.assets_url}/ico/99.png`,
+                icon_2: `${config.assets_url}/ico/99.png`,
                 value_2: '20',
                 name_2: 'Довольных клиентов',
-                icon_3: `${App.assets_url}/ico/178.png`,
+                icon_3: `${config.assets_url}/ico/178.png`,
                 value_3: '50',
                 name_3: 'Грамм наливают в буфете',
-                icon_4: `${App.assets_url}/ico/739.png`,
+                icon_4: `${config.assets_url}/ico/739.png`,
                 value_4: '350',
                 name_4: 'Улыбающихся детей',
                 }
@@ -419,24 +419,24 @@ class Numbers extends Block {
     }
 
     tpl_default_5(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: false,
             show_title_2: false,
-            background: {url: `${App.assets_url}/texture_black/1.jpg`},
+            background: {url: `${config.assets_url}/texture_black/1.jpg`},
             title: 'Circus facts',
             title_2: 'Subtitle',
             items: [
                 {
-                    icon_1: `${App.assets_url}/ico/491.png`,
+                    icon_1: `${config.assets_url}/ico/491.png`,
                     value_1: '1',
                     name_1: 'Ttrained tiger',
-                    icon_2: `${App.assets_url}/ico/447.png`,
+                    icon_2: `${config.assets_url}/ico/447.png`,
                     value_2: '750',
                     name_2: 'Loving audience',
-                    icon_3: `${App.assets_url}/ico/379.png`,
+                    icon_3: `${config.assets_url}/ico/379.png`,
                     value_3: '80',
                     name_3: 'Ticket price',
-                    icon_4: `${App.assets_url}/ico/645.png`,
+                    icon_4: `${config.assets_url}/ico/645.png`,
                     value_4: '3',
                     name_4: 'Stars in the picture',
                 }
@@ -444,21 +444,21 @@ class Numbers extends Block {
         } : {
             show_title: false,
                 show_title_2: false,
-                background: {url: `${App.assets_url}/texture_black/1.jpg`},
+                background: {url: `${config.assets_url}/texture_black/1.jpg`},
                 title: 'Факты о цирке',
                 title_2: 'Подзаголовок',
                 items: [
                 {
-                    icon_1: `${App.assets_url}/ico/491.png`,
+                    icon_1: `${config.assets_url}/ico/491.png`,
                     value_1: '1',
                     name_1: 'Дрессированный тигр',
-                    icon_2: `${App.assets_url}/ico/447.png`,
+                    icon_2: `${config.assets_url}/ico/447.png`,
                     value_2: '750',
                     name_2: 'Любящих зрителей',
-                    icon_3: `${App.assets_url}/ico/379.png`,
+                    icon_3: `${config.assets_url}/ico/379.png`,
                     value_3: '80',
                     name_3: 'Цена билета',
-                    icon_4: `${App.assets_url}/ico/645.png`,
+                    icon_4: `${config.assets_url}/ico/645.png`,
                     value_4: '3',
                     name_4: 'Звезды на картинке',
                 }
@@ -509,24 +509,24 @@ class Numbers extends Block {
     }
 
     tpl_default_6(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: false,
             show_title_2: false,
-            background: {url:`${App.assets_url}/texture_black/1.jpg`},
+            background: {url:`${config.assets_url}/texture_black/1.jpg`},
             title: 'Circus facts',
             title_2: 'Subtitle',
             items: [
                     {
-                        icon_1: `${App.assets_url}/ico/648.png`,
+                        icon_1: `${config.assets_url}/ico/648.png`,
                         value_1: '50',
                         name_1: 'UNNECESSARY SCHEDULES',
-                        icon_2: `${App.assets_url}/ico/684.png`,
+                        icon_2: `${config.assets_url}/ico/684.png`,
                         value_2: '15',
                         name_2: 'HANGER IN THE DRESSING ROOM',
-                        icon_3: `${App.assets_url}/ico/501.png`,
+                        icon_3: `${config.assets_url}/ico/501.png`,
                         value_3: '85',
                         name_3: 'ENERGIZED LAMPS',
-                        icon_4: `${App.assets_url}/ico/624.png`,
+                        icon_4: `${config.assets_url}/ico/624.png`,
                         value_4: '20',
                         name_4: ' SOCKETS OUT OF GEAR',
                     }
@@ -534,21 +534,21 @@ class Numbers extends Block {
         } : {
                 show_title: false,
                 show_title_2: false,
-                background: {url:`${App.assets_url}/texture_black/1.jpg`},
+                background: {url:`${config.assets_url}/texture_black/1.jpg`},
                 title: 'Факты о цирке',
                 title_2: 'Подзаголовок',
                 items: [
                 {
-                    icon_1: `${App.assets_url}/ico/648.png`,
+                    icon_1: `${config.assets_url}/ico/648.png`,
                     value_1: '50',
                     name_1: 'НЕНУЖНЫХ ГРАФИКОВ',
-                    icon_2: `${App.assets_url}/ico/684.png`,
+                    icon_2: `${config.assets_url}/ico/684.png`,
                     value_2: '15',
                     name_2: 'ВЕШАЛОК В ГАРДЕРОБНОЙ',
-                    icon_3: `${App.assets_url}/ico/501.png`,
+                    icon_3: `${config.assets_url}/ico/501.png`,
                     value_3: '85',
                     name_3: 'ГОРЯЩИХ ЛАПОЧЕК',
-                    icon_4: `${App.assets_url}/ico/624.png`,
+                    icon_4: `${config.assets_url}/ico/624.png`,
                     value_4: '20',
                     name_4: 'НЕРАБОТАЮЩИХ РОЗЕТОК',
                 }
@@ -599,25 +599,25 @@ class Numbers extends Block {
     }
 
     tpl_default_7(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: false,
             show_title_2: false,
             icon_color: 'grey',
-            background: {url: `${App.assets_url}/texture_black/1.jpg`},
+            background: {url: `${config.assets_url}/texture_black/1.jpg`},
             title: 'Circus facts',
             title_2: 'Subtitle',
             items: [
                 {
-                    icon_1: `${App.assets_url}/ico/596.png`,
+                    icon_1: `${config.assets_url}/ico/596.png`,
                     value_1: '10',
                     name_1: 'Talking parrots',
-                    icon_2: `${App.assets_url}/ico/620.png`,
+                    icon_2: `${config.assets_url}/ico/620.png`,
                     value_2: '22',
                     name_2: 'Balloon',
-                    icon_3: `${App.assets_url}/ico/396.png`,
+                    icon_3: `${config.assets_url}/ico/396.png`,
                     value_3: '85',
                     name_3: 'Fluttering butterflies',
-                    icon_4: `${App.assets_url}/ico/696.png`,
+                    icon_4: `${config.assets_url}/ico/696.png`,
                     value_4: '1',
                     name_4: 'Directors whiskers',
                 }
@@ -626,21 +626,21 @@ class Numbers extends Block {
                 show_title: false,
                 show_title_2: false,
                 icon_color: 'grey',
-                background: {url: `${App.assets_url}/texture_black/1.jpg`},
+                background: {url: `${config.assets_url}/texture_black/1.jpg`},
                 title: 'Факты о цирке',
                 title_2: 'Подзаголовок',
                 items: [
                 {
-                    icon_1: `${App.assets_url}/ico/596.png`,
+                    icon_1: `${config.assets_url}/ico/596.png`,
                     value_1: '10',
                     name_1: 'Говорящих попугаев',
-                    icon_2: `${App.assets_url}/ico/620.png`,
+                    icon_2: `${config.assets_url}/ico/620.png`,
                     value_2: '22',
                     name_2: 'Воздушных шарика',
-                    icon_3: `${App.assets_url}/ico/396.png`,
+                    icon_3: `${config.assets_url}/ico/396.png`,
                     value_3: '85',
                     name_3: 'Порхающих бабочек',
-                    icon_4: `${App.assets_url}/ico/696.png`,
+                    icon_4: `${config.assets_url}/ico/696.png`,
                     value_4: '1',
                     name_4: 'Усы у директора цирка',
                 }
@@ -690,7 +690,7 @@ class Numbers extends Block {
     }
 
     tpl_default_8(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: false,
             show_title_2: false,
             background_color: "#FFFFFF",

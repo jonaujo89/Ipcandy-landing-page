@@ -18,8 +18,8 @@ class Order extends Block {
                             var items = [];
                             for (var i=1;i<=221;i++) {
                                 items.push({
-                                    value:App.assets_url+"/background/"+i+".jpg",
-                                    thumb:App.assets_url+"/background/thumbs/"+i+".jpg",
+                                    value:config.assets_url+"/background/"+i+".jpg",
+                                    thumb:config.assets_url+"/background/thumbs/"+i+".jpg",
                                 });
                             }
                             return items;
@@ -56,7 +56,7 @@ class Order extends Block {
                         var items = [];
                         for (var i=1;i<=24;i++) {
                             items.push({
-                                value:App.assets_url+"/texture/"+i+".png",
+                                value:config.assets_url+"/texture/"+i+".png",
                             });
                         }
                         return items;
@@ -74,7 +74,7 @@ class Order extends Block {
 
     tpl_1(val) {
         return html`
-            <div class="container-fluid order order_1" style="background-image: url('${base_url}/${val.background}')">
+            <div class="container-fluid order order_1" style="background-image: url('${config.base_url}/${val.background}')">
                 <div class="dark">
                     <div class="container">
                         <div class="row">
@@ -118,10 +118,10 @@ class Order extends Block {
     }
 
     tpl_default_1() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_form_title_2: true,
             show_form_bottom_text: true,
-            background: `${App.assets_url}/background/91.jpg`,
+            background: `${config.assets_url}/background/91.jpg`,
             title_1: "<div>SMILES</div><div>HOME</div><div>DELIVERY</div>",
             title_2: "<div>Only quality smiles</div><div>Guaranteed safety of cargo</div><div>Timely delivery</div>",
             form_title_1: "Leave the application and get a free smile",
@@ -131,7 +131,7 @@ class Order extends Block {
         } : {
             show_form_title_2: true,
             show_form_bottom_text: true,
-            background: `${App.assets_url}/background/91.jpg`,
+            background: `${config.assets_url}/background/91.jpg`,
             title_1: "<div>ДОСТАВКА</div><div>УЛЫБОЧЕК</div><div>ВАМ ДОМОЙ</div>",
             title_2: "<div>Только качественные улыбочки</div><div>Гарантированная сохранность груза</div><div>Своевременная доставка</div>",
             form_title_1: "Оставьте заявку и получите бесплатную улыбочку",
@@ -143,7 +143,7 @@ class Order extends Block {
 
     tpl_2(val) {
         return html`
-            <div class="container-fluid order order_2" style="background-image: url('${base_url}/${val.background}' )">
+            <div class="container-fluid order order_2" style="background-image: url('${config.base_url}/${val.background}' )">
                 <div class="background_toggle_noise ${val.show_background_noise ? 'with_noise' : 'dark'}">
                     <div class="container">
                         <div class="row">
@@ -172,11 +172,11 @@ class Order extends Block {
     }
 
     tpl_default_2() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_background_noise: true,
             show_text_above_button: true,
             show_arrow: true,
-            background: `${App.assets_url}/background/192.jpg`,
+            background: `${config.assets_url}/background/192.jpg`,
             title_1: "Free training of juggling",
             title_2: "Secret technique of  clown Zhora juggling",
             button_note: "Order Zhora and his friend Kleve right now! ",
@@ -185,7 +185,7 @@ class Order extends Block {
             show_background_noise: true,
             show_text_above_button: true,
             show_arrow: true,
-            background: `${App.assets_url}/background/192.jpg`,
+            background: `${config.assets_url}/background/192.jpg`,
             title_1: "Бесплатное обучение жонглированию",
             title_2: "Секретная методика жонглирования от клоуна Жоры",
             button_note: "Закажите Жору и его друга Клеву прямо сейчас!",
@@ -195,7 +195,7 @@ class Order extends Block {
 
     tpl_3(val) {
         return html`
-            <div class="container-fluid order order_3" style="background-image: url('${base_url}/${val.background}')">
+            <div class="container-fluid order order_3" style="background-image: url('${config.base_url}/${val.background}')">
                 <div class="container">
                     <div class="row">
                         <div class="media_col col-5">       
@@ -233,12 +233,12 @@ class Order extends Block {
     }
 
     tpl_default_3() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
                 show_border: true,
                 show_title_2: true,
                 show_list_box: false,
-                background: `${App.assets_url}/texture/1.png`,
-                media: {...Media.tpl_default(),type: 'image',  image_url: `${App.assets_url}/order/order_3.jpg`,}, 
+                background: `${config.assets_url}/texture/1.png`,
+                media: {...Media.tpl_default(),type: 'image',  image_url: `${config.assets_url}/order/order_3.jpg`,}, 
                 title_1: "ONLY <span style='color:#C1103A'>REAL</span> AFRICAN ELEPHANTS",
                 title_2: "NO CHINESE FAKES",
                 desc: "Free exhibition of the Somali purple elephant.<br>Show time - 10 minutes.",
@@ -250,8 +250,8 @@ class Order extends Block {
                 show_border: true,
                 show_title_2: true,
                 show_list_box: false,
-                background: `${App.assets_url}/texture/1.png`,
-                media: {...Media.tpl_default(), type: 'image', image_url: `${App.assets_url}/order/order_3.jpg`,},
+                background: `${config.assets_url}/texture/1.png`,
+                media: {...Media.tpl_default(), type: 'image', image_url: `${config.assets_url}/order/order_3.jpg`,},
                 title_1: "ТОЛЬКО <span style='color:#C1103A'>НАСТОЯЩИЕ</span> СЛОНЫ ИЗ АФРИКИ",
                 title_2: "НИКАКИХ ПОДДЕЛОК ИЗ КИТАЯ",
                 desc: "Бесплатно покажем Вам фиолетового сомалийского слона.<br>Время показа - 10 минут.",
@@ -306,7 +306,7 @@ class Order extends Block {
 
         tpl_default_4(val)
         {
-            return window.locale_lang == 'en' ? {
+            return config.language == 'en' ? {
                     show_form_bottom_text: true,
                     show_box_shadow: true,
                     show_title_2: true,
@@ -314,7 +314,7 @@ class Order extends Block {
                     media: {
                         ...Media.tpl_default(),
                         type: 'image',
-                        image_url: `${App.assets_url}/order/order_4.jpg`
+                        image_url: `${config.assets_url}/order/order_4.jpg`
                     },
                     title_1: "Exclusive Session of infectious laughter",
                     title_2: "Inimitable smile from baby Jeremy",
@@ -331,7 +331,7 @@ class Order extends Block {
                     media: {
                         ...Media.tpl_default(),
                         type: 'image',
-                        image_url: `${App.assets_url}/order/order_4.jpg`
+                        image_url: `${config.assets_url}/order/order_4.jpg`
                     },
                     title_1: "Эксклюзивный сеанс заразительного смеха",
                     title_2: "Неповторимая улыбочка от малыша Джереми",
@@ -397,7 +397,7 @@ class Order extends Block {
     }
 
     tpl_default_5() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_form_bottom_text: true,
             show_title_2: true,
             background_color: '#313138',
@@ -406,19 +406,19 @@ class Order extends Block {
             form_title: "ORDER A FREE SEANCE",
             items: [
                 {
-                    icon: `${App.assets_url}/ico/537.png`,
+                    icon: `${config.assets_url}/ico/537.png`,
                     icon_title: "Injections of infectious laughter",
                     icon_desc: "Tested by assistant manager of the circus and allowed in a number of countries, even in Jamaica."
                 },
                 {
-                    icon: `${App.assets_url}/ico/464.png`,
+                    icon: `${config.assets_url}/ico/464.png`,
                     icon_title: "Laugh to tears  and even more",
                     icon_desc: "Laughing the lifespan increases in several times and even more.",
                 }
 
                 ,
                 {
-                    icon: `${App.assets_url}/ico/507.png`,
+                    icon: `${config.assets_url}/ico/507.png`,
                     icon_title: "Free candy for everybody",
                     icon_desc: "Each visitor will be personally handed a candy on a stick."
                 }
@@ -435,17 +435,17 @@ class Order extends Block {
             form_title: "ЗАКАЖИТЕ БЕСПЛАТНЫЙ СЕАНС",
             items: [
                 {
-                    icon: `${App.assets_url}/ico/537.png`,
+                    icon: `${config.assets_url}/ico/537.png`,
                     icon_title: "Инъекции заразительного смеха",
                     icon_desc: "Протестированы завхозом цирка и разрешены в ряде стран мира, даже на Ямайке."
                 },
                 {
-                    icon: `${App.assets_url}/ico/464.png`,
+                    icon: `${config.assets_url}/ico/464.png`,
                     icon_title: "Рассмешим до слез и даже больше",
                     icon_desc: "Продолжительность жизни увеличивается от смеха в несколько раз и даже больше."
                 },
                 {
-                    icon: `${App.assets_url}/ico/507.png`,
+                    icon: `${config.assets_url}/ico/507.png`,
                     icon_title: "Бесплатный леденец каждому",
                     icon_desc: "Каждому пришедшему персонально будет вручена сосательная конфета на палочке."
                 },
@@ -458,7 +458,7 @@ class Order extends Block {
 
      tpl_6(val) {
         return html`
-         <div class="container-fluid order order_6" style="background-image: url('${base_url}/${val.background}')">
+         <div class="container-fluid order order_6" style="background-image: url('${config.base_url}/${val.background}')">
                 <div class="dark">
                     <div class="container">
                         <div class="row main_wrap ${val.form_align ? `align_${val.form_align}` : "align_right"}">
@@ -498,12 +498,12 @@ class Order extends Block {
     }
 
     tpl_default_6() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title_2: true,
             show_title_3: true,
             show_form_bottom_text: true,
             form_align: "right",
-            background: `${App.assets_url}/background/187.jpg`,
+            background: `${config.assets_url}/background/187.jpg`,
             title_1: "USE THIS DESIGNER",
             title_2: "CREATE LANDING",
             title_3: "JUST A FEW MINUTES",
@@ -515,7 +515,7 @@ class Order extends Block {
             show_title_3: true,
             show_form_bottom_text: true,
             form_align: "right",
-            background: `${App.assets_url}/background/187.jpg`,
+            background: `${config.assets_url}/background/187.jpg`,
             title_1: "ИСПОЛЬЗУЙТЕ ЭТОТ КОНСТРУКТОР",
             title_2: "СОЗДАЙТЕ ЛЕНДИНГ",
             title_3: "ВСЕГО ЗА НЕСКОЛЬКО МИНУТ",

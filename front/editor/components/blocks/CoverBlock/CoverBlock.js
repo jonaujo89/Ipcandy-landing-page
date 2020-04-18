@@ -26,8 +26,8 @@ class CoverBlock extends Block {
                          var items = [];
                          for (var i=1;i<=100;i++) {
                              items.push({
-                                 value:App.assets_url+"/cover/cover-"+i+".jpg",
-                                 thumb:App.assets_url+"/cover/thumbs/cover-"+i+".jpg",
+                                 value:config.assets_url+"/cover/cover-"+i+".jpg",
+                                 thumb:config.assets_url+"/cover/thumbs/cover-"+i+".jpg",
                              });
                          }
                          return items;
@@ -45,7 +45,7 @@ class CoverBlock extends Block {
 
     tpl_1(val) {
         return html`
-            <div class="container-fluid cover cover_1 cover_1_2 cover_1_2_center" style="background-image: url('${base_url+"/"+val.background}')">
+            <div class="container-fluid cover cover_1 cover_1_2 cover_1_2_center" style="background-image: url('${config.base_url+"/"+val.background}')">
                 <div class="container">
                     <div class="row">
                         <div class="col-6 before-3">
@@ -94,7 +94,7 @@ class CoverBlock extends Block {
     }
 
     tpl_default_1() {
-        const params = window.locale_lang == 'en' ? {
+        const params = config.language == 'en' ? {
             title: 'Our circus works from dusk till down',
             title_2: 'Bring your kids, colleagues, enemies, strangers, aliens and even pets here',
             description: 'Leave your email and we will send you some jokes',
@@ -145,8 +145,8 @@ class CoverBlock extends Block {
         };
 
         const baseParams = {
-            background: `${App.assets_url}/gallery/6.jpg`,
-            icon: `${App.assets_url}/ico/383.png`,
+            background: `${config.assets_url}/gallery/6.jpg`,
+            icon: `${config.assets_url}/ico/383.png`,
             show_icon: false,
             show_title: true,
             show_title_2: true,
@@ -160,7 +160,7 @@ class CoverBlock extends Block {
 
     tpl_2(val) {
         return html`
-             <div class="container-fluid cover cover_2 cover_1_2 cover_1_2_right" style="background-image: url('${base_url+"/"+val.background}')">
+             <div class="container-fluid cover cover_2 cover_1_2 cover_1_2_right" style="background-image: url('${config.base_url+"/"+val.background}')">
                 <div class="container">
                     <div class="row">
                         <div class="col-6 before-3">
@@ -211,7 +211,7 @@ class CoverBlock extends Block {
     tpl_default_2() {
         return {
             ...CoverBlock.prototype.tpl_default_1(),
-            'background': App.assets_url+'/gallery/8.jpg',
+            'background': config.assets_url+'/gallery/8.jpg',
             'show_form': true,
             'show_title_2': false,
             'show_form_as_popup': true,
@@ -221,7 +221,7 @@ class CoverBlock extends Block {
 
     tpl_3(val) {
         return html`
-            <div class="container-fluid cover cover_3"  style="background-image: url('${base_url+"/"+val.background}')">
+            <div class="container-fluid cover cover_3"  style="background-image: url('${config.base_url+"/"+val.background}')">
                 <div class="container">
                     <div class="cover-content">
                         ${val.show_title && html`
@@ -261,7 +261,7 @@ class CoverBlock extends Block {
             'show_title_2': true,
             'title': def['title'],
             'title_2': def['title_2'],
-            'background': App.assets_url+'/gallery/3.jpg',
+            'background': config.assets_url+'/gallery/3.jpg',
             'media': {...Media.tpl_default(),type:'video'},
             'form_button': def['form_button']
         };        

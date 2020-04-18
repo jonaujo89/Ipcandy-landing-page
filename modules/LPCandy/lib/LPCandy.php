@@ -9,62 +9,22 @@ class LPCandy extends \Bingo\Module {
         bingo_domain_register('lpcandy',dirname(__FILE__)."/../locale");
         bingo_domain('lpcandy');
 
-        \Bingo\Template::addIncludePath('themes/default/lpcandy',__DIR__."/../template",false);
-
-        $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\User','id'=>false),
-            array('action'=>'(login|logout|profile|get-invite)'));
-        $this->connect('files/browse.php',array('controller'=>'\LPCandy\Controllers\User','action'=>'files'));
-        $this->connect('files/browse.php/*url',array('controller'=>'\LPCandy\Controllers\User','action'=>'files'));
-        
-        $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Page','id'=>false),
-            array('action'=>'(page-list|page-delete|page-edit|page-create|page-child-create)'));
-        
-        $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Editor','id'=>false),
-            array('action'=>'(page-design|page-ajax|page-first)'));
-        
-        $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Track','id'=>false),
-            array('action'=>'(track-list|track-delete|track-update-status|track-file)'));
-        
-        $this->connect("/",array('controller'=>'\LPCandy\Controllers\Front','action'=>'home'));
-        $this->connect(":action/:id",array('controller'=>'\LPCandy\Controllers\Front','id'=>false),
-            array('action'=>'(page-view|track)'));
-        
-        $this->connect("*any",array('priority'=>-1000,'function'=>function($route){
-            $uri = isset($route['any']) ? trim($route['any'],"/") : '';
-            if (substr($uri,0,5)=='admin') return true;
-            $domain = $_SERVER['SERVER_NAME'];            
-            if ($domain==\Bingo\Config::get('config','domain')[bingo_get_locale()]) return true;            
-
-            $page = \LPCandy\Models\Page::findOneByDomain($domain);
-            if (!$page) {
-                $page = \LPCandy\Models\Page::findOneByDomain(punycode_to_unicode($domain));
-                if (!$page) return true;
-            }
-            if (!$uri) {
-                $c = new \LPCandy\Controllers\Front;
-                $c->page_view($page->id);
-            } else {
-                $sub_page = \LPCandy\Models\Page::findOneBy(array('parent'=>$page,'pathname'=>"/".$uri));
-                if ($sub_page) {
-                    $c = new \LPCandy\Controllers\Front;
-                    $c->page_view($sub_page->id);
-                } else {
-                    return true;
-                }
-            }
-        }));
-        
-        // admin
-        $this->connect('admin/developer/:action',array('controller'=>'\LPCandy\Controllers\Admin\Developer'));
-        $this->connect('admin/lpcandy/:action/:id',array('controller'=>'\LPCandy\Controllers\Admin\Users','id'=>false),
-           array('action'=>'(user-list|user-login)'));
-        $this->connect('admin/lpcandy/:action/:id',array('controller'=>'\LPCandy\Controllers\Admin\Invites','id'=>false),
-           array('action'=>'(invite-list|invite-add|invite-add-one)'));
-        
+        $this->connect('admin/lpcandy/:action/:id',['controller'=>'\LPCandy\Controllers\Admin','id'=>false]);
         \Bingo\Action::add('admin_pre_header',function(){
-            \Admin::$menu[_t('LPCandy','lpcandy')][_t('Minify js/css','lpcandy')] = 'admin/developer/build';
             \Admin::$menu[_t('LPCandy','lpcandy')][_t('Customers','lpcandy')] = 'admin/lpcandy/user-list';
-            \Admin::$menu[_t('LPCandy','lpcandy')][_t('Invites','lpcandy')] = 'admin/lpcandy/invite-list';
         });        
+
+
+        $this->connect("api/:action/:id",['controller'=>'\LPCandy\Controllers\Api','id'=>false]);
+
+        $this->connect("page-view/:id",['function'=>function($route){
+            $page = \LPCandy\Models\Page::find($route['id']); 
+            $page_html = $page ? $page->getPublishedHtml():"";
+            require __DIR__."/../template/site.php";
+        }]);
+        $this->connect("*any",['function'=>function($route){
+            require __DIR__."/../template/site.php";
+        }]);
+
     }
 }

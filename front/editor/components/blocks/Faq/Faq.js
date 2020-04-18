@@ -13,7 +13,7 @@ const FAQItem = ({val,item_val}) => {
                     <${Text} name='question' options=${Text.plain_heading} />
                 </div>
                 <div class="answer" onClick=${(e)=>{
-                    if (!App.instance.state.preview) e.stopPropagation();
+                    if (!Editor.instance.state.preview) e.stopPropagation();
                 }}>
                     <${Text} name='answer' options=${Text.default_text} />
                 </div>
@@ -66,11 +66,11 @@ class FAQ extends Block {
     }
 
     tpl_default_1() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             'show_title': true,
             'show_title_2': true,
             'two_column_layout': false,
-            'icon': `${App.assets_url}/ico/208.png`,
+            'icon': `${config.assets_url}/ico/208.png`,
             'show_icon': true,
             'background_color': "#FFFFFF",
             'title': "Ask anything you want",
@@ -97,7 +97,7 @@ class FAQ extends Block {
             'show_title': true,
             'show_title_2': true,
             'two_column_layout': false,
-            'icon': `${App.assets_url}/ico/208.png`,
+            'icon': `${config.assets_url}/ico/208.png`,
             'show_icon': true,
             'background_color': "#FFFFFF",
             'title': "Спросите, что хотите",

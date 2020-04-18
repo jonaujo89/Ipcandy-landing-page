@@ -7,10 +7,10 @@ const {UploadButton} = require("../UploadButton/UploadButton");
 const {Input} = require("../Input/Input");
 const {Switch} = require("../Switch/Switch");
 const {Color} = require("../Color/Color");
-const {App} = require("../../App");
+const {Editor} = require("../../Editor");
 
-App.ready(()=>{
-    if (!App.geocoder_api_key && !App.viewOnly) Dialog.alert("Please fill geocoder_api_key in app config");
+Editor.ready(()=>{
+    if (!config.geocoder_api_key && !Editor.viewOnly) Dialog.alert("Please fill geocoder_api_key in app config");
 });
 
 class AddressInput extends preact.Component {
@@ -22,7 +22,7 @@ class AddressInput extends preact.Component {
                     this.geocodeTimeout = setTimeout(()=>{
                         fetch(
                             `https://geocode-maps.yandex.ru/1.x/`
-                            +`?format=json&results=1&geocode=${encodeURIComponent(address)}&apikey=${encodeURIComponent(App.geocoder_api_key)}`
+                            +`?format=json&results=1&geocode=${encodeURIComponent(address)}&apikey=${encodeURIComponent(config.geocoder_api_key)}`
                         )
                         .then((res)=>res.json().then(update));
                     },500);
@@ -116,7 +116,7 @@ class MapView extends preact.Component {
         if (!window.ymaps) {
             if (!window.ymaps_loading) {
                 window.ymaps_loading  = [init];
-                var map_lang = window.locale_lang=="ru" ? "ru_RU" : "en_US";
+                var map_lang = config.language=="ru" ? "ru_RU" : "en_US";
 
                 var script = document.createElement("script");
                 script.onload = () => {
@@ -237,7 +237,7 @@ const YandexMap = Editable((props)=>{
 })
 
  
-YandexMap.tpl_default = () => window.locale_lang == 'en' ? {
+YandexMap.tpl_default = () => config.language == 'en' ? {
     map: {
         map_type: 'yandex',
         map_center: [55.7706, 37.6200],

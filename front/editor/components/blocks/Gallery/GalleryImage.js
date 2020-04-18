@@ -4,7 +4,7 @@ const {ImageLink} = require("./ImageLink");
 const GalleryImage = Editable(class extends preact.Component{ 
     render(props) {
         var val = props.value || {};
-        var href = base_url + "/" + val.image;
+        var href = config.base_url + "/" + val.image;
         return html`
             <${Cover}
                 configForm=${html`

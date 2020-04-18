@@ -65,7 +65,7 @@ class Reasons extends Block {
     }
 
     tpl_default_1(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: true,
             background_color: '#FFFFFF',
@@ -73,24 +73,24 @@ class Reasons extends Block {
             title_2: "6 reasons",
             items: [
                 {
-                    icon_1: `${App.assets_url}/ico/799.png`,
-                    icon_2: `${App.assets_url}/ico/806.png`,
+                    icon_1: `${config.assets_url}/ico/799.png`,
+                    icon_2: `${config.assets_url}/ico/806.png`,
                     name_1: "Funny clowns",
                     name_2: "Comfortable viewing",
                     desc_1: "Our circus clown makes you plenty of laugh and take part in the show, and feel like a real artist.",
                     desc_2: "The hall is equipped with soft, comfortable seats that provide comfortable viewing from anywhere in the show hall.",
                 },
                 {
-                    icon_1: `${App.assets_url}/ico/341.png`,
-                    icon_2: `${App.assets_url}/ico/359.png`,
+                    icon_1: `${config.assets_url}/ico/341.png`,
+                    icon_2: `${config.assets_url}/ico/359.png`,
                     name_1: "Acrobatics",
                     name_2: "A lively dance",
                     desc_1: "Dizzying stunts, jumps and movements on the verge, as well as freewheeling.",
                     desc_2: "Our show-ballet bedazzles by vivid colours and suits , which encourage us not to sit but to dance!",
                 },
                 {
-                    icon_1: `${App.assets_url}/ico/342.png`,
-                    icon_2: `${App.assets_url}/ico/252.png`,
+                    icon_1: `${config.assets_url}/ico/342.png`,
+                    icon_2: `${config.assets_url}/ico/252.png`,
                     name_1: "Starry acrobatics",
                     name_2: "Magic tricks",
                     desc_1: "The best directors, choreographers, geographers, physicists and biologists of our country worked at our show.",
@@ -105,24 +105,24 @@ class Reasons extends Block {
             title_2: "шесть причин",
             items: [
                 {
-                    icon_1: `${App.assets_url}/ico/799.png`,
-                    icon_2: `${App.assets_url}/ico/806.png`,
+                    icon_1: `${config.assets_url}/ico/799.png`,
+                    icon_2: `${config.assets_url}/ico/806.png`,
                     name_1: "Весёлые клоуны",
                     name_2: "Комфортный просмотр",
                     desc_1: "Наша цирковая клоунада заставляет вдоволь насмеяться и принять участие в шоу, ощутив себя настоящим артистом.",
                     desc_2: "Зал оборудован мягкими, комфортными сиденьями, что обеспечивает удобный просмотр шоу с любой точки зала.",
                 },
                 {
-                    icon_1: `${App.assets_url}/ico/341.png`,
-                    icon_2: `${App.assets_url}/ico/359.png`,
+                    icon_1: `${config.assets_url}/ico/341.png`,
+                    icon_2: `${config.assets_url}/ico/359.png`,
                     name_1: "Акробатические номера",
                     name_2: "Зажигательные танцы",
                     desc_1: "Головокружительные трюки, ловкие прыжки и движения на грани, а также свободное падение без страховки.",
                     desc_2: "Яркими красками и костюмами впечатляет наш шоу-балет, вместе в которым сложно усидеть на месте от желания танцевать!",
                 },
                 {
-                    icon_1: `${App.assets_url}/ico/342.png`,
-                    icon_2: `${App.assets_url}/ico/252.png`,
+                    icon_1: `${config.assets_url}/ico/342.png`,
+                    icon_2: `${config.assets_url}/ico/252.png`,
                     name_1: "Звездные номера",
                     name_2: "Волшебные фокусы",
                     desc_1: "Над шоу-программой работали лучшие режиссеры, хореографы, географы, физики и биологи нашей страны.",

@@ -32,7 +32,7 @@ class Map extends Block {
     }
  
     static tpl_default_info_lines() {
-        return window.locale_lang == 'en' ? [
+        return config.language == 'en' ? [
             {text: '<b>Address:</b> Moscow, Color Blvd., 13'},
             {text: '<b>Phone:</b> +7 (495) 321-46-98'},
             {text: '<b>E-Mail:</b> smile@zaraza.net'},
@@ -44,7 +44,7 @@ class Map extends Block {
     }
 
     static tpl_default_send_message() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
                 type: 'form',
                 link: '',
                 form_title: "Contact us",
@@ -82,7 +82,7 @@ class Map extends Block {
     }
 
     static tpl_default_location(lat, lng, name, address, phone) {
-        const phone_label = window.locale_lang == 'en' ? "Phone" : "Телефон";
+        const phone_label = config.language == 'en' ? "Phone" : "Телефон";
         return {
             name: name,
             desc: `${address}<br><b>"${phone_label}:</b> "${phone}`,
@@ -137,7 +137,7 @@ class Map extends Block {
     }
 
     tpl_default_1() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_container_text: true,
             map: YandexMap.tpl_default(),
             items: [
@@ -202,7 +202,7 @@ class Map extends Block {
     }
 
     tpl_default_2() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: true,
             title: 'How to find us',
@@ -210,7 +210,7 @@ class Map extends Block {
             background_color: '#FFFFFF',
             map: YandexMap.tpl_default(),
             info_lines:  Map.tpl_default_info_lines(),
-            image: `${App.assets_url}/gallery/4.jpg`,
+            image: `${config.assets_url}/gallery/4.jpg`,
             send_message_button: Map.tpl_default_send_message()
         } : {
             show_title: true,
@@ -221,7 +221,7 @@ class Map extends Block {
             map: YandexMap.tpl_default(),
             info_lines:  Map.tpl_default_info_lines(),
              
-            image: `${App.assets_url}/gallery/4.jpg`,
+            image: `${config.assets_url}/gallery/4.jpg`,
             send_message_button: Map.tpl_default_send_message()
         }
     }
@@ -269,7 +269,7 @@ class Map extends Block {
     }
 
     tpl_default_3(val) {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: true,
             title: 'How to find us',
@@ -333,7 +333,7 @@ class Map extends Block {
     }
 
     tpl_default_4() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: true,
             title: 'How to find us',
@@ -390,7 +390,7 @@ class Map extends Block {
     }
 
     tpl_default_5() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: true,
             background_color: '#FFFFFF',
@@ -448,23 +448,23 @@ class Map extends Block {
     }
 
     tpl_default_6() { 
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             title:  'How to find us',
             title_2:  'Not as easy as you supposed to think',
             background_color: '#313138',
             contact_lines:  [
                 {
-                    icon: `${App.assets_url}/ico/195.png`,
+                    icon: `${config.assets_url}/ico/195.png`,
                     title: 'Address',
                     text: ' Moscow, Color Blvd., 13'
                 },
                 {
-                    icon:  `${App.assets_url}/ico/217.png`,
+                    icon:  `${config.assets_url}/ico/217.png`,
                     title: 'Phone',
                     text: '+7 (495) 321-46-98'
                 },
                 {
-                    icon:  `${App.assets_url}/ico/26.png`,
+                    icon:  `${config.assets_url}/ico/26.png`,
                     title: 'E-mail',
                     text: 'smile@zaraza.net'
                 },
@@ -475,17 +475,17 @@ class Map extends Block {
             background_color: '#313138',
             contact_lines: [
                 {
-                    icon: `${App.assets_url}/ico/195.png`,
+                    icon: `${config.assets_url}/ico/195.png`,
                     title: 'Адрес',
                     text: 'г. Москва, Цветной бульвар, 13'
                 },
                 {
-                    icon: `${App.assets_url}/ico/217.png`,
+                    icon: `${config.assets_url}/ico/217.png`,
                     title: 'Телефон',
                     text: '+7 (495) 321-46-98'
                 },
                 {
-                    icon: `${App.assets_url}/ico/26.png`,
+                    icon: `${config.assets_url}/ico/26.png`,
                     title: 'E-mail',
                     text: 'smile@zaraza.net'
                 },

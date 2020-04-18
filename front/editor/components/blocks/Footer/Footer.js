@@ -55,7 +55,7 @@ class Footer extends Block {
     }
 
     tpl_default_1() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             'show_policy': true,
             'background_color': '#FFFFFF',
             'logo': {...Logo.tpl_default(), 'size': 87 },

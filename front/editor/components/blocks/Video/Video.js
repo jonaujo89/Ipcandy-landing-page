@@ -53,7 +53,7 @@ class Video extends Block {
     }
 
     tpl_default_1() { 
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             video_size: "small",
             show_title: true,
             show_title_2: false,
@@ -108,7 +108,7 @@ class Video extends Block {
    }
     
     tpl_default_2() {
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_text_title_2: true,
             background_color: '#FFFFFF',
             items: [
@@ -192,7 +192,7 @@ class Video extends Block {
     }
     
     tpl_default_3() { 
-        return window.locale_lang == 'en' ? {
+        return config.language == 'en' ? {
             show_title: true,
             show_title_2: false,
             show_border: true,

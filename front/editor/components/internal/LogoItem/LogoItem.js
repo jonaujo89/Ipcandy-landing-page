@@ -19,7 +19,7 @@ const LogoItem = Editable(class extends preact.Component{
     render(props, state){
         return html`
             <${Cover} configForm=${this.configForm()} inline=${true}>
-                <img src="${base_url}/${props.value}" alt="" />
+                <img src="${config.base_url}/${props.value}" alt="" />
             <//>
         `
     }

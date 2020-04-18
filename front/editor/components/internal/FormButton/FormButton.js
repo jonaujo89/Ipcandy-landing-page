@@ -90,7 +90,7 @@ const FormButton = Editable(class extends preact.Component {
 })
 
 FormButton.tpl_default = () => { 
-    return window.locale_lang == 'en' ? {
+    return config.language == 'en' ? {
         type: 'form',
         link: '',
         form_title: "Leave application",

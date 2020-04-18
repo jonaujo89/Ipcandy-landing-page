@@ -22,7 +22,7 @@ const Media = Editable((props)=>{
         }
 
         if (!match) {
-            video_url = `${base_url}/${App.assets_url}/404.htm`;
+            video_url = `${config.base_url}/${config.assets_url}/404.htm`;
         }
     }
 
@@ -50,7 +50,7 @@ const Media = Editable((props)=>{
                     <iframe frameborder="0" src=${video_url} />
                 `}
                 ${props.value.type == "image" && html`
-                    <div class="img" style="background-image: url('${base_url+"/"+props.value.image_url}')" />
+                    <div class="img" style="background-image: url('${config.base_url+"/"+props.value.image_url}')" />
                 `}
             </div>
         <//>
@@ -59,7 +59,7 @@ const Media = Editable((props)=>{
 
 Media.tpl_default = () => ({
     type: 'image',
-    image_url: `${App.assets_url}/background/218.jpg`,
+    image_url: `${config.assets_url}/background/218.jpg`,
     video_url: 'www.youtube.com/watch?v=EILqvdxdc5c',
 });
 

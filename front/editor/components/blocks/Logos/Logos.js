@@ -46,7 +46,7 @@ class Logos  extends Block {
     }
   
     tpl_default_1() { 
-       return window.locale_lang == 'en' ? {
+       return config.language == 'en' ? {
             show_title: true,
             show_title_2: false,
             grayscale_logo: true,
@@ -54,17 +54,17 @@ class Logos  extends Block {
             title: 'Our partners',
             title_2: 'Subtitle about our partners',
             items: [
-                {image: `${App.assets_url}/logos/1.png`},
-                {image: `${App.assets_url}/logos/2.png`},
-                {image: `${App.assets_url}/logos/3.png`},
-                {image: `${App.assets_url}/logos/4.png`},
-                {image: `${App.assets_url}/logos/5.png`},
-                {image: `${App.assets_url}/logos/6.png`},
-                {image: `${App.assets_url}/logos/7.png`},
-                {image: `${App.assets_url}/logos/8.png`},
-                {image: `${App.assets_url}/logos/9.png`},
-                {image: `${App.assets_url}/logos/11.png`},
-                {image: `${App.assets_url}/logos/12.png`},
+                {image: `${config.assets_url}/logos/1.png`},
+                {image: `${config.assets_url}/logos/2.png`},
+                {image: `${config.assets_url}/logos/3.png`},
+                {image: `${config.assets_url}/logos/4.png`},
+                {image: `${config.assets_url}/logos/5.png`},
+                {image: `${config.assets_url}/logos/6.png`},
+                {image: `${config.assets_url}/logos/7.png`},
+                {image: `${config.assets_url}/logos/8.png`},
+                {image: `${config.assets_url}/logos/9.png`},
+                {image: `${config.assets_url}/logos/11.png`},
+                {image: `${config.assets_url}/logos/12.png`},
             ],
         } : {            
             show_title: true,
@@ -74,17 +74,17 @@ class Logos  extends Block {
             title: 'Наши партнёры',
             title_2: 'Подзаголовок про партнёров',
             items: [
-                {image: `${App.assets_url}/logos/1.png`},
-                {image: `${App.assets_url}/logos/2.png`},
-                {image: `${App.assets_url}/logos/3.png`},
-                {image: `${App.assets_url}/logos/4.png`},
-                {image: `${App.assets_url}/logos/5.png`},
-                {image: `${App.assets_url}/logos/6.png`},
-                {image: `${App.assets_url}/logos/7.png`},
-                {image: `${App.assets_url}/logos/8.png`},
-                {image: `${App.assets_url}/logos/9.png`},
-                {image: `${App.assets_url}/logos/11.png`},
-                {image: `${App.assets_url}/logos/12.png`},
+                {image: `${config.assets_url}/logos/1.png`},
+                {image: `${config.assets_url}/logos/2.png`},
+                {image: `${config.assets_url}/logos/3.png`},
+                {image: `${config.assets_url}/logos/4.png`},
+                {image: `${config.assets_url}/logos/5.png`},
+                {image: `${config.assets_url}/logos/6.png`},
+                {image: `${config.assets_url}/logos/7.png`},
+                {image: `${config.assets_url}/logos/8.png`},
+                {image: `${config.assets_url}/logos/9.png`},
+                {image: `${config.assets_url}/logos/11.png`},
+                {image: `${config.assets_url}/logos/12.png`},
             ],
         };
     }    

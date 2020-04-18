@@ -61,7 +61,7 @@ const Logo = Editable(class extends preact.Component{
             <${Cover} configForm=${this.configForm()}>
                 <div class="logo">
                     ${isImage && html`
-                        <img src="${base_url}/${url}" style="width: ${size}%" />
+                        <img src="${config.base_url}/${url}" style="width: ${size}%" />
                     `}
                     ${!isImage && html`
                         <div class='company_name'
@@ -81,9 +81,9 @@ const Logo = Editable(class extends preact.Component{
 })
 
 Logo.tpl_default = () => {
-    return window.locale_lang == 'en' ? {
+    return config.language == 'en' ? {
         'type': 'image',
-        'url': `${App.assets_url}/default_logo_en.png`,
+        'url': `${config.assets_url}/default_logo_en.png`,
         'text': "No name",
         'bold': true,
         'italic': false,
@@ -92,7 +92,7 @@ Logo.tpl_default = () => {
         'fontSize': 24
     } : {
         'type': 'image',
-        'url': `${App.assets_url}/default_logo.png`,
+        'url': `${config.assets_url}/default_logo.png`,
         'text': 'Нет названия',
         'bold': true,
         'italic': false,

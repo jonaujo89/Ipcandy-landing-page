@@ -1,15 +1,6 @@
-Options FollowSymLinks
-
 RewriteEngine on
-
-RewriteRule ^upload/LPCandy/track/(.*)$ - [F,L]
-
-RewriteCond %{ENV:REDIRECT_routed} ^$
-RewriteCond %{REQUEST_URI} !/lib/require/require.proxy.php
-RewriteCond %{REQUEST_FILENAME}  -f
-RewriteRule \.ph(p[345]?|t|tml)$ - [F,L]
 
 RewriteCond %{REQUEST_FILENAME}  -f
 RewriteRule  ^.*$  -  [L]
 
-RewriteRule ^(.*)$ index.php?/$1 [E=routed:1,L,QSA]
+RewriteRule ^(.*)$ index.php?/$1 [L,QSA]

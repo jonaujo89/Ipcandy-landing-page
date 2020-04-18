@@ -26,13 +26,13 @@ const UploadButton = Editable(class extends preact.Component{
                     data.append('iconWidth',this.props.iconWidth);
                     data.append('iconHeight',this.props.iconHeight);
 
-                    App.instance.request("upload",data,(data)=>{
+                    Editor.instance.request("upload",data,(data)=>{
                         data = JSON.parse(data);
                         if (data && data.length) {
                             if (data[0].error) {
                                 alert(data[0].error);
                             } else {
-                                var sub_url = data[0].url.substring(base_url.length);
+                                var sub_url = data[0].url.substring(config.base_url.length);
                                 if (sub_url[0]=="/") sub_url = sub_url.substring(1);
                                 this.props.onChange(sub_url);
                             }

@@ -41,7 +41,7 @@ const FormOrder = Editable(class extends preact.Component {
 
         data.append('form',JSON.stringify(values));
 
-        fetch(base_url+"/track/"+page_id,{
+        fetch(config.base_url+"/track/"+page_id,{
             method: "POST",
             body: data
         }).then((response)=>{
@@ -118,7 +118,7 @@ const FormOrder = Editable(class extends preact.Component {
 });
 
 FormOrder.tpl_default = () => {
-    return window.locale_lang == 'en' ? {
+    return config.language == 'en' ? {
         fields: [
             {
                 label: "Name", sub_label: '', required: true,

@@ -25,8 +25,8 @@ class Block extends preact.Component {
     }
 
     shouldComponentUpdate(nextProps) {
-        var res = nextProps.value != this.props.value || App.instance.state.preview != this.preview;
-        this.preview = App.instance.state.preview;
+        var res = nextProps.value != this.props.value || Editor.instance.state.preview != this.preview;
+        this.preview = Editor.instance.state.preview;
         return res;
     }    
 
@@ -63,7 +63,7 @@ class Block extends preact.Component {
             current = current[part];
         });
         this.value = ret;
-        App.instance.blockChanged(this,cb);
+        Editor.instance.blockChanged(this,cb);
     }
 
 
@@ -83,12 +83,12 @@ class Block extends preact.Component {
             ...(this.variantValues[variant] || { type:this.value.type, id:this.value.id }),
             variant
         });
-        App.instance.blockChanged(this);
+        Editor.instance.blockChanged(this);
     }
 
     remove() {
         Dialog.confirm({title:_t("Remove confirmation"),text:_t("Sure to remove component?")},(res) => {
-            if (res) App.instance.removeBlock(this);
+            if (res) Editor.instance.removeBlock(this);
         })
     }
 
@@ -98,7 +98,7 @@ class Block extends preact.Component {
 
     bg_style(bg) {
         if (bg.url)
-            return `background:url("${base_url}/${bg.url}")`;
+            return `background:url("${config.base_url}/${bg.url}")`;
         else
             return `background:${bg.color}`;
     }    
@@ -120,7 +120,7 @@ class Block extends preact.Component {
         <${ValueContext.Provider} value=${{name:"",value:this.value,defaultValue:this.defaultValue}}>
             <div class="lp-block" id=${this.value.id}>
                 ${tpl_f.call(this,this.value,props,state)}
-                ${ !App.instance.state.preview && html`
+                ${ !Editor.instance.state.preview && html`
                     <div class='cmp-controls'>
                         ${ this.variantCount > 1 && html`
                             <div class='fa fa-chevron-left lp-button' onClick=${()=>this.prev()} />
@@ -142,12 +142,12 @@ class Block extends preact.Component {
                                 } 
                             />
                         `}
-                        <div class='fa fa-arrows lp-button right' onMouseDown=${(e)=>App.instance.draggableMouseDown(e,this)} />
+                        <div class='fa fa-arrows lp-button right' onMouseDown=${(e)=>Editor.instance.draggableMouseDown(e,this)} />
                         <div class='fa fa-trash-o lp-button right' onClick=${()=>this.remove()} />
                     </div>
                 `}
             </div>
-            ${ !App.instance.state.preview && configForm }
+            ${ !Editor.instance.state.preview && configForm }
         <//>
         <//>
         `;

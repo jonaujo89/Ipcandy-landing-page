@@ -23,13 +23,13 @@ class AddBlockDialog extends preact.Component {
                         <div class='lp-add-block-item' 
                             onClick=${()=>{
                                 this.dialog.close();
-                                App.instance.addBlock(typeId);
+                                Editor.instance.addBlock(typeId);
                             }}
                             onMouseDown=${(e)=>{
-                                App.instance.draggableMouseDown(e,{value:{type:typeId}})
+                                Editor.instance.draggableMouseDown(e,{value:{type:typeId}})
                             }}
                         >
-                            <div class='lp-add-block-item-pic' style=${{backgroundImage:"url('"+base_url+"/"+App.assets_url+"/miniatures/"+miniature+".jpg')"}} />
+                            <div class='lp-add-block-item-pic' style=${{backgroundImage:"url('"+config.base_url+"/"+config.assets_url+"/miniatures/"+miniature+".jpg')"}} />
                             ${type.title}
                             <small>${type.description}</small>
                         </div>
