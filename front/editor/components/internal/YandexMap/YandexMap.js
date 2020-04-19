@@ -10,7 +10,7 @@ const {Color} = require("../Color/Color");
 const {Editor} = require("../../Editor");
 
 Editor.ready(()=>{
-    if (!config.geocoder_api_key && !Editor.viewOnly) Dialog.alert("Please fill geocoder_api_key in app config");
+    if (!config.geocoder_api_key && !config.viewOnly) Dialog.alert("Please fill geocoder_api_key in app config");
 });
 
 class AddressInput extends preact.Component {

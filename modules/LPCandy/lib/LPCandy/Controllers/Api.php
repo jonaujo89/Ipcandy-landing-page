@@ -10,7 +10,7 @@ class Api extends \CMS\Controllers\Admin\Base {
     }    
     
     function needUser() {
-        if (!$this->user) { echo _t("Invalid auth"); die(); }
+        if (!$this->user) die();
     }
 
     function needOwnPage() {
@@ -18,12 +18,7 @@ class Api extends \CMS\Controllers\Admin\Base {
         
         $id = $_POST['id'] ?? false;
         $page = \LPCandy\Models\Page::find($id);
-        if (!$page || $page->user!=$this->user)  {
-            echo json_encode([
-                'errors' => ['*' => _t('Invalid page')]
-            ]);
-            die();
-        }
+        if (!$page || $page->user!=$this->user) die();
         return $page;
     }
 
@@ -226,22 +221,246 @@ class Api extends \CMS\Controllers\Admin\Base {
 
     function page_editor($id) {
         $page = \LPCandy\Models\Page::find($id);
-        if (!$page || $page->user!=$this->user) return;
+        if (!$page) return; 
 
         $action = @$_POST['_type'];
         switch ($action) {
             case 'save':
+                if ($page->user!=$this->user) return;
                 $page->saveBlocks(json_decode($_POST['blocks'],true));
                 break;
 
             case 'publish':
+                if ($page->user!=$this->user) return;
                 $page->publish(json_decode($_POST['blocks'],true),$_POST['html']);
                 break;
 
             case 'upload':
+                if ($page->user!=$this->user) return;
                 $res = $page->upload($_POST['name'],$_POST['iconWidth'],$_POST['iconHeight']);
                 echo json_encode($res);
                 break;
+
+            case 'entity-edit':
+                $this->entity_edit($page);
+                break;
         }
+    }
+
+    function entity_file() {
+        $id = $_GET['id'] ?? 0;
+        $name = $_GET['name'] ?? '';
+        if (!$id || !$name) return;
+
+        $entity = \LPCandy\Models\Entity::find($id);
+        if (!$entity) return;
+
+        $config = \Bingo\Config::get('config','entityTypes')[$entity->type] ?? false;
+        if (!$config) return;
+
+        $public_read = !empty($config['public_read']);
+        if (!$public_read && $entity->user!=$this->user) return;
+
+        $file = $entity->getFilePath($name);
+        if (!$file || !file_exists($file)) return;
+        
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$entity->getFileName($name));
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file));
+        readfile($file);              
+    }
+
+    function entity_edit($page=null) {
+        $type = $_POST['type'] ?? false;
+        if (!$type) return;
+
+        $config = \Bingo\Config::get('config','entityTypes')[$type] ?? false;
+        if (!$config) return;
+
+        $public = $page!=null;
+
+        $public_read = !empty($config['public_read']);
+        $public_edit = !empty($config['public_edit']);
+        $public_create = !empty($config['public_create']);
+        $upload = !empty($config['upload']);
+
+        $id = $_POST['id'] ?? 0;
+        if ($id) {
+            $entity = \LPCandy\Models\Entity::find($id);
+            if (!$entity) return;
+            if ($entity->type!=$type) return;
+            if (!$public && $entity->user!=$this->user) return;
+        } else {
+            $entity = null;
+        }
+
+        $data = $_POST;
+        unset($data['id'],$data['type'],$data['_type']);
+
+        if (!empty($data)) {
+            if (!$entity) {
+                $entity = new \LPCandy\Models\Entity;
+                $entity->type = $type;
+                $entity->ip = $_SERVER['REMOTE_ADDR'];
+
+                if ($public && !$public_create) return;
+                if ($public) {
+                    $entity->page = $page;
+                    $entity->user = $page->user;
+                } else {
+                    $entity->user = $this->user;
+                }
+                $entity->save();
+
+            } else {
+                if ($public && !$public_edit) return;
+                if (!$public && $entity->user!=$this->user) return;
+            }
+
+            if ($upload) $entity->upload();
+
+            foreach ($data as $key=>$val) {
+                $field = \LPCandy\Models\EntityField::findOneBy(['entity'=>$entity,'name'=>$key]);
+                if (!$field) {
+                    $field = new \LPCandy\Models\EntityField;
+                    $field->entity = $entity;
+                }
+                $field->name = $key;
+                $field->value = $val;
+                $field->save(false);
+            }
+            $entity->save();
+            $this->em->flush();
+        }
+        $res = [];
+
+        if (
+            $entity && 
+            (
+                ($public && $public_read) ||
+                (!$public && $entity->user==$this->user)
+            )
+        ) {
+            $res = $this->entity_json($entity);
+        }
+        echo json_encode($res);
+    }
+
+    function entity_json($entity) {
+        $res = [
+            'id' => $entity->id,
+            'ip' => $entity->ip,
+            'created' => $entity->created->getTimestamp(),
+            'page_id' => $entity->page ? $entity->page->id : false,
+            'page_title' => $entity->page ? $entity->page->title : false,
+            'files' => $entity->files
+        ];
+        foreach ($entity->fields as $f) $res[$f->name] = $f->value;
+        return $res;
+    }
+
+    function entity_delete() {
+        $id = $_POST['id'] ?? 0;
+        $entity = \LPCandy\Models\Entity::find($id);
+        if (!$entity || $entity->user!=$this->user) return;
+        $entity->delete();
+        echo json_encode(true);
+    }
+
+    function entity_list() {
+        $this->needUser();
+
+        $type = $_POST['type'] ?? false;
+        if (!$type) return;
+
+        $qb = $this->em->createQueryBuilder();
+        $qb->select("DISTINCT(e.id) as id");
+        $qb->from("\LPCandy\Models\Entity","e");
+        $qb->andWhere("e.user = :user")->setParameter("user",$this->user);
+        $qb->andWhere("e.type = :type")->setParameter("type",$type);
+
+        $ownFields = ['id','ip','page'];
+
+        $filter = $_POST;
+        unset($filter['p'],$filter['perPage'],$filter['user'],$filter['type'],$filter['sortBy'],$filter['sortOrder']);
+
+        $p = 0;
+        foreach ($filter as $key=>$val) {
+            if (!$val) continue;
+
+            if (strpos($val,"LIKE ")===0) {
+                $val = substr($val,5);
+                $op = "LIKE";
+            } else {
+                $op = "=";
+            }
+
+            $p++;
+            if (in_array($key,$ownFields)) {
+                $qb
+                    ->andWhere("e.$key $op :param_$p")
+                    ->setParameter("param_$p",$val)
+                ;
+            }
+            else {
+                $qb
+                    ->leftJoin("e.fields","f_$p")
+                    ->andWhere("f_$p.name = :param_name_$p AND f_$p.value $op :param_val_$p")
+                    ->setParameter("param_name_$p",$key)
+                    ->setParameter("param_val_$p",$val)
+                ;
+            }
+        }
+
+        $sortBy = $_POST['sortBy'] ?? 'id';
+        $sortOrder = $_POST['sortOrder'] ?? "DESC";
+
+        if (in_array($sortBy,$ownFields)) {
+            if ($sortBy=="page") 
+                $sortBy = "page.id";
+            else
+                $sortBy = "e.".$sortBy;
+        }
+        else {
+            $qb->leftJoin("e.fields","sf");
+            $qb->andWhere("sf.name = :sortBy")->setParameter("sortBy",$sortBy);
+            $sortBy = "sf.value";
+        }
+        $qb->orderBy($sortBy,$sortOrder);
+
+        if (isset($_POST['p'])) $page = (int)$_POST['p']; else $page = 1;if ($page<=1) $page = 1;
+        $query = $qb->getQuery();
+        $total = \DoctrineExtensions\Paginate\Paginate::getTotalQueryResults($query,true);
+        $pagination = new \Bingo\Pagination($_POST['perPage'] ?? 10,$page,$total,false,$query);
+        $ids = array_map(function($one){return $one['id'];},$pagination->result());
+
+        $qb = $this->em->createQueryBuilder();
+        $qb->select("e,f");
+        $qb->from("\LPCandy\Models\Entity","e");
+        $qb->leftJoin("e.fields","f");
+        $qb->leftJoin("e.page","page");
+        $qb->andWhere("e.id IN (:ids)");
+        $qb->setParameter("ids",$ids);
+        $res = $qb->getQuery()->getResult();
+
+        $hash = [];
+        foreach ($res as $e) $hash[$e->id] = $e;
+        $entities = [];
+        foreach ($ids as $id) if (isset($hash[$id])) $entities[] = $hash[$id];
+
+        $list = [];
+        foreach ($entities as $entity) {
+            $list[] = $this->entity_json($entity);
+        }
+
+        echo json_encode([
+            'list'=>$list,
+            'pageCount'=>$pagination->getPageCount(),
+            'pageNumber'=>$pagination->current
+        ]);
     }
 }

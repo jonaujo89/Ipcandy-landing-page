@@ -10,5 +10,13 @@ $config = array(
         'port' => '25',
         'username' => '',
         'password' => ''
+    ],
+    'entityTypes' => [
+        'track' => [
+            'public_create' => true,
+            'public_edit' => false,
+            'public_read' => false,
+            'upload' => true
+        ]
     ]
 );

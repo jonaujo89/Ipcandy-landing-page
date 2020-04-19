@@ -14,7 +14,7 @@
 
     <script>
         SiteApp.run({
-            language: 'ru',
+            language: "<?= explode("_",\Bingo\Configuration::$locale)[0] ?>",
             base_url: location.origin+"<?=INDEX_URL?>",
             assets_url: 'assets/components',
 
@@ -25,6 +25,5 @@
 
 </head>                
 <body>
-    <? if (!empty($page_html)) echo $page_html ?>
 </body>
 </html>

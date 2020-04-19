@@ -43,10 +43,17 @@ const PageItem = ({page,parent,onDelete}) => html`
 
 exports.PageList = function(props) {
     [pages,setPages] = preact.hooks.useState(false);
-    const load = () => SiteApp.fetchApi("page-list",{},setPages);
+    const load = () => {
+        this.setState({loading:true});
+        SiteApp.fetchApi("page-list",{},(res)=>{
+            this.setState({loading:false});
+            setPages(res);
+        });
+    }
 
     return html`
         <${Layout} 
+            loading=${this.state.loading}
             onLoad=${load}
             title=${_t('Pages')}
             actions=${{

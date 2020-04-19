@@ -75,7 +75,7 @@ const Repeater = Editable(class extends preact.Component {
                         </div>
                     `)}
                 </div>
-                ${ props.inline && html`
+                ${ (props.inline && !Editor.instance.state.preview) && html`
                     <div class='lp-button-repeater-add-wrap'>
                         <div class='fa fa-plus lp-button lp-button-repeater-add' onClick=${()=>this.addAfter(props.value.length-1)}>
                             ${props.addItemText}

@@ -3,6 +3,7 @@ require("./../editor");
 
 const {Link} = require("components/Link/Link");
 const {Home,Login,PageList,PageCreate,PageEdit,PageDesign,Profile} = require("pages");
+const {Entity} = require("./Entity");
 
 class App extends Component {
 
@@ -28,6 +29,8 @@ class App extends Component {
         super(props);
         this.constructor.instance = this;
         for (var key in props) config[key] = props[key];
+        if (config.language=="ru") require("../ru.js");
+
         App.fetchApi("user",{},(res)=>{
             this.routeToState();
             this.setState({
@@ -53,7 +56,6 @@ class App extends Component {
         if (user && route=='login') return App.redirect("");
         if (!user && route!='login') return App.redirect("login");
 
-        if (route=="") return html`<${Home} />`
         if (route=="login") return html`<${Login} />`
         if (route=="page-list") return html`<${PageList} />`
         if (route=="page-create") return html`<${PageCreate} />`
@@ -62,6 +64,11 @@ class App extends Component {
         if (m = route.match(/page\-design\/(\d+)/)) return html`<${PageDesign} id=${m[1]} />`
         if (m = route.match(/page\-view\/(\d+)/)) return html`<${PageDesign} viewOnly=${true} id=${m[1]} />`
         if (route=="profile") return html`<${Profile} />`
+        if (Entity.list[route]) {
+            let Cls = Entity.list[route];
+            if (Cls.listComponent) return html`<${Cls.listComponent} entity=${Cls} />`;
+        }
+        return html`<${Home} />`
     }
 };
 

@@ -1,5 +1,6 @@
 require("Layout.tea");
 const {Link} = require("../../components/Link/Link");
+const {Entity} = require("../../Entity");
 
 const LayoutHeader = () => {
     let user = SiteApp.instance.state.user;
@@ -40,6 +41,10 @@ const Layout = class Layout extends Component {
                     ${user && html`
                         <li><${Link} href="page-list">${_t('Pages')}<//></li>
                         <li><${Link} href="profile">${_t('Profile')}<//></li>
+                        ${ Object.entries(Entity.list).map(([id,Cls])=>{
+                            if (!Cls.menuLabel) return;
+                            return html`<li><${Link} href=${id}>${Cls.menuLabel}<//></li>`;
+                        })}
                     `}
                 </ul>
             </div>
@@ -56,7 +61,8 @@ const Layout = class Layout extends Component {
                         `} 
                     </div>                
                 `}         
-                <div class="page-content">   
+                <div class="page-content">  
+                    ${props.loading && html`<div class="page-content-loading" />`}
                     ${children}
                 </div>
                 <div class="page-footer">

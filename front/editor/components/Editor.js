@@ -17,14 +17,14 @@ class Editor extends Component {
 
     static run(options) {
         document.addEventListener("DOMContentLoaded",()=>{
-            preact.render(preact.h(this,options),document.getElementById("app"));
+            preact.render(preact.h(this,options),document.body);
         });
     }
 
     constructor(props) {
         super(props);
         for (var key in props) config[key] = props[key];
-        if (config.language=="ru") require("../locale/ru.js");
+        if (config.language=="ru") require("../../ru.js");
 
         this.state = {
             blocks: props.blocks,
@@ -40,7 +40,6 @@ class Editor extends Component {
 
         Editor.instance = this;
         (Editor.ready_list || []).forEach((f)=>f());
-        Editor.ready_list = [];
 
         document.addEventListener("mouseup",(e)=>this.draggableMouseUp());
         document.addEventListener("mousemove",(e)=>this.draggableMouseMove(e));
@@ -146,11 +145,6 @@ class Editor extends Component {
     }
 
     request(action,data,callback) {
-        if (this.props.viewOnly) {
-            console.debug("Request in viewOnly mode");
-            return callback("{}");
-        }
-
         var formData;
         if (data instanceof FormData) {
             formData = data;

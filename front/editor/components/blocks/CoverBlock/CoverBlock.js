@@ -8,7 +8,7 @@ const {
 class CoverBlock extends Block {
 
     static get title() { return _t('Cover') }
-    static get description() { return _t('') }
+    static get description() { return ''; }
 
     configForm() {
         return html`

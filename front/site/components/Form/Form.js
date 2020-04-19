@@ -89,9 +89,28 @@ const Radio = (props) => html`
     `}<//>
 `;
 
+const Select = (props) => html`
+    <${FormContext.Consumer}>${(form)=>html`
+        <select
+            ...${props} 
+            value=${form.value[props.name]}
+            onChange=${(e)=>{
+                form.setValue({
+                    [props.name]:e.target.value
+                });
+            }}
+            class=${props['class'] || '' + (form.state.errors[props.name] ? ' error':'')}
+        >
+            ${props.children}
+        <//>
+        <${Error} name=${props.name} />
+    `}<//>
+`;
+
 exports.FormContext = FormContext;
 exports.Form = Form;
 exports.Error = Error;
 exports.Text = Text;
 exports.TextArea = TextArea;
 exports.Radio = Radio;
+exports.Select = Select;

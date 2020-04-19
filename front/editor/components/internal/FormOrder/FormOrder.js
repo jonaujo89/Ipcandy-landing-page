@@ -7,6 +7,7 @@ const {Color} = require("../Color/Color");
 const {Input} = require("../Input/Input");
 const {FieldsRepeater} = require("./FieldsRepeater");
 const {formControls} = require("./FormControl");
+require("./Track");
 
 const FormOrder = Editable(class extends preact.Component {
     showFormSuccess() {
@@ -38,18 +39,14 @@ const FormOrder = Editable(class extends preact.Component {
             }
             values.push({label:field.props.value.label,value:value});
         });
-
         data.append('form',JSON.stringify(values));
+        data.append("status","new");
+        data.append('type','track');
 
-        fetch(config.base_url+"/track/"+page_id,{
-            method: "POST",
-            body: data
-        }).then((response)=>{
-            response.text().then(()=>{
-                this.fields.forEach((field)=>field.reset());
-                this.showFormSuccess();
-            })
-        })
+        Editor.instance.request('entity-edit',data,()=>{
+            this.fields.forEach((field)=>field.reset());
+            this.showFormSuccess();
+        });
     }
     
     render(props) {
