@@ -17,7 +17,7 @@ class Video extends Block {
                 <${Switch} name="show_desc" label="${_t("Show description")}" showWhen=${{variant:[3]}} /> 
                 <${Switch} name="show_border" label="${_t("Show border")}" showWhen=${{variant:[3]}} /> 
                 ${val.variant == 1 && html`<label>${_t("Video size:")}</label>`} 
-                <${Radio} name="video_size" items=${[
+                <${Radio} name="video_size" inline=${false} items=${[
                     {label: _t("small"), value:"small"},
                     {label: _t("medium"), value:"medium"},
                     {label: _t("large"), value:"large"},

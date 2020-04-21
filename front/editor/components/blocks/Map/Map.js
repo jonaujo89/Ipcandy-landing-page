@@ -434,8 +434,12 @@ class Map extends Block {
                                     ${item => html` 
                                         <div class="contact-line">
                                             <${Icon} name="icon" />
-                                            <${Text} name="title" options=${Text.plain_text} />
-                                            <${Text} name="text" options=${Text.plain_text} />
+                                            <div class="line-title">
+                                                <${Text} name="title" options=${Text.plain_text} />
+                                            </div>
+                                            <div class="line-text">
+                                                <${Text} name="text" options=${Text.plain_text} />
+                                            </div>
                                         </div>
                                     `}
                                 <//>

@@ -2,19 +2,17 @@
     .container {
         color: @headingColor;
 
-        .span_btn {
-            .btn_wrap {
-                a {
-                    user-select: none;          
-                    border-radius: 3px;
-                    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
-                    color: #ffffff;
-                    cursor: pointer;
-                    display: inline-block;
-                    font-size: 1rem;
-                    padding: 7px 27px;
-                    text-decoration: none;
-                }
+        .btn_wrap {
+            a {
+                user-select: none;          
+                border-radius: 3px;
+                box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15) inset;
+                color: #ffffff;
+                cursor: pointer;
+                display: inline-block;
+                font-size: 1rem;
+                padding: 7px 27px;
+                text-decoration: none;
             }
         }
 
@@ -82,12 +80,12 @@
 
     &.header_2 {
         .container {
-            .span_btn {
+            .btn_wrap {
                 line-height: 1.1;
-                padding: 10px;
+                margin: 10px;
             }
 
-            .span_btn, .span_logo {
+            .span_logo {
                 @media (max-width: @grid.mediaWidth()) {
                     text-align: center;
                 }
@@ -204,10 +202,8 @@
                 }
             }
 
-            .span_btn {
-                .btn_wrap {
-                    margin-top: 12px;
-                }
+            .btn_wrap {
+                margin-top: 12px;
             }
 
             .span_logo {

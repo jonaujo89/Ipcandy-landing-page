@@ -32,7 +32,8 @@ const UploadButton = Editable(class extends preact.Component{
                             if (data[0].error) {
                                 alert(data[0].error);
                             } else {
-                                var sub_url = data[0].url.substring(config.base_url.length);
+                                var base_url = config.base_url.substring(location.origin.length);
+                                var sub_url = data[0].url.substring(base_url.length);
                                 if (sub_url[0]=="/") sub_url = sub_url.substring(1);
                                 this.props.onChange(sub_url);
                             }

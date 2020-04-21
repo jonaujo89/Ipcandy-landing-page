@@ -30,9 +30,9 @@ class Logos  extends Block {
                             </h1>
                         `}
                         ${val.show_title_2 && html`
-                            <h1 class="title_2"> 
+                            <div class="title_2"> 
                                 <${Text} name="title_2" options=${Text.plain_heading}/>
-                            </h1>
+                            </div>
                         `}
                         <div class="item_list ${val.grayscale_logo ? 'gray' : ''}">
                             <${Repeater} name="items" inline=${true}>${item_val => html` 

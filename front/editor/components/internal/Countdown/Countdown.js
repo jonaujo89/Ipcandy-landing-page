@@ -8,7 +8,7 @@ const {Select} = require("../Select/Select");
 const Countdown = Editable(class extends preact.Component{
     configForm(val) {
         return html`
-            <${Dialog} title="${_t('Countdown settings')}" width=${250}>
+            <${Dialog} title="${_t('Countdown settings')}" width=${280}>
                 <${Radio} name="type" inline=${false} items=${[
                     {label: _t("Exact date"), value: 'datetime'},
                     {label: _t("Every month"), value: 'monthly'},

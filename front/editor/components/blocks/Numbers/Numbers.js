@@ -14,12 +14,12 @@ class Numbers extends Block {
                 <${Switch} name="show_title" label=${_t("Show first title")} />
                 <${Switch} name="show_title_2" label=${_t("Show second title")} />
                 ${val.variant == 4 && html`<label>${ _t("Icons color:")}</label>`} 
-                <${Radio} name="icon_color" items=${[
+                <${Radio} name="icon_color" inline=${false} items=${[
                     {value: 'black', label: _t('black')},
                     {value: 'grey', label: _t('grey')},
                 ]} showWhen=${{variant:[4]}} />
                 ${val.variant == 7 && html`<label>${ _t("Icons color:")}</label>`} 
-                <${Radio} name="icon_color" items=${[
+                <${Radio} name="icon_color" inline=${false} items=${[
                     {value: 'white', label: _t('white')},
                     {value: 'grey', label: _t('grey')}
                 ]} showWhen=${{variant:[7]}} />

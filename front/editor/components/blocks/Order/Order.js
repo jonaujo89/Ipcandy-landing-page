@@ -509,7 +509,7 @@ class Order extends Block {
             title_3: "JUST A FEW MINUTES",
             form_title: "LEAVE AN APPLICATION FOR LANDING CREATION",
             form_bottom_text: "We don't provide Israeli intelligence with your personal information",
-            form: {...FormOrder.tpl_default(), button: {color: 'blue', label: "Order a landing"}}
+            form: {...FormOrder.tpl_default_email(),  button: {color: 'blue', label: "Order a landing"}}
         } : {
             show_title_2: true,
             show_title_3: true,
@@ -521,7 +521,7 @@ class Order extends Block {
             title_3: "ВСЕГО ЗА НЕСКОЛЬКО МИНУТ",
             form_title: "ОСТАВЬТЕ ЗАЯВКУ НА СОЗДАНИЕ ЛЕНДИНГА",
             form_bottom_text: "Мы не передаем Вашу персональную информацию израильской разведке",
-            form: {...FormOrder.tpl_default(), button: {color: 'blue', label: "Заказать лендинг"}}
+            form: {...FormOrder.tpl_default_email(), button: {color: 'blue', label: "Заказать лендинг"}}
         }
     }
 }

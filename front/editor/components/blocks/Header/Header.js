@@ -60,7 +60,7 @@ class Header extends Block {
     
     tpl_2(val) {
        return html` 
-            <div class="container-fluid header header_2" style="background: ${val.background_color};"> 
+            <div class="container-fluid header header_2" style="background: ${val.background};"> 
                 <div class="container">
                     <div class="row">
                         <div class="col-4 span_logo">

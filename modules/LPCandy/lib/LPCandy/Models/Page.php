@@ -139,7 +139,7 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
 
     function makeScreenshot() {
         $screen_file = $this->getPath("publish/screenshot.png");
-        $protocol = $_SERVER['HTTPS']=='on' ? "https://" : 'http://';
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] =='on' ? "https://" : 'http://';
         $url = $protocol.$_SERVER['SERVER_NAME'].url('page-view/'.$this->id);
         $rasterize = APP_DIR."/modules/LPCandy/rasterize.js";
         

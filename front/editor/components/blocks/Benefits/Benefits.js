@@ -15,7 +15,7 @@ class Benefits extends Block {
                 <${Switch} name="show_icon_border" label="${_t("Show icon border")}" showWhen=${{variant:[1]}} />
                 <${Switch} name="show_name_benefit" label="${_t("Show benefit name")}" showWhen=${{variant:[1,2,3,5]}} />
                 <${Switch} name="show_desc_benefit" label="${_t("Show benefit desc")}" showWhen=${{variant:[1,2,5]}} />
-                <${Switch} name="show_show_image_border" label="${_t("Show image border")}" showWhen=${{variant:[4,5]}} />
+                <${Switch} name="show_image_border" label="${_t("Show image border")}" showWhen=${{variant:[4,5]}} />
                 <${BlockColor} name="background_color" />
             <//>
         `;

@@ -18,7 +18,7 @@ const Logo = Editable(class extends preact.Component{
                     { label: _t("Text name logo"), value: 'text' }
                 ]} /> 
                 <${UploadButton} name="url" label=${_t('Upload file')} showWhen=${{ type: 'image' }}/>
-                ${val.type == 'text' && html` ${console.log(val.type == 'text')}
+                ${val.type == 'text' && html`
                     <label>${_t("Company name:")}</label>
                     <${Input} name="text" />
                     <label>${_t("Font settings:")}</label> 
