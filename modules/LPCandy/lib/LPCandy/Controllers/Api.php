@@ -68,7 +68,6 @@ class Api extends \CMS\Controllers\Admin\Base {
         $this->needUser();
         $this->user->email = $_POST['email'] ?? "";
         $this->user->save();
-        $this->auth();
     }
 
     function getPageTemplates() {
@@ -380,10 +379,11 @@ class Api extends \CMS\Controllers\Admin\Base {
         $qb = $this->em->createQueryBuilder();
         $qb->select("DISTINCT(e.id) as id");
         $qb->from("\LPCandy\Models\Entity","e");
+        $qb->join("e.page","page");
         $qb->andWhere("e.user = :user")->setParameter("user",$this->user);
         $qb->andWhere("e.type = :type")->setParameter("type",$type);
 
-        $ownFields = ['id','ip','page'];
+        $ownFields = ['id','ip','page','created'];
 
         $filter = $_POST;
         unset($filter['p'],$filter['perPage'],$filter['user'],$filter['type'],$filter['sortBy'],$filter['sortOrder']);
