@@ -1,17 +1,10 @@
-require("./lib");
-require("./../editor");
+require("./../../editor");
 
-const {Link} = require("components/Link/Link");
-const {Home,Login,PageList,PageCreate,PageEdit,PageDesign,Profile} = require("pages");
-const {Entity} = require("./Entity");
+const {Link} = require("Link/Link");
+const {Home,Login,PageList,PageCreate,PageEdit,PageDesign,Profile} = require("../pages");
+const {Entity} = require("../Entity");
 
 class App extends Component {
-
-    static run(options) {
-        document.addEventListener("DOMContentLoaded",()=>{
-            preact.render(preact.h(this,options),document.body);
-        });
-    }
 
     static fetchApi(path,data,cb) {
         let formData = new FormData();
@@ -29,7 +22,6 @@ class App extends Component {
         super(props);
         this.constructor.instance = this;
         for (var key in props) config[key] = props[key];
-        if (config.language=="ru") require("../ru.js");
 
         App.fetchApi("user",{},(res)=>{
             this.routeToState();

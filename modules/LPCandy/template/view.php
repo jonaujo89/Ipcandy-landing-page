@@ -9,7 +9,7 @@
     <link  href="<?=INDEX_URL?>/assets/lpcandy.min.css" rel="stylesheet" type="text/css">
 
     <script>
-        Editor.run({
+        lpcandyRun("Editor",{
             language: "<?= explode("_",\Bingo\Configuration::$locale)[0] ?>",
             base_url: location.origin+"<?=INDEX_URL?>",
             assets_url: 'assets/components',

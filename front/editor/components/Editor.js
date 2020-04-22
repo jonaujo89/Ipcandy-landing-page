@@ -15,17 +15,9 @@ class Editor extends Component {
         Editor.ready_list.push(f);
     }
 
-    static run(options) {
-        document.addEventListener("DOMContentLoaded",()=>{
-            preact.render(preact.h(this,options),document.body);
-        });
-    }
-
     constructor(props) {
         super(props);
         for (var key in props) config[key] = props[key];
-        if (config.language=="ru") require("../../ru.js");
-
         this.state = {
             blocks: props.blocks,
             preview: props.viewOnly ? true : false,
@@ -245,6 +237,7 @@ class Editor extends Component {
         var div = document.createElement("div");
         preact.render(preact.h(Published,{
             ...this.props,
+            blocks: this.state.blocks,
             viewOnly: true
         }),div);
         preact.render(null,div);

@@ -128,7 +128,6 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     function publish($blocks,$html) {
         $this->saveBlocks($blocks,$published = true);
         file_put_contents($this->getPath("publish/page.html"),$html);
-        sleep(1);
         $this->makeScreenshot();
     }
 

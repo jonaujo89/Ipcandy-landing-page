@@ -13,7 +13,7 @@
     <link  href="<?=INDEX_URL?>/assets/lpcandy.min.css" rel="stylesheet" type="text/css">
 
     <script>
-        SiteApp.run({
+        lpcandyRun("SiteApp",{
             language: "<?= explode("_",\Bingo\Configuration::$locale)[0] ?>",
             base_url: location.origin+"<?=INDEX_URL?>",
             assets_url: 'assets/components',
