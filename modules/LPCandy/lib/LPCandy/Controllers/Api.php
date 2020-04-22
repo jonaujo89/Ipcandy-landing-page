@@ -273,6 +273,9 @@ class Api extends \CMS\Controllers\Admin\Base {
 
         if (!$mailer->send()) {
             trigger_error($mailer->ErrorInfo);
+            echo json_encode(false);
+        } else {
+            echo json_encode(true);
         }
     }
 

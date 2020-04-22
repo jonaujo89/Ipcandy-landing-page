@@ -262,5 +262,10 @@ window._t.load({
     "Text blocks": "Текстовые блоки",
     "Countdown": "Таймер",
     "Countdown for the stock": "Счетчик для акций",
-    "Add video": "Вставка видео"
+    "Add video": "Вставка видео",
+    "You have a new form track": "У вас есть новая заявка с формы посадочной страницы",
+    "Goto track list": "Перейти к списку заявок",
+    "yes": "да",
+    "no": "нет",
+    "LPCandy: you have a new form submission {id}": "LPCandy: у вас есть новая заявка №{id}"
 });

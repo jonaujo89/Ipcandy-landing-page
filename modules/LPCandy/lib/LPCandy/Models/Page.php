@@ -192,17 +192,9 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
                         } while (file_exists("$dir/$dest"));
                     }
                     move_uploaded_file($tmp_name,"$dir/$dest");
+                    $url = str_replace(INDEX_DIR,"",$dir."/".$dest);
                     
-                    $file = \PhpThumb\Factory::create($dir."/".$dest,array('resizeUp'=>false));
-                    $file->resize($iconWidth,$iconHeight);
-                    
-                    $thumb = basename($dest,$ext).".png";
-                    $file->save($tdir."/".$thumb);    
-                    
-                    $url = str_replace(INDEX_DIR,INDEX_URL,$dir."/".$dest);
-                    $turl = str_replace(INDEX_DIR,INDEX_URL,$tdir."/".$thumb);
-                    
-                    $res[] = array('name'=>$dest,'url'=>$url,'icon'=>$turl);
+                    $res[] = array('name'=>$dest,'url'=>$url);
                 } else {
                     if ($error == UPLOAD_ERR_FORM_SIZE || $error == UPLOAD_ERR_INI_SIZE) {
                         $res[] = array('error'=>str_replace('{max_size}',ini_get("upload_max_filesize"),_t('File is too large. Maximum upload size is {max_size}')));

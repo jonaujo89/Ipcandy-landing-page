@@ -47,47 +47,27 @@ const FormOrder = Editable(class extends preact.Component {
             let result = JSON.parse(response);
             let div = document.createElement('div');
             preact.render(html`
-                <head></head>
-                <body>
-                    <table width='100%' border='0' cellspacing='0' cellpadding='0' style='padding:0px;'>
-                        <tr>
-                            <td>
-                                <p>
-                                    ${_t('You have a new form track')}<br/>
-                                    <a href="${config.base_url}/track">${_t('Goto track list')}</a><br/><br/>
-
-                                    ${(()=>{
-                                        if (!values) {
-                                            return html`${_t('No data')}`;
-                                        } else {
-                                            let content = [];
-                                            values.forEach(({label, value})=>{
-                                                let sub = value;
-                                                if (typeof value == 'boolean') {
-                                                    sub = value ? _t('yes') : _t('no');
-                                                }
-                                                if (Array.isArray(value)) {
-                                                    sub = value.map((name)=>{
-                                                        let download_url = config.base_url+"/api/entity-file?id="+result.id+"&name="+encodeURIComponent(name);
-                                                        return html`<a href=${download_url}>${data.get(name).name}</a><br/>`;
-                                                    });
-                                                }
-                                                content.push(html`<b>${label}:</b> ${sub}<br/>`);
-                                            });
-                                            return content;
-                                        }
-                                    })()}
-                                    <br/><br/>
-                                </p>
-                            </td>
-                        </tr>
-                    </table>
-                </body>
+                <p>
+                    ${_t('You have a new form track')}<br/>
+                    <a href="${config.base_url}/track">${_t('Goto track list')}</a><br/><br/>
+                    ${values.map(({label,value})=>{
+                        let sub = value;
+                        if (typeof value == 'boolean') sub = value ? _t('yes') : _t('no');
+                        if (Array.isArray(value)) {
+                            sub = value.map((name)=>{
+                                let download_url = config.base_url+"/api/entity-file?id="+result.id+"&name="+encodeURIComponent(name);
+                                return html`<a href=${download_url}>${data.get(name).name}</a><br/>`;
+                            });
+                        }
+                        return html`<b>${label}:</b> ${sub}<br/>`;
+                    })}
+                    <br/><br/>
+                </p>
             `, div);
 
             Editor.instance.request('email-send',{
                 subject: _t('LPCandy: you have a new form submission {id}').replace('{id}', result.id),
-                text: '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"/>'+div.innerHTML
+                text: '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"/><body>'+div.innerHTML+"</body>"
             });
             this.fields.forEach((field)=>field.reset());
             this.showFormSuccess();
