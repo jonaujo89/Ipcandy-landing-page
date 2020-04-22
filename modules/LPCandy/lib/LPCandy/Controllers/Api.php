@@ -8,7 +8,7 @@ class Api extends \CMS\Controllers\Admin\Base {
         $this->user = \LPCandy\Models\User::checkLoggedIn();
         bingo_domain('lpcandy');
     }    
-    
+
     function needUser() {
         if (!$this->user) die();
     }
@@ -243,6 +243,36 @@ class Api extends \CMS\Controllers\Admin\Base {
             case 'entity-edit':
                 $this->entity_edit($page);
                 break;
+
+            case 'email-send':
+                $this->email_send($page);
+                break;
+        }
+    }
+
+    function email_send($page=null) {
+        $user = $page ? $page->user : $this->user;
+        if (!$user) return;
+
+        $subject = $_POST['subject'] ?? '';
+        $text = $_POST['text'] ?? '';
+
+        if (!$subject || !$text) return;
+
+        $smtp = \Bingo\Config::get('config', 'smtp');
+        $domain = \Bingo\Config::get('config', 'domain')[bingo_get_locale()];
+        $mailer = new \PHPMailer();
+        $mailer->isSMTP();
+        $mailer->Host = $smtp['host'];
+        $mailer->Port = $smtp['port'];
+        $mailer->CharSet = 'utf-8';
+        $mailer->setFrom('info@'.$domain, _t('LPCandy'));
+        $mailer->Subject = $subject;
+        $mailer->msgHTML($text);
+        $mailer->addAddress($user->email, $user->name);
+
+        if (!$mailer->send()) {
+            trigger_error($mailer->ErrorInfo);
         }
     }
 
@@ -299,7 +329,7 @@ class Api extends \CMS\Controllers\Admin\Base {
 
         $data = $_POST;
         unset($data['id'],$data['type'],$data['_type']);
-
+        
         if (!empty($data)) {
             if (!$entity) {
                 $entity = new \LPCandy\Models\Entity;
@@ -335,8 +365,8 @@ class Api extends \CMS\Controllers\Admin\Base {
             $entity->save();
             $this->em->flush();
         }
-        $res = [];
-
+        
+        $res = ['id'=>$entity->id];
         if (
             $entity && 
             (
@@ -369,6 +399,7 @@ class Api extends \CMS\Controllers\Admin\Base {
         $entity->delete();
         echo json_encode(true);
     }
+
 
     function entity_list() {
         $this->needUser();
