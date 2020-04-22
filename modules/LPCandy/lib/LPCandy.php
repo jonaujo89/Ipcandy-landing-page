@@ -10,6 +10,7 @@ class LPCandy extends \Bingo\Module {
         bingo_domain('lpcandy');
 
         $this->connect('admin/lpcandy/:action/:id',['controller'=>'\LPCandy\Controllers\Admin','id'=>false]);
+        $this->connect('admin/developer/:action/:id',['controller'=>'\LPCandy\Controllers\Developer','id'=>false]);
         \Bingo\Action::add('admin_pre_header',function(){
             \Admin::$menu[_t('LPCandy','lpcandy')][_t('Customers','lpcandy')] = 'admin/lpcandy/user-list';
         });        
