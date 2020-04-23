@@ -52,4 +52,24 @@ class Developer extends \CMS\Controllers\Admin\BasePrivate {
 
         echo 'Импортировано '.$counter.' треков';
     }
+
+    function update_assets_path() {
+        $pagesDir = APP_DIR.'/upload/LPCandy/pages';
+        $dirs = scandir($pagesDir);
+        $counter = 0;
+        foreach ($dirs as $dir) {
+            if (in_array($dir, ['.', '..'])) continue;
+            foreach ([false, true] as $published) {
+                $pageFile = $pagesDir.'/'.$dir.'/'.($published ? 'publish/' : '').'templates/page.yaml';
+                if (!file_exists($pageFile)) continue;
+
+                $content = file_get_contents($pageFile);
+                $content = str_replace('view/editor/assets', 'assets/components', $content);
+                file_put_contents($pageFile, $content);
+                $counter++;
+            }
+        }
+
+        echo "Обновлено $counter файлов";
+    }
 }
