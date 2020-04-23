@@ -53,13 +53,13 @@ function TrackList(props) {
         }}
         filter_form=${html`
             <${Form} value=${{status:'new'}}>
-                <${Select} name="status">
+                <${Select} name="status" style="width:auto">
                     <option value=""></option>
                     ${Object.entries(statusLabels).map(([val,label])=>html`
                         <option value=${val}>${label}</option>
                     `)}
                 <//>
-                <${Select} name="page">
+                <${Select} name="page" style="width:auto;max-width:200px">
                     <option value=""></option>
                     ${pages && pages.map((page)=>html`
                         <option value=${page.id}>${page.title}</option>
