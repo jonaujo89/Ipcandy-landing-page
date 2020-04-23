@@ -413,7 +413,7 @@ class Api extends \CMS\Controllers\Admin\Base {
         $qb = $this->em->createQueryBuilder();
         $qb->select("DISTINCT(e.id) as id");
         $qb->from("\LPCandy\Models\Entity","e");
-        $qb->join("e.page","page");
+        $qb->leftJoin("e.page","page");
         $qb->andWhere("e.user = :user")->setParameter("user",$this->user);
         $qb->andWhere("e.type = :type")->setParameter("type",$type);
 
