@@ -68,6 +68,7 @@ class Api extends \CMS\Controllers\Admin\Base {
         $this->needUser();
         $this->user->email = $_POST['email'] ?? "";
         $this->user->save();
+        $this->user();
     }
 
     function getPageTemplates() {

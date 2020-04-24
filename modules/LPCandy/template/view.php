@@ -2,9 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="robots" content="<?= htmlspecialchars($page->meta_robots)?>">
+    <meta name="keywords" content="<?= htmlspecialchars($page->meta_keywords)?>">
+    <meta name="description" content="<?= htmlspecialchars($page->meta_description)?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link id="favicon" rel="icon" type="image/png" sizes="64x64" href="assets/images/lpcandy.png" /> 
-    <title>LPCandy</title>
+    <title><?= $page->title ?></title>
     <script src="<?=INDEX_URL?>/assets/lpcandy.min.js"></script>
     <link  href="<?=INDEX_URL?>/assets/lpcandy.min.css" rel="stylesheet" type="text/css">
 
