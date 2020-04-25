@@ -104,8 +104,6 @@ class Block extends preact.Component {
     }    
 
     render(props,state) {
-        console.debug("block render",this.value.type,this.value);
-
         var variant = this.value.variant;
         var tpl_f = this['tpl_'+variant] || (() => html`<div>Unsupported variant ${variant}</div>`);
 

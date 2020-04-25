@@ -10,7 +10,6 @@ function Editable(Type) {
         }
 
         render(props) {
-            //console.debug("editable",props.fullName,props.value);
             this.preview = Editor.instance.state.preview;
             return preact.h(ValueContext.Provider,{value:{value:props.value,name:props.fullName}},
                 preact.h(Type,{...props,ref:(r)=>props.wrapper.editable=r})

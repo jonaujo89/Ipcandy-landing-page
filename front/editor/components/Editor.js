@@ -154,7 +154,6 @@ class Editor extends Component {
     }
 
     render(props,state) {
-        console.debug("app render");
         var dropMarker = html`<div class="drop-marker" key="drop-marker"/>`;
         return html`
             ${ !props.viewOnly && html`
