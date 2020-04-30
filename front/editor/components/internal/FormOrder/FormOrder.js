@@ -174,7 +174,7 @@ FormOrder.tpl_default = () => {
 FormOrder.tpl_default_email = () => {
     let tpl_default = FormOrder.tpl_default();
     tpl_default.fields.push(
-        window.locale_lang == 'en' ? {
+        config.language == 'en' ? {
             label: "Email", sub_label: '', required: false,
             name: 'email', type: 'text',
         } : {

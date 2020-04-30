@@ -85,7 +85,7 @@ class Map extends Block {
         const phone_label = config.language == 'en' ? "Phone" : "Телефон";
         return {
             name: name,
-            desc: `${address}<br><b>"${phone_label}:</b> "${phone}`,
+            desc: `${address}<br><b>${phone_label}:</b> ${phone}`,
             map: {
                 map: {
                     map_type: 'yandex',

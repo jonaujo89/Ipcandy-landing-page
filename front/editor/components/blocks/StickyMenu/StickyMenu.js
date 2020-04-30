@@ -107,7 +107,7 @@ class StickyMenu extends Block {
                             </ul>
                             ${enabledItems.length==0 && html`
                                 <div class="empty-placeholder">
-                                    ${ locale_lang=='en' ? 'Add components to display menu items' : 'Добавьте компоненты для отображения пунктов меню' }
+                                    ${ config.language=='en' ? 'Add components to display menu items' : 'Добавьте компоненты для отображения пунктов меню' }
                                 </div>
                             `}
                         </div>
