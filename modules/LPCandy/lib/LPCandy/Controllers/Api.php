@@ -74,7 +74,10 @@ class Api extends \CMS\Controllers\Admin\Base {
     function getPageTemplates() {
         $tpl_pages = [];
         $default_page = \LPCandy\Models\Page::findOneByDomain('default');
-        if ($default_page) $tpl_pages[] = $default_page;
+        if ($default_page) {
+            $default_page->title = _t('Sample page');
+            $tpl_pages[] = $default_page;
+        }
         foreach (\LPCandy\Models\Page::findBy(['user'=>$this->user,'parent'=>null]) as $tpl_page) {
             if ($default_page && $default_page->id==$tpl_page->id) continue;
             $tpl_pages[] = $tpl_page;
