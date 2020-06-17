@@ -1,0 +1,215 @@
+.projects {
+    .project_select {
+        width: 100%;
+        margin-top: 5px;
+    }
+    .item_list {
+        margin-top: 20px;
+    }
+
+    .item {
+        .btn_wrap {
+            font-size: 1.07rem;
+
+            a {
+                &.btn_form {
+                    width: 100%;
+                }
+            }
+        }
+
+        .name {
+            color: @headingColor;
+            font-size: 1.33rem;
+            font-family: @headingFont, @primaryFont;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .desc {
+            font-size: 0.933rem;
+            line-height: 1.571;
+        }
+    }
+
+    .projects-empty-message {
+        text-align: center;
+        font-size: 1.17rem;
+        padding-top: 30px;
+    }
+
+    &.projects_1 {
+        .item_list {
+            @media (max-width: @grid.mediaWidth()) { 
+                margin-x: auto;
+            }
+            
+            .item_blocks {
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: -15px;
+                margin-right: -15px;
+
+                @media (max-width: @grid.mediaWidth()) { 
+                    align-items: center;
+                    flex-direction: column;
+                    margin-left: -5px;
+                    margin-right: -5px;
+                }
+            }
+
+            .item_block {
+                position: relative;
+                width: 100%;
+                max-width: 390px;
+                margin-bottom: 10px;
+
+                @media (max-width: @grid.mediaWidth()) { 
+                    display: block;
+                }
+
+                .lp-cover, .col-4 {
+                    height: 100%;
+                }
+            }
+
+            .item {
+                padding: 0;
+                text-align: center;
+                border: 1px solid #e3e3e3;
+                background-color: #FFF;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+
+                @media (max-width: @grid.mediaWidth()) { 
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                & + .item {
+                    @media (max-width: @grid.mediaWidth()) {
+                        margin-top: 50px;
+                    }
+                }
+            }
+
+            .item_datas, .item_actions 
+            {
+                .img {
+                    width: 100%;
+                    height: 250px;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center center;
+
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .item_data, .item_action
+                {
+                    &:empty, &.item_action:empty {
+                        border: none;
+                        background: none;
+                    }
+                }
+
+                .item_data {
+                    border-bottom: none;
+
+                    .name {
+                        padding: 20px;
+                    }
+
+                    .desc {
+                        padding: 0px 26px 16px 26px;
+                    }
+                }
+
+                .item_action {
+                    border-top: none;
+                }
+            }
+
+            .btn_wrap {
+                padding: 0px 30px 20px;
+                display: inline-block;
+            }
+        }
+    }
+
+    &.empty {
+        &.projects_1 {
+            .item_blocks {
+                padding-bottom: 30px;
+            }
+        }
+    }
+}
+
+.projects-card-dialog {
+    .lp-dialog-content {    
+        font-family: @primaryFont;
+        color: @primaryColor;    
+        line-height: 1.5;
+
+        h1.title, h1#title, h2 {
+            margin: 10px 0 20px 0;
+            font-size: 3em;
+            font-family: @headingFont, @primaryFont;
+            text-align: left;
+            font-weight: 700;
+            color: #000000;
+        }
+        h2 {
+            font-size: 2em;
+        }
+        p {
+            margin-bottom: 0.5em;
+        }
+        img {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            max-width: 100%;
+        }
+        img + em {
+            display: block;
+            text-align: center;
+            font-weight: 700px;
+            color: #000000;
+            font-size: 14px;
+            font-style: normal;
+        }
+        h3 {
+            display: block;
+            font-size: 1.17em;
+            margin: 1.0em 0;
+            font-weight: bold;
+        }
+        h4 {
+            display: block;
+            margin: 1.33em 0;
+            font-weight: bold;
+        }
+        ul, ol {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        ul li {
+            padding: 5px 0;
+            list-style-type: square;
+        }      
+
+        ol li {
+            list-style-type: decimal;
+        }    
+    }
+}

@@ -324,17 +324,6 @@ class Page extends \LPCandy\Models\Page implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function upload($name, $iconWidth, $iconHeight)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'upload', array($name, $iconWidth, $iconHeight));
-
-        return parent::upload($name, $iconWidth, $iconHeight);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function save($flush = true)
     {
 

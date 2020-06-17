@@ -11,6 +11,9 @@
     <script src="<?=INDEX_URL?>/assets/lpcandy.min.js"></script>
     <link  href="<?=INDEX_URL?>/assets/lpcandy.min.css" rel="stylesheet" type="text/css">
 
+    <script src="<?=INDEX_URL?>/assets/extra/projects.min.js"></script>
+    <link  href="<?=INDEX_URL?>/assets/extra/projects.min.css" rel="stylesheet" type="text/css">
+
     <script>
         lpcandyRun("Editor",{
             language: "<?= explode("_",\Bingo\Configuration::$locale)[0] ?>",

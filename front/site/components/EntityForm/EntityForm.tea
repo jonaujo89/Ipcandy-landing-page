@@ -1,0 +1,33 @@
+.entity-form {
+    max-width: 100%;
+    border-radius: 0.3em;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    background: white;
+    width: 100%;
+    padding: 10px 8px;
+    margin-bottom: 10px;
+
+    .field_title {
+        font-weight: 600;
+        margin-bottom: 3px;
+    }
+
+    .form_field {
+        margin-bottom: 5px;
+        position: relative;
+
+        textarea {
+            min-height: 80px;
+            font-family: @primaryFont;
+            max-width: 100%;
+        }
+
+        &.large_textarea textarea {
+            min-height: 300px;
+        }
+    }
+    
+    button {
+        margin-top: 5px;
+    }
+}

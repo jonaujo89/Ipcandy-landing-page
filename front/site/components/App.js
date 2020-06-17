@@ -7,8 +7,19 @@ const {Entity} = require("../Entity");
 class App extends Component {
 
     static fetchApi(path,data,cb) {
-        let formData = new FormData();
-        for (var key in data) formData.append(key,data[key]);
+        let formData;
+        if (data instanceof FormData) {
+            formData = data;
+        } else {
+            formData = new FormData();
+            for (var key in data) {
+                if (Array.isArray(data[key])) {
+                    data[key].forEach(val => formData.append(key+"[]", val));
+                } else {
+                    formData.append(key,data[key]);
+                }
+            }
+        }
         fetch(config.base_url+"/api/"+path,{ method:"POST", body: formData}).then((resp)=>{resp.json().then(cb)});
     }
 
@@ -43,6 +54,7 @@ class App extends Component {
 
     render(_,{route,loaded,user}) {
         let m;
+
         if (!loaded) return html`<div />`;
 
         if (user && route=='login') return App.redirect("");
@@ -59,6 +71,12 @@ class App extends Component {
         if (Entity.list[route]) {
             let Cls = Entity.list[route];
             if (Cls.listComponent) return html`<${Cls.listComponent} entity=${Cls} />`;
+        }
+        if (m = route.match(/(\w+)\/edit(\/(\d+))?/)) {
+            if (Entity.list[m[1]]) {
+                let Cls = Entity.list[m[1]];
+                if (Cls.formComponent) return html`<${Cls.formComponent} id=${m[3]} entity=${Cls} />`;
+            }
         }
         return html`<${Home} />`
     }

@@ -5,7 +5,7 @@ const {Block,BlockContext,ValueContext} = require("../Block/Block");
 const Repeater = Editable(class extends preact.Component {
 
     addAfter(idx) {
-        var item_default = this.props.defaultValue[0] || {};
+        var item_default = this.props.repeaterDefault ? this.props.repeaterDefault.call(this) : (this.props.defaultValue[0] || {});
         var new_value = [...this.props.value];
         new_value.splice(idx+1,0,item_default);
         this.props.onChange(new_value,()=>{

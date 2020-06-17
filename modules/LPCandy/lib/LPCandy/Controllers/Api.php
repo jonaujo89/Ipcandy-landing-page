@@ -238,12 +238,6 @@ class Api extends \CMS\Controllers\Admin\Base {
                 $page->publish(json_decode($_POST['blocks'],true),$_POST['html']);
                 break;
 
-            case 'upload':
-                if ($page->user!=$this->user) return;
-                $res = $page->upload($_POST['name'],$_POST['iconWidth'],$_POST['iconHeight']);
-                echo json_encode($res);
-                break;
-
             case 'entity-edit':
                 $this->entity_edit($page);
                 break;
@@ -252,6 +246,69 @@ class Api extends \CMS\Controllers\Admin\Base {
                 $this->email_send($page);
                 break;
         }
+    }
+
+    function upload($page=null) {
+        if (!$this->user) return;
+        
+        $name = $_POST['name'];
+
+        $uploadDir = INDEX_DIR."/upload/LPCandy/files/".$this->user->id;
+        $uploadUrl = INDEX_URL."/upload/LPCandy/files/".$this->user->id;
+
+        $res = array();
+        if ($name && strpos($name,"..")===false) {
+
+            $dir = $uploadDir."/".$name;
+            $tdir = $uploadDir."/.thumbs/".$name;
+            
+            if (!file_exists($dir)) mkdir($dir,0777,true);
+            if (!file_exists($tdir)) mkdir($tdir,0777,true);
+            
+            foreach ($_FILES as $key=>$val) {
+                $error = $val['error'];
+                if ($error==UPLOAD_ERR_OK) {
+                    $name = $val['name'];
+                    $tmp_name = $val['tmp_name']; 
+                    
+                    $info = pathinfo($name); 
+                    if (!isset($info['extension'])) {
+                        $res[] = array('error'=>_t('File is invalid'));
+                        continue;
+                    }
+
+                    if (!in_array(strtolower($info['extension']), ["jpg","jpeg","png","gif"])) {
+                        $res[] = array('error'=>_t('Wrong image format'));
+                        continue;
+                    }
+
+                    $ext = ".".$info['extension'];
+                    $filename = $info['filename'];
+                    $dest = $filename.$ext; 
+                    
+                    if (file_exists("$dir/$dest")) {
+                        $counter = 2;
+                        do {
+                           $dest = $filename."($counter)".$ext;
+                           $counter++;
+                        } while (file_exists("$dir/$dest"));
+                    }
+                    move_uploaded_file($tmp_name,"$dir/$dest");
+                    $url = str_replace(INDEX_DIR,"",$dir."/".$dest);
+                    
+                    $res[] = array('name'=>$dest,'url'=>$url);
+                } else {
+                    if ($error == UPLOAD_ERR_FORM_SIZE || $error == UPLOAD_ERR_INI_SIZE) {
+                        $res[] = array('error'=>str_replace('{max_size}',ini_get("upload_max_filesize"),_t('File is too large. Maximum upload size is {max_size}')));
+                    } else if ($error == UPLOAD_ERR_NO_FILE) {
+                        $res[] = array('error'=>_t("No file was uploaded"));
+                    } else {
+                        $res[] = array('error'=>_t("Upload error. Try again later"));
+                    }
+                }
+            }
+        }        
+        echo json_encode($res);
     }
 
     function email_send($page=null) {
@@ -395,7 +452,8 @@ class Api extends \CMS\Controllers\Admin\Base {
             'page_title' => $entity->page ? $entity->page->title : false,
             'files' => $entity->files
         ];
-        foreach ($entity->fields as $f) $res[$f->name] = $f->value;
+        if ($entity->fields)
+            foreach ($entity->fields as $f) $res[$f->name] = $f->value;
         return $res;
     }
 
@@ -430,17 +488,21 @@ class Api extends \CMS\Controllers\Admin\Base {
         foreach ($filter as $key=>$val) {
             if (!$val) continue;
 
-            if (strpos($val,"LIKE ")===0) {
+            if (is_array($val)) {
+                $op = "IN";
+            }
+            else if (strpos($val,"LIKE ")===0) {
                 $val = substr($val,5);
                 $op = "LIKE";
-            } else {
+            } 
+            else {
                 $op = "=";
             }
 
             $p++;
             if (in_array($key,$ownFields)) {
                 $qb
-                    ->andWhere("e.$key $op :param_$p")
+                    ->andWhere("e.$key $op (:param_$p)")
                     ->setParameter("param_$p",$val)
                 ;
             }

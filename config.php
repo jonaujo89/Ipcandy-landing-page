@@ -17,6 +17,12 @@ $config = array(
             'public_edit' => false,
             'public_read' => false,
             'upload' => true
-        ]
+        ],
+        'project' => [
+            'public_create' => false,
+            'public_edit' => false,
+            'public_read' => true,
+            'upload' => true
+        ],
     ]
 );

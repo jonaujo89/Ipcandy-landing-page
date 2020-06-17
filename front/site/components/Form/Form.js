@@ -7,8 +7,15 @@ const Form = class extends Component {
         this.state = {errors:{}};
     }
 
+    componentDidUpdate(props) {
+        if (props.value !== this.props.value) {
+            this.setValue(this.props.value);
+        }
+    }
+
     setValue(change) {
         this.value = {...this.value,...change};
+        this.setState({errors: {}});
     }
 
     setErrors(errors) {

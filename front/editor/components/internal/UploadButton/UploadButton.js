@@ -4,7 +4,7 @@ const UploadButton = Editable(class extends preact.Component{
     render(props) {
         const doUpload = (e) => {
             e.preventDefault();
-
+            
             if (!this.uploader) {
                 this.uploader = document.createElement("input");
                 this.uploader.type = "file";
@@ -26,8 +26,7 @@ const UploadButton = Editable(class extends preact.Component{
                     data.append('iconWidth',this.props.iconWidth);
                     data.append('iconHeight',this.props.iconHeight);
 
-                    Editor.instance.request("upload",data,(data)=>{
-                        data = JSON.parse(data);
+                    SiteApp.fetchApi("upload",data,(data)=>{
                         if (data && data.length) {
                             if (data[0].error) {
                                 alert(data[0].error);
@@ -38,6 +37,7 @@ const UploadButton = Editable(class extends preact.Component{
                             }
                         }
                     });
+
                 });            
             }
             

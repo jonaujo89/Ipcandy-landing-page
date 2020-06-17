@@ -72,12 +72,12 @@ const EntityList = class extends Component {
                 id: item.id,
                 type: this.props.entity.id,
             },
-            () => this.reload()
+            () =>  this.reload()
        );
     }
 
     edit(item) {
-        SiteApp.redirect("track/edit/"+item.id);
+        SiteApp.redirect(this.props.entity.id+"/edit/" + (item ? item.id : ''));
     }
 
     delete(item) {
@@ -98,6 +98,7 @@ const EntityList = class extends Component {
         }
 
         let hasItemActions = props.item_actions;
+        let hasPageActions = props.page_actions;
         let hasExtraColumn = hasItemActions || hasFilter;
 
         const {entity} = props;
@@ -107,6 +108,11 @@ const EntityList = class extends Component {
                 title=${entity.labelMultiple}
                 ...${props}
             >
+                ${hasPageActions && html`<div class="page-actions">
+                    ${Object.entries(props.page_actions).map(([label,action])=>html`
+                        <button onClick=${()=>action.call(this)}>${label}</button>${" "}
+                    `)}
+                </div>`}
                 <${Pagination} 
                     pageNumber=${pageNumber} 
                     pageCount=${pageCount} 
@@ -178,6 +184,7 @@ EntityList.defaultProps = {
     filter_form: false,
     filter_transform: (filter)=>filter,
     perPage: 10,
+    page_actions: false,
     item_actions: {},
     sort_fields: [],
     sortBy: 'id',
