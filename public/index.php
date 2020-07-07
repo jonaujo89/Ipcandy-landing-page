@@ -12,7 +12,7 @@ require_once BINGO_PATH . "/loader.php";
 \Bingo\Configuration::$locale = (explode(".", $_SERVER['HTTP_HOST'])[0]=='en') ? 'en_EN' : 'ru_RU';
 
 \Bingo\Configuration::addModulePath(APP_DIR."/modules");
-\Bingo\Configuration::addModules('Auth','CMS','LPCandy');
+\Bingo\Configuration::addModules('Auth','CMS','FileManager','LPCandy');
 
 require APP_DIR."/db.php";
 

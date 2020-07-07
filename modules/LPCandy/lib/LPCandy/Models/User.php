@@ -69,4 +69,32 @@ class User extends \Auth\Models\User {
         }
         return false;
     }
+
+    function getCart() {
+        return new \LPCandy\Models\ShopCart($this);
+    }
+
+    private $boughtProductsCache = [];
+
+    public function getBoughtProducts($includeCart=false) {
+        if (!isset($this->boughtProducts[$includeCart])) {
+            $res = self::$entityManager->createQuery(" 
+                SELECT o.products 
+                FROM \LPCandy\Models\ShopOrder o 
+                WHERE o.user = :user AND o.is_paid = :is_paid 
+            ") 
+                ->setParameter('is_paid', true) 
+                ->setParameter('user', $this) 
+                ->getResult(); 
+ 
+            $products = []; 
+            foreach($res as $one) { 
+                $products = array_merge($products, $one['products']); 
+            }
+
+            if ($includeCart) $products = array_merge($products, $this->getCart()->products);
+            $this->boughtProductsCache[$includeCart] = $products;
+        }
+        return $this->boughtProductsCache[$includeCart];
+    }
 }

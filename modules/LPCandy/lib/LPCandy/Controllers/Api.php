@@ -32,14 +32,24 @@ class Api extends \CMS\Controllers\Admin\Base {
             }
             return $val;
         };
-    }    
+    }
 
     function user() {
+        if (!$this->user) {
+            echo json_encode(['user' => false]);
+            return;
+        }
+        $cart = $this->user->getCart();
         echo json_encode([
-            'user' => $this->user ? [
-                'name'=>$this->user->name,
-                'email'=>$this->user->email
-            ] : false
+            'user' =>  [
+                'name' => $this->user->name,
+                'email' => $this->user->email,
+                'cart' => [
+                    'products' => $cart->getProducts(),
+                    'total' => $cart->getTotal(),
+                    'count' => $cart->getCount()
+                ]
+            ]
         ]);
     }
 
@@ -62,7 +72,6 @@ class Api extends \CMS\Controllers\Admin\Base {
         if ($this->user) $this->user->logout();
         echo json_encode(false);
     }
-
 
     function user_save() {
         $this->needUser();
@@ -348,10 +357,7 @@ class Api extends \CMS\Controllers\Admin\Base {
         $entity = \LPCandy\Models\Entity::find($id);
         if (!$entity) return;
 
-        $config = \Bingo\Config::get('config','entityTypes')[$entity->type] ?? false;
-        if (!$config) return;
-
-        $public_read = !empty($config['public_read']);
+        $public_read = !empty($entity->type->public_read);
         if (!$public_read && $entity->user!=$this->user) return;
 
         $file = $entity->getFilePath($name);
@@ -371,21 +377,21 @@ class Api extends \CMS\Controllers\Admin\Base {
         $type = $_POST['type'] ?? false;
         if (!$type) return;
 
-        $config = \Bingo\Config::get('config','entityTypes')[$type] ?? false;
-        if (!$config) return;
+        $entityType = \LPCandy\Models\EntityType::findOneBy(['name'=> $type]);
+        if (!$entityType) return;
 
         $public = $page!=null;
 
-        $public_read = !empty($config['public_read']);
-        $public_edit = !empty($config['public_edit']);
-        $public_create = !empty($config['public_create']);
-        $upload = !empty($config['upload']);
+        $public_read = !empty($entityType->public_read);
+        $public_edit = !empty($entityType->public_edit);
+        $public_create = !empty($entityType->public_create);
+        $upload = !empty($entityType->upload);
 
         $id = $_POST['id'] ?? 0;
         if ($id) {
             $entity = \LPCandy\Models\Entity::find($id);
             if (!$entity) return;
-            if ($entity->type!=$type) return;
+            if ($entity->type->name!=$type) return;
             if (!$public && $entity->user!=$this->user) return;
         } else {
             $entity = null;
@@ -397,7 +403,7 @@ class Api extends \CMS\Controllers\Admin\Base {
         if (!empty($data)) {
             if (!$entity) {
                 $entity = new \LPCandy\Models\Entity;
-                $entity->type = $type;
+                $entity->type = $entityType;
                 $entity->ip = $_SERVER['REMOTE_ADDR'];
 
                 if ($public && !$public_create) return;
@@ -465,7 +471,6 @@ class Api extends \CMS\Controllers\Admin\Base {
         echo json_encode(true);
     }
 
-
     function entity_list() {
         $this->needUser();
 
@@ -476,8 +481,9 @@ class Api extends \CMS\Controllers\Admin\Base {
         $qb->select("DISTINCT(e.id) as id");
         $qb->from("\LPCandy\Models\Entity","e");
         $qb->leftJoin("e.page","page");
+        $qb->leftJoin("e.type","type");
         $qb->andWhere("e.user = :user")->setParameter("user",$this->user);
-        $qb->andWhere("e.type = :type")->setParameter("type",$type);
+        $qb->andWhere("type.name = :type")->setParameter("type",$type);
 
         $ownFields = ['id','ip','page','created'];
 
@@ -562,5 +568,108 @@ class Api extends \CMS\Controllers\Admin\Base {
             'pageCount'=>$pagination->getPageCount(),
             'pageNumber'=>$pagination->current
         ]);
+    }
+
+    function product_list() {
+        $this->needUser();
+
+        $query = \LPCandy\Models\ShopProduct::findByQuery([],'id DESC');
+
+        $page = (int)($_POST['p'] ?? 1);
+        if ($page<=1) $page = 1;
+
+        $list = [];
+        $pagination = new \Bingo\Pagination($_POST['perPage'] ?? 10, $page,false,false,$query);
+        foreach ($pagination->result() as $product) $list[] = $product->getJSON($this->user);
+        
+        echo json_encode([
+            'list'=> $list, 
+            'pageCount'=>$pagination->getPageCount(),
+            'pageNumber'=>$pagination->current
+        ]);
+    }
+
+    function product_view() {
+        $this->needUser();
+        $product = \LPCandy\Models\ShopProduct::find($_POST['id'] ?? 0);
+        if (!$product) return;
+
+        $product = $product->getJSON($this->user);
+        echo json_encode($product);
+    }
+
+    function cart_add() {
+        $this->needUser();
+        $product = \LPCandy\Models\ShopProduct::find($_POST['id'] ?? 0);
+        if (!$product) return;
+
+        $this->user->getCart()->add($product);
+        return $this->user();
+    }
+
+    function cart_remove() {
+        $this->needUser();
+        $product = \LPCandy\Models\ShopProduct::find($_POST['id'] ?? 0);
+        if (!$product) return;
+
+        $this->user->getCart()->remove($product);
+        return $this->user();
+    }
+
+    function cart_empty() {
+        $this->needUser();
+        $this->user->getCart()->setEmpty();
+        return $this->user();
+    }
+
+    function payment_result() {
+        $robokassa = \Bingo\Config::get('config', 'robokassa');
+
+        $mrh_pass2 = $robokassa['is_test'] ?  $robokassa['test_mrh_pass2'] : $robokassa['mrh_pass2'];
+        $out_summ = $_POST["OutSum"];
+        $invoice_id = $_POST["InvId"];
+
+        $crc = strtoupper($_POST["SignatureValue"]);
+        $checking_crc = strtoupper(md5("$out_summ:$invoice_id:$mrh_pass2"));
+
+        if ($checking_crc == $crc) {
+            echo "OK$inv_id\n";
+
+            $order = \LPCandy\Models\ShopOrder::find($invoice_id);
+            $order->is_paid = true;
+            $order->save();
+            $this->em->flush();
+        } else {
+            echo "bad sign\n";
+        }
+    }
+
+    function payment_redirect() {
+        $this->needUser();
+
+        $robokassa = \Bingo\Config::get('config', 'robokassa');
+        $cart = $this->user->getCart();
+        if (!count($cart->products)) return;
+
+        $order = new \LPCandy\Models\ShopOrder;
+        $order->user = $this->user;
+        $order->products = $cart->products;
+        $order->save();
+        $this->em->flush();
+        
+        $mrh_login = $robokassa['mrh_login'];
+        $mrh_pass1 = $robokassa['is_test'] ?  $robokassa['test_mrh_pass1'] : $robokassa['mrh_pass1'];
+        
+        $invoice_id = $order->id;
+        $invoice_desc = "Paid components";
+        
+        $out_summ = $cart->getTotal();
+        $out_sum_currency = $robokassa['out_sum_currency'];
+    
+        $is_test = $robokassa['is_test'];
+        $crc = md5("$mrh_login:$out_summ:$invoice_id:$out_sum_currency:$mrh_pass1");
+
+        $cart->setEmpty();
+        echo json_encode(["redirect_url" => "https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=$mrh_login&OutSum=$out_summ&OutSumCurrency=$out_sum_currency&InvId=$invoice_id&Description=$invoice_desc&SignatureValue=$crc&IsTest=$is_test"]);
     }
 }

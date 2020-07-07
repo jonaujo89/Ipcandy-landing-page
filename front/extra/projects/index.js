@@ -1,11 +1,13 @@
 window.lpcandyRun(()=>{
     window._t.load(require("ru.js"));
 
-    require('./components/Projects/Projects');
-    
+    const {Projects} = require('components/Projects/Projects');
     const {ProjectList} = require('./components/ProjectList/ProjectList');
     const {ProjectForm} = require('./components/ProjectForm/ProjectForm');
     const {Entity} = require("../../site/Entity");
+    const {Block} = require("../../editor/components/internal/Block/Block");
+    
+    Block.register('projects',exports = Projects);
     
     Entity.register('project',class extends Entity {
         static get menuLabel() { return _t('Projects') }

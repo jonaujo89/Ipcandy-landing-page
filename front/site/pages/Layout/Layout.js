@@ -41,6 +41,7 @@ const Layout = class Layout extends Component {
                     ${user && html`
                         <li><${Link} href="page-list">${_t('Pages')}<//></li>
                         <li><${Link} href="profile">${_t('Profile')}<//></li>
+                        <li><${Link} href="shop">${_t('Shop')}<//></li>
                         ${ Object.entries(Entity.list).map(([id,Cls])=>{
                             if (!Cls.menuLabel) return;
                             return html`<li><${Link} href=${id}>${Cls.menuLabel}<//></li>`;

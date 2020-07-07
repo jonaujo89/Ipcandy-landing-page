@@ -14,7 +14,10 @@ class Entity extends \ActiveEntity
      */
     public $id;
 
-    /** @Column(length=128) */ 
+    /**
+     * @ManyToOne(targetEntity="EntityType")
+     * @JoinColumn(name="type", referencedColumnName="id")
+     */
     public $type;
     
     /** @Column(type="datetime") */

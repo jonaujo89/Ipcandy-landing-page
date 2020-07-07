@@ -1,7 +1,8 @@
 require("./../../editor");
 
 const {Link} = require("Link/Link");
-const {Home,Login,PageList,PageCreate,PageEdit,PageDesign,Profile} = require("../pages");
+const {Dialog} = require("../../editor/components/internal/Dialog/Dialog");
+const {Home,Login,PageList,PageCreate,PageEdit,PageDesign,Profile,Shop,ShopProduct,ShopProductPreview,ShopCart} = require("../pages");
 const {Entity} = require("../Entity");
 
 class App extends Component {
@@ -27,6 +28,13 @@ class App extends Component {
         if (App.instance.state.route==to) return;
         App.instance.setState({route:to});
         window.history.pushState({route:to},"",config.base_url+"/"+to);
+    }
+
+    static fetchUser(path,data,cb) {
+        App.fetchApi(path,data,({user})=>{
+            App.instance.setState({user});
+            cb && cb();
+        });
     }
 
     constructor(props) {
@@ -60,9 +68,23 @@ class App extends Component {
         if (user && route=='login') return App.redirect("");
         if (!user && route!='login') return App.redirect("login");
 
+        if (m = route.match(/payment_success=(\d+)/)) {
+            Dialog.alert({
+                title: m[1] === "1" ? _t('Payment success') : _t('Payment failed'),
+                text: m[1] === "1" ?  _t('Thanks for your purchase! The order has been successfully paid!') : _t('Order not paid')
+            });
+            return App.redirect("");
+        }
+
         if (route=="login") return html`<${Login} />`
         if (route=="page-list") return html`<${PageList} />`
         if (route=="page-create") return html`<${PageCreate} />`
+        if (route=="shop") return html`<${Shop} cart=${user.cart} />`
+        if (route=="shop/cart") return html`<${ShopCart} cart=${user.cart} />`
+
+        if (m = route.match(/shop\/component\/(\d+)/)) return html`<${ShopProduct} id=${m[1]} cart=${user.cart} />`
+        if (m = route.match(/shop\/component\-preview\/(\d+)/)) return html`<${ShopProductPreview} cart=${user.cart} id=${m[1]} />`
+
         if (m = route.match(/page\-child\-create\/(\d+)/)) return html`<${PageEdit} parent_id=${m[1]} />`
         if (m = route.match(/page\-edit\/(\d+)/)) return html`<${PageEdit} id=${m[1]} />`
         if (m = route.match(/page\-design\/(\d+)/)) return html`<${PageDesign} id=${m[1]} />`

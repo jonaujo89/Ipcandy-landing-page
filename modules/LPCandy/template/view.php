@@ -11,8 +11,10 @@
     <script src="<?=INDEX_URL?>/assets/lpcandy.min.js"></script>
     <link  href="<?=INDEX_URL?>/assets/lpcandy.min.css" rel="stylesheet" type="text/css">
 
-    <script src="<?=INDEX_URL?>/assets/extra/projects.min.js"></script>
-    <link  href="<?=INDEX_URL?>/assets/extra/projects.min.css" rel="stylesheet" type="text/css">
+    <? foreach($page->user->getBoughtProducts() as $product): ?>
+        <script src="<?=$product->getJsUrl()?>"></script>
+        <link  href="<?=$product->getCssUrl()?>" rel="stylesheet" type="text/css">
+    <? endforeach; ?>
 
     <script>
         lpcandyRun("Editor",{

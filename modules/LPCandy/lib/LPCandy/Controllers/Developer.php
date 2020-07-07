@@ -3,73 +3,16 @@
 namespace LPCandy\Controllers;
 
 class Developer extends \CMS\Controllers\Admin\BasePrivate {
-    function import_tracks() {
-        $result = $this->em->getConnection()->executeQuery("
-            SELECT *
-            FROM lp_tracking
-        ")->fetchAll();
+    function update_tracks_type() {
+        $this->em->getConnection()->executeQuery("
+            UPDATE lp_entity SET type = '1' WHERE type = 'track';
+            CREATE TABLE lp_entity_types (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(128) NOT NULL, public_create TINYINT(1) DEFAULT '0' NOT NULL, public_edit TINYINT(1) DEFAULT '0' NOT NULL, public_read TINYINT(1) DEFAULT '0' NOT NULL, upload TINYINT(1) DEFAULT '0' NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
+            INSERT INTO lp_entity_types (name, public_create, public_edit, public_read, upload) VALUES (\"track\",1,0,0,0);
+            ALTER TABLE lp_entity CHANGE type type INT DEFAULT NULL;
+            ALTER TABLE lp_entity ADD CONSTRAINT FK_9A798B1B8CDE5729 FOREIGN KEY (type) REFERENCES lp_entity_types (id);
+            CREATE INDEX IDX_9A798B1B8CDE5729 ON lp_entity (type)
+        ");
         
-        $counter = 0;
-        foreach ($result as $one) {
-            $entity = new \LPCandy\Models\Entity;
-            $entity->type = 'track';
-            $entity->ip = $one['ip'];
-            $entity->page = \LPCandy\Models\Page::find($one['page_id']) ?: null;
-            $entity->user = \LPCandy\Models\User::find($one['user_id']) ?: null;
-            $entity->save();
-
-            $files = [];
-            $data = unserialize($one['data']);
-            $values = [];
-            foreach ($data['values'] ?? [] as $value) {
-                if (is_array($value['value'])) {
-                    $destDir = APP_DIR."/upload/LPCandy/entity/".$one['user_id'];
-                    if (!file_exists($destDir)) mkdir($destDir,0777,true);
-                    foreach ($value['value'] as $key => $file) {
-                        rename(APP_DIR."/upload/LPCandy/track/".$one['id'].'/'.$file['dest'], $destDir.'/'.$file['dest']);
-                        $files['file-'.$key] = [$file['src'], $file['dest']];
-                    }
-                    $value['value'] = array_keys($files);
-                }
-                $values[] = $value;
-            }
-            $entity->files = $files;
-            $entity->save();
-
-            foreach (['form' => json_encode($values), 'status' => $one['status']] as $key => $value) {
-                $field = new \LPCandy\Models\EntityField;
-                $field->entity = $entity;
-                $field->name = $key;
-                $field->value = $value;
-                $field->save();
-            }
-            
-            
-            if (++$counter % 20 == 0) {
-                $this->em->clear();
-            }
-        }
-
-        echo 'Импортировано '.$counter.' треков';
-    }
-
-    function update_assets_path() {
-        $pagesDir = APP_DIR.'/upload/LPCandy/pages';
-        $dirs = scandir($pagesDir);
-        $counter = 0;
-        foreach ($dirs as $dir) {
-            if (in_array($dir, ['.', '..'])) continue;
-            foreach ([false, true] as $published) {
-                $pageFile = $pagesDir.'/'.$dir.'/'.($published ? 'publish/' : '').'templates/page.yaml';
-                if (!file_exists($pageFile)) continue;
-
-                $content = file_get_contents($pageFile);
-                $content = str_replace('view/editor/assets', 'assets/components', $content);
-                file_put_contents($pageFile, $content);
-                $counter++;
-            }
-        }
-
-        echo "Обновлено $counter файлов";
+        echo 'Обновленно';
     }
 }

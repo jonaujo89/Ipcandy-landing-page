@@ -7,4 +7,8 @@ exports = {
     ...require("PageEdit/PageEdit"),
     ...require("PageDesign/PageDesign"),
     ...require("Profile/Profile"),
+    ...require("Shop/Shop"),
+    ...require("ShopCart/ShopCart"),
+    ...require("ShopProduct/ShopProduct"),
+    ...require("ShopProductPreview/ShopProductPreview"),
 }

@@ -9,6 +9,7 @@ class Block extends preact.Component {
         Block.list = Block.list || {};
         Block.list[clsName] = cls;
         cls.id = clsName;
+        cls.currentScript = lpcandyRun.currentScript;
     }
 
     constructor(props) {

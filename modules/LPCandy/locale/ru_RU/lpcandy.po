@@ -12,6 +12,30 @@ msgid "Customers"
 msgstr "Клиенты"
 
 #: 
+msgid "Shop"
+msgstr "Магазин"
+
+#: 
+msgid "Components"
+msgstr "Компоненты"
+
+#: 
+msgid "Component list"
+msgstr "Список компонентов"
+
+#: 
+msgid "Entities"
+msgstr "Сущности"
+
+#: 
+msgid "Entity list"
+msgstr "Список сущностей"
+
+#: 
+msgid "You have unpaid components, so they won't be displayed on page: "
+msgstr "У вас есть неоплаченные компоненты, поэтому они не будут отображены на странице: "
+
+#: 
 msgid "File is invalid"
 msgstr "Файл поврежден"
 
@@ -40,6 +64,14 @@ msgid "login as user"
 msgstr "войти как"
 
 #: 
+msgid "edit"
+msgstr "ред."
+
+#: 
+msgid "Create"
+msgstr "Создать"
+
+#: 
 msgid "#"
 msgstr "№"
 
@@ -50,6 +82,50 @@ msgstr "имя"
 #: 
 msgid "login"
 msgstr "Логин"
+
+#: 
+msgid "Thumbnail"
+msgstr "Изображение"
+
+#: 
+msgid "Short description"
+msgstr "Краткое описание"
+
+#: 
+msgid "Description"
+msgstr "Описание"
+
+#: 
+msgid "Title"
+msgstr "Заголовок"
+
+#: 
+msgid "Created"
+msgstr "Дата создания"
+
+#: 
+msgid "Price"
+msgstr "Цена"
+
+#: 
+msgid "Type"
+msgstr "Тип"
+
+#: 
+msgid "Public create"
+msgstr "Публ. создание"
+
+#: 
+msgid "Public edit"
+msgstr "Публ. ред."
+
+#: 
+msgid "Public read"
+msgstr "Публ. чтение"
+
+#: 
+msgid "Upload files"
+msgstr "Загрузка файлов"
 
 #: 
 msgid "Domain is already in use"

@@ -110,12 +110,47 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
         return $blocks;
     }
 
+    public static function getAvailableBlocks($js_path = '') {
+        $js_path = $js_path ? INDEX_DIR.'/upload/CMS/files/'.$js_path : INDEX_DIR.'/assets/lpcandy.min.js';
+        list($cacheModified,$cacheBlocks) =  \CMS\Models\Option::get('available_blocks_cache_'.$js_path) ?: [false,[]];
+
+        $frontendEntryFile = $js_path;
+        if (!file_exists($frontendEntryFile)) {
+            trigger_error("");
+            return $cacheBlocks;
+        }
+
+        $frontendModified = filemtime($frontendEntryFile);
+        if ($cacheModified == $frontendModified) return $cacheBlocks;
+
+        $blocks = [];
+        preg_match_all("/Block.register\((?:'|\")(.*?)(?:'|\")/", file_get_contents($frontendEntryFile), $matches);
+        foreach ($matches[1] as $one) $blocks[] = $one;
+
+        \CMS\Models\Option::set('available_blocks_cache_'.$js_path,[$frontendModified,$blocks]);
+        return $blocks;
+    }
+
     function saveBlocks($blocks,$published = false) {
+        $freeBlocks = $this::getAvailableBlocks();
+
+        $bought_block_types = [];
+        foreach ($this->user->getBoughtProducts() as $product) {
+            $bought_block_types = array_merge($bought_block_types, $this::getAvailableBlocks($product->js_path));
+        };
+
         $data = [];
+        $unpaid_blocks = [];
         foreach ($blocks as $block) {
             $val = $block['value'];
             $id = $val['id'];
             $type = $val['type'];
+
+            if (!in_array($type, $freeBlocks) && !in_array($type, $bought_block_types)) {
+                $unpaid_blocks[] = $type;
+                continue;
+            }
+
             unset($val['id'],$val['type']);
             $data[$type."#".$id] = $val;
         }
@@ -123,6 +158,16 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
         $pagePath = $this->getPagePath($published);
         if (!file_exists(dirname($pagePath))) mkdir(dirname($pagePath),0777,true);
         file_put_contents($pagePath,yaml_emit($data,YAML_UTF8_ENCODING));
+
+        $alert = false;
+        if (!empty($unpaid_blocks)) {
+            $alert = _t("You have unpaid components, so they won't be displayed on page: ") . join(', ', array_unique($unpaid_blocks));
+        }
+        
+        echo json_encode([
+            'success' => true,
+            'alert' => $alert
+        ]);
     }
 
     function publish($blocks,$html) {

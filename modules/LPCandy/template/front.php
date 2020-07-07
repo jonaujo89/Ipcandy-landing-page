@@ -1,6 +1,7 @@
 <?
     $home_domain = \Bingo\Config::get('config','domain')[bingo_get_locale()];        
     $home_page = \LPCandy\Models\Page::findOneByDomain($home_domain);
+    $user = \LPCandy\Models\User::checkLoggedIn();
 ?>
 <!doctype html>
 <html>
@@ -12,8 +13,12 @@
     <script src="<?=INDEX_URL?>/assets/lpcandy.min.js"></script>
     <link  href="<?=INDEX_URL?>/assets/lpcandy.min.css" rel="stylesheet" type="text/css">
 
-    <script src="<?=INDEX_URL?>/assets/extra/projects.min.js"></script>
-    <link  href="<?=INDEX_URL?>/assets/extra/projects.min.css" rel="stylesheet" type="text/css">
+    <? if ($user): ?>
+        <? foreach($user->getBoughtProducts($includeCart=true) as $product): ?>
+            <script src="<?=$product->getJsUrl()?>"></script>
+            <link  href="<?=$product->getCssUrl()?>" rel="stylesheet" type="text/css">
+        <? endforeach; ?>
+    <? endif; ?>
 
     <script>
         lpcandyRun("SiteApp",{
@@ -25,7 +30,6 @@
             geocoder_api_key: <?=json_encode(\LPCandy\Configuration::$geocoder_api_key)?>,
         })
     </script>
-
 </head>                
 <body>
 </body>

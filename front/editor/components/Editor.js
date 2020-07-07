@@ -163,8 +163,10 @@ class Editor extends Component {
                     `}
                     ${ !state.preview && html`
                         <button onClick=${()=>this.setState({preview:true})}><i class="fa fa-times" />${_t("Preview")}</button>
-                        <button onClick=${()=>this.publish()}><i class="fa fa-play" />${_t("Publish")}</button>
+                        
+                        ${ props.ajaxUrl && html`<button onClick=${()=>this.publish()}><i class="fa fa-play" />${_t("Publish")}</button>`}
                         <button onClick=${()=>this.addBlockDialog.open({x:0,y:0})}><i class="fa fa-plus" />${_t("Add Section")}</button>
+                        ${ props.toolbarExtraButtons }
                     `}
                 </div>
                 <${AddBlockDialog} ref=${(r)=>this.addBlockDialog=r} />
@@ -173,7 +175,7 @@ class Editor extends Component {
                 ${state.blocks.map((block,blockIndex) => {
                     const BlockType = Block.list[block.value.type];
                     if (!BlockType) console.debug("Undefined block type",block.value);
-                    
+
                     var blockNode = BlockType && preact.h(BlockType,{
                         value: block.value, 
                         key: block.value.id, 
@@ -194,6 +196,7 @@ class Editor extends Component {
     }
 
     triggerChange() {
+        if (!this.props.ajaxUrl) return;
         clearTimeout(this.saveTimeout);
         this.saveTimeout = setTimeout(()=>{
             this.request('save',{blocks:JSON.stringify(this.state.blocks)});
@@ -217,16 +220,17 @@ class Editor extends Component {
         class Published extends Editor {
             componentDidMount() {
                 me.request("publish",{html:this.base.outerHTML,blocks:JSON.stringify(this.state.blocks)},(res)=>{
-                    if (!res || res=='ok') {
+                    res = JSON.parse(res);
+                    if (res.error) {
                         Dialog.alert({
-                            title:_t('Publish success'),
-                            text:_t('Your page was successfully published and now is available to your customers')
+                            title:_t('Publish failed'),
+                            text: res.error
                         });
                     } else {
                         Dialog.alert({
-                            title:_t('Publish failed'),
-                            text: res
-                        });
+                            title:_t('Publish success'),
+                            text: _t("Your page was successfully published and now is available to your customers.") + (res.alert || "")
+                        });                        
                     }
                 });
                 Editor.instance = me;

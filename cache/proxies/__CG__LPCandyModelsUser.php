@@ -112,10 +112,10 @@ class User extends \LPCandy\Models\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'identities', 'name', 'phone', 'city', 'address', 'address_extra', 'id', 'login', 'password', 'email', 'secret');
+            return array('__isInitialized__', 'identities', 'name', 'phone', 'city', 'address', 'address_extra', '' . "\0" . 'LPCandy\\Models\\User' . "\0" . 'boughtProductsCache', 'id', 'login', 'password', 'email', 'secret');
         }
 
-        return array('__isInitialized__', 'id');
+        return array('__isInitialized__', '' . "\0" . 'LPCandy\\Models\\User' . "\0" . 'boughtProductsCache', 'id');
     }
 
     /**
@@ -231,6 +231,28 @@ class User extends \LPCandy\Models\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasAccess', array($resource));
 
         return parent::hasAccess($resource);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCart()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCart', array());
+
+        return parent::getCart();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getBoughtProducts($includeCart = false)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBoughtProducts', array($includeCart));
+
+        return parent::getBoughtProducts($includeCart);
     }
 
     /**

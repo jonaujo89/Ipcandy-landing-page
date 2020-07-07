@@ -133,4 +133,5 @@ class Projects extends Block {
     }
 } 
 
-Block.register('projects',exports = Projects);
+exports.Projects = Projects;
+
