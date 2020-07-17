@@ -1,0 +1,4 @@
+<?php
+
+\Bingo\Configuration::addDbConnection('db_host', 'db_name', 'db_user', 'db_password');
+\LPCandy\Configuration::$geocoder_api_key = "";
