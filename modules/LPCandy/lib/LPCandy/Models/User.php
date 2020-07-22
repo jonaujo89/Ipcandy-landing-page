@@ -90,7 +90,7 @@ class User extends \Auth\Models\User {
                 ->getResult();
 
             if ($includeCart) $products = array_merge($products, $this->getCart()->products);
-            $this->boughtProductsCache[$includeCart] = $products;
+            $this->boughtProductsCache[$includeCart] = \LPCandy\Models\ShopProduct::_t($products);
         }
         return $this->boughtProductsCache[$includeCart];
     }

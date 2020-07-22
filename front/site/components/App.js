@@ -1,5 +1,7 @@
 require("./../../editor");
 
+require("../style/global.tea");
+
 const {Link} = require("Link/Link");
 const {Dialog} = require("../../editor/components/internal/Dialog/Dialog");
 const {Home,Login,PageList,PageCreate,PageEdit,PageDesign,Profile,Shop,ShopProduct,ShopProductPreview,ShopCart} = require("../pages");

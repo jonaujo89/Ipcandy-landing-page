@@ -91,7 +91,7 @@ class Admin extends \CMS\Controllers\Admin\BasePrivate {
         
         $pagination = new \Bingo\Pagination(20,$this->getPage(),false,false,$query);
         
-        $this->data['list'] = $pagination->result();
+        $this->data['list'] = \LPCandy\Models\ShopProduct::_t($pagination->result());
         $this->data['pagination'] = $pagination->get();
         $this->data['title'] = _t("Component list");
 
@@ -103,11 +103,10 @@ class Admin extends \CMS\Controllers\Admin\BasePrivate {
             'thumbnail' => _t('Thumbnail'),
             'title' => _t('Title'),
             'excerpt' => _t('Short description'),
-            'price' => _t('Price')." $",
-            'created' => _t('Created'),
+            'price' => _t('Price')." $"
         );
 
-        $this->data['field_filters']['thumbnail'] = function ($val, $obj) { return "<img src='".$obj->getThumbnailUrl(100,100)."' alt='' />"; };
+        $this->data['field_filters']['thumbnail'] = function ($val, $obj) { return "<img width='140' src='".$obj->getThumbnailUrl()."' alt='' />"; };
 
         $this->view('cms/base-list');
     }
@@ -117,13 +116,16 @@ class Admin extends \CMS\Controllers\Admin\BasePrivate {
 
         $form = new \Bingo\Form;
         $form->fieldset(_t("Info"))
-            ->text('title',_t('Title'),'required',$component->title)
-            ->text('excerpt',_t('Short description'),'required',$component->excerpt)
-            ->textarea('description',_t('Description'),'',$component->description,array('rows'=>20))->add_class("tinymce")
+            ->text('title_ru',_t('Title'),'required',$component->title_ru)
+            ->text('title_en',_t('Title')." (EN)",'required',$component->title_en)
+            ->text('excerpt_ru',_t('Short description'),'required',$component->excerpt_ru)
+            ->text('excerpt_en',_t('Short description')." (EN)",'required',$component->excerpt_en)
+            ->textarea('description_ru',_t('Description'),'',$component->description_ru,array('rows'=>20))->add_class("tinymce")
+            ->textarea('description_en',_t('Description')." (EN)",'',$component->description_en,array('rows'=>20))->add_class("tinymce")
             ->text('thumbnail',_t('Thumbnail'),'',$component->thumbnail)->add_class('browse_file')
             ->text('price',_t('Price'),['required','numeric','positive'],$component->price)
-            ->text('js_path',_t('JS bundle file'),'required',$component->js_path)->add_class('browse_file')
-            ->text('css_path',_t('CSS bundle file'),'required',$component->css_path)->add_class('browse_file');
+            ->text('js_path',_t('JS bundle file'),'required',$component->js_path)->add_class('browse_file type-shop_products')
+            ->text('css_path',_t('CSS bundle file'),'required',$component->css_path)->add_class('browse_file type-shop_products');
 
         $form->fieldset()
                 ->submit(_t('Save component'))->add_class("inline single");

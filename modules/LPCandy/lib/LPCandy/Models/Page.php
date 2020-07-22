@@ -111,12 +111,12 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     }
 
     public static function getAvailableBlocks($js_path = '') {
-        $js_path = $js_path ? INDEX_DIR.'/upload/CMS/files/'.$js_path : INDEX_DIR.'/assets/lpcandy.min.js';
+        $js_path = $js_path ? INDEX_DIR.'/upload/CMS/shop_products/'.$js_path : INDEX_DIR.'/assets/lpcandy.min.js';
         list($cacheModified,$cacheBlocks) =  \CMS\Models\Option::get('available_blocks_cache_'.$js_path) ?: [false,[]];
 
         $frontendEntryFile = $js_path;
         if (!file_exists($frontendEntryFile)) {
-            trigger_error("");
+            trigger_error(str_replace('{file_path}', $frontendEntryFlie, _t("File doesn't exist: {file_path}")));
             return $cacheBlocks;
         }
 

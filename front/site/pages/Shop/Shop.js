@@ -104,16 +104,12 @@ class Shop extends Component {
                 <div class="shop-list">
                     ${pagination && pagination.list.map((product)=>html`
                         <div class="shop-item">
-                            <div class="shop-item-wrap">
-                                <div class="shop-item-thumbnail">
-                                    <img src=${product.thumbnail} />
-                                </div>
+                            <${Link} href="shop/component/${product.id}" class="shop-item-wrap">
+                                <div class="shop-item-thumbnail" style="background-image: url(${product.thumbnail})"></div>
                                 <div class="shop-item-data">
                                     <div class="shop-item-info">
                                         <div class="shop-item-title">
-                                            <${Link} href="shop/component/${product.id}">
-                                                ${product.title}
-                                            <//>
+                                            ${product.title}
                                         </div>
                                         <div class="shop-item-price">
                                             ${product.price + "$"}
@@ -123,7 +119,7 @@ class Shop extends Component {
                                         ${product.excerpt}
                                     </div>
                                 </div>
-                            </div>
+                            <//>
                         </div>
                     `)}
                 </div>

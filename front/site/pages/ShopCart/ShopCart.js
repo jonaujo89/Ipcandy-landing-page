@@ -29,11 +29,11 @@ exports.ShopCart = function (props) {
                         ${props.cart.count > 0 ? html`
                             ${(props.cart.products && props.cart.products.length>0) && props.cart.products.map((product)=>html`
                                 <div class="cart-item">
-                                    <div class="cart-item-thumb">
+                                    <${Link} href="shop/component/${product.id}" class="cart-item-thumb">
                                         <div class="img">
                                             <img src=${product.thumbnail} />
                                         </div>
-                                    </div>
+                                    <//>
 
                                     <div class="cart-item-content">
                                         <${Link} href="shop/component/${product.id}" class="cart-item-title">${product.title}<//>
@@ -43,7 +43,7 @@ exports.ShopCart = function (props) {
                                     <div class="cart-item-remove" onClick=${() => {
                                         setLoading(true);
                                         Shop.removeProductFromCart(product, () => setLoading(false));
-                                    }}></div>
+                                    }}><i class="fa fa-times"></i></div>
                                     <div class="cart-item-price">${product.price + "$"}</div>
                                 </div>
                             `)}

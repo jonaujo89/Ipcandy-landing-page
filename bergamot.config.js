@@ -8,7 +8,7 @@ module.exports = {
     },
     projects: {
         entry_point: "front/extra/projects/index.js",
-        bundle_path: "public/assets/extra/projects.min.js",
+        bundle_path: "public/upload/CMS/shop_products/projects.min.js",
         js_transform
     }
 }

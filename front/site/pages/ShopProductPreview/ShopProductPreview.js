@@ -36,8 +36,8 @@ class ShopProductPreview extends Component {
             ${blocks.length > 0 && html`
                 <${Editor} 
                     blocks=${blocks}
-                    toolbarExtraButtons=${html`
-                        ${!product.bought && cart.products && !cart.products.find(one => one.id === product.id) ? html` 
+                    toolbarExtraButtons=${!product.isBought && html`
+                        ${cart.products && !cart.products.find(one => one.id === product.id) ? html` 
                             <button onClick=${()=>Shop.addProductToCart(product)}><i class="fa fa-shopping-cart" />${_t("Add to cart")}</button> 
                         ` : html` 
                             <button onClick=${()=>SiteApp.redirect('shop/cart')}><i class="fa fa-shopping-cart" />${_t("Go to cart")}</button> 

@@ -19,13 +19,22 @@ class ShopProduct extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     public $orders;
     
     /** @Column(length=256) */
-    public $title;
+    public $title_ru;
+    
+    /** @Column(length=256) */
+    public $title_en;
        
     /** @Column(type="string") */
-    public $excerpt;
+    public $excerpt_ru;
+
+    /** @Column(type="string") */
+    public $excerpt_en;
 
     /** @Column(type="text") */
-    public $description;
+    public $description_ru;
+
+    /** @Column(type="text") */
+    public $description_en;
 
     /** @Column(type="string") */
     public $thumbnail;
@@ -39,26 +48,41 @@ class ShopProduct extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     /** @Column(type="string") */
     public $css_path;
 
-    function getThumbnailUrl($w=false,$h=false) {
+    function getThumbnailUrl($w=258,$h=193) {
         if (!$this->thumbnail) return false;
         $file = $this->thumbnail;
         if (!file_exists(INDEX_DIR."/upload/CMS/files/$file")) return false;
-        if ($w && $h) {
-            return \Bingo\ImageResizer::get_url($file,$w,$h,array(255,255,255));
-        } else {
-            return url("/upload/CMS/files/".$file);
-        }
+        return \Bingo\ImageResizer::get_url($file,$w,$h,array(255,255,255));
     }
 
     function getJsUrl() {
-        return url("upload/CMS/files/".$this->js_path);
+        return url("upload/CMS/shop_products/".$this->js_path);
     }
 
     function getCssUrl() {
-        return url("upload/CMS/files/".$this->css_path);
+        return url("upload/CMS/shop_products/".$this->css_path);
+    }
+
+    static function _t($list) {
+        $suff = (bingo_get_locale()=='en_EN') ? 'en' : 'ru';
+        
+        if (!is_array($list)) {
+            $list = [$list];
+            $is_array = false;
+        } else $is_array = true;
+
+        
+        foreach ($list as $one) {
+            $one->title = $one->{"title_$suff"};
+            $one->excerpt = $one->{"excerpt_$suff"};
+            $one->description = $one->{"description_$suff"};
+        }
+
+        return $is_array? $list: $list[0];
     }
     
     function getJSON($user) {
+        self::_t($this);
         return [
             'id'           => $this->id,
             'type'         => $this->type,
