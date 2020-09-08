@@ -13,6 +13,7 @@ class LPCandy extends \Bingo\Module {
         $this->connect('admin/developer/:action/:id',['controller'=>'\LPCandy\Controllers\Developer','id'=>false]);
         \Bingo\Action::add('admin_pre_header',function(){
             \Admin::$menu[_t('LPCandy','lpcandy')][_t('Customers','lpcandy')] = 'admin/lpcandy/user-list';
+            \Admin::$menu[_t('LPCandy','lpcandy')][_t('Extra code','lpcandy')] = 'admin/lpcandy/extra-code';
             \Admin::$menu[_t('Shop','lpcandy')][_t('Components','lpcandy')] = 'admin/lpcandy/component-list';
             \Admin::$menu[_t('Shop','lpcandy')][_t('Entities','lpcandy')] = 'admin/lpcandy/entity-list';
         });        

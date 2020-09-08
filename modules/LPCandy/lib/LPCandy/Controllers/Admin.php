@@ -138,4 +138,22 @@ class Admin extends \CMS\Controllers\Admin\BasePrivate {
         $this->data['form'] = $form->get();
         $this->view('cms/base-edit-tinymce',$this->data);
     }
+     
+    function extra_code() { 
+        $extraCode = \CMS\Models\Option::get('extra_code') ?? ''; 
+ 
+        $form = new \Bingo\Form; 
+        $form->fieldset(_t("Extra code (Yandex.Metrica,AdWords,etc)")); 
+        $form->textarea('extra_code','',false,$extraCode,array('rows'=>20)); 
+        $form->submit('save'); 
+ 
+        if ($form->validate()) { 
+            \CMS\Models\Option::set('extra_code', $form->values['extra_code']); 
+            redirect('admin/lpcandy/extra-code'); 
+        } 
+ 
+        $this->data['title'] = _t("Extra code"); 
+        $this->data['form'] = $form->get(); 
+        $this->view('cms/base-edit',$this->data); 
+    } 
 }

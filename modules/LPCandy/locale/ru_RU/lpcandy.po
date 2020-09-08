@@ -32,6 +32,14 @@ msgid "Entity list"
 msgstr "Список сущностей"
 
 #: 
+msgid "Extra code"
+msgstr "Дополнительный код"
+
+#: 
+msgid "Extra code (Yandex.Metrica,AdWords,etc)"
+msgstr "Дополнительный код (Yandex.Metrica,AdWords,etc)"
+
+#: 
 msgid "You have unpaid components, so they won't be displayed on page: "
 msgstr "У вас есть неоплаченные компоненты, поэтому они не будут отображены на странице: "
 
