@@ -39,6 +39,7 @@ class Api extends \CMS\Controllers\Admin\Base {
             echo json_encode(['user' => false]);
             return;
         }
+
         $cart = $this->user->getCart();
         echo json_encode([
             'user' =>  [
@@ -594,7 +595,7 @@ class Api extends \CMS\Controllers\Admin\Base {
         $product = \LPCandy\Models\ShopProduct::find($_POST['id'] ?? 0);
         if (!$product) return;
 
-        $product = $product->getJSON($this->user);
+        $product = $product->getJSON($this->user); 
         echo json_encode($product);
     }
 
@@ -654,16 +655,17 @@ class Api extends \CMS\Controllers\Admin\Base {
         $order = new \LPCandy\Models\ShopOrder;
         $order->user = $this->user;
         $order->products = $cart->products;
+        $order->total = $cart->getTotal();
         $order->save();
         $this->em->flush();
-        
+
         $mrh_login = $robokassa['mrh_login'];
         $mrh_pass1 = $robokassa['is_test'] ?  $robokassa['test_mrh_pass1'] : $robokassa['mrh_pass1'];
         
         $invoice_id = $order->id;
         $invoice_desc = "Paid components";
         
-        $out_summ = $cart->getTotal();
+        $out_summ = $order->total;
         $out_sum_currency = $robokassa['out_sum_currency'];
     
         $is_test = $robokassa['is_test'];

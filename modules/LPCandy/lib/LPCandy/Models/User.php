@@ -53,7 +53,7 @@ class User extends \Auth\Models\User {
             $user->address_extra = "";
             $user->password = md5(uniqid());
             $user->save(false);
-
+            
             $identity->user = $user;
             $identity->save();
         }
@@ -78,19 +78,16 @@ class User extends \Auth\Models\User {
 
     public function getBoughtProducts($includeCart=false) {
         if (!isset($this->boughtProducts[$includeCart])) {
-            $res = self::$entityManager->createQuery(" 
-                SELECT o.products 
-                FROM \LPCandy\Models\ShopOrder o 
-                WHERE o.user = :user AND o.is_paid = :is_paid 
-            ") 
-                ->setParameter('is_paid', true) 
-                ->setParameter('user', $this) 
-                ->getResult(); 
- 
-            $products = []; 
-            foreach($res as $one) { 
-                $products = array_merge($products, $one['products']); 
-            }
+            $qb = self::$entityManager->createQueryBuilder();
+            $products = $qb->select('p')
+                ->from('\LPCandy\Models\ShopProduct', 'p')
+                ->leftJoin('p.orders', 'o')
+                ->andWhere('o.is_paid = :is_paid')
+                ->andWhere('o.user = :user')
+                ->setParameter('user', $this)
+                ->setParameter('is_paid', true)
+                ->getQuery()
+                ->getResult();
 
             if ($includeCart) $products = array_merge($products, $this->getCart()->products);
             $this->boughtProductsCache[$includeCart] = $products;

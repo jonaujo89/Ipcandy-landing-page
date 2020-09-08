@@ -12,9 +12,14 @@ class ShopProduct extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
      * @GeneratedValue
      */
     public $id;
+
+    /**
+     * @ManyToMany(targetEntity="ShopOrder", mappedBy="products")
+     */
+    public $orders;
     
     /** @Column(length=256) */
-    public $title;    
+    public $title;
        
     /** @Column(type="string") */
     public $excerpt;
@@ -52,7 +57,7 @@ class ShopProduct extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
     function getCssUrl() {
         return url("upload/CMS/files/".$this->css_path);
     }
-
+    
     function getJSON($user) {
         return [
             'id'           => $this->id,

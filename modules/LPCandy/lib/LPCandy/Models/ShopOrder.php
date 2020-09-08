@@ -13,7 +13,12 @@ class ShopOrder extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
      */
     public $id;
     
-    /** @Column(type="array") */
+    /**
+     * @ManyToMany(targetEntity="ShopProduct", inversedBy="orders")
+     * @JoinTable(name="lp_orders_products", joinColumns={@JoinColumn(name="order_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="product_id", referencedColumnName="id")}
+     * ))
+     */
     public $products;
 
     /**
@@ -27,6 +32,9 @@ class ShopOrder extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
 
     /** @Column(type="boolean") */
     public $is_paid = false;
+
+    /** @Column(type="float") */
+    public $total;
 
     function __construct() {
         $this->created = new \DateTime();
