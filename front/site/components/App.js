@@ -66,9 +66,10 @@ class App extends Component {
         let m;
 
         if (!loaded) return html`<div />`;
+        if (route=='') return html`<${Home} />`;
 
         if (user && route=='login') return App.redirect("");
-        if (!user && route!='login') return App.redirect("login");
+        if (!user && !route.match(/login/)) return App.redirect("login?redirect=/"+route);
 
         if (m = route.match(/payment_success=(\d+)/)) {
             Dialog.alert({
@@ -78,7 +79,7 @@ class App extends Component {
             return App.redirect("");
         }
 
-        if (route=="login") return html`<${Login} />`
+        if (m = route.match(/login?(\?redirect=(.*))?/)) return html`<${Login} redirect=${m[2]} />`
         if (route=="page-list") return html`<${PageList} />`
         if (route=="page-create") return html`<${PageCreate} />`
         if (route=="shop") return html`<${Shop} cart=${user.cart} />`

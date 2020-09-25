@@ -1,7 +1,7 @@
 const {Layout} = require("../Layout/Layout");
 
-exports.Login = () => {
-    let redirect_url = config.base_url+"/api/user-login"
+exports.Login = ({redirect = ''}) => {
+    let redirect_url = config.base_url+"/api/user-login" + (redirect ? '?redirect='+redirect : '');
     return html`
         <${Layout} title=${_t('Login')}>
             <section>
