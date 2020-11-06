@@ -26,8 +26,14 @@ class App extends Component {
         fetch(config.base_url+"/api/"+path,{ method:"POST", body: formData}).then((resp)=>{resp.json().then(cb)});
     }
 
+    static onBeforeRedirect = null;
+
     static redirect(to) {
         if (App.instance.state.route==to) return;
+        if (App.onBeforeRedirect) {
+            to = App.onBeforeRedirect(to);
+            if (to === false) return;
+        }
         App.instance.setState({route:to});
         window.history.pushState({route:to},"",config.base_url+"/"+to);
     }
@@ -44,12 +50,22 @@ class App extends Component {
         this.constructor.instance = this;
         for (var key in props) config[key] = props[key];
 
+        this.routeToState();
+        
         App.fetchApi("user",{},(res)=>{
-            this.routeToState();
-            this.setState({
-                user: res.user,
-                loaded: true
-            });
+            this.setState({ user: res.user });
+
+            const promoPageBlocks = localStorage.getItem('promo_page_blocks');
+            localStorage.removeItem('promo_page_blocks');
+
+            if (res.user && promoPageBlocks && this.state.route=='page-design-promo') {
+                SiteApp.fetchApi('page-save', { title: 'Promo page', blocks_json: promoPageBlocks }, (res) => {
+                    App.redirect('page-design/'+res.id);
+                    this.setState({ loaded: true });
+                });
+            } else {
+                this.setState({ loaded: true });
+            }
         });
         window.onpopstate = this.routeToState.bind(this);
     }
@@ -68,7 +84,11 @@ class App extends Component {
         if (!loaded) return html`<div />`;
         if (route=='') return html`<${Home} />`;
 
-        if (user && route=='login') return App.redirect("");
+        if (!user && route=="page-create") return App.redirect("page-design-promo");
+        if (user && route=="page-design-promo") return App.redirect("page-create");
+        if (route=="page-design-promo") return html`<${PageDesign} promo=${true} />`;
+
+        if (user && route.match(/login/)) return App.redirect("");
         if (!user && !route.match(/login/)) return App.redirect("login?redirect=/"+route);
 
         if (m = route.match(/payment_success=(\d+)/)) {
@@ -79,7 +99,7 @@ class App extends Component {
             return App.redirect("");
         }
 
-        if (m = route.match(/login?(\?redirect=(.*))?/)) return html`<${Login} redirect=${m[2]} />`
+        if (m = route.match(/login?(\?redirect=(.*))?/)) return html`<${Login} redirect=${m[2]} />` 
         if (route=="page-list") return html`<${PageList} />`
         if (route=="page-create") return html`<${PageCreate} />`
         if (route=="shop") return html`<${Shop} cart=${user.cart} />`
@@ -90,7 +110,7 @@ class App extends Component {
 
         if (m = route.match(/page\-child\-create\/(\d+)/)) return html`<${PageEdit} parent_id=${m[1]} />`
         if (m = route.match(/page\-edit\/(\d+)/)) return html`<${PageEdit} id=${m[1]} />`
-        if (m = route.match(/page\-design\/(\d+)/)) return html`<${PageDesign} id=${m[1]} />`
+        if (m = route.match(/page\-design\/(\d+)/)) return html`<${PageDesign} id=${m[1]} />` 
         if (m = route.match(/page\-view\/(\d+)/)) return html`<${PageDesign} viewOnly=${true} id=${m[1]} />`
         if (route=="profile") return html`<${Profile} />`
         if (Entity.list[route]) {

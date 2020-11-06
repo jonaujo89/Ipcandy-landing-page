@@ -163,17 +163,14 @@ class Page extends \DoctrineExtensions\ActiveEntity\ActiveEntity {
         if (!empty($unpaid_blocks)) {
             $alert = _t("You have unpaid components, so they won't be displayed on page: ") . join(', ', array_unique($unpaid_blocks));
         }
-        
-        echo json_encode([
-            'success' => true,
-            'alert' => $alert
-        ]);
+        return $alert;
     }
 
     function publish($blocks,$html) {
-        $this->saveBlocks($blocks,$published = true);
+        $alert = $this->saveBlocks($blocks,$published = true);
         file_put_contents($this->getPath("publish/page.html"),$html);
         $this->makeScreenshot();
+        return $alert;
     }
 
     function getPublishedHtml() {

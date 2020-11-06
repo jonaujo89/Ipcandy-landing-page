@@ -55,13 +55,14 @@ class Api extends \CMS\Controllers\Admin\Base {
     }
 
     function user_login() {
-        $token = @$_POST['token'];
-        $redirect = $_GET['redirect'] ?? 'login';
+        $token = $_POST['token'] ?? false;
+        $redirect = $_GET['redirect'] ?? '';
 
         if ($this->user) { redirect($redirect);return; }
         if ($token) {
             $token_data = \LPCandy\Models\User::token_data($token);
             $user = \LPCandy\Models\User::login_token($token_data,$createUser=true);
+
             if ($user) {
                 redirect($redirect);
                 return;
@@ -125,6 +126,16 @@ class Api extends \CMS\Controllers\Admin\Base {
         echo json_encode($page->loadBlocks($published=false));
     }
 
+    function page_design_promo() {
+        $page = \LPCandy\Models\Page::findOneByDomain('default');
+        if (!$page) {
+            trigger_error(_t('Default page template is not found'));
+            echo json_encode([]);
+            return;
+        }
+        echo json_encode($page->loadBlocks($published=true));
+    }
+
     function page_view() {
         $page = \LPCandy\Models\Page::find($_POST['id'] ?? 0);
         if ($page) echo json_encode($page->loadBlocks($published=true));
@@ -153,7 +164,8 @@ class Api extends \CMS\Controllers\Admin\Base {
         foreach ([
             'title' => 'required',
             'domain' => $this->domainValidator($page),
-            'template','meta_robots','meta_keywords','meta_description'
+            'template','meta_robots','meta_keywords','meta_description',
+            'blocks_json'
         ] as $field=>$validator) {
             if (!is_string($field)) {
                 $field = $validator;
@@ -171,12 +183,17 @@ class Api extends \CMS\Controllers\Admin\Base {
             $form->fill($page);
             $page->save();
 
-            if ($isNewPage && !empty($form->values['template'])) {
-                $tpl_page = \LPCandy\Models\Page::find($form->values['template']);
-                if ($tpl_page) {
-                    if (in_array($tpl_page,$this->getPageTemplates())) {
-                        $page->copyFromTemplate($tpl_page);
-                        $page->save();
+            if ($isNewPage) {
+                if (!empty($form->values['blocks_json'])) {
+                    $page->saveBlocks(json_decode($form->values['blocks_json'],true) ?:[]);
+                }
+                else if (!empty($form->values['template'])) {
+                    $tpl_page = \LPCandy\Models\Page::find($form->values['template']);
+                    if ($tpl_page) {
+                        if (in_array($tpl_page,$this->getPageTemplates())) {
+                            $page->copyFromTemplate($tpl_page);
+                            $page->save();
+                        }
                     }
                 }
             }
@@ -245,7 +262,8 @@ class Api extends \CMS\Controllers\Admin\Base {
 
             case 'publish':
                 if ($page->user!=$this->user) return;
-                $page->publish(json_decode($_POST['blocks'],true),$_POST['html']);
+                $alert = $page->publish(json_decode($_POST['blocks'],true),$_POST['html']);
+                echo json_encode([ 'success' => true, 'alert' => $alert ]);
                 break;
 
             case 'entity-edit':

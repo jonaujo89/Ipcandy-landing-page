@@ -4,6 +4,11 @@ const {Entity} = require("../../Entity");
 
 const LayoutHeader = () => {
     let user = SiteApp.instance.state.user;
+    let route = SiteApp.instance.state.route;
+
+    let redirectPart = '';
+    if (route != '' && route != 'login') redirectPart = '?redirect='+route;
+
     return html`
         <div class="page-header">
             ${!!user && html`
@@ -20,7 +25,7 @@ const LayoutHeader = () => {
                     ${_t('Logout')}
                 <//>
             `}
-            ${!user && html`<${Link} href="login">${_t('Login')}<//>`}
+            ${!user && html`<${Link} href=${"login" + redirectPart}>${_t('Login')}<//>`}
         </div>
     `;
 }

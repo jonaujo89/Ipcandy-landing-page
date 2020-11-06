@@ -196,6 +196,7 @@ class Editor extends Component {
     }
 
     triggerChange() {
+        if (this.props.onChange) this.props.onChange();
         if (!this.props.ajaxUrl) return;
         clearTimeout(this.saveTimeout);
         this.saveTimeout = setTimeout(()=>{
